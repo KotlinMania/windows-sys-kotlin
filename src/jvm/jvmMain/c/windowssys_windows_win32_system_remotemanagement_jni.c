@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCloseCommand(JNIEnv* km_env, jclass km_clazz, jlong commandhandle, jint flags, jlong async) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCloseCommand(JNIEnv* km_env, jclass km_clazz, jlong commandhandle, jint flags, jlong async) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCloseOperation(JNIEnv* km_env, jclass km_clazz, jlong operationhandle, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCloseOperation(JNIEnv* km_env, jclass km_clazz, jlong operationhandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -68,7 +68,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCloseSession(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCloseSession(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCloseShell(JNIEnv* km_env, jclass km_clazz, jlong shellhandle, jint flags, jlong async) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCloseShell(JNIEnv* km_env, jclass km_clazz, jlong shellhandle, jint flags, jlong async) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -117,7 +117,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManConnectShell(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags, jlong resourceuri, jlong shellid, jlong options, jlong connectxml, jlong async, jlong shell) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManConnectShell(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags, jlong resourceuri, jlong shellid, jlong options, jlong connectxml, jlong async, jlong shell) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -145,7 +145,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManConnectShellCommand(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong commandid, jlong options, jlong connectxml, jlong async, jlong command) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManConnectShellCommand(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong commandid, jlong options, jlong connectxml, jlong async, jlong command) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -172,7 +172,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCreateSession(JNIEnv* km_env, jclass km_clazz, jlong apihandle, jlong connection, jint flags, jlong serverauthenticationcredentials, jlong proxyinfo, jlong session) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCreateSession(JNIEnv* km_env, jclass km_clazz, jlong apihandle, jlong connection, jint flags, jlong serverauthenticationcredentials, jlong proxyinfo, jlong session) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -202,7 +202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCreateShell(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags, jlong resourceuri, jlong startupinfo, jlong options, jlong createxml, jlong async, jlong shell) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCreateShell(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags, jlong resourceuri, jlong startupinfo, jlong options, jlong createxml, jlong async, jlong shell) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -230,7 +230,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManCreateShellEx(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags, jlong resourceuri, jlong shellid, jlong startupinfo, jlong options, jlong createxml, jlong async, jlong shell) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManCreateShellEx(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags, jlong resourceuri, jlong shellid, jlong startupinfo, jlong options, jlong createxml, jlong async, jlong shell) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -259,7 +259,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManDeinitialize(JNIEnv* km_env, jclass km_clazz, jlong apihandle, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManDeinitialize(JNIEnv* km_env, jclass km_clazz, jlong apihandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -285,7 +285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManDisconnectShell(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong disconnectinfo, jlong async) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManDisconnectShell(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong disconnectinfo, jlong async) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -309,7 +309,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManGetErrorMessage(JNIEnv* km_env, jclass km_clazz, jlong apihandle, jint flags, jlong languagecode, jint errorcode, jint messagelength, jlong message, jlong messagelengthused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManGetErrorMessage(JNIEnv* km_env, jclass km_clazz, jlong apihandle, jint flags, jlong languagecode, jint errorcode, jint messagelength, jlong message, jlong messagelengthused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -340,7 +340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManGetSessionOptionAsDword(JNIEnv* km_env, jclass km_clazz, jlong session, jint option, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsDword(JNIEnv* km_env, jclass km_clazz, jlong session, jint option, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -367,7 +367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManGetSessionOptionAsString(JNIEnv* km_env, jclass km_clazz, jlong session, jint option, jint stringlength, jlong string, jlong stringlengthused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsString(JNIEnv* km_env, jclass km_clazz, jlong session, jint option, jint stringlength, jlong string, jlong stringlengthused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -396,7 +396,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManInitialize(JNIEnv* km_env, jclass km_clazz, jint flags, jlong apihandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManInitialize(JNIEnv* km_env, jclass km_clazz, jint flags, jlong apihandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -422,7 +422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginAuthzOperationComplete(JNIEnv* km_env, jclass km_clazz, jlong senderdetails, jint flags, jlong userauthorizationcontext, jint errorcode, jlong extendederrorinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzOperationComplete(JNIEnv* km_env, jclass km_clazz, jlong senderdetails, jint flags, jlong userauthorizationcontext, jint errorcode, jlong extendederrorinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -451,7 +451,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginAuthzQueryQuotaComplete(JNIEnv* km_env, jclass km_clazz, jlong senderdetails, jint flags, jlong quota, jint errorcode, jlong extendederrorinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzQueryQuotaComplete(JNIEnv* km_env, jclass km_clazz, jlong senderdetails, jint flags, jlong quota, jint errorcode, jlong extendederrorinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -480,7 +480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginAuthzUserComplete(JNIEnv* km_env, jclass km_clazz, jlong senderdetails, jint flags, jlong userauthorizationcontext, jlong impersonationtoken, jint userisadministrator, jint errorcode, jlong extendederrorinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzUserComplete(JNIEnv* km_env, jclass km_clazz, jlong senderdetails, jint flags, jlong userauthorizationcontext, jlong impersonationtoken, jint userisadministrator, jint errorcode, jlong extendederrorinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -511,7 +511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginFreeRequestDetails(JNIEnv* km_env, jclass km_clazz, jlong requestdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginFreeRequestDetails(JNIEnv* km_env, jclass km_clazz, jlong requestdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -536,7 +536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginGetConfiguration(JNIEnv* km_env, jclass km_clazz, jlong plugincontext, jint flags, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginGetConfiguration(JNIEnv* km_env, jclass km_clazz, jlong plugincontext, jint flags, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -563,7 +563,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginGetOperationParameters(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginGetOperationParameters(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -590,7 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginOperationComplete(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jint errorcode, jlong extendedinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginOperationComplete(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jint errorcode, jlong extendedinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -618,7 +618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginReceiveResult(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jlong stream, jlong streamresult, jlong commandstate, jint exitcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginReceiveResult(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jlong stream, jlong streamresult, jlong commandstate, jint exitcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -648,7 +648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginReportCompletion(JNIEnv* km_env, jclass km_clazz, jlong plugincontext, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginReportCompletion(JNIEnv* km_env, jclass km_clazz, jlong plugincontext, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -674,7 +674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManPluginReportContext(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManPluginReportContext(JNIEnv* km_env, jclass km_clazz, jlong requestdetails, jint flags, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -701,7 +701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManReceiveShellOutput(JNIEnv* km_env, jclass km_clazz, jlong shell, jlong command, jint flags, jlong desiredstreamset, jlong async, jlong receiveoperation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManReceiveShellOutput(JNIEnv* km_env, jclass km_clazz, jlong shell, jlong command, jint flags, jlong desiredstreamset, jlong async, jlong receiveoperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -727,7 +727,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManReconnectShell(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong async) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManReconnectShell(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong async) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -750,7 +750,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManReconnectShellCommand(JNIEnv* km_env, jclass km_clazz, jlong commandhandle, jint flags, jlong async) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManReconnectShellCommand(JNIEnv* km_env, jclass km_clazz, jlong commandhandle, jint flags, jlong async) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -773,7 +773,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManRunShellCommand(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong commandline, jlong args, jlong options, jlong async, jlong command) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommand(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong commandline, jlong args, jlong options, jlong async, jlong command) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -800,7 +800,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManRunShellCommandEx(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong commandid, jlong commandline, jlong args, jlong options, jlong async, jlong command) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommandEx(JNIEnv* km_env, jclass km_clazz, jlong shell, jint flags, jlong commandid, jlong commandline, jlong args, jlong options, jlong async, jlong command) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -828,7 +828,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManSendShellInput(JNIEnv* km_env, jclass km_clazz, jlong shell, jlong command, jint flags, jlong streamid, jlong streamdata, jint endofstream, jlong async, jlong sendoperation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManSendShellInput(JNIEnv* km_env, jclass km_clazz, jlong shell, jlong command, jint flags, jlong streamid, jlong streamdata, jint endofstream, jlong async, jlong sendoperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -856,7 +856,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManSetSessionOption(JNIEnv* km_env, jclass km_clazz, jlong session, jint option, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManSetSessionOption(JNIEnv* km_env, jclass km_clazz, jlong session, jint option, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -883,7 +883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssys_1windows_1win32_1system_1remotemanagement_1wSManSignalShell(JNIEnv* km_env, jclass km_clazz, jlong shell, jlong command, jint flags, jlong code, jlong async, jlong signaloperation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotemanagement_WindowsWin32SystemRemotemanagementJniBridge_windowssysWindowsWin32SystemRemotemanagementWSManSignalShell(JNIEnv* km_env, jclass km_clazz, jlong shell, jlong command, jint flags, jlong code, jlong async, jlong signaloperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

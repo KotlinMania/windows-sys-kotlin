@@ -2,535 +2,591 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 private object WindowsWin32SystemVariantJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SystemVariantJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_clearVariantArray(pvars: Long, cvars: Int)
+    external fun windowssysWindowsWin32SystemVariantClearVariantArray(pvars: Long, cvars: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_dosDateTimeToVariantTime(wdosdate: Short, wdostime: Short, pvtime: Long): Int
+    external fun windowssysWindowsWin32SystemVariantDosDateTimeToVariantTime(wdosdate: Short, wdostime: Short, pvtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromBooleanArray(prgf: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromBooleanArray(prgf: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromBuffer(pv: Long, cb: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromBuffer(pv: Long, cb: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromDoubleArray(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromDoubleArray(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromFileTime(pft: Long, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromFileTime(pft: Long, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromFileTimeArray(prgft: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromFileTimeArray(prgft: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromGUIDAsString(guid: Long, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromGUIDAsString(guid: Long, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromInt16Array(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromInt16Array(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromInt32Array(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromInt32Array(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromInt64Array(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromInt64Array(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromResource(hinst: Long, id: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromResource(hinst: Long, id: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromStringArray(prgsz: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromStringArray(prgsz: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromUInt16Array(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromUInt16Array(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromUInt32Array(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromUInt32Array(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromUInt64Array(prgn: Long, celems: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromUInt64Array(prgn: Long, celems: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem(varin: Long, ielem: Int, pvar: Long): Int
+    external fun windowssysWindowsWin32SystemVariantInitVariantFromVariantArrayElem(varin: Long, ielem: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_systemTimeToVariantTime(lpsystemtime: Long, pvtime: Long): Int
+    external fun windowssysWindowsWin32SystemVariantSystemTimeToVariantTime(lpsystemtime: Long, pvtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserFree(param0: Long, param1: Long)
+    external fun windowssysWindowsWin32SystemVariantVariantUserFree(param0: Long, param1: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserFree64(param0: Long, param1: Long)
+    external fun windowssysWindowsWin32SystemVariantVariantUserFree64(param0: Long, param1: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserMarshal(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantUserMarshal(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserMarshal64(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantUserMarshal64(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserSize(param0: Long, param1: Int, param2: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantUserSize(param0: Long, param1: Int, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserSize64(param0: Long, param1: Int, param2: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantUserSize64(param0: Long, param1: Int, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserUnmarshal(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantUserUnmarshal(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantUserUnmarshal64(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantUserUnmarshal64(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantChangeType(pvargdest: Long, pvarsrc: Long, wflags: Short, vt: Short): Int
+    external fun windowssysWindowsWin32SystemVariantVariantChangeType(pvargdest: Long, pvarsrc: Long, wflags: Short, vt: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantChangeTypeEx(pvargdest: Long, pvarsrc: Long, lcid: Int, wflags: Short, vt: Short): Int
+    external fun windowssysWindowsWin32SystemVariantVariantChangeTypeEx(pvargdest: Long, pvarsrc: Long, lcid: Int, wflags: Short, vt: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantClear(pvarg: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantClear(pvarg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantCompare(var1: Long, var2: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantCompare(var1: Long, var2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantCopy(pvargdest: Long, pvargsrc: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantCopy(pvargdest: Long, pvargsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantCopyInd(pvardest: Long, pvargsrc: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantCopyInd(pvardest: Long, pvargsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetBooleanElem(variable: Long, ielem: Int, pfval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetBooleanElem(variable: Long, ielem: Int, pfval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetDoubleElem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetDoubleElem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetElementCount(varin: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetElementCount(varin: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetInt16Elem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetInt16Elem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetInt32Elem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetInt32Elem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetInt64Elem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetInt64Elem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetStringElem(variable: Long, ielem: Int, ppszval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetStringElem(variable: Long, ielem: Int, ppszval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetUInt16Elem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetUInt16Elem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetUInt32Elem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetUInt32Elem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantGetUInt64Elem(variable: Long, ielem: Int, pnval: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantGetUInt64Elem(variable: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantInit(pvarg: Long)
+    external fun windowssysWindowsWin32SystemVariantVariantInit(pvarg: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantTimeToDosDateTime(vtime: Double, pwdosdate: Long, pwdostime: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantTimeToDosDateTime(vtime: Double, pwdosdate: Long, pwdostime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantTimeToSystemTime(vtime: Double, lpsystemtime: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantTimeToSystemTime(vtime: Double, lpsystemtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToBoolean(varin: Long, pfret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToBoolean(varin: Long, pfret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToBooleanArray(variable: Long, prgf: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToBooleanArray(variable: Long, prgf: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc(variable: Long, pprgf: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToBooleanArrayAlloc(variable: Long, pprgf: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToBooleanWithDefault(varin: Long, fdefault: Int): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToBooleanWithDefault(varin: Long, fdefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToBuffer(varin: Long, pv: Long, cb: Int): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToBuffer(varin: Long, pv: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToDosDateTime(varin: Long, pwdate: Long, pwtime: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToDosDateTime(varin: Long, pwdate: Long, pwtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToDouble(varin: Long, pdblret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToDouble(varin: Long, pdblret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToDoubleArray(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToDoubleArray(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToDoubleArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToDoubleWithDefault(varin: Long, dbldefault: Double): Double
+    external fun windowssysWindowsWin32SystemVariantVariantToDoubleWithDefault(varin: Long, dbldefault: Double): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToFileTime(varin: Long, stfout: Int, pftout: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToFileTime(varin: Long, stfout: Int, pftout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToGUID(varin: Long, pguid: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToGUID(varin: Long, pguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt16(varin: Long, piret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt16(varin: Long, piret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt16Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt16Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt16WithDefault(varin: Long, idefault: Short): Short
+    external fun windowssysWindowsWin32SystemVariantVariantToInt16WithDefault(varin: Long, idefault: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt32(varin: Long, plret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt32(varin: Long, plret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt32Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt32Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt32WithDefault(varin: Long, ldefault: Int): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt32WithDefault(varin: Long, ldefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt64(varin: Long, pllret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt64(varin: Long, pllret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt64Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt64Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToInt64WithDefault(varin: Long, lldefault: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantToInt64WithDefault(varin: Long, lldefault: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToString(varin: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToString(varin: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToStringAlloc(varin: Long, ppszbuf: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToStringAlloc(varin: Long, ppszbuf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToStringArray(variable: Long, prgsz: Long, crgsz: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToStringArray(variable: Long, prgsz: Long, crgsz: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToStringArrayAlloc(variable: Long, pprgsz: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToStringArrayAlloc(variable: Long, pprgsz: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToStringWithDefault(varin: Long, pszdefault: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantToStringWithDefault(varin: Long, pszdefault: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt16(varin: Long, puiret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt16(varin: Long, puiret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt16Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt16Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt16WithDefault(varin: Long, uidefault: Short): Short
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt16WithDefault(varin: Long, uidefault: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt32(varin: Long, pulret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt32(varin: Long, pulret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt32Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt32Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt32WithDefault(varin: Long, uldefault: Int): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt32WithDefault(varin: Long, uldefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt64(varin: Long, pullret: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt64(varin: Long, pullret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt64Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt64Array(variable: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_variant_variantToUInt64WithDefault(varin: Long, ulldefault: Long): Long
+    external fun windowssysWindowsWin32SystemVariantVariantToUInt64WithDefault(varin: Long, ulldefault: Long): Long
 }
 
-public actual fun clearVariantArray(pvars: COpaquePointer?, cvars: UInt) {
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_clearVariantArray((pvars?.value ?: 0L), cvars.toInt())
+public actual fun clearVariantArray(pvars: MutPtr<Variant>, cvars: UInt) {
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantClearVariantArray(pvars.rawAddress, cvars.toInt())
 }
 
-public actual fun dosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: COpaquePointer?): Int =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_dosDateTimeToVariantTime(wdosdate.toShort(), wdostime.toShort(), (pvtime?.value ?: 0L))
+public actual fun dosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: MutPtr<Double>): Int =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantDosDateTimeToVariantTime(wdosdate.toShort(), wdostime.toShort(), pvtime.rawAddress)
 
-public actual fun initVariantFromBooleanArray(prgf: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromBooleanArray((prgf?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromBooleanArray(prgf: ConstPtr<Bool>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromBooleanArray(prgf.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromBuffer(pv: COpaquePointer?, cb: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromBuffer((pv?.value ?: 0L), cb.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromBuffer(pv: ConstPtr<CVoid>, cb: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromBuffer(pv.rawAddress, cb.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromDoubleArray(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromDoubleArray((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromDoubleArray(prgn: ConstPtr<Double>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromDoubleArray(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromFileTime(pft: COpaquePointer?, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromFileTime((pft?.value ?: 0L), (pvar?.value ?: 0L))
+public actual fun initVariantFromFileTime(pft: ConstPtr<Filetime>, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromFileTime(pft.rawAddress, pvar.rawAddress)
 
-public actual fun initVariantFromFileTimeArray(prgft: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromFileTimeArray((prgft?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromFileTimeArray(prgft: ConstPtr<Filetime>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromFileTimeArray(prgft.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromGUIDAsString(guid: COpaquePointer?, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromGUIDAsString((guid?.value ?: 0L), (pvar?.value ?: 0L))
+public actual fun initVariantFromGUIDAsString(guid: ConstPtr<Guid>, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromGUIDAsString(guid.rawAddress, pvar.rawAddress)
 
-public actual fun initVariantFromInt16Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromInt16Array((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromInt16Array(prgn: ConstPtr<Short>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromInt16Array(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromInt32Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromInt32Array((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromInt32Array(prgn: ConstPtr<Int>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromInt32Array(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromInt64Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromInt64Array((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromInt64Array(prgn: ConstPtr<Long>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromInt64Array(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromResource(hinst: Hinstance, id: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromResource((hinst?.value ?: 0L), id.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromResource(hinst: Hinstance, id: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromResource(hinst.rawAddress, id.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromStringArray(prgsz: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromStringArray((prgsz?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromStringArray(prgsz: ConstPtr<Pcwstr>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromStringArray(prgsz.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromUInt16Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromUInt16Array((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromUInt16Array(prgn: ConstPtr<UShort>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromUInt16Array(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromUInt32Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromUInt32Array((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromUInt32Array(prgn: ConstPtr<UInt>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromUInt32Array(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromUInt64Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromUInt64Array((prgn?.value ?: 0L), celems.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromUInt64Array(prgn: ConstPtr<ULong>, celems: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromUInt64Array(prgn.rawAddress, celems.toInt(), pvar.rawAddress)
 
-public actual fun initVariantFromVariantArrayElem(varin: COpaquePointer?, ielem: UInt, pvar: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem((varin?.value ?: 0L), ielem.toInt(), (pvar?.value ?: 0L))
+public actual fun initVariantFromVariantArrayElem(varin: ConstPtr<Variant>, ielem: UInt, pvar: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantInitVariantFromVariantArrayElem(varin.rawAddress, ielem.toInt(), pvar.rawAddress)
 
-public actual fun systemTimeToVariantTime(lpsystemtime: COpaquePointer?, pvtime: COpaquePointer?): Int =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_systemTimeToVariantTime((lpsystemtime?.value ?: 0L), (pvtime?.value ?: 0L))
+public actual fun systemTimeToVariantTime(lpsystemtime: ConstPtr<Systemtime>, pvtime: MutPtr<Double>): Int =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantSystemTimeToVariantTime(lpsystemtime.rawAddress, pvtime.rawAddress)
 
-public actual fun variantUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserFree((param0?.value ?: 0L), (param1?.value ?: 0L))
+public actual fun variantUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Variant>) {
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserFree(param0.rawAddress, param1.rawAddress)
 }
 
-public actual fun variantUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserFree64((param0?.value ?: 0L), (param1?.value ?: 0L))
+public actual fun variantUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Variant>) {
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserFree64(param0.rawAddress, param1.rawAddress)
 }
 
-public actual fun variantUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserMarshal((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun variantUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Variant>): MutPtr<UByte> =
+    MutPtr(WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserMarshal(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun variantUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserMarshal64((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun variantUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Variant>): MutPtr<UByte> =
+    MutPtr(WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserMarshal64(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun variantUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserSize((param0?.value ?: 0L), param1.toInt(), (param2?.value ?: 0L)).toUInt()
+public actual fun variantUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Variant>): UInt =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserSize(param0.rawAddress, param1.toInt(), param2.rawAddress).toUInt()
 
-public actual fun variantUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserSize64((param0?.value ?: 0L), param1.toInt(), (param2?.value ?: 0L)).toUInt()
+public actual fun variantUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Variant>): UInt =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserSize64(param0.rawAddress, param1.toInt(), param2.rawAddress).toUInt()
 
-public actual fun variantUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserUnmarshal((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun variantUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Variant>): MutPtr<UByte> =
+    MutPtr(WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserUnmarshal(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun variantUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantUserUnmarshal64((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun variantUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Variant>): MutPtr<UByte> =
+    MutPtr(WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantUserUnmarshal64(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun variantChangeType(pvargdest: COpaquePointer?, pvarsrc: COpaquePointer?, wflags: VarChangeFlags, vt: Varenum): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantChangeType((pvargdest?.value ?: 0L), (pvarsrc?.value ?: 0L), wflags.toShort(), vt.toShort())
+public actual fun variantChangeType(pvargdest: MutPtr<Variant>, pvarsrc: ConstPtr<Variant>, wflags: VarChangeFlags, vt: Varenum): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantChangeType(pvargdest.rawAddress, pvarsrc.rawAddress, wflags.toShort(), vt.toShort())
 
-public actual fun variantChangeTypeEx(pvargdest: COpaquePointer?, pvarsrc: COpaquePointer?, lcid: UInt, wflags: VarChangeFlags, vt: Varenum): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantChangeTypeEx((pvargdest?.value ?: 0L), (pvarsrc?.value ?: 0L), lcid.toInt(), wflags.toShort(), vt.toShort())
+public actual fun variantChangeTypeEx(pvargdest: MutPtr<Variant>, pvarsrc: ConstPtr<Variant>, lcid: UInt, wflags: VarChangeFlags, vt: Varenum): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantChangeTypeEx(pvargdest.rawAddress, pvarsrc.rawAddress, lcid.toInt(), wflags.toShort(), vt.toShort())
 
-public actual fun variantClear(pvarg: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantClear((pvarg?.value ?: 0L))
+public actual fun variantClear(pvarg: MutPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantClear(pvarg.rawAddress)
 
-public actual fun variantCompare(var1: COpaquePointer?, var2: COpaquePointer?): Int =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantCompare((var1?.value ?: 0L), (var2?.value ?: 0L))
+public actual fun variantCompare(var1: ConstPtr<Variant>, var2: ConstPtr<Variant>): Int =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantCompare(var1.rawAddress, var2.rawAddress)
 
-public actual fun variantCopy(pvargdest: COpaquePointer?, pvargsrc: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantCopy((pvargdest?.value ?: 0L), (pvargsrc?.value ?: 0L))
+public actual fun variantCopy(pvargdest: MutPtr<Variant>, pvargsrc: ConstPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantCopy(pvargdest.rawAddress, pvargsrc.rawAddress)
 
-public actual fun variantCopyInd(pvardest: COpaquePointer?, pvargsrc: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantCopyInd((pvardest?.value ?: 0L), (pvargsrc?.value ?: 0L))
+public actual fun variantCopyInd(pvardest: MutPtr<Variant>, pvargsrc: ConstPtr<Variant>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantCopyInd(pvardest.rawAddress, pvargsrc.rawAddress)
 
-public actual fun variantGetBooleanElem(variable: COpaquePointer?, ielem: UInt, pfval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetBooleanElem((variable?.value ?: 0L), ielem.toInt(), (pfval?.value ?: 0L))
+public actual fun variantGetBooleanElem(variable: ConstPtr<Variant>, ielem: UInt, pfval: MutPtr<Bool>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetBooleanElem(variable.rawAddress, ielem.toInt(), pfval.rawAddress)
 
-public actual fun variantGetDoubleElem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetDoubleElem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetDoubleElem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<Double>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetDoubleElem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantGetElementCount(varin: COpaquePointer?): UInt =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetElementCount((varin?.value ?: 0L)).toUInt()
+public actual fun variantGetElementCount(varin: ConstPtr<Variant>): UInt =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetElementCount(varin.rawAddress).toUInt()
 
-public actual fun variantGetInt16Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetInt16Elem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetInt16Elem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<Short>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetInt16Elem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantGetInt32Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetInt32Elem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetInt32Elem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<Int>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetInt32Elem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantGetInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetInt64Elem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetInt64Elem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<Long>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetInt64Elem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantGetStringElem(variable: COpaquePointer?, ielem: UInt, ppszval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetStringElem((variable?.value ?: 0L), ielem.toInt(), (ppszval?.value ?: 0L))
+public actual fun variantGetStringElem(variable: ConstPtr<Variant>, ielem: UInt, ppszval: MutPtr<Pwstr>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetStringElem(variable.rawAddress, ielem.toInt(), ppszval.rawAddress)
 
-public actual fun variantGetUInt16Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetUInt16Elem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetUInt16Elem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<UShort>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetUInt16Elem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantGetUInt32Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetUInt32Elem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetUInt32Elem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetUInt32Elem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantGetUInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantGetUInt64Elem((variable?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
+public actual fun variantGetUInt64Elem(variable: ConstPtr<Variant>, ielem: UInt, pnval: MutPtr<ULong>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantGetUInt64Elem(variable.rawAddress, ielem.toInt(), pnval.rawAddress)
 
-public actual fun variantInit(pvarg: COpaquePointer?) {
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantInit((pvarg?.value ?: 0L))
+public actual fun variantInit(pvarg: MutPtr<Variant>) {
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantInit(pvarg.rawAddress)
 }
 
-public actual fun variantTimeToDosDateTime(vtime: Double, pwdosdate: COpaquePointer?, pwdostime: COpaquePointer?): Int =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantTimeToDosDateTime(vtime, (pwdosdate?.value ?: 0L), (pwdostime?.value ?: 0L))
+public actual fun variantTimeToDosDateTime(vtime: Double, pwdosdate: MutPtr<UShort>, pwdostime: MutPtr<UShort>): Int =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantTimeToDosDateTime(vtime, pwdosdate.rawAddress, pwdostime.rawAddress)
 
-public actual fun variantTimeToSystemTime(vtime: Double, lpsystemtime: COpaquePointer?): Int =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantTimeToSystemTime(vtime, (lpsystemtime?.value ?: 0L))
+public actual fun variantTimeToSystemTime(vtime: Double, lpsystemtime: MutPtr<Systemtime>): Int =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantTimeToSystemTime(vtime, lpsystemtime.rawAddress)
 
-public actual fun variantToBoolean(varin: COpaquePointer?, pfret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToBoolean((varin?.value ?: 0L), (pfret?.value ?: 0L))
+public actual fun variantToBoolean(varin: ConstPtr<Variant>, pfret: MutPtr<Bool>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToBoolean(varin.rawAddress, pfret.rawAddress)
 
-public actual fun variantToBooleanArray(variable: COpaquePointer?, prgf: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToBooleanArray((variable?.value ?: 0L), (prgf?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToBooleanArray(variable: ConstPtr<Variant>, prgf: MutPtr<Bool>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToBooleanArray(variable.rawAddress, prgf.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToBooleanArrayAlloc(variable: COpaquePointer?, pprgf: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc((variable?.value ?: 0L), (pprgf?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToBooleanArrayAlloc(variable: ConstPtr<Variant>, pprgf: MutPtr<MutPtr<Bool>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToBooleanArrayAlloc(variable.rawAddress, pprgf.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToBooleanWithDefault(varin: COpaquePointer?, fdefault: Bool): Bool =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToBooleanWithDefault((varin?.value ?: 0L), fdefault)
+public actual fun variantToBooleanWithDefault(varin: ConstPtr<Variant>, fdefault: Bool): Bool =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToBooleanWithDefault(varin.rawAddress, fdefault)
 
-public actual fun variantToBuffer(varin: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToBuffer((varin?.value ?: 0L), (pv?.value ?: 0L), cb.toInt())
+public actual fun variantToBuffer(varin: ConstPtr<Variant>, pv: MutPtr<CVoid>, cb: UInt): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToBuffer(varin.rawAddress, pv.rawAddress, cb.toInt())
 
-public actual fun variantToDosDateTime(varin: COpaquePointer?, pwdate: COpaquePointer?, pwtime: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToDosDateTime((varin?.value ?: 0L), (pwdate?.value ?: 0L), (pwtime?.value ?: 0L))
+public actual fun variantToDosDateTime(varin: ConstPtr<Variant>, pwdate: MutPtr<UShort>, pwtime: MutPtr<UShort>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToDosDateTime(varin.rawAddress, pwdate.rawAddress, pwtime.rawAddress)
 
-public actual fun variantToDouble(varin: COpaquePointer?, pdblret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToDouble((varin?.value ?: 0L), (pdblret?.value ?: 0L))
+public actual fun variantToDouble(varin: ConstPtr<Variant>, pdblret: MutPtr<Double>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToDouble(varin.rawAddress, pdblret.rawAddress)
 
-public actual fun variantToDoubleArray(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToDoubleArray((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToDoubleArray(variable: ConstPtr<Variant>, prgn: MutPtr<Double>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToDoubleArray(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToDoubleArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToDoubleArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<Double>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToDoubleArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToDoubleWithDefault(varin: COpaquePointer?, dbldefault: Double): Double =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToDoubleWithDefault((varin?.value ?: 0L), dbldefault)
+public actual fun variantToDoubleWithDefault(varin: ConstPtr<Variant>, dbldefault: Double): Double =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToDoubleWithDefault(varin.rawAddress, dbldefault)
 
-public actual fun variantToFileTime(varin: COpaquePointer?, stfout: PstimeFlags, pftout: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToFileTime((varin?.value ?: 0L), stfout, (pftout?.value ?: 0L))
+public actual fun variantToFileTime(varin: ConstPtr<Variant>, stfout: PstimeFlags, pftout: MutPtr<Filetime>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToFileTime(varin.rawAddress, stfout, pftout.rawAddress)
 
-public actual fun variantToGUID(varin: COpaquePointer?, pguid: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToGUID((varin?.value ?: 0L), (pguid?.value ?: 0L))
+public actual fun variantToGUID(varin: ConstPtr<Variant>, pguid: MutPtr<Guid>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToGUID(varin.rawAddress, pguid.rawAddress)
 
-public actual fun variantToInt16(varin: COpaquePointer?, piret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt16((varin?.value ?: 0L), (piret?.value ?: 0L))
+public actual fun variantToInt16(varin: ConstPtr<Variant>, piret: MutPtr<Short>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt16(varin.rawAddress, piret.rawAddress)
 
-public actual fun variantToInt16Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt16Array((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToInt16Array(variable: ConstPtr<Variant>, prgn: MutPtr<Short>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt16Array(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToInt16ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToInt16ArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<Short>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt16ArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToInt16WithDefault(varin: COpaquePointer?, idefault: Short): Short =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt16WithDefault((varin?.value ?: 0L), idefault)
+public actual fun variantToInt16WithDefault(varin: ConstPtr<Variant>, idefault: Short): Short =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt16WithDefault(varin.rawAddress, idefault)
 
-public actual fun variantToInt32(varin: COpaquePointer?, plret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt32((varin?.value ?: 0L), (plret?.value ?: 0L))
+public actual fun variantToInt32(varin: ConstPtr<Variant>, plret: MutPtr<Int>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt32(varin.rawAddress, plret.rawAddress)
 
-public actual fun variantToInt32Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt32Array((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToInt32Array(variable: ConstPtr<Variant>, prgn: MutPtr<Int>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt32Array(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToInt32ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToInt32ArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<Int>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt32ArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToInt32WithDefault(varin: COpaquePointer?, ldefault: Int): Int =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt32WithDefault((varin?.value ?: 0L), ldefault)
+public actual fun variantToInt32WithDefault(varin: ConstPtr<Variant>, ldefault: Int): Int =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt32WithDefault(varin.rawAddress, ldefault)
 
-public actual fun variantToInt64(varin: COpaquePointer?, pllret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt64((varin?.value ?: 0L), (pllret?.value ?: 0L))
+public actual fun variantToInt64(varin: ConstPtr<Variant>, pllret: MutPtr<Long>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt64(varin.rawAddress, pllret.rawAddress)
 
-public actual fun variantToInt64Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt64Array((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToInt64Array(variable: ConstPtr<Variant>, prgn: MutPtr<Long>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt64Array(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToInt64ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToInt64ArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<Long>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt64ArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToInt64WithDefault(varin: COpaquePointer?, lldefault: Long): Long =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToInt64WithDefault((varin?.value ?: 0L), lldefault)
+public actual fun variantToInt64WithDefault(varin: ConstPtr<Variant>, lldefault: Long): Long =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToInt64WithDefault(varin.rawAddress, lldefault)
 
-public actual fun variantToString(varin: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToString((varin?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
+public actual fun variantToString(varin: ConstPtr<Variant>, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToString(varin.rawAddress, pszbuf.rawAddress, cchbuf.toInt())
 
-public actual fun variantToStringAlloc(varin: COpaquePointer?, ppszbuf: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToStringAlloc((varin?.value ?: 0L), (ppszbuf?.value ?: 0L))
+public actual fun variantToStringAlloc(varin: ConstPtr<Variant>, ppszbuf: MutPtr<Pwstr>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToStringAlloc(varin.rawAddress, ppszbuf.rawAddress)
 
-public actual fun variantToStringArray(variable: COpaquePointer?, prgsz: COpaquePointer?, crgsz: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToStringArray((variable?.value ?: 0L), (prgsz?.value ?: 0L), crgsz.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToStringArray(variable: ConstPtr<Variant>, prgsz: MutPtr<Pwstr>, crgsz: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToStringArray(variable.rawAddress, prgsz.rawAddress, crgsz.toInt(), pcelem.rawAddress)
 
-public actual fun variantToStringArrayAlloc(variable: COpaquePointer?, pprgsz: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToStringArrayAlloc((variable?.value ?: 0L), (pprgsz?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToStringArrayAlloc(variable: ConstPtr<Variant>, pprgsz: MutPtr<MutPtr<Pwstr>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToStringArrayAlloc(variable.rawAddress, pprgsz.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToStringWithDefault(varin: COpaquePointer?, pszdefault: Pcwstr): Pcwstr =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToStringWithDefault((varin?.value ?: 0L), (pszdefault?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun variantToStringWithDefault(varin: ConstPtr<Variant>, pszdefault: Pcwstr): Pcwstr =
+    ConstPtr(WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToStringWithDefault(varin.rawAddress, pszdefault.rawAddress))
 
-public actual fun variantToUInt16(varin: COpaquePointer?, puiret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt16((varin?.value ?: 0L), (puiret?.value ?: 0L))
+public actual fun variantToUInt16(varin: ConstPtr<Variant>, puiret: MutPtr<UShort>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt16(varin.rawAddress, puiret.rawAddress)
 
-public actual fun variantToUInt16Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt16Array((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToUInt16Array(variable: ConstPtr<Variant>, prgn: MutPtr<UShort>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt16Array(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToUInt16ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToUInt16ArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<UShort>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt16ArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToUInt16WithDefault(varin: COpaquePointer?, uidefault: UShort): UShort =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt16WithDefault((varin?.value ?: 0L), uidefault.toShort()).toUShort()
+public actual fun variantToUInt16WithDefault(varin: ConstPtr<Variant>, uidefault: UShort): UShort =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt16WithDefault(varin.rawAddress, uidefault.toShort()).toUShort()
 
-public actual fun variantToUInt32(varin: COpaquePointer?, pulret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt32((varin?.value ?: 0L), (pulret?.value ?: 0L))
+public actual fun variantToUInt32(varin: ConstPtr<Variant>, pulret: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt32(varin.rawAddress, pulret.rawAddress)
 
-public actual fun variantToUInt32Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt32Array((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToUInt32Array(variable: ConstPtr<Variant>, prgn: MutPtr<UInt>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt32Array(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToUInt32ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToUInt32ArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<UInt>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt32ArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToUInt32WithDefault(varin: COpaquePointer?, uldefault: UInt): UInt =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt32WithDefault((varin?.value ?: 0L), uldefault.toInt()).toUInt()
+public actual fun variantToUInt32WithDefault(varin: ConstPtr<Variant>, uldefault: UInt): UInt =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt32WithDefault(varin.rawAddress, uldefault.toInt()).toUInt()
 
-public actual fun variantToUInt64(varin: COpaquePointer?, pullret: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt64((varin?.value ?: 0L), (pullret?.value ?: 0L))
+public actual fun variantToUInt64(varin: ConstPtr<Variant>, pullret: MutPtr<ULong>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt64(varin.rawAddress, pullret.rawAddress)
 
-public actual fun variantToUInt64Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt64Array((variable?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
+public actual fun variantToUInt64Array(variable: ConstPtr<Variant>, prgn: MutPtr<ULong>, crgn: UInt, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt64Array(variable.rawAddress, prgn.rawAddress, crgn.toInt(), pcelem.rawAddress)
 
-public actual fun variantToUInt64ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc((variable?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
+public actual fun variantToUInt64ArrayAlloc(variable: ConstPtr<Variant>, pprgn: MutPtr<MutPtr<ULong>>, pcelem: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt64ArrayAlloc(variable.rawAddress, pprgn.rawAddress, pcelem.rawAddress)
 
-public actual fun variantToUInt64WithDefault(varin: COpaquePointer?, ulldefault: ULong): ULong =
-    WindowsWin32SystemVariantJniBridge.windowssys_windows_win32_system_variant_variantToUInt64WithDefault((varin?.value ?: 0L), ulldefault.toLong()).toULong()
+public actual fun variantToUInt64WithDefault(varin: ConstPtr<Variant>, ulldefault: ULong): ULong =
+    WindowsWin32SystemVariantJniBridge.windowssysWindowsWin32SystemVariantVariantToUInt64WithDefault(varin.rawAddress, ulldefault.toLong()).toULong()

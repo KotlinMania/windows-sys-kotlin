@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCancelDiagnosticRecordOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCloseSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCreateSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t accesslevel = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqExtractDiagnosticReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reportstoretype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqExtr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordLocaleTags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htagdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -184,7 +184,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducerCategories_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcategorydescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -234,7 +234,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hproducerdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -284,7 +284,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticDataAccessLevelAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* accesslevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -309,10 +309,10 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordAtIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* record = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
@@ -323,14 +323,14 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hrecord, arg_1_index, record);
+        km_res = km_fn_ptr(hrecord, arg1Index, record);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)hrecord;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)record;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -338,7 +338,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordBinaryDistribution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* producernames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -373,10 +373,10 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryAtIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcategorydescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* categorydescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
@@ -387,14 +387,14 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hcategorydescription, arg_1_index, categorydescription);
+        km_res = km_fn_ptr(hcategorydescription, arg1Index, categorydescription);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)hcategorydescription;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)categorydescription;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -402,7 +402,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcategorydescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* categorydescriptioncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -429,7 +429,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* recordcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -456,10 +456,10 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagAtIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htagdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* tagdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
@@ -470,14 +470,14 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(htagdescription, arg_1_index, tagdescription);
+        km_res = km_fn_ptr(htagdescription, arg1Index, tagdescription);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)htagdescription;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)tagdescription;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htagdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tagdescriptioncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -512,7 +512,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* locale = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -541,7 +541,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchcriteria = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -576,7 +576,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPayload_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t rowid = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -605,10 +605,10 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerAtIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hproducerdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* producerdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
@@ -619,14 +619,14 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hproducerdescription, arg_1_index, producerdescription);
+        km_res = km_fn_ptr(hproducerdescription, arg1Index, producerdescription);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)hproducerdescription;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)producerdescription;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -634,7 +634,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCategories_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* producername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hproducerdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* producerdescriptioncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -690,7 +690,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hproducerdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchcriteria = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -750,7 +750,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordSummary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* producernames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordTagDistribution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* producernames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -814,7 +814,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reportstoretype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -843,10 +843,10 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportAtIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* report = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
@@ -857,14 +857,14 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hreport, arg_1_index, report);
+        km_res = km_fn_ptr(hreport, arg1Index, report);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)hreport;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)report;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reportcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -899,7 +899,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportStoreReportCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reportstoretype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -928,7 +928,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetSessionAccessLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* accesslevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -955,7 +955,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetTranscriptConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* currentconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -982,7 +982,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqIsDiagnosticRecordSampledIn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* providergroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1023,7 +1023,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqIsDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDiagnosticdataqueryDdqSetTranscriptConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* desiredconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1051,41 +1051,41 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqSetT
 }
 
 static void register_windows_win32_security_diagnosticdataquery_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn_napi));
-    exports.Set("windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration", Napi::Function::New(env, windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCancelDiagnosticRecordOperation", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCancelDiagnosticRecordOperation_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCloseSession", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCloseSession_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCreateSession", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCreateSession_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqExtractDiagnosticReport", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqExtractDiagnosticReport_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordLocaleTags", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordLocaleTags_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordPage", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordPage_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducerCategories", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducerCategories_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducers", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducers_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticReport", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticReport_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticDataAccessLevelAllowed", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticDataAccessLevelAllowed_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordAtIndex", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordAtIndex_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordBinaryDistribution", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordBinaryDistribution_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryAtIndex", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryAtIndex_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryCount", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryCount_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCount", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCount_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagAtIndex", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagAtIndex_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagCount", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagCount_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTags", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTags_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPage", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPage_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPayload", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPayload_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerAtIndex", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerAtIndex_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCategories", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCategories_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCount", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCount_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducers", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducers_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordStats", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordStats_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordSummary", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordSummary_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordTagDistribution", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordTagDistribution_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReport", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReport_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportAtIndex", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportAtIndex_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportCount", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportCount_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportStoreReportCount", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportStoreReportCount_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetSessionAccessLevel", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetSessionAccessLevel_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetTranscriptConfiguration", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetTranscriptConfiguration_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqIsDiagnosticRecordSampledIn", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqIsDiagnosticRecordSampledIn_napi));
+    exports.Set("windowssysWindowsWin32SecurityDiagnosticdataqueryDdqSetTranscriptConfiguration", Napi::Function::New(env, windowssysWindowsWin32SecurityDiagnosticdataqueryDdqSetTranscriptConfiguration_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_diagnosticdataquery_napi, nullptr };

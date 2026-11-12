@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1protectFileToEnterpriseIdentity(JNIEnv* km_env, jclass km_clazz, jlong fileorfolderpath, jlong identity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataProtectFileToEnterpriseIdentity(JNIEnv* km_env, jclass km_clazz, jlong fileorfolderpath, jlong identity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpCloseThreadNetworkContext(JNIEnv* km_env, jclass km_clazz, jlong threadnetworkcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpCloseThreadNetworkContext(JNIEnv* km_env, jclass km_clazz, jlong threadnetworkcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpCreateThreadNetworkContext(JNIEnv* km_env, jclass km_clazz, jlong enterpriseid, jlong threadnetworkcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpCreateThreadNetworkContext(JNIEnv* km_env, jclass km_clazz, jlong enterpriseid, jlong threadnetworkcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpDisablePermissiveModeFileEncryption(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpDisablePermissiveModeFileEncryption(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpDoesPolicyAllowAppExecution(JNIEnv* km_env, jclass km_clazz, jlong packageid, jlong isallowed) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpDoesPolicyAllowAppExecution(JNIEnv* km_env, jclass km_clazz, jlong packageid, jlong isallowed) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpEnablePermissiveModeFileEncryption(JNIEnv* km_env, jclass km_clazz, jlong enterpriseid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpEnablePermissiveModeFileEncryption(JNIEnv* km_env, jclass km_clazz, jlong enterpriseid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -171,7 +171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpGetEnterpriseIds(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong numberofbytes, jlong enterpriseids, jlong enterpriseidcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpGetEnterpriseIds(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong numberofbytes, jlong enterpriseids, jlong enterpriseidcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpGetEnterprisePolicy(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong policyflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpGetEnterprisePolicy(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong policyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -225,7 +225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpHostingInitialize(JNIEnv* km_env, jclass km_clazz, jint version, jint type, jlong pvdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpHostingInitialize(JNIEnv* km_env, jclass km_clazz, jint version, jint type, jlong pvdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -253,7 +253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpHostingTerminate(JNIEnv* km_env, jclass km_clazz, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpHostingTerminate(JNIEnv* km_env, jclass km_clazz, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -274,7 +274,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpIsTokenService(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong istokenservice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpIsTokenService(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong istokenservice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -300,7 +300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1srpSetTokenEnterpriseId(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong enterpriseid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataSrpSetTokenEnterpriseId(JNIEnv* km_env, jclass km_clazz, jlong tokenhandle, jlong enterpriseid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -326,7 +326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssys_1windows_1win32_1security_1enterprisedata_1unprotectFile(JNIEnv* km_env, jclass km_clazz, jlong fileorfolderpath, jlong options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_enterprisedata_WindowsWin32SecurityEnterprisedataJniBridge_windowssysWindowsWin32SecurityEnterprisedataUnprotectFile(JNIEnv* km_env, jclass km_clazz, jlong fileorfolderpath, jlong options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -1,26 +1,39 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.media
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+
+// The host must provide the C companion wrapper exports in import module windowssys.
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaTimeBeginPeriod")
+private external fun wasiWindowssysWindowsWin32MediaTimeBeginPeriod(uperiod: Int): Int
 
 public actual fun timeBeginPeriod(uperiod: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32MediaTimeBeginPeriod(uperiod.toInt()).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaTimeEndPeriod")
+private external fun wasiWindowssysWindowsWin32MediaTimeEndPeriod(uperiod: Int): Int
 
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32MediaTimeEndPeriod(uperiod.toInt()).toUInt()
 
-public actual fun timeGetDevCaps(ptc: COpaquePointer?, cbtc: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaTimeGetDevCaps")
 
-public actual fun timeGetSystemTime(pmmt: COpaquePointer?, cbmmt: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaTimeGetSystemTime")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaTimeGetTime")
+private external fun wasiWindowssysWindowsWin32MediaTimeGetTime(): Int
 
 public actual fun timeGetTime(): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32MediaTimeGetTime().toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaTimeKillEvent")
+private external fun wasiWindowssysWindowsWin32MediaTimeKillEvent(utimerid: Int): Int
 
 public actual fun timeKillEvent(utimerid: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32MediaTimeKillEvent(utimerid.toInt()).toUInt()
 
 public actual fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: Lptimecallback, dwuser: ULong, fuevent: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaTimeSetEvent")

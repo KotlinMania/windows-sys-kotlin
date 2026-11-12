@@ -2,48 +2,49 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.touch
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_closeTouchInputHandle
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_getGestureConfig
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_getGestureExtraArgs
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_getGestureInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_getTouchInputInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_isTouchWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_registerTouchWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_setGestureConfig
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssys_windows_win32_ui_input_touch_unregisterTouchWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchCloseGestureInfoHandle
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchCloseTouchInputHandle
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchGetGestureConfig
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchGetGestureExtraArgs
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchGetGestureInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchGetTouchInputInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchIsTouchWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchRegisterTouchWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchSetGestureConfig
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.touch.cinterop.windowssysWindowsWin32UiInputTouchUnregisterTouchWindow
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun closeGestureInfoHandle(hgestureinfo: Hgestureinfo): Bool =
-    windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle(hgestureinfo?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputTouchCloseGestureInfoHandle(hgestureinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun closeTouchInputHandle(htouchinput: Htouchinput): Bool =
-    windowssys_windows_win32_ui_input_touch_closeTouchInputHandle(htouchinput?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputTouchCloseTouchInputHandle(htouchinput.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: COpaquePointer?, pgestureconfig: COpaquePointer?, cbsize: UInt): Bool =
-    windowssys_windows_win32_ui_input_touch_getGestureConfig(hwnd?.value?.toCPointer<ByteVar>(), dwreserved, dwflags, pcids?.value?.toCPointer<ByteVar>(), pgestureconfig?.value?.toCPointer<ByteVar>(), cbsize)
+public actual fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr<UInt>, pgestureconfig: MutPtr<Gestureconfig>, cbsize: UInt): Bool =
+    windowssysWindowsWin32UiInputTouchGetGestureConfig(hwnd.rawAddress.toCPointer<ByteVar>(), dwreserved, dwflags, pcids.rawAddress.toCPointer<ByteVar>(), pgestureconfig.rawAddress.toCPointer<ByteVar>(), cbsize)
 
-public actual fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_touch_getGestureExtraArgs(hgestureinfo?.value?.toCPointer<ByteVar>(), cbextraargs, pextraargs?.value?.toCPointer<ByteVar>())
+public actual fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr<UByte>): Bool =
+    windowssysWindowsWin32UiInputTouchGetGestureExtraArgs(hgestureinfo.rawAddress.toCPointer<ByteVar>(), cbextraargs, pextraargs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_touch_getGestureInfo(hgestureinfo?.value?.toCPointer<ByteVar>(), pgestureinfo?.value?.toCPointer<ByteVar>())
+public actual fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr<Gestureinfo>): Bool =
+    windowssysWindowsWin32UiInputTouchGetGestureInfo(hgestureinfo.rawAddress.toCPointer<ByteVar>(), pgestureinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: COpaquePointer?, cbsize: Int): Bool =
-    windowssys_windows_win32_ui_input_touch_getTouchInputInfo(htouchinput?.value?.toCPointer<ByteVar>(), cinputs, pinputs?.value?.toCPointer<ByteVar>(), cbsize)
+public actual fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr<Touchinput>, cbsize: Int): Bool =
+    windowssysWindowsWin32UiInputTouchGetTouchInputInfo(htouchinput.rawAddress.toCPointer<ByteVar>(), cinputs, pinputs.rawAddress.toCPointer<ByteVar>(), cbsize)
 
-public actual fun isTouchWindow(hwnd: Hwnd, pulflags: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_touch_isTouchWindow(hwnd?.value?.toCPointer<ByteVar>(), pulflags?.value?.toCPointer<ByteVar>())
+public actual fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32UiInputTouchIsTouchWindow(hwnd.rawAddress.toCPointer<ByteVar>(), pulflags.rawAddress.toCPointer<ByteVar>())
 
 public actual fun registerTouchWindow(hwnd: Hwnd, ulflags: RegisterTouchWindowFlags): Bool =
-    windowssys_windows_win32_ui_input_touch_registerTouchWindow(hwnd?.value?.toCPointer<ByteVar>(), ulflags)
+    windowssysWindowsWin32UiInputTouchRegisterTouchWindow(hwnd.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: COpaquePointer?, cbsize: UInt): Bool =
-    windowssys_windows_win32_ui_input_touch_setGestureConfig(hwnd?.value?.toCPointer<ByteVar>(), dwreserved, cids, pgestureconfig?.value?.toCPointer<ByteVar>(), cbsize)
+public actual fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr<Gestureconfig>, cbsize: UInt): Bool =
+    windowssysWindowsWin32UiInputTouchSetGestureConfig(hwnd.rawAddress.toCPointer<ByteVar>(), dwreserved, cids, pgestureconfig.rawAddress.toCPointer<ByteVar>(), cbsize)
 
 public actual fun unregisterTouchWindow(hwnd: Hwnd): Bool =
-    windowssys_windows_win32_ui_input_touch_unregisterTouchWindow(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputTouchUnregisterTouchWindow(hwnd.rawAddress.toCPointer<ByteVar>())

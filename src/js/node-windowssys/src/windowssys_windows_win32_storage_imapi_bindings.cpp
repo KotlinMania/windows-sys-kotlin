@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_imapi_closeIMsgSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageImapiCloseIMsgSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lpmsgsess = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_storage_imapi_closeIMsgSession_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageImapiGetAttribIMsgOnIStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproptagarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -102,7 +102,7 @@ static Napi::Value windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_imapi_mapStorageSCode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageImapiMapStorageSCode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t stgscode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_storage_imapi_mapStorageSCode_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_imapi_openIMsgSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageImapiOpenIMsgSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmalloc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -156,7 +156,7 @@ static Napi::Value windowssys_windows_win32_storage_imapi_openIMsgSession_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageImapiSetAttribIMsgOnIStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproptags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -188,11 +188,11 @@ static Napi::Value windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg_na
 }
 
 static void register_windows_win32_storage_imapi_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_imapi_closeIMsgSession", Napi::Function::New(env, windowssys_windows_win32_storage_imapi_closeIMsgSession_napi));
-    exports.Set("windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg", Napi::Function::New(env, windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg_napi));
-    exports.Set("windowssys_windows_win32_storage_imapi_mapStorageSCode", Napi::Function::New(env, windowssys_windows_win32_storage_imapi_mapStorageSCode_napi));
-    exports.Set("windowssys_windows_win32_storage_imapi_openIMsgSession", Napi::Function::New(env, windowssys_windows_win32_storage_imapi_openIMsgSession_napi));
-    exports.Set("windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg", Napi::Function::New(env, windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg_napi));
+    exports.Set("windowssysWindowsWin32StorageImapiCloseIMsgSession", Napi::Function::New(env, windowssysWindowsWin32StorageImapiCloseIMsgSession_napi));
+    exports.Set("windowssysWindowsWin32StorageImapiGetAttribIMsgOnIStg", Napi::Function::New(env, windowssysWindowsWin32StorageImapiGetAttribIMsgOnIStg_napi));
+    exports.Set("windowssysWindowsWin32StorageImapiMapStorageSCode", Napi::Function::New(env, windowssysWindowsWin32StorageImapiMapStorageSCode_napi));
+    exports.Set("windowssysWindowsWin32StorageImapiOpenIMsgSession", Napi::Function::New(env, windowssysWindowsWin32StorageImapiOpenIMsgSession_napi));
+    exports.Set("windowssysWindowsWin32StorageImapiSetAttribIMsgOnIStg", Napi::Function::New(env, windowssysWindowsWin32StorageImapiSetAttribIMsgOnIStg_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_imapi_napi, nullptr };

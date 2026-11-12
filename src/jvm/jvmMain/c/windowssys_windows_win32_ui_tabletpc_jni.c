@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1addStroke(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong ppacketdesc, jint cbpacket, jlong ppacket, jlong pxform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcAddStroke(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong ppacketdesc, jint cbpacket, jlong ppacket, jlong pxform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1addWordsToWordList(JNIEnv* km_env, jclass km_clazz, jlong hwl, jlong pwcwords) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcAddWordsToWordList(JNIEnv* km_env, jclass km_clazz, jlong hwl, jlong pwcwords) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1adviseInkChange(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint bnewstroke) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcAdviseInkChange(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint bnewstroke) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1createContext(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong phrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcCreateContext(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong phrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1createRecognizer(JNIEnv* km_env, jclass km_clazz, jlong pclsid, jlong phrec) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcCreateRecognizer(JNIEnv* km_env, jclass km_clazz, jlong pclsid, jlong phrec) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1destroyContext(JNIEnv* km_env, jclass km_clazz, jlong hrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcDestroyContext(JNIEnv* km_env, jclass km_clazz, jlong hrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1destroyRecognizer(JNIEnv* km_env, jclass km_clazz, jlong hrec) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcDestroyRecognizer(JNIEnv* km_env, jclass km_clazz, jlong hrec) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -202,7 +202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1destroyWordList(JNIEnv* km_env, jclass km_clazz, jlong hwl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcDestroyWordList(JNIEnv* km_env, jclass km_clazz, jlong hwl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1endInkInput(JNIEnv* km_env, jclass km_clazz, jlong hrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcEndInkInput(JNIEnv* km_env, jclass km_clazz, jlong hrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -252,7 +252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getAllRecognizers(JNIEnv* km_env, jclass km_clazz, jlong recognizerclsids, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetAllRecognizers(JNIEnv* km_env, jclass km_clazz, jlong recognizerclsids, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -278,7 +278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getBestResultString(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pcsize, jlong pwcbestresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetBestResultString(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pcsize, jlong pwcbestresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -305,7 +305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getLatticePtr(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pplattice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetLatticePtr(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pplattice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getLeftSeparator(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pcsize, jlong pwcleftseparator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetLeftSeparator(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pcsize, jlong pwcleftseparator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -358,7 +358,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getRecoAttributes(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong precoattrs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetRecoAttributes(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong precoattrs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -384,7 +384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getResultPropertyList(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong ppropertycount, jlong ppropertyguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetResultPropertyList(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong ppropertycount, jlong ppropertyguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -411,7 +411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getRightSeparator(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pcsize, jlong pwcrightseparator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetRightSeparator(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pcsize, jlong pwcrightseparator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -438,7 +438,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1getUnicodeRanges(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong pcranges, jlong pcr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcGetUnicodeRanges(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong pcranges, jlong pcr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -465,7 +465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1isStringSupported(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint wcstring, jlong pwcstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcIsStringSupported(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint wcstring, jlong pwcstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -492,7 +492,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1makeWordList(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong pbuffer, jlong phwl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcMakeWordList(JNIEnv* km_env, jclass km_clazz, jlong hrec, jlong pbuffer, jlong phwl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -519,7 +519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1process(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pbpartialprocessing) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcProcess(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pbpartialprocessing) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -545,7 +545,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1setEnabledUnicodeRanges(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint cranges, jlong pcr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint cranges, jlong pcr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -572,7 +572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1setFactoid(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint cwcfactoid, jlong pwcfactoid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcSetFactoid(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint cwcfactoid, jlong pwcfactoid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -599,7 +599,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1setFlags(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcSetFlags(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -625,7 +625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1setGuide(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pguide, jint iindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcSetGuide(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong pguide, jint iindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -652,7 +652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1setTextContext(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint cwcbefore, jlong pwcbefore, jint cwcafter, jlong pwcafter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcSetTextContext(JNIEnv* km_env, jclass km_clazz, jlong hrc, jint cwcbefore, jlong pwcbefore, jint cwcafter, jlong pwcafter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -681,7 +681,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ta
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssys_1windows_1win32_1ui_1tabletpc_1setWordList(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong hwl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_tabletpc_WindowsWin32UiTabletpcJniBridge_windowssysWindowsWin32UiTabletpcSetWordList(JNIEnv* km_env, jclass km_clazz, jlong hrc, jlong hwl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

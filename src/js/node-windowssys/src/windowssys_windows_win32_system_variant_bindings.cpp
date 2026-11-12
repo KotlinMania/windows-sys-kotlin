@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_clearVariantArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantClearVariantArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cvars = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_system_variant_clearVariantArray_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_dosDateTimeToVariantTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantDosDateTimeToVariantTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wdosdate = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t wdostime = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -104,7 +104,7 @@ static Napi::Value windowssys_windows_win32_system_variant_dosDateTimeToVariantT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromBooleanArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromBooleanArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -133,7 +133,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromBoolea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -162,7 +162,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromBuffer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromDoubleArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromDoubleArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromDouble
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -218,7 +218,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromFileTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromFileTimeArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromFileTimeArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -247,7 +247,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromFileTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromGUIDAsString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromGUIDAsString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -274,7 +274,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromGUIDAs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromInt16Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromInt16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromInt16A
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromInt32Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromInt32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -332,7 +332,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromInt32A
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromInt64Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromInt64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromInt64A
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromResour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromStringArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromStringArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromUInt16Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromUInt16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -448,7 +448,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromUInt16
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromUInt32Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromUInt32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -477,7 +477,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromUInt32
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromUInt64Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromUInt64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -506,7 +506,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromUInt64
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantInitVariantFromVariantArrayElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_win32_system_variant_initVariantFromVarian
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_systemTimeToVariantTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantSystemTimeToVariantTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsystemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -562,7 +562,7 @@ static Napi::Value windowssys_windows_win32_system_variant_systemTimeToVariantTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -586,7 +586,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserFree_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -610,7 +610,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserFree64_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -639,7 +639,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserMarshal_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -668,7 +668,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserMarshal64_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -697,7 +697,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserSize_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -726,7 +726,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserSize64_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -755,7 +755,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserUnmarshal_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -784,7 +784,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantUserUnmarshal6
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantChangeType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantChangeType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvargdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -815,7 +815,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantChangeType_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantChangeTypeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantChangeTypeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvargdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -848,7 +848,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantChangeTypeEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantClear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -873,7 +873,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantClear_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantCompare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* var2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -900,7 +900,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantCompare_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvargdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvargsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -927,7 +927,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantCopy_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantCopyInd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantCopyInd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvardest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvargsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -954,7 +954,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantCopyInd_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetBooleanElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetBooleanElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -983,7 +983,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetBooleanElem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetDoubleElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetDoubleElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetDoubleElem_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetElementCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetElementCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1037,7 +1037,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetElementCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetInt16Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetInt16Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1066,7 +1066,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetInt16Elem_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetInt32Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetInt32Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1095,7 +1095,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetInt32Elem_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetInt64Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetInt64Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1124,7 +1124,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetInt64Elem_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetStringElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetStringElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1153,7 +1153,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetStringElem_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetUInt16Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetUInt16Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1182,7 +1182,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetUInt16Elem_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetUInt32Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetUInt32Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1211,7 +1211,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetUInt32Elem_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantGetUInt64Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantGetUInt64Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1240,7 +1240,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantGetUInt64Elem_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1262,7 +1262,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantInit_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantTimeToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantTimeToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double vtime = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pwdosdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1291,7 +1291,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantTimeToDosDateT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double vtime = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* lpsystemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1318,7 +1318,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantTimeToSystemTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToBoolean_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToBoolean_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToBoolean_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToBooleanArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToBooleanArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1376,7 +1376,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToBooleanArray
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToBooleanArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1405,7 +1405,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToBooleanArray
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToBooleanWithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToBooleanWithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fdefault = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1432,7 +1432,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToBooleanWithD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1461,7 +1461,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToBuffer_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1490,7 +1490,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToDosDateTime_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToDouble_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToDouble_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdblret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1517,7 +1517,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToDouble_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToDoubleArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToDoubleArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1548,7 +1548,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToDoubleArray_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToDoubleArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToDoubleArrayA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToDoubleWithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToDoubleWithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double dbldefault = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -1604,7 +1604,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToDoubleWithDe
     return Napi::Number::New(km_env, static_cast<double>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t stfout = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1633,7 +1633,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToFileTime_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToGUID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToGUID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1660,7 +1660,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToGUID_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* piret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1687,7 +1687,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt16_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt16Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1718,7 +1718,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt16Array_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt16ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1747,7 +1747,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt16ArrayAl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t idefault = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1774,7 +1774,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt16WithDef
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1801,7 +1801,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt32_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt32Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1832,7 +1832,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt32Array_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt32ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1861,7 +1861,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt32ArrayAl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ldefault = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1888,7 +1888,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt32WithDef
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pllret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1915,7 +1915,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt64_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt64Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1946,7 +1946,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt64Array_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt64ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1975,7 +1975,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt64ArrayAl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lldefault = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2002,7 +2002,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToInt64WithDef
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2031,7 +2031,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToString_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToStringAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToStringAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2058,7 +2058,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToStringAlloc_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToStringArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToStringArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2089,7 +2089,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToStringArray_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToStringArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToStringArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2118,7 +2118,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToStringArrayA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToStringWithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToStringWithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdefault = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2145,7 +2145,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToStringWithDe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puiret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2172,7 +2172,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt16Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2203,7 +2203,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16Array_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt16ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2232,7 +2232,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16ArrayA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t uidefault = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2259,7 +2259,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt16WithDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2286,7 +2286,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt32Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2317,7 +2317,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32Array_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt32ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2346,7 +2346,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32ArrayA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uldefault = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2373,7 +2373,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt32WithDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pullret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2400,7 +2400,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64Array_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt64Array_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2431,7 +2431,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64Array_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt64ArrayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* var = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2460,7 +2460,7 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64ArrayA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemVariantVariantToUInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ulldefault = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2488,92 +2488,92 @@ static Napi::Value windowssys_windows_win32_system_variant_variantToUInt64WithDe
 }
 
 static void register_windows_win32_system_variant_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_variant_clearVariantArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_clearVariantArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_dosDateTimeToVariantTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_dosDateTimeToVariantTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromBooleanArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromBooleanArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromBuffer", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromDoubleArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromDoubleArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromFileTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromFileTimeArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromFileTimeArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromGUIDAsString", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromGUIDAsString_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromInt16Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromInt16Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromInt32Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromInt32Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromInt64Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromInt64Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromResource", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromResource_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromStringArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromStringArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromUInt16Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromUInt16Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromUInt32Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromUInt32Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromUInt64Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromUInt64Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem", Napi::Function::New(env, windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_systemTimeToVariantTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_systemTimeToVariantTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserFree", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserSize", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantChangeType", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantChangeType_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantChangeTypeEx", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantChangeTypeEx_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantClear", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantClear_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantCompare", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantCompare_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantCopy", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantCopy_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantCopyInd", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantCopyInd_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetBooleanElem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetBooleanElem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetDoubleElem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetDoubleElem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetElementCount", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetElementCount_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetInt16Elem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetInt16Elem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetInt32Elem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetInt32Elem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetInt64Elem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetInt64Elem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetStringElem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetStringElem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetUInt16Elem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetUInt16Elem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetUInt32Elem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetUInt32Elem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantGetUInt64Elem", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantGetUInt64Elem_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantInit", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantInit_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantTimeToDosDateTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantTimeToDosDateTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantTimeToSystemTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToBoolean", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToBoolean_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToBooleanArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToBooleanArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToBooleanWithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToBooleanWithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToBuffer", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToDosDateTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToDosDateTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToDouble", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToDouble_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToDoubleArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToDoubleArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToDoubleWithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToDoubleWithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToFileTime", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToGUID", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToGUID_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt16", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt16_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt16Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt16Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt16WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt16WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt32", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt32_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt32Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt32Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt32WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt32WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt64", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt64_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt64Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt64Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToInt64WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToInt64WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToString", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToString_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToStringAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToStringAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToStringArray", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToStringArray_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToStringArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToStringArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToStringWithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToStringWithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt16", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt16_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt16Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt16Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt16WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt16WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt32", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt32_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt32Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt32Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt32WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt32WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt64", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt64_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt64Array", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt64Array_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_variant_variantToUInt64WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_variant_variantToUInt64WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantClearVariantArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantClearVariantArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantDosDateTimeToVariantTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantDosDateTimeToVariantTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromBooleanArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromBooleanArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromDoubleArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromDoubleArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromFileTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromFileTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromFileTimeArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromFileTimeArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromGUIDAsString", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromGUIDAsString_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromInt16Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromInt16Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromInt32Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromInt32Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromInt64Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromInt64Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromResource", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromResource_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromStringArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromStringArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromUInt16Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromUInt16Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromUInt32Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromUInt32Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromUInt64Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromUInt64Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantInitVariantFromVariantArrayElem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantInitVariantFromVariantArrayElem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantSystemTimeToVariantTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantSystemTimeToVariantTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantChangeType", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantChangeType_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantChangeTypeEx", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantChangeTypeEx_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantClear", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantClear_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantCompare", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantCompare_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantCopy", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantCopy_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantCopyInd", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantCopyInd_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetBooleanElem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetBooleanElem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetDoubleElem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetDoubleElem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetElementCount", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetElementCount_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetInt16Elem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetInt16Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetInt32Elem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetInt32Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetInt64Elem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetInt64Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetStringElem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetStringElem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetUInt16Elem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetUInt16Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetUInt32Elem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetUInt32Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantGetUInt64Elem", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantGetUInt64Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantInit", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantInit_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantTimeToDosDateTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantTimeToDosDateTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantTimeToSystemTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantTimeToSystemTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToBoolean", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToBoolean_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToBooleanArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToBooleanArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToBooleanArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToBooleanArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToBooleanWithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToBooleanWithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToDosDateTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToDosDateTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToDouble", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToDouble_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToDoubleArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToDoubleArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToDoubleArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToDoubleArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToDoubleWithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToDoubleWithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToFileTime", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToFileTime_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToGUID", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToGUID_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt16", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt16_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt16Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt16Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt16ArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt16ArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt16WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt16WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt32", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt32_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt32Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt32Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt32ArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt32ArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt32WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt32WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt64", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt64_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt64Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt64Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt64ArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt64ArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToInt64WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToInt64WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToString", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToString_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToStringAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToStringAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToStringArray", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToStringArray_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToStringArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToStringArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToStringWithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToStringWithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt16", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt16_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt16Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt16Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt16ArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt16ArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt16WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt16WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt32", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt32_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt32Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt32Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt32ArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt32ArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt32WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt32WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt64", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt64_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt64Array", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt64Array_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt64ArrayAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt64ArrayAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemVariantVariantToUInt64WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemVariantVariantToUInt64WithDefault_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_variant_napi, nullptr };

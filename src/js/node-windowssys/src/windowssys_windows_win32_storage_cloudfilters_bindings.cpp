@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfCloseHandle_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfConnectSyncRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* syncrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbacktable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -106,7 +106,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfConvertToPlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConvertToPlac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfCreatePlaceholders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* basedirectorypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* placeholderarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -174,7 +174,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfDehydratePlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t startingoffset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfDehydratePlac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t connectionkey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -232,7 +232,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfExecute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfExecute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* opinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* opparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfExecute_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* correlationvector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -286,7 +286,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetCorrelatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -356,7 +356,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoForHydration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfoForHydration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t connectionkey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t transferkey = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -397,7 +397,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromAttributeTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromAttributeTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fileattributes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t reparsetag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -424,7 +424,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFileInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFileInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infobuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -451,7 +451,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFindData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFindData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* finddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetPlatformInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* platformversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlatformIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -534,7 +534,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -567,7 +567,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetTransferKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* transferkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -594,7 +594,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetTransferKe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtectedHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfGetWin32HandleFromProtectedHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* protectedhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -619,7 +619,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetWin32Handl
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfHydratePlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t startingoffset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -652,7 +652,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfOpenFileWithOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -681,7 +681,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfQuerySyncProviderStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t connectionkey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* providerstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -708,7 +708,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfReferenceProtectedHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* protectedhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -733,7 +733,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReferenceProt
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfRegisterSyncRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* syncrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* registration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -764,7 +764,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfReleaseProtectedHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* protectedhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -786,7 +786,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReleaseProtec
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfReleaseTransferKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* transferkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -810,7 +810,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReleaseTransf
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t connectionkey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t transferkey = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -841,7 +841,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t connectionkey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t transferkey = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -876,7 +876,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* syncrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* syncstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportSyncSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfRevertPlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t revertflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -932,7 +932,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfSetCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* correlationvector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -959,7 +959,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetCorrelatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfSetInSyncState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t insyncstate = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -990,7 +990,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetInSyncStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetPinState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfSetPinState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pinstate = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1021,7 +1021,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetPinState_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfUnregisterSyncRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* syncrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1046,7 +1046,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfUpdatePlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fsmetadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1087,7 +1087,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncProviderStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t connectionkey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t providerstatus = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1115,42 +1115,42 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncPro
 }
 
 static void register_windows_win32_storage_cloudfilters_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfCloseHandle", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfExecute", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfExecute_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoForHydration", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoForHydration_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromAttributeTag", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromAttributeTag_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFileInfo", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFileInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFindData", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFindData_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtectedHandle", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtectedHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfSetPinState", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfSetPinState_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder_napi));
-    exports.Set("windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncProviderStatus", Napi::Function::New(env, windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncProviderStatus_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfCloseHandle", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfConnectSyncRoot", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfConnectSyncRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfConvertToPlaceholder", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfConvertToPlaceholder_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfCreatePlaceholders", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfCreatePlaceholders_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfDehydratePlaceholder", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfDehydratePlaceholder_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfExecute", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfExecute_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetCorrelationVector", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetCorrelationVector_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderInfo", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfo", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfoForHydration", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfoForHydration_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromAttributeTag", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromAttributeTag_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFileInfo", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFileInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFindData", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFindData_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetPlatformInfo", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetPlatformInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByHandle", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByHandle_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByPath", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByPath_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetTransferKey", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetTransferKey_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfGetWin32HandleFromProtectedHandle", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfGetWin32HandleFromProtectedHandle_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfHydratePlaceholder", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfHydratePlaceholder_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfOpenFileWithOplock", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfOpenFileWithOplock_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfQuerySyncProviderStatus", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfQuerySyncProviderStatus_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfReferenceProtectedHandle", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfReferenceProtectedHandle_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfRegisterSyncRoot", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfRegisterSyncRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfReleaseProtectedHandle", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfReleaseProtectedHandle_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfReleaseTransferKey", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfReleaseTransferKey_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfRevertPlaceholder", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfRevertPlaceholder_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfSetCorrelationVector", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfSetCorrelationVector_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfSetInSyncState", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfSetInSyncState_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfSetPinState", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfSetPinState_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfUnregisterSyncRoot", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfUnregisterSyncRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfUpdatePlaceholder", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfUpdatePlaceholder_napi));
+    exports.Set("windowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus", Napi::Function::New(env, windowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_cloudfilters_napi, nullptr };

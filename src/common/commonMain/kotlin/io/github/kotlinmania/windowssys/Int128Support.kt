@@ -5,7 +5,7 @@ package io.github.kotlinmania.windowssys
 public class U128(
     public val high: ULong = 0uL,
     public val low: ULong = 0uL,
-) : Comparable<U128> {
+) {
     public infix fun shr(bitCount: Int): U128 {
         val n = bitCount and 127
         return when {
@@ -173,7 +173,7 @@ public class U128(
 
     public fun toNeBytes(): UByteArray = toLeBytes()
 
-    override fun compareTo(other: U128): Int {
+    public operator fun compareTo(other: U128): Int {
         val hc = high.compareTo(other.high)
         return if (hc != 0) hc else low.compareTo(other.low)
     }
@@ -250,7 +250,7 @@ public class U128(
 public class I128(
     public val high: Long = 0L,
     public val low: ULong = 0uL,
-) : Comparable<I128> {
+) {
     public infix fun shr(bitCount: Int): I128 {
         val n = bitCount and 127
         return when {
@@ -352,7 +352,7 @@ public class I128(
     public fun toLeBytes(): UByteArray = U128(high.toULong(), low).toLeBytes()
     public fun toNeBytes(): UByteArray = U128(high.toULong(), low).toNeBytes()
 
-    override fun compareTo(other: I128): Int {
+    public operator fun compareTo(other: I128): Int {
         val hc = high.compareTo(other.high)
         return if (hc != 0) hc else low.compareTo(other.low)
     }

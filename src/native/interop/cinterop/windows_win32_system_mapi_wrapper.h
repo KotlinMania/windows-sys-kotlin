@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_system_mapi_mAPIFreeBuffer(void* pv);
+uint32_t windowssysWindowsWin32SystemMapiMAPIFreeBuffer(void* pv);
 
 #ifdef __cplusplus
 }

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_services_changeServiceConfig2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesChangeServiceConfig2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfig2
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_changeServiceConfig2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesChangeServiceConfig2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfig2
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesChangeServiceConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicetype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -154,7 +154,7 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesChangeServiceConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicetype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -199,7 +199,7 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_closeServiceHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesCloseServiceHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -224,7 +224,7 @@ static Napi::Value windowssys_windows_win32_system_services_closeServiceHandle_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_controlService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesControlService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_system_services_controlService_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_controlServiceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesControlServiceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -284,7 +284,7 @@ static Napi::Value windowssys_windows_win32_system_services_controlServiceExA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_controlServiceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesControlServiceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_system_services_controlServiceExW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_createServiceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesCreateServiceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -364,7 +364,7 @@ static Napi::Value windowssys_windows_win32_system_services_createServiceA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_createServiceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesCreateServiceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -413,7 +413,7 @@ static Napi::Value windowssys_windows_win32_system_services_createServiceW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_deleteService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesDeleteService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -438,7 +438,7 @@ static Napi::Value windowssys_windows_win32_system_services_deleteService_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_enumDependentServicesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesEnumDependentServicesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicestate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -473,7 +473,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumDependentService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_enumDependentServicesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesEnumDependentServicesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicestate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -508,7 +508,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumDependentService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesEnumServicesStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicetype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesEnumServicesStatusExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infolevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -590,7 +590,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesEnumServicesStatusExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infolevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -633,7 +633,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesEnumServicesStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicetype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -672,7 +672,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getServiceDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetServiceDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t edirectorytype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -705,7 +705,7 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceDirectory_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getServiceDisplayNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetServiceDisplayNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -736,7 +736,7 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceDisplayNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getServiceDisplayNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetServiceDisplayNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -767,7 +767,7 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceDisplayNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getServiceKeyNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetServiceKeyNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdisplayname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -798,7 +798,7 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceKeyNameA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getServiceKeyNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetServiceKeyNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdisplayname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -829,7 +829,7 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceKeyNameW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getServiceRegistryStateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicestatushandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t statetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -860,7 +860,7 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceRegistrySt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getSharedServiceDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetSharedServiceDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t directorytype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -893,7 +893,7 @@ static Napi::Value windowssys_windows_win32_system_services_getSharedServiceDire
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t statetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -924,7 +924,7 @@ static Napi::Value windowssys_windows_win32_system_services_getSharedServiceRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_lockServiceDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesLockServiceDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -949,7 +949,7 @@ static Napi::Value windowssys_windows_win32_system_services_lockServiceDatabase_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_notifyBootConfigStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesNotifyBootConfigStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bootacceptable = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -974,7 +974,7 @@ static Napi::Value windowssys_windows_win32_system_services_notifyBootConfigStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_notifyServiceStatusChangeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnotifymask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_win32_system_services_notifyServiceStatusC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_notifyServiceStatusChangeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnotifymask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1032,7 +1032,7 @@ static Napi::Value windowssys_windows_win32_system_services_notifyServiceStatusC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_openSCManagerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesOpenSCManagerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1061,7 +1061,7 @@ static Napi::Value windowssys_windows_win32_system_services_openSCManagerA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_openSCManagerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesOpenSCManagerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1090,7 +1090,7 @@ static Napi::Value windowssys_windows_win32_system_services_openSCManagerW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_openServiceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesOpenServiceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1119,7 +1119,7 @@ static Napi::Value windowssys_windows_win32_system_services_openServiceA_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_openServiceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesOpenServiceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1148,7 +1148,7 @@ static Napi::Value windowssys_windows_win32_system_services_openServiceW_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceConfig2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceConfig2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfig2A
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceConfig2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceConfig2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1214,7 +1214,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfig2W
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpserviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1245,7 +1245,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfigA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpserviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1276,7 +1276,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfigW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceDynamicInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceDynamicI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceLockStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceLockStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplockstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1336,7 +1336,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceLockStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceLockStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceLockStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hscmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplockstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1367,7 +1367,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceLockStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceObjectSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsecurityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1400,7 +1400,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceObjectSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1427,7 +1427,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceStatus_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_queryServiceStatusEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesQueryServiceStatusEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infolevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1460,7 +1460,7 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceStatusEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlHandlerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphandlerproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1487,7 +1487,7 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphandlerproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1516,7 +1516,7 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphandlerproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1545,7 +1545,7 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlHandlerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphandlerproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1572,7 +1572,7 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_setServiceBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesSetServiceBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwservicebits = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1603,7 +1603,7 @@ static Napi::Value windowssys_windows_win32_system_services_setServiceBits_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_setServiceObjectSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesSetServiceObjectSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsecurityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1632,7 +1632,7 @@ static Napi::Value windowssys_windows_win32_system_services_setServiceObjectSecu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_setServiceStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesSetServiceStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpservicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1659,7 +1659,7 @@ static Napi::Value windowssys_windows_win32_system_services_setServiceStatus_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_startServiceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesStartServiceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumserviceargs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1688,7 +1688,7 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_startServiceCtrlDispatcherA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicestarttable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1713,7 +1713,7 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceCtrlDisp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_startServiceCtrlDispatcherW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpservicestarttable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1738,7 +1738,7 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceCtrlDisp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_startServiceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesStartServiceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumserviceargs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1767,7 +1767,7 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_subscribeServiceChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eeventtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1800,7 +1800,7 @@ static Napi::Value windowssys_windows_win32_system_services_subscribeServiceChan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_unlockServiceDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesUnlockServiceDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1825,7 +1825,7 @@ static Napi::Value windowssys_windows_win32_system_services_unlockServiceDatabas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t psubscription = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1847,7 +1847,7 @@ static Napi::Value windowssys_windows_win32_system_services_unsubscribeServiceCh
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_services_waitServiceState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemServicesWaitServiceState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnotify = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1879,64 +1879,64 @@ static Napi::Value windowssys_windows_win32_system_services_waitServiceState_nap
 }
 
 static void register_windows_win32_system_services_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_services_changeServiceConfig2A", Napi::Function::New(env, windowssys_windows_win32_system_services_changeServiceConfig2A_napi));
-    exports.Set("windowssys_windows_win32_system_services_changeServiceConfig2W", Napi::Function::New(env, windowssys_windows_win32_system_services_changeServiceConfig2W_napi));
-    exports.Set("windowssys_windows_win32_system_services_changeServiceConfigA", Napi::Function::New(env, windowssys_windows_win32_system_services_changeServiceConfigA_napi));
-    exports.Set("windowssys_windows_win32_system_services_changeServiceConfigW", Napi::Function::New(env, windowssys_windows_win32_system_services_changeServiceConfigW_napi));
-    exports.Set("windowssys_windows_win32_system_services_closeServiceHandle", Napi::Function::New(env, windowssys_windows_win32_system_services_closeServiceHandle_napi));
-    exports.Set("windowssys_windows_win32_system_services_controlService", Napi::Function::New(env, windowssys_windows_win32_system_services_controlService_napi));
-    exports.Set("windowssys_windows_win32_system_services_controlServiceExA", Napi::Function::New(env, windowssys_windows_win32_system_services_controlServiceExA_napi));
-    exports.Set("windowssys_windows_win32_system_services_controlServiceExW", Napi::Function::New(env, windowssys_windows_win32_system_services_controlServiceExW_napi));
-    exports.Set("windowssys_windows_win32_system_services_createServiceA", Napi::Function::New(env, windowssys_windows_win32_system_services_createServiceA_napi));
-    exports.Set("windowssys_windows_win32_system_services_createServiceW", Napi::Function::New(env, windowssys_windows_win32_system_services_createServiceW_napi));
-    exports.Set("windowssys_windows_win32_system_services_deleteService", Napi::Function::New(env, windowssys_windows_win32_system_services_deleteService_napi));
-    exports.Set("windowssys_windows_win32_system_services_enumDependentServicesA", Napi::Function::New(env, windowssys_windows_win32_system_services_enumDependentServicesA_napi));
-    exports.Set("windowssys_windows_win32_system_services_enumDependentServicesW", Napi::Function::New(env, windowssys_windows_win32_system_services_enumDependentServicesW_napi));
-    exports.Set("windowssys_windows_win32_system_services_enumServicesStatusA", Napi::Function::New(env, windowssys_windows_win32_system_services_enumServicesStatusA_napi));
-    exports.Set("windowssys_windows_win32_system_services_enumServicesStatusExA", Napi::Function::New(env, windowssys_windows_win32_system_services_enumServicesStatusExA_napi));
-    exports.Set("windowssys_windows_win32_system_services_enumServicesStatusExW", Napi::Function::New(env, windowssys_windows_win32_system_services_enumServicesStatusExW_napi));
-    exports.Set("windowssys_windows_win32_system_services_enumServicesStatusW", Napi::Function::New(env, windowssys_windows_win32_system_services_enumServicesStatusW_napi));
-    exports.Set("windowssys_windows_win32_system_services_getServiceDirectory", Napi::Function::New(env, windowssys_windows_win32_system_services_getServiceDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_services_getServiceDisplayNameA", Napi::Function::New(env, windowssys_windows_win32_system_services_getServiceDisplayNameA_napi));
-    exports.Set("windowssys_windows_win32_system_services_getServiceDisplayNameW", Napi::Function::New(env, windowssys_windows_win32_system_services_getServiceDisplayNameW_napi));
-    exports.Set("windowssys_windows_win32_system_services_getServiceKeyNameA", Napi::Function::New(env, windowssys_windows_win32_system_services_getServiceKeyNameA_napi));
-    exports.Set("windowssys_windows_win32_system_services_getServiceKeyNameW", Napi::Function::New(env, windowssys_windows_win32_system_services_getServiceKeyNameW_napi));
-    exports.Set("windowssys_windows_win32_system_services_getServiceRegistryStateKey", Napi::Function::New(env, windowssys_windows_win32_system_services_getServiceRegistryStateKey_napi));
-    exports.Set("windowssys_windows_win32_system_services_getSharedServiceDirectory", Napi::Function::New(env, windowssys_windows_win32_system_services_getSharedServiceDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey", Napi::Function::New(env, windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey_napi));
-    exports.Set("windowssys_windows_win32_system_services_lockServiceDatabase", Napi::Function::New(env, windowssys_windows_win32_system_services_lockServiceDatabase_napi));
-    exports.Set("windowssys_windows_win32_system_services_notifyBootConfigStatus", Napi::Function::New(env, windowssys_windows_win32_system_services_notifyBootConfigStatus_napi));
-    exports.Set("windowssys_windows_win32_system_services_notifyServiceStatusChangeA", Napi::Function::New(env, windowssys_windows_win32_system_services_notifyServiceStatusChangeA_napi));
-    exports.Set("windowssys_windows_win32_system_services_notifyServiceStatusChangeW", Napi::Function::New(env, windowssys_windows_win32_system_services_notifyServiceStatusChangeW_napi));
-    exports.Set("windowssys_windows_win32_system_services_openSCManagerA", Napi::Function::New(env, windowssys_windows_win32_system_services_openSCManagerA_napi));
-    exports.Set("windowssys_windows_win32_system_services_openSCManagerW", Napi::Function::New(env, windowssys_windows_win32_system_services_openSCManagerW_napi));
-    exports.Set("windowssys_windows_win32_system_services_openServiceA", Napi::Function::New(env, windowssys_windows_win32_system_services_openServiceA_napi));
-    exports.Set("windowssys_windows_win32_system_services_openServiceW", Napi::Function::New(env, windowssys_windows_win32_system_services_openServiceW_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceConfig2A", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceConfig2A_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceConfig2W", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceConfig2W_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceConfigA", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceConfigA_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceConfigW", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceConfigW_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceDynamicInformation", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceDynamicInformation_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceLockStatusA", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceLockStatusA_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceLockStatusW", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceLockStatusW_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceObjectSecurity", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceObjectSecurity_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceStatus", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceStatus_napi));
-    exports.Set("windowssys_windows_win32_system_services_queryServiceStatusEx", Napi::Function::New(env, windowssys_windows_win32_system_services_queryServiceStatusEx_napi));
-    exports.Set("windowssys_windows_win32_system_services_registerServiceCtrlHandlerA", Napi::Function::New(env, windowssys_windows_win32_system_services_registerServiceCtrlHandlerA_napi));
-    exports.Set("windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA", Napi::Function::New(env, windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA_napi));
-    exports.Set("windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW", Napi::Function::New(env, windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW_napi));
-    exports.Set("windowssys_windows_win32_system_services_registerServiceCtrlHandlerW", Napi::Function::New(env, windowssys_windows_win32_system_services_registerServiceCtrlHandlerW_napi));
-    exports.Set("windowssys_windows_win32_system_services_setServiceBits", Napi::Function::New(env, windowssys_windows_win32_system_services_setServiceBits_napi));
-    exports.Set("windowssys_windows_win32_system_services_setServiceObjectSecurity", Napi::Function::New(env, windowssys_windows_win32_system_services_setServiceObjectSecurity_napi));
-    exports.Set("windowssys_windows_win32_system_services_setServiceStatus", Napi::Function::New(env, windowssys_windows_win32_system_services_setServiceStatus_napi));
-    exports.Set("windowssys_windows_win32_system_services_startServiceA", Napi::Function::New(env, windowssys_windows_win32_system_services_startServiceA_napi));
-    exports.Set("windowssys_windows_win32_system_services_startServiceCtrlDispatcherA", Napi::Function::New(env, windowssys_windows_win32_system_services_startServiceCtrlDispatcherA_napi));
-    exports.Set("windowssys_windows_win32_system_services_startServiceCtrlDispatcherW", Napi::Function::New(env, windowssys_windows_win32_system_services_startServiceCtrlDispatcherW_napi));
-    exports.Set("windowssys_windows_win32_system_services_startServiceW", Napi::Function::New(env, windowssys_windows_win32_system_services_startServiceW_napi));
-    exports.Set("windowssys_windows_win32_system_services_subscribeServiceChangeNotifications", Napi::Function::New(env, windowssys_windows_win32_system_services_subscribeServiceChangeNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_services_unlockServiceDatabase", Napi::Function::New(env, windowssys_windows_win32_system_services_unlockServiceDatabase_napi));
-    exports.Set("windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications", Napi::Function::New(env, windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_services_waitServiceState", Napi::Function::New(env, windowssys_windows_win32_system_services_waitServiceState_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesChangeServiceConfig2A", Napi::Function::New(env, windowssysWindowsWin32SystemServicesChangeServiceConfig2A_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesChangeServiceConfig2W", Napi::Function::New(env, windowssysWindowsWin32SystemServicesChangeServiceConfig2W_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesChangeServiceConfigA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesChangeServiceConfigA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesChangeServiceConfigW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesChangeServiceConfigW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesCloseServiceHandle", Napi::Function::New(env, windowssysWindowsWin32SystemServicesCloseServiceHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesControlService", Napi::Function::New(env, windowssysWindowsWin32SystemServicesControlService_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesControlServiceExA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesControlServiceExA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesControlServiceExW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesControlServiceExW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesCreateServiceA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesCreateServiceA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesCreateServiceW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesCreateServiceW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesDeleteService", Napi::Function::New(env, windowssysWindowsWin32SystemServicesDeleteService_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesEnumDependentServicesA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesEnumDependentServicesA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesEnumDependentServicesW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesEnumDependentServicesW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesEnumServicesStatusA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesEnumServicesStatusA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesEnumServicesStatusExA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesEnumServicesStatusExA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesEnumServicesStatusExW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesEnumServicesStatusExW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesEnumServicesStatusW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesEnumServicesStatusW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetServiceDirectory", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetServiceDirectory_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetServiceDisplayNameA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetServiceDisplayNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetServiceDisplayNameW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetServiceDisplayNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetServiceKeyNameA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetServiceKeyNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetServiceKeyNameW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetServiceKeyNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetSharedServiceDirectory", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetSharedServiceDirectory_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey", Napi::Function::New(env, windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesLockServiceDatabase", Napi::Function::New(env, windowssysWindowsWin32SystemServicesLockServiceDatabase_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesNotifyBootConfigStatus", Napi::Function::New(env, windowssysWindowsWin32SystemServicesNotifyBootConfigStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesOpenSCManagerA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesOpenSCManagerA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesOpenSCManagerW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesOpenSCManagerW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesOpenServiceA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesOpenServiceA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesOpenServiceW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesOpenServiceW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceConfig2A", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceConfig2A_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceConfig2W", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceConfig2W_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceConfigA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceConfigA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceConfigW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceConfigW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceLockStatusA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceLockStatusA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceLockStatusW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceLockStatusW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceStatus", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesQueryServiceStatusEx", Napi::Function::New(env, windowssysWindowsWin32SystemServicesQueryServiceStatusEx_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesSetServiceBits", Napi::Function::New(env, windowssysWindowsWin32SystemServicesSetServiceBits_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesSetServiceObjectSecurity", Napi::Function::New(env, windowssysWindowsWin32SystemServicesSetServiceObjectSecurity_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesSetServiceStatus", Napi::Function::New(env, windowssysWindowsWin32SystemServicesSetServiceStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesStartServiceA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesStartServiceA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA", Napi::Function::New(env, windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesStartServiceW", Napi::Function::New(env, windowssysWindowsWin32SystemServicesStartServiceW_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications", Napi::Function::New(env, windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesUnlockServiceDatabase", Napi::Function::New(env, windowssysWindowsWin32SystemServicesUnlockServiceDatabase_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications", Napi::Function::New(env, windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications_napi));
+    exports.Set("windowssysWindowsWin32SystemServicesWaitServiceState", Napi::Function::New(env, windowssysWindowsWin32SystemServicesWaitServiceState_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_services_napi, nullptr };

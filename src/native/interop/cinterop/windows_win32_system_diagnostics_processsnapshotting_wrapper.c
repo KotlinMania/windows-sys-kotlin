@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot(void* processhandle, uint32_t captureflags, uint32_t threadcontextflags, void* snapshothandle) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssCaptureSnapshot(void* processhandle, uint32_t captureflags, uint32_t threadcontextflags, void* snapshothandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCapt
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot(void* sourceprocesshandle, void* snapshothandle, void* targetprocesshandle, void* targetsnapshothandle, int32_t flags) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssDuplicateSnapshot(void* sourceprocesshandle, void* snapshothandle, void* targetprocesshandle, void* targetsnapshothandle, int32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDupl
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot(void* processhandle, void* snapshothandle) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssFreeSnapshot(void* processhandle, void* snapshothandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFree
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot(void* snapshothandle, int32_t informationclass, void* buffer, uint32_t bufferlength) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssQuerySnapshot(void* snapshothandle, int32_t informationclass, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -114,7 +114,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuer
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate(void* allocator, void* walkmarkerhandle) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerCreate(void* allocator, void* walkmarkerhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -137,7 +137,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree(void* walkmarkerhandle) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerFree(void* walkmarkerhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition(void* walkmarkerhandle, void* position) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerGetPosition(void* walkmarkerhandle, void* position) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -182,7 +182,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning(void* walkmarkerhandle) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSeekToBeginning(void* walkmarkerhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -204,7 +204,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition(void* walkmarkerhandle, uint64_t position) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSetPosition(void* walkmarkerhandle, uint64_t position) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot(void* snapshothandle, int32_t informationclass, void* walkmarkerhandle, void* buffer, uint32_t bufferlength) {
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot(void* snapshothandle, int32_t informationclass, void* walkmarkerhandle, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

@@ -2,209 +2,214 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.registry
 
-import io.github.kotlinmania.windowssys.COpaquePointer
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCreateKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCreateKeyTransacted
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntDeleteKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntDeleteValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntEnumerateKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntEnumerateValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntFlushKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKeyEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKeyTransacted
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntQueryKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntQueryValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntRenameKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntRestoreKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSaveKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSaveKeyEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSetInformationKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSetValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCreateKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCreateKeyTransacted
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwDeleteKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwDeleteValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwEnumerateKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwEnumerateValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwFlushKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKeyEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKeyTransacted
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwQueryKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwQueryValueKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwRenameKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwRestoreKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSaveKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSaveKeyEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSetInformationKey
-import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSetValueKey
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtCommitRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtCreateKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtCreateKeyTransacted
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtCreateRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtDeleteKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtDeleteValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtEnumerateKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtEnumerateValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtFlushKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtNotifyChangeMultipleKeys
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtOpenKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtOpenKeyEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtOpenKeyTransacted
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtOpenKeyTransactedEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtOpenRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtQueryKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtQueryMultipleValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtQueryValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtRenameKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtRestoreKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtRollbackRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtSaveKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtSaveKeyEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtSetInformationKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryNtSetValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwCommitRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwCreateKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwCreateKeyTransacted
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwCreateRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwDeleteKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwDeleteValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwEnumerateKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwEnumerateValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwFlushKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwNotifyChangeMultipleKeys
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwOpenKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwOpenKeyEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwOpenKeyTransacted
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwOpenKeyTransactedEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwOpenRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwQueryKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwQueryMultipleValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwQueryValueKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwRenameKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwRestoreKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwRollbackRegistryTransaction
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwSaveKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwSaveKeyEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwSetInformationKey
+import io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssysWindowsWdkSystemRegistryZwSetValueKey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
+import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun ntCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWdkSystemRegistryNtCommitRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun ntCreateKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, disposition: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntCreateKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, disposition?.value?.toCPointer<ByteVar>())
+public actual fun ntCreateKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, disposition: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtCreateKey(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), titleindex, cls.rawAddress.toCPointer<ByteVar>(), createoptions, disposition.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, transactionhandle: Handle, disposition: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntCreateKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, transactionhandle?.value?.toCPointer<ByteVar>(), disposition?.value?.toCPointer<ByteVar>())
+public actual fun ntCreateKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtCreateKeyTransacted(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), titleindex, cls.rawAddress.toCPointer<ByteVar>(), createoptions, transactionhandle.rawAddress.toCPointer<ByteVar>(), disposition.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, createoptions: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), createoptions)
+public actual fun ntCreateRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtCreateRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), createoptions)
 
 public actual fun ntDeleteKey(keyhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntDeleteKey(keyhandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWdkSystemRegistryNtDeleteKey(keyhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntDeleteValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>())
+public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtDeleteValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntEnumerateKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtEnumerateKey(keyhandle.rawAddress.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntEnumerateValueKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtEnumerateValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntFlushKey(keyhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntFlushKey(keyhandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWdkSystemRegistryNtFlushKey(keyhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: COpaquePointer?, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys(masterkeyhandle?.value?.toCPointer<ByteVar>(), count, subordinateobjects?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), completionfilter, watchtree, buffer?.value?.toCPointer<ByteVar>(), buffersize, asynchronous)
+public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr<ObjectAttributes>, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtNotifyChangeMultipleKeys(masterkeyhandle.rawAddress.toCPointer<ByteVar>(), count, subordinateobjects.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), completionfilter, watchtree, buffer.rawAddress.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun ntOpenKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntOpenKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtOpenKey(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenKeyEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntOpenKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions)
+public actual fun ntOpenKeyEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtOpenKeyEx(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), openoptions)
 
-public actual fun ntOpenKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, transactionhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntOpenKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), transactionhandle?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, transactionhandle: Handle): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtOpenKeyTransacted(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), transactionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenKeyTransactedEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt, transactionhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions, transactionhandle?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenKeyTransactedEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtOpenKeyTransactedEx(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), openoptions, transactionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtOpenRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntQueryKey(keyhandle?.value?.toCPointer<ByteVar>(), keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtQueryKey(keyhandle.rawAddress.toCPointer<ByteVar>(), keyinformationclass, keyinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: COpaquePointer?, entrycount: UInt, valuebuffer: COpaquePointer?, bufferlength: COpaquePointer?, requiredbufferlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valueentries?.value?.toCPointer<ByteVar>(), entrycount, valuebuffer?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), requiredbufferlength?.value?.toCPointer<ByteVar>())
+public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr<KeyValueEntry>, entrycount: UInt, valuebuffer: MutPtr<CVoid>, bufferlength: MutPtr<UInt>, requiredbufferlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtQueryMultipleValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valueentries.rawAddress.toCPointer<ByteVar>(), entrycount, valuebuffer.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>(), requiredbufferlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryValueKey(keyhandle: Handle, valuename: COpaquePointer?, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntQueryValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun ntQueryValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtQueryValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntRenameKey(keyhandle: Handle, newname: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntRenameKey(keyhandle?.value?.toCPointer<ByteVar>(), newname?.value?.toCPointer<ByteVar>())
+public actual fun ntRenameKey(keyhandle: Handle, newname: ConstPtr<UnicodeString>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtRenameKey(keyhandle.rawAddress.toCPointer<ByteVar>(), newname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntRestoreKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWdkSystemRegistryNtRestoreKey(keyhandle.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun ntRollbackRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWdkSystemRegistryNtRollbackRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun ntSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntSaveKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWdkSystemRegistryNtSaveKey(keyhandle.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntSaveKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), format)
+    windowssysWindowsWdkSystemRegistryNtSaveKeyEx(keyhandle.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>(), format)
 
-public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: COpaquePointer?, keysetinformationlength: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntSetInformationKey(keyhandle?.value?.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation?.value?.toCPointer<ByteVar>(), keysetinformationlength)
+public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr<CVoid>, keysetinformationlength: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtSetInformationKey(keyhandle.rawAddress.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation.rawAddress.toCPointer<ByteVar>(), keysetinformationlength)
 
-public actual fun ntSetValueKey(keyhandle: Handle, valuename: COpaquePointer?, titleindex: UInt, type: UInt, data: COpaquePointer?, datasize: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_ntSetValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), titleindex, type, data?.value?.toCPointer<ByteVar>(), datasize)
+public actual fun ntSetValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, titleindex: UInt, type: UInt, data: ConstPtr<CVoid>, datasize: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryNtSetValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>(), titleindex, type, data.rawAddress.toCPointer<ByteVar>(), datasize)
 
 public actual fun zwCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWdkSystemRegistryZwCommitRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun zwCreateKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, disposition: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwCreateKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, disposition?.value?.toCPointer<ByteVar>())
+public actual fun zwCreateKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, disposition: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwCreateKey(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), titleindex, cls.rawAddress.toCPointer<ByteVar>(), createoptions, disposition.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, transactionhandle: Handle, disposition: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwCreateKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, transactionhandle?.value?.toCPointer<ByteVar>(), disposition?.value?.toCPointer<ByteVar>())
+public actual fun zwCreateKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwCreateKeyTransacted(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), titleindex, cls.rawAddress.toCPointer<ByteVar>(), createoptions, transactionhandle.rawAddress.toCPointer<ByteVar>(), disposition.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, createoptions: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), createoptions)
+public actual fun zwCreateRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwCreateRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), createoptions)
 
 public actual fun zwDeleteKey(keyhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwDeleteKey(keyhandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWdkSystemRegistryZwDeleteKey(keyhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwDeleteValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>())
+public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwDeleteValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwEnumerateKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwEnumerateKey(keyhandle.rawAddress.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwEnumerateValueKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwEnumerateValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwFlushKey(keyhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwFlushKey(keyhandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWdkSystemRegistryZwFlushKey(keyhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: COpaquePointer?, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys(masterkeyhandle?.value?.toCPointer<ByteVar>(), count, subordinateobjects?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), completionfilter, watchtree, buffer?.value?.toCPointer<ByteVar>(), buffersize, asynchronous)
+public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr<ObjectAttributes>, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwNotifyChangeMultipleKeys(masterkeyhandle.rawAddress.toCPointer<ByteVar>(), count, subordinateobjects.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), completionfilter, watchtree, buffer.rawAddress.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun zwOpenKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwOpenKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwOpenKey(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenKeyEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwOpenKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions)
+public actual fun zwOpenKeyEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwOpenKeyEx(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), openoptions)
 
-public actual fun zwOpenKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, transactionhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwOpenKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), transactionhandle?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, transactionhandle: Handle): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwOpenKeyTransacted(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), transactionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenKeyTransactedEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt, transactionhandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions, transactionhandle?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenKeyTransactedEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwOpenKeyTransactedEx(keyhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), openoptions, transactionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwOpenRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwQueryKey(keyhandle?.value?.toCPointer<ByteVar>(), keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwQueryKey(keyhandle.rawAddress.toCPointer<ByteVar>(), keyinformationclass, keyinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: COpaquePointer?, entrycount: UInt, valuebuffer: COpaquePointer?, bufferlength: COpaquePointer?, requiredbufferlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valueentries?.value?.toCPointer<ByteVar>(), entrycount, valuebuffer?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), requiredbufferlength?.value?.toCPointer<ByteVar>())
+public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr<KeyValueEntry>, entrycount: UInt, valuebuffer: MutPtr<CVoid>, bufferlength: MutPtr<UInt>, requiredbufferlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwQueryMultipleValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valueentries.rawAddress.toCPointer<ByteVar>(), entrycount, valuebuffer.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>(), requiredbufferlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryValueKey(keyhandle: Handle, valuename: COpaquePointer?, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwQueryValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
+public actual fun zwQueryValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwQueryValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation.rawAddress.toCPointer<ByteVar>(), length, resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwRenameKey(keyhandle: Handle, newname: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwRenameKey(keyhandle?.value?.toCPointer<ByteVar>(), newname?.value?.toCPointer<ByteVar>())
+public actual fun zwRenameKey(keyhandle: Handle, newname: ConstPtr<UnicodeString>): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwRenameKey(keyhandle.rawAddress.toCPointer<ByteVar>(), newname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwRestoreKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWdkSystemRegistryZwRestoreKey(keyhandle.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun zwRollbackRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWdkSystemRegistryZwRollbackRegistryTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun zwSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwSaveKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWdkSystemRegistryZwSaveKey(keyhandle.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwSaveKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), format)
+    windowssysWindowsWdkSystemRegistryZwSaveKeyEx(keyhandle.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>(), format)
 
-public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: COpaquePointer?, keysetinformationlength: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwSetInformationKey(keyhandle?.value?.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation?.value?.toCPointer<ByteVar>(), keysetinformationlength)
+public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr<CVoid>, keysetinformationlength: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwSetInformationKey(keyhandle.rawAddress.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation.rawAddress.toCPointer<ByteVar>(), keysetinformationlength)
 
-public actual fun zwSetValueKey(keyhandle: Handle, valuename: COpaquePointer?, titleindex: UInt, type: UInt, data: COpaquePointer?, datasize: UInt): Ntstatus =
-    windowssys_windows_wdk_system_registry_zwSetValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), titleindex, type, data?.value?.toCPointer<ByteVar>(), datasize)
+public actual fun zwSetValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, titleindex: UInt, type: UInt, data: ConstPtr<CVoid>, datasize: UInt): Ntstatus =
+    windowssysWindowsWdkSystemRegistryZwSetValueKey(keyhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>(), titleindex, type, data.rawAddress.toCPointer<ByteVar>(), datasize)

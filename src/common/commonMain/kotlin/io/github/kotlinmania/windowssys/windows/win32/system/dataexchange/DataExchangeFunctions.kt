@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,6 +12,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
 
 public expect fun addAtomA(lpstring: Pcstr): UShort
 
@@ -26,19 +28,19 @@ public expect fun countClipboardFormats(): Int
 
 public expect fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool
 
-public expect fun ddeAccessData(hdata: Hddedata, pcbdatasize: COpaquePointer?): COpaquePointer?
+public expect fun ddeAccessData(hdata: Hddedata, pcbdatasize: MutPtr<UInt>): MutPtr<UByte>
 
-public expect fun ddeAddData(hdata: Hddedata, psrc: COpaquePointer?, cb: UInt, cboff: UInt): Hddedata
+public expect fun ddeAddData(hdata: Hddedata, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt): Hddedata
 
-public expect fun ddeClientTransaction(pdata: COpaquePointer?, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: COpaquePointer?): Hddedata
+public expect fun ddeClientTransaction(pdata: ConstPtr<UByte>, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: MutPtr<UInt>): Hddedata
 
 public expect fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int
 
-public expect fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: COpaquePointer?): Hconv
+public expect fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: ConstPtr<Convcontext>): Hconv
 
-public expect fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: COpaquePointer?): Hconvlist
+public expect fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: ConstPtr<Convcontext>): Hconvlist
 
-public expect fun ddeCreateDataHandle(idinst: UInt, psrc: COpaquePointer?, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata
+public expect fun ddeCreateDataHandle(idinst: UInt, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata
 
 public expect fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz
 
@@ -54,15 +56,15 @@ public expect fun ddeFreeDataHandle(hdata: Hddedata): Bool
 
 public expect fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool
 
-public expect fun ddeGetData(hdata: Hddedata, pdst: COpaquePointer?, cbmax: UInt, cboff: UInt): UInt
+public expect fun ddeGetData(hdata: Hddedata, pdst: MutPtr<UByte>, cbmax: UInt, cboff: UInt): UInt
 
 public expect fun ddeGetLastError(idinst: UInt): UInt
 
 public expect fun ddeImpersonateClient(hconv: Hconv): Bool
 
-public expect fun ddeInitializeA(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt
+public expect fun ddeInitializeA(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt
 
-public expect fun ddeInitializeW(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt
+public expect fun ddeInitializeW(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt
 
 public expect fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool
 
@@ -70,7 +72,7 @@ public expect fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeN
 
 public expect fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool
 
-public expect fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: COpaquePointer?): UInt
+public expect fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: MutPtr<Convinfo>): UInt
 
 public expect fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv
 
@@ -80,7 +82,7 @@ public expect fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UI
 
 public expect fun ddeReconnect(hconv: Hconv): Hconv
 
-public expect fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: COpaquePointer?, pqosprev: COpaquePointer?): Bool
+public expect fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: ConstPtr<SecurityQualityOfService>, pqosprev: MutPtr<SecurityQualityOfService>): Bool
 
 public expect fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool
 
@@ -118,9 +120,9 @@ public expect fun getClipboardViewer(): Hwnd
 
 public expect fun getOpenClipboardWindow(): Hwnd
 
-public expect fun getPriorityClipboardFormat(paformatprioritylist: COpaquePointer?, cformats: Int): Int
+public expect fun getPriorityClipboardFormat(paformatprioritylist: ConstPtr<UInt>, cformats: Int): Int
 
-public expect fun getUpdatedClipboardFormats(lpuiformats: COpaquePointer?, cformats: UInt, pcformatsout: COpaquePointer?): Bool
+public expect fun getUpdatedClipboardFormats(lpuiformats: MutPtr<UInt>, cformats: UInt, pcformatsout: MutPtr<UInt>): Bool
 
 public expect fun globalAddAtomA(lpstring: Pcstr): UShort
 
@@ -162,6 +164,6 @@ public expect fun setClipboardData(uformat: UInt, hmem: Handle): Handle
 
 public expect fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd
 
-public expect fun setWinMetaFileBits(nsize: UInt, lpmeta16data: COpaquePointer?, hdcref: Hdc, lpmfp: COpaquePointer?): Henhmetafile
+public expect fun setWinMetaFileBits(nsize: UInt, lpmeta16data: ConstPtr<UByte>, hdcref: Hdc, lpmfp: ConstPtr<Metafilepict>): Henhmetafile
 
-public expect fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: COpaquePointer?, puihi: COpaquePointer?): Bool
+public expect fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: MutPtr<ULong>, puihi: MutPtr<ULong>): Bool

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_grouppolicy_browseForGPO(void* lpbrowseinfo) {
+int32_t windowssysWindowsWin32SystemGrouppolicyBrowseForGPO(void* lpbrowseinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_browseForGPO(void* lpbrowsei
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor(void* descriptor, void* commandline, void* commandlinelength) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyCommandLineFromMsiDescriptor(void* descriptor, void* commandline, void* commandlinelength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescripto
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_createGPOLink(void* lpgpo, void* lpcontainer, int32_t fhighpriority) {
+int32_t windowssysWindowsWin32SystemGrouppolicyCreateGPOLink(void* lpgpo, void* lpcontainer, int32_t fhighpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_createGPOLink(void* lpgpo, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks(void* lpcontainer) {
+int32_t windowssysWindowsWin32SystemGrouppolicyDeleteAllGPOLinks(void* lpcontainer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks(void* lpco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_deleteGPOLink(void* lpgpo, void* lpcontainer) {
+int32_t windowssysWindowsWin32SystemGrouppolicyDeleteGPOLink(void* lpgpo, void* lpcontainer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_deleteGPOLink(void* lpgpo, v
 #endif
 }
 
-void* windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection(int32_t bmachine) {
+void* windowssysWindowsWin32SystemGrouppolicyEnterCriticalPolicySection(int32_t bmachine) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ void* windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_exportRSoPData(void* lpnamespace, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemGrouppolicyExportRSoPData(void* lpnamespace, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -175,7 +175,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_exportRSoPData(void* lpnames
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_freeGPOListA(void* pgpolist) {
+int32_t windowssysWindowsWin32SystemGrouppolicyFreeGPOListA(void* pgpolist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_freeGPOListA(void* pgpolist)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_freeGPOListW(void* pgpolist) {
+int32_t windowssysWindowsWin32SystemGrouppolicyFreeGPOListW(void* pgpolist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_freeGPOListW(void* pgpolist)
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_generateGPNotification(int32_t bmachine, void* lpwszmgmtproduct, uint32_t dwmgmtproductoptions) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyGenerateGPNotification(int32_t bmachine, void* lpwszmgmtproduct, uint32_t dwmgmtproductoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -243,7 +243,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_generateGPNotification(int3
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA(uint32_t dwflags, void* pmachinename, void* psiduser, void* pguidextension, void* ppgpolist) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyGetAppliedGPOListA(uint32_t dwflags, void* pmachinename, void* psiduser, void* pguidextension, void* ppgpolist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW(uint32_t dwflags, void* pmachinename, void* psiduser, void* pguidextension, void* ppgpolist) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyGetAppliedGPOListW(uint32_t dwflags, void* pmachinename, void* psiduser, void* pguidextension, void* ppgpolist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -295,7 +295,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_getGPOListA(void* htoken, void* lpname, void* lphostname, void* lpcomputername, uint32_t dwflags, void* pgpolist) {
+int32_t windowssysWindowsWin32SystemGrouppolicyGetGPOListA(void* htoken, void* lpname, void* lphostname, void* lpcomputername, uint32_t dwflags, void* pgpolist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -322,7 +322,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_getGPOListA(void* htoken, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_getGPOListW(void* htoken, void* lpname, void* lphostname, void* lpcomputername, uint32_t dwflags, void* pgpolist) {
+int32_t windowssysWindowsWin32SystemGrouppolicyGetGPOListW(void* htoken, void* lpname, void* lphostname, void* lpcomputername, uint32_t dwflags, void* pgpolist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -349,7 +349,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_getGPOListW(void* htoken, vo
 #endif
 }
 
-void windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData(void* productcode, void* displayname, void* supporturl) {
+void windowssysWindowsWin32SystemGrouppolicyGetLocalManagedApplicationData(void* productcode, void* displayname, void* supporturl) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -372,7 +372,7 @@ void windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications(int32_t buserapps, void* pdwapps, void* prglocalapps) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyGetLocalManagedApplications(int32_t buserapps, void* pdwapps, void* prglocalapps) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories(uint32_t dwreserved, void* pappcategory) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyGetManagedApplicationCategories(uint32_t dwreserved, void* pappcategory) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_getManagedApplicationCatego
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_getManagedApplications(void* pcategory, uint32_t dwqueryflags, uint32_t dwinfolevel, void* pdwapps, void* prgmanagedapps) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyGetManagedApplications(void* pcategory, uint32_t dwqueryflags, uint32_t dwinfolevel, void* pdwapps, void* prgmanagedapps) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_getManagedApplications(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_importRSoPData(void* lpnamespace, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemGrouppolicyImportRSoPData(void* lpnamespace, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -468,7 +468,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_importRSoPData(void* lpnames
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_installApplication(void* pinstallinfo) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyInstallApplication(void* pinstallinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -490,7 +490,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_installApplication(void* pi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection(void* hsection) {
+int32_t windowssysWindowsWin32SystemGrouppolicyLeaveCriticalPolicySection(void* hsection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -512,7 +512,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted(void* extensionid, uint64_t pasynchandle, uint32_t dwstatus) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyProcessGroupPolicyCompleted(void* extensionid, uint64_t pasynchandle, uint32_t dwstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -536,7 +536,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx(void* extensionid, uint64_t pasynchandle, uint32_t dwstatus, int32_t rsopstatus) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyProcessGroupPolicyCompletedEx(void* extensionid, uint64_t pasynchandle, uint32_t dwstatus, int32_t rsopstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_refreshPolicy(int32_t bmachine) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRefreshPolicy(int32_t bmachine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -583,7 +583,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_refreshPolicy(int32_t bmachi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_refreshPolicyEx(int32_t bmachine, uint32_t dwoptions) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx(int32_t bmachine, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -606,7 +606,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_refreshPolicyEx(int32_t bmac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_registerGPNotification(void* hevent, int32_t bmachine) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRegisterGPNotification(void* hevent, int32_t bmachine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -629,7 +629,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_registerGPNotification(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType(void* psecuritydescriptor, void* pprincipalselfsid, void* prsoptoken, uint32_t dwdesiredaccessmask, void* pobjecttypelist, uint32_t objecttypelistlength, void* pgenericmapping, void* pprivilegeset, void* pdwprivilegesetlength, void* pdwgrantedaccessmask, void* pbaccessstatus) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRsopAccessCheckByType(void* psecuritydescriptor, void* pprincipalselfsid, void* prsoptoken, uint32_t dwdesiredaccessmask, void* pobjecttypelist, uint32_t objecttypelistlength, void* pgenericmapping, void* pprivilegeset, void* pdwprivilegesetlength, void* pdwgrantedaccessmask, void* pbaccessstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -661,7 +661,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck(void* pszfilename, void* prsoptoken, uint32_t dwdesiredaccessmask, void* pdwgrantedaccessmask, void* pbaccessstatus) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRsopFileAccessCheck(void* pszfilename, void* prsoptoken, uint32_t dwdesiredaccessmask, void* pdwgrantedaccessmask, void* pbaccessstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -687,7 +687,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus(uint32_t dwflags, void* pservices, void* psettinginstance) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRsopResetPolicySettingStatus(uint32_t dwflags, void* pservices, void* psettinginstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -711,7 +711,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus(uint32_t dwflags, void* pservices, void* psettinginstance, uint32_t ninfo, void* pstatus) {
+int32_t windowssysWindowsWin32SystemGrouppolicyRsopSetPolicySettingStatus(uint32_t dwflags, void* pservices, void* psettinginstance, uint32_t ninfo, void* pstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ int32_t windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_grouppolicy_uninstallApplication(void* productcode, uint32_t dwstatus) {
+uint32_t windowssysWindowsWin32SystemGrouppolicyUninstallApplication(void* productcode, uint32_t dwstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -760,7 +760,7 @@ uint32_t windowssys_windows_win32_system_grouppolicy_uninstallApplication(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_grouppolicy_unregisterGPNotification(void* hevent) {
+int32_t windowssysWindowsWin32SystemGrouppolicyUnregisterGPNotification(void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

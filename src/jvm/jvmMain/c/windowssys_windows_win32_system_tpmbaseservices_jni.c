@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1getDeviceID(JNIEnv* km_env, jclass km_clazz, jlong pbwindowsaik, jint cbwindowsaik, jlong pcbresult, jlong pfprotectedbytpm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesGetDeviceID(JNIEnv* km_env, jclass km_clazz, jlong pbwindowsaik, jint cbwindowsaik, jlong pcbresult, jlong pfprotectedbytpm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -47,7 +47,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1getDeviceIDString(JNIEnv* km_env, jclass km_clazz, jlong pszwindowsaik, jint cchwindowsaik, jlong pcchresult, jlong pfprotectedbytpm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString(JNIEnv* km_env, jclass km_clazz, jlong pszwindowsaik, jint cchwindowsaik, jlong pcchresult, jlong pfprotectedbytpm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiContextCreate(JNIEnv* km_env, jclass km_clazz, jlong pcontextparams, jlong phcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate(JNIEnv* km_env, jclass km_clazz, jlong pcontextparams, jlong phcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -101,7 +101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiCreateWindowsKey(JNIEnv* km_env, jclass km_clazz, jint keyhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey(JNIEnv* km_env, jclass km_clazz, jint keyhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiGetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jint size, jlong info) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jint size, jlong info) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiGetOwnerAuth(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jint ownerauthtype, jlong poutputbuf, jlong poutputbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jint ownerauthtype, jlong poutputbuf, jlong poutputbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiGetTcgLog(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jlong poutputbuf, jlong poutputbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jlong poutputbuf, jlong poutputbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -207,7 +207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiGetTcgLogEx(JNIEnv* km_env, jclass km_clazz, jint logtype, jlong pboutput, jlong pcboutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx(JNIEnv* km_env, jclass km_clazz, jint logtype, jlong pboutput, jlong pcboutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -234,7 +234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiIsTpmPresent(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiPhysicalPresenceCommand(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jlong pabinput, jint cbinput, jlong paboutput, jlong pcboutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jlong pabinput, jint cbinput, jlong paboutput, jlong pcboutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -287,7 +287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsiRevokeAttestation(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsipCancelCommands(JNIEnv* km_env, jclass km_clazz, jlong hcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands(JNIEnv* km_env, jclass km_clazz, jlong hcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -336,7 +336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsipContextClose(JNIEnv* km_env, jclass km_clazz, jlong hcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose(JNIEnv* km_env, jclass km_clazz, jlong hcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -361,7 +361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssys_1windows_1win32_1system_1tpmbaseservices_1tbsipSubmitCommand(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jint locality, jint priority, jlong pabcommand, jint cbcommand, jlong pabresult, jlong pcbresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_tpmbaseservices_WindowsWin32SystemTpmbaseservicesJniBridge_windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand(JNIEnv* km_env, jclass km_clazz, jlong hcontext, jint locality, jint priority, jlong pabcommand, jint cbcommand, jlong pabresult, jlong pcbresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

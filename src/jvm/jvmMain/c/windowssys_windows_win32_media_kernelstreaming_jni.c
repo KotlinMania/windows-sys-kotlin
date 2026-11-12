@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreateAllocator(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong allocatorframing, jlong allocatorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreateAllocator(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong allocatorframing, jlong allocatorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreateAllocator2(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong allocatorframing, jlong allocatorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreateAllocator2(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong allocatorframing, jlong allocatorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreateClock(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong clockcreate, jlong clockhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreateClock(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong clockcreate, jlong clockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreateClock2(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong clockcreate, jlong clockhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreateClock2(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong clockcreate, jlong clockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreatePin(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jlong arg_1_connect, jint desiredaccess, jlong connectionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreatePin(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jlong arg1Connect, jint desiredaccess, jlong connectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -139,14 +139,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg_1_connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle);
+        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg1Connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)filterhandle;
-    (void)arg_1_connect;
+    (void)arg1Connect;
     (void)desiredaccess;
     (void)connectionhandle;
     errno = ENOSYS;
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreatePin2(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jlong arg_1_connect, jint desiredaccess, jlong connectionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreatePin2(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jlong arg1Connect, jint desiredaccess, jlong connectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -167,14 +167,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg_1_connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle);
+        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg1Connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)filterhandle;
-    (void)arg_1_connect;
+    (void)arg1Connect;
     (void)desiredaccess;
     (void)connectionhandle;
     errno = ENOSYS;
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreateTopologyNode(JNIEnv* km_env, jclass km_clazz, jlong parenthandle, jlong nodecreate, jint desiredaccess, jlong nodehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreateTopologyNode(JNIEnv* km_env, jclass km_clazz, jlong parenthandle, jlong nodecreate, jint desiredaccess, jlong nodehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksCreateTopologyNode2(JNIEnv* km_env, jclass km_clazz, jlong parenthandle, jlong nodecreate, jint desiredaccess, jlong nodehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsCreateTopologyNode2(JNIEnv* km_env, jclass km_clazz, jlong parenthandle, jlong nodecreate, jint desiredaccess, jlong nodehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -239,7 +239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksGetMediaTypeCount(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jint pinfactoryid, jlong mediatypecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsGetMediaTypeCount(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jint pinfactoryid, jlong mediatypecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -266,7 +266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksGetMultiplePinFactoryItems(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jint pinfactoryid, jint propertyid, jlong items) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsGetMultiplePinFactoryItems(JNIEnv* km_env, jclass km_clazz, jlong filterhandle, jint pinfactoryid, jint propertyid, jlong items) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -294,7 +294,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksOpenDefaultDevice(JNIEnv* km_env, jclass km_clazz, jlong category, jint access, jlong devicehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsOpenDefaultDevice(JNIEnv* km_env, jclass km_clazz, jlong category, jint access, jlong devicehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksResolveRequiredAttributes(JNIEnv* km_env, jclass km_clazz, jlong datarange, jlong attributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsResolveRequiredAttributes(JNIEnv* km_env, jclass km_clazz, jlong datarange, jlong attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssys_1windows_1win32_1media_1kernelstreaming_1ksSynchronousDeviceControl(JNIEnv* km_env, jclass km_clazz, jlong handle, jint iocontrol, jlong inbuffer, jint inlength, jlong outbuffer, jint outlength, jlong bytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_kernelstreaming_WindowsWin32MediaKernelstreamingJniBridge_windowssysWindowsWin32MediaKernelstreamingKsSynchronousDeviceControl(JNIEnv* km_env, jclass km_clazz, jlong handle, jint iocontrol, jlong inbuffer, jint inlength, jlong outbuffer, jint outlength, jlong bytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

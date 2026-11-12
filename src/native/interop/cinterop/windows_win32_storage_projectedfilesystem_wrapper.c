@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer(void* namespacevirtualizationcontext, uint64_t size) {
+void* windowssysWindowsWin32StorageProjectedfilesystemPrjAllocateAlignedBuffer(void* namespacevirtualizationcontext, uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void* windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuf
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache(void* namespacevirtualizationcontext, void* totalentrynumber) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjClearNegativePathCache(void* namespacevirtualizationcontext, void* totalentrynumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePat
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand(void* namespacevirtualizationcontext, int32_t commandid, int32_t completionresult, void* extendedparameters) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjCompleteCommand(void* namespacevirtualizationcontext, int32_t commandid, int32_t completionresult, void* extendedparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile(void* namespacevirtualizationcontext, void* destinationfilename, int32_t updateflags, void* failurereason) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjDeleteFile(void* namespacevirtualizationcontext, void* destinationfilename, int32_t updateflags, void* failurereason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile(void*
 #endif
 }
 
-bool windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards(void* filename) {
+bool windowssysWindowsWin32StorageProjectedfilesystemPrjDoesNameContainWildCards(void* filename) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ bool windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWild
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare(void* filename1, void* filename2) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameCompare(void* filename1, void* filename2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare(
 #endif
 }
 
-bool windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch(void* filenametocheck, void* pattern) {
+bool windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameMatch(void* filenametocheck, void* pattern) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -179,7 +179,7 @@ bool windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer(void* filename, void* filebasicinfo, void* direntrybufferhandle) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer(void* filename, void* filebasicinfo, void* direntrybufferhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuff
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2(void* direntrybufferhandle, void* filename, void* filebasicinfo, void* extendedinfo) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer2(void* direntrybufferhandle, void* filename, void* filebasicinfo, void* extendedinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -228,7 +228,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuff
 #endif
 }
 
-void windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer(void* buffer) {
+void windowssysWindowsWin32StorageProjectedfilesystemPrjFreeAlignedBuffer(void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ void windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer(v
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState(void* destinationfilename, void* filestate) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjGetOnDiskFileState(void* destinationfilename, void* filestate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -272,7 +272,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileSta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo(void* namespacevirtualizationcontext, void* virtualizationinstanceinfo) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjGetVirtualizationInstanceInfo(void* namespacevirtualizationcontext, void* virtualizationinstanceinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -295,7 +295,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizatio
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder(void* rootpathname, void* targetpathname, void* versioninfo, void* virtualizationinstanceid) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjMarkDirectoryAsPlaceholder(void* rootpathname, void* targetpathname, void* versioninfo, void* virtualizationinstanceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -320,7 +320,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsP
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing(void* virtualizationrootpath, void* callbacks, void* instancecontext, void* options, void* namespacevirtualizationcontext) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjStartVirtualizing(void* virtualizationrootpath, void* callbacks, void* instancecontext, void* options, void* namespacevirtualizationcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -346,7 +346,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizin
 #endif
 }
 
-void windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing(void* namespacevirtualizationcontext) {
+void windowssysWindowsWin32StorageProjectedfilesystemPrjStopVirtualizing(void* namespacevirtualizationcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ void windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, int32_t updateflags, void* failurereason) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjUpdateFileIfNeeded(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, int32_t updateflags, void* failurereason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -394,7 +394,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeed
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData(void* namespacevirtualizationcontext, void* datastreamid, void* buffer, uint64_t byteoffset, uint32_t length) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjWriteFileData(void* namespacevirtualizationcontext, void* datastreamid, void* buffer, uint64_t byteoffset, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -420,7 +420,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholder
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, void* extendedinfo) {
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo2(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, void* extendedinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

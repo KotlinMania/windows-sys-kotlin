@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -107,7 +109,7 @@ public fun interface GeoEnumprocFn {
 
 public typealias GeoEnumproc = GeoEnumprocFn?
 
-public typealias Hsaveduilanguages = COpaquePointer?
+public typealias Hsaveduilanguages = MutPtr<CVoid>
 
 public typealias IsTextUnicodeResult = UInt
 
@@ -170,7 +172,7 @@ public typealias MultiByteToWideCharFlags = UInt
 public typealias NormForm = Int
 
 public fun interface PfnMappingcallbackprocFn {
-    public operator fun invoke(pbag: COpaquePointer?, data: COpaquePointer?, dwdatasize: UInt, result: Hresult)
+    public operator fun invoke(pbag: MutPtr<MappingPropertyBag>, data: MutPtr<CVoid>, dwdatasize: UInt, result: Hresult)
 }
 
 public typealias PfnMappingcallbackproc = PfnMappingcallbackprocFn?
@@ -218,7 +220,7 @@ public typealias UAlphabeticIndexLabelType = Int
 public typealias UBiDi = Long
 
 public fun interface UBiDiClassCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, c: Int): UCharDirection
+    public operator fun invoke(context: ConstPtr<CVoid>, c: Int): UCharDirection
 }
 
 public typealias UBiDiClassCallback = UBiDiClassCallbackFn?
@@ -248,7 +250,7 @@ public typealias UCPMap = Long
 public typealias UCPMapRangeOption = Int
 
 public fun interface UCPMapValueFilterFn {
-    public operator fun invoke(context: COpaquePointer?, value: UInt): UInt
+    public operator fun invoke(context: ConstPtr<CVoid>, value: UInt): UInt
 }
 
 public typealias UCPMapValueFilter = UCPMapValueFilterFn?
@@ -284,49 +286,49 @@ public typealias UCharCategory = Int
 public typealias UCharDirection = Int
 
 public fun interface UCharEnumTypeRangeFn {
-    public operator fun invoke(context: COpaquePointer?, start: Int, limit: Int, type: UCharCategory): Byte
+    public operator fun invoke(context: ConstPtr<CVoid>, start: Int, limit: Int, type: UCharCategory): Byte
 }
 
 public typealias UCharEnumTypeRange = UCharEnumTypeRangeFn?
 
 public fun interface UCharIteratorCurrentFn {
-    public operator fun invoke(iter: COpaquePointer?): Int
+    public operator fun invoke(iter: MutPtr<UCharIterator>): Int
 }
 
 public typealias UCharIteratorCurrent = UCharIteratorCurrentFn?
 
 public fun interface UCharIteratorGetIndexFn {
-    public operator fun invoke(iter: COpaquePointer?, origin: UCharIteratorOrigin): Int
+    public operator fun invoke(iter: MutPtr<UCharIterator>, origin: UCharIteratorOrigin): Int
 }
 
 public typealias UCharIteratorGetIndex = UCharIteratorGetIndexFn?
 
 public fun interface UCharIteratorGetStateFn {
-    public operator fun invoke(iter: COpaquePointer?): UInt
+    public operator fun invoke(iter: ConstPtr<UCharIterator>): UInt
 }
 
 public typealias UCharIteratorGetState = UCharIteratorGetStateFn?
 
 public fun interface UCharIteratorHasNextFn {
-    public operator fun invoke(iter: COpaquePointer?): Byte
+    public operator fun invoke(iter: MutPtr<UCharIterator>): Byte
 }
 
 public typealias UCharIteratorHasNext = UCharIteratorHasNextFn?
 
 public fun interface UCharIteratorHasPreviousFn {
-    public operator fun invoke(iter: COpaquePointer?): Byte
+    public operator fun invoke(iter: MutPtr<UCharIterator>): Byte
 }
 
 public typealias UCharIteratorHasPrevious = UCharIteratorHasPreviousFn?
 
 public fun interface UCharIteratorMoveFn {
-    public operator fun invoke(iter: COpaquePointer?, delta: Int, origin: UCharIteratorOrigin): Int
+    public operator fun invoke(iter: MutPtr<UCharIterator>, delta: Int, origin: UCharIteratorOrigin): Int
 }
 
 public typealias UCharIteratorMove = UCharIteratorMoveFn?
 
 public fun interface UCharIteratorNextFn {
-    public operator fun invoke(iter: COpaquePointer?): Int
+    public operator fun invoke(iter: MutPtr<UCharIterator>): Int
 }
 
 public typealias UCharIteratorNext = UCharIteratorNextFn?
@@ -334,19 +336,19 @@ public typealias UCharIteratorNext = UCharIteratorNextFn?
 public typealias UCharIteratorOrigin = Int
 
 public fun interface UCharIteratorPreviousFn {
-    public operator fun invoke(iter: COpaquePointer?): Int
+    public operator fun invoke(iter: MutPtr<UCharIterator>): Int
 }
 
 public typealias UCharIteratorPrevious = UCharIteratorPreviousFn?
 
 public fun interface UCharIteratorReservedFn {
-    public operator fun invoke(iter: COpaquePointer?, something: Int): Int
+    public operator fun invoke(iter: MutPtr<UCharIterator>, something: Int): Int
 }
 
 public typealias UCharIteratorReserved = UCharIteratorReservedFn?
 
 public fun interface UCharIteratorSetStateFn {
-    public operator fun invoke(iter: COpaquePointer?, state: UInt, perrorcode: COpaquePointer?)
+    public operator fun invoke(iter: MutPtr<UCharIterator>, state: UInt, perrorcode: MutPtr<UErrorCode>)
 }
 
 public typealias UCharIteratorSetState = UCharIteratorSetStateFn?
@@ -380,7 +382,7 @@ public typealias UConverter = Long
 public typealias UConverterCallbackReason = Int
 
 public fun interface UConverterFromUCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, args: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, perrorcode: COpaquePointer?)
+    public operator fun invoke(context: ConstPtr<CVoid>, args: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, perrorcode: MutPtr<UErrorCode>)
 }
 
 public typealias UConverterFromUCallback = UConverterFromUCallbackFn?
@@ -390,7 +392,7 @@ public typealias UConverterPlatform = Int
 public typealias UConverterSelector = Long
 
 public fun interface UConverterToUCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, args: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, perrorcode: COpaquePointer?)
+    public operator fun invoke(context: ConstPtr<CVoid>, args: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, perrorcode: MutPtr<UErrorCode>)
 }
 
 public typealias UConverterToUCallback = UConverterToUCallbackFn?
@@ -448,7 +450,7 @@ public typealias UDisplayContextType = Int
 public typealias UEastAsianWidth = Int
 
 public fun interface UEnumCharNamesFnFn {
-    public operator fun invoke(context: COpaquePointer?, code: Int, namechoice: UCharNameChoice, name: Pcstr, length: Int): Byte
+    public operator fun invoke(context: MutPtr<CVoid>, code: Int, namechoice: UCharNameChoice, name: Pcstr, length: Int): Byte
 }
 
 public typealias UEnumCharNamesFn = UEnumCharNamesFnFn?
@@ -538,19 +540,19 @@ public typealias UMeasureFormatWidth = Int
 public typealias UMeasurementSystem = Int
 
 public fun interface UMemAllocFnFn {
-    public operator fun invoke(context: COpaquePointer?, size: ULong): COpaquePointer?
+    public operator fun invoke(context: ConstPtr<CVoid>, size: ULong): MutPtr<CVoid>
 }
 
 public typealias UMemAllocFn = UMemAllocFnFn?
 
 public fun interface UMemFreeFnFn {
-    public operator fun invoke(context: COpaquePointer?, mem: COpaquePointer?)
+    public operator fun invoke(context: ConstPtr<CVoid>, mem: MutPtr<CVoid>)
 }
 
 public typealias UMemFreeFn = UMemFreeFnFn?
 
 public fun interface UMemReallocFnFn {
-    public operator fun invoke(context: COpaquePointer?, mem: COpaquePointer?, size: ULong): COpaquePointer?
+    public operator fun invoke(context: ConstPtr<CVoid>, mem: MutPtr<CVoid>, size: ULong): MutPtr<CVoid>
 }
 
 public typealias UMemReallocFn = UMemReallocFnFn?
@@ -564,7 +566,7 @@ public typealias UMessagePatternPartType = Int
 public typealias UMutableCPTrie = Long
 
 public fun interface UnescapeCharAtFn {
-    public operator fun invoke(offset: Int, context: COpaquePointer?): UShort
+    public operator fun invoke(offset: Int, context: MutPtr<CVoid>): UShort
 }
 
 public typealias UnescapeCharAt = UnescapeCharAtFn?
@@ -624,13 +626,13 @@ public typealias UProperty = Int
 public typealias UPropertyNameChoice = Int
 
 public fun interface URegexFindProgressCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, matchindex: Long): Byte
+    public operator fun invoke(context: ConstPtr<CVoid>, matchindex: Long): Byte
 }
 
 public typealias URegexFindProgressCallback = URegexFindProgressCallbackFn?
 
 public fun interface URegexMatchCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, steps: Int): Byte
+    public operator fun invoke(context: ConstPtr<CVoid>, steps: Int): Byte
 }
 
 public typealias URegexMatchCallback = URegexMatchCallbackFn?
@@ -680,7 +682,7 @@ public typealias USpoofChecker = Long
 public typealias USpoofChecks = Int
 
 public fun interface UStringCaseMapperFn {
-    public operator fun invoke(csm: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int
+    public operator fun invoke(csm: ConstPtr<UCaseMap>, dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int
 }
 
 public typealias UStringCaseMapper = UStringCaseMapperFn?
@@ -698,55 +700,55 @@ public typealias UStringTrieResult = Int
 public typealias USystemTimeZoneType = Int
 
 public fun interface UTextAccessFn {
-    public operator fun invoke(ut: COpaquePointer?, nativeindex: Long, forward: Byte): Byte
+    public operator fun invoke(ut: MutPtr<UText>, nativeindex: Long, forward: Byte): Byte
 }
 
 public typealias UTextAccess = UTextAccessFn?
 
 public fun interface UTextCloneFn {
-    public operator fun invoke(dest: COpaquePointer?, src: COpaquePointer?, deep: Byte, status: COpaquePointer?): COpaquePointer?
+    public operator fun invoke(dest: MutPtr<UText>, src: ConstPtr<UText>, deep: Byte, status: MutPtr<UErrorCode>): MutPtr<UText>
 }
 
 public typealias UTextClone = UTextCloneFn?
 
 public fun interface UTextCloseFn {
-    public operator fun invoke(ut: COpaquePointer?)
+    public operator fun invoke(ut: MutPtr<UText>)
 }
 
 public typealias UTextClose = UTextCloseFn?
 
 public fun interface UTextCopyFn {
-    public operator fun invoke(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, nativedest: Long, move: Byte, status: COpaquePointer?)
+    public operator fun invoke(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, nativedest: Long, move: Byte, status: MutPtr<UErrorCode>)
 }
 
 public typealias UTextCopy = UTextCopyFn?
 
 public fun interface UTextExtractFn {
-    public operator fun invoke(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
+    public operator fun invoke(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int
 }
 
 public typealias UTextExtract = UTextExtractFn?
 
 public fun interface UTextMapNativeIndexToUTF16Fn {
-    public operator fun invoke(ut: COpaquePointer?, nativeindex: Long): Int
+    public operator fun invoke(ut: ConstPtr<UText>, nativeindex: Long): Int
 }
 
 public typealias UTextMapNativeIndexToUTF16 = UTextMapNativeIndexToUTF16Fn?
 
 public fun interface UTextMapOffsetToNativeFn {
-    public operator fun invoke(ut: COpaquePointer?): Long
+    public operator fun invoke(ut: ConstPtr<UText>): Long
 }
 
 public typealias UTextMapOffsetToNative = UTextMapOffsetToNativeFn?
 
 public fun interface UTextNativeLengthFn {
-    public operator fun invoke(ut: COpaquePointer?): Long
+    public operator fun invoke(ut: MutPtr<UText>): Long
 }
 
 public typealias UTextNativeLength = UTextNativeLengthFn?
 
 public fun interface UTextReplaceFn {
-    public operator fun invoke(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, replacementtext: COpaquePointer?, replacmentlength: Int, status: COpaquePointer?): Int
+    public operator fun invoke(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, replacementtext: ConstPtr<UShort>, replacmentlength: Int, status: MutPtr<UErrorCode>): Int
 }
 
 public typealias UTextReplace = UTextReplaceFn?
@@ -766,19 +768,19 @@ public typealias UTimeZoneNameType = Int
 public typealias UTimeZoneTransitionType = Int
 
 public fun interface UTraceDataFn {
-    public operator fun invoke(context: COpaquePointer?, fnnumber: Int, level: Int, fmt: Pcstr, args: COpaquePointer?)
+    public operator fun invoke(context: ConstPtr<CVoid>, fnnumber: Int, level: Int, fmt: Pcstr, args: MutPtr<Byte>)
 }
 
 public typealias UTraceData = UTraceDataFn?
 
 public fun interface UTraceEntryFn {
-    public operator fun invoke(context: COpaquePointer?, fnnumber: Int)
+    public operator fun invoke(context: ConstPtr<CVoid>, fnnumber: Int)
 }
 
 public typealias UTraceEntry = UTraceEntryFn?
 
 public fun interface UTraceExitFn {
-    public operator fun invoke(context: COpaquePointer?, fnnumber: Int, fmt: Pcstr, args: COpaquePointer?)
+    public operator fun invoke(context: ConstPtr<CVoid>, fnnumber: Int, fmt: Pcstr, args: MutPtr<Byte>)
 }
 
 public typealias UTraceExit = UTraceExitFn?

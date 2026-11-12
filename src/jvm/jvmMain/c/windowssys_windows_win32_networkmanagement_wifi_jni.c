@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDCancelOpenSession(JNIEnv* km_env, jclass km_clazz, jlong hsessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession(JNIEnv* km_env, jclass km_clazz, jlong hsessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDCloseSession(JNIEnv* km_env, jclass km_clazz, jlong hsessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDCloseSession(JNIEnv* km_env, jclass km_clazz, jlong hsessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDOpenHandle(JNIEnv* km_env, jclass km_clazz, jint dwclientversion, jlong pdwnegotiatedversion, jlong phclienthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle(JNIEnv* km_env, jclass km_clazz, jint dwclientversion, jlong pdwnegotiatedversion, jlong phclienthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDOpenLegacySession(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong plegacymacaddress, jlong phsessionhandle, jlong pguidsessioninterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong plegacymacaddress, jlong phsessionhandle, jlong pguidsessioninterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDStartOpenSession(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pdeviceaddress, jlong pvcontext, jlong pfncallback, jlong phsessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pdeviceaddress, jlong pvcontext, jlong pfncallback, jlong phsessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -178,7 +178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wFDUpdateDeviceVisibility(JNIEnv* km_env, jclass km_clazz, jlong pdeviceaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility(JNIEnv* km_env, jclass km_clazz, jlong pdeviceaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanAllocateMemory(JNIEnv* km_env, jclass km_clazz, jint dwmemorysize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory(JNIEnv* km_env, jclass km_clazz, jint dwmemorysize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -228,7 +228,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -254,7 +254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanConnect(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pconnectionparameters, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanConnect(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pconnectionparameters, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -282,7 +282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanConnect2(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pconnectionparameters, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanConnect2(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pconnectionparameters, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -310,7 +310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanDeleteProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -338,7 +338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanDeviceServiceCommand(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pdeviceserviceguid, jint dwopcode, jint dwinbuffersize, jlong pinbuffer, jint dwoutbuffersize, jlong poutbuffer, jlong pdwbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pdeviceserviceguid, jint dwopcode, jint dwinbuffersize, jlong pinbuffer, jint dwoutbuffersize, jlong poutbuffer, jlong pdwbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -371,7 +371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanDisconnect(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanDisconnect(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -398,7 +398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanEnumInterfaces(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong preserved, jlong ppinterfacelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong preserved, jlong ppinterfacelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -425,7 +425,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanExtractPsdIEDataList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint dwiedatasize, jlong prawiedata, jlong strformat, jlong preserved, jlong pppsdiedatalist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint dwiedatasize, jlong prawiedata, jlong strformat, jlong preserved, jlong pppsdiedatalist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -455,7 +455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -476,7 +476,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetAvailableNetworkList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwflags, jlong preserved, jlong ppavailablenetworklist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwflags, jlong preserved, jlong ppavailablenetworklist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -505,7 +505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetAvailableNetworkList2(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwflags, jlong preserved, jlong ppavailablenetworklist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwflags, jlong preserved, jlong ppavailablenetworklist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -534,7 +534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetFilterList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint wlanfilterlisttype, jlong preserved, jlong ppnetworklist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint wlanfilterlisttype, jlong preserved, jlong ppnetworklist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -562,7 +562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetInterfaceCapability(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong preserved, jlong ppcapability) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong preserved, jlong ppcapability) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -590,7 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetNetworkBssList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pdot11ssid, jint dot11bsstype, jint bsecurityenabled, jlong preserved, jlong ppwlanbsslist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pdot11ssid, jint dot11bsstype, jint bsecurityenabled, jlong preserved, jlong ppwlanbsslist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -621,7 +621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong preserved, jlong pstrprofilexml, jlong pdwflags, jlong pdwgrantedaccess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong preserved, jlong pstrprofilexml, jlong pdwflags, jlong pdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -652,7 +652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetProfileCustomUserData(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong preserved, jlong pdwdatasize, jlong ppdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong preserved, jlong pdwdatasize, jlong ppdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -682,7 +682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetProfileList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong preserved, jlong ppprofilelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong preserved, jlong ppprofilelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -710,7 +710,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetSecuritySettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint securableobject, jlong pvaluetype, jlong pstrcurrentsddl, jlong pdwgrantedaccess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint securableobject, jlong pvaluetype, jlong pstrcurrentsddl, jlong pdwgrantedaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -739,7 +739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanGetSupportedDeviceServices(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong ppdevsvcguidlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong ppdevsvcguidlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -766,7 +766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkForceStart(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -793,7 +793,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkForceStop(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -820,7 +820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkInitSettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -847,7 +847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkQueryProperty(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jlong pdwdatasize, jlong ppvdata, jlong pwlanopcodevaluetype, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jlong pdwdatasize, jlong ppvdata, jlong pwlanopcodevaluetype, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -877,7 +877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkQuerySecondaryKey(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pdwkeylength, jlong ppuckeydata, jlong pbispassphrase, jlong pbpersistent, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pdwkeylength, jlong ppuckeydata, jlong pbispassphrase, jlong pbpersistent, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -908,7 +908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkQueryStatus(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong ppwlanhostednetworkstatus, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong ppwlanhostednetworkstatus, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkRefreshSecuritySettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -962,7 +962,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkSetProperty(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jint dwdatasize, jlong pvdata, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jint dwdatasize, jlong pvdata, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -992,7 +992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkSetSecondaryKey(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint dwkeylength, jlong puckeydata, jint bispassphrase, jint bpersistent, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint dwkeylength, jlong puckeydata, jint bispassphrase, jint bpersistent, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1023,7 +1023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkStartUsing(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1050,7 +1050,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanHostedNetworkStopUsing(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pfailreason, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1077,7 +1077,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanIhvControl(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint type, jint dwinbuffersize, jlong pinbuffer, jint dwoutbuffersize, jlong poutbuffer, jlong pdwbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanIhvControl(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint type, jint dwinbuffersize, jlong pinbuffer, jint dwoutbuffersize, jlong poutbuffer, jlong pdwbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1109,7 +1109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanOpenHandle(JNIEnv* km_env, jclass km_clazz, jint dwclientversion, jlong preserved, jlong pdwnegotiatedversion, jlong phclienthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle(JNIEnv* km_env, jclass km_clazz, jint dwclientversion, jlong preserved, jlong pdwnegotiatedversion, jlong phclienthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1137,7 +1137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanQueryAutoConfigParameter(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jlong preserved, jlong pdwdatasize, jlong ppdata, jlong pwlanopcodevaluetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jlong preserved, jlong pdwdatasize, jlong ppdata, jlong pwlanopcodevaluetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1167,7 +1167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanQueryInterface(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint opcode, jlong preserved, jlong pdwdatasize, jlong ppdata, jlong pwlanopcodevaluetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint opcode, jlong preserved, jlong pdwdatasize, jlong ppdata, jlong pwlanopcodevaluetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1198,7 +1198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanReasonCodeToString(JNIEnv* km_env, jclass km_clazz, jint dwreasoncode, jint dwbuffersize, jlong pstringbuffer, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString(JNIEnv* km_env, jclass km_clazz, jint dwreasoncode, jint dwbuffersize, jlong pstringbuffer, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1226,7 +1226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanRegisterDeviceServiceNotification(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pdevsvcguidlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pdevsvcguidlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1252,7 +1252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint dwnotifsource, jint bignoreduplicate, jlong funccallback, jlong pcallbackcontext, jlong preserved, jlong pdwprevnotifsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint dwnotifsource, jint bignoreduplicate, jlong funccallback, jlong pcallbackcontext, jlong preserved, jlong pdwprevnotifsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1283,7 +1283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanRegisterVirtualStationNotification(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint bregister, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint bregister, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1310,7 +1310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanRenameProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong stroldprofilename, jlong strnewprofilename, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong stroldprofilename, jlong strnewprofilename, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1339,7 +1339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSaveTemporaryProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong stralluserprofilesecurity, jint dwflags, jint boverwrite, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jlong stralluserprofilesecurity, jint dwflags, jint boverwrite, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1370,7 +1370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanScan(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pdot11ssid, jlong piedata, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanScan(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong pdot11ssid, jlong piedata, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1399,7 +1399,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetAutoConfigParameter(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jint dwdatasize, jlong pdata, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint opcode, jint dwdatasize, jlong pdata, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1428,7 +1428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetFilterList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint wlanfilterlisttype, jlong pnetworklist, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint wlanfilterlisttype, jlong pnetworklist, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1456,7 +1456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetInterface(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint opcode, jint dwdatasize, jlong pdata, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetInterface(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint opcode, jint dwdatasize, jlong pdata, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1486,7 +1486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwflags, jlong strprofilexml, jlong stralluserprofilesecurity, jint boverwrite, jlong preserved, jlong pdwreasoncode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetProfile(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwflags, jlong strprofilexml, jlong stralluserprofilesecurity, jint boverwrite, jlong preserved, jlong pdwreasoncode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1518,7 +1518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetProfileCustomUserData(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jint dwdatasize, jlong pdata, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jint dwdatasize, jlong pdata, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1548,7 +1548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetProfileEapXmlUserData(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jint dwflags, jlong streapxmluserdata, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jint dwflags, jlong streapxmluserdata, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1578,7 +1578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetProfileList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwitems, jlong strprofilenames, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jint dwitems, jlong strprofilenames, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1607,7 +1607,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetProfilePosition(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jint dwposition, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong pinterfaceguid, jlong strprofilename, jint dwposition, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1636,7 +1636,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetPsdIEDataList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong strformat, jlong ppsdiedatalist, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jlong strformat, jlong ppsdiedatalist, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1664,7 +1664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanSetSecuritySettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint securableobject, jlong strmodifiedsddl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings(JNIEnv* km_env, jclass km_clazz, jlong hclienthandle, jint securableobject, jlong strmodifiedsddl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1691,7 +1691,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssys_1windows_1win32_1networkmanagement_1wifi_1wlanUIEditProfile(JNIEnv* km_env, jclass km_clazz, jint dwclientversion, jlong wstrprofilename, jlong pinterfaceguid, jlong hwnd, jint wlstartpage, jlong preserved, jlong pwlanreasoncode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_wifi_WindowsWin32NetworkmanagementWifiJniBridge_windowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile(JNIEnv* km_env, jclass km_clazz, jint dwclientversion, jlong wstrprofilename, jlong pinterfaceguid, jlong hwnd, jint wlstartpage, jlong preserved, jlong pwlanreasoncode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

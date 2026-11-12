@@ -2,7 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.memory
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
@@ -12,38 +15,38 @@ private object WindowsWdkSystemMemoryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_memory_ntMapViewOfSection(sectionhandle: Long, processhandle: Long, baseaddress: Long, zerobits: Long, commitsize: Long, sectionoffset: Long, viewsize: Long, inheritdisposition: Int, allocationtype: Int, win32protect: Int): Int
+    external fun windowssysWindowsWdkSystemMemoryNtMapViewOfSection(sectionhandle: Long, processhandle: Long, baseaddress: Long, zerobits: Long, commitsize: Long, sectionoffset: Long, viewsize: Long, inheritdisposition: Int, allocationtype: Int, win32protect: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_memory_ntOpenSection(sectionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkSystemMemoryNtOpenSection(sectionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_memory_ntUnmapViewOfSection(processhandle: Long, baseaddress: Long): Int
+    external fun windowssysWindowsWdkSystemMemoryNtUnmapViewOfSection(processhandle: Long, baseaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_memory_zwMapViewOfSection(sectionhandle: Long, processhandle: Long, baseaddress: Long, zerobits: Long, commitsize: Long, sectionoffset: Long, viewsize: Long, inheritdisposition: Int, allocationtype: Int, win32protect: Int): Int
+    external fun windowssysWindowsWdkSystemMemoryZwMapViewOfSection(sectionhandle: Long, processhandle: Long, baseaddress: Long, zerobits: Long, commitsize: Long, sectionoffset: Long, viewsize: Long, inheritdisposition: Int, allocationtype: Int, win32protect: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_memory_zwOpenSection(sectionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkSystemMemoryZwOpenSection(sectionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_memory_zwUnmapViewOfSection(processhandle: Long, baseaddress: Long): Int
+    external fun windowssysWindowsWdkSystemMemoryZwUnmapViewOfSection(processhandle: Long, baseaddress: Long): Int
 }
 
-public actual fun ntMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, commitsize: ULong, sectionoffset: COpaquePointer?, viewsize: COpaquePointer?, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
-    WindowsWdkSystemMemoryJniBridge.windowssys_windows_wdk_system_memory_ntMapViewOfSection((sectionhandle?.value ?: 0L), (processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), zerobits.toLong(), commitsize.toLong(), (sectionoffset?.value ?: 0L), (viewsize?.value ?: 0L), inheritdisposition, allocationtype.toInt(), win32protect.toInt())
+public actual fun ntMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, commitsize: ULong, sectionoffset: MutPtr<Long>, viewsize: MutPtr<ULong>, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
+    WindowsWdkSystemMemoryJniBridge.windowssysWindowsWdkSystemMemoryNtMapViewOfSection(sectionhandle.rawAddress, processhandle.rawAddress, baseaddress.rawAddress, zerobits.toLong(), commitsize.toLong(), sectionoffset.rawAddress, viewsize.rawAddress, inheritdisposition, allocationtype.toInt(), win32protect.toInt())
 
-public actual fun ntOpenSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkSystemMemoryJniBridge.windowssys_windows_wdk_system_memory_ntOpenSection((sectionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun ntOpenSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkSystemMemoryJniBridge.windowssysWindowsWdkSystemMemoryNtOpenSection(sectionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntUnmapViewOfSection(processhandle: Handle, baseaddress: COpaquePointer?): Ntstatus =
-    WindowsWdkSystemMemoryJniBridge.windowssys_windows_wdk_system_memory_ntUnmapViewOfSection((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L))
+public actual fun ntUnmapViewOfSection(processhandle: Handle, baseaddress: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkSystemMemoryJniBridge.windowssysWindowsWdkSystemMemoryNtUnmapViewOfSection(processhandle.rawAddress, baseaddress.rawAddress)
 
-public actual fun zwMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, commitsize: ULong, sectionoffset: COpaquePointer?, viewsize: COpaquePointer?, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
-    WindowsWdkSystemMemoryJniBridge.windowssys_windows_wdk_system_memory_zwMapViewOfSection((sectionhandle?.value ?: 0L), (processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), zerobits.toLong(), commitsize.toLong(), (sectionoffset?.value ?: 0L), (viewsize?.value ?: 0L), inheritdisposition, allocationtype.toInt(), win32protect.toInt())
+public actual fun zwMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, commitsize: ULong, sectionoffset: MutPtr<Long>, viewsize: MutPtr<ULong>, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
+    WindowsWdkSystemMemoryJniBridge.windowssysWindowsWdkSystemMemoryZwMapViewOfSection(sectionhandle.rawAddress, processhandle.rawAddress, baseaddress.rawAddress, zerobits.toLong(), commitsize.toLong(), sectionoffset.rawAddress, viewsize.rawAddress, inheritdisposition, allocationtype.toInt(), win32protect.toInt())
 
-public actual fun zwOpenSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkSystemMemoryJniBridge.windowssys_windows_wdk_system_memory_zwOpenSection((sectionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun zwOpenSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkSystemMemoryJniBridge.windowssysWindowsWdkSystemMemoryZwOpenSection(sectionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwUnmapViewOfSection(processhandle: Handle, baseaddress: COpaquePointer?): Ntstatus =
-    WindowsWdkSystemMemoryJniBridge.windowssys_windows_wdk_system_memory_zwUnmapViewOfSection((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L))
+public actual fun zwUnmapViewOfSection(processhandle: Handle, baseaddress: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkSystemMemoryJniBridge.windowssysWindowsWdkSystemMemoryZwUnmapViewOfSection(processhandle.rawAddress, baseaddress.rawAddress)

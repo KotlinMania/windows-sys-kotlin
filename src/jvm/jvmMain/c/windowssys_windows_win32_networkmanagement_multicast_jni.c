@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastApiCleanup(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -39,7 +39,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastApiStartup(JNIEnv* km_env, jclass km_clazz, jlong version) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup(JNIEnv* km_env, jclass km_clazz, jlong version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -64,7 +64,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastEnumerateScopes(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jint requery, jlong pscopelist, jlong pscopelen, jlong pscopecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jint requery, jlong pscopelist, jlong pscopelen, jlong pscopecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -93,7 +93,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastGenUID(JNIEnv* km_env, jclass km_clazz, jlong prequestid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastGenUID(JNIEnv* km_env, jclass km_clazz, jlong prequestid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -118,7 +118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastReleaseAddress(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jlong prequestid, jlong preleaserequest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jlong prequestid, jlong preleaserequest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -145,7 +145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastRenewAddress(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jlong prequestid, jlong prenewrequest, jlong prenewresponse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jlong prequestid, jlong prenewrequest, jlong prenewresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssys_1windows_1win32_1networkmanagement_1multicast_1mcastRequestAddress(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jlong prequestid, jlong pscopectx, jlong paddrrequest, jlong paddrresponse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_multicast_WindowsWin32NetworkmanagementMulticastJniBridge_windowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress(JNIEnv* km_env, jclass km_clazz, jshort addrfamily, jlong prequestid, jlong pscopectx, jlong paddrrequest, jlong paddrresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

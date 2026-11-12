@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create(void* hinst, uint32_t dwversion, void* riidltf, void* ppvout, void* punkouter) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceDirectInput8Create(void* hinst, uint32_t dwversion, void* riidltf, void* ppvout, void* punkouter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue(void* hiddeviceobject) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDFlushQueue(void* hiddeviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue(void* 
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData(int64_t preparseddata) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDFreePreparsedData(int64_t preparseddata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes(void* hiddeviceobject, void* attributes) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetAttributes(void* hiddeviceobject, void* attributes) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes(voi
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration(void* hiddeviceobject, void* configuration, uint32_t configurationlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetConfiguration(void* hiddeviceobject, void* configuration, uint32_t configurationlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration(
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetFeature(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature(void* 
 #endif
 }
 
-void windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid(void* hidguid) {
+void windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetHidGuid(void* hidguid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ void windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid(void* 
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString(void* hiddeviceobject, uint32_t stringindex, void* buffer, uint32_t bufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetIndexedString(void* hiddeviceobject, uint32_t stringindex, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString(
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetInputReport(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -226,7 +226,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport(vo
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetManufacturerString(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerSt
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetMsGenreDescriptor(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -274,7 +274,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescrip
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers(void* hiddeviceobject, void* numberbuffers) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetNumInputBuffers(void* hiddeviceobject, void* numberbuffers) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -297,7 +297,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffer
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetPhysicalDescriptor(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -321,7 +321,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescri
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData(void* hiddeviceobject, void* preparseddata) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetPreparsedData(void* hiddeviceobject, void* preparseddata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -344,7 +344,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData(
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetProductString(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -368,7 +368,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString(
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDGetSerialNumberString(void* hiddeviceobject, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -392,7 +392,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberSt
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration(void* hiddeviceobject, void* configuration, uint32_t configurationlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDSetConfiguration(void* hiddeviceobject, void* configuration, uint32_t configurationlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -416,7 +416,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration(
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDSetFeature(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -440,7 +440,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature(void* 
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers(void* hiddeviceobject, uint32_t numberbuffers) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDSetNumInputBuffers(void* hiddeviceobject, uint32_t numberbuffers) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -463,7 +463,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffer
 #endif
 }
 
-bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
+bool windowssysWindowsWin32DevicesHumaninterfacedeviceHidDSetOutputReport(void* hiddeviceobject, void* reportbuffer, uint32_t reportbufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -487,7 +487,7 @@ bool windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* buttondata, void* buttondatalength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetButtonArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* buttondata, void* buttondatalength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -517,7 +517,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps(int32_t reporttype, void* buttoncaps, void* buttoncapslength, int64_t preparseddata) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetButtonCaps(int32_t reporttype, void* buttoncaps, void* buttoncapslength, int64_t preparseddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -542,7 +542,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps(int64_t preparseddata, void* capabilities) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetCaps(int64_t preparseddata, void* capabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -565,7 +565,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData(int32_t reporttype, void* datalist, void* datalength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetData(int32_t reporttype, void* datalist, void* datalength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -592,7 +592,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes(int32_t reporttype, uint16_t dataindex, int64_t preparseddata, void* attributes, void* lengthattributes) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetExtendedAttributes(int32_t reporttype, uint16_t dataindex, int64_t preparseddata, void* attributes, void* lengthattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -618,7 +618,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAtt
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes(void* linkcollectionnodes, void* linkcollectionnodeslength, int64_t preparseddata) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetLinkCollectionNodes(void* linkcollectionnodes, void* linkcollectionnodeslength, int64_t preparseddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -642,7 +642,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollect
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetScaledUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -671,7 +671,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsage
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* buttoncaps, void* buttoncapslength, int64_t preparseddata) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetSpecificButtonCaps(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* buttoncaps, void* buttoncapslength, int64_t preparseddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificBut
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* valuecaps, void* valuecapslength, int64_t preparseddata) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetSpecificValueCaps(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* valuecaps, void* valuecapslength, int64_t preparseddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -727,7 +727,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificVal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -756,7 +756,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, uint16_t usagevaluebytelength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetUsageValueArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, uint16_t usagevaluebytelength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, uint16_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -786,7 +786,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, void* usagelist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetUsages(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, void* usagelist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -815,7 +815,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages(int3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx(int32_t reporttype, uint16_t linkcollection, void* buttonlist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetUsagesEx(int32_t reporttype, uint16_t linkcollection, void* buttonlist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -843,7 +843,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps(int32_t reporttype, void* valuecaps, void* valuecapslength, int64_t preparseddata) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPGetValueCaps(int32_t reporttype, void* valuecaps, void* valuecapslength, int64_t preparseddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -868,7 +868,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId(int32_t reporttype, uint8_t reportid, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPInitializeReportForId(int32_t reporttype, uint8_t reportid, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint8_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -894,7 +894,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeRepo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength(int32_t reporttype, int64_t preparseddata) {
+uint32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPMaxDataListLength(int32_t reporttype, int64_t preparseddata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ uint32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength(int32_t reporttype, uint16_t usagepage, int64_t preparseddata) {
+uint32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPMaxUsageListLength(int32_t reporttype, uint16_t usagepage, int64_t preparseddata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint16_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ uint32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListL
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* buttondata, uint16_t buttondatalength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPSetButtonArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* buttondata, uint16_t buttondatalength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, uint16_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -971,7 +971,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData(int32_t reporttype, void* datalist, void* datalength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPSetData(int32_t reporttype, void* datalist, void* datalength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -998,7 +998,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, int32_t usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPSetScaledUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, int32_t usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, int32_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1027,7 +1027,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsage
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, uint32_t usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPSetUsageValue(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, uint32_t usagevalue, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, uint32_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1056,7 +1056,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, uint16_t usagevaluebytelength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPSetUsageValueArray(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, uint16_t usage, void* usagevalue, uint16_t usagevaluebytelength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, uint16_t, void*, uint16_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1086,7 +1086,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, void* usagelist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPSetUsages(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, void* usagelist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1115,7 +1115,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages(int3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes(void* changedusagelist, uint32_t usagelistlength, int32_t keyaction, void* modifierstate, void* insertcodesprocedure, void* insertcodescontext) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPTranslateUsagesToI8042ScanCodes(void* changedusagelist, uint32_t usagelistlength, int32_t keyaction, void* modifierstate, void* insertcodesprocedure, void* insertcodescontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1142,7 +1142,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsage
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, void* usagelist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPUnsetUsages(int32_t reporttype, uint16_t usagepage, uint16_t linkcollection, void* usagelist, void* usagelength, int64_t preparseddata, void* report, uint32_t reportlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint16_t, uint16_t, void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1171,7 +1171,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference(void* previoususagelist, void* currentusagelist, void* breakusagelist, void* makeusagelist, uint32_t usagelistlength) {
+int32_t windowssysWindowsWin32DevicesHumaninterfacedeviceHidPUsageListDifference(void* previoususagelist, void* currentusagelist, void* breakusagelist, void* makeusagelist, uint32_t usagelistlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1197,7 +1197,7 @@ int32_t windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDiffe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_humaninterfacedevice_joyConfigChanged(uint32_t dwflags) {
+uint32_t windowssysWindowsWin32DevicesHumaninterfacedeviceJoyConfigChanged(uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;

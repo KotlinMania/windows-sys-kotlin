@@ -2,53 +2,54 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.restartmanager
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmAddFilter
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmEndSession
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmGetFilterList
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmGetList
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmJoinSession
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmRegisterResources
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmRemoveFilter
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmRestart
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmShutdown
-import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssys_windows_win32_system_restartmanager_rmStartSession
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmAddFilter
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmCancelCurrentTask
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmEndSession
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmGetFilterList
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmGetList
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmJoinSession
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmRegisterResources
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmRemoveFilter
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmRestart
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmShutdown
+import io.github.kotlinmania.windowssys.windows.win32.system.restartmanager.cinterop.windowssysWindowsWin32SystemRestartmanagerRmStartSession
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun rmAddFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: COpaquePointer?, strserviceshortname: Pcwstr, filteraction: RmFilterAction): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmAddFilter(dwsessionhandle, strmodulename?.value?.toCPointer<ByteVar>(), pprocess?.value?.toCPointer<ByteVar>(), strserviceshortname?.value?.toCPointer<ByteVar>(), filteraction)
+public actual fun rmAddFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: ConstPtr<RmUniqueProcess>, strserviceshortname: Pcwstr, filteraction: RmFilterAction): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmAddFilter(dwsessionhandle, strmodulename.rawAddress.toCPointer<ByteVar>(), pprocess.rawAddress.toCPointer<ByteVar>(), strserviceshortname.rawAddress.toCPointer<ByteVar>(), filteraction)
 
 public actual fun rmCancelCurrentTask(dwsessionhandle: UInt): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask(dwsessionhandle)
+    windowssysWindowsWin32SystemRestartmanagerRmCancelCurrentTask(dwsessionhandle)
 
 public actual fun rmEndSession(dwsessionhandle: UInt): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmEndSession(dwsessionhandle)
+    windowssysWindowsWin32SystemRestartmanagerRmEndSession(dwsessionhandle)
 
-public actual fun rmGetFilterList(dwsessionhandle: UInt, pbfilterbuf: COpaquePointer?, cbfilterbuf: UInt, cbfilterbufneeded: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmGetFilterList(dwsessionhandle, pbfilterbuf?.value?.toCPointer<ByteVar>(), cbfilterbuf, cbfilterbufneeded?.value?.toCPointer<ByteVar>())
+public actual fun rmGetFilterList(dwsessionhandle: UInt, pbfilterbuf: MutPtr<UByte>, cbfilterbuf: UInt, cbfilterbufneeded: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmGetFilterList(dwsessionhandle, pbfilterbuf.rawAddress.toCPointer<ByteVar>(), cbfilterbuf, cbfilterbufneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rmGetList(dwsessionhandle: UInt, pnprocinfoneeded: COpaquePointer?, pnprocinfo: COpaquePointer?, rgaffectedapps: COpaquePointer?, lpdwrebootreasons: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmGetList(dwsessionhandle, pnprocinfoneeded?.value?.toCPointer<ByteVar>(), pnprocinfo?.value?.toCPointer<ByteVar>(), rgaffectedapps?.value?.toCPointer<ByteVar>(), lpdwrebootreasons?.value?.toCPointer<ByteVar>())
+public actual fun rmGetList(dwsessionhandle: UInt, pnprocinfoneeded: MutPtr<UInt>, pnprocinfo: MutPtr<UInt>, rgaffectedapps: MutPtr<RmProcessInfo>, lpdwrebootreasons: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmGetList(dwsessionhandle, pnprocinfoneeded.rawAddress.toCPointer<ByteVar>(), pnprocinfo.rawAddress.toCPointer<ByteVar>(), rgaffectedapps.rawAddress.toCPointer<ByteVar>(), lpdwrebootreasons.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rmJoinSession(psessionhandle: COpaquePointer?, strsessionkey: Pcwstr): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmJoinSession(psessionhandle?.value?.toCPointer<ByteVar>(), strsessionkey?.value?.toCPointer<ByteVar>())
+public actual fun rmJoinSession(psessionhandle: MutPtr<UInt>, strsessionkey: Pcwstr): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmJoinSession(psessionhandle.rawAddress.toCPointer<ByteVar>(), strsessionkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rmRegisterResources(dwsessionhandle: UInt, nfiles: UInt, rgsfilenames: COpaquePointer?, napplications: UInt, rgapplications: COpaquePointer?, nservices: UInt, rgsservicenames: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmRegisterResources(dwsessionhandle, nfiles, rgsfilenames?.value?.toCPointer<ByteVar>(), napplications, rgapplications?.value?.toCPointer<ByteVar>(), nservices, rgsservicenames?.value?.toCPointer<ByteVar>())
+public actual fun rmRegisterResources(dwsessionhandle: UInt, nfiles: UInt, rgsfilenames: ConstPtr<Pcwstr>, napplications: UInt, rgapplications: ConstPtr<RmUniqueProcess>, nservices: UInt, rgsservicenames: ConstPtr<Pcwstr>): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmRegisterResources(dwsessionhandle, nfiles, rgsfilenames.rawAddress.toCPointer<ByteVar>(), napplications, rgapplications.rawAddress.toCPointer<ByteVar>(), nservices, rgsservicenames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rmRemoveFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: COpaquePointer?, strserviceshortname: Pcwstr): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmRemoveFilter(dwsessionhandle, strmodulename?.value?.toCPointer<ByteVar>(), pprocess?.value?.toCPointer<ByteVar>(), strserviceshortname?.value?.toCPointer<ByteVar>())
+public actual fun rmRemoveFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: ConstPtr<RmUniqueProcess>, strserviceshortname: Pcwstr): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmRemoveFilter(dwsessionhandle, strmodulename.rawAddress.toCPointer<ByteVar>(), pprocess.rawAddress.toCPointer<ByteVar>(), strserviceshortname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rmRestart(dwsessionhandle: UInt, dwrestartflags: UInt, fnstatus: RmWriteStatusCallback): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmRestart(dwsessionhandle, dwrestartflags, 0L.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemRestartmanagerRmRestart(dwsessionhandle, dwrestartflags, 0L.toCPointer<ByteVar>())
 
 public actual fun rmShutdown(dwsessionhandle: UInt, lactionflags: UInt, fnstatus: RmWriteStatusCallback): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmShutdown(dwsessionhandle, lactionflags, 0L.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemRestartmanagerRmShutdown(dwsessionhandle, lactionflags, 0L.toCPointer<ByteVar>())
 
-public actual fun rmStartSession(psessionhandle: COpaquePointer?, dwsessionflags: UInt, strsessionkey: Pwstr): Win32Error =
-    windowssys_windows_win32_system_restartmanager_rmStartSession(psessionhandle?.value?.toCPointer<ByteVar>(), dwsessionflags, strsessionkey?.value?.toCPointer<ByteVar>())
+public actual fun rmStartSession(psessionhandle: MutPtr<UInt>, dwsessionflags: UInt, strsessionkey: Pwstr): Win32Error =
+    windowssysWindowsWin32SystemRestartmanagerRmStartSession(psessionhandle.rawAddress.toCPointer<ByteVar>(), dwsessionflags, strsessionkey.rawAddress.toCPointer<ByteVar>())

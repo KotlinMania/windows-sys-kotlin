@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri(void* ppszuri) {
+int32_t windowssysWindowsWin32SystemSecuritycenterWscGetAntiMalwareUri(void* ppszuri) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth(uint32_t providers, void* phealth) {
+int32_t windowssysWindowsWin32SystemSecuritycenterWscGetSecurityProviderHealth(uint32_t providers, void* phealth) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri(void) {
+int32_t windowssysWindowsWin32SystemSecuritycenterWscQueryAntiMalwareUri(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForChanges(void* reserved, void* phcallbackregistration, void* lpcallbackaddress, void* pcontext) {
+int32_t windowssysWindowsWin32SystemSecuritycenterWscRegisterForChanges(void* reserved, void* phcallbackregistration, void* lpcallbackaddress, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForChanges(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications(void) {
+int32_t windowssysWindowsWin32SystemSecuritycenterWscRegisterForUserNotifications(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotific
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges(void* hregistrationhandle) {
+int32_t windowssysWindowsWin32SystemSecuritycenterWscUnRegisterChanges(void* hregistrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

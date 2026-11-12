@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_authentication_identity_acceptSecurityContext(void* phcredential, void* phcontext, void* pinput, uint32_t fcontextreq, uint32_t targetdatarep, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAcceptSecurityContext(void* phcredential, void* phcontext, void* pinput, uint32_t fcontextreq, uint32_t targetdatarep, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -45,7 +45,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_acceptSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_acquireCredentialsHandleA(void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pvlogonid, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* phcredential, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAcquireCredentialsHandleA(void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pvlogonid, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* phcredential, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -75,7 +75,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_acquireCredent
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_acquireCredentialsHandleW(void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pvlogonid, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* phcredential, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAcquireCredentialsHandleW(void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pvlogonid, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* phcredential, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_acquireCredent
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_addCredentialsA(void* hcredentials, void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAddCredentialsA(void* hcredentials, void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_addCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_addCredentialsW(void* hcredentials, void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAddCredentialsW(void* hcredentials, void* pszprincipal, void* pszpackage, uint32_t fcredentialuse, void* pauthdata, void* pgetkeyfn, void* pvgetkeyargument, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -163,7 +163,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_addCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_addSecurityPackageA(void* pszpackagename, void* poptions) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAddSecurityPackageA(void* pszpackagename, void* poptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_addSecurityPac
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_addSecurityPackageW(void* pszpackagename, void* poptions) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityAddSecurityPackageW(void* pszpackagename, void* poptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -209,7 +209,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_addSecurityPac
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_applyControlToken(void* phcontext, void* pinput) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityApplyControlToken(void* phcontext, void* pinput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -232,7 +232,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_applyControlTo
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditComputeEffectivePolicyBySid(void* psid, void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditComputeEffectivePolicyBySid(void* psid, void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -257,7 +257,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditComputeEffec
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditComputeEffectivePolicyByToken(void* htokenhandle, void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditComputeEffectivePolicyByToken(void* htokenhandle, void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -282,7 +282,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditComputeEffec
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditEnumerateCategories(void* ppauditcategoriesarray, void* pdwcountreturned) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditEnumerateCategories(void* ppauditcategoriesarray, void* pdwcountreturned) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -305,7 +305,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditEnumerateCat
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditEnumeratePerUserPolicy(void* ppauditsidarray) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditEnumeratePerUserPolicy(void* ppauditsidarray) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -327,7 +327,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditEnumeratePer
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditEnumerateSubCategories(void* pauditcategoryguid, bool bretrieveallsubcategories, void* ppauditsubcategoriesarray, void* pdwcountreturned) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditEnumerateSubCategories(void* pauditcategoryguid, bool bretrieveallsubcategories, void* ppauditsubcategoriesarray, void* pdwcountreturned) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -352,7 +352,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditEnumerateSub
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_auditFree(void* buffer) {
+void windowssysWindowsWin32SecurityAuthenticationIdentityAuditFree(void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -373,7 +373,7 @@ void windowssys_windows_win32_security_authentication_identity_auditFree(void* b
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditLookupCategoryGuidFromCategoryId(int32_t auditcategoryid, void* pauditcategoryguid) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryGuidFromCategoryId(int32_t auditcategoryid, void* pauditcategoryguid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditLookupCatego
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditLookupCategoryIdFromCategoryGuid(void* pauditcategoryguid, void* pauditcategoryid) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryIdFromCategoryGuid(void* pauditcategoryguid, void* pauditcategoryid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditLookupCatego
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditLookupCategoryNameA(void* pauditcategoryguid, void* ppszcategoryname) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryNameA(void* pauditcategoryguid, void* ppszcategoryname) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -442,7 +442,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditLookupCatego
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditLookupCategoryNameW(void* pauditcategoryguid, void* ppszcategoryname) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryNameW(void* pauditcategoryguid, void* ppszcategoryname) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -465,7 +465,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditLookupCatego
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditLookupSubCategoryNameA(void* pauditsubcategoryguid, void* ppszsubcategoryname) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupSubCategoryNameA(void* pauditsubcategoryguid, void* ppszsubcategoryname) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -488,7 +488,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditLookupSubCat
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditLookupSubCategoryNameW(void* pauditsubcategoryguid, void* ppszsubcategoryname) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupSubCategoryNameW(void* pauditsubcategoryguid, void* ppszsubcategoryname) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -511,7 +511,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditLookupSubCat
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditQueryGlobalSaclA(void* objecttypename, void* acl) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditQueryGlobalSaclA(void* objecttypename, void* acl) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditQueryGlobalS
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditQueryGlobalSaclW(void* objecttypename, void* acl) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditQueryGlobalSaclW(void* objecttypename, void* acl) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -557,7 +557,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditQueryGlobalS
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditQueryPerUserPolicy(void* psid, void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditQueryPerUserPolicy(void* psid, void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -582,7 +582,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditQueryPerUser
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditQuerySecurity(uint32_t securityinformation, void* ppsecuritydescriptor) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditQuerySecurity(uint32_t securityinformation, void* ppsecuritydescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -605,7 +605,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditQuerySecurit
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditQuerySystemPolicy(void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditQuerySystemPolicy(void* psubcategoryguids, uint32_t dwpolicycount, void* ppauditpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -629,7 +629,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditQuerySystemP
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditSetGlobalSaclA(void* objecttypename, void* acl) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetGlobalSaclA(void* objecttypename, void* acl) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditSetGlobalSac
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditSetGlobalSaclW(void* objecttypename, void* acl) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetGlobalSaclW(void* objecttypename, void* acl) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -675,7 +675,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditSetGlobalSac
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditSetPerUserPolicy(void* psid, void* pauditpolicy, uint32_t dwpolicycount) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetPerUserPolicy(void* psid, void* pauditpolicy, uint32_t dwpolicycount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditSetPerUserPo
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditSetSecurity(uint32_t securityinformation, void* psecuritydescriptor) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetSecurity(uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditSetSecurity(
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_auditSetSystemPolicy(void* pauditpolicy, uint32_t dwpolicycount) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetSystemPolicy(void* pauditpolicy, uint32_t dwpolicycount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -745,7 +745,7 @@ bool windowssys_windows_win32_security_authentication_identity_auditSetSystemPol
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_changeAccountPasswordA(void* pszpackagename, void* pszdomainname, void* pszaccountname, void* pszoldpassword, void* psznewpassword, bool bimpersonating, uint32_t dwreserved, void* poutput) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityChangeAccountPasswordA(void* pszpackagename, void* pszdomainname, void* pszaccountname, void* pszoldpassword, void* psznewpassword, bool bimpersonating, uint32_t dwreserved, void* poutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_changeAccountP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_changeAccountPasswordW(void* pszpackagename, void* pszdomainname, void* pszaccountname, void* pszoldpassword, void* psznewpassword, bool bimpersonating, uint32_t dwreserved, void* poutput) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityChangeAccountPasswordW(void* pszpackagename, void* pszdomainname, void* pszaccountname, void* pszoldpassword, void* psznewpassword, bool bimpersonating, uint32_t dwreserved, void* poutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -803,7 +803,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_changeAccountP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_completeAuthToken(void* phcontext, void* ptoken) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityCompleteAuthToken(void* phcontext, void* ptoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -826,7 +826,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_completeAuthTo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_credMarshalTargetInfo(void* intargetinfo, void* buffer, void* buffersize) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityCredMarshalTargetInfo(void* intargetinfo, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -850,7 +850,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_credMarshalTar
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_credUnmarshalTargetInfo(void* buffer, uint32_t buffersize, void* rettargetinfo, void* retactualsize) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityCredUnmarshalTargetInfo(void* buffer, uint32_t buffersize, void* rettargetinfo, void* retactualsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -875,7 +875,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_credUnmarshalT
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_decryptMessage(void* phcontext, void* pmessage, uint32_t messageseqno, void* pfqop) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityDecryptMessage(void* phcontext, void* pmessage, uint32_t messageseqno, void* pfqop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -900,7 +900,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_decryptMessage
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_deleteSecurityContext(void* phcontext) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityDeleteSecurityContext(void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -922,7 +922,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_deleteSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_deleteSecurityPackageA(void* pszpackagename) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityDeleteSecurityPackageA(void* pszpackagename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -944,7 +944,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_deleteSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_deleteSecurityPackageW(void* pszpackagename) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityDeleteSecurityPackageW(void* pszpackagename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_deleteSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_encryptMessage(void* phcontext, uint32_t fqop, void* pmessage, uint32_t messageseqno) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityEncryptMessage(void* phcontext, uint32_t fqop, void* pmessage, uint32_t messageseqno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -991,7 +991,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_encryptMessage
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_enumerateSecurityPackagesA(void* pcpackages, void* pppackageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityEnumerateSecurityPackagesA(void* pcpackages, void* pppackageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1014,7 +1014,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_enumerateSecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_enumerateSecurityPackagesW(void* pcpackages, void* pppackageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityEnumerateSecurityPackagesW(void* pcpackages, void* pppackageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1037,7 +1037,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_enumerateSecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_exportSecurityContext(void* phcontext, uint32_t fflags, void* ppackedcontext, void* ptoken) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityExportSecurityContext(void* phcontext, uint32_t fflags, void* ppackedcontext, void* ptoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1062,7 +1062,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_exportSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_freeContextBuffer(void* pvcontextbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityFreeContextBuffer(void* pvcontextbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1084,7 +1084,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_freeContextBuf
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_freeCredentialsHandle(void* phcredential) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityFreeCredentialsHandle(void* phcredential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1106,7 +1106,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_freeCredential
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_getComputerObjectNameA(int32_t nameformat, void* lpnamebuffer, void* nsize) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityGetComputerObjectNameA(int32_t nameformat, void* lpnamebuffer, void* nsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1130,7 +1130,7 @@ bool windowssys_windows_win32_security_authentication_identity_getComputerObject
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_getComputerObjectNameW(int32_t nameformat, void* lpnamebuffer, void* nsize) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityGetComputerObjectNameW(int32_t nameformat, void* lpnamebuffer, void* nsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1154,7 +1154,7 @@ bool windowssys_windows_win32_security_authentication_identity_getComputerObject
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_getUserNameExA(int32_t nameformat, void* lpnamebuffer, void* nsize) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityGetUserNameExA(int32_t nameformat, void* lpnamebuffer, void* nsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1178,7 +1178,7 @@ bool windowssys_windows_win32_security_authentication_identity_getUserNameExA(in
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_getUserNameExW(int32_t nameformat, void* lpnamebuffer, void* nsize) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityGetUserNameExW(int32_t nameformat, void* lpnamebuffer, void* nsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1202,7 +1202,7 @@ bool windowssys_windows_win32_security_authentication_identity_getUserNameExW(in
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_impersonateSecurityContext(void* phcontext) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityImpersonateSecurityContext(void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1224,7 +1224,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_impersonateSec
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_importSecurityContextA(void* pszpackage, void* ppackedcontext, void* token, void* phcontext) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityImportSecurityContextA(void* pszpackage, void* ppackedcontext, void* token, void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1249,7 +1249,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_importSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_importSecurityContextW(void* pszpackage, void* ppackedcontext, void* token, void* phcontext) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityImportSecurityContextW(void* pszpackage, void* ppackedcontext, void* token, void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1274,7 +1274,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_importSecurity
 #endif
 }
 
-void* windowssys_windows_win32_security_authentication_identity_initSecurityInterfaceA(void) {
+void* windowssysWindowsWin32SecurityAuthenticationIdentityInitSecurityInterfaceA(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ void* windowssys_windows_win32_security_authentication_identity_initSecurityInte
 #endif
 }
 
-void* windowssys_windows_win32_security_authentication_identity_initSecurityInterfaceW(void) {
+void* windowssysWindowsWin32SecurityAuthenticationIdentityInitSecurityInterfaceW(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1316,7 +1316,7 @@ void* windowssys_windows_win32_security_authentication_identity_initSecurityInte
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_initializeSecurityContextA(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityInitializeSecurityContextA(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1349,7 +1349,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_initializeSecu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_initializeSecurityContextW(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityInitializeSecurityContextW(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1382,7 +1382,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_initializeSecu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaAddAccountRights(int64_t policyhandle, void* accountsid, void* userrights, uint32_t countofrights) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaAddAccountRights(int64_t policyhandle, void* accountsid, void* userrights, uint32_t countofrights) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1407,7 +1407,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaAddAccountR
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaCallAuthenticationPackage(void* lsahandle, uint32_t authenticationpackage, void* protocolsubmitbuffer, uint32_t submitbufferlength, void* protocolreturnbuffer, void* returnbufferlength, void* protocolstatus) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaCallAuthenticationPackage(void* lsahandle, uint32_t authenticationpackage, void* protocolsubmitbuffer, uint32_t submitbufferlength, void* protocolreturnbuffer, void* returnbufferlength, void* protocolstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaCallAuthent
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaClose(int64_t objecthandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaClose(int64_t objecthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1457,7 +1457,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaClose(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaConnectUntrusted(void* lsahandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaConnectUntrusted(void* lsahandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaConnectUntr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaCreateTrustedDomainEx(int64_t policyhandle, void* trusteddomaininformation, void* authenticationinformation, uint32_t desiredaccess, void* trusteddomainhandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaCreateTrustedDomainEx(int64_t policyhandle, void* trusteddomaininformation, void* authenticationinformation, uint32_t desiredaccess, void* trusteddomainhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1505,7 +1505,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaCreateTrust
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaDeleteTrustedDomain(int64_t policyhandle, void* trusteddomainsid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaDeleteTrustedDomain(int64_t policyhandle, void* trusteddomainsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1528,7 +1528,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaDeleteTrust
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaDeregisterLogonProcess(void* lsahandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaDeregisterLogonProcess(void* lsahandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1550,7 +1550,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaDeregisterL
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountRights(int64_t policyhandle, void* accountsid, void* userrights, void* countofrights) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateAccountRights(int64_t policyhandle, void* accountsid, void* userrights, void* countofrights) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1575,7 +1575,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateAc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountsWithUserRight(int64_t policyhandle, void* userright, void* buffer, void* countreturned) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateAccountsWithUserRight(int64_t policyhandle, void* userright, void* buffer, void* countreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1600,7 +1600,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateAc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateLogonSessions(void* logonsessioncount, void* logonsessionlist) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateLogonSessions(void* logonsessioncount, void* logonsessionlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1623,7 +1623,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateLo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomains(int64_t policyhandle, void* enumerationcontext, void* buffer, uint32_t preferedmaximumlength, void* countreturned) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateTrustedDomains(int64_t policyhandle, void* enumerationcontext, void* buffer, uint32_t preferedmaximumlength, void* countreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1649,7 +1649,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateTr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomainsEx(int64_t policyhandle, void* enumerationcontext, void* buffer, uint32_t preferedmaximumlength, void* countreturned) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateTrustedDomainsEx(int64_t policyhandle, void* enumerationcontext, void* buffer, uint32_t preferedmaximumlength, void* countreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1675,7 +1675,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaEnumerateTr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaFreeMemory(void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaFreeMemory(void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1697,7 +1697,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaFreeMemory(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaFreeReturnBuffer(void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaFreeReturnBuffer(void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1719,7 +1719,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaFreeReturnB
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaGetAppliedCAPIDs(void* systemname, void* capids, void* capidcount) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaGetAppliedCAPIDs(void* systemname, void* capids, void* capidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1743,7 +1743,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaGetAppliedC
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaGetLogonSessionData(void* logonid, void* pplogonsessiondata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaGetLogonSessionData(void* logonid, void* pplogonsessiondata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1766,7 +1766,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaGetLogonSes
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupAuthenticationPackage(void* lsahandle, void* packagename, void* authenticationpackage) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupAuthenticationPackage(void* lsahandle, void* packagename, void* authenticationpackage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1790,7 +1790,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupAuthe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupNames(int64_t policyhandle, uint32_t count, void* names, void* referenceddomains, void* sids) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupNames(int64_t policyhandle, uint32_t count, void* names, void* referenceddomains, void* sids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1816,7 +1816,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupNames
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupNames2(int64_t policyhandle, uint32_t flags, uint32_t count, void* names, void* referenceddomains, void* sids) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupNames2(int64_t policyhandle, uint32_t flags, uint32_t count, void* names, void* referenceddomains, void* sids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1843,7 +1843,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupNames
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupSids(int64_t policyhandle, uint32_t count, void* sids, void* referenceddomains, void* names) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupSids(int64_t policyhandle, uint32_t count, void* sids, void* referenceddomains, void* names) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1869,7 +1869,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupSids(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupSids2(int64_t policyhandle, uint32_t lookupoptions, uint32_t count, void* sids, void* referenceddomains, void* names) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupSids2(int64_t policyhandle, uint32_t lookupoptions, uint32_t count, void* sids, void* referenceddomains, void* names) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1896,7 +1896,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaLookupSids2
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_authentication_identity_lsaNtStatusToWinError(int32_t status) {
+uint32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaNtStatusToWinError(int32_t status) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1918,7 @@ uint32_t windowssys_windows_win32_security_authentication_identity_lsaNtStatusTo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaOpenPolicy(void* systemname, void* objectattributes, uint32_t desiredaccess, void* policyhandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaOpenPolicy(void* systemname, void* objectattributes, uint32_t desiredaccess, void* policyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1943,7 +1943,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaOpenPolicy(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaOpenTrustedDomainByName(int64_t policyhandle, void* trusteddomainname, uint32_t desiredaccess, void* trusteddomainhandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaOpenTrustedDomainByName(int64_t policyhandle, void* trusteddomainname, uint32_t desiredaccess, void* trusteddomainhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1968,7 +1968,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaOpenTrusted
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryCAPs(void* capids, uint32_t capidcount, void* caps, void* capcount) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryCAPs(void* capids, uint32_t capidcount, void* caps, void* capcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1993,7 +1993,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryCAPs(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryDomainInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryDomainInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2017,7 +2017,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryDomain
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation(int64_t policyhandle, void* trusteddomainname, void* foresttrustinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryForestTrustInformation(int64_t policyhandle, void* trusteddomainname, void* foresttrustinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2041,7 +2041,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryForest
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation2(int64_t policyhandle, void* trusteddomainname, int32_t highestrecordtype, void* foresttrustinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryForestTrustInformation2(int64_t policyhandle, void* trusteddomainname, int32_t highestrecordtype, void* foresttrustinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2066,7 +2066,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryForest
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2090,7 +2090,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryInform
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfo(int64_t policyhandle, void* trusteddomainsid, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryTrustedDomainInfo(int64_t policyhandle, void* trusteddomainsid, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2115,7 +2115,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryTruste
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfoByName(int64_t policyhandle, void* trusteddomainname, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryTrustedDomainInfoByName(int64_t policyhandle, void* trusteddomainname, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2140,7 +2140,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaQueryTruste
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaRegisterLogonProcess(void* logonprocessname, void* lsahandle, void* securitymode) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaRegisterLogonProcess(void* logonprocessname, void* lsahandle, void* securitymode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2164,7 +2164,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaRegisterLog
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaRegisterPolicyChangeNotification(int32_t informationclass, void* notificationeventhandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaRegisterPolicyChangeNotification(int32_t informationclass, void* notificationeventhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2187,7 +2187,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaRegisterPol
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaRemoveAccountRights(int64_t policyhandle, void* accountsid, bool allrights, void* userrights, uint32_t countofrights) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaRemoveAccountRights(int64_t policyhandle, void* accountsid, bool allrights, void* userrights, uint32_t countofrights) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, bool, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaRemoveAccou
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaRetrievePrivateData(int64_t policyhandle, void* keyname, void* privatedata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaRetrievePrivateData(int64_t policyhandle, void* keyname, void* privatedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2237,7 +2237,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaRetrievePri
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetCAPs(void* capdns, uint32_t capdncount, uint32_t flags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetCAPs(void* capdns, uint32_t capdncount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2261,7 +2261,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetCAPs(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetDomainInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetDomainInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2285,7 +2285,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetDomainIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation(int64_t policyhandle, void* trusteddomainname, void* foresttrustinfo, bool checkonly, void* collisioninfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetForestTrustInformation(int64_t policyhandle, void* trusteddomainname, void* foresttrustinfo, bool checkonly, void* collisioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2311,7 +2311,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetForestTr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation2(int64_t policyhandle, void* trusteddomainname, int32_t highestrecordtype, void* foresttrustinfo, bool checkonly, void* collisioninfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetForestTrustInformation2(int64_t policyhandle, void* trusteddomainname, int32_t highestrecordtype, void* foresttrustinfo, bool checkonly, void* collisioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2338,7 +2338,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetForestTr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetInformationPolicy(int64_t policyhandle, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2362,7 +2362,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetInformat
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInfoByName(int64_t policyhandle, void* trusteddomainname, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetTrustedDomainInfoByName(int64_t policyhandle, void* trusteddomainname, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2387,7 +2387,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetTrustedD
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInformation(int64_t policyhandle, void* trusteddomainsid, int32_t informationclass, void* buffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetTrustedDomainInformation(int64_t policyhandle, void* trusteddomainsid, int32_t informationclass, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2412,7 +2412,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaSetTrustedD
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaStorePrivateData(int64_t policyhandle, void* keyname, void* privatedata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaStorePrivateData(int64_t policyhandle, void* keyname, void* privatedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2436,7 +2436,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaStorePrivat
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_lsaUnregisterPolicyChangeNotification(int32_t informationclass, void* notificationeventhandle) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityLsaUnregisterPolicyChangeNotification(int32_t informationclass, void* notificationeventhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2459,7 +2459,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_lsaUnregisterP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_makeSignature(void* phcontext, uint32_t fqop, void* pmessage, uint32_t messageseqno) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityMakeSignature(void* phcontext, uint32_t fqop, void* pmessage, uint32_t messageseqno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2484,7 +2484,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_makeSignature(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryContextAttributesA(void* phcontext, uint32_t ulattribute, void* pbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesA(void* phcontext, uint32_t ulattribute, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2508,7 +2508,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryContextAt
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryContextAttributesExA(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesExA(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2533,7 +2533,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryContextAt
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryContextAttributesExW(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesExW(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2558,7 +2558,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryContextAt
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryContextAttributesW(void* phcontext, uint32_t ulattribute, void* pbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesW(void* phcontext, uint32_t ulattribute, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2582,7 +2582,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryContextAt
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesA(void* phcredential, uint32_t ulattribute, void* pbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesA(void* phcredential, uint32_t ulattribute, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2606,7 +2606,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryCredentia
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesExA(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesExA(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2631,7 +2631,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryCredentia
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesExW(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesExW(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2656,7 +2656,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryCredentia
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesW(void* phcredential, uint32_t ulattribute, void* pbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesW(void* phcredential, uint32_t ulattribute, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2680,7 +2680,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_queryCredentia
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_querySecurityContextToken(void* phcontext, void* token) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQuerySecurityContextToken(void* phcontext, void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2703,7 +2703,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_querySecurityC
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_querySecurityPackageInfoA(void* pszpackagename, void* pppackageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQuerySecurityPackageInfoA(void* pszpackagename, void* pppackageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2726,7 +2726,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_querySecurityP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_querySecurityPackageInfoW(void* pszpackagename, void* pppackageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityQuerySecurityPackageInfoW(void* pszpackagename, void* pppackageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2749,7 +2749,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_querySecurityP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_revertSecurityContext(void* phcontext) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityRevertSecurityContext(void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2771,7 +2771,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_revertSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_rtlDecryptMemory(void* memory, uint32_t memorysize, uint32_t optionflags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityRtlDecryptMemory(void* memory, uint32_t memorysize, uint32_t optionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2795,7 +2795,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_rtlDecryptMemo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_rtlEncryptMemory(void* memory, uint32_t memorysize, uint32_t optionflags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityRtlEncryptMemory(void* memory, uint32_t memorysize, uint32_t optionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2819,7 +2819,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_rtlEncryptMemo
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_rtlGenRandom(void* randombuffer, uint32_t randombufferlength) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityRtlGenRandom(void* randombuffer, uint32_t randombufferlength) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2842,7 +2842,7 @@ bool windowssys_windows_win32_security_authentication_identity_rtlGenRandom(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLAcquireGenuineTicket(void* ppticketblob, void* pcbticketblob, void* pwsztemplateid, void* pwszserverurl, void* pwszclienttoken) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLAcquireGenuineTicket(void* ppticketblob, void* pcbticketblob, void* pwsztemplateid, void* pwszserverurl, void* pwszclienttoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2868,7 +2868,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLAcquireGenui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLActivateProduct(void* hslc, void* pproductskuid, uint32_t cbappspecificdata, void* pvappspecificdata, void* pactivationinfo, void* pwszproxyserver, uint16_t wproxyport) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLActivateProduct(void* hslc, void* pproductskuid, uint32_t cbappspecificdata, void* pvappspecificdata, void* pactivationinfo, void* pwszproxyserver, uint16_t wproxyport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2896,7 +2896,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLActivateProd
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLClose(void* hslc) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLClose(void* hslc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2918,7 +2918,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLClose(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLConsumeRight(void* hslc, void* pappid, void* pproductskuid, void* pwszrightname, void* pvreserved) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLConsumeRight(void* hslc, void* pappid, void* pproductskuid, void* pwszrightname, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2944,7 +2944,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLConsumeRight
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLDepositOfflineConfirmationId(void* hslc, void* pproductskuid, void* pwszinstallationid, void* pwszconfirmationid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLDepositOfflineConfirmationId(void* hslc, void* pproductskuid, void* pwszinstallationid, void* pwszconfirmationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2969,7 +2969,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLDepositOffli
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLDepositOfflineConfirmationIdEx(void* hslc, void* pproductskuid, void* pactivationinfo, void* pwszinstallationid, void* pwszconfirmationid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLDepositOfflineConfirmationIdEx(void* hslc, void* pproductskuid, void* pactivationinfo, void* pwszinstallationid, void* pwszconfirmationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2995,7 +2995,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLDepositOffli
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLFireEvent(void* hslc, void* pwszeventid, void* papplicationid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLFireEvent(void* hslc, void* pwszeventid, void* papplicationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3019,7 +3019,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLFireEvent(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGenerateOfflineInstallationId(void* hslc, void* pproductskuid, void* ppwszinstallationid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGenerateOfflineInstallationId(void* hslc, void* pproductskuid, void* ppwszinstallationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3043,7 +3043,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGenerateOffl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGenerateOfflineInstallationIdEx(void* hslc, void* pproductskuid, void* pactivationinfo, void* ppwszinstallationid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGenerateOfflineInstallationIdEx(void* hslc, void* pproductskuid, void* pactivationinfo, void* ppwszinstallationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3068,7 +3068,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGenerateOffl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetApplicationInformation(void* hslc, void* papplicationid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetApplicationInformation(void* hslc, void* papplicationid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3095,7 +3095,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetApplicati
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetGenuineInformation(void* pqueryid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetGenuineInformation(void* pqueryid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3121,7 +3121,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetGenuineIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetInstalledProductKeyIds(void* hslc, void* pproductskuid, void* pnproductkeyids, void* ppproductkeyids) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetInstalledProductKeyIds(void* hslc, void* pproductskuid, void* pnproductkeyids, void* ppproductkeyids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3146,7 +3146,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetInstalled
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicense(void* hslc, void* plicensefileid, void* pcblicensefile, void* ppblicensefile) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicense(void* hslc, void* plicensefileid, void* pcblicensefile, void* ppblicensefile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3171,7 +3171,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicense(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicenseFileId(void* hslc, uint32_t cblicenseblob, void* pblicenseblob, void* plicensefileid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicenseFileId(void* hslc, uint32_t cblicenseblob, void* pblicenseblob, void* plicensefileid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3196,7 +3196,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicenseFi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicenseInformation(void* hslc, void* psllicenseid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicenseInformation(void* hslc, void* psllicenseid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3223,7 +3223,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicenseIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicensingStatusInformation(void* hslc, void* pappid, void* pproductskuid, void* pwszrightname, void* pnstatuscount, void* pplicensingstatus) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicensingStatusInformation(void* hslc, void* pappid, void* pproductskuid, void* pwszrightname, void* pnstatuscount, void* pplicensingstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3250,7 +3250,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetLicensing
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetPKeyId(void* hslc, void* pwszpkeyalgorithm, void* pwszpkeystring, uint32_t cbpkeyspecificdata, void* pbpkeyspecificdata, void* ppkeyid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPKeyId(void* hslc, void* pwszpkeyalgorithm, void* pwszpkeystring, uint32_t cbpkeyspecificdata, void* pbpkeyspecificdata, void* ppkeyid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3277,7 +3277,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetPKeyId(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetPKeyInformation(void* hslc, void* ppkeyid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPKeyInformation(void* hslc, void* ppkeyid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3304,7 +3304,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetPKeyInfor
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetPolicyInformation(void* hslc, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPolicyInformation(void* hslc, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3330,7 +3330,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetPolicyInf
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetPolicyInformationDWORD(void* hslc, void* pwszvaluename, void* pdwvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPolicyInformationDWORD(void* hslc, void* pwszvaluename, void* pdwvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3354,7 +3354,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetPolicyInf
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetProductSkuInformation(void* hslc, void* pproductskuid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetProductSkuInformation(void* hslc, void* pproductskuid, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3381,7 +3381,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetProductSk
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetReferralInformation(void* hslc, int32_t ereferraltype, void* pskuorappid, void* pwszvaluename, void* ppwszvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetReferralInformation(void* hslc, int32_t ereferraltype, void* pskuorappid, void* pwszvaluename, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3407,7 +3407,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetReferralI
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetSLIDList(void* hslc, int32_t equeryidtype, void* pqueryid, int32_t ereturnidtype, void* pnreturnids, void* ppreturnids) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetSLIDList(void* hslc, int32_t equeryidtype, void* pqueryid, int32_t ereturnidtype, void* pnreturnids, void* ppreturnids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3434,7 +3434,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetSLIDList(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetServerStatus(void* pwszserverurl, void* pwszacquisitiontype, void* pwszproxyserver, uint16_t wproxyport, void* phrstatus) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetServerStatus(void* pwszserverurl, void* pwszacquisitiontype, void* pwszproxyserver, uint16_t wproxyport, void* phrstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3460,7 +3460,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetServerSta
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetServiceInformation(void* hslc, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetServiceInformation(void* hslc, void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3486,7 +3486,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetServiceIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetWindowsInformation(void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetWindowsInformation(void* pwszvaluename, void* pedatatype, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3511,7 +3511,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetWindowsIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLGetWindowsInformationDWORD(void* pwszvaluename, void* pdwvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLGetWindowsInformationDWORD(void* pwszvaluename, void* pdwvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3534,7 +3534,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLGetWindowsIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLInstallLicense(void* hslc, uint32_t cblicenseblob, void* pblicenseblob, void* plicensefileid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLInstallLicense(void* hslc, uint32_t cblicenseblob, void* pblicenseblob, void* plicensefileid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3559,7 +3559,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLInstallLicen
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLInstallProofOfPurchase(void* hslc, void* pwszpkeyalgorithm, void* pwszpkeystring, uint32_t cbpkeyspecificdata, void* pbpkeyspecificdata, void* ppkeyid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLInstallProofOfPurchase(void* hslc, void* pwszpkeyalgorithm, void* pwszpkeystring, uint32_t cbpkeyspecificdata, void* pbpkeyspecificdata, void* ppkeyid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3586,7 +3586,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLInstallProof
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLIsGenuineLocal(void* pappid, void* pgenuinestate, void* puioptions) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLIsGenuineLocal(void* pappid, void* pgenuinestate, void* puioptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3610,7 +3610,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLIsGenuineLoc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLOpen(void* phslc) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLOpen(void* phslc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3632,7 +3632,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLOpen(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLQueryLicenseValueFromApp(void* valuename, void* valuetype, void* databuffer, uint32_t datasize, void* resultdatasize) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLQueryLicenseValueFromApp(void* valuename, void* valuetype, void* databuffer, uint32_t datasize, void* resultdatasize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3658,7 +3658,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLQueryLicense
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLRegisterEvent(void* hslc, void* pwszeventid, void* papplicationid, void* hevent) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLRegisterEvent(void* hslc, void* pwszeventid, void* papplicationid, void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3683,7 +3683,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLRegisterEven
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLSetCurrentProductKey(void* hslc, void* pproductskuid, void* pproductkeyid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLSetCurrentProductKey(void* hslc, void* pproductskuid, void* pproductkeyid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3707,7 +3707,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLSetCurrentPr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLSetGenuineInformation(void* pqueryid, void* pwszvaluename, uint32_t edatatype, uint32_t cbvalue, void* pbvalue) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLSetGenuineInformation(void* pqueryid, void* pwszvaluename, uint32_t edatatype, uint32_t cbvalue, void* pbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3733,7 +3733,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLSetGenuineIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLUninstallLicense(void* hslc, void* plicensefileid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLUninstallLicense(void* hslc, void* plicensefileid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3756,7 +3756,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLUninstallLic
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLUninstallProofOfPurchase(void* hslc, void* ppkeyid) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLUninstallProofOfPurchase(void* hslc, void* ppkeyid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3779,7 +3779,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLUninstallPro
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sLUnregisterEvent(void* hslc, void* pwszeventid, void* papplicationid, void* hevent) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySLUnregisterEvent(void* hslc, void* pwszeventid, void* papplicationid, void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3804,7 +3804,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sLUnregisterEv
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslAcceptSecurityContext(void* phcredential, void* phcontext, void* pinput, uint32_t fcontextreq, uint32_t targetdatarep, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslAcceptSecurityContext(void* phcredential, void* phcontext, void* pinput, uint32_t fcontextreq, uint32_t targetdatarep, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3834,7 +3834,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslAcceptSecu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslEnumerateProfilesA(void* profilelist, void* profilecount) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslEnumerateProfilesA(void* profilelist, void* profilecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3857,7 +3857,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslEnumerateP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslEnumerateProfilesW(void* profilelist, void* profilecount) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslEnumerateProfilesW(void* profilelist, void* profilecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3880,7 +3880,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslEnumerateP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslGetContextOption(void* contexthandle, uint32_t option, void* value, uint32_t size, void* needed) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslGetContextOption(void* contexthandle, uint32_t option, void* value, uint32_t size, void* needed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3906,7 +3906,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslGetContext
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslGetProfilePackageA(void* profilename, void* packageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslGetProfilePackageA(void* profilename, void* packageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3929,7 +3929,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslGetProfile
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslGetProfilePackageW(void* profilename, void* packageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslGetProfilePackageW(void* profilename, void* packageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3952,7 +3952,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslGetProfile
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslIdentifyPackageA(void* pinput, void* packageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslIdentifyPackageA(void* pinput, void* packageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3975,7 +3975,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslIdentifyPa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslIdentifyPackageW(void* pinput, void* packageinfo) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslIdentifyPackageW(void* pinput, void* packageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3998,7 +3998,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslIdentifyPa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslInitializeSecurityContextA(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslInitializeSecurityContextA(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4031,7 +4031,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslInitialize
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslInitializeSecurityContextW(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslInitializeSecurityContextW(void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4064,7 +4064,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslInitialize
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_saslSetContextOption(void* contexthandle, uint32_t option, void* value, uint32_t size) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySaslSetContextOption(void* contexthandle, uint32_t option, void* value, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4089,7 +4089,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_saslSetContext
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_sendSAS(int32_t asuser) {
+void windowssysWindowsWin32SecurityAuthenticationIdentitySendSAS(int32_t asuser) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ void windowssys_windows_win32_security_authentication_identity_sendSAS(int32_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_setContextAttributesA(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySetContextAttributesA(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4135,7 +4135,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_setContextAttr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_setContextAttributesW(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySetContextAttributesW(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4160,7 +4160,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_setContextAttr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_setCredentialsAttributesA(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySetCredentialsAttributesA(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4185,7 +4185,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_setCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_setCredentialsAttributesW(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySetCredentialsAttributesW(void* phcredential, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4210,7 +4210,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_setCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sslCrackCertificate(void* pbcertificate, uint32_t cbcertificate, uint32_t dwflags, void* ppcertificate) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySslCrackCertificate(void* pbcertificate, uint32_t cbcertificate, uint32_t dwflags, void* ppcertificate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4235,7 +4235,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sslCrackCertif
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sslEmptyCacheA(void* psztargetname, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySslEmptyCacheA(void* psztargetname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4258,7 +4258,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sslEmptyCacheA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sslEmptyCacheW(void* psztargetname, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySslEmptyCacheW(void* psztargetname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4281,7 +4281,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sslEmptyCacheW
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_sslFreeCertificate(void* pcertificate) {
+void windowssysWindowsWin32SecurityAuthenticationIdentitySslFreeCertificate(void* pcertificate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4302,7 +4302,7 @@ void windowssys_windows_win32_security_authentication_identity_sslFreeCertificat
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_sslGenerateRandomBits(void* prandomdata, int32_t crandomdata) {
+void windowssysWindowsWin32SecurityAuthenticationIdentitySslGenerateRandomBits(void* prandomdata, int32_t crandomdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4324,7 +4324,7 @@ void windowssys_windows_win32_security_authentication_identity_sslGenerateRandom
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sslGetExtensions(void* clienthello, uint32_t clienthellobytesize, void* genericextensions, uint8_t genericextensionscount, void* bytestoread, int32_t flags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySslGetExtensions(void* clienthello, uint32_t clienthellobytesize, void* genericextensions, uint8_t genericextensionscount, void* bytestoread, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint8_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4351,7 +4351,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sslGetExtensio
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_authentication_identity_sslGetMaximumKeySize(uint32_t reserved) {
+uint32_t windowssysWindowsWin32SecurityAuthenticationIdentitySslGetMaximumKeySize(uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4373,7 +4373,7 @@ uint32_t windowssys_windows_win32_security_authentication_identity_sslGetMaximum
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sslGetServerIdentity(void* clienthello, uint32_t clienthellosize, void* serveridentity, void* serveridentitysize, uint32_t flags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySslGetServerIdentity(void* clienthello, uint32_t clienthellosize, void* serveridentity, void* serveridentitysize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4399,7 +4399,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sslGetServerId
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiCompareAuthIdentities(void* authidentity1, void* authidentity2, void* samesupplieduser, void* samesuppliedidentity) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiCompareAuthIdentities(void* authidentity1, void* authidentity2, void* samesupplieduser, void* samesuppliedidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4424,7 +4424,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiCompareAut
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiCopyAuthIdentity(void* authdata, void* authdatacopy) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiCopyAuthIdentity(void* authdata, void* authdatacopy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4447,7 +4447,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiCopyAuthId
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiDecryptAuthIdentity(void* encryptedauthdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiDecryptAuthIdentity(void* encryptedauthdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4469,7 +4469,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiDecryptAut
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiDecryptAuthIdentityEx(uint32_t options, void* encryptedauthdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiDecryptAuthIdentityEx(uint32_t options, void* encryptedauthdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4492,7 +4492,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiDecryptAut
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiEncodeAuthIdentityAsStrings(void* pauthidentity, void* ppszusername, void* ppszdomainname, void* ppszpackedcredentialsstring) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncodeAuthIdentityAsStrings(void* pauthidentity, void* ppszusername, void* ppszdomainname, void* ppszpackedcredentialsstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4517,7 +4517,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiEncodeAuth
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiEncodeStringsAsAuthIdentity(void* pszusername, void* pszdomainname, void* pszpackedcredentialsstring, void* ppauthidentity) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncodeStringsAsAuthIdentity(void* pszusername, void* pszdomainname, void* pszpackedcredentialsstring, void* ppauthidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4542,7 +4542,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiEncodeStri
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiEncryptAuthIdentity(void* authdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncryptAuthIdentity(void* authdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4564,7 +4564,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiEncryptAut
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiEncryptAuthIdentityEx(uint32_t options, void* authdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncryptAuthIdentityEx(uint32_t options, void* authdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4587,7 +4587,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiEncryptAut
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiExcludePackage(void* authidentity, void* pszpackagename, void* ppnewauthidentity) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiExcludePackage(void* authidentity, void* pszpackagename, void* ppnewauthidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4611,7 +4611,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiExcludePac
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_sspiFreeAuthIdentity(void* authdata) {
+void windowssysWindowsWin32SecurityAuthenticationIdentitySspiFreeAuthIdentity(void* authdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4632,7 +4632,7 @@ void windowssys_windows_win32_security_authentication_identity_sspiFreeAuthIdent
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiGetTargetHostName(void* psztargetname, void* pszhostname) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiGetTargetHostName(void* psztargetname, void* pszhostname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4655,7 +4655,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiGetTargetH
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_sspiIsAuthIdentityEncrypted(void* encryptedauthdata) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentitySspiIsAuthIdentityEncrypted(void* encryptedauthdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4677,7 +4677,7 @@ bool windowssys_windows_win32_security_authentication_identity_sspiIsAuthIdentit
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_sspiIsPromptingNeeded(uint32_t errororntstatus) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentitySspiIsPromptingNeeded(uint32_t errororntstatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4699,7 +4699,7 @@ bool windowssys_windows_win32_security_authentication_identity_sspiIsPromptingNe
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_sspiLocalFree(void* databuffer) {
+void windowssysWindowsWin32SecurityAuthenticationIdentitySspiLocalFree(void* databuffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4720,7 +4720,7 @@ void windowssys_windows_win32_security_authentication_identity_sspiLocalFree(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiMarshalAuthIdentity(void* authidentity, void* authidentitylength, void* authidentitybytearray) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiMarshalAuthIdentity(void* authidentity, void* authidentitylength, void* authidentitybytearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4744,7 +4744,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiMarshalAut
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiPrepareForCredRead(void* authidentity, void* psztargetname, void* pcredmancredentialtype, void* ppszcredmantargetname) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiPrepareForCredRead(void* authidentity, void* psztargetname, void* pcredmancredentialtype, void* ppszcredmantargetname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4769,7 +4769,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiPrepareFor
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiPrepareForCredWrite(void* authidentity, void* psztargetname, void* pcredmancredentialtype, void* ppszcredmantargetname, void* ppszcredmanusername, void* ppcredentialblob, void* pcredentialblobsize) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiPrepareForCredWrite(void* authidentity, void* psztargetname, void* pcredmancredentialtype, void* ppszcredmantargetname, void* ppszcredmanusername, void* ppcredentialblob, void* pcredentialblobsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4797,7 +4797,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiPrepareFor
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_authentication_identity_sspiPromptForCredentialsA(void* psztargetname, void* puiinfo, uint32_t dwautherror, void* pszpackage, void* pinputauthidentity, void* ppauthidentity, void* pfsave, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiPromptForCredentialsA(void* psztargetname, void* puiinfo, uint32_t dwautherror, void* pszpackage, void* pinputauthidentity, void* ppauthidentity, void* pfsave, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4826,7 +4826,7 @@ uint32_t windowssys_windows_win32_security_authentication_identity_sspiPromptFor
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_authentication_identity_sspiPromptForCredentialsW(void* psztargetname, void* puiinfo, uint32_t dwautherror, void* pszpackage, void* pinputauthidentity, void* ppauthidentity, void* pfsave, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiPromptForCredentialsW(void* psztargetname, void* puiinfo, uint32_t dwautherror, void* pszpackage, void* pinputauthidentity, void* ppauthidentity, void* pfsave, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4855,7 +4855,7 @@ uint32_t windowssys_windows_win32_security_authentication_identity_sspiPromptFor
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiSetChannelBindingFlags(void* pbindings, uint32_t flags) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiSetChannelBindingFlags(void* pbindings, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4878,7 +4878,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiSetChannel
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiUnmarshalAuthIdentity(uint32_t authidentitylength, void* authidentitybytearray, void* ppauthidentity) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiUnmarshalAuthIdentity(uint32_t authidentitylength, void* authidentitybytearray, void* ppauthidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4902,7 +4902,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiUnmarshalA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_sspiValidateAuthIdentity(void* authdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentitySspiValidateAuthIdentity(void* authdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4924,7 +4924,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_sspiValidateAu
 #endif
 }
 
-void windowssys_windows_win32_security_authentication_identity_sspiZeroAuthIdentity(void* authdata) {
+void windowssysWindowsWin32SecurityAuthenticationIdentitySspiZeroAuthIdentity(void* authdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4945,7 +4945,7 @@ void windowssys_windows_win32_security_authentication_identity_sspiZeroAuthIdent
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingDeleteAllBindings(void) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteAllBindings(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4966,7 +4966,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingDe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingDeleteBinding(void* targeturl) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteBinding(void* targeturl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4988,7 +4988,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingDe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateBinding(int32_t keytype, void* targeturl, int32_t bindingtype, void* tlsekm, uint32_t tlsekmsize, int32_t extensionformat, void* extensiondata, void* tokenbinding, void* tokenbindingsize, void* resultdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateBinding(int32_t keytype, void* targeturl, int32_t bindingtype, void* tlsekm, uint32_t tlsekmsize, int32_t extensionformat, void* extensiondata, void* tokenbinding, void* tokenbindingsize, void* resultdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*, uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5019,7 +5019,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateID(int32_t keytype, void* publickey, uint32_t publickeysize, void* resultdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateID(int32_t keytype, void* publickey, uint32_t publickeysize, void* resultdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5044,7 +5044,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateIDForUri(int32_t keytype, void* targeturi, void* resultdata) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateIDForUri(int32_t keytype, void* targeturi, void* resultdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5068,7 +5068,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateMessage(void* tokenbindings, void* tokenbindingssize, uint32_t tokenbindingscount, void* tokenbindingmessage, void* tokenbindingmessagesize) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateMessage(void* tokenbindings, void* tokenbindingssize, uint32_t tokenbindingscount, void* tokenbindingmessage, void* tokenbindingmessagesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5094,7 +5094,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGetHighestSupportedVersion(void* majorversion, void* minorversion) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGetHighestSupportedVersion(void* majorversion, void* minorversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5117,7 +5117,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGetKeyTypesClient(void* keytypes) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGetKeyTypesClient(void* keytypes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5139,7 +5139,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGetKeyTypesServer(void* keytypes) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGetKeyTypesServer(void* keytypes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5161,7 +5161,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingGe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingVerifyMessage(void* tokenbindingmessage, uint32_t tokenbindingmessagesize, int32_t keytype, void* tlsekm, uint32_t tlsekmsize, void* resultlist) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingVerifyMessage(void* tokenbindingmessage, uint32_t tokenbindingmessagesize, int32_t keytype, void* tlsekm, uint32_t tlsekmsize, void* resultlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5188,7 +5188,7 @@ int32_t windowssys_windows_win32_security_authentication_identity_tokenBindingVe
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_translateNameA(void* lpaccountname, int32_t accountnameformat, int32_t desirednameformat, void* lptranslatedname, void* nsize) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityTranslateNameA(void* lpaccountname, int32_t accountnameformat, int32_t desirednameformat, void* lptranslatedname, void* nsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5214,7 +5214,7 @@ bool windowssys_windows_win32_security_authentication_identity_translateNameA(vo
 #endif
 }
 
-bool windowssys_windows_win32_security_authentication_identity_translateNameW(void* lpaccountname, int32_t accountnameformat, int32_t desirednameformat, void* lptranslatedname, void* nsize) {
+bool windowssysWindowsWin32SecurityAuthenticationIdentityTranslateNameW(void* lpaccountname, int32_t accountnameformat, int32_t desirednameformat, void* lptranslatedname, void* nsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5240,7 +5240,7 @@ bool windowssys_windows_win32_security_authentication_identity_translateNameW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_authentication_identity_verifySignature(void* phcontext, void* pmessage, uint32_t messageseqno, void* pfqop) {
+int32_t windowssysWindowsWin32SecurityAuthenticationIdentityVerifySignature(void* phcontext, void* pmessage, uint32_t messageseqno, void* pfqop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

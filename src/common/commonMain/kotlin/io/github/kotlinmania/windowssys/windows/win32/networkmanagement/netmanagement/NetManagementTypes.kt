@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias AfOp = UInt
 
@@ -69,7 +70,7 @@ public typealias UserPriv = UInt
 public typealias UseInfoAsgType = UInt
 
 public fun interface WorkerfunctionFn {
-    public operator fun invoke(param0: COpaquePointer?)
+    public operator fun invoke(param0: MutPtr<CVoid>)
 }
 
 public typealias Workerfunction = WorkerfunctionFn?

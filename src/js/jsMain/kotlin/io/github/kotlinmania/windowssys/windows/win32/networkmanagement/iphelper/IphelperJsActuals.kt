@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -12,656 +14,663 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.AddressFamily
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlNetworkConnectivityHint
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6Pair
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrInet
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfCompartmentId
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetLuidLh
+import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 
-private val _windowsWin32NetworkmanagementIphelperNapiAddon: dynamic =
+private val windowsWin32NetworkmanagementIphelperNapiAddon: dynamic =
     js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: COpaquePointer?, nteinstance: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_addIPAddress(address.toInt(), ipmask.toInt(), ifindex.toInt(), (ntecontext?.value ?: 0L).toString(), (nteinstance?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: MutPtr<UInt>, nteinstance: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress(address.toInt(), ipmask.toInt(), ifindex.toInt(), ntecontext.rawAddress.toString(), nteinstance.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cancelIPChangeNotify(notifyoverlapped: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify((notifyoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun cancelIPChangeNotify(notifyoverlapped: ConstPtr<Overlapped>): Bool =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify(notifyoverlapped.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestampchange) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange((notificationhandle?.value ?: 0L).toString())
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCancelIfTimestampConfigChange(notificationhandle.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun cancelMibChangeNotify2(notificationhandle: Handle): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2((notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCancelMibChangeNotify2(notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun captureInterfaceHardwareCrossTimestamp(interfaceluid: COpaquePointer?, crosstimestamp: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp((interfaceluid?.value ?: 0L).toString(), (crosstimestamp?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun captureInterfaceHardwareCrossTimestamp(interfaceluid: ConstPtr<NetLuidLh>, crosstimestamp: MutPtr<InterfaceHardwareCrosstimestamp>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCaptureInterfaceHardwareCrossTimestamp(interfaceluid.rawAddress.toString(), crosstimestamp.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertCompartmentGuidToId(compartmentguid: COpaquePointer?, compartmentid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId((compartmentguid?.value ?: 0L).toString(), (compartmentid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertCompartmentGuidToId(compartmentguid: ConstPtr<Guid>, compartmentid: MutPtr<UInt>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentGuidToId(compartmentguid.rawAddress.toString(), compartmentid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertCompartmentIdToGuid(compartmentid: NetIfCompartmentId, compartmentguid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid(compartmentid.toInt(), (compartmentguid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertCompartmentIdToGuid(compartmentid: NetIfCompartmentId, compartmentguid: MutPtr<Guid>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentIdToGuid(compartmentid.toInt(), compartmentguid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceAliasToLuid(interfacealias: Pcwstr, interfaceluid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid((interfacealias?.value ?: 0L).toString(), (interfaceluid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceAliasToLuid(interfacealias: Pcwstr, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceAliasToLuid(interfacealias.rawAddress.toString(), interfaceluid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceGuidToLuid(interfaceguid: COpaquePointer?, interfaceluid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid((interfaceguid?.value ?: 0L).toString(), (interfaceluid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceGuidToLuid(interfaceguid: ConstPtr<Guid>, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceGuidToLuid(interfaceguid.rawAddress.toString(), interfaceluid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid(interfaceindex.toInt(), (interfaceluid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceIndexToLuid(interfaceindex.toInt(), interfaceluid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceLuidToAlias(interfaceluid: COpaquePointer?, interfacealias: Pwstr, length: ULong): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias((interfaceluid?.value ?: 0L).toString(), (interfacealias?.value ?: 0L).toString(), length.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceLuidToAlias(interfaceluid: ConstPtr<NetLuidLh>, interfacealias: Pwstr, length: ULong): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToAlias(interfaceluid.rawAddress.toString(), interfacealias.rawAddress.toString(), length.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceLuidToGuid(interfaceluid: COpaquePointer?, interfaceguid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid((interfaceluid?.value ?: 0L).toString(), (interfaceguid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceLuidToGuid(interfaceluid: ConstPtr<NetLuidLh>, interfaceguid: MutPtr<Guid>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToGuid(interfaceluid.rawAddress.toString(), interfaceguid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceLuidToIndex(interfaceluid: COpaquePointer?, interfaceindex: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex((interfaceluid?.value ?: 0L).toString(), (interfaceindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceLuidToIndex(interfaceluid: ConstPtr<NetLuidLh>, interfaceindex: MutPtr<UInt>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToIndex(interfaceluid.rawAddress.toString(), interfaceindex.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceLuidToNameA(interfaceluid: COpaquePointer?, interfacename: Pstr, length: ULong): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA((interfaceluid?.value ?: 0L).toString(), (interfacename?.value ?: 0L).toString(), length.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceLuidToNameA(interfaceluid: ConstPtr<NetLuidLh>, interfacename: Pstr, length: ULong): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameA(interfaceluid.rawAddress.toString(), interfacename.rawAddress.toString(), length.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceLuidToNameW(interfaceluid: COpaquePointer?, interfacename: Pwstr, length: ULong): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW((interfaceluid?.value ?: 0L).toString(), (interfacename?.value ?: 0L).toString(), length.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceLuidToNameW(interfaceluid: ConstPtr<NetLuidLh>, interfacename: Pwstr, length: ULong): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameW(interfaceluid.rawAddress.toString(), interfacename.rawAddress.toString(), length.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceNameToLuidA(interfacename: Pcstr, interfaceluid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA((interfacename?.value ?: 0L).toString(), (interfaceluid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceNameToLuidA(interfacename: Pcstr, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidA(interfacename.rawAddress.toString(), interfaceluid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertInterfaceNameToLuidW(interfacename: Pcwstr, interfaceluid: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW((interfacename?.value ?: 0L).toString(), (interfaceluid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertInterfaceNameToLuidW(interfacename: Pcwstr, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidW(interfacename.rawAddress.toString(), interfaceluid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertIpv4MaskToLength(mask: UInt, masklength: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength(mask.toInt(), (masklength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertIpv4MaskToLength(mask: UInt, masklength: MutPtr<UByte>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertIpv4MaskToLength(mask.toInt(), masklength.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertLengthToIpv4Mask(masklength: UInt, mask: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask(masklength.toInt(), (mask?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertLengthToIpv4Mask(masklength: UInt, mask: MutPtr<UInt>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperConvertLengthToIpv4Mask(masklength.toInt(), mask.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createAnycastIpAddressEntry(row: ConstPtr<MibAnycastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateAnycastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIpForwardEntry(proute: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry((proute?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createIpForwardEntry(proute: ConstPtr<MibIpforwardrow>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry(proute.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIpForwardEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createIpForwardEntry2(row: ConstPtr<MibIpforwardRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIpNetEntry(parpentry: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry((parpentry?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createIpNetEntry(parpentry: ConstPtr<MibIpnetrowLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry(parpentry.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIpNetEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createIpNetEntry2(row: ConstPtr<MibIpnetRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation(startport.toInt(), numberofports.toInt(), (token?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentTcpPortReservation(startport.toInt(), numberofports.toInt(), token.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation(startport.toInt(), numberofports.toInt(), (token?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentUdpPortReservation(startport.toInt(), numberofports.toInt(), token.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createSortedAddressPairs(sourceaddresslist: COpaquePointer?, sourceaddresscount: UInt, destinationaddresslist: COpaquePointer?, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: COpaquePointer?, sortedaddresspaircount: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs((sourceaddresslist?.value ?: 0L).toString(), sourceaddresscount.toInt(), (destinationaddresslist?.value ?: 0L).toString(), destinationaddresscount.toInt(), addresssortoptions.toInt(), (sortedaddresspairlist?.value ?: 0L).toString(), (sortedaddresspaircount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createSortedAddressPairs(sourceaddresslist: ConstPtr<SockaddrIn6>, sourceaddresscount: UInt, destinationaddresslist: ConstPtr<SockaddrIn6>, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: MutPtr<MutPtr<SockaddrIn6Pair>>, sortedaddresspaircount: MutPtr<UInt>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateSortedAddressPairs(sourceaddresslist.rawAddress.toString(), sourceaddresscount.toInt(), destinationaddresslist.rawAddress.toString(), destinationaddresscount.toInt(), addresssortoptions.toInt(), sortedaddresspairlist.rawAddress.toString(), sortedaddresspaircount.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createUnicastIpAddressEntry(row: ConstPtr<MibUnicastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperCreateUnicastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteAnycastIpAddressEntry(row: ConstPtr<MibAnycastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteAnycastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteIPAddress(ntecontext: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress(ntecontext.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteIPAddress(ntecontext.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteIpForwardEntry(proute: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry((proute?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteIpForwardEntry(proute: ConstPtr<MibIpforwardrow>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry(proute.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteIpForwardEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteIpForwardEntry2(row: ConstPtr<MibIpforwardRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteIpNetEntry(parpentry: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry((parpentry?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteIpNetEntry(parpentry: ConstPtr<MibIpnetrowLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry(parpentry.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteIpNetEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteIpNetEntry2(row: ConstPtr<MibIpnetRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation(startport.toInt(), numberofports.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentTcpPortReservation(startport.toInt(), numberofports.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deletePersistentUdpPortReservation(startport: UShort, numberofports: UShort): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation(startport.toInt(), numberofports.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentUdpPortReservation(startport.toInt(), numberofports.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteProxyArpEntry(dwaddress.toInt(), dwmask.toInt(), dwifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteUnicastIpAddressEntry(row: ConstPtr<MibUnicastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDeleteUnicastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun disableMediaSense(phandle: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense((phandle?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun disableMediaSense(phandle: MutPtr<Handle>, poverlapped: ConstPtr<Overlapped>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperDisableMediaSense(phandle.rawAddress.toString(), poverlapped.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enableRouter(phandle: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_enableRouter((phandle?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun enableRouter(phandle: MutPtr<Handle>, poverlapped: MutPtr<Overlapped>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperEnableRouter(phandle.rawAddress.toString(), poverlapped.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun flushIpNetTable(dwifindex: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable(dwifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable(dwifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun flushIpNetTable2(family: AddressFamily, interfaceindex: UInt): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2(family.toInt(), interfaceindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable2(family.toInt(), interfaceindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun flushIpPathTable(family: AddressFamily): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable(family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperFlushIpPathTable(family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun freeDnsSettings(settings: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings((settings?.value ?: 0L).toString())
+public actual fun freeDnsSettings(settings: MutPtr<DnsSettings>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperFreeDnsSettings(settings.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun freeInterfaceDnsSettings(settings: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings((settings?.value ?: 0L).toString())
+public actual fun freeInterfaceDnsSettings(settings: MutPtr<DnsInterfaceSettings>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperFreeInterfaceDnsSettings(settings.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun freeMibTable(memory: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_freeMibTable((memory?.value ?: 0L).toString())
+public actual fun freeMibTable(memory: ConstPtr<CVoid>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperFreeMibTable(memory.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex((adaptername?.value ?: 0L).toString(), (ifindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetAdapterIndex(adaptername.rawAddress.toString(), ifindex.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAdapterOrderMap(): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAdapterOrderMap(): MutPtr<IpAdapterOrderMap> =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) MutPtr((windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetAdapterOrderMap() as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAdaptersAddresses(family: UInt, flags: GetAdaptersAddressesFlags, reserved: COpaquePointer?, adapteraddresses: COpaquePointer?, sizepointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses(family.toInt(), flags.toInt(), (reserved?.value ?: 0L).toString(), (adapteraddresses?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAdaptersAddresses(family: UInt, flags: GetAdaptersAddressesFlags, reserved: ConstPtr<CVoid>, adapteraddresses: MutPtr<IpAdapterAddressesLh>, sizepointer: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersAddresses(family.toInt(), flags.toInt(), reserved.rawAddress.toString(), adapteraddresses.rawAddress.toString(), sizepointer.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAdaptersInfo(adapterinfo: COpaquePointer?, sizepointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo((adapterinfo?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAdaptersInfo(adapterinfo: MutPtr<IpAdapterInfo>, sizepointer: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersInfo(adapterinfo.rawAddress.toString(), sizepointer.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAnycastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAnycastIpAddressEntry(row: MutPtr<MibAnycastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAnycastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAnycastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibAnycastipaddressTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressTable(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getBestInterface(dwdestaddr: UInt, pdwbestifindex: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getBestInterface(dwdestaddr.toInt(), (pdwbestifindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getBestInterface(dwdestaddr: UInt, pdwbestifindex: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetBestInterface(dwdestaddr.toInt(), pdwbestifindex.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getBestInterfaceEx(pdestaddr: COpaquePointer?, pdwbestifindex: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx((pdestaddr?.value ?: 0L).toString(), (pdwbestifindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getBestInterfaceEx(pdestaddr: ConstPtr<Sockaddr>, pdwbestifindex: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetBestInterfaceEx(pdestaddr.rawAddress.toString(), pdwbestifindex.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getBestRoute(dwdestaddr.toInt(), dwsourceaddr.toInt(), (pbestroute?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: MutPtr<MibIpforwardrow>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute(dwdestaddr.toInt(), dwsourceaddr.toInt(), pbestroute.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getBestRoute2(interfaceluid: COpaquePointer?, interfaceindex: UInt, sourceaddress: COpaquePointer?, destinationaddress: COpaquePointer?, addresssortoptions: UInt, bestroute: COpaquePointer?, bestsourceaddress: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2((interfaceluid?.value ?: 0L).toString(), interfaceindex.toInt(), (sourceaddress?.value ?: 0L).toString(), (destinationaddress?.value ?: 0L).toString(), addresssortoptions.toInt(), (bestroute?.value ?: 0L).toString(), (bestsourceaddress?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getBestRoute2(interfaceluid: ConstPtr<NetLuidLh>, interfaceindex: UInt, sourceaddress: ConstPtr<SockaddrInet>, destinationaddress: ConstPtr<SockaddrInet>, addresssortoptions: UInt, bestroute: MutPtr<MibIpforwardRow2>, bestsourceaddress: MutPtr<SockaddrInet>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute2(interfaceluid.rawAddress.toString(), interfaceindex.toInt(), sourceaddress.rawAddress.toString(), destinationaddress.rawAddress.toString(), addresssortoptions.toInt(), bestroute.rawAddress.toString(), bestsourceaddress.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getCurrentThreadCompartmentId(): NetIfCompartmentId =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentThreadCompartmentScope(compartmentscope: COpaquePointer?, compartmentid: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope((compartmentscope?.value ?: 0L).toString(), (compartmentid?.value ?: 0L).toString())
+public actual fun getCurrentThreadCompartmentScope(compartmentscope: MutPtr<UInt>, compartmentid: MutPtr<UInt>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentScope(compartmentscope.rawAddress.toString(), compartmentid.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun getDefaultCompartmentId(): NetIfCompartmentId =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetDefaultCompartmentId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDnsSettings(settings: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings((settings?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getDnsSettings(settings: MutPtr<DnsSettings>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetDnsSettings(settings.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getExtendedTcpTable(ptcptable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool, ulaf: UInt, tableclass: TcpTableClass, reserved: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable((ptcptable?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString(), border, ulaf.toInt(), tableclass, reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getExtendedTcpTable(ptcptable: MutPtr<CVoid>, pdwsize: MutPtr<UInt>, border: Bool, ulaf: UInt, tableclass: TcpTableClass, reserved: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetExtendedTcpTable(ptcptable.rawAddress.toString(), pdwsize.rawAddress.toString(), border, ulaf.toInt(), tableclass, reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getExtendedUdpTable(pudptable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool, ulaf: UInt, tableclass: UdpTableClass, reserved: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable((pudptable?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString(), border, ulaf.toInt(), tableclass, reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getExtendedUdpTable(pudptable: MutPtr<CVoid>, pdwsize: MutPtr<UInt>, border: Bool, ulaf: UInt, tableclass: UdpTableClass, reserved: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetExtendedUdpTable(pudptable.rawAddress.toString(), pdwsize.rawAddress.toString(), border, ulaf.toInt(), tableclass, reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getFriendlyIfIndex(ifindex: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex(ifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetFriendlyIfIndex(ifindex.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIcmpStatistics(statistics: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics((statistics?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIcmpStatistics(statistics: MutPtr<MibIcmp>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatistics(statistics.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIcmpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIcmpStatisticsEx(statistics: MutPtr<MibIcmpExXpsp1>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatisticsEx(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfEntry(pifrow: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry((pifrow?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfEntry(pifrow: MutPtr<MibIfrow>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry(pifrow.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfEntry2(row: MutPtr<MibIfRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfEntry2Ex(level: MibIfEntryLevel, row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex(level, (row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfEntry2Ex(level: MibIfEntryLevel, row: MutPtr<MibIfRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2Ex(level, row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfStackTable(table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable((table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfStackTable(table: MutPtr<MutPtr<MibIfstackTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfStackTable(table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfTable(piftable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfTable((piftable?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString(), border) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfTable(piftable: MutPtr<MibIftable>, pdwsize: MutPtr<UInt>, border: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfTable(piftable.rawAddress.toString(), pdwsize.rawAddress.toString(), border) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfTable2(table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfTable2((table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfTable2(table: MutPtr<MutPtr<MibIfTable2>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2(table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIfTable2Ex(level: MibIfTableLevel, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex(level, (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIfTable2Ex(level: MibIfTableLevel, table: MutPtr<MutPtr<MibIfTable2>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2Ex(level, table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInterfaceActiveTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities((interfaceluid?.value ?: 0L).toString(), (timestampcapabilites?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInterfaceActiveTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceActiveTimestampCapabilities(interfaceluid.rawAddress.toString(), timestampcapabilites.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInterfaceCurrentTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities((interfaceluid?.value ?: 0L).toString(), (timestampcapabilites?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInterfaceCurrentTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceCurrentTimestampCapabilities(interfaceluid.rawAddress.toString(), timestampcapabilites.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInterfaceDnsSettings(iface: Guid, settings: COpaquePointer?): Win32Error =
+public actual fun getInterfaceDnsSettings(iface: Guid, settings: MutPtr<DnsInterfaceSettings>): Win32Error =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInterfaceHardwareTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities((interfaceluid?.value ?: 0L).toString(), (timestampcapabilites?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInterfaceHardwareTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceHardwareTimestampCapabilities(interfaceluid.rawAddress.toString(), timestampcapabilites.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInterfaceInfo(piftable: COpaquePointer?, dwoutbuflen: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo((piftable?.value ?: 0L).toString(), (dwoutbuflen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInterfaceInfo(piftable: MutPtr<IpInterfaceInfo>, dwoutbuflen: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceInfo(piftable.rawAddress.toString(), dwoutbuflen.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInterfaceSupportedTimestampCapabilities(interfaceluid: COpaquePointer?, timestampcapabilites: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities((interfaceluid?.value ?: 0L).toString(), (timestampcapabilites?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInterfaceSupportedTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceSupportedTimestampCapabilities(interfaceluid.rawAddress.toString(), timestampcapabilites.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getInvertedIfStackTable(table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable((table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInvertedIfStackTable(table: MutPtr<MutPtr<MibInvertedifstackTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetInvertedIfStackTable(table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpAddrTable(pipaddrtable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable((pipaddrtable?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString(), border) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpAddrTable(pipaddrtable: MutPtr<MibIpaddrtable>, pdwsize: MutPtr<UInt>, border: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpAddrTable(pipaddrtable.rawAddress.toString(), pdwsize.rawAddress.toString(), border) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpErrorString(errorcode: UInt, buffer: Pwstr, size: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString(errorcode.toInt(), (buffer?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpErrorString(errorcode: UInt, buffer: Pwstr, size: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpErrorString(errorcode.toInt(), buffer.rawAddress.toString(), size.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpForwardEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpForwardEntry2(row: MutPtr<MibIpforwardRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpForwardTable(pipforwardtable: COpaquePointer?, pdwsize: COpaquePointer?, border: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable((pipforwardtable?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString(), border) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpForwardTable(pipforwardtable: MutPtr<MibIpforwardtable>, pdwsize: MutPtr<UInt>, border: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable(pipforwardtable.rawAddress.toString(), pdwsize.rawAddress.toString(), border) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpForwardTable2(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpForwardTable2(family: AddressFamily, table: MutPtr<MutPtr<MibIpforwardTable2>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable2(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpInterfaceEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpInterfaceEntry(row: MutPtr<MibIpinterfaceRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpInterfaceTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpInterfaceTable(family: AddressFamily, table: MutPtr<MutPtr<MibIpinterfaceTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceTable(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpNetEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpNetEntry2(row: MutPtr<MibIpnetRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpNetEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpNetTable(ipnettable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable((ipnettable?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpNetTable(ipnettable: MutPtr<MibIpnettable>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable(ipnettable.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpNetTable2(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpNetTable2(family: AddressFamily, table: MutPtr<MutPtr<MibIpnetTable2>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable2(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: AddressFamily, bandwidthestimates: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates(interfaceindex.toInt(), addressfamily.toInt(), (bandwidthestimates?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: AddressFamily, bandwidthestimates: MutPtr<MibIpNetworkConnectionBandwidthEstimates>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpNetworkConnectionBandwidthEstimates(interfaceindex.toInt(), addressfamily.toInt(), bandwidthestimates.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpPathEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpPathEntry(row: MutPtr<MibIppathRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpPathEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpPathTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpPathTable(family: AddressFamily, table: MutPtr<MutPtr<MibIppathTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpPathTable(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpStatistics(statistics: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics((statistics?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpStatistics(statistics: MutPtr<MibIpstatsLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpStatistics(statistics.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIpStatisticsEx(statistics: MutPtr<MibIpstatsLh>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetIpStatisticsEx(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getJobCompartmentId(jobhandle: Handle): NetIfCompartmentId =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId((jobhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetJobCompartmentId(jobhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMulticastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getMulticastIpAddressEntry(row: MutPtr<MibMulticastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMulticastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getMulticastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibMulticastipaddressTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressTable(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNetworkConnectivityHint(connectivityhint: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint((connectivityhint?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNetworkConnectivityHint(connectivityhint: MutPtr<NlNetworkConnectivityHint>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHint(connectivityhint.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface(interfaceindex.toInt(), (connectivityhint?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: MutPtr<NlNetworkConnectivityHint>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHintForInterface(interfaceindex.toInt(), connectivityhint.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNetworkInformation(networkguid: COpaquePointer?, compartmentid: COpaquePointer?, siteid: COpaquePointer?, networkname: Pwstr, length: UInt): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation((networkguid?.value ?: 0L).toString(), (compartmentid?.value ?: 0L).toString(), (siteid?.value ?: 0L).toString(), (networkname?.value ?: 0L).toString(), length.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNetworkInformation(networkguid: ConstPtr<Guid>, compartmentid: MutPtr<UInt>, siteid: MutPtr<UInt>, networkname: Pwstr, length: UInt): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetNetworkInformation(networkguid.rawAddress.toString(), compartmentid.rawAddress.toString(), siteid.rawAddress.toString(), networkname.rawAddress.toString(), length.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNetworkParams(pfixedinfo: COpaquePointer?, poutbuflen: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams((pfixedinfo?.value ?: 0L).toString(), (poutbuflen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNetworkParams(pfixedinfo: MutPtr<FixedInfoW2ksp1>, poutbuflen: MutPtr<UInt>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetNetworkParams(pfixedinfo.rawAddress.toString(), poutbuflen.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumberOfInterfaces(pdwnumif: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces((pdwnumif?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumberOfInterfaces(pdwnumif: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetNumberOfInterfaces(pdwnumif.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo(ulpid.toInt(), (pinfo?.value ?: 0L).toString(), cls, (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: ConstPtr<ULong>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromPidAndInfo(ulpid.toInt(), pinfo.rawAddress.toString(), cls, pbuffer.rawAddress.toString(), pdwsize.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOwnerModuleFromTcp6Entry(ptcpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry((ptcpentry?.value ?: 0L).toString(), cls, (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getOwnerModuleFromTcp6Entry(ptcpentry: ConstPtr<MibTcp6rowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcp6Entry(ptcpentry.rawAddress.toString(), cls, pbuffer.rawAddress.toString(), pdwsize.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOwnerModuleFromTcpEntry(ptcpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry((ptcpentry?.value ?: 0L).toString(), cls, (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getOwnerModuleFromTcpEntry(ptcpentry: ConstPtr<MibTcprowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcpEntry(ptcpentry.rawAddress.toString(), cls, pbuffer.rawAddress.toString(), pdwsize.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOwnerModuleFromUdp6Entry(pudpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry((pudpentry?.value ?: 0L).toString(), cls, (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getOwnerModuleFromUdp6Entry(pudpentry: ConstPtr<MibUdp6rowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdp6Entry(pudpentry.rawAddress.toString(), cls, pbuffer.rawAddress.toString(), pdwsize.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOwnerModuleFromUdpEntry(pudpentry: COpaquePointer?, cls: TcpipOwnerModuleInfoClass, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry((pudpentry?.value ?: 0L).toString(), cls, (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getOwnerModuleFromUdpEntry(pudpentry: ConstPtr<MibUdprowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdpEntry(pudpentry.rawAddress.toString(), cls, pbuffer.rawAddress.toString(), pdwsize.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getPerAdapterInfo(ifindex: UInt, pperadapterinfo: COpaquePointer?, poutbuflen: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo(ifindex.toInt(), (pperadapterinfo?.value ?: 0L).toString(), (poutbuflen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getPerAdapterInfo(ifindex: UInt, pperadapterinfo: MutPtr<IpPerAdapterInfoW2ksp1>, poutbuflen: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetPerAdapterInfo(ifindex.toInt(), pperadapterinfo.rawAddress.toString(), poutbuflen.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getPerTcp6ConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, ros: COpaquePointer?, rosversion: UInt, rossize: UInt, rod: COpaquePointer?, rodversion: UInt, rodsize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats((row?.value ?: 0L).toString(), estatstype, (rw?.value ?: 0L).toString(), rwversion.toInt(), rwsize.toInt(), (ros?.value ?: 0L).toString(), rosversion.toInt(), rossize.toInt(), (rod?.value ?: 0L).toString(), rodversion.toInt(), rodsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getPerTcp6ConnectionEStats(row: ConstPtr<MibTcp6row>, estatstype: TcpEstatsType, rw: MutPtr<UByte>, rwversion: UInt, rwsize: UInt, ros: MutPtr<UByte>, rosversion: UInt, rossize: UInt, rod: MutPtr<UByte>, rodversion: UInt, rodsize: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetPerTcp6ConnectionEStats(row.rawAddress.toString(), estatstype, rw.rawAddress.toString(), rwversion.toInt(), rwsize.toInt(), ros.rawAddress.toString(), rosversion.toInt(), rossize.toInt(), rod.rawAddress.toString(), rodversion.toInt(), rodsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getPerTcpConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, ros: COpaquePointer?, rosversion: UInt, rossize: UInt, rod: COpaquePointer?, rodversion: UInt, rodsize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats((row?.value ?: 0L).toString(), estatstype, (rw?.value ?: 0L).toString(), rwversion.toInt(), rwsize.toInt(), (ros?.value ?: 0L).toString(), rosversion.toInt(), rossize.toInt(), (rod?.value ?: 0L).toString(), rodversion.toInt(), rodsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getPerTcpConnectionEStats(row: ConstPtr<MibTcprowLh>, estatstype: TcpEstatsType, rw: MutPtr<UByte>, rwversion: UInt, rwsize: UInt, ros: MutPtr<UByte>, rosversion: UInt, rossize: UInt, rod: MutPtr<UByte>, rodversion: UInt, rodsize: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetPerTcpConnectionEStats(row.rawAddress.toString(), estatstype, rw.rawAddress.toString(), rwversion.toInt(), rwsize.toInt(), ros.rawAddress.toString(), rosversion.toInt(), rossize.toInt(), rod.rawAddress.toString(), rodversion.toInt(), rodsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRTTAndHopCount(destipaddress: UInt, hopcount: COpaquePointer?, maxhops: UInt, rtt: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount(destipaddress.toInt(), (hopcount?.value ?: 0L).toString(), maxhops.toInt(), (rtt?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getRTTAndHopCount(destipaddress: UInt, hopcount: MutPtr<UInt>, maxhops: UInt, rtt: MutPtr<UInt>): Bool =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetRTTAndHopCount(destipaddress.toInt(), hopcount.rawAddress.toString(), maxhops.toInt(), rtt.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getSessionCompartmentId(sessionid: UInt): NetIfCompartmentId =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId(sessionid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetSessionCompartmentId(sessionid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcp6Table(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table((tcptable?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcp6Table(tcptable: MutPtr<MibTcp6table>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table(tcptable.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcp6Table2(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2((tcptable?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcp6Table2(tcptable: MutPtr<MibTcp6table2>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table2(tcptable.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcpStatistics(statistics: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics((statistics?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcpStatistics(statistics: MutPtr<MibTcpstatsLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatistics(statistics.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcpStatisticsEx(statistics: MutPtr<MibTcpstatsLh>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcpStatisticsEx2(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcpStatisticsEx2(statistics: MutPtr<MibTcpstats2>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx2(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcpTable(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcpTable((tcptable?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcpTable(tcptable: MutPtr<MibTcptable>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable(tcptable.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTcpTable2(tcptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2((tcptable?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTcpTable2(tcptable: MutPtr<MibTcptable2>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable2(tcptable.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTeredoPort(port: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort((port?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getTeredoPort(port: MutPtr<UShort>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetTeredoPort(port.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUdp6Table(udp6table: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table((udp6table?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUdp6Table(udp6table: MutPtr<MibUdp6table>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUdp6Table(udp6table.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUdpStatistics(stats: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics((stats?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUdpStatistics(stats: MutPtr<MibUdpstats>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatistics(stats.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUdpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUdpStatisticsEx(statistics: MutPtr<MibUdpstats>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUdpStatisticsEx2(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUdpStatisticsEx2(statistics: MutPtr<MibUdpstats2>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx2(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUdpTable(udptable: COpaquePointer?, sizepointer: COpaquePointer?, order: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUdpTable((udptable?.value ?: 0L).toString(), (sizepointer?.value ?: 0L).toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUdpTable(udptable: MutPtr<MibUdptable>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUdpTable(udptable.rawAddress.toString(), sizepointer.rawAddress.toString(), order) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUniDirectionalAdapterInfo(pipifinfo: COpaquePointer?, dwoutbuflen: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo((pipifinfo?.value ?: 0L).toString(), (dwoutbuflen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUniDirectionalAdapterInfo(pipifinfo: MutPtr<IpUnidirectionalAdapterAddress>, dwoutbuflen: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUniDirectionalAdapterInfo(pipifinfo.rawAddress.toString(), dwoutbuflen.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUnicastIpAddressEntry(row: MutPtr<MibUnicastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUnicastIpAddressTable(family: AddressFamily, table: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable(family.toInt(), (table?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUnicastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibUnicastipaddressTable>>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressTable(family.toInt(), table.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun icmp6CreateFile(): Handle =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) MutPtr((windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmp6CreateFile() as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun icmp6ParseReplies(replybuffer: COpaquePointer?, replysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies((replybuffer?.value ?: 0L).toString(), replysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun icmp6ParseReplies(replybuffer: MutPtr<CVoid>, replysize: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmp6ParseReplies(replybuffer.rawAddress.toString(), replysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun icmp6SendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: COpaquePointer?, destinationaddress: COpaquePointer?, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2((icmphandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (sourceaddress?.value ?: 0L).toString(), (destinationaddress?.value ?: 0L).toString(), (requestdata?.value ?: 0L).toString(), requestsize.toInt(), (requestoptions?.value ?: 0L).toString(), (replybuffer?.value ?: 0L).toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun icmp6SendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, sourceaddress: ConstPtr<SockaddrIn6>, destinationaddress: ConstPtr<SockaddrIn6>, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmp6SendEcho2(icmphandle.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), sourceaddress.rawAddress.toString(), destinationaddress.rawAddress.toString(), requestdata.rawAddress.toString(), requestsize.toInt(), requestoptions.rawAddress.toString(), replybuffer.rawAddress.toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun icmpCloseHandle(icmphandle: Handle): Bool =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle((icmphandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmpCloseHandle(icmphandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun icmpCreateFile(): Handle =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) MutPtr((windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmpCreateFile() as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun icmpParseReplies(replybuffer: COpaquePointer?, replysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies((replybuffer?.value ?: 0L).toString(), replysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun icmpParseReplies(replybuffer: MutPtr<CVoid>, replysize: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmpParseReplies(replybuffer.rawAddress.toString(), replysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun icmpSendEcho(icmphandle: Handle, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho((icmphandle?.value ?: 0L).toString(), destinationaddress.toInt(), (requestdata?.value ?: 0L).toString(), requestsize.toInt(), (requestoptions?.value ?: 0L).toString(), (replybuffer?.value ?: 0L).toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun icmpSendEcho(icmphandle: Handle, destinationaddress: UInt, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho(icmphandle.rawAddress.toString(), destinationaddress.toInt(), requestdata.rawAddress.toString(), requestsize.toInt(), requestoptions.rawAddress.toString(), replybuffer.rawAddress.toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2((icmphandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), destinationaddress.toInt(), (requestdata?.value ?: 0L).toString(), requestsize.toInt(), (requestoptions?.value ?: 0L).toString(), (replybuffer?.value ?: 0L).toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, destinationaddress: UInt, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2(icmphandle.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), destinationaddress.toInt(), requestdata.rawAddress.toString(), requestsize.toInt(), requestoptions.rawAddress.toString(), replybuffer.rawAddress.toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: UInt, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex((icmphandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), sourceaddress.toInt(), destinationaddress.toInt(), (requestdata?.value ?: 0L).toString(), requestsize.toInt(), (requestoptions?.value ?: 0L).toString(), (replybuffer?.value ?: 0L).toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, sourceaddress: UInt, destinationaddress: UInt, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2Ex(icmphandle.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), sourceaddress.toInt(), destinationaddress.toInt(), requestdata.rawAddress.toString(), requestsize.toInt(), requestoptions.rawAddress.toString(), replybuffer.rawAddress.toString(), replysize.toInt(), timeout.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initializeIpForwardEntry(row: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry((row?.value ?: 0L).toString())
+public actual fun initializeIpForwardEntry(row: MutPtr<MibIpforwardRow2>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperInitializeIpForwardEntry(row.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeIpInterfaceEntry(row: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry((row?.value ?: 0L).toString())
+public actual fun initializeIpInterfaceEntry(row: MutPtr<MibIpinterfaceRow>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperInitializeIpInterfaceEntry(row.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeUnicastIpAddressEntry(row: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry((row?.value ?: 0L).toString())
+public actual fun initializeUnicastIpAddressEntry(row: MutPtr<MibUnicastipaddressRow>) {
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperInitializeUnicastIpAddressEntry(row.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ipReleaseAddress(adapterinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress((adapterinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ipReleaseAddress(adapterinfo: ConstPtr<IpAdapterIndexMap>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIpReleaseAddress(adapterinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ipRenewAddress(adapterinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress((adapterinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ipRenewAddress(adapterinfo: ConstPtr<IpAdapterIndexMap>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIpRenewAddress(adapterinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation(startport.toInt(), numberofports.toInt(), (token?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun lookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentTcpPortReservation(startport.toInt(), numberofports.toInt(), token.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation(startport.toInt(), numberofports.toInt(), (token?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun lookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentUdpPortReservation(startport.toInt(), numberofports.toInt(), token.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nhpAllocateAndGetInterfaceInfoFromStack(pptable: COpaquePointer?, pdwcount: COpaquePointer?, border: Bool, hheap: Handle, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack((pptable?.value ?: 0L).toString(), (pdwcount?.value ?: 0L).toString(), border, (hheap?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun nhpAllocateAndGetInterfaceInfoFromStack(pptable: MutPtr<MutPtr<IpInterfaceNameInfoW2ksp1>>, pdwcount: MutPtr<UInt>, border: Bool, hheap: Handle, dwflags: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNhpAllocateAndGetInterfaceInfoFromStack(pptable.rawAddress.toString(), pdwcount.rawAddress.toString(), border, hheap.rawAddress.toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyAddrChange(handle: COpaquePointer?, overlapped: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange((handle?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyAddrChange(handle: MutPtr<Handle>, overlapped: ConstPtr<Overlapped>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyAddrChange(handle.rawAddress.toString(), overlapped.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyIfTimestampConfigChange(callercontext: COpaquePointer?, callback: PinterfaceTimestampConfigChangeCallback, notificationhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange((callercontext?.value ?: 0L).toString(), 0L.toString(), (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyIfTimestampConfigChange(callercontext: ConstPtr<CVoid>, callback: PinterfaceTimestampConfigChangeCallback, notificationhandle: MutPtr<Hiftimestampchange>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyIfTimestampConfigChange(callercontext.rawAddress.toString(), 0L.toString(), notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyIpInterfaceChange(family: AddressFamily, callback: PipinterfaceChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange(family.toInt(), 0L.toString(), (callercontext?.value ?: 0L).toString(), initialnotification, (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyIpInterfaceChange(family: AddressFamily, callback: PipinterfaceChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyIpInterfaceChange(family.toInt(), 0L.toString(), callercontext.rawAddress.toString(), initialnotification, notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyNetworkConnectivityHintChange(callback: PnetworkConnectivityHintChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange(0L.toString(), (callercontext?.value ?: 0L).toString(), initialnotification, (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyNetworkConnectivityHintChange(callback: PnetworkConnectivityHintChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyNetworkConnectivityHintChange(0L.toString(), callercontext.rawAddress.toString(), initialnotification, notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyRouteChange(handle: COpaquePointer?, overlapped: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange((handle?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyRouteChange(handle: MutPtr<Handle>, overlapped: ConstPtr<Overlapped>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange(handle.rawAddress.toString(), overlapped.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyRouteChange2(addressfamily: AddressFamily, callback: PipforwardChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2(addressfamily.toInt(), 0L.toString(), (callercontext?.value ?: 0L).toString(), initialnotification, (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyRouteChange2(addressfamily: AddressFamily, callback: PipforwardChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange2(addressfamily.toInt(), 0L.toString(), callercontext.rawAddress.toString(), initialnotification, notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyStableUnicastIpAddressTable(family: AddressFamily, table: COpaquePointer?, callercallback: PstableUnicastIpaddressTableCallback, callercontext: COpaquePointer?, notificationhandle: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable(family.toInt(), (table?.value ?: 0L).toString(), 0L.toString(), (callercontext?.value ?: 0L).toString(), (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyStableUnicastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibUnicastipaddressTable>>, callercallback: PstableUnicastIpaddressTableCallback, callercontext: ConstPtr<CVoid>, notificationhandle: MutPtr<Handle>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyStableUnicastIpAddressTable(family.toInt(), table.rawAddress.toString(), 0L.toString(), callercontext.rawAddress.toString(), notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyTeredoPortChange(callback: PteredoPortChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange(0L.toString(), (callercontext?.value ?: 0L).toString(), initialnotification, (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyTeredoPortChange(callback: PteredoPortChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyTeredoPortChange(0L.toString(), callercontext.rawAddress.toString(), initialnotification, notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyUnicastIpAddressChange(family: AddressFamily, callback: PunicastIpaddressChangeCallback, callercontext: COpaquePointer?, initialnotification: Boolean, notificationhandle: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange(family.toInt(), 0L.toString(), (callercontext?.value ?: 0L).toString(), initialnotification, (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun notifyUnicastIpAddressChange(family: AddressFamily, callback: PunicastIpaddressChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperNotifyUnicastIpAddressChange(family.toInt(), 0L.toString(), callercontext.rawAddress.toString(), initialnotification, notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun parseNetworkString(networkstring: Pcwstr, types: UInt, addressinfo: COpaquePointer?, portnumber: COpaquePointer?, prefixlength: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString((networkstring?.value ?: 0L).toString(), types.toInt(), (addressinfo?.value ?: 0L).toString(), (portnumber?.value ?: 0L).toString(), (prefixlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun parseNetworkString(networkstring: Pcwstr, types: UInt, addressinfo: MutPtr<NetAddressInfo>, portnumber: MutPtr<UShort>, prefixlength: MutPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperParseNetworkString(networkstring.rawAddress.toString(), types.toInt(), addressinfo.rawAddress.toString(), portnumber.rawAddress.toString(), prefixlength.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfAddFiltersToInterface(ih: COpaquePointer?, cinfilters: UInt, pfiltin: COpaquePointer?, coutfilters: UInt, pfiltout: COpaquePointer?, pfhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface((ih?.value ?: 0L).toString(), cinfilters.toInt(), (pfiltin?.value ?: 0L).toString(), coutfilters.toInt(), (pfiltout?.value ?: 0L).toString(), (pfhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfAddFiltersToInterface(ih: MutPtr<CVoid>, cinfilters: UInt, pfiltin: MutPtr<PfFilterDescriptor>, coutfilters: UInt, pfiltout: MutPtr<PfFilterDescriptor>, pfhandle: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfAddFiltersToInterface(ih.rawAddress.toString(), cinfilters.toInt(), pfiltin.rawAddress.toString(), coutfilters.toInt(), pfiltout.rawAddress.toString(), pfhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfAddGlobalFilterToInterface(pinterface: COpaquePointer?, gffilter: GlobalFilter): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface((pinterface?.value ?: 0L).toString(), gffilter) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfAddGlobalFilterToInterface(pinterface: MutPtr<CVoid>, gffilter: GlobalFilter): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfAddGlobalFilterToInterface(pinterface.rawAddress.toString(), gffilter) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfBindInterfaceToIPAddress(pinterface: COpaquePointer?, pfattype: Pfaddresstype, ipaddress: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress((pinterface?.value ?: 0L).toString(), pfattype, (ipaddress?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfBindInterfaceToIPAddress(pinterface: MutPtr<CVoid>, pfattype: Pfaddresstype, ipaddress: MutPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIPAddress(pinterface.rawAddress.toString(), pfattype, ipaddress.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfBindInterfaceToIndex(pinterface: COpaquePointer?, dwindex: UInt, pfatlinktype: Pfaddresstype, linkipaddress: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex((pinterface?.value ?: 0L).toString(), dwindex.toInt(), pfatlinktype, (linkipaddress?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfBindInterfaceToIndex(pinterface: MutPtr<CVoid>, dwindex: UInt, pfatlinktype: Pfaddresstype, linkipaddress: MutPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIndex(pinterface.rawAddress.toString(), dwindex.toInt(), pfatlinktype, linkipaddress.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfCreateInterface(dwname: UInt, inaction: PfforwardAction, outaction: PfforwardAction, buselog: Bool, bmustbeunique: Bool, ppinterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface(dwname.toInt(), inaction, outaction, buselog, bmustbeunique, (ppinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfCreateInterface(dwname: UInt, inaction: PfforwardAction, outaction: PfforwardAction, buselog: Bool, bmustbeunique: Bool, ppinterface: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfCreateInterface(dwname.toInt(), inaction, outaction, buselog, bmustbeunique, ppinterface.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfDeleteInterface(pinterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface((pinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfDeleteInterface(pinterface: MutPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfDeleteInterface(pinterface.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pfDeleteLog(): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfDeleteLog() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfGetInterfaceStatistics(pinterface: COpaquePointer?, ppfstats: COpaquePointer?, pdwbuffersize: COpaquePointer?, fresetcounters: Bool): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics((pinterface?.value ?: 0L).toString(), (ppfstats?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), fresetcounters) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfGetInterfaceStatistics(pinterface: MutPtr<CVoid>, ppfstats: MutPtr<PfInterfaceStats>, pdwbuffersize: MutPtr<UInt>, fresetcounters: Bool): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfGetInterfaceStatistics(pinterface.rawAddress.toString(), ppfstats.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), fresetcounters) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pfMakeLog(hevent: Handle): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog((hevent?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfMakeLog(hevent.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfRebindFilters(pinterface: COpaquePointer?, platebindinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters((pinterface?.value ?: 0L).toString(), (platebindinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfRebindFilters(pinterface: MutPtr<CVoid>, platebindinfo: MutPtr<PfLatebindInfo>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfRebindFilters(pinterface.rawAddress.toString(), platebindinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfRemoveFilterHandles(pinterface: COpaquePointer?, cfilters: UInt, pvhandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles((pinterface?.value ?: 0L).toString(), cfilters.toInt(), (pvhandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfRemoveFilterHandles(pinterface: MutPtr<CVoid>, cfilters: UInt, pvhandles: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFilterHandles(pinterface.rawAddress.toString(), cfilters.toInt(), pvhandles.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfRemoveFiltersFromInterface(ih: COpaquePointer?, cinfilters: UInt, pfiltin: COpaquePointer?, coutfilters: UInt, pfiltout: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface((ih?.value ?: 0L).toString(), cinfilters.toInt(), (pfiltin?.value ?: 0L).toString(), coutfilters.toInt(), (pfiltout?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfRemoveFiltersFromInterface(ih: MutPtr<CVoid>, cinfilters: UInt, pfiltin: MutPtr<PfFilterDescriptor>, coutfilters: UInt, pfiltout: MutPtr<PfFilterDescriptor>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFiltersFromInterface(ih.rawAddress.toString(), cinfilters.toInt(), pfiltin.rawAddress.toString(), coutfilters.toInt(), pfiltout.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfRemoveGlobalFilterFromInterface(pinterface: COpaquePointer?, gffilter: GlobalFilter): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface((pinterface?.value ?: 0L).toString(), gffilter) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfRemoveGlobalFilterFromInterface(pinterface: MutPtr<CVoid>, gffilter: GlobalFilter): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfRemoveGlobalFilterFromInterface(pinterface.rawAddress.toString(), gffilter) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfSetLogBuffer(pbbuffer: COpaquePointer?, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: COpaquePointer?, pdwlostentries: COpaquePointer?, pdwsizeused: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer((pbbuffer?.value ?: 0L).toString(), dwsize.toInt(), dwthreshold.toInt(), dwentries.toInt(), (pdwloggedentries?.value ?: 0L).toString(), (pdwlostentries?.value ?: 0L).toString(), (pdwsizeused?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfSetLogBuffer(pbbuffer: MutPtr<UByte>, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: MutPtr<UInt>, pdwlostentries: MutPtr<UInt>, pdwsizeused: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfSetLogBuffer(pbbuffer.rawAddress.toString(), dwsize.toInt(), dwthreshold.toInt(), dwentries.toInt(), pdwloggedentries.rawAddress.toString(), pdwlostentries.rawAddress.toString(), pdwsizeused.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfTestPacket(pininterface: COpaquePointer?, poutinterface: COpaquePointer?, cbytes: UInt, pbpacket: COpaquePointer?, ppaction: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket((pininterface?.value ?: 0L).toString(), (poutinterface?.value ?: 0L).toString(), cbytes.toInt(), (pbpacket?.value ?: 0L).toString(), (ppaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfTestPacket(pininterface: MutPtr<CVoid>, poutinterface: MutPtr<CVoid>, cbytes: UInt, pbpacket: MutPtr<UByte>, ppaction: MutPtr<PfforwardAction>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfTestPacket(pininterface.rawAddress.toString(), poutinterface.rawAddress.toString(), cbytes.toInt(), pbpacket.rawAddress.toString(), ppaction.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pfUnBindInterface(pinterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface((pinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun pfUnBindInterface(pinterface: MutPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperPfUnBindInterface(pinterface.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerInterfaceTimestampConfigChange(callback: PinterfaceTimestampConfigChangeCallback, callercontext: COpaquePointer?, notificationhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange(0L.toString(), (callercontext?.value ?: 0L).toString(), (notificationhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun registerInterfaceTimestampConfigChange(callback: PinterfaceTimestampConfigChangeCallback, callercontext: ConstPtr<CVoid>, notificationhandle: MutPtr<Hiftimestampchange>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperRegisterInterfaceTimestampConfigChange(0L.toString(), callercontext.rawAddress.toString(), notificationhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun resolveIpNetEntry2(row: COpaquePointer?, sourceaddress: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2((row?.value ?: 0L).toString(), (sourceaddress?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun resolveIpNetEntry2(row: MutPtr<MibIpnetRow2>, sourceaddress: ConstPtr<SockaddrInet>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperResolveIpNetEntry2(row.rawAddress.toString(), sourceaddress.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun resolveNeighbor(networkaddress: COpaquePointer?, physicaladdress: COpaquePointer?, physicaladdresslength: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor((networkaddress?.value ?: 0L).toString(), (physicaladdress?.value ?: 0L).toString(), (physicaladdresslength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun resolveNeighbor(networkaddress: ConstPtr<Sockaddr>, physicaladdress: MutPtr<CVoid>, physicaladdresslength: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperResolveNeighbor(networkaddress.rawAddress.toString(), physicaladdress.rawAddress.toString(), physicaladdresslength.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun restoreMediaSense(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense((poverlapped?.value ?: 0L).toString(), (lpdwenablecount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun restoreMediaSense(poverlapped: ConstPtr<Overlapped>, lpdwenablecount: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperRestoreMediaSense(poverlapped.rawAddress.toString(), lpdwenablecount.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendARP(destip: UInt, srcip: UInt, pmacaddr: COpaquePointer?, phyaddrlen: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_sendARP(destip.toInt(), srcip.toInt(), (pmacaddr?.value ?: 0L).toString(), (phyaddrlen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun sendARP(destip: UInt, srcip: UInt, pmacaddr: MutPtr<CVoid>, phyaddrlen: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSendARP(destip.toInt(), srcip.toInt(), pmacaddr.rawAddress.toString(), phyaddrlen.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setCurrentThreadCompartmentId(compartmentid: NetIfCompartmentId): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId(compartmentid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentId(compartmentid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setCurrentThreadCompartmentScope(compartmentscope: UInt): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope(compartmentscope.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentScope(compartmentscope.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setDnsSettings(settings: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings((settings?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setDnsSettings(settings: ConstPtr<DnsSettings>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetDnsSettings(settings.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIfEntry(pifrow: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIfEntry((pifrow?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIfEntry(pifrow: ConstPtr<MibIfrow>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIfEntry(pifrow.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setInterfaceDnsSettings(iface: Guid, settings: COpaquePointer?): Win32Error =
+public actual fun setInterfaceDnsSettings(iface: Guid, settings: ConstPtr<DnsInterfaceSettings>): Win32Error =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpForwardEntry(proute: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry((proute?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpForwardEntry(proute: ConstPtr<MibIpforwardrow>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry(proute.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpForwardEntry2(route: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2((route?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpForwardEntry2(route: ConstPtr<MibIpforwardRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry2(route.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpInterfaceEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpInterfaceEntry(row: MutPtr<MibIpinterfaceRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpInterfaceEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpNetEntry(parpentry: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry((parpentry?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpNetEntry(parpentry: ConstPtr<MibIpnetrowLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry(parpentry.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpNetEntry2(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpNetEntry2(row: ConstPtr<MibIpnetRow2>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry2(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpStatistics(pipstats: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics((pipstats?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpStatistics(pipstats: ConstPtr<MibIpstatsLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpStatistics(pipstats.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIpStatisticsEx(statistics: COpaquePointer?, family: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx((statistics?.value ?: 0L).toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIpStatisticsEx(statistics: ConstPtr<MibIpstatsLh>, family: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpStatisticsEx(statistics.rawAddress.toString(), family.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIpTTL(nttl: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setIpTTL(nttl.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetIpTTL(nttl.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setJobCompartmentId(jobhandle: Handle, compartmentid: NetIfCompartmentId): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId((jobhandle?.value ?: 0L).toString(), compartmentid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetJobCompartmentId(jobhandle.rawAddress.toString(), compartmentid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setNetworkInformation(networkguid: COpaquePointer?, compartmentid: NetIfCompartmentId, networkname: Pcwstr): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation((networkguid?.value ?: 0L).toString(), compartmentid.toInt(), (networkname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setNetworkInformation(networkguid: ConstPtr<Guid>, compartmentid: NetIfCompartmentId, networkname: Pcwstr): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetNetworkInformation(networkguid.rawAddress.toString(), compartmentid.toInt(), networkname.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setPerTcp6ConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats((row?.value ?: 0L).toString(), estatstype, (rw?.value ?: 0L).toString(), rwversion.toInt(), rwsize.toInt(), offset.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setPerTcp6ConnectionEStats(row: ConstPtr<MibTcp6row>, estatstype: TcpEstatsType, rw: ConstPtr<UByte>, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetPerTcp6ConnectionEStats(row.rawAddress.toString(), estatstype, rw.rawAddress.toString(), rwversion.toInt(), rwsize.toInt(), offset.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setPerTcpConnectionEStats(row: COpaquePointer?, estatstype: TcpEstatsType, rw: COpaquePointer?, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats((row?.value ?: 0L).toString(), estatstype, (rw?.value ?: 0L).toString(), rwversion.toInt(), rwsize.toInt(), offset.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setPerTcpConnectionEStats(row: ConstPtr<MibTcprowLh>, estatstype: TcpEstatsType, rw: ConstPtr<UByte>, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetPerTcpConnectionEStats(row.rawAddress.toString(), estatstype, rw.rawAddress.toString(), rwversion.toInt(), rwsize.toInt(), offset.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setSessionCompartmentId(sessionid: UInt, compartmentid: NetIfCompartmentId): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId(sessionid.toInt(), compartmentid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetSessionCompartmentId(sessionid.toInt(), compartmentid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setTcpEntry(ptcprow: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry((ptcprow?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setTcpEntry(ptcprow: ConstPtr<MibTcprowLh>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetTcpEntry(ptcprow.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry((row?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setUnicastIpAddressEntry(row: ConstPtr<MibUnicastipaddressRow>): Win32Error =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperSetUnicastIpAddressEntry(row.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unenableRouter(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_unenableRouter((poverlapped?.value ?: 0L).toString(), (lpdwenablecount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun unenableRouter(poverlapped: ConstPtr<Overlapped>, lpdwenablecount: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter(poverlapped.rawAddress.toString(), lpdwenablecount.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unregisterInterfaceTimestampConfigChange(notificationhandle: Hiftimestampchange) {
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) {
-        _windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange((notificationhandle?.value ?: 0L).toString())
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) {
+        windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperUnregisterInterfaceTimestampConfigChange(notificationhandle.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun ifIndextoname(interfaceindex: UInt, interfacename: Pstr): Pstr =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname(interfaceindex.toInt(), (interfacename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) MutPtr((windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIfIndextoname(interfaceindex.toInt(), interfacename.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ifNametoindex(interfacename: Pcstr): UInt =
-    if (_windowsWin32NetworkmanagementIphelperNapiAddon != null) (_windowsWin32NetworkmanagementIphelperNapiAddon.windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex((interfacename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementIphelperNapiAddon != null) (windowsWin32NetworkmanagementIphelperNapiAddon.windowssysWindowsWin32NetworkmanagementIphelperIfNametoindex(interfacename.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1chooseColorA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsChooseColorA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1chooseColorW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsChooseColorW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1chooseFontA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsChooseFontA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1chooseFontW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsChooseFontW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1commDlgExtendedError(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1findTextA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsFindTextA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1findTextW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsFindTextW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -193,7 +193,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1getFileTitleA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong buf, jshort cchsize) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsGetFileTitleA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong buf, jshort cchsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -220,7 +220,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1getFileTitleW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong buf, jshort cchsize) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsGetFileTitleW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong buf, jshort cchsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -247,7 +247,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1getOpenFileNameA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -272,7 +272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1getOpenFileNameW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -297,7 +297,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1getSaveFileNameA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -322,7 +322,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1getSaveFileNameW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1pageSetupDlgA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsPageSetupDlgA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -372,7 +372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1pageSetupDlgW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsPageSetupDlgW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -397,7 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1printDlgA(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsPrintDlgA(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -422,7 +422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1printDlgExA(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsPrintDlgExA(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -447,7 +447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1printDlgExW(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsPrintDlgExW(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -472,7 +472,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1printDlgW(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsPrintDlgW(JNIEnv* km_env, jclass km_clazz, jlong ppd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -497,7 +497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1replaceTextA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsReplaceTextA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -522,7 +522,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dialogs_1replaceTextW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_dialogs_WindowsWin32UiControlsDialogsJniBridge_windowssysWindowsWin32UiControlsDialogsReplaceTextW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

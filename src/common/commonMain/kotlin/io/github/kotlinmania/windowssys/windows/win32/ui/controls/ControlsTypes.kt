@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -8,6 +10,7 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hfont
@@ -137,7 +140,7 @@ public typealias Dropdownitemstates = Int
 public typealias DttoptsFlags = UInt
 
 public fun interface DttCallbackProcFn {
-    public operator fun invoke(hdc: Hdc, psztext: Pwstr, cchtext: Int, prc: COpaquePointer?, dwflags: UInt, lparam: Lparam): Int
+    public operator fun invoke(hdc: Hdc, psztext: Pwstr, cchtext: Int, prc: MutPtr<Rect>, dwflags: UInt, lparam: Lparam): Int
 }
 
 public typealias DttCallbackProc = DttCallbackProcFn?
@@ -280,9 +283,9 @@ public typealias Hotglyphstates = Int
 
 public typealias Hoverbackgroundstates = Int
 
-public typealias Hpropsheetpage = COpaquePointer?
+public typealias Hpropsheetpage = MutPtr<CVoid>
 
-public typealias Hsyntheticpointerdevice = COpaquePointer?
+public typealias Hsyntheticpointerdevice = MutPtr<CVoid>
 
 public typealias Htheme = Long
 
@@ -347,19 +350,19 @@ public typealias ListViewItemStateFlags = UInt
 public typealias Logoffbuttonsstates = Int
 
 public fun interface LpfnaddpropsheetpagesFn {
-    public operator fun invoke(param0: COpaquePointer?, param1: Lpfnsvaddpropsheetpage, param2: Lparam): Bool
+    public operator fun invoke(param0: MutPtr<CVoid>, param1: Lpfnsvaddpropsheetpage, param2: Lparam): Bool
 }
 
 public typealias Lpfnaddpropsheetpages = LpfnaddpropsheetpagesFn?
 
 public fun interface LpfnccinfoaFn {
-    public operator fun invoke(acci: COpaquePointer?): UInt
+    public operator fun invoke(acci: MutPtr<Ccinfoa>): UInt
 }
 
 public typealias Lpfnccinfoa = LpfnccinfoaFn?
 
 public fun interface LpfnccinfowFn {
-    public operator fun invoke(acci: COpaquePointer?): UInt
+    public operator fun invoke(acci: MutPtr<Ccinfow>): UInt
 }
 
 public typealias Lpfnccinfow = LpfnccinfowFn?
@@ -377,25 +380,25 @@ public fun interface LpfnccsizetotextwFn {
 public typealias Lpfnccsizetotextw = LpfnccsizetotextwFn?
 
 public fun interface LpfnccstyleaFn {
-    public operator fun invoke(hwndparent: Hwnd, pccs: COpaquePointer?): Bool
+    public operator fun invoke(hwndparent: Hwnd, pccs: MutPtr<Ccstylea>): Bool
 }
 
 public typealias Lpfnccstylea = LpfnccstyleaFn?
 
 public fun interface LpfnccstylewFn {
-    public operator fun invoke(hwndparent: Hwnd, pccs: COpaquePointer?): Bool
+    public operator fun invoke(hwndparent: Hwnd, pccs: MutPtr<Ccstylew>): Bool
 }
 
 public typealias Lpfnccstylew = LpfnccstylewFn?
 
 public fun interface LpfnpspcallbackaFn {
-    public operator fun invoke(hwnd: Hwnd, umsg: PspcbMessage, ppsp: COpaquePointer?): UInt
+    public operator fun invoke(hwnd: Hwnd, umsg: PspcbMessage, ppsp: MutPtr<Propsheetpagea>): UInt
 }
 
 public typealias Lpfnpspcallbacka = LpfnpspcallbackaFn?
 
 public fun interface LpfnpspcallbackwFn {
-    public operator fun invoke(hwnd: Hwnd, umsg: PspcbMessage, ppsp: COpaquePointer?): UInt
+    public operator fun invoke(hwnd: Hwnd, umsg: PspcbMessage, ppsp: MutPtr<Propsheetpagew>): UInt
 }
 
 public typealias Lpfnpspcallbackw = LpfnpspcallbackwFn?
@@ -521,43 +524,43 @@ public typealias OpenThemeDataFlags = UInt
 public typealias Pageparts = Int
 
 public fun interface PfndacompareFn {
-    public operator fun invoke(p1: COpaquePointer?, p2: COpaquePointer?, lparam: Lparam): Int
+    public operator fun invoke(p1: ConstPtr<CVoid>, p2: ConstPtr<CVoid>, lparam: Lparam): Int
 }
 
 public typealias Pfndacompare = PfndacompareFn?
 
 public fun interface PfndacompareconstFn {
-    public operator fun invoke(p1: COpaquePointer?, p2: COpaquePointer?, lparam: Lparam): Int
+    public operator fun invoke(p1: ConstPtr<CVoid>, p2: ConstPtr<CVoid>, lparam: Lparam): Int
 }
 
 public typealias Pfndacompareconst = PfndacompareconstFn?
 
 public fun interface PfndaenumcallbackFn {
-    public operator fun invoke(p: COpaquePointer?, pdata: COpaquePointer?): Int
+    public operator fun invoke(p: ConstPtr<CVoid>, pdata: ConstPtr<CVoid>): Int
 }
 
 public typealias Pfndaenumcallback = PfndaenumcallbackFn?
 
 public fun interface PfndaenumcallbackconstFn {
-    public operator fun invoke(p: COpaquePointer?, pdata: COpaquePointer?): Int
+    public operator fun invoke(p: ConstPtr<CVoid>, pdata: ConstPtr<CVoid>): Int
 }
 
 public typealias Pfndaenumcallbackconst = PfndaenumcallbackconstFn?
 
 public fun interface PfndpamergeFn {
-    public operator fun invoke(umsg: DpammMessage, pvdest: COpaquePointer?, pvsrc: COpaquePointer?, lparam: Lparam): COpaquePointer?
+    public operator fun invoke(umsg: DpammMessage, pvdest: ConstPtr<CVoid>, pvsrc: ConstPtr<CVoid>, lparam: Lparam): MutPtr<CVoid>
 }
 
 public typealias Pfndpamerge = PfndpamergeFn?
 
 public fun interface PfndpamergeconstFn {
-    public operator fun invoke(umsg: DpammMessage, pvdest: COpaquePointer?, pvsrc: COpaquePointer?, lparam: Lparam): COpaquePointer?
+    public operator fun invoke(umsg: DpammMessage, pvdest: ConstPtr<CVoid>, pvsrc: ConstPtr<CVoid>, lparam: Lparam): MutPtr<CVoid>
 }
 
 public typealias Pfndpamergeconst = PfndpamergeconstFn?
 
 public fun interface PfndpastreamFn {
-    public operator fun invoke(pinfo: COpaquePointer?, pstream: COpaquePointer?, pvinstdata: COpaquePointer?): Hresult
+    public operator fun invoke(pinfo: ConstPtr<Dpastreaminfo>, pstream: MutPtr<CVoid>, pvinstdata: ConstPtr<CVoid>): Hresult
 }
 
 public typealias Pfndpastream = PfndpastreamFn?
@@ -569,7 +572,7 @@ public fun interface PfnlvcompareFn {
 public typealias Pfnlvcompare = PfnlvcompareFn?
 
 public fun interface PfnlvgroupcompareFn {
-    public operator fun invoke(param0: Int, param1: Int, param2: COpaquePointer?): Int
+    public operator fun invoke(param0: Int, param1: Int, param2: MutPtr<CVoid>): Int
 }
 
 public typealias Pfnlvgroupcompare = PfnlvgroupcompareFn?

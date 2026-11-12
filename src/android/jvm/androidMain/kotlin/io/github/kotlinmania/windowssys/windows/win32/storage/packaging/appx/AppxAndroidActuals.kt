@@ -2,7 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -16,391 +19,391 @@ private object WindowsWin32StoragePackagingAppxJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext(context: Long, cookie: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext(context: Long, cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_addPackageDependency(packagedependencyid: Long, rank: Int, options: Int, packagedependencycontext: Long, packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAddPackageDependency(packagedependencyid: Long, rank: Int, options: Int, packagedependencycontext: Long, packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel(processtoken: Long, policy: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel(processtoken: Long, policy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage(packagefullname: Long, ismsixpackage: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage(packagefullname: Long, ismsixpackage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_closePackageInfo(packageinforeference: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxClosePackageInfo(packageinforeference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext(packagefamilyname: Long, context: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext(packagefamilyname: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext(cookie: Long)
+    external fun windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext(cookie: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_deletePackageDependency(packagedependencyid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency(packagedependencyid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext(sourcecontext: Long, destcontext: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext(sourcecontext: Long, destcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily(packagefamilyname: Long, packagefilters: Int, count: Long, packagefullnames: Long, bufferlength: Long, buffer: Long, packageproperties: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily(packagefamilyname: Long, packagefilters: Int, count: Long, packagefullnames: Long, bufferlength: Long, buffer: Long, packageproperties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId(packagefamilyname: Long, packagerelativeapplicationid: Long, applicationusermodelidlength: Long, applicationusermodelid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId(packagefamilyname: Long, packagerelativeapplicationid: Long, applicationusermodelidlength: Long, applicationusermodelid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId(hprocess: Long, applicationusermodelidlength: Long, applicationusermodelid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId(hprocess: Long, applicationusermodelidlength: Long, applicationusermodelid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken(token: Long, applicationusermodelidlength: Long, applicationusermodelid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken(token: Long, applicationusermodelidlength: Long, applicationusermodelid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId(applicationusermodelidlength: Long, applicationusermodelid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId(applicationusermodelidlength: Long, applicationusermodelid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName(packagefamilynamelength: Long, packagefamilyname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName(packagefamilynamelength: Long, packagefamilyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName(packagefullnamelength: Long, packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName(packagefullnamelength: Long, packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId(bufferlength: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId(bufferlength: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo(flags: Int, bufferlength: Long, buffer: Long, count: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo(flags: Int, bufferlength: Long, buffer: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2(flags: Int, packagepathtype: Int, bufferlength: Long, buffer: Long, count: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2(flags: Int, packagepathtype: Int, bufferlength: Long, buffer: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3(flags: Int, packageinfotype: Int, bufferlength: Long, buffer: Long, count: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3(flags: Int, packageinfotype: Int, bufferlength: Long, buffer: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath(pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath(pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2(packagepathtype: Int, pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2(packagepathtype: Int, pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext(): Long
+    external fun windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext(packagedependencycontext: Long, packagedependencyid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext(packagedependencycontext: Long, packagedependencyid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds(packageinforeference: Long, bufferlength: Long, buffer: Long, count: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds(packageinforeference: Long, bufferlength: Long, buffer: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName(hprocess: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName(hprocess: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken(token: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken(token: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageFullName(hprocess: Long, packagefullnamelength: Long, packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageFullName(hprocess: Long, packagefullnamelength: Long, packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken(token: Long, packagefullnamelength: Long, packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken(token: Long, packagefullnamelength: Long, packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId(): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageId(hprocess: Long, bufferlength: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageId(hprocess: Long, bufferlength: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageInfo(packageinforeference: Long, flags: Int, bufferlength: Long, buffer: Long, count: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageInfo(packageinforeference: Long, flags: Int, bufferlength: Long, buffer: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackageInfo2(packageinforeference: Long, flags: Int, packagepathtype: Int, bufferlength: Long, buffer: Long, count: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2(packageinforeference: Long, flags: Int, packagepathtype: Int, bufferlength: Long, buffer: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackagePath(packageid: Long, reserved: Int, pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackagePath(packageid: Long, reserved: Int, pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName(packagefullname: Long, pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName(packagefullname: Long, pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2(packagefullname: Long, packagepathtype: Int, pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2(packagefullname: Long, packagepathtype: Int, pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily(packagefamilyname: Long, count: Long, packagefullnames: Long, bufferlength: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily(packagefamilyname: Long, count: Long, packagefullnames: Long, bufferlength: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext(packagefamilyname: Long, count: Long, processes: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext(packagefamilyname: Long, count: Long, processes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency(packagedependencyid: Long, packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency(packagedependencyid: Long, packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin(packagefullname: Long, origin: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin(packagefullname: Long, origin: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName(packagefullname: Long, pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName(packagefullname: Long, pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2(packagefullname: Long, packagepathtype: Int, pathlength: Long, path: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2(packagefullname: Long, packagepathtype: Int, pathlength: Long, path: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName(packagefullname: Long, reserved: Int, packageinforeference: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName(packagefullname: Long, reserved: Int, packageinforeference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser(usersid: Long, packagefullname: Long, reserved: Int, packageinforeference: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser(usersid: Long, packagefullname: Long, reserved: Int, packageinforeference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName(packagefullname: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName(packagefullname: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId(packageid: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId(packageid: Long, packagefamilynamelength: Long, packagefamilyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId(packageid: Long, packagefullnamelength: Long, packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId(packageid: Long, packagefullnamelength: Long, packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName(packagefullname: Long, flags: Int, bufferlength: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName(packagefullname: Long, flags: Int, bufferlength: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName(packagefamilyname: Long, packagenamelength: Long, packagename: Long, packagepublisheridlength: Long, packagepublisherid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName(packagefamilyname: Long, packagenamelength: Long, packagename: Long, packagepublisheridlength: Long, packagepublisherid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId(applicationusermodelid: Long, packagefamilynamelength: Long, packagefamilyname: Long, packagerelativeapplicationidlength: Long, packagerelativeapplicationid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId(applicationusermodelid: Long, packagefamilynamelength: Long, packagefamilyname: Long, packagerelativeapplicationidlength: Long, packagerelativeapplicationid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext(context: Long)
+    external fun windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext(context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_removePackageDependency(packagedependencycontext: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency(packagedependencycontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId(applicationusermodelid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId(applicationusermodelid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName(packagefamilyname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName(packagefamilyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName(packagefullname: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName(packagefullname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_verifyPackageId(packageid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxVerifyPackageId(packageid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId(packagerelativeapplicationid: Long): Int
+    external fun windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId(packagerelativeapplicationid: Long): Int
 }
 
-public actual fun activatePackageVirtualizationContext(context: PackageVirtualizationContextHandle, cookie: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext((context?.value ?: 0L), (cookie?.value ?: 0L))
+public actual fun activatePackageVirtualizationContext(context: PackageVirtualizationContextHandle, cookie: MutPtr<ULong>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext(context.rawAddress, cookie.rawAddress)
 
-public actual fun addPackageDependency(packagedependencyid: Pcwstr, rank: Int, options: AddPackageDependencyOptions, packagedependencycontext: COpaquePointer?, packagefullname: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_addPackageDependency((packagedependencyid?.value ?: 0L), rank, options, (packagedependencycontext?.value ?: 0L), (packagefullname?.value ?: 0L))
+public actual fun addPackageDependency(packagedependencyid: Pcwstr, rank: Int, options: AddPackageDependencyOptions, packagedependencycontext: MutPtr<PackagedependencyContext>, packagefullname: MutPtr<Pwstr>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAddPackageDependency(packagedependencyid.rawAddress, rank, options, packagedependencycontext.rawAddress, packagefullname.rawAddress)
 
-public actual fun appPolicyGetClrCompat(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetClrCompat(processtoken: Handle, policy: MutPtr<AppPolicyClrCompat>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetCreateFileAccess(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetCreateFileAccess(processtoken: Handle, policy: MutPtr<AppPolicyCreateFileAccess>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetLifecycleManagement(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetLifecycleManagement(processtoken: Handle, policy: MutPtr<AppPolicyLifecycleManagement>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetMediaFoundationCodecLoading(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetMediaFoundationCodecLoading(processtoken: Handle, policy: MutPtr<AppPolicyMediaFoundationCodecLoading>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetProcessTerminationMethod(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetProcessTerminationMethod(processtoken: Handle, policy: MutPtr<AppPolicyProcessTerminationMethod>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetShowDeveloperDiagnostic(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetShowDeveloperDiagnostic(processtoken: Handle, policy: MutPtr<AppPolicyShowDeveloperDiagnostic>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetThreadInitializationType(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetThreadInitializationType(processtoken: Handle, policy: MutPtr<AppPolicyThreadInitializationType>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun appPolicyGetWindowingModel(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel((processtoken?.value ?: 0L), (policy?.value ?: 0L)).toUInt()
+public actual fun appPolicyGetWindowingModel(processtoken: Handle, policy: MutPtr<AppPolicyWindowingModel>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel(processtoken.rawAddress, policy.rawAddress).toUInt()
 
-public actual fun checkIsMSIXPackage(packagefullname: Pcwstr, ismsixpackage: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage((packagefullname?.value ?: 0L), (ismsixpackage?.value ?: 0L))
+public actual fun checkIsMSIXPackage(packagefullname: Pcwstr, ismsixpackage: MutPtr<Bool>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage(packagefullname.rawAddress, ismsixpackage.rawAddress)
 
-public actual fun closePackageInfo(packageinforeference: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_closePackageInfo((packageinforeference?.value ?: 0L)).toUInt()
+public actual fun closePackageInfo(packageinforeference: ConstPtr<PackageInfoReference>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxClosePackageInfo(packageinforeference.rawAddress).toUInt()
 
-public actual fun createPackageVirtualizationContext(packagefamilyname: Pcwstr, context: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext((packagefamilyname?.value ?: 0L), (context?.value ?: 0L))
+public actual fun createPackageVirtualizationContext(packagefamilyname: Pcwstr, context: MutPtr<PackageVirtualizationContextHandle>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext(packagefamilyname.rawAddress, context.rawAddress)
 
 public actual fun deactivatePackageVirtualizationContext(cookie: ULong) {
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext(cookie.toLong())
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext(cookie.toLong())
 }
 
 public actual fun deletePackageDependency(packagedependencyid: Pcwstr): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_deletePackageDependency((packagedependencyid?.value ?: 0L))
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency(packagedependencyid.rawAddress)
 
-public actual fun duplicatePackageVirtualizationContext(sourcecontext: PackageVirtualizationContextHandle, destcontext: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext((sourcecontext?.value ?: 0L), (destcontext?.value ?: 0L))
+public actual fun duplicatePackageVirtualizationContext(sourcecontext: PackageVirtualizationContextHandle, destcontext: MutPtr<PackageVirtualizationContextHandle>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext(sourcecontext.rawAddress, destcontext.rawAddress)
 
-public actual fun findPackagesByPackageFamily(packagefamilyname: Pcwstr, packagefilters: UInt, count: COpaquePointer?, packagefullnames: COpaquePointer?, bufferlength: COpaquePointer?, buffer: Pwstr, packageproperties: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily((packagefamilyname?.value ?: 0L), packagefilters.toInt(), (count?.value ?: 0L), (packagefullnames?.value ?: 0L), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (packageproperties?.value ?: 0L)).toUInt()
+public actual fun findPackagesByPackageFamily(packagefamilyname: Pcwstr, packagefilters: UInt, count: MutPtr<UInt>, packagefullnames: MutPtr<Pwstr>, bufferlength: MutPtr<UInt>, buffer: Pwstr, packageproperties: MutPtr<UInt>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily(packagefamilyname.rawAddress, packagefilters.toInt(), count.rawAddress, packagefullnames.rawAddress, bufferlength.rawAddress, buffer.rawAddress, packageproperties.rawAddress).toUInt()
 
-public actual fun formatApplicationUserModelId(packagefamilyname: Pcwstr, packagerelativeapplicationid: Pcwstr, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId((packagefamilyname?.value ?: 0L), (packagerelativeapplicationid?.value ?: 0L), (applicationusermodelidlength?.value ?: 0L), (applicationusermodelid?.value ?: 0L)).toUInt()
+public actual fun formatApplicationUserModelId(packagefamilyname: Pcwstr, packagerelativeapplicationid: Pcwstr, applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId(packagefamilyname.rawAddress, packagerelativeapplicationid.rawAddress, applicationusermodelidlength.rawAddress, applicationusermodelid.rawAddress).toUInt()
 
-public actual fun getApplicationUserModelId(hprocess: Handle, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId((hprocess?.value ?: 0L), (applicationusermodelidlength?.value ?: 0L), (applicationusermodelid?.value ?: 0L)).toUInt()
+public actual fun getApplicationUserModelId(hprocess: Handle, applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId(hprocess.rawAddress, applicationusermodelidlength.rawAddress, applicationusermodelid.rawAddress).toUInt()
 
-public actual fun getApplicationUserModelIdFromToken(token: Handle, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken((token?.value ?: 0L), (applicationusermodelidlength?.value ?: 0L), (applicationusermodelid?.value ?: 0L)).toUInt()
+public actual fun getApplicationUserModelIdFromToken(token: Handle, applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken(token.rawAddress, applicationusermodelidlength.rawAddress, applicationusermodelid.rawAddress).toUInt()
 
-public actual fun getCurrentApplicationUserModelId(applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId((applicationusermodelidlength?.value ?: 0L), (applicationusermodelid?.value ?: 0L)).toUInt()
+public actual fun getCurrentApplicationUserModelId(applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId(applicationusermodelidlength.rawAddress, applicationusermodelid.rawAddress).toUInt()
 
-public actual fun getCurrentPackageFamilyName(packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName((packagefamilynamelength?.value ?: 0L), (packagefamilyname?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackageFamilyName(packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName(packagefamilynamelength.rawAddress, packagefamilyname.rawAddress).toUInt()
 
-public actual fun getCurrentPackageFullName(packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName((packagefullnamelength?.value ?: 0L), (packagefullname?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackageFullName(packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName(packagefullnamelength.rawAddress, packagefullname.rawAddress).toUInt()
 
-public actual fun getCurrentPackageId(bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId((bufferlength?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackageId(bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId(bufferlength.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun getCurrentPackageInfo(flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo(flags.toInt(), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (count?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackageInfo(flags: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo(flags.toInt(), bufferlength.rawAddress, buffer.rawAddress, count.rawAddress).toUInt()
 
-public actual fun getCurrentPackageInfo2(flags: UInt, packagepathtype: PackagePathType, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2(flags.toInt(), packagepathtype, (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (count?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackageInfo2(flags: UInt, packagepathtype: PackagePathType, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2(flags.toInt(), packagepathtype, bufferlength.rawAddress, buffer.rawAddress, count.rawAddress).toUInt()
 
-public actual fun getCurrentPackageInfo3(flags: UInt, packageinfotype: PackageInfo3Type, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3(flags.toInt(), packageinfotype, (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (count?.value ?: 0L))
+public actual fun getCurrentPackageInfo3(flags: UInt, packageinfotype: PackageInfo3Type, bufferlength: MutPtr<UInt>, buffer: MutPtr<CVoid>, count: MutPtr<UInt>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3(flags.toInt(), packageinfotype, bufferlength.rawAddress, buffer.rawAddress, count.rawAddress)
 
-public actual fun getCurrentPackagePath(pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath((pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackagePath(pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath(pathlength.rawAddress, path.rawAddress).toUInt()
 
-public actual fun getCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2(packagepathtype, (pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2(packagepathtype, pathlength.rawAddress, path.rawAddress).toUInt()
 
 public actual fun getCurrentPackageVirtualizationContext(): PackageVirtualizationContextHandle =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext())
 
-public actual fun getIdForPackageDependencyContext(packagedependencycontext: PackagedependencyContext, packagedependencyid: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext((packagedependencycontext?.value ?: 0L), (packagedependencyid?.value ?: 0L))
+public actual fun getIdForPackageDependencyContext(packagedependencycontext: PackagedependencyContext, packagedependencyid: MutPtr<Pwstr>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext(packagedependencycontext.rawAddress, packagedependencyid.rawAddress)
 
-public actual fun getPackageApplicationIds(packageinforeference: COpaquePointer?, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds((packageinforeference?.value ?: 0L), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (count?.value ?: 0L)).toUInt()
+public actual fun getPackageApplicationIds(packageinforeference: ConstPtr<PackageInfoReference>, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds(packageinforeference.rawAddress, bufferlength.rawAddress, buffer.rawAddress, count.rawAddress).toUInt()
 
-public actual fun getPackageFamilyName(hprocess: Handle, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName((hprocess?.value ?: 0L), (packagefamilynamelength?.value ?: 0L), (packagefamilyname?.value ?: 0L)).toUInt()
+public actual fun getPackageFamilyName(hprocess: Handle, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName(hprocess.rawAddress, packagefamilynamelength.rawAddress, packagefamilyname.rawAddress).toUInt()
 
-public actual fun getPackageFamilyNameFromToken(token: Handle, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken((token?.value ?: 0L), (packagefamilynamelength?.value ?: 0L), (packagefamilyname?.value ?: 0L)).toUInt()
+public actual fun getPackageFamilyNameFromToken(token: Handle, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken(token.rawAddress, packagefamilynamelength.rawAddress, packagefamilyname.rawAddress).toUInt()
 
-public actual fun getPackageFullName(hprocess: Handle, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageFullName((hprocess?.value ?: 0L), (packagefullnamelength?.value ?: 0L), (packagefullname?.value ?: 0L)).toUInt()
+public actual fun getPackageFullName(hprocess: Handle, packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageFullName(hprocess.rawAddress, packagefullnamelength.rawAddress, packagefullname.rawAddress).toUInt()
 
-public actual fun getPackageFullNameFromToken(token: Handle, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken((token?.value ?: 0L), (packagefullnamelength?.value ?: 0L), (packagefullname?.value ?: 0L)).toUInt()
+public actual fun getPackageFullNameFromToken(token: Handle, packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken(token.rawAddress, packagefullnamelength.rawAddress, packagefullname.rawAddress).toUInt()
 
 public actual fun getPackageGraphRevisionId(): UInt =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId().toUInt()
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId().toUInt()
 
-public actual fun getPackageId(hprocess: Handle, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageId((hprocess?.value ?: 0L), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+public actual fun getPackageId(hprocess: Handle, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageId(hprocess.rawAddress, bufferlength.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun getPackageInfo(packageinforeference: COpaquePointer?, flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageInfo((packageinforeference?.value ?: 0L), flags.toInt(), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (count?.value ?: 0L)).toUInt()
+public actual fun getPackageInfo(packageinforeference: ConstPtr<PackageInfoReference>, flags: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageInfo(packageinforeference.rawAddress, flags.toInt(), bufferlength.rawAddress, buffer.rawAddress, count.rawAddress).toUInt()
 
-public actual fun getPackageInfo2(packageinforeference: COpaquePointer?, flags: UInt, packagepathtype: PackagePathType, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackageInfo2((packageinforeference?.value ?: 0L), flags.toInt(), packagepathtype, (bufferlength?.value ?: 0L), (buffer?.value ?: 0L), (count?.value ?: 0L)).toUInt()
+public actual fun getPackageInfo2(packageinforeference: ConstPtr<PackageInfoReference>, flags: UInt, packagepathtype: PackagePathType, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2(packageinforeference.rawAddress, flags.toInt(), packagepathtype, bufferlength.rawAddress, buffer.rawAddress, count.rawAddress).toUInt()
 
-public actual fun getPackagePath(packageid: COpaquePointer?, reserved: UInt, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackagePath((packageid?.value ?: 0L), reserved.toInt(), (pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getPackagePath(packageid: ConstPtr<PackageId>, reserved: UInt, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackagePath(packageid.rawAddress, reserved.toInt(), pathlength.rawAddress, path.rawAddress).toUInt()
 
-public actual fun getPackagePathByFullName(packagefullname: Pcwstr, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName((packagefullname?.value ?: 0L), (pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getPackagePathByFullName(packagefullname: Pcwstr, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName(packagefullname.rawAddress, pathlength.rawAddress, path.rawAddress).toUInt()
 
-public actual fun getPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2((packagefullname?.value ?: 0L), packagepathtype, (pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2(packagefullname.rawAddress, packagepathtype, pathlength.rawAddress, path.rawAddress).toUInt()
 
-public actual fun getPackagesByPackageFamily(packagefamilyname: Pcwstr, count: COpaquePointer?, packagefullnames: COpaquePointer?, bufferlength: COpaquePointer?, buffer: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily((packagefamilyname?.value ?: 0L), (count?.value ?: 0L), (packagefullnames?.value ?: 0L), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+public actual fun getPackagesByPackageFamily(packagefamilyname: Pcwstr, count: MutPtr<UInt>, packagefullnames: MutPtr<Pwstr>, bufferlength: MutPtr<UInt>, buffer: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily(packagefamilyname.rawAddress, count.rawAddress, packagefullnames.rawAddress, bufferlength.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun getProcessesInVirtualizationContext(packagefamilyname: Pcwstr, count: COpaquePointer?, processes: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext((packagefamilyname?.value ?: 0L), (count?.value ?: 0L), (processes?.value ?: 0L))
+public actual fun getProcessesInVirtualizationContext(packagefamilyname: Pcwstr, count: MutPtr<UInt>, processes: MutPtr<MutPtr<Handle>>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext(packagefamilyname.rawAddress, count.rawAddress, processes.rawAddress)
 
-public actual fun getResolvedPackageFullNameForPackageDependency(packagedependencyid: Pcwstr, packagefullname: COpaquePointer?): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency((packagedependencyid?.value ?: 0L), (packagefullname?.value ?: 0L))
+public actual fun getResolvedPackageFullNameForPackageDependency(packagedependencyid: Pcwstr, packagefullname: MutPtr<Pwstr>): Hresult =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency(packagedependencyid.rawAddress, packagefullname.rawAddress)
 
-public actual fun getStagedPackageOrigin(packagefullname: Pcwstr, origin: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin((packagefullname?.value ?: 0L), (origin?.value ?: 0L)).toUInt()
+public actual fun getStagedPackageOrigin(packagefullname: Pcwstr, origin: MutPtr<PackageOrigin>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin(packagefullname.rawAddress, origin.rawAddress).toUInt()
 
-public actual fun getStagedPackagePathByFullName(packagefullname: Pcwstr, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName((packagefullname?.value ?: 0L), (pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getStagedPackagePathByFullName(packagefullname: Pcwstr, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName(packagefullname.rawAddress, pathlength.rawAddress, path.rawAddress).toUInt()
 
-public actual fun getStagedPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2((packagefullname?.value ?: 0L), packagepathtype, (pathlength?.value ?: 0L), (path?.value ?: 0L)).toUInt()
+public actual fun getStagedPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2(packagefullname.rawAddress, packagepathtype, pathlength.rawAddress, path.rawAddress).toUInt()
 
-public actual fun openPackageInfoByFullName(packagefullname: Pcwstr, reserved: UInt, packageinforeference: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName((packagefullname?.value ?: 0L), reserved.toInt(), (packageinforeference?.value ?: 0L)).toUInt()
+public actual fun openPackageInfoByFullName(packagefullname: Pcwstr, reserved: UInt, packageinforeference: MutPtr<MutPtr<PackageInfoReference>>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName(packagefullname.rawAddress, reserved.toInt(), packageinforeference.rawAddress).toUInt()
 
-public actual fun openPackageInfoByFullNameForUser(usersid: Psid, packagefullname: Pcwstr, reserved: UInt, packageinforeference: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser((usersid?.value ?: 0L), (packagefullname?.value ?: 0L), reserved.toInt(), (packageinforeference?.value ?: 0L)).toUInt()
+public actual fun openPackageInfoByFullNameForUser(usersid: Psid, packagefullname: Pcwstr, reserved: UInt, packageinforeference: MutPtr<MutPtr<PackageInfoReference>>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser(usersid.rawAddress, packagefullname.rawAddress, reserved.toInt(), packageinforeference.rawAddress).toUInt()
 
-public actual fun packageFamilyNameFromFullName(packagefullname: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName((packagefullname?.value ?: 0L), (packagefamilynamelength?.value ?: 0L), (packagefamilyname?.value ?: 0L)).toUInt()
+public actual fun packageFamilyNameFromFullName(packagefullname: Pcwstr, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName(packagefullname.rawAddress, packagefamilynamelength.rawAddress, packagefamilyname.rawAddress).toUInt()
 
-public actual fun packageFamilyNameFromId(packageid: COpaquePointer?, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId((packageid?.value ?: 0L), (packagefamilynamelength?.value ?: 0L), (packagefamilyname?.value ?: 0L)).toUInt()
+public actual fun packageFamilyNameFromId(packageid: ConstPtr<PackageId>, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId(packageid.rawAddress, packagefamilynamelength.rawAddress, packagefamilyname.rawAddress).toUInt()
 
-public actual fun packageFullNameFromId(packageid: COpaquePointer?, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId((packageid?.value ?: 0L), (packagefullnamelength?.value ?: 0L), (packagefullname?.value ?: 0L)).toUInt()
+public actual fun packageFullNameFromId(packageid: ConstPtr<PackageId>, packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId(packageid.rawAddress, packagefullnamelength.rawAddress, packagefullname.rawAddress).toUInt()
 
-public actual fun packageIdFromFullName(packagefullname: Pcwstr, flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName((packagefullname?.value ?: 0L), flags.toInt(), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+public actual fun packageIdFromFullName(packagefullname: Pcwstr, flags: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName(packagefullname.rawAddress, flags.toInt(), bufferlength.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun packageNameAndPublisherIdFromFamilyName(packagefamilyname: Pcwstr, packagenamelength: COpaquePointer?, packagename: Pwstr, packagepublisheridlength: COpaquePointer?, packagepublisherid: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName((packagefamilyname?.value ?: 0L), (packagenamelength?.value ?: 0L), (packagename?.value ?: 0L), (packagepublisheridlength?.value ?: 0L), (packagepublisherid?.value ?: 0L)).toUInt()
+public actual fun packageNameAndPublisherIdFromFamilyName(packagefamilyname: Pcwstr, packagenamelength: MutPtr<UInt>, packagename: Pwstr, packagepublisheridlength: MutPtr<UInt>, packagepublisherid: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName(packagefamilyname.rawAddress, packagenamelength.rawAddress, packagename.rawAddress, packagepublisheridlength.rawAddress, packagepublisherid.rawAddress).toUInt()
 
-public actual fun parseApplicationUserModelId(applicationusermodelid: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr, packagerelativeapplicationidlength: COpaquePointer?, packagerelativeapplicationid: Pwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId((applicationusermodelid?.value ?: 0L), (packagefamilynamelength?.value ?: 0L), (packagefamilyname?.value ?: 0L), (packagerelativeapplicationidlength?.value ?: 0L), (packagerelativeapplicationid?.value ?: 0L)).toUInt()
+public actual fun parseApplicationUserModelId(applicationusermodelid: Pcwstr, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr, packagerelativeapplicationidlength: MutPtr<UInt>, packagerelativeapplicationid: Pwstr): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId(applicationusermodelid.rawAddress, packagefamilynamelength.rawAddress, packagefamilyname.rawAddress, packagerelativeapplicationidlength.rawAddress, packagerelativeapplicationid.rawAddress).toUInt()
 
 public actual fun releasePackageVirtualizationContext(context: PackageVirtualizationContextHandle) {
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext((context?.value ?: 0L))
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext(context.rawAddress)
 }
 
 public actual fun removePackageDependency(packagedependencycontext: PackagedependencyContext): Hresult =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_removePackageDependency((packagedependencycontext?.value ?: 0L))
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency(packagedependencycontext.rawAddress)
 
-public actual fun tryCreatePackageDependency(user: Psid, packagefamilyname: Pcwstr, minversion: PackageVersion, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: Pcwstr, options: CreatePackageDependencyOptions, packagedependencyid: COpaquePointer?): Hresult =
+public actual fun tryCreatePackageDependency(user: Psid, packagefamilyname: Pcwstr, minversion: PackageVersion, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: Pcwstr, options: CreatePackageDependencyOptions, packagedependencyid: MutPtr<Pwstr>): Hresult =
     0
 
 public actual fun verifyApplicationUserModelId(applicationusermodelid: Pcwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId((applicationusermodelid?.value ?: 0L)).toUInt()
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId(applicationusermodelid.rawAddress).toUInt()
 
 public actual fun verifyPackageFamilyName(packagefamilyname: Pcwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName((packagefamilyname?.value ?: 0L)).toUInt()
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName(packagefamilyname.rawAddress).toUInt()
 
 public actual fun verifyPackageFullName(packagefullname: Pcwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName((packagefullname?.value ?: 0L)).toUInt()
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName(packagefullname.rawAddress).toUInt()
 
-public actual fun verifyPackageId(packageid: COpaquePointer?): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_verifyPackageId((packageid?.value ?: 0L)).toUInt()
+public actual fun verifyPackageId(packageid: ConstPtr<PackageId>): Win32Error =
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxVerifyPackageId(packageid.rawAddress).toUInt()
 
 public actual fun verifyPackageRelativeApplicationId(packagerelativeapplicationid: Pcwstr): Win32Error =
-    WindowsWin32StoragePackagingAppxJniBridge.windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId((packagerelativeapplicationid?.value ?: 0L)).toUInt()
+    WindowsWin32StoragePackagingAppxJniBridge.windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId(packagerelativeapplicationid.rawAddress).toUInt()

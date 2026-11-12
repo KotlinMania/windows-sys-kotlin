@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cbsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDAllo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pchild = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -102,7 +102,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDAtta
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlocalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlocalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -164,7 +164,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlocalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszlocalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -228,7 +228,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszlocalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -296,7 +296,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pconfigparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -354,7 +354,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pppublisher = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -381,7 +381,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pconfigparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -412,7 +412,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -437,7 +437,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pptxparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -462,7 +462,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppattachment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -487,7 +487,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -512,7 +512,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pptxparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -559,7 +559,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDDeta
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -581,7 +581,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -616,7 +616,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGene
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psubcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -649,7 +649,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGene
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -678,7 +678,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -707,7 +707,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDSetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchsource = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -738,7 +738,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDUriD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchsource = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -769,7 +769,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDUriE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pchild = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -796,7 +796,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psecond = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -823,7 +823,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pelementname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -852,7 +852,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pany = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -902,7 +902,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psznamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -931,7 +931,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psznamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -963,38 +963,38 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLG
 }
 
 static void register_windows_win32_devices_webservicesondevices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace_napi));
-    exports.Set("windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny", Napi::Function::New(env, windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace_napi));
+    exports.Set("windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny", Napi::Function::New(env, windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_webservicesondevices_napi, nullptr };

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen(void) {
+void* windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void* windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification(void* wnvhandle, void* notificationparam, void* overlapped, void* bytestransferred) {
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(void* wnvhandle, void* notificationparam, void* overlapped, void* bytestransferred) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

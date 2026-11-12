@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1activatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong context, jlong cookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong context, jlong cookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1addPackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencyid, jint rank, jint options, jlong packagedependencycontext, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAddPackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencyid, jint rank, jint options, jlong packagedependencycontext, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetClrCompat(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetCreateFileAccess(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetLifecycleManagement(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetMediaFoundationCodecLoading(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -178,7 +178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetProcessTerminationMethod(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -204,7 +204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetShowDeveloperDiagnostic(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -230,7 +230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetThreadInitializationType(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -256,7 +256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1appPolicyGetWindowingModel(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel(JNIEnv* km_env, jclass km_clazz, jlong processtoken, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -282,7 +282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1checkIsMSIXPackage(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong ismsixpackage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong ismsixpackage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -308,7 +308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1closePackageInfo(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxClosePackageInfo(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -333,7 +333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1createPackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -359,7 +359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1deactivatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong cookie) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong cookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1deletePackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencyid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencyid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -405,7 +405,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1duplicatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong sourcecontext, jlong destcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong sourcecontext, jlong destcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1findPackagesByPackageFamily(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jint packagefilters, jlong count, jlong packagefullnames, jlong bufferlength, jlong buffer, jlong packageproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jint packagefilters, jlong count, jlong packagefullnames, jlong bufferlength, jlong buffer, jlong packageproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -462,7 +462,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1formatApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong packagerelativeapplicationid, jlong applicationusermodelidlength, jlong applicationusermodelid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong packagerelativeapplicationid, jlong applicationusermodelidlength, jlong applicationusermodelid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -490,7 +490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong applicationusermodelidlength, jlong applicationusermodelid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong applicationusermodelidlength, jlong applicationusermodelid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -517,7 +517,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getApplicationUserModelIdFromToken(JNIEnv* km_env, jclass km_clazz, jlong token, jlong applicationusermodelidlength, jlong applicationusermodelid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken(JNIEnv* km_env, jclass km_clazz, jlong token, jlong applicationusermodelidlength, jlong applicationusermodelid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -544,7 +544,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong applicationusermodelidlength, jlong applicationusermodelid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong applicationusermodelidlength, jlong applicationusermodelid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -570,7 +570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageFamilyName(JNIEnv* km_env, jclass km_clazz, jlong packagefamilynamelength, jlong packagefamilyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName(JNIEnv* km_env, jclass km_clazz, jlong packagefamilynamelength, jlong packagefamilyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -596,7 +596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullnamelength, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullnamelength, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -622,7 +622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageId(JNIEnv* km_env, jclass km_clazz, jlong bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId(JNIEnv* km_env, jclass km_clazz, jlong bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -648,7 +648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageInfo(JNIEnv* km_env, jclass km_clazz, jint flags, jlong bufferlength, jlong buffer, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo(JNIEnv* km_env, jclass km_clazz, jint flags, jlong bufferlength, jlong buffer, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -676,7 +676,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageInfo2(JNIEnv* km_env, jclass km_clazz, jint flags, jint packagepathtype, jlong bufferlength, jlong buffer, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2(JNIEnv* km_env, jclass km_clazz, jint flags, jint packagepathtype, jlong bufferlength, jlong buffer, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -705,7 +705,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageInfo3(JNIEnv* km_env, jclass km_clazz, jint flags, jint packageinfotype, jlong bufferlength, jlong buffer, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3(JNIEnv* km_env, jclass km_clazz, jint flags, jint packageinfotype, jlong bufferlength, jlong buffer, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -734,7 +734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackagePath(JNIEnv* km_env, jclass km_clazz, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath(JNIEnv* km_env, jclass km_clazz, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -760,7 +760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackagePath2(JNIEnv* km_env, jclass km_clazz, jint packagepathtype, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2(JNIEnv* km_env, jclass km_clazz, jint packagepathtype, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -787,7 +787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getCurrentPackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -811,7 +811,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stor
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getIdForPackageDependencyContext(JNIEnv* km_env, jclass km_clazz, jlong packagedependencycontext, jlong packagedependencyid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext(JNIEnv* km_env, jclass km_clazz, jlong packagedependencycontext, jlong packagedependencyid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -837,7 +837,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageApplicationIds(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference, jlong bufferlength, jlong buffer, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference, jlong bufferlength, jlong buffer, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageFamilyName(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong packagefamilynamelength, jlong packagefamilyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong packagefamilynamelength, jlong packagefamilyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -892,7 +892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageFamilyNameFromToken(JNIEnv* km_env, jclass km_clazz, jlong token, jlong packagefamilynamelength, jlong packagefamilyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken(JNIEnv* km_env, jclass km_clazz, jlong token, jlong packagefamilynamelength, jlong packagefamilyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -919,7 +919,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageFullName(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong packagefullnamelength, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageFullName(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong packagefullnamelength, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -946,7 +946,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageFullNameFromToken(JNIEnv* km_env, jclass km_clazz, jlong token, jlong packagefullnamelength, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken(JNIEnv* km_env, jclass km_clazz, jlong token, jlong packagefullnamelength, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -973,7 +973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageGraphRevisionId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -997,7 +997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageId(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageId(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1024,7 +1024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageInfo(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference, jint flags, jlong bufferlength, jlong buffer, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageInfo(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference, jint flags, jlong bufferlength, jlong buffer, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1053,7 +1053,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackageInfo2(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference, jint flags, jint packagepathtype, jlong bufferlength, jlong buffer, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2(JNIEnv* km_env, jclass km_clazz, jlong packageinforeference, jint flags, jint packagepathtype, jlong bufferlength, jlong buffer, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1083,7 +1083,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackagePath(JNIEnv* km_env, jclass km_clazz, jlong packageid, jint reserved, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackagePath(JNIEnv* km_env, jclass km_clazz, jlong packageid, jint reserved, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1111,7 +1111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackagePathByFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1138,7 +1138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackagePathByFullName2(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint packagepathtype, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint packagepathtype, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1166,7 +1166,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getPackagesByPackageFamily(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong count, jlong packagefullnames, jlong bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong count, jlong packagefullnames, jlong bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1195,7 +1195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getProcessesInVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong count, jlong processes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong count, jlong processes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1222,7 +1222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getResolvedPackageFullNameForPackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencyid, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencyid, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1248,7 +1248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getStagedPackageOrigin(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong origin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong origin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1274,7 +1274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getStagedPackagePathByFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1301,7 +1301,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1getStagedPackagePathByFullName2(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint packagepathtype, jlong pathlength, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint packagepathtype, jlong pathlength, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1329,7 +1329,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1openPackageInfoByFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint reserved, jlong packageinforeference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint reserved, jlong packageinforeference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1356,7 +1356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1openPackageInfoByFullNameForUser(JNIEnv* km_env, jclass km_clazz, jlong usersid, jlong packagefullname, jint reserved, jlong packageinforeference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser(JNIEnv* km_env, jclass km_clazz, jlong usersid, jlong packagefullname, jint reserved, jlong packageinforeference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1384,7 +1384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1packageFamilyNameFromFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong packagefamilynamelength, jlong packagefamilyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jlong packagefamilynamelength, jlong packagefamilyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1packageFamilyNameFromId(JNIEnv* km_env, jclass km_clazz, jlong packageid, jlong packagefamilynamelength, jlong packagefamilyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId(JNIEnv* km_env, jclass km_clazz, jlong packageid, jlong packagefamilynamelength, jlong packagefamilyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1438,7 +1438,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1packageFullNameFromId(JNIEnv* km_env, jclass km_clazz, jlong packageid, jlong packagefullnamelength, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId(JNIEnv* km_env, jclass km_clazz, jlong packageid, jlong packagefullnamelength, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1465,7 +1465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1packageIdFromFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint flags, jlong bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname, jint flags, jlong bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1493,7 +1493,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1packageNameAndPublisherIdFromFamilyName(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong packagenamelength, jlong packagename, jlong packagepublisheridlength, jlong packagepublisherid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong packagenamelength, jlong packagename, jlong packagepublisheridlength, jlong packagepublisherid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1522,7 +1522,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1parseApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong applicationusermodelid, jlong packagefamilynamelength, jlong packagefamilyname, jlong packagerelativeapplicationidlength, jlong packagerelativeapplicationid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong applicationusermodelid, jlong packagefamilynamelength, jlong packagefamilyname, jlong packagerelativeapplicationidlength, jlong packagerelativeapplicationid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1551,7 +1551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1releasePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext(JNIEnv* km_env, jclass km_clazz, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1572,7 +1572,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1removePackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencycontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency(JNIEnv* km_env, jclass km_clazz, jlong packagedependencycontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1597,7 +1597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1verifyApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong applicationusermodelid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId(JNIEnv* km_env, jclass km_clazz, jlong applicationusermodelid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1622,7 +1622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1verifyPackageFamilyName(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1647,7 +1647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1verifyPackageFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName(JNIEnv* km_env, jclass km_clazz, jlong packagefullname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1672,7 +1672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1verifyPackageId(JNIEnv* km_env, jclass km_clazz, jlong packageid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxVerifyPackageId(JNIEnv* km_env, jclass km_clazz, jlong packageid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1697,7 +1697,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssys_1windows_1win32_1storage_1packaging_1appx_1verifyPackageRelativeApplicationId(JNIEnv* km_env, jclass km_clazz, jlong packagerelativeapplicationid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_packaging_appx_WindowsWin32StoragePackagingAppxJniBridge_windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId(JNIEnv* km_env, jclass km_clazz, jlong packagerelativeapplicationid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

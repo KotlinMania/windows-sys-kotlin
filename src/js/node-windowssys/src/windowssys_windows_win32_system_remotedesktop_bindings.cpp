@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_processIdToSessionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopProcessIdToSessionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_processIdToSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCloseServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSCloseServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -100,7 +100,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCloseServer_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t logonid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t targetlogonid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSConnectSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t logonid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t targetlogonid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -162,7 +162,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSConnectSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -232,7 +232,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSDisconnectSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSDisconnectSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t benable = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -286,7 +286,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnableChildS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -352,7 +352,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -451,7 +451,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -484,7 +484,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -517,7 +517,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -550,7 +550,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -583,7 +583,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -616,7 +616,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -649,7 +649,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -682,7 +682,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -704,7 +704,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemory_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t wtstypeclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -733,7 +733,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t wtstypeclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -762,7 +762,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSGetActiveConsoleSessionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -785,7 +785,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetActiveCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSGetChildSessionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -810,7 +810,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetChildSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -849,7 +849,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -888,7 +888,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSIsChildSessionsEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -913,7 +913,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSIsChildSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSLogoffSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSLogoffSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -942,7 +942,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSLogoffSessio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSOpenServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -967,7 +967,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -992,7 +992,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerEx
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1017,7 +1017,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerEx
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSOpenServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1042,7 +1042,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1075,7 +1075,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryListene
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1108,7 +1108,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryListene
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1141,7 +1141,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQuerySession
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1174,7 +1174,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQuerySession
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1207,7 +1207,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1240,7 +1240,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSQueryUserToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1267,7 +1267,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserTok
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1294,7 +1294,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSRegisterSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotificationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotificationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1323,7 +1323,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSRegisterSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSendMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1366,7 +1366,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSendMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1409,7 +1409,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1444,7 +1444,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1479,7 +1479,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSetRenderHint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prenderhintid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1512,7 +1512,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetRenderHin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1545,7 +1545,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetUserConfi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1578,7 +1578,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetUserConfi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSShutdownSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t shutdownflag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1605,7 +1605,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSShutdownSyst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptargetservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t targetlogonid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1636,7 +1636,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStartRemoteC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptargetservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t targetlogonid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1667,7 +1667,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStartRemoteC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t logonid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1692,7 +1692,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStopRemoteCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSTerminateProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t processid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1721,7 +1721,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSTerminatePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1746,7 +1746,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotificationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotificationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1773,7 +1773,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchannelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1798,7 +1798,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1827,7 +1827,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvirtualname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1856,7 +1856,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchannelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1881,7 +1881,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeOutput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchannelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1906,7 +1906,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchannelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1937,7 +1937,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchannelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t timeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1970,7 +1970,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchannelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2001,7 +2001,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t eventmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2031,71 +2031,71 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEv
 }
 
 static void register_windows_win32_system_remotedesktop_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_remotedesktop_processIdToSessionId", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_processIdToSessionId_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSCloseServer", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSCloseServer_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSFreeMemory", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessionId", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessionId_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSLogoffSession", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSLogoffSession_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSOpenServerA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSOpenServerA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSOpenServerW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSOpenServerW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotification", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotification_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotificationEx", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotificationEx_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSendMessageA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSendMessageA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSendMessageW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSendMessageW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionA", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionA_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionW", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionW_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSession", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSession_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotification", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotification_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotificationEx", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotificationEx_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInput", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInput_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutput", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutput_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite_napi));
-    exports.Set("windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEvent", Napi::Function::New(env, windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEvent_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopProcessIdToSessionId", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopProcessIdToSessionId_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSCloseServer", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSCloseServer_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSDisconnectSession", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSDisconnectSession_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSFreeMemory", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSFreeMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSGetActiveConsoleSessionId", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSGetActiveConsoleSessionId_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSGetChildSessionId", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSGetChildSessionId_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSIsChildSessionsEnabled", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSIsChildSessionsEnabled_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSLogoffSession", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSLogoffSession_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSOpenServerA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSOpenServerA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSOpenServerW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSOpenServerW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSQueryUserToken", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSQueryUserToken_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotification", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotification_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotificationEx", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotificationEx_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSendMessageA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSendMessageA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSendMessageW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSendMessageW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSetRenderHint", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSetRenderHint_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSShutdownSystem", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSShutdownSystem_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionA", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionA_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionW", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionW_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSTerminateProcess", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSTerminateProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotification", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotification_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotificationEx", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotificationEx_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelClose", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelClose_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpen", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpen_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpenEx", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpenEx_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeInput", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeInput_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeOutput", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeOutput_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelQuery", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelQuery_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelRead", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelRead_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelWrite", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelWrite_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent", Napi::Function::New(env, windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_remotedesktop_napi, nullptr };

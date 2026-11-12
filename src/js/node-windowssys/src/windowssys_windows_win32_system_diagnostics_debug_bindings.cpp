@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredContinueHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t first = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_addVectored
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredExceptionHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t first = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_addVectored
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_beep_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugBeep_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwfreq = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwduration = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_beep_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_bindImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugBindImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_bindImage_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_bindImageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugBindImageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* imagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -194,7 +194,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_bindImageEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugCheckRemoteDebuggerPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbdebuggerpresent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_checkRemote
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugCheckSumMappedFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t filelength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -252,7 +252,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_checkSumMap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugCloseThreadWaitChainSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wcthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -274,7 +274,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_closeThread
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_continueDeb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_copyContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugCopyContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t contextflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -332,7 +332,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_copyContext
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDump_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_dbgHelpCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDumpW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_dbgHelpCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugActive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -440,7 +440,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugActive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugBreak_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDebugBreak_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -460,7 +460,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugBreak_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDebugBreakProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugBreakP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t killonexit = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -510,7 +510,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugSetPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDecodePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodePoint
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDecodeRemotePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -564,7 +564,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodeRemot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugDecodeSystemPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -589,7 +589,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodeSyste
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEncodePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -614,7 +614,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodePoint
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEncodeRemotePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -643,7 +643,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodeRemot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEncodeSystemPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -668,7 +668,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodeSyste
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -738,7 +738,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModules64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumloadedmodulescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -767,7 +767,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumloadedmodulescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -796,7 +796,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumloadedmodulescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumloadedmodulescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -854,7 +854,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFatalAppExitA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmessagetext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -878,7 +878,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalAppExi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFatalAppExitW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmessagetext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -902,7 +902,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalAppExi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalExit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFatalExit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t exitcode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -924,7 +924,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalExit_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -953,7 +953,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugIn
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -986,7 +986,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugIn
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1019,7 +1019,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugIn
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecutableImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1048,7 +1048,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecuta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1081,7 +1081,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecuta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1114,7 +1114,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecuta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindFileInPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1153,7 +1153,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFindFileInSearchPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1190,7 +1190,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFlushInstructionCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbaseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1219,7 +1219,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_flushInstru
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1256,7 +1256,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1293,7 +1293,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetEnabledXStateFeatures_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
@@ -1316,7 +1316,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getEnabledX
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getErrorMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetErrorMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1339,7 +1339,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getErrorMod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetImageConfigInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadedimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* imageconfiginformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1366,7 +1366,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getImageCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetImageUnusedHeaderBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadedimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizeunusedheaderbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1393,7 +1393,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getImageUnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getSymLoadError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetSymLoadError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1416,7 +1416,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getSymLoadE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetThreadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1443,7 +1443,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetThreadErrorMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1466,7 +1466,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadEr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetThreadSelectorEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwselector = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1495,7 +1495,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetThreadWaitChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wcthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t context = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1532,7 +1532,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadWa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetTimestampForLoadedLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* module = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1557,7 +1557,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getTimestam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugGetXStateFeaturesMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* featuremask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1584,11 +1584,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getXStateFe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageAddCertificate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* certificate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* arg_2_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* arg2Index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -1598,7 +1598,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageAddCer
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(filehandle, certificate, arg_2_index);
+        km_res = km_fn_ptr(filehandle, certificate, arg2Index);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -1606,14 +1606,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageAddCer
 #else
     (void)filehandle;
     (void)certificate;
-    (void)arg_2_index;
+    (void)arg2Index;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool mappedasimage = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -1644,7 +1644,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageDirect
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool mappedasimage = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -1677,7 +1677,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageDirect
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageEnumerateCertificates_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t typefilter = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1710,7 +1710,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageEnumer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t certificateindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1741,7 +1741,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetCer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t certificateindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1770,7 +1770,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetCer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageGetDigestStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t digestlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1801,7 +1801,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetDig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageLoad_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageLoad_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dllname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1828,7 +1828,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageLoad_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageNtHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageNtHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1853,10 +1853,10 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageNtHead
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageRemoveCertificate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
@@ -1866,21 +1866,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRemove
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(filehandle, arg_1_index);
+        km_res = km_fn_ptr(filehandle, arg1Index);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)filehandle;
-    (void)arg_1_index;
+    (void)arg1Index;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ntheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1909,7 +1909,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRvaToS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToVa_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ntheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1940,7 +1940,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRvaToV
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageUnload_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImageUnload_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadedimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1965,7 +1965,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageUnload
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1988,7 +1988,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imagehlpApi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2013,7 +2013,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imagehlpApi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_initializeContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t contextflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2044,7 +2044,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_initializeC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_initializeContext2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t contextflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2077,7 +2077,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_initializeC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2100,7 +2100,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_isDebuggerP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugLocateXStateFeature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t featureid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2129,7 +2129,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_locateXStat
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMakeSureDirectoryPathExists_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dirpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2154,7 +2154,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_makeSureDir
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapAndLoad_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMapAndLoad_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2187,7 +2187,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapAndLoad_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headersum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2216,7 +2216,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapFileAndC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headersum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2245,7 +2245,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapFileAndC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_messageBeep_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMessageBeep_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t utype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2270,7 +2270,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_messageBeep
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpReadDumpStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* baseofdump = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t streamnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2303,7 +2303,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpRea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpWriteDump_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t processid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2340,7 +2340,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugOpenThreadWaitChainSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2367,7 +2367,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_openThreadW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoutputstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2389,7 +2389,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_outputDebug
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoutputstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2411,7 +2411,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_outputDebug
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_raiseException_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRaiseException_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwexceptioncode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwexceptionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2439,7 +2439,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_raiseExcept
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRaiseFailFastException_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexceptionrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontextrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2465,7 +2465,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_raiseFailFa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRangeMapAddPeImageSections_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rmaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* imagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2502,7 +2502,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapAdd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRangeMapCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -2525,7 +2525,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapCre
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRangeMapFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rmaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2547,7 +2547,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapFre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rmaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t offset = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2582,7 +2582,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rmaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t usertag = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRangeMapWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rmaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t offset = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2644,7 +2644,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* currentimagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2689,7 +2689,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* currentimagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2734,7 +2734,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_readProcessMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugReadProcessMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbaseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2767,7 +2767,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_readProcess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRegisterWaitChainCOMCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callstatecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* activationstatecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2791,7 +2791,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_registerWai
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRemoveInvalidModuleList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2813,7 +2813,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeInval
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredContinueHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2838,7 +2838,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeVecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredExceptionHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2863,7 +2863,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeVecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugReportSymbolLoadSummary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ploadmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2892,7 +2892,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reportSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlAddFunctionTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* functiontable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entrycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2921,7 +2921,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddFunct
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlAddGrowableFunctionTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dynamictable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* functiontable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2956,7 +2956,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* contextrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2978,7 +2978,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* contextrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3000,7 +3000,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureStackBackTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t framestoskip = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t framestocapture = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3031,7 +3031,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteFunctionTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* functiontable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3056,7 +3056,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFu
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteGrowableFunctionTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dynamictable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3078,7 +3078,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlGrowFunctionTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dynamictable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t newentrycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3102,7 +3102,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlInstallFunctionTableCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t tableidentifier = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t baseaddress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3137,7 +3137,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlInstallF
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlLookupFunctionEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t controlpc = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3166,7 +3166,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlLookupFu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlPcToFileHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseofimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3193,7 +3193,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlPcToFile
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlRaiseException_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exceptionrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3215,7 +3215,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlRaiseExc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlRestoreContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* contextrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* exceptionrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3239,7 +3239,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlRestoreC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetip = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3267,7 +3267,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwind_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwindEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetip = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3299,7 +3299,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlVirtualUnwind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugRtlVirtualUnwind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t handlertype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t imagebase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3338,7 +3338,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlVirtualU
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSearchTreeForFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inputpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3367,7 +3367,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_searchTreeF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSearchTreeForFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inputpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3396,7 +3396,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_searchTreeF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetCheckUserInterruptShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstartaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3418,7 +3418,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setCheckUse
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setErrorMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetErrorMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t umode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3443,7 +3443,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setErrorMod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetImageConfigInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadedimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* imageconfiginformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3470,7 +3470,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setImageCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setSymLoadError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetSymLoadError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t error = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3492,7 +3492,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setSymLoadE
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setThreadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetThreadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3519,7 +3519,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setThreadCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetThreadErrorMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnewmode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpoldmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3546,7 +3546,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setThreadEr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setUnhandledExceptionFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetUnhandledExceptionFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptoplevelexceptionfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3571,7 +3571,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setUnhandle
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSetXStateFeaturesMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t featuremask = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3598,7 +3598,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setXStateFe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugStackWalk2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t machinetype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3643,7 +3643,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk2_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugStackWalk64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t machinetype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3684,7 +3684,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk64
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalkEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugStackWalkEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t machinetype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3727,7 +3727,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalkEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3760,7 +3760,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3793,7 +3793,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3826,7 +3826,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymAddSymbol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3861,7 +3861,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymAddSymbolW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3896,7 +3896,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymAddrIncludeInlineTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3923,7 +3923,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddrIncl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3948,7 +3948,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCleanup_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymCompareInlineTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address1 = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3983,7 +3983,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCompareI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4016,7 +4016,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symDeleteSy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbolW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4049,7 +4049,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symDeleteSy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLines_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLines_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4084,7 +4084,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLinesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4119,7 +4119,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumProcesses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enumprocessescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* usercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4146,7 +4146,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumProc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFileTokens_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4175,7 +4175,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t modbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4208,7 +4208,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFilesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t modbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4241,7 +4241,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLines_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4280,7 +4280,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLinesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4319,7 +4319,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSym_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSym_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4350,7 +4350,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSym_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbols_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4383,7 +4383,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4418,7 +4418,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4453,7 +4453,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4484,7 +4484,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4515,7 +4515,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4548,7 +4548,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumTypes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4579,7 +4579,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4612,7 +4612,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4645,7 +4645,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4676,7 +4676,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModules64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enummodulescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4705,7 +4705,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModulesW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enummodulescallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4734,7 +4734,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbols64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4765,7 +4765,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbolsW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4796,7 +4796,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4829,7 +4829,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindDebu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4862,7 +4862,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindDebu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4895,7 +4895,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindExec
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4928,7 +4928,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindExec
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4971,7 +4971,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5014,7 +5014,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromAddr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5045,7 +5045,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromAddrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5076,11 +5076,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* symbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
@@ -5091,7 +5091,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index, symbol);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -5099,7 +5099,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)symbol;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -5107,11 +5107,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* symbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
@@ -5122,7 +5122,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index, symbol);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -5130,7 +5130,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)symbol;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -5138,7 +5138,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5171,7 +5171,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5204,7 +5204,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5233,7 +5233,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5262,7 +5262,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5293,7 +5293,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromToke
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromTokenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFromTokenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5324,7 +5324,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromToke
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t addrbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5351,7 +5351,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFunction
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64AccessRoutines_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t addrbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5382,7 +5382,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFunction
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t option = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5407,7 +5407,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetExten
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetFileLineOffsets64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* modulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5440,7 +5440,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetFileL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* dir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5469,7 +5469,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetHomeD
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* dir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5498,7 +5498,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetHomeD
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddr64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5529,7 +5529,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddrW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5560,7 +5560,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5595,7 +5595,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5630,7 +5630,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromName64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* modulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5665,7 +5665,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromNameW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* modulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5700,7 +5700,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNext64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* line = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5727,7 +5727,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNextW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* line = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5754,7 +5754,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrev64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* line = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5781,7 +5781,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrevW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* line = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5808,7 +5808,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleBase64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5835,7 +5835,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModul
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfo64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5864,7 +5864,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfoW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5893,7 +5893,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOmaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetOmaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5928,7 +5928,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOmaps
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -5951,11 +5951,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetScope_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* symbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
@@ -5966,7 +5966,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index, symbol);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -5974,7 +5974,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)symbol;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -5982,11 +5982,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScopeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetScopeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* symbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
@@ -5997,7 +5997,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index, symbol);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -6005,7 +6005,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)symbol;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -6013,7 +6013,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSearchPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6042,7 +6042,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSearc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSearchPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6071,7 +6071,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSearc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6106,7 +6106,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6143,7 +6143,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksumW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6180,7 +6180,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6213,7 +6213,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6248,7 +6248,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6283,7 +6283,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6316,7 +6316,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6349,7 +6349,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6386,7 +6386,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6423,7 +6423,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6456,7 +6456,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t base = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6491,7 +6491,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6526,7 +6526,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromTokenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6561,7 +6561,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromAddr64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwaddr = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6592,7 +6592,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromName64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6621,7 +6621,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymNext64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6648,7 +6648,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymPrev64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6675,7 +6675,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6714,7 +6714,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6753,7 +6753,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6784,7 +6784,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6815,11 +6815,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t modbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_typeid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Typeid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     int32_t gettype = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
 #ifdef _WIN32
@@ -6831,7 +6831,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeI
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, modbase, arg_2_typeid, gettype, pinfo);
+        km_res = km_fn_ptr(hprocess, modbase, arg2Typeid, gettype, pinfo);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -6839,7 +6839,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeI
 #else
     (void)hprocess;
     (void)modbase;
-    (void)arg_2_typeid;
+    (void)arg2Typeid;
     (void)gettype;
     (void)pinfo;
     errno = ENOSYS;
@@ -6848,7 +6848,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t modbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6877,7 +6877,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymGetUnwindInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6908,7 +6908,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetUnwin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* usersearchpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6937,7 +6937,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symInitializeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymInitializeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* usersearchpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6966,7 +6966,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModule64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModule64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7001,7 +7001,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7040,7 +7040,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7079,7 +7079,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchFileName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* match = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7110,7 +7110,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* match = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7141,7 +7141,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymMatchString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* expression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7170,7 +7170,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* expression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7199,7 +7199,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* expression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7228,7 +7228,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* si = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7255,7 +7255,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symNext_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symNextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymNextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* siw = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7282,7 +7282,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symNextW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symPrev_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymPrev_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* si = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7309,7 +7309,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symPrev_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symPrevW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymPrevW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* siw = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7336,7 +7336,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symPrevW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymQueryInlineTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t startaddress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7373,7 +7373,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symQueryInl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymRefreshModuleList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7398,7 +7398,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRefreshM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterCallback64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackfunction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7427,7 +7427,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterCallbackW64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackfunction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7456,7 +7456,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterFunctionEntryCallback64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackfunction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7485,11 +7485,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     uint32_t symtag = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* mask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
     uint64_t address = km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0;
@@ -7505,7 +7505,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearch_n
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symtag, mask, address, enumsymbolscallback, usercontext, options);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index, symtag, mask, address, enumsymbolscallback, usercontext, options);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -7513,7 +7513,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearch_n
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)symtag;
     (void)mask;
     (void)address;
@@ -7526,11 +7526,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearch_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearchW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSearchW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     uint32_t symtag = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* mask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
     uint64_t address = km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0;
@@ -7546,7 +7546,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearchW_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symtag, mask, address, enumsymbolscallback, usercontext, options);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index, symtag, mask, address, enumsymbolscallback, usercontext, options);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -7554,7 +7554,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearchW_
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)symtag;
     (void)mask;
     (void)address;
@@ -7567,7 +7567,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearchW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stackframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7596,7 +7596,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetExtendedOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t option = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t value = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7623,7 +7623,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetExten
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7650,7 +7650,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetHomeD
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7677,7 +7677,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetHomeD
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t symoptions = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7702,7 +7702,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetParentWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7727,7 +7727,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetParen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromAddr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7754,11 +7754,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
@@ -7768,7 +7768,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index);
+        km_res = km_fn_ptr(hprocess, baseofdll, arg2Index);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -7776,14 +7776,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
 #else
     (void)hprocess;
     (void)baseofdll;
-    (void)arg_2_index;
+    (void)arg2Index;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromInlineContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t address = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7812,7 +7812,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetSearchPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7839,7 +7839,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetSearc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSetSearchPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchpatha = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7866,7 +7866,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetSearc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7899,7 +7899,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvDelta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7932,7 +7932,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvDelta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* info = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7961,7 +7961,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* info = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7990,12 +7990,12 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* srvpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-    void* arg_3_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* arg3Index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
     uint64_t size = km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -8007,7 +8007,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, srvpath, file, arg_3_index, size, flags);
+        km_res = km_fn_ptr(hprocess, srvpath, file, arg3Index, size, flags);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -8016,7 +8016,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     (void)hprocess;
     (void)srvpath;
     (void)file;
-    (void)arg_3_index;
+    (void)arg3Index;
     (void)size;
     (void)flags;
     errno = ENOSYS;
@@ -8025,12 +8025,12 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* srvpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-    void* arg_3_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* arg3Index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
     uint64_t size = km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -8042,7 +8042,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hprocess, srvpath, file, arg_3_index, size, flags);
+        km_res = km_fn_ptr(hprocess, srvpath, file, arg3Index, size, flags);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -8051,7 +8051,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     (void)hprocess;
     (void)srvpath;
     (void)file;
-    (void)arg_3_index;
+    (void)arg3Index;
     (void)size;
     (void)flags;
     errno = ENOSYS;
@@ -8060,7 +8060,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8093,7 +8093,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8126,7 +8126,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetSupplement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8157,7 +8157,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetSu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetSupplementW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8188,7 +8188,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetSu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvIsStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8215,7 +8215,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvIsSto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvIsStoreW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8242,7 +8242,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvIsSto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* srvpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8273,7 +8273,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* srvpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8304,7 +8304,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* srvpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8337,7 +8337,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplementW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sympath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8370,7 +8370,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symUnDName64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymUnDName64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sym = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* undecname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8399,7 +8399,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symUnDName6
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugSymUnloadModule64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t baseofdll = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -8426,7 +8426,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symUnloadMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugTerminateProcessOnMemoryExhaustion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t failedallocationsize = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8448,7 +8448,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_terminatePr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_touchFileTimes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugTouchFileTimes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psystemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8475,7 +8475,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_touchFileTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outputstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8506,7 +8506,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unDecorateS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outputstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8537,7 +8537,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unDecorateS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugUnMapAndLoad_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadedimage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8562,7 +8562,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unMapAndLoa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugUnhandledExceptionFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exceptioninfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8587,7 +8587,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unhandledEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8618,7 +8618,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_updateDebug
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* symbolpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8651,7 +8651,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_updateDebug
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdebugevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8678,7 +8678,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_waitForDebu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEventEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdebugevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8705,7 +8705,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_waitForDebu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8732,7 +8732,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64GetThr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadSelectorEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwselector = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8761,7 +8761,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64GetThr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugWow64SetThreadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8788,7 +8788,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64SetThr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugWriteProcessMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbaseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8822,297 +8822,297 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_writeProces
 }
 
 static void register_windows_win32_system_diagnostics_debug_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_beep", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_beep_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_bindImage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_bindImage_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_bindImageEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_bindImageEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_copyContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_copyContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_debugBreak", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_debugBreak_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_decodePointer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_decodePointer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_encodePointer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_encodePointer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_enumDirTree", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_enumDirTree_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_fatalExit", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_fatalExit_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findExecutableImage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findExecutableImage_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findFileInPath", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findFileInPath_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_formatMessageA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_formatMessageA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_formatMessageW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_formatMessageW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getErrorMode", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getErrorMode_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getSymLoadError", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getSymLoadError_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getThreadContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageLoad", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageLoad_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageNtHeader", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageNtHeader_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imageUnload", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imageUnload_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_initializeContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_initializeContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_initializeContext2", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_initializeContext2_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_mapAndLoad", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_mapAndLoad_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_messageBeep", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_messageBeep_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_raiseException", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_raiseException_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rangeMapFree", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rangeMapFree_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rangeMapRead", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rangeMapRead_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_reBaseImage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_reBaseImage_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_reBaseImage64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_reBaseImage64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_readProcessMemory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_readProcessMemory_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlUnwind", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlUnwind_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_rtlVirtualUnwind", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_rtlVirtualUnwind_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setErrorMode", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setErrorMode_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setSymLoadError", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setSymLoadError_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setThreadContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setUnhandledExceptionFilter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setUnhandledExceptionFilter_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_stackWalk2", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_stackWalk2_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_stackWalk64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_stackWalk64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_stackWalkEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_stackWalkEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symAddSymbol", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symAddSymbol_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symCleanup", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symCleanup_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumLines", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumLines_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSym", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSym_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumTypes", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumTypes_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromAddr", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromAddr_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromAddrW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromAddrW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromIndex", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromIndex_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromIndexW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromIndexW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromToken", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromToken_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFromTokenW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFromTokenW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetOmaps", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetOmaps_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetOptions", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetOptions_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetScope", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetScope_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetScopeW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetScopeW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symInitialize", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symInitializeW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symInitializeW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symLoadModule64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symLoadModule64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symMatchFileName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symMatchFileName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symMatchString", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symMatchString_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symMatchStringA", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symMatchStringA_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symMatchStringW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symMatchStringW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symNext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symNext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symNextW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symNextW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symPrev", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symPrev_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symPrevW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symPrevW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSearch", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSearch_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSearchW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSearchW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetOptions", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetOptions_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symUnDName64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symUnDName64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_touchFileTimes", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_touchFileTimes_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredContinueHandler", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredContinueHandler_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredExceptionHandler", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredExceptionHandler_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugBeep", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugBeep_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugBindImage", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugBindImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugBindImageEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugBindImageEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugCheckRemoteDebuggerPresent", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugCheckRemoteDebuggerPresent_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugCheckSumMappedFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugCheckSumMappedFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugCloseThreadWaitChainSession", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugCloseThreadWaitChainSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugCopyContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugCopyContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDump", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDump_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDumpW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDumpW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcess", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDebugBreak", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDebugBreak_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDebugBreakProcess", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDebugBreakProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDecodePointer", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDecodePointer_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDecodeRemotePointer", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDecodeRemotePointer_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugDecodeSystemPointer", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugDecodeSystemPointer_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEncodePointer", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEncodePointer_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEncodeRemotePointer", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEncodeRemotePointer_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEncodeSystemPointer", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEncodeSystemPointer_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTree", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTree_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTreeW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTreeW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModules64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModules64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesExW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesExW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFatalAppExitA", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFatalAppExitA_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFatalAppExitW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFatalAppExitW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFatalExit", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFatalExit_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileExW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileExW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImage", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageExW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageExW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindFileInPath", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindFileInPath_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFindFileInSearchPath", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFindFileInSearchPath_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFlushInstructionCache", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFlushInstructionCache_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageA", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageA_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetEnabledXStateFeatures", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetEnabledXStateFeatures_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetErrorMode", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetErrorMode_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetImageConfigInformation", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetImageConfigInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetImageUnusedHeaderBytes", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetImageUnusedHeaderBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetSymLoadError", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetSymLoadError_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetThreadContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetThreadContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetThreadErrorMode", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetThreadErrorMode_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetThreadSelectorEntry", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetThreadSelectorEntry_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetThreadWaitChain", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetThreadWaitChain_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetTimestampForLoadedLibrary", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetTimestampForLoadedLibrary_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugGetXStateFeaturesMask", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugGetXStateFeaturesMask_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageAddCertificate", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageAddCertificate_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToData", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToData_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToDataEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToDataEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageEnumerateCertificates", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageEnumerateCertificates_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateData", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateData_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateHeader", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateHeader_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageGetDigestStream", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageGetDigestStream_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageLoad", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageLoad_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageNtHeader", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageNtHeader_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageRemoveCertificate", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageRemoveCertificate_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToSection", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToSection_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToVa", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToVa_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImageUnload", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImageUnload_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersion", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersion_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersionEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersionEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext2", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext2_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugLocateXStateFeature", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugLocateXStateFeature_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMakeSureDirectoryPathExists", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMakeSureDirectoryPathExists_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMapAndLoad", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMapAndLoad_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumA", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumA_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMessageBeep", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMessageBeep_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpReadDumpStream", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpReadDumpStream_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpWriteDump", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpWriteDump_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugOpenThreadWaitChainSession", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugOpenThreadWaitChainSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringA", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringA_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRaiseException", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRaiseException_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRaiseFailFastException", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRaiseFailFastException_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRangeMapAddPeImageSections", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRangeMapAddPeImageSections_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRangeMapCreate", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRangeMapCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRangeMapFree", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRangeMapFree_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRead", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRead_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRemove", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRemove_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRangeMapWrite", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRangeMapWrite_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugReadProcessMemory", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugReadProcessMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRegisterWaitChainCOMCallback", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRegisterWaitChainCOMCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRemoveInvalidModuleList", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRemoveInvalidModuleList_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredContinueHandler", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredContinueHandler_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredExceptionHandler", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredExceptionHandler_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugReportSymbolLoadSummary", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugReportSymbolLoadSummary_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlAddFunctionTable", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlAddFunctionTable_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlAddGrowableFunctionTable", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlAddGrowableFunctionTable_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext2", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext2_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureStackBackTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureStackBackTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteFunctionTable", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteFunctionTable_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteGrowableFunctionTable", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteGrowableFunctionTable_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlGrowFunctionTable", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlGrowFunctionTable_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlInstallFunctionTableCallback", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlInstallFunctionTableCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlLookupFunctionEntry", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlLookupFunctionEntry_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlPcToFileHeader", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlPcToFileHeader_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlRaiseException", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlRaiseException_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlRestoreContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlRestoreContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwind", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwind_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwindEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwindEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugRtlVirtualUnwind", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugRtlVirtualUnwind_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSearchTreeForFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSearchTreeForFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSearchTreeForFileW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSearchTreeForFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetCheckUserInterruptShared", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetCheckUserInterruptShared_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetErrorMode", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetErrorMode_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetImageConfigInformation", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetImageConfigInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetSymLoadError", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetSymLoadError_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetThreadContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetThreadContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetThreadErrorMode", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetThreadErrorMode_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetUnhandledExceptionFilter", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetUnhandledExceptionFilter_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSetXStateFeaturesMask", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSetXStateFeaturesMask_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugStackWalk2", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugStackWalk2_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugStackWalk64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugStackWalk64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugStackWalkEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugStackWalkEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStream", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStream_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamA", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamA_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymAddSymbol", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymAddSymbol_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymAddSymbolW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymAddSymbolW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymAddrIncludeInlineTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymAddrIncludeInlineTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymCleanup", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymCleanup_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymCompareInlineTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymCompareInlineTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbol", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbol_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbolW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbolW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLines", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLines_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLinesW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLinesW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumProcesses", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumProcesses_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFileTokens", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFileTokens_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFiles", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFiles_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFilesW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFilesW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLines", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLines_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLinesW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLinesW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSym", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSym_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbols", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbols_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsExW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsExW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddr", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddr_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddrW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddrW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypes", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypes_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModules64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModules64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModulesW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModulesW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbols64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbols64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbolsW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbolsW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFileW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImage", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImageW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImageW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPath", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPath_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPathW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddr", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddr_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddrW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddrW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndex", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndex_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndexW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndexW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContextW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContextW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromToken", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromToken_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFromTokenW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFromTokenW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64AccessRoutines", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64AccessRoutines_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetFileLineOffsets64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetFileLineOffsets64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectory", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectory_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectoryW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddr64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddr64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddrW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddrW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContextW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContextW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromName64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromName64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromNameW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromNameW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNext64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNext64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNextW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNextW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrev64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrev64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrevW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrevW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleBase64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleBase64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfo64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfo64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfoW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfoW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetOmaps", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetOmaps_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetOptions", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetOptions_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetScope", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetScope_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetScopeW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetScopeW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSearchPath", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSearchPath_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSearchPathW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSearchPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksum", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksum_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksumW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksumW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromToken", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromToken_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileToken", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileToken_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromToken", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromToken_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromTokenW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromTokenW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromAddr64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromAddr64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromName64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromName64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymNext64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymNext64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymPrev64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymPrev64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFileW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfo", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfoEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfoEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymGetUnwindInfo", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymGetUnwindInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymInitializeW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymInitializeW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModule64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModule64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleExW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleExW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymMatchString", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymMatchString_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringA", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringA_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymNext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymNext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymNextW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymNextW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymPrev", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymPrev_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymPrevW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymPrevW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymQueryInlineTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymQueryInlineTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymRefreshModuleList", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymRefreshModuleList_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterCallback64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterCallback64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterCallbackW64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterCallbackW64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterFunctionEntryCallback64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterFunctionEntryCallback64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSearch", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSearch_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSearchW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSearchW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetExtendedOption", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetExtendedOption_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectory", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectory_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectoryW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetOptions", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetOptions_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetParentWindow", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetParentWindow_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromAddr", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromAddr_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromIndex", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromIndex_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromInlineContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetScopeFromInlineContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetSearchPath", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetSearchPath_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSetSearchPathW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSetSearchPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfo", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfoW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfoW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexString", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexString_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexStringW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexStringW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexes", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexes_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexesW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexesW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetSupplement", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetSupplement_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetSupplementW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetSupplementW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvIsStore", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvIsStore_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvIsStoreW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvIsStoreW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreFileW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplement", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplement_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplementW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplementW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymUnDName64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymUnDName64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugSymUnloadModule64", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugSymUnloadModule64_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugTerminateProcessOnMemoryExhaustion", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugTerminateProcessOnMemoryExhaustion_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugTouchFileTimes", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugTouchFileTimes_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolName", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolName_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolNameW", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugUnMapAndLoad", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugUnMapAndLoad_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugUnhandledExceptionFilter", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugUnhandledExceptionFilter_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFile", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFileEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFileEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEvent", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEvent_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEventEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEventEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadSelectorEntry", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadSelectorEntry_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugWow64SetThreadContext", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugWow64SetThreadContext_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugWriteProcessMemory", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugWriteProcessMemory_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_diagnostics_debug_napi, nullptr };

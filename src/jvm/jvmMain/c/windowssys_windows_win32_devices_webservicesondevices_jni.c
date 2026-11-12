@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDAllocateLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pparent, jlong cbsize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pparent, jlong cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDAttachLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pparent, jlong pchild) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pparent, jlong pchild) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDeviceHost(JNIEnv* km_env, jclass km_clazz, jlong pszlocalid, jlong pcontext, jlong ppdevicehost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost(JNIEnv* km_env, jclass km_clazz, jlong pszlocalid, jlong pcontext, jlong ppdevicehost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDeviceHost2(JNIEnv* km_env, jclass km_clazz, jlong pszlocalid, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong ppdevicehost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2(JNIEnv* km_env, jclass km_clazz, jlong pszlocalid, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong ppdevicehost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDeviceHostAdvanced(JNIEnv* km_env, jclass km_clazz, jlong pszlocalid, jlong pcontext, jlong pphostaddresses, jint dwhostaddresscount, jlong ppdevicehost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced(JNIEnv* km_env, jclass km_clazz, jlong pszlocalid, jlong pcontext, jlong pphostaddresses, jint dwhostaddresscount, jlong ppdevicehost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDeviceProxy(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceid, jlong pszlocalid, jlong pcontext, jlong ppdeviceproxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceid, jlong pszlocalid, jlong pcontext, jlong ppdeviceproxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDeviceProxy2(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceid, jlong pszlocalid, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong ppdeviceproxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceid, jlong pszlocalid, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong ppdeviceproxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -210,7 +210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDeviceProxyAdvanced(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceid, jlong pdeviceaddress, jlong pszlocalid, jlong pcontext, jlong ppdeviceproxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceid, jlong pdeviceaddress, jlong pszlocalid, jlong pcontext, jlong ppdeviceproxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -239,7 +239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDiscoveryProvider(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong ppprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong ppprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -265,7 +265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDiscoveryProvider2(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong ppprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong ppprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDiscoveryPublisher(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong pppublisher) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong pppublisher) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -319,7 +319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateDiscoveryPublisher2(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong pppublisher) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2(JNIEnv* km_env, jclass km_clazz, jlong pcontext, jlong pconfigparams, jint dwconfigparamcount, jlong pppublisher) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateHttpAddress(JNIEnv* km_env, jclass km_clazz, jlong ppaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress(JNIEnv* km_env, jclass km_clazz, jlong ppaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -372,7 +372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateHttpMessageParameters(JNIEnv* km_env, jclass km_clazz, jlong pptxparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters(JNIEnv* km_env, jclass km_clazz, jlong pptxparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -397,7 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateOutboundAttachment(JNIEnv* km_env, jclass km_clazz, jlong ppattachment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment(JNIEnv* km_env, jclass km_clazz, jlong ppattachment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -422,7 +422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateUdpAddress(JNIEnv* km_env, jclass km_clazz, jlong ppaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress(JNIEnv* km_env, jclass km_clazz, jlong ppaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -447,7 +447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDCreateUdpMessageParameters(JNIEnv* km_env, jclass km_clazz, jlong pptxparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters(JNIEnv* km_env, jclass km_clazz, jlong pptxparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -472,7 +472,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDDetachLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pvoid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pvoid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -493,7 +493,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDFreeLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pvoid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory(JNIEnv* km_env, jclass km_clazz, jlong pvoid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -514,7 +514,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDGenerateFault(JNIEnv* km_env, jclass km_clazz, jlong pszcode, jlong pszsubcode, jlong pszreason, jlong pszdetail, jlong pcontext, jlong ppfault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault(JNIEnv* km_env, jclass km_clazz, jlong pszcode, jlong pszsubcode, jlong pszreason, jlong pszdetail, jlong pcontext, jlong ppfault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -544,7 +544,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDGenerateFaultEx(JNIEnv* km_env, jclass km_clazz, jlong pcode, jlong psubcode, jlong preasons, jlong pszdetail, jlong ppfault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx(JNIEnv* km_env, jclass km_clazz, jlong pcode, jlong psubcode, jlong preasons, jlong pszdetail, jlong ppfault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -573,7 +573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDGetConfigurationOption(JNIEnv* km_env, jclass km_clazz, jint dwoption, jlong pvoid, jint cboutbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption(JNIEnv* km_env, jclass km_clazz, jint dwoption, jlong pvoid, jint cboutbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -600,7 +600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDSetConfigurationOption(JNIEnv* km_env, jclass km_clazz, jint dwoption, jlong pvoid, jint cbinbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption(JNIEnv* km_env, jclass km_clazz, jint dwoption, jlong pvoid, jint cbinbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -627,7 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDUriDecode(JNIEnv* km_env, jclass km_clazz, jlong source, jint cchsource, jlong destout, jlong cchdestout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode(JNIEnv* km_env, jclass km_clazz, jlong source, jint cchsource, jlong destout, jlong cchdestout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -655,7 +655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDUriEncode(JNIEnv* km_env, jclass km_clazz, jlong source, jint cchsource, jlong destout, jlong cchdestout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode(JNIEnv* km_env, jclass km_clazz, jlong source, jint cchsource, jlong destout, jlong cchdestout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLAddChild(JNIEnv* km_env, jclass km_clazz, jlong pparent, jlong pchild) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild(JNIEnv* km_env, jclass km_clazz, jlong pparent, jlong pchild) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -709,7 +709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLAddSibling(JNIEnv* km_env, jclass km_clazz, jlong pfirst, jlong psecond) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling(JNIEnv* km_env, jclass km_clazz, jlong pfirst, jlong psecond) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -735,7 +735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLBuildAnyForSingleElement(JNIEnv* km_env, jclass km_clazz, jlong pelementname, jlong psztext, jlong ppany) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement(JNIEnv* km_env, jclass km_clazz, jlong pelementname, jlong psztext, jlong ppany) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -762,7 +762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLCleanupElement(JNIEnv* km_env, jclass km_clazz, jlong pany) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement(JNIEnv* km_env, jclass km_clazz, jlong pany) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -787,7 +787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLCreateContext(JNIEnv* km_env, jclass km_clazz, jlong ppcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext(JNIEnv* km_env, jclass km_clazz, jlong ppcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -812,7 +812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLGetNameFromBuiltinNamespace(JNIEnv* km_env, jclass km_clazz, jlong psznamespace, jlong pszname, jlong ppname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace(JNIEnv* km_env, jclass km_clazz, jlong psznamespace, jlong pszname, jlong ppname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -839,7 +839,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssys_1windows_1win32_1devices_1webservicesondevices_1wSDXMLGetValueFromAny(JNIEnv* km_env, jclass km_clazz, jlong psznamespace, jlong pszname, jlong pany, jlong ppszvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_webservicesondevices_WindowsWin32DevicesWebservicesondevicesJniBridge_windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny(JNIEnv* km_env, jclass km_clazz, jlong psznamespace, jlong pszname, jlong pany, jlong ppszvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

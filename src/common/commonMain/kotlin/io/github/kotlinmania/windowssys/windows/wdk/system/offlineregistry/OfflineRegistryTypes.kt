@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
-public typealias Orhkey = COpaquePointer?
+public typealias Orhkey = MutPtr<CVoid>

@@ -1,101 +1,103 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 
-public expect fun uregionGetPreferredValues(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uregionGetPreferredValues(uregion: ConstPtr<URegion>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration>
 
-public expect fun uregionGetRegionCode(uregion: COpaquePointer?): Pcstr
+public expect fun uregionGetRegionCode(uregion: ConstPtr<URegion>): Pcstr
 
-public expect fun uregionGetRegionFromCode(regioncode: Pcstr, status: COpaquePointer?): COpaquePointer?
+public expect fun uregionGetRegionFromCode(regioncode: Pcstr, status: MutPtr<UErrorCode>): MutPtr<URegion>
 
-public expect fun uregionGetRegionFromNumericCode(code: Int, status: COpaquePointer?): COpaquePointer?
+public expect fun uregionGetRegionFromNumericCode(code: Int, status: MutPtr<UErrorCode>): MutPtr<URegion>
 
-public expect fun uregionGetType(uregion: COpaquePointer?): URegionType
+public expect fun uregionGetType(uregion: ConstPtr<URegion>): URegionType
 
-public expect fun ureldatefmtClose(reldatefmt: COpaquePointer?)
+public expect fun ureldatefmtClose(reldatefmt: MutPtr<URelativeDateTimeFormatter>)
 
-public expect fun ureldatefmtCloseResult(ufrdt: COpaquePointer?)
+public expect fun ureldatefmtCloseResult(ufrdt: MutPtr<UFormattedRelativeDateTime>)
 
-public expect fun ureldatefmtCombineDateAndTime(reldatefmt: COpaquePointer?, relativedatestring: COpaquePointer?, relativedatestringlen: Int, timestring: COpaquePointer?, timestringlen: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int
+public expect fun ureldatefmtCombineDateAndTime(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, relativedatestring: ConstPtr<UShort>, relativedatestringlen: Int, timestring: ConstPtr<UShort>, timestringlen: Int, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun ureldatefmtFormat(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int
+public expect fun ureldatefmtFormat(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun ureldatefmtFormatNumeric(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int
+public expect fun ureldatefmtFormatNumeric(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun ureldatefmtFormatNumericToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?)
+public expect fun ureldatefmtFormatNumericToResult(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UFormattedRelativeDateTime>, status: MutPtr<UErrorCode>)
 
-public expect fun ureldatefmtFormatToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?)
+public expect fun ureldatefmtFormatToResult(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UFormattedRelativeDateTime>, status: MutPtr<UErrorCode>)
 
-public expect fun ureldatefmtOpen(locale: Pcstr, nftoadopt: COpaquePointer?, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: COpaquePointer?): COpaquePointer?
+public expect fun ureldatefmtOpen(locale: Pcstr, nftoadopt: MutPtr<MutPtr<CVoid>>, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: MutPtr<UErrorCode>): MutPtr<URelativeDateTimeFormatter>
 
-public expect fun ureldatefmtOpenResult(ec: COpaquePointer?): COpaquePointer?
+public expect fun ureldatefmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedRelativeDateTime>
 
-public expect fun ureldatefmtResultAsValue(ufrdt: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
+public expect fun ureldatefmtResultAsValue(ufrdt: ConstPtr<UFormattedRelativeDateTime>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue>
 
-public expect fun uresClose(resourcebundle: COpaquePointer?)
+public expect fun uresClose(resourcebundle: MutPtr<UResourceBundle>)
 
-public expect fun uresGetBinary(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetBinary(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UByte>
 
-public expect fun uresGetByIndex(resourcebundle: COpaquePointer?, indexr: Int, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetByIndex(resourcebundle: ConstPtr<UResourceBundle>, indexr: Int, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle>
 
-public expect fun uresGetByKey(resourcebundle: COpaquePointer?, key: Pcstr, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetByKey(resourcebundle: ConstPtr<UResourceBundle>, key: Pcstr, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle>
 
-public expect fun uresGetInt(resourcebundle: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uresGetInt(resourcebundle: ConstPtr<UResourceBundle>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uresGetIntVector(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetIntVector(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<Int>
 
-public expect fun uresGetKey(resourcebundle: COpaquePointer?): Pcstr
+public expect fun uresGetKey(resourcebundle: ConstPtr<UResourceBundle>): Pcstr
 
-public expect fun uresGetLocaleByType(resourcebundle: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr
+public expect fun uresGetLocaleByType(resourcebundle: ConstPtr<UResourceBundle>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr
 
-public expect fun uresGetNextResource(resourcebundle: COpaquePointer?, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetNextResource(resourcebundle: MutPtr<UResourceBundle>, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle>
 
-public expect fun uresGetNextString(resourcebundle: COpaquePointer?, len: COpaquePointer?, key: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetNextString(resourcebundle: MutPtr<UResourceBundle>, len: MutPtr<Int>, key: ConstPtr<ConstPtr<Byte>>, status: MutPtr<UErrorCode>): MutPtr<UShort>
 
-public expect fun uresGetSize(resourcebundle: COpaquePointer?): Int
+public expect fun uresGetSize(resourcebundle: ConstPtr<UResourceBundle>): Int
 
-public expect fun uresGetString(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetString(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort>
 
-public expect fun uresGetStringByIndex(resourcebundle: COpaquePointer?, indexs: Int, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetStringByIndex(resourcebundle: ConstPtr<UResourceBundle>, indexs: Int, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort>
 
-public expect fun uresGetStringByKey(resb: COpaquePointer?, key: Pcstr, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uresGetStringByKey(resb: ConstPtr<UResourceBundle>, key: Pcstr, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort>
 
-public expect fun uresGetType(resourcebundle: COpaquePointer?): UResType
+public expect fun uresGetType(resourcebundle: ConstPtr<UResourceBundle>): UResType
 
-public expect fun uresGetUint(resourcebundle: COpaquePointer?, status: COpaquePointer?): UInt
+public expect fun uresGetUint(resourcebundle: ConstPtr<UResourceBundle>, status: MutPtr<UErrorCode>): UInt
 
-public expect fun uresGetUtf8String(resb: COpaquePointer?, dest: Pcstr, length: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr
+public expect fun uresGetUtf8String(resb: ConstPtr<UResourceBundle>, dest: Pcstr, length: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr
 
-public expect fun uresGetUtf8StringByIndex(resb: COpaquePointer?, stringindex: Int, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr
+public expect fun uresGetUtf8StringByIndex(resb: ConstPtr<UResourceBundle>, stringindex: Int, dest: Pcstr, plength: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr
 
-public expect fun uresGetUtf8StringByKey(resb: COpaquePointer?, key: Pcstr, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr
+public expect fun uresGetUtf8StringByKey(resb: ConstPtr<UResourceBundle>, key: Pcstr, dest: Pcstr, plength: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr
 
-public expect fun uresGetVersion(resb: COpaquePointer?, versioninfo: COpaquePointer?)
+public expect fun uresGetVersion(resb: ConstPtr<UResourceBundle>, versioninfo: MutPtr<UByte>)
 
-public expect fun uresHasNext(resourcebundle: COpaquePointer?): Byte
+public expect fun uresHasNext(resourcebundle: ConstPtr<UResourceBundle>): Byte
 
-public expect fun uresOpen(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer?
+public expect fun uresOpen(packagename: Pcstr, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle>
 
-public expect fun uresOpenAvailableLocales(packagename: Pcstr, status: COpaquePointer?): COpaquePointer?
+public expect fun uresOpenAvailableLocales(packagename: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration>
 
-public expect fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer?
+public expect fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle>
 
-public expect fun uresOpenU(packagename: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer?
+public expect fun uresOpenU(packagename: ConstPtr<UShort>, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle>
 
-public expect fun uresResetIterator(resourcebundle: COpaquePointer?)
+public expect fun uresResetIterator(resourcebundle: MutPtr<UResourceBundle>)
 
 public expect fun uscriptBreaksBetweenLetters(script: UScriptCode): Byte
 
-public expect fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: COpaquePointer?, capacity: Int, err: COpaquePointer?): Int
+public expect fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: MutPtr<UScriptCode>, capacity: Int, err: MutPtr<UErrorCode>): Int
 
 public expect fun uscriptGetName(scriptcode: UScriptCode): Pcstr
 
-public expect fun uscriptGetSampleString(script: UScriptCode, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
+public expect fun uscriptGetSampleString(script: UScriptCode, dest: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int
 
-public expect fun uscriptGetScript(codepoint: Int, err: COpaquePointer?): UScriptCode
+public expect fun uscriptGetScript(codepoint: Int, err: MutPtr<UErrorCode>): UScriptCode
 
-public expect fun uscriptGetScriptExtensions(c: Int, scripts: COpaquePointer?, capacity: Int, errorcode: COpaquePointer?): Int
+public expect fun uscriptGetScriptExtensions(c: Int, scripts: MutPtr<UScriptCode>, capacity: Int, errorcode: MutPtr<UErrorCode>): Int
 
 public expect fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr
 
@@ -107,338 +109,338 @@ public expect fun uscriptIsCased(script: UScriptCode): Byte
 
 public expect fun uscriptIsRightToLeft(script: UScriptCode): Byte
 
-public expect fun usearchClose(searchiter: COpaquePointer?)
+public expect fun usearchClose(searchiter: MutPtr<UStringSearch>)
 
-public expect fun usearchFirst(strsrch: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun usearchFirst(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchFollowing(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int
+public expect fun usearchFollowing(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchGetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute): USearchAttributeValue
+public expect fun usearchGetAttribute(strsrch: ConstPtr<UStringSearch>, attribute: USearchAttribute): USearchAttributeValue
 
-public expect fun usearchGetBreakIterator(strsrch: COpaquePointer?): COpaquePointer?
+public expect fun usearchGetBreakIterator(strsrch: ConstPtr<UStringSearch>): MutPtr<UBreakIterator>
 
-public expect fun usearchGetCollator(strsrch: COpaquePointer?): COpaquePointer?
+public expect fun usearchGetCollator(strsrch: ConstPtr<UStringSearch>): MutPtr<UCollator>
 
-public expect fun usearchGetMatchedLength(strsrch: COpaquePointer?): Int
+public expect fun usearchGetMatchedLength(strsrch: ConstPtr<UStringSearch>): Int
 
-public expect fun usearchGetMatchedStart(strsrch: COpaquePointer?): Int
+public expect fun usearchGetMatchedStart(strsrch: ConstPtr<UStringSearch>): Int
 
-public expect fun usearchGetMatchedText(strsrch: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int
+public expect fun usearchGetMatchedText(strsrch: ConstPtr<UStringSearch>, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchGetOffset(strsrch: COpaquePointer?): Int
+public expect fun usearchGetOffset(strsrch: ConstPtr<UStringSearch>): Int
 
-public expect fun usearchGetPattern(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer?
+public expect fun usearchGetPattern(strsrch: ConstPtr<UStringSearch>, length: MutPtr<Int>): MutPtr<UShort>
 
-public expect fun usearchGetText(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer?
+public expect fun usearchGetText(strsrch: ConstPtr<UStringSearch>, length: MutPtr<Int>): MutPtr<UShort>
 
-public expect fun usearchLast(strsrch: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun usearchLast(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchNext(strsrch: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun usearchNext(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchOpen(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, locale: Pcstr, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun usearchOpen(pattern: ConstPtr<UShort>, patternlength: Int, text: ConstPtr<UShort>, textlength: Int, locale: Pcstr, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>): MutPtr<UStringSearch>
 
-public expect fun usearchOpenFromCollator(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, collator: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun usearchOpenFromCollator(pattern: ConstPtr<UShort>, patternlength: Int, text: ConstPtr<UShort>, textlength: Int, collator: ConstPtr<UCollator>, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>): MutPtr<UStringSearch>
 
-public expect fun usearchPreceding(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int
+public expect fun usearchPreceding(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchPrevious(strsrch: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun usearchPrevious(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int
 
-public expect fun usearchReset(strsrch: COpaquePointer?)
+public expect fun usearchReset(strsrch: MutPtr<UStringSearch>)
 
-public expect fun usearchSetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute, value: USearchAttributeValue, status: COpaquePointer?)
+public expect fun usearchSetAttribute(strsrch: MutPtr<UStringSearch>, attribute: USearchAttribute, value: USearchAttributeValue, status: MutPtr<UErrorCode>)
 
-public expect fun usearchSetBreakIterator(strsrch: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?)
+public expect fun usearchSetBreakIterator(strsrch: MutPtr<UStringSearch>, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>)
 
-public expect fun usearchSetCollator(strsrch: COpaquePointer?, collator: COpaquePointer?, status: COpaquePointer?)
+public expect fun usearchSetCollator(strsrch: MutPtr<UStringSearch>, collator: ConstPtr<UCollator>, status: MutPtr<UErrorCode>)
 
-public expect fun usearchSetOffset(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?)
+public expect fun usearchSetOffset(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>)
 
-public expect fun usearchSetPattern(strsrch: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?)
+public expect fun usearchSetPattern(strsrch: MutPtr<UStringSearch>, pattern: ConstPtr<UShort>, patternlength: Int, status: MutPtr<UErrorCode>)
 
-public expect fun usearchSetText(strsrch: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?)
+public expect fun usearchSetText(strsrch: MutPtr<UStringSearch>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>)
 
-public expect fun usetAdd(set: COpaquePointer?, c: Int)
+public expect fun usetAdd(set: MutPtr<USet>, c: Int)
 
-public expect fun usetAddAll(set: COpaquePointer?, additionalset: COpaquePointer?)
+public expect fun usetAddAll(set: MutPtr<USet>, additionalset: ConstPtr<USet>)
 
-public expect fun usetAddAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int)
+public expect fun usetAddAllCodePoints(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int)
 
-public expect fun usetAddRange(set: COpaquePointer?, start: Int, end: Int)
+public expect fun usetAddRange(set: MutPtr<USet>, start: Int, end: Int)
 
-public expect fun usetAddString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int)
+public expect fun usetAddString(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int)
 
-public expect fun usetApplyIntPropertyValue(set: COpaquePointer?, prop: UProperty, value: Int, ec: COpaquePointer?)
+public expect fun usetApplyIntPropertyValue(set: MutPtr<USet>, prop: UProperty, value: Int, ec: MutPtr<UErrorCode>)
 
-public expect fun usetApplyPattern(set: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, options: UInt, status: COpaquePointer?): Int
+public expect fun usetApplyPattern(set: MutPtr<USet>, pattern: ConstPtr<UShort>, patternlength: Int, options: UInt, status: MutPtr<UErrorCode>): Int
 
-public expect fun usetApplyPropertyAlias(set: COpaquePointer?, prop: COpaquePointer?, proplength: Int, value: COpaquePointer?, valuelength: Int, ec: COpaquePointer?)
+public expect fun usetApplyPropertyAlias(set: MutPtr<USet>, prop: ConstPtr<UShort>, proplength: Int, value: ConstPtr<UShort>, valuelength: Int, ec: MutPtr<UErrorCode>)
 
-public expect fun usetCharAt(set: COpaquePointer?, charindex: Int): Int
+public expect fun usetCharAt(set: ConstPtr<USet>, charindex: Int): Int
 
-public expect fun usetClear(set: COpaquePointer?)
+public expect fun usetClear(set: MutPtr<USet>)
 
-public expect fun usetClone(set: COpaquePointer?): COpaquePointer?
+public expect fun usetClone(set: ConstPtr<USet>): MutPtr<USet>
 
-public expect fun usetCloneAsThawed(set: COpaquePointer?): COpaquePointer?
+public expect fun usetCloneAsThawed(set: ConstPtr<USet>): MutPtr<USet>
 
-public expect fun usetClose(set: COpaquePointer?)
+public expect fun usetClose(set: MutPtr<USet>)
 
-public expect fun usetCloseOver(set: COpaquePointer?, attributes: Int)
+public expect fun usetCloseOver(set: MutPtr<USet>, attributes: Int)
 
-public expect fun usetCompact(set: COpaquePointer?)
+public expect fun usetCompact(set: MutPtr<USet>)
 
-public expect fun usetComplement(set: COpaquePointer?)
+public expect fun usetComplement(set: MutPtr<USet>)
 
-public expect fun usetComplementAll(set: COpaquePointer?, complement: COpaquePointer?)
+public expect fun usetComplementAll(set: MutPtr<USet>, complement: ConstPtr<USet>)
 
-public expect fun usetContains(set: COpaquePointer?, c: Int): Byte
+public expect fun usetContains(set: ConstPtr<USet>, c: Int): Byte
 
-public expect fun usetContainsAll(set1: COpaquePointer?, set2: COpaquePointer?): Byte
+public expect fun usetContainsAll(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte
 
-public expect fun usetContainsAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte
+public expect fun usetContainsAllCodePoints(set: ConstPtr<USet>, str: ConstPtr<UShort>, strlen: Int): Byte
 
-public expect fun usetContainsNone(set1: COpaquePointer?, set2: COpaquePointer?): Byte
+public expect fun usetContainsNone(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte
 
-public expect fun usetContainsRange(set: COpaquePointer?, start: Int, end: Int): Byte
+public expect fun usetContainsRange(set: ConstPtr<USet>, start: Int, end: Int): Byte
 
-public expect fun usetContainsSome(set1: COpaquePointer?, set2: COpaquePointer?): Byte
+public expect fun usetContainsSome(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte
 
-public expect fun usetContainsString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte
+public expect fun usetContainsString(set: ConstPtr<USet>, str: ConstPtr<UShort>, strlen: Int): Byte
 
-public expect fun usetEquals(set1: COpaquePointer?, set2: COpaquePointer?): Byte
+public expect fun usetEquals(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte
 
-public expect fun usetFreeze(set: COpaquePointer?)
+public expect fun usetFreeze(set: MutPtr<USet>)
 
-public expect fun usetGetItem(set: COpaquePointer?, itemindex: Int, start: COpaquePointer?, end: COpaquePointer?, str: COpaquePointer?, strcapacity: Int, ec: COpaquePointer?): Int
+public expect fun usetGetItem(set: ConstPtr<USet>, itemindex: Int, start: MutPtr<Int>, end: MutPtr<Int>, str: MutPtr<UShort>, strcapacity: Int, ec: MutPtr<UErrorCode>): Int
 
-public expect fun usetGetItemCount(set: COpaquePointer?): Int
+public expect fun usetGetItemCount(set: ConstPtr<USet>): Int
 
-public expect fun usetGetSerializedRange(set: COpaquePointer?, rangeindex: Int, pstart: COpaquePointer?, pend: COpaquePointer?): Byte
+public expect fun usetGetSerializedRange(set: ConstPtr<USerializedSet>, rangeindex: Int, pstart: MutPtr<Int>, pend: MutPtr<Int>): Byte
 
-public expect fun usetGetSerializedRangeCount(set: COpaquePointer?): Int
+public expect fun usetGetSerializedRangeCount(set: ConstPtr<USerializedSet>): Int
 
-public expect fun usetGetSerializedSet(fillset: COpaquePointer?, src: COpaquePointer?, srclength: Int): Byte
+public expect fun usetGetSerializedSet(fillset: MutPtr<USerializedSet>, src: ConstPtr<UShort>, srclength: Int): Byte
 
-public expect fun usetIndexOf(set: COpaquePointer?, c: Int): Int
+public expect fun usetIndexOf(set: ConstPtr<USet>, c: Int): Int
 
-public expect fun usetIsEmpty(set: COpaquePointer?): Byte
+public expect fun usetIsEmpty(set: ConstPtr<USet>): Byte
 
-public expect fun usetIsFrozen(set: COpaquePointer?): Byte
+public expect fun usetIsFrozen(set: ConstPtr<USet>): Byte
 
-public expect fun usetOpen(start: Int, end: Int): COpaquePointer?
+public expect fun usetOpen(start: Int, end: Int): MutPtr<USet>
 
-public expect fun usetOpenEmpty(): COpaquePointer?
+public expect fun usetOpenEmpty(): MutPtr<USet>
 
-public expect fun usetOpenPattern(pattern: COpaquePointer?, patternlength: Int, ec: COpaquePointer?): COpaquePointer?
+public expect fun usetOpenPattern(pattern: ConstPtr<UShort>, patternlength: Int, ec: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun usetOpenPatternOptions(pattern: COpaquePointer?, patternlength: Int, options: UInt, ec: COpaquePointer?): COpaquePointer?
+public expect fun usetOpenPatternOptions(pattern: ConstPtr<UShort>, patternlength: Int, options: UInt, ec: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun usetRemove(set: COpaquePointer?, c: Int)
+public expect fun usetRemove(set: MutPtr<USet>, c: Int)
 
-public expect fun usetRemoveAll(set: COpaquePointer?, removeset: COpaquePointer?)
+public expect fun usetRemoveAll(set: MutPtr<USet>, removeset: ConstPtr<USet>)
 
-public expect fun usetRemoveAllStrings(set: COpaquePointer?)
+public expect fun usetRemoveAllStrings(set: MutPtr<USet>)
 
-public expect fun usetRemoveRange(set: COpaquePointer?, start: Int, end: Int)
+public expect fun usetRemoveRange(set: MutPtr<USet>, start: Int, end: Int)
 
-public expect fun usetRemoveString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int)
+public expect fun usetRemoveString(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int)
 
-public expect fun usetResemblesPattern(pattern: COpaquePointer?, patternlength: Int, pos: Int): Byte
+public expect fun usetResemblesPattern(pattern: ConstPtr<UShort>, patternlength: Int, pos: Int): Byte
 
-public expect fun usetRetain(set: COpaquePointer?, start: Int, end: Int)
+public expect fun usetRetain(set: MutPtr<USet>, start: Int, end: Int)
 
-public expect fun usetRetainAll(set: COpaquePointer?, retain: COpaquePointer?)
+public expect fun usetRetainAll(set: MutPtr<USet>, retain: ConstPtr<USet>)
 
-public expect fun usetSerialize(set: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int
+public expect fun usetSerialize(set: ConstPtr<USet>, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int
 
-public expect fun usetSerializedContains(set: COpaquePointer?, c: Int): Byte
+public expect fun usetSerializedContains(set: ConstPtr<USerializedSet>, c: Int): Byte
 
-public expect fun usetSet(set: COpaquePointer?, start: Int, end: Int)
+public expect fun usetSet(set: MutPtr<USet>, start: Int, end: Int)
 
-public expect fun usetSetSerializedToOne(fillset: COpaquePointer?, c: Int)
+public expect fun usetSetSerializedToOne(fillset: MutPtr<USerializedSet>, c: Int)
 
-public expect fun usetSize(set: COpaquePointer?): Int
+public expect fun usetSize(set: ConstPtr<USet>): Int
 
-public expect fun usetSpan(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int
+public expect fun usetSpan(set: ConstPtr<USet>, s: ConstPtr<UShort>, length: Int, spancondition: USetSpanCondition): Int
 
-public expect fun usetSpanBack(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int
+public expect fun usetSpanBack(set: ConstPtr<USet>, s: ConstPtr<UShort>, length: Int, spancondition: USetSpanCondition): Int
 
-public expect fun usetSpanBackUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int
+public expect fun usetSpanBackUtf8(set: ConstPtr<USet>, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int
 
-public expect fun usetSpanUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int
+public expect fun usetSpanUtf8(set: ConstPtr<USet>, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int
 
-public expect fun usetToPattern(set: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, escapeunprintable: Byte, ec: COpaquePointer?): Int
+public expect fun usetToPattern(set: ConstPtr<USet>, result: MutPtr<UShort>, resultcapacity: Int, escapeunprintable: Byte, ec: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofAreConfusable(sc: COpaquePointer?, id1: COpaquePointer?, length1: Int, id2: COpaquePointer?, length2: Int, status: COpaquePointer?): Int
+public expect fun uspoofAreConfusable(sc: ConstPtr<USpoofChecker>, id1: ConstPtr<UShort>, length1: Int, id2: ConstPtr<UShort>, length2: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofAreConfusableUtf8(sc: COpaquePointer?, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: COpaquePointer?): Int
+public expect fun uspoofAreConfusableUtf8(sc: ConstPtr<USpoofChecker>, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofCheck(sc: COpaquePointer?, id: COpaquePointer?, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uspoofCheck(sc: ConstPtr<USpoofChecker>, id: ConstPtr<UShort>, length: Int, position: MutPtr<Int>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofCheck2(sc: COpaquePointer?, id: COpaquePointer?, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uspoofCheck2(sc: ConstPtr<USpoofChecker>, id: ConstPtr<UShort>, length: Int, checkresult: MutPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofCheck2Utf8(sc: COpaquePointer?, id: Pcstr, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uspoofCheck2Utf8(sc: ConstPtr<USpoofChecker>, id: Pcstr, length: Int, checkresult: MutPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofCheckUtf8(sc: COpaquePointer?, id: Pcstr, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uspoofCheckUtf8(sc: ConstPtr<USpoofChecker>, id: Pcstr, length: Int, position: MutPtr<Int>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofClone(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofClone(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): MutPtr<USpoofChecker>
 
-public expect fun uspoofClose(sc: COpaquePointer?)
+public expect fun uspoofClose(sc: MutPtr<USpoofChecker>)
 
-public expect fun uspoofCloseCheckResult(checkresult: COpaquePointer?)
+public expect fun uspoofCloseCheckResult(checkresult: MutPtr<USpoofCheckResult>)
 
-public expect fun uspoofGetAllowedChars(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofGetAllowedChars(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun uspoofGetAllowedLocales(sc: COpaquePointer?, status: COpaquePointer?): Pcstr
+public expect fun uspoofGetAllowedLocales(sc: MutPtr<USpoofChecker>, status: MutPtr<UErrorCode>): Pcstr
 
-public expect fun uspoofGetCheckResultChecks(checkresult: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uspoofGetCheckResultChecks(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofGetCheckResultNumerics(checkresult: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofGetCheckResultNumerics(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun uspoofGetCheckResultRestrictionLevel(checkresult: COpaquePointer?, status: COpaquePointer?): URestrictionLevel
+public expect fun uspoofGetCheckResultRestrictionLevel(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): URestrictionLevel
 
-public expect fun uspoofGetChecks(sc: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun uspoofGetChecks(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofGetInclusionSet(status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofGetInclusionSet(status: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun uspoofGetRecommendedSet(status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofGetRecommendedSet(status: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun uspoofGetRestrictionLevel(sc: COpaquePointer?): URestrictionLevel
+public expect fun uspoofGetRestrictionLevel(sc: ConstPtr<USpoofChecker>): URestrictionLevel
 
-public expect fun uspoofGetSkeleton(sc: COpaquePointer?, type: UInt, id: COpaquePointer?, length: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
+public expect fun uspoofGetSkeleton(sc: ConstPtr<USpoofChecker>, type: UInt, id: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofGetSkeletonUtf8(sc: COpaquePointer?, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: COpaquePointer?): Int
+public expect fun uspoofGetSkeletonUtf8(sc: ConstPtr<USpoofChecker>, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofOpen(status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofOpen(status: MutPtr<UErrorCode>): MutPtr<USpoofChecker>
 
-public expect fun uspoofOpenCheckResult(status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofOpenCheckResult(status: MutPtr<UErrorCode>): MutPtr<USpoofCheckResult>
 
-public expect fun uspoofOpenFromSerialized(data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
+public expect fun uspoofOpenFromSerialized(data: ConstPtr<CVoid>, length: Int, pactuallength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<USpoofChecker>
 
-public expect fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: COpaquePointer?, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: MutPtr<Int>, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<USpoofChecker>
 
-public expect fun uspoofSerialize(sc: COpaquePointer?, data: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int
+public expect fun uspoofSerialize(sc: MutPtr<USpoofChecker>, data: MutPtr<CVoid>, capacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun uspoofSetAllowedChars(sc: COpaquePointer?, chars: COpaquePointer?, status: COpaquePointer?)
+public expect fun uspoofSetAllowedChars(sc: MutPtr<USpoofChecker>, chars: ConstPtr<USet>, status: MutPtr<UErrorCode>)
 
-public expect fun uspoofSetAllowedLocales(sc: COpaquePointer?, localeslist: Pcstr, status: COpaquePointer?)
+public expect fun uspoofSetAllowedLocales(sc: MutPtr<USpoofChecker>, localeslist: Pcstr, status: MutPtr<UErrorCode>)
 
-public expect fun uspoofSetChecks(sc: COpaquePointer?, checks: Int, status: COpaquePointer?)
+public expect fun uspoofSetChecks(sc: MutPtr<USpoofChecker>, checks: Int, status: MutPtr<UErrorCode>)
 
-public expect fun uspoofSetRestrictionLevel(sc: COpaquePointer?, restrictionlevel: URestrictionLevel)
+public expect fun uspoofSetRestrictionLevel(sc: MutPtr<USpoofChecker>, restrictionlevel: URestrictionLevel)
 
-public expect fun usprepClose(profile: COpaquePointer?)
+public expect fun usprepClose(profile: MutPtr<UStringPrepProfile>)
 
-public expect fun usprepOpen(path: Pcstr, filename: Pcstr, status: COpaquePointer?): COpaquePointer?
+public expect fun usprepOpen(path: Pcstr, filename: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UStringPrepProfile>
 
-public expect fun usprepOpenByType(type: UStringPrepProfileType, status: COpaquePointer?): COpaquePointer?
+public expect fun usprepOpenByType(type: UStringPrepProfileType, status: MutPtr<UErrorCode>): MutPtr<UStringPrepProfile>
 
-public expect fun usprepPrepare(prep: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destcapacity: Int, options: Int, parseerror: COpaquePointer?, status: COpaquePointer?): Int
+public expect fun usprepPrepare(prep: ConstPtr<UStringPrepProfile>, src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destcapacity: Int, options: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): Int
 
-public expect fun utextChar32At(ut: COpaquePointer?, nativeindex: Long): Int
+public expect fun utextChar32At(ut: MutPtr<UText>, nativeindex: Long): Int
 
-public expect fun utextClone(dest: COpaquePointer?, src: COpaquePointer?, deep: Byte, readonly: Byte, status: COpaquePointer?): COpaquePointer?
+public expect fun utextClone(dest: MutPtr<UText>, src: ConstPtr<UText>, deep: Byte, readonly: Byte, status: MutPtr<UErrorCode>): MutPtr<UText>
 
-public expect fun utextClose(ut: COpaquePointer?): COpaquePointer?
+public expect fun utextClose(ut: MutPtr<UText>): MutPtr<UText>
 
-public expect fun utextCopy(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: COpaquePointer?)
+public expect fun utextCopy(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: MutPtr<UErrorCode>)
 
-public expect fun utextCurrent32(ut: COpaquePointer?): Int
+public expect fun utextCurrent32(ut: MutPtr<UText>): Int
 
-public expect fun utextEquals(a: COpaquePointer?, b: COpaquePointer?): Byte
+public expect fun utextEquals(a: ConstPtr<UText>, b: ConstPtr<UText>): Byte
 
-public expect fun utextExtract(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
+public expect fun utextExtract(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun utextFreeze(ut: COpaquePointer?)
+public expect fun utextFreeze(ut: MutPtr<UText>)
 
-public expect fun utextGetNativeIndex(ut: COpaquePointer?): Long
+public expect fun utextGetNativeIndex(ut: ConstPtr<UText>): Long
 
-public expect fun utextGetPreviousNativeIndex(ut: COpaquePointer?): Long
+public expect fun utextGetPreviousNativeIndex(ut: MutPtr<UText>): Long
 
-public expect fun utextHasMetaData(ut: COpaquePointer?): Byte
+public expect fun utextHasMetaData(ut: ConstPtr<UText>): Byte
 
-public expect fun utextIsLengthExpensive(ut: COpaquePointer?): Byte
+public expect fun utextIsLengthExpensive(ut: ConstPtr<UText>): Byte
 
-public expect fun utextIsWritable(ut: COpaquePointer?): Byte
+public expect fun utextIsWritable(ut: ConstPtr<UText>): Byte
 
-public expect fun utextMoveIndex32(ut: COpaquePointer?, delta: Int): Byte
+public expect fun utextMoveIndex32(ut: MutPtr<UText>, delta: Int): Byte
 
-public expect fun utextNativeLength(ut: COpaquePointer?): Long
+public expect fun utextNativeLength(ut: MutPtr<UText>): Long
 
-public expect fun utextNext32(ut: COpaquePointer?): Int
+public expect fun utextNext32(ut: MutPtr<UText>): Int
 
-public expect fun utextNext32From(ut: COpaquePointer?, nativeindex: Long): Int
+public expect fun utextNext32From(ut: MutPtr<UText>, nativeindex: Long): Int
 
-public expect fun utextOpenUchars(ut: COpaquePointer?, s: COpaquePointer?, length: Long, status: COpaquePointer?): COpaquePointer?
+public expect fun utextOpenUchars(ut: MutPtr<UText>, s: ConstPtr<UShort>, length: Long, status: MutPtr<UErrorCode>): MutPtr<UText>
 
-public expect fun utextOpenUtf8(ut: COpaquePointer?, s: Pcstr, length: Long, status: COpaquePointer?): COpaquePointer?
+public expect fun utextOpenUtf8(ut: MutPtr<UText>, s: Pcstr, length: Long, status: MutPtr<UErrorCode>): MutPtr<UText>
 
-public expect fun utextPrevious32(ut: COpaquePointer?): Int
+public expect fun utextPrevious32(ut: MutPtr<UText>): Int
 
-public expect fun utextPrevious32From(ut: COpaquePointer?, nativeindex: Long): Int
+public expect fun utextPrevious32From(ut: MutPtr<UText>, nativeindex: Long): Int
 
-public expect fun utextReplace(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, replacementtext: COpaquePointer?, replacementlength: Int, status: COpaquePointer?): Int
+public expect fun utextReplace(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, replacementtext: ConstPtr<UShort>, replacementlength: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun utextSetNativeIndex(ut: COpaquePointer?, nativeindex: Long)
+public expect fun utextSetNativeIndex(ut: MutPtr<UText>, nativeindex: Long)
 
-public expect fun utextSetup(ut: COpaquePointer?, extraspace: Int, status: COpaquePointer?): COpaquePointer?
+public expect fun utextSetup(ut: MutPtr<UText>, extraspace: Int, status: MutPtr<UErrorCode>): MutPtr<UText>
 
-public expect fun utf8AppendCharSafeBody(s: COpaquePointer?, i: Int, length: Int, c: Int, piserror: COpaquePointer?): Int
+public expect fun utf8AppendCharSafeBody(s: MutPtr<UByte>, i: Int, length: Int, c: Int, piserror: MutPtr<Byte>): Int
 
-public expect fun utf8Back1SafeBody(s: COpaquePointer?, start: Int, i: Int): Int
+public expect fun utf8Back1SafeBody(s: ConstPtr<UByte>, start: Int, i: Int): Int
 
-public expect fun utf8NextCharSafeBody(s: COpaquePointer?, pi: COpaquePointer?, length: Int, c: Int, strict: Byte): Int
+public expect fun utf8NextCharSafeBody(s: ConstPtr<UByte>, pi: MutPtr<Int>, length: Int, c: Int, strict: Byte): Int
 
-public expect fun utf8PrevCharSafeBody(s: COpaquePointer?, start: Int, pi: COpaquePointer?, c: Int, strict: Byte): Int
+public expect fun utf8PrevCharSafeBody(s: ConstPtr<UByte>, start: Int, pi: MutPtr<Int>, c: Int, strict: Byte): Int
 
-public expect fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long
+public expect fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: MutPtr<UErrorCode>): Long
 
-public expect fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: COpaquePointer?): Long
+public expect fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: MutPtr<UErrorCode>): Long
 
-public expect fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long
+public expect fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: MutPtr<UErrorCode>): Long
 
 public expect fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, vararg variadicArgs: Long): Int
 
 public expect fun utraceFunctionName(fnnumber: Int): Pcstr
 
-public expect fun utraceGetFunctions(context: COpaquePointer?, e: COpaquePointer?, x: COpaquePointer?, d: COpaquePointer?)
+public expect fun utraceGetFunctions(context: ConstPtr<ConstPtr<CVoid>>, e: MutPtr<UTraceEntry>, x: MutPtr<UTraceExit>, d: MutPtr<UTraceData>)
 
 public expect fun utraceGetLevel(): Int
 
-public expect fun utraceSetFunctions(context: COpaquePointer?, e: UTraceEntry, x: UTraceExit, d: UTraceData)
+public expect fun utraceSetFunctions(context: ConstPtr<CVoid>, e: UTraceEntry, x: UTraceExit, d: UTraceData)
 
 public expect fun utraceSetLevel(tracelevel: Int)
 
-public expect fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: COpaquePointer?): Int
+public expect fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: MutPtr<Byte>): Int
 
-public expect fun utransClone(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun utransClone(trans: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>>
 
-public expect fun utransClose(trans: COpaquePointer?)
+public expect fun utransClose(trans: MutPtr<MutPtr<CVoid>>)
 
 public expect fun utransCountAvailableIds(): Int
 
-public expect fun utransGetSourceSet(trans: COpaquePointer?, ignorefilter: Byte, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun utransGetSourceSet(trans: ConstPtr<ConstPtr<CVoid>>, ignorefilter: Byte, fillin: MutPtr<USet>, status: MutPtr<UErrorCode>): MutPtr<USet>
 
-public expect fun utransGetUnicodeId(trans: COpaquePointer?, resultlength: COpaquePointer?): COpaquePointer?
+public expect fun utransGetUnicodeId(trans: ConstPtr<ConstPtr<CVoid>>, resultlength: MutPtr<Int>): MutPtr<UShort>
 
-public expect fun utransOpenIds(perrorcode: COpaquePointer?): COpaquePointer?
+public expect fun utransOpenIds(perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration>
 
-public expect fun utransOpenInverse(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
+public expect fun utransOpenInverse(trans: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>>
 
-public expect fun utransOpenU(id: COpaquePointer?, idlength: Int, dir: UTransDirection, rules: COpaquePointer?, ruleslength: Int, parseerror: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
+public expect fun utransOpenU(id: ConstPtr<UShort>, idlength: Int, dir: UTransDirection, rules: ConstPtr<UShort>, ruleslength: Int, parseerror: MutPtr<UParseError>, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>>
 
-public expect fun utransRegister(adoptedtrans: COpaquePointer?, status: COpaquePointer?)
+public expect fun utransRegister(adoptedtrans: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>)
 
-public expect fun utransSetFilter(trans: COpaquePointer?, filterpattern: COpaquePointer?, filterpatternlen: Int, status: COpaquePointer?)
+public expect fun utransSetFilter(trans: MutPtr<MutPtr<CVoid>>, filterpattern: ConstPtr<UShort>, filterpatternlen: Int, status: MutPtr<UErrorCode>)
 
-public expect fun utransToRules(trans: COpaquePointer?, escapeunprintable: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
+public expect fun utransToRules(trans: ConstPtr<ConstPtr<CVoid>>, escapeunprintable: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int
 
-public expect fun utransTrans(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, start: Int, limit: COpaquePointer?, status: COpaquePointer?)
+public expect fun utransTrans(trans: ConstPtr<ConstPtr<CVoid>>, rep: MutPtr<MutPtr<CVoid>>, repfunc: ConstPtr<UReplaceableCallbacks>, start: Int, limit: MutPtr<Int>, status: MutPtr<UErrorCode>)
 
-public expect fun utransTransIncremental(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, pos: COpaquePointer?, status: COpaquePointer?)
+public expect fun utransTransIncremental(trans: ConstPtr<ConstPtr<CVoid>>, rep: MutPtr<MutPtr<CVoid>>, repfunc: ConstPtr<UReplaceableCallbacks>, pos: MutPtr<UTransPosition>, status: MutPtr<UErrorCode>)
 
-public expect fun utransTransIncrementalUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, pos: COpaquePointer?, status: COpaquePointer?)
+public expect fun utransTransIncrementalUchars(trans: ConstPtr<ConstPtr<CVoid>>, text: MutPtr<UShort>, textlength: MutPtr<Int>, textcapacity: Int, pos: MutPtr<UTransPosition>, status: MutPtr<UErrorCode>)
 
-public expect fun utransTransUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, start: Int, limit: COpaquePointer?, status: COpaquePointer?)
+public expect fun utransTransUchars(trans: ConstPtr<ConstPtr<CVoid>>, text: MutPtr<UShort>, textlength: MutPtr<Int>, textcapacity: Int, start: Int, limit: MutPtr<Int>, status: MutPtr<UErrorCode>)
 
-public expect fun utransUnregisterId(id: COpaquePointer?, idlength: Int)
+public expect fun utransUnregisterId(id: ConstPtr<UShort>, idlength: Int)

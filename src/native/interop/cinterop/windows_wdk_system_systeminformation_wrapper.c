@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_system_systeminformation_ntQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_wdk_system_systeminformation_ntQuerySystemInformation
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systeminformation_ntQuerySystemTime(void* systemtime) {
+int32_t windowssysWindowsWdkSystemSysteminformationNtQuerySystemTime(void* systemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_wdk_system_systeminformation_ntQuerySystemTime(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systeminformation_ntQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime) {
+int32_t windowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_wdk_system_systeminformation_ntQueryTimerResolution(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systeminformation_zwQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_wdk_system_systeminformation_zwQuerySystemInformation
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systeminformation_zwQuerySystemTime(void* systemtime) {
+int32_t windowssysWindowsWdkSystemSysteminformationZwQuerySystemTime(void* systemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_wdk_system_systeminformation_zwQuerySystemTime(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systeminformation_zwQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime) {
+int32_t windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistribution(void* distributionname, uint32_t defaultuid, int32_t wsldistributionflags) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslConfigureDistribution(void* distributionname, uint32_t defaultuid, int32_t wsldistributionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistributi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConfiguration(void* distributionname, void* distributionversion, void* defaultuid, void* wsldistributionflags, void* defaultenvironmentvariables, void* defaultenvironmentvariablecount) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslGetDistributionConfiguration(void* distributionname, void* distributionversion, void* defaultuid, void* wsldistributionflags, void* defaultenvironmentvariables, void* defaultenvironmentvariablecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegistered(void* distributionname) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslIsDistributionRegistered(void* distributionname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegis
 #endif
 }
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslLaunch(void* distributionname, void* command, int32_t usecurrentworkingdirectory, void* arg_3_stdin, void* arg_4_stdout, void* arg_5_stderr, void* process) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslLaunch(void* distributionname, void* command, int32_t usecurrentworkingdirectory, void* arg3Stdin, void* arg4Stdout, void* arg5Stderr, void* process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -99,7 +99,7 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslLaunch(void* distri
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(distributionname, command, usecurrentworkingdirectory, arg_3_stdin, arg_4_stdout, arg_5_stderr, process);
+        return km_fn_ptr(distributionname, command, usecurrentworkingdirectory, arg3Stdin, arg4Stdout, arg5Stderr, process);
     }
     errno = ENOSYS;
     return -1;
@@ -107,16 +107,16 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslLaunch(void* distri
     (void)distributionname;
     (void)command;
     (void)usecurrentworkingdirectory;
-    (void)arg_3_stdin;
-    (void)arg_4_stdout;
-    (void)arg_5_stderr;
+    (void)arg3Stdin;
+    (void)arg4Stdout;
+    (void)arg5Stderr;
     (void)process;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive(void* distributionname, void* command, int32_t usecurrentworkingdirectory, void* exitcode) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslLaunchInteractive(void* distributionname, void* command, int32_t usecurrentworkingdirectory, void* exitcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistribution(void* distributionname, void* targzfilename) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslRegisterDistribution(void* distributionname, void* targzfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -164,7 +164,7 @@ int32_t windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistributio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_subsystemforlinux_wslUnregisterDistribution(void* distributionname) {
+int32_t windowssysWindowsWin32SystemSubsystemforlinuxWslUnregisterDistribution(void* distributionname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminAcquireContext(JNIEnv* km_env, jclass km_clazz, jlong phcatadmin, jlong pgsubsystem, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext(JNIEnv* km_env, jclass km_clazz, jlong phcatadmin, jlong pgsubsystem, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminAcquireContext2(JNIEnv* km_env, jclass km_clazz, jlong phcatadmin, jlong pgsubsystem, jlong pwszhashalgorithm, jlong pstronghashpolicy, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext2(JNIEnv* km_env, jclass km_clazz, jlong phcatadmin, jlong pgsubsystem, jlong pwszhashalgorithm, jlong pstronghashpolicy, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminAddCatalog(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pwszcatalogfile, jlong pwszselectbasename, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAddCatalog(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pwszcatalogfile, jlong pwszselectbasename, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -103,7 +103,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminCalcHashFromFileHandle(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong pcbhash, jlong pbhash, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong pcbhash, jlong pbhash, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminCalcHashFromFileHandle2(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong hfile, jlong pcbhash, jlong pbhash, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle2(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong hfile, jlong pcbhash, jlong pbhash, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -160,7 +160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminEnumCatalogFromHash(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pbhash, jint cbhash, jint dwflags, jlong phprevcatinfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminEnumCatalogFromHash(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pbhash, jint cbhash, jint dwflags, jlong phprevcatinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -189,7 +189,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminPauseServiceForBackup(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint fresume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint fresume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -215,7 +215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminReleaseCatalogContext(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong hcatinfo, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong hcatinfo, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -242,7 +242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminReleaseContext(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -268,7 +268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminRemoveCatalog(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pwszcatalogfile, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pwszcatalogfile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -295,7 +295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAdminResolveCatalogPath(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pwszcatalogfile, jlong pscatinfo, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminResolveCatalogPath(JNIEnv* km_env, jclass km_clazz, jlong hcatadmin, jlong pwszcatalogfile, jlong pscatinfo, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -323,7 +323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATAllocSortedMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAllocSortedMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -349,7 +349,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFClose(JNIEnv* km_env, jclass km_clazz, jlong pcdf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFClose(JNIEnv* km_env, jclass km_clazz, jlong pcdf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -374,7 +374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFEnumAttributes(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pmember, jlong pprevattr, jlong pfnparseerror) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributes(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pmember, jlong pprevattr, jlong pfnparseerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFEnumAttributesWithCDFTag(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pwszmembertag, jlong pmember, jlong pprevattr, jlong pfnparseerror) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributesWithCDFTag(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pwszmembertag, jlong pmember, jlong pprevattr, jlong pfnparseerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFEnumCatAttributes(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pprevattr, jlong pfnparseerror) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumCatAttributes(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pprevattr, jlong pfnparseerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -458,7 +458,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFEnumMembers(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pprevmember, jlong pfnparseerror) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembers(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pprevmember, jlong pfnparseerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -485,7 +485,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFEnumMembersByCDFTagEx(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pwszprevcdftag, jlong pfnparseerror, jlong ppmember, jint fcontinueonerror, jlong pvreserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembersByCDFTagEx(JNIEnv* km_env, jclass km_clazz, jlong pcdf, jlong pwszprevcdftag, jlong pfnparseerror, jlong ppmember, jint fcontinueonerror, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -515,7 +515,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCDFOpen(JNIEnv* km_env, jclass km_clazz, jlong pwszfilepath, jlong pfnparseerror) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFOpen(JNIEnv* km_env, jclass km_clazz, jlong pwszfilepath, jlong pfnparseerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -541,7 +541,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATCatalogInfoFromContext(JNIEnv* km_env, jclass km_clazz, jlong hcatinfo, jlong pscatinfo, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCatalogInfoFromContext(JNIEnv* km_env, jclass km_clazz, jlong hcatinfo, jlong pscatinfo, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -568,7 +568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATClose(JNIEnv* km_env, jclass km_clazz, jlong hcatalog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATClose(JNIEnv* km_env, jclass km_clazz, jlong hcatalog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATEnumerateAttr(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember, jlong pprevattr) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateAttr(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember, jlong pprevattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -620,7 +620,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATEnumerateCatAttr(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pprevattr) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateCatAttr(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pprevattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -646,7 +646,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATEnumerateMember(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pprevmember) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateMember(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pprevmember) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -672,7 +672,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATFreeSortedMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATFreeSortedMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -694,7 +694,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATGetAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember, jlong pwszreferencetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember, jlong pwszreferencetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -721,7 +721,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATGetCatAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetCatAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -747,7 +747,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATGetMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -773,7 +773,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATHandleFromStore(JNIEnv* km_env, jclass km_clazz, jlong pcatstore) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATHandleFromStore(JNIEnv* km_env, jclass km_clazz, jlong pcatstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -798,7 +798,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATOpen(JNIEnv* km_env, jclass km_clazz, jlong pwszfilename, jint fdwopenflags, jlong hprov, jint dwpublicversion, jint dwencodingtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATOpen(JNIEnv* km_env, jclass km_clazz, jlong pwszfilename, jint fdwopenflags, jlong hprov, jint dwpublicversion, jint dwencodingtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATPersistStore(JNIEnv* km_env, jclass km_clazz, jlong hcatalog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPersistStore(JNIEnv* km_env, jclass km_clazz, jlong hcatalog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -852,7 +852,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATPutAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember, jlong pwszreferencetag, jint dwattrtypeandaction, jint cbdata, jlong pbdata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pcatmember, jlong pwszreferencetag, jint dwattrtypeandaction, jint cbdata, jlong pbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -882,7 +882,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATPutCatAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag, jint dwattrtypeandaction, jint cbdata, jlong pbdata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutCatAttrInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszreferencetag, jint dwattrtypeandaction, jint cbdata, jlong pbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -911,7 +911,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATPutMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszfilename, jlong pwszreferencetag, jlong pgsubjecttype, jint dwcertversion, jint cbsipindirectdata, jlong pbsipindirectdata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutMemberInfo(JNIEnv* km_env, jclass km_clazz, jlong hcatalog, jlong pwszfilename, jlong pwszreferencetag, jlong pgsubjecttype, jint dwcertversion, jint cbsipindirectdata, jlong pbsipindirectdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -942,7 +942,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1cryptCATStoreFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hcatalog) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogCryptCATStoreFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hcatalog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -967,7 +967,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssys_1windows_1win32_1security_1cryptography_1catalog_1isCatalogFile(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong pwszfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_catalog_WindowsWin32SecurityCryptographyCatalogJniBridge_windowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong pwszfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

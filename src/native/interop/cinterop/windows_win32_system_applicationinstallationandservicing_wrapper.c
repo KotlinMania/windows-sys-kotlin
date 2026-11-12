@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_activateActCtx(void* hactctx, void* lpcookie) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingActivateActCtx(void* hactctx, void* lpcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_acti
 #endif
 }
 
-void windowssys_windows_win32_system_applicationinstallationandservicing_addRefActCtx(void* hactctx) {
+void windowssysWindowsWin32SystemApplicationinstallationandservicingAddRefActCtx(void* hactctx) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ void windowssys_windows_win32_system_applicationinstallationandservicing_addRefA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaA(int64_t applyflags, void* lpsourcename, void* lpdeltaname, void* lptargetname) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaA(int64_t applyflags, void* lpsourcename, void* lpdeltaname, void* lptargetname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaW(int64_t applyflags, void* lpsourcename, void* lpdeltaname, void* lptargetname) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaW(int64_t applyflags, void* lpsourcename, void* lpdeltaname, void* lptargetname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileA(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileA(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByBuffers(void* patchfilemapped, uint32_t patchfilesize, void* oldfilemapped, uint32_t oldfilesize, void* newfilebuffer, uint32_t newfilebuffersize, void* newfileactualsize, void* newfiletime, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByBuffers(void* patchfilemapped, uint32_t patchfilesize, void* oldfilemapped, uint32_t oldfilesize, void* newfilebuffer, uint32_t newfilebuffersize, void* newfileactualsize, void* newfiletime, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -166,7 +166,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandles(void* patchfilehandle, void* oldfilehandle, void* newfilehandle, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandles(void* patchfilehandle, void* oldfilehandle, void* newfilehandle, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -191,7 +191,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandlesEx(void* patchfilehandle, void* oldfilehandle, void* newfilehandle, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandlesEx(void* patchfilehandle, void* oldfilehandle, void* newfilehandle, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExA(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExA(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExW(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExW(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -272,7 +272,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileW(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileW(void* patchfilename, void* oldfilename, void* newfilename, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -297,7 +297,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_appl
 #endif
 }
 
-void* windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxA(void* pactctx) {
+void* windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxA(void* pactctx) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -319,7 +319,7 @@ void* windowssys_windows_win32_system_applicationinstallationandservicing_create
 #endif
 }
 
-void* windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxW(void* pactctx) {
+void* windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxW(void* pactctx) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -341,7 +341,7 @@ void* windowssys_windows_win32_system_applicationinstallationandservicing_create
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileA(void* oldfilename, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileA(void* oldfilename, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_crea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandles(void* oldfilehandle, void* newfilehandle, void* patchfilehandle, uint32_t optionflags, void* optiondata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandles(void* oldfilehandle, void* newfilehandle, void* patchfilehandle, uint32_t optionflags, void* optiondata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -393,7 +393,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_crea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandlesEx(uint32_t oldfilecount, void* oldfileinfoarray, void* newfilehandle, void* patchfilehandle, uint32_t optionflags, void* optiondata, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandlesEx(uint32_t oldfilecount, void* oldfileinfoarray, void* newfilehandle, void* patchfilehandle, uint32_t optionflags, void* optiondata, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -422,7 +422,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_crea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExA(uint32_t oldfilecount, void* oldfileinfoarray, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExA(uint32_t oldfilecount, void* oldfileinfoarray, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -451,7 +451,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_crea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExW(uint32_t oldfilecount, void* oldfileinfoarray, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata, void* progresscallback, void* callbackcontext) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExW(uint32_t oldfilecount, void* oldfileinfoarray, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata, void* progresscallback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_crea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileW(void* oldfilename, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileW(void* oldfilename, void* newfilename, void* patchfilename, uint32_t optionflags, void* optiondata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_crea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_deactivateActCtx(uint32_t dwflags, uint64_t ulcookie) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(uint32_t dwflags, uint64_t ulcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -529,7 +529,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_deac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_deltaFree(void* lpmemory) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingDeltaFree(void* lpmemory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -551,7 +551,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_delt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileA(void* patchfilename, void* patchheaderfilename) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileA(void* patchfilename, void* patchheaderfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -574,7 +574,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_extr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileByHandles(void* patchfilehandle, void* patchheaderfilehandle) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileByHandles(void* patchfilehandle, void* patchheaderfilehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_extr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileW(void* patchfilename, void* patchheaderfilename) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileW(void* patchfilename, void* patchheaderfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -620,7 +620,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_extr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionGuid(uint32_t dwflags, void* lpextensionguid, uint32_t ulsectionid, void* lpguidtofind, void* returneddata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionGuid(uint32_t dwflags, void* lpextensionguid, uint32_t ulsectionid, void* lpguidtofind, void* returneddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -646,7 +646,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_find
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringA(uint32_t dwflags, void* lpextensionguid, uint32_t ulsectionid, void* lpstringtofind, void* returneddata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringA(uint32_t dwflags, void* lpextensionguid, uint32_t ulsectionid, void* lpstringtofind, void* returneddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -672,7 +672,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_find
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringW(uint32_t dwflags, void* lpextensionguid, uint32_t ulsectionid, void* lpstringtofind, void* returneddata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringW(uint32_t dwflags, void* lpextensionguid, uint32_t ulsectionid, void* lpstringtofind, void* returneddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -698,7 +698,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_find
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getCurrentActCtx(void* lphactctx) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetCurrentActCtx(void* lphactctx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -720,7 +720,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getC
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoA(void* lpdeltaname, void* lpheaderinfo) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoA(void* lpdeltaname, void* lpheaderinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -743,7 +743,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getD
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoW(void* lpdeltaname, void* lpheaderinfo) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoW(void* lpdeltaname, void* lpheaderinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -766,7 +766,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getD
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureA(int64_t filetypeset, uint32_t hashalgid, void* lpsourcename, void* lphash) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureA(int64_t filetypeset, uint32_t hashalgid, void* lpsourcename, void* lphash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -791,7 +791,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getD
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureW(int64_t filetypeset, uint32_t hashalgid, void* lpsourcename, void* lphash) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureW(int64_t filetypeset, uint32_t hashalgid, void* lpsourcename, void* lphash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -816,7 +816,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getD
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureA(void* filename, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureA(void* filename, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -846,7 +846,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByBuffer(void* filebufferwritable, uint32_t filesize, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByBuffer(void* filebufferwritable, uint32_t filesize, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -877,7 +877,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByHandle(void* filehandle, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByHandle(void* filehandle, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -907,7 +907,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureW(void* filename, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureW(void* filename, uint32_t optionflags, void* optiondata, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray, uint32_t signaturebuffersize, void* signaturebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -937,7 +937,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_getF
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductA(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductA(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExA(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage, uint32_t dwplatform, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductExA(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage, uint32_t dwplatform, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -989,7 +989,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExW(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage, uint32_t dwplatform, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductExW(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage, uint32_t dwplatform, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1016,7 +1016,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductW(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductW(void* szpackagepath, void* szscriptfilepath, void* sztransforms, uint16_t lgidlanguage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1041,7 +1041,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptA(void* szscriptfile, uint32_t dwflags, void* phregdata, int32_t fremoveitems) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptA(void* szscriptfile, uint32_t dwflags, void* phregdata, int32_t fremoveitems) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1066,7 +1066,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptW(void* szscriptfile, uint32_t dwflags, void* phregdata, int32_t fremoveitems) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptW(void* szscriptfile, uint32_t dwflags, void* phregdata, int32_t fremoveitems) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1091,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesA(void* szpatchpackages, void* szproductcode, void* szpropertieslist) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyMultiplePatchesA(void* szpatchpackages, void* szproductcode, void* szpropertieslist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1115,7 +1115,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesW(void* szpatchpackages, void* szproductcode, void* szpropertieslist) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyMultiplePatchesW(void* szpatchpackages, void* szproductcode, void* szpropertieslist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1139,7 +1139,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchA(void* szpatchpackage, void* szinstallpackage, int32_t einstalltype, void* szcommandline) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchA(void* szpatchpackage, void* szinstallpackage, int32_t einstalltype, void* szcommandline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1164,7 +1164,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchW(void* szpatchpackage, void* szinstallpackage, int32_t einstalltype, void* szcommandline) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchW(void* szpatchpackage, void* szinstallpackage, int32_t einstalltype, void* szcommandline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1189,7 +1189,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionA(void* szname, uint32_t dwtransactionattributes, void* phtransactionhandle, void* phchangeofownerevent) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionA(void* szname, uint32_t dwtransactionattributes, void* phtransactionhandle, void* phchangeofownerevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1214,7 +1214,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionW(void* szname, uint32_t dwtransactionattributes, void* phtransactionhandle, void* phchangeofownerevent) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionW(void* szname, uint32_t dwtransactionattributes, void* phtransactionhandle, void* phchangeofownerevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1239,7 +1239,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseAllHandles(void) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCloseAllHandles(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1260,7 +1260,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseHandle(uint32_t hany) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCloseHandle(uint32_t hany) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1282,7 +1282,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoA(void* szproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCollectUserInfoA(void* szproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1304,7 +1304,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoW(void* szproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCollectUserInfoW(void* szproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1326,7 +1326,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureA(void* szproduct, void* szfeature, int32_t einstallstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureFeatureA(void* szproduct, void* szfeature, int32_t einstallstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1350,7 +1350,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureW(void* szproduct, void* szfeature, int32_t einstallstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureFeatureW(void* szproduct, void* szfeature, int32_t einstallstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1374,7 +1374,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductA(void* szproduct, int32_t iinstalllevel, int32_t einstallstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductA(void* szproduct, int32_t iinstalllevel, int32_t einstallstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1398,7 +1398,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExA(void* szproduct, int32_t iinstalllevel, int32_t einstallstate, void* szcommandline) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductExA(void* szproduct, int32_t iinstalllevel, int32_t einstallstate, void* szcommandline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1423,7 +1423,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExW(void* szproduct, int32_t iinstalllevel, int32_t einstallstate, void* szcommandline) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductExW(void* szproduct, int32_t iinstalllevel, int32_t einstallstate, void* szcommandline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1448,7 +1448,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductW(void* szproduct, int32_t iinstalllevel, int32_t einstallstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductW(void* szproduct, int32_t iinstalllevel, int32_t einstallstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1472,7 +1472,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateRecord(uint32_t cparams) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCreateRecord(uint32_t cparams) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1494,7 +1494,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoA(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ierrorconditions, int32_t ivalidation) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCreateTransformSummaryInfoA(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ierrorconditions, int32_t ivalidation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1520,7 +1520,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoW(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ierrorconditions, int32_t ivalidation) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCreateTransformSummaryInfoW(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ierrorconditions, int32_t ivalidation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1546,7 +1546,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformA(uint32_t hdatabase, void* sztransformfile, int32_t ierrorconditions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseApplyTransformA(uint32_t hdatabase, void* sztransformfile, int32_t ierrorconditions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformW(uint32_t hdatabase, void* sztransformfile, int32_t ierrorconditions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseApplyTransformW(uint32_t hdatabase, void* sztransformfile, int32_t ierrorconditions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1594,7 +1594,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseCommit(uint32_t hdatabase) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseCommit(uint32_t hdatabase) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1616,7 +1616,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportA(uint32_t hdatabase, void* sztablename, void* szfolderpath, void* szfilename) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseExportA(uint32_t hdatabase, void* sztablename, void* szfolderpath, void* szfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1641,7 +1641,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportW(uint32_t hdatabase, void* sztablename, void* szfolderpath, void* szfilename) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseExportW(uint32_t hdatabase, void* sztablename, void* szfolderpath, void* szfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1666,7 +1666,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformA(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ireserved1, int32_t ireserved2) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformA(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ireserved1, int32_t ireserved2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformW(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ireserved1, int32_t ireserved2) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformW(uint32_t hdatabase, uint32_t hdatabasereference, void* sztransformfile, int32_t ireserved1, int32_t ireserved2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1718,7 +1718,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysA(uint32_t hdatabase, void* sztablename, void* phrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysA(uint32_t hdatabase, void* sztablename, void* phrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1742,7 +1742,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysW(uint32_t hdatabase, void* sztablename, void* phrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysW(uint32_t hdatabase, void* sztablename, void* phrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1766,7 +1766,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportA(uint32_t hdatabase, void* szfolderpath, void* szfilename) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseImportA(uint32_t hdatabase, void* szfolderpath, void* szfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1790,7 +1790,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportW(uint32_t hdatabase, void* szfolderpath, void* szfilename) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseImportW(uint32_t hdatabase, void* szfolderpath, void* szfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1814,7 +1814,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentA(uint32_t hdatabase, void* sztablename) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseIsTablePersistentA(uint32_t hdatabase, void* sztablename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1837,7 +1837,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiD
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentW(uint32_t hdatabase, void* sztablename) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseIsTablePersistentW(uint32_t hdatabase, void* sztablename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1860,7 +1860,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiD
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeA(uint32_t hdatabase, uint32_t hdatabasemerge, void* sztablename) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeA(uint32_t hdatabase, uint32_t hdatabasemerge, void* sztablename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1884,7 +1884,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeW(uint32_t hdatabase, uint32_t hdatabasemerge, void* sztablename) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeW(uint32_t hdatabase, uint32_t hdatabasemerge, void* sztablename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1908,7 +1908,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewA(uint32_t hdatabase, void* szquery, void* phview) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewA(uint32_t hdatabase, void* szquery, void* phview) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1932,7 +1932,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewW(uint32_t hdatabase, void* szquery, void* phview) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewW(uint32_t hdatabase, void* szquery, void* phview) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1956,7 +1956,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesA(void* szproductpackagepath, uint32_t cpatchinfo, void* ppatchinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesA(void* szproductpackagepath, uint32_t cpatchinfo, void* ppatchinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1980,7 +1980,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesW(void* szproductpackagepath, uint32_t cpatchinfo, void* ppatchinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesW(void* szproductpackagepath, uint32_t cpatchinfo, void* ppatchinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2004,7 +2004,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceA(void* szproductcode, void* szusersid, int32_t dwcontext, uint32_t cpatchinfo, void* ppatchinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceA(void* szproductcode, void* szusersid, int32_t dwcontext, uint32_t cpatchinfo, void* ppatchinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2030,7 +2030,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceW(void* szproductcode, void* szusersid, int32_t dwcontext, uint32_t cpatchinfo, void* ppatchinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceW(void* szproductcode, void* szusersid, int32_t dwcontext, uint32_t cpatchinfo, void* ppatchinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2056,7 +2056,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionA(uint32_t hinstall, void* szaction) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDoActionA(uint32_t hinstall, void* szaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2079,7 +2079,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionW(uint32_t hinstall, void* szaction) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDoActionW(uint32_t hinstall, void* szaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2102,7 +2102,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogA(uint32_t dwlogmode, void* szlogfile, uint32_t dwlogattributes) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogA(uint32_t dwlogmode, void* szlogfile, uint32_t dwlogattributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2126,7 +2126,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogW(uint32_t dwlogmode, void* szlogfile, uint32_t dwlogattributes) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogW(uint32_t dwlogmode, void* szlogfile, uint32_t dwlogattributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2150,7 +2150,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableUIPreview(uint32_t hdatabase, void* phpreview) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableUIPreview(uint32_t hdatabase, void* phpreview) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2173,7 +2173,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEndTransaction(uint32_t dwtransactionstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEndTransaction(uint32_t dwtransactionstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2195,7 +2195,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsA(void* szcomponent, uint32_t iproductindex, void* lpproductbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsA(void* szcomponent, uint32_t iproductindex, void* lpproductbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2219,7 +2219,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExA(void* szcomponent, void* szusersid, uint32_t dwcontext, uint32_t dwproductindex, void* szproductbuf, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExA(void* szcomponent, void* szusersid, uint32_t dwcontext, uint32_t dwproductindex, void* szproductbuf, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2248,7 +2248,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExW(void* szcomponent, void* szusersid, uint32_t dwcontext, uint32_t dwproductindex, void* szproductbuf, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExW(void* szcomponent, void* szusersid, uint32_t dwcontext, uint32_t dwproductindex, void* szproductbuf, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2277,7 +2277,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsW(void* szcomponent, uint32_t iproductindex, void* lpproductbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsW(void* szcomponent, uint32_t iproductindex, void* lpproductbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2301,7 +2301,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsA(uint32_t hinstall, void* szcomponent, uint32_t dwindex, int32_t istate, void* szdrivebuf, void* pcchdrivebuf, void* picost, void* pitempcost) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsA(uint32_t hinstall, void* szcomponent, uint32_t dwindex, int32_t istate, void* szdrivebuf, void* pcchdrivebuf, void* picost, void* pitempcost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2330,7 +2330,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsW(uint32_t hinstall, void* szcomponent, uint32_t dwindex, int32_t istate, void* szdrivebuf, void* pcchdrivebuf, void* picost, void* pitempcost) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsW(uint32_t hinstall, void* szcomponent, uint32_t dwindex, int32_t istate, void* szdrivebuf, void* pcchdrivebuf, void* picost, void* pitempcost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2359,7 +2359,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersA(void* szcomponent, uint32_t iindex, void* lpqualifierbuf, void* pcchqualifierbuf, void* lpapplicationdatabuf, void* pcchapplicationdatabuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersA(void* szcomponent, uint32_t iindex, void* lpqualifierbuf, void* pcchqualifierbuf, void* lpapplicationdatabuf, void* pcchapplicationdatabuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2386,7 +2386,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersW(void* szcomponent, uint32_t iindex, void* lpqualifierbuf, void* pcchqualifierbuf, void* lpapplicationdatabuf, void* pcchapplicationdatabuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersW(void* szcomponent, uint32_t iindex, void* lpqualifierbuf, void* pcchqualifierbuf, void* lpapplicationdatabuf, void* pcchapplicationdatabuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2413,7 +2413,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsA(uint32_t icomponentindex, void* lpcomponentbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsA(uint32_t icomponentindex, void* lpcomponentbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2436,7 +2436,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExA(void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledcomponentcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExA(void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledcomponentcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2464,7 +2464,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExW(void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledcomponentcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExW(void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledcomponentcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2492,7 +2492,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsW(uint32_t icomponentindex, void* lpcomponentbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsW(uint32_t icomponentindex, void* lpcomponentbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2515,7 +2515,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesA(void* szproduct, uint32_t ifeatureindex, void* lpfeaturebuf, void* lpparentbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesA(void* szproduct, uint32_t ifeatureindex, void* lpfeaturebuf, void* lpparentbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2540,7 +2540,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesW(void* szproduct, uint32_t ifeatureindex, void* lpfeaturebuf, void* lpparentbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesW(void* szproduct, uint32_t ifeatureindex, void* lpfeaturebuf, void* lpparentbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2565,7 +2565,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesA(void* szproduct, uint32_t ipatchindex, void* lppatchbuf, void* lptransformsbuf, void* pcchtransformsbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesA(void* szproduct, uint32_t ipatchindex, void* lppatchbuf, void* lptransformsbuf, void* pcchtransformsbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2591,7 +2591,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExA(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwfilter, uint32_t dwindex, void* szpatchcode, void* sztargetproductcode, void* pdwtargetproductcontext, void* sztargetusersid, void* pcchtargetusersid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExA(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwfilter, uint32_t dwindex, void* szpatchcode, void* sztargetproductcode, void* pdwtargetproductcontext, void* sztargetusersid, void* pcchtargetusersid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2622,7 +2622,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExW(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwfilter, uint32_t dwindex, void* szpatchcode, void* sztargetproductcode, void* pdwtargetproductcontext, void* sztargetusersid, void* pcchtargetusersid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExW(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwfilter, uint32_t dwindex, void* szpatchcode, void* sztargetproductcode, void* pdwtargetproductcontext, void* sztargetusersid, void* pcchtargetusersid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2653,7 +2653,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesW(void* szproduct, uint32_t ipatchindex, void* lppatchbuf, void* lptransformsbuf, void* pcchtransformsbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesW(void* szproduct, uint32_t ipatchindex, void* lppatchbuf, void* lptransformsbuf, void* pcchtransformsbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2679,7 +2679,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsA(uint32_t iproductindex, void* lpproductbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsA(uint32_t iproductindex, void* lpproductbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2702,7 +2702,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExA(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledproductcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExA(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledproductcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2731,7 +2731,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExW(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledproductcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExW(void* szproductcode, void* szusersid, uint32_t dwcontext, uint32_t dwindex, void* szinstalledproductcode, void* pdwinstalledcontext, void* szsid, void* pcchsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2760,7 +2760,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsW(uint32_t iproductindex, void* lpproductbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsW(uint32_t iproductindex, void* lpproductbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2783,7 +2783,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsA(void* lpupgradecode, uint32_t dwreserved, uint32_t iproductindex, void* lpproductbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumRelatedProductsA(void* lpupgradecode, uint32_t dwreserved, uint32_t iproductindex, void* lpproductbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2808,7 +2808,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsW(void* lpupgradecode, uint32_t dwreserved, uint32_t iproductindex, void* lpproductbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumRelatedProductsW(void* lpupgradecode, uint32_t dwreserved, uint32_t iproductindex, void* lpproductbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2833,7 +2833,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionA(uint32_t hinstall, void* szcondition) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionA(uint32_t hinstall, void* szcondition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2856,7 +2856,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiE
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionW(uint32_t hinstall, void* szcondition) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionW(uint32_t hinstall, void* szcondition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2879,7 +2879,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiE
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataA(void* szpatchpath, uint32_t dwreserved, void* szxmldata, void* pcchxmldata) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataA(void* szpatchpath, uint32_t dwreserved, void* szxmldata, void* pcchxmldata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2904,7 +2904,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataW(void* szpatchpath, uint32_t dwreserved, void* szxmldata, void* pcchxmldata) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataW(void* szpatchpath, uint32_t dwreserved, void* szxmldata, void* pcchxmldata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2929,7 +2929,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordA(uint32_t hinstall, uint32_t hrecord, void* szresultbuf, void* pcchresultbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordA(uint32_t hinstall, uint32_t hrecord, void* szresultbuf, void* pcchresultbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2954,7 +2954,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordW(uint32_t hinstall, uint32_t hrecord, void* szresultbuf, void* pcchresultbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordW(uint32_t hinstall, uint32_t hrecord, void* szresultbuf, void* pcchresultbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2979,7 +2979,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetActiveDatabase(uint32_t hinstall) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetActiveDatabase(uint32_t hinstall) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3001,7 +3001,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathA(void* szproduct, void* szcomponent, void* lppathbuf, void* pcchbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathA(void* szproduct, void* szcomponent, void* lppathbuf, void* pcchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3026,7 +3026,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExA(void* szproductcode, void* szcomponentcode, void* szusersid, int32_t dwcontext, void* lpoutpathbuffer, void* pcchoutpathbuffer) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExA(void* szproductcode, void* szcomponentcode, void* szusersid, int32_t dwcontext, void* lpoutpathbuffer, void* pcchoutpathbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3053,7 +3053,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExW(void* szproductcode, void* szcomponentcode, void* szusersid, int32_t dwcontext, void* lpoutpathbuffer, void* pcchoutpathbuffer) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExW(void* szproductcode, void* szcomponentcode, void* szusersid, int32_t dwcontext, void* lpoutpathbuffer, void* pcchoutpathbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3080,7 +3080,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathW(void* szproduct, void* szcomponent, void* lppathbuf, void* pcchbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathW(void* szproduct, void* szcomponent, void* lppathbuf, void* pcchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3105,7 +3105,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateA(uint32_t hinstall, void* szcomponent, void* piinstalled, void* piaction) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateA(uint32_t hinstall, void* szcomponent, void* piinstalled, void* piaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3130,7 +3130,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateW(uint32_t hinstall, void* szcomponent, void* piinstalled, void* piaction) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateW(uint32_t hinstall, void* szcomponent, void* piinstalled, void* piaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3155,7 +3155,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetDatabaseState(uint32_t hdatabase) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(uint32_t hdatabase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3177,7 +3177,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostA(uint32_t hinstall, void* szfeature, int32_t icosttree, int32_t istate, void* picost) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostA(uint32_t hinstall, void* szfeature, int32_t icosttree, int32_t istate, void* picost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3203,7 +3203,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostW(uint32_t hinstall, void* szfeature, int32_t icosttree, int32_t istate, void* picost) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostW(uint32_t hinstall, void* szfeature, int32_t icosttree, int32_t istate, void* picost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3229,7 +3229,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoA(uint32_t hproduct, void* szfeature, void* lpattributes, void* lptitlebuf, void* pcchtitlebuf, void* lphelpbuf, void* pcchhelpbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoA(uint32_t hproduct, void* szfeature, void* lpattributes, void* lptitlebuf, void* pcchtitlebuf, void* lphelpbuf, void* pcchhelpbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3257,7 +3257,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoW(uint32_t hproduct, void* szfeature, void* lpattributes, void* lptitlebuf, void* pcchtitlebuf, void* lphelpbuf, void* pcchhelpbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoW(uint32_t hproduct, void* szfeature, void* lpattributes, void* lptitlebuf, void* pcchtitlebuf, void* lphelpbuf, void* pcchhelpbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3285,7 +3285,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateA(uint32_t hinstall, void* szfeature, void* piinstalled, void* piaction) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateA(uint32_t hinstall, void* szfeature, void* piinstalled, void* piaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3310,7 +3310,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateW(uint32_t hinstall, void* szfeature, void* piinstalled, void* piaction) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateW(uint32_t hinstall, void* szfeature, void* piinstalled, void* piaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3335,7 +3335,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageA(void* szproduct, void* szfeature, void* pdwusecount, void* pwdateused) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageA(void* szproduct, void* szfeature, void* pdwusecount, void* pwdateused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3360,7 +3360,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageW(void* szproduct, void* szfeature, void* pdwusecount, void* pwdateused) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageW(void* szproduct, void* szfeature, void* pdwusecount, void* pwdateused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3385,7 +3385,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesA(uint32_t hinstall, void* szfeature, void* lpinstallstates) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesA(uint32_t hinstall, void* szfeature, void* lpinstallstates) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3409,7 +3409,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesW(uint32_t hinstall, void* szfeature, void* lpinstallstates) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesW(uint32_t hinstall, void* szfeature, void* lpinstallstates) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3433,7 +3433,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashA(void* szfilepath, uint32_t dwoptions, void* phash) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashA(void* szfilepath, uint32_t dwoptions, void* phash) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3457,7 +3457,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashW(void* szfilepath, uint32_t dwoptions, void* phash) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashW(void* szfilepath, uint32_t dwoptions, void* phash) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3481,7 +3481,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationA(void* szsignedobjectpath, uint32_t dwflags, void* ppccertcontext, void* pbhashdata, void* pcbhashdata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationA(void* szsignedobjectpath, uint32_t dwflags, void* ppccertcontext, void* pbhashdata, void* pcbhashdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3507,7 +3507,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationW(void* szsignedobjectpath, uint32_t dwflags, void* ppccertcontext, void* pbhashdata, void* pcbhashdata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationW(void* szsignedobjectpath, uint32_t dwflags, void* ppccertcontext, void* pbhashdata, void* pcbhashdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3533,7 +3533,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionA(void* szfilepath, void* lpversionbuf, void* pcchversionbuf, void* lplangbuf, void* pcchlangbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionA(void* szfilepath, void* lpversionbuf, void* pcchversionbuf, void* lplangbuf, void* pcchlangbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3559,7 +3559,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionW(void* szfilepath, void* lpversionbuf, void* pcchversionbuf, void* lplangbuf, void* pcchlangbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionW(void* szfilepath, void* lpversionbuf, void* pcchversionbuf, void* lplangbuf, void* pcchlangbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3585,7 +3585,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLanguage(uint32_t hinstall) {
+uint16_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetLanguage(uint32_t hinstall) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3607,7 +3607,7 @@ uint16_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLastErrorRecord(void) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetLastErrorRecord(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3628,7 +3628,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetMode(uint32_t hinstall, int32_t erunmode) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(uint32_t hinstall, int32_t erunmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3651,7 +3651,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListA(void* szproductcode, void* szpatchpackages, void* pcfiles, void* pphfilerecords) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListA(void* szproductcode, void* szpatchpackages, void* pcfiles, void* pphfilerecords) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3676,7 +3676,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListW(void* szproductcode, void* szpatchpackages, void* pcfiles, void* pphfilerecords) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListW(void* szproductcode, void* szpatchpackages, void* pcfiles, void* pphfilerecords) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3701,7 +3701,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoA(void* szpatch, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoA(void* szpatch, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3726,7 +3726,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExA(void* szpatchcode, void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* lpvalue, void* pcchvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExA(void* szpatchcode, void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* lpvalue, void* pcchvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3754,7 +3754,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExW(void* szpatchcode, void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* lpvalue, void* pcchvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExW(void* szpatchcode, void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* lpvalue, void* pcchvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3782,7 +3782,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoW(void* szpatch, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoW(void* szpatch, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3807,7 +3807,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeA(void* szcomponent, void* lpbuf39) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeA(void* szcomponent, void* lpbuf39) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3830,7 +3830,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeW(void* szcomponent, void* lpbuf39) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeW(void* szcomponent, void* lpbuf39) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3853,7 +3853,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoA(void* szproduct, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoA(void* szproduct, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3878,7 +3878,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExA(void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* szvalue, void* pcchvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExA(void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* szvalue, void* pcchvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3905,7 +3905,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExW(void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* szvalue, void* pcchvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExW(void* szproductcode, void* szusersid, int32_t dwcontext, void* szproperty, void* szvalue, void* pcchvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3932,7 +3932,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptA(void* szscriptfile, void* lpproductbuf39, void* plgidlanguage, void* pdwversion, void* lpnamebuf, void* pcchnamebuf, void* lppackagebuf, void* pcchpackagebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptA(void* szscriptfile, void* lpproductbuf39, void* plgidlanguage, void* pdwversion, void* lpnamebuf, void* pcchnamebuf, void* lppackagebuf, void* pcchpackagebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3961,7 +3961,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptW(void* szscriptfile, void* lpproductbuf39, void* plgidlanguage, void* pdwversion, void* lpnamebuf, void* pcchnamebuf, void* lppackagebuf, void* pcchpackagebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptW(void* szscriptfile, void* lpproductbuf39, void* plgidlanguage, void* pdwversion, void* lpnamebuf, void* pcchnamebuf, void* lppackagebuf, void* pcchpackagebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3990,7 +3990,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoW(void* szproduct, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoW(void* szproduct, void* szattribute, void* lpvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4015,7 +4015,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyA(uint32_t hproduct, void* szproperty, void* lpvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyA(uint32_t hproduct, void* szproperty, void* lpvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4040,7 +4040,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyW(uint32_t hproduct, void* szproperty, void* lpvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyW(uint32_t hproduct, void* szproperty, void* lpvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4065,7 +4065,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyA(uint32_t hinstall, void* szname, void* szvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyA(uint32_t hinstall, void* szname, void* szvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4090,7 +4090,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyW(uint32_t hinstall, void* szname, void* szvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyW(uint32_t hinstall, void* szname, void* szvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4115,7 +4115,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetA(void* szshortcutpath, void* szproductcode, void* szfeatureid, void* szcomponentcode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetA(void* szshortcutpath, void* szproductcode, void* szfeatureid, void* szcomponentcode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4140,7 +4140,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetW(void* szshortcutpath, void* szproductcode, void* szfeatureid, void* szcomponentcode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetW(void* szshortcutpath, void* szproductcode, void* szfeatureid, void* szcomponentcode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4165,7 +4165,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathA(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathA(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4190,7 +4190,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathW(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathW(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4215,7 +4215,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationA(uint32_t hdatabase, void* szdatabasepath, uint32_t uiupdatecount, void* phsummaryinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationA(uint32_t hdatabase, void* szdatabasepath, uint32_t uiupdatecount, void* phsummaryinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4240,7 +4240,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationW(uint32_t hdatabase, void* szdatabasepath, uint32_t uiupdatecount, void* phsummaryinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationW(uint32_t hdatabase, void* szdatabasepath, uint32_t uiupdatecount, void* phsummaryinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4265,7 +4265,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathA(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathA(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4290,7 +4290,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathW(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathW(uint32_t hinstall, void* szfolder, void* szpathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4315,7 +4315,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoA(void* szproduct, void* lpusernamebuf, void* pcchusernamebuf, void* lporgnamebuf, void* pcchorgnamebuf, void* lpserialbuf, void* pcchserialbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoA(void* szproduct, void* lpusernamebuf, void* pcchusernamebuf, void* lporgnamebuf, void* pcchorgnamebuf, void* lpserialbuf, void* pcchserialbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4343,7 +4343,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoW(void* szproduct, void* lpusernamebuf, void* pcchusernamebuf, void* lporgnamebuf, void* pcchorgnamebuf, void* lpserialbuf, void* pcchserialbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoW(void* szproduct, void* lpusernamebuf, void* pcchusernamebuf, void* lporgnamebuf, void* pcchorgnamebuf, void* lpserialbuf, void* pcchserialbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4371,7 +4371,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiG
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentA(void* szproduct, void* szcomponent, int32_t einstallstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingComponentA(void* szproduct, void* szcomponent, int32_t einstallstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4395,7 +4395,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentW(void* szproduct, void* szcomponent, int32_t einstallstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingComponentW(void* szproduct, void* szcomponent, int32_t einstallstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4419,7 +4419,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileA(void* szproduct, void* szfile) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingFileA(void* szproduct, void* szfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4442,7 +4442,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileW(void* szproduct, void* szfile) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingFileW(void* szproduct, void* szfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4465,7 +4465,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductA(void* szpackagepath, void* szcommandline) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductA(void* szpackagepath, void* szcommandline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4488,7 +4488,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductW(void* szpackagepath, void* szcommandline) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductW(void* szpackagepath, void* szcommandline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4511,7 +4511,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedA(void* szproduct, void* pfelevated) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedA(void* szproduct, void* pfelevated) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4534,7 +4534,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedW(void* szproduct, void* pfelevated) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedW(void* szproduct, void* pfelevated) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4557,7 +4557,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiJoinTransaction(uint32_t htransactionhandle, uint32_t dwtransactionattributes, void* phchangeofownerevent) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiJoinTransaction(uint32_t htransactionhandle, uint32_t dwtransactionattributes, void* phchangeofownerevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4581,7 +4581,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentA(void* szcomponent, void* lppathbuf, void* pcchbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentA(void* szcomponent, void* lppathbuf, void* pcchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4605,7 +4605,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiL
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentW(void* szcomponent, void* lppathbuf, void* pcchbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentW(void* szcomponent, void* lppathbuf, void* pcchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4629,7 +4629,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiL
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeA(void* poldsid, void* pnewsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeA(void* poldsid, void* pnewsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4652,7 +4652,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeW(void* poldsid, void* pnewsid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeW(void* poldsid, void* pnewsid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4675,7 +4675,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseA(void* szdatabasepath, void* szpersist, void* phdatabase) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseA(void* szdatabasepath, void* szpersist, void* phdatabase) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4699,7 +4699,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseW(void* szdatabasepath, void* szpersist, void* phdatabase) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseW(void* szdatabasepath, void* szpersist, void* phdatabase) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4723,7 +4723,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageA(void* szpackagepath, void* hproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageA(void* szpackagepath, void* hproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4746,7 +4746,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExA(void* szpackagepath, uint32_t dwoptions, void* hproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExA(void* szpackagepath, uint32_t dwoptions, void* hproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4770,7 +4770,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExW(void* szpackagepath, uint32_t dwoptions, void* hproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExW(void* szpackagepath, uint32_t dwoptions, void* hproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4794,7 +4794,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageW(void* szpackagepath, void* hproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageW(void* szpackagepath, void* hproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4817,7 +4817,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductA(void* szproduct, void* hproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductA(void* szproduct, void* hproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4840,7 +4840,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductW(void* szproduct, void* hproduct) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductW(void* szproduct, void* hproduct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4863,7 +4863,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardA(uint32_t hpreview, void* szcontrolname, void* szbillboard) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewBillboardA(uint32_t hpreview, void* szcontrolname, void* szbillboard) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4887,7 +4887,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardW(uint32_t hpreview, void* szcontrolname, void* szbillboard) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewBillboardW(uint32_t hpreview, void* szcontrolname, void* szbillboard) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4911,7 +4911,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogA(uint32_t hpreview, void* szdialogname) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewDialogA(uint32_t hpreview, void* szdialogname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4934,7 +4934,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogW(uint32_t hpreview, void* szdialogname) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewDialogW(uint32_t hpreview, void* szdialogname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4957,7 +4957,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptA(void* szscriptfile, void* sziconfolder, void* hregdata, int32_t fshortcuts, int32_t fremoveitems) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessAdvertiseScriptA(void* szscriptfile, void* sziconfolder, void* hregdata, int32_t fshortcuts, int32_t fremoveitems) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4983,7 +4983,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptW(void* szscriptfile, void* sziconfolder, void* hregdata, int32_t fshortcuts, int32_t fremoveitems) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessAdvertiseScriptW(void* szscriptfile, void* sziconfolder, void* hregdata, int32_t fshortcuts, int32_t fremoveitems) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5009,7 +5009,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessMessage(uint32_t hinstall, int32_t emessagetype, uint32_t hrecord) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(uint32_t hinstall, int32_t emessagetype, uint32_t hrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5033,7 +5033,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiP
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyA(void* szassemblyname, void* szappcontext, uint32_t dwinstallmode, uint32_t dwassemblyinfo, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyA(void* szassemblyname, void* szappcontext, uint32_t dwinstallmode, uint32_t dwassemblyinfo, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5060,7 +5060,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyW(void* szassemblyname, void* szappcontext, uint32_t dwinstallmode, uint32_t dwassemblyinfo, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyW(void* szassemblyname, void* szappcontext, uint32_t dwinstallmode, uint32_t dwassemblyinfo, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5087,7 +5087,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentA(void* szproduct, void* szfeature, void* szcomponent, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentA(void* szproduct, void* szfeature, void* szcomponent, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5114,7 +5114,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentW(void* szproduct, void* szfeature, void* szcomponent, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentW(void* szproduct, void* szfeature, void* szcomponent, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5141,7 +5141,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentA(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentA(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5167,7 +5167,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExA(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* szproduct, uint32_t dwunused1, uint32_t dwunused2, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExA(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* szproduct, uint32_t dwunused1, uint32_t dwunused2, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5196,7 +5196,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExW(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* szproduct, uint32_t dwunused1, uint32_t dwunused2, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExW(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* szproduct, uint32_t dwunused1, uint32_t dwunused2, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5225,7 +5225,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentW(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentW(void* szcategory, void* szqualifier, uint32_t dwinstallmode, void* lppathbuf, void* pcchpathbuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5251,7 +5251,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateA(void* szproductcode, void* szusersid, int32_t dwcontext, void* szcomponentcode, void* pdwstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateA(void* szproductcode, void* szusersid, int32_t dwcontext, void* szcomponentcode, void* pdwstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5277,7 +5277,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateW(void* szproductcode, void* szusersid, int32_t dwcontext, void* szcomponentcode, void* pdwstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateW(void* szproductcode, void* szusersid, int32_t dwcontext, void* szcomponentcode, void* pdwstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5303,7 +5303,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateA(void* szproduct, void* szfeature) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateA(void* szproduct, void* szfeature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5326,7 +5326,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQ
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExA(void* szproductcode, void* szusersid, int32_t dwcontext, void* szfeature, void* pdwstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExA(void* szproductcode, void* szusersid, int32_t dwcontext, void* szfeature, void* pdwstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5352,7 +5352,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExW(void* szproductcode, void* szusersid, int32_t dwcontext, void* szfeature, void* pdwstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExW(void* szproductcode, void* szusersid, int32_t dwcontext, void* szfeature, void* pdwstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5378,7 +5378,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateW(void* szproduct, void* szfeature) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateW(void* szproduct, void* szfeature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5401,7 +5401,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQ
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateA(void* szproduct) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryProductStateA(void* szproduct) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5423,7 +5423,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQ
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateW(void* szproduct) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryProductStateW(void* szproduct) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5445,7 +5445,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiQ
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordClearData(uint32_t hrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordClearData(uint32_t hrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5467,7 +5467,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordDataSize(uint32_t hrecord, uint32_t ifield) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordDataSize(uint32_t hrecord, uint32_t ifield) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5490,7 +5490,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetFieldCount(uint32_t hrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetFieldCount(uint32_t hrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5512,7 +5512,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetInteger(uint32_t hrecord, uint32_t ifield) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(uint32_t hrecord, uint32_t ifield) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5535,7 +5535,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiR
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringA(uint32_t hrecord, uint32_t ifield, void* szvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringA(uint32_t hrecord, uint32_t ifield, void* szvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5560,7 +5560,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringW(uint32_t hrecord, uint32_t ifield, void* szvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringW(uint32_t hrecord, uint32_t ifield, void* szvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5585,7 +5585,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordIsNull(uint32_t hrecord, uint32_t ifield) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(uint32_t hrecord, uint32_t ifield) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5608,7 +5608,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiR
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordReadStream(uint32_t hrecord, uint32_t ifield, void* szdatabuf, void* pcbdatabuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordReadStream(uint32_t hrecord, uint32_t ifield, void* szdatabuf, void* pcbdatabuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5633,7 +5633,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetInteger(uint32_t hrecord, uint32_t ifield, int32_t ivalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetInteger(uint32_t hrecord, uint32_t ifield, int32_t ivalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5657,7 +5657,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamA(uint32_t hrecord, uint32_t ifield, void* szfilepath) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStreamA(uint32_t hrecord, uint32_t ifield, void* szfilepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5681,7 +5681,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamW(uint32_t hrecord, uint32_t ifield, void* szfilepath) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStreamW(uint32_t hrecord, uint32_t ifield, void* szfilepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5705,7 +5705,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringA(uint32_t hrecord, uint32_t ifield, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStringA(uint32_t hrecord, uint32_t ifield, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5729,7 +5729,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringW(uint32_t hrecord, uint32_t ifield, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStringW(uint32_t hrecord, uint32_t ifield, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5753,7 +5753,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureA(void* szproduct, void* szfeature, uint32_t dwreinstallmode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallFeatureA(void* szproduct, void* szfeature, uint32_t dwreinstallmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5777,7 +5777,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureW(void* szproduct, void* szfeature, uint32_t dwreinstallmode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallFeatureW(void* szproduct, void* szfeature, uint32_t dwreinstallmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5801,7 +5801,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductA(void* szproduct, uint32_t szreinstallmode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallProductA(void* szproduct, uint32_t szreinstallmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5824,7 +5824,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductW(void* szproduct, uint32_t szreinstallmode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallProductW(void* szproduct, uint32_t szreinstallmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5847,7 +5847,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesA(void* szpatchlist, void* szproductcode, int32_t euninstalltype, void* szpropertylist) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRemovePatchesA(void* szpatchlist, void* szproductcode, int32_t euninstalltype, void* szpropertylist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5872,7 +5872,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesW(void* szpatchlist, void* szproductcode, int32_t euninstalltype, void* szpropertylist) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRemovePatchesW(void* szpatchlist, void* szproductcode, int32_t euninstalltype, void* szpropertylist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5897,7 +5897,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceA(uint32_t hinstall, void* sztable, int32_t isequencemode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSequenceA(uint32_t hinstall, void* sztable, int32_t isequencemode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5921,7 +5921,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceW(uint32_t hinstall, void* sztable, int32_t isequencemode) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSequenceW(uint32_t hinstall, void* sztable, int32_t isequencemode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5945,7 +5945,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateA(uint32_t hinstall, void* szcomponent, int32_t istate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateA(uint32_t hinstall, void* szcomponent, int32_t istate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5969,7 +5969,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateW(uint32_t hinstall, void* szcomponent, int32_t istate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateW(uint32_t hinstall, void* szcomponent, int32_t istate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5993,7 +5993,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-void* windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIA(void* puihandler, uint32_t dwmessagefilter, void* pvcontext) {
+void* windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIA(void* puihandler, uint32_t dwmessagefilter, void* pvcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6017,7 +6017,7 @@ void* windowssys_windows_win32_system_applicationinstallationandservicing_msiSet
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIRecord(void* puihandler, uint32_t dwmessagefilter, void* pvcontext, void* ppuiprevhandler) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIRecord(void* puihandler, uint32_t dwmessagefilter, void* pvcontext, void* ppuiprevhandler) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6042,7 +6042,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-void* windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIW(void* puihandler, uint32_t dwmessagefilter, void* pvcontext) {
+void* windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIW(void* puihandler, uint32_t dwmessagefilter, void* pvcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6066,7 +6066,7 @@ void* windowssys_windows_win32_system_applicationinstallationandservicing_msiSet
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesA(uint32_t hinstall, void* szfeature, uint32_t dwattributes) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureAttributesA(uint32_t hinstall, void* szfeature, uint32_t dwattributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6090,7 +6090,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesW(uint32_t hinstall, void* szfeature, uint32_t dwattributes) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureAttributesW(uint32_t hinstall, void* szfeature, uint32_t dwattributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6114,7 +6114,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateA(uint32_t hinstall, void* szfeature, int32_t istate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureStateA(uint32_t hinstall, void* szfeature, int32_t istate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6138,7 +6138,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateW(uint32_t hinstall, void* szfeature, int32_t istate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureStateW(uint32_t hinstall, void* szfeature, int32_t istate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6162,7 +6162,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInstallLevel(uint32_t hinstall, int32_t iinstalllevel) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInstallLevel(uint32_t hinstall, int32_t iinstalllevel) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6185,7 +6185,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInternalUI(int32_t dwuilevel, void* phwnd) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInternalUI(int32_t dwuilevel, void* phwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6208,7 +6208,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiS
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetMode(uint32_t hinstall, int32_t erunmode, int32_t fstate) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetMode(uint32_t hinstall, int32_t erunmode, int32_t fstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6232,7 +6232,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyA(uint32_t hinstall, void* szname, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetPropertyA(uint32_t hinstall, void* szname, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6256,7 +6256,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyW(uint32_t hinstall, void* szname, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetPropertyW(uint32_t hinstall, void* szname, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6280,7 +6280,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathA(uint32_t hinstall, void* szfolder, void* szfolderpath) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetTargetPathA(uint32_t hinstall, void* szfolder, void* szfolderpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6304,7 +6304,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathW(uint32_t hinstall, void* szfolder, void* szfolderpath) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetTargetPathW(uint32_t hinstall, void* szfolder, void* szfolderpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6328,7 +6328,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid, void* szvolumelabel, void* szdiskprompt) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddMediaDiskA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid, void* szvolumelabel, void* szdiskprompt) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6356,7 +6356,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid, void* szvolumelabel, void* szdiskprompt) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddMediaDiskW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid, void* szvolumelabel, void* szdiskprompt) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6384,7 +6384,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceA(void* szproduct, void* szusername, uint32_t dwreserved, void* szsource) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceA(void* szproduct, void* szusername, uint32_t dwreserved, void* szsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6409,7 +6409,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource, uint32_t dwindex) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceExA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource, uint32_t dwindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6436,7 +6436,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource, uint32_t dwindex) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceExW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource, uint32_t dwindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6463,7 +6463,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceW(void* szproduct, void* szusername, uint32_t dwreserved, void* szsource) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceW(void* szproduct, void* szusername, uint32_t dwreserved, void* szsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6488,7 +6488,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllA(void* szproduct, void* szusername, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllA(void* szproduct, void* szusername, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6512,7 +6512,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllExA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6537,7 +6537,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllExW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6562,7 +6562,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllW(void* szproduct, void* szusername, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllW(void* szproduct, void* szusername, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6586,7 +6586,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearMediaDiskA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6612,7 +6612,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearMediaDiskW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwdiskid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6638,7 +6638,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6664,7 +6664,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6690,7 +6690,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* pdwdiskid, void* szvolumelabel, void* pcchvolumelabel, void* szdiskprompt, void* pcchdiskprompt) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* pdwdiskid, void* szvolumelabel, void* pcchvolumelabel, void* szdiskprompt, void* pcchdiskprompt) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6721,7 +6721,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* pdwdiskid, void* szvolumelabel, void* pcchvolumelabel, void* szdiskprompt, void* pcchdiskprompt) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* pdwdiskid, void* szvolumelabel, void* pcchvolumelabel, void* szdiskprompt, void* pcchdiskprompt) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6752,7 +6752,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* szsource, void* pcchsource) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* szsource, void* pcchsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6780,7 +6780,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* szsource, void* pcchsource) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, uint32_t dwindex, void* szsource, void* pcchsource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6808,7 +6808,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionA(void* szproduct, void* szusername, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionA(void* szproduct, void* szusername, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6832,7 +6832,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionExA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6857,7 +6857,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionExW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6882,7 +6882,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionW(void* szproduct, void* szusername, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionW(void* szproduct, void* szusername, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6906,7 +6906,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue, void* pcchvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue, void* pcchvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6934,7 +6934,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue, void* pcchvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue, void* pcchvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6962,7 +6962,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoA(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6989,7 +6989,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoW(void* szproductcodeorpatchcode, void* szusersid, int32_t dwcontext, uint32_t dwoptions, void* szproperty, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7016,7 +7016,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyA(uint32_t hsummaryinfo, uint32_t uiproperty, void* puidatatype, void* pivalue, void* pftvalue, void* szvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyA(uint32_t hsummaryinfo, uint32_t uiproperty, void* puidatatype, void* pivalue, void* pftvalue, void* szvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7044,7 +7044,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyCount(uint32_t hsummaryinfo, void* puipropertycount) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyCount(uint32_t hsummaryinfo, void* puipropertycount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7067,7 +7067,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyW(uint32_t hsummaryinfo, uint32_t uiproperty, void* puidatatype, void* pivalue, void* pftvalue, void* szvaluebuf, void* pcchvaluebuf) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyW(uint32_t hsummaryinfo, uint32_t uiproperty, void* puidatatype, void* pivalue, void* pftvalue, void* szvaluebuf, void* pcchvaluebuf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7095,7 +7095,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoPersist(uint32_t hsummaryinfo) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoPersist(uint32_t hsummaryinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7117,7 +7117,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyA(uint32_t hsummaryinfo, uint32_t uiproperty, uint32_t uidatatype, int32_t ivalue, void* pftvalue, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyA(uint32_t hsummaryinfo, uint32_t uiproperty, uint32_t uidatatype, int32_t ivalue, void* pftvalue, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7144,7 +7144,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyW(uint32_t hsummaryinfo, uint32_t uiproperty, uint32_t uidatatype, int32_t ivalue, void* pftvalue, void* szvalue) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyW(uint32_t hsummaryinfo, uint32_t uiproperty, uint32_t uidatatype, int32_t ivalue, void* pftvalue, void* szvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7171,7 +7171,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureA(void* szproduct, void* szfeature) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureA(void* szproduct, void* szfeature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7194,7 +7194,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiU
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExA(void* szproduct, void* szfeature, uint32_t dwinstallmode, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureExA(void* szproduct, void* szfeature, uint32_t dwinstallmode, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7219,7 +7219,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiU
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExW(void* szproduct, void* szfeature, uint32_t dwinstallmode, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureExW(void* szproduct, void* szfeature, uint32_t dwinstallmode, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7244,7 +7244,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiU
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureW(void* szproduct, void* szfeature) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureW(void* szproduct, void* szfeature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7267,7 +7267,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiU
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyDiskSpace(uint32_t hinstall) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiVerifyDiskSpace(uint32_t hinstall) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7289,7 +7289,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageA(void* szpackagepath) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiVerifyPackageA(void* szpackagepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7311,7 +7311,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageW(void* szpackagepath) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiVerifyPackageW(void* szpackagepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7333,7 +7333,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewClose(uint32_t hview) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewClose(uint32_t hview) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7355,7 +7355,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewExecute(uint32_t hview, uint32_t hrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewExecute(uint32_t hview, uint32_t hrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7378,7 +7378,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewFetch(uint32_t hview, void* phrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewFetch(uint32_t hview, void* phrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7401,7 +7401,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetColumnInfo(uint32_t hview, int32_t ecolumninfo, void* phrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetColumnInfo(uint32_t hview, int32_t ecolumninfo, void* phrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7425,7 +7425,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorA(uint32_t hview, void* szcolumnnamebuffer, void* pcchbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorA(uint32_t hview, void* szcolumnnamebuffer, void* pcchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7449,7 +7449,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiV
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorW(uint32_t hview, void* szcolumnnamebuffer, void* pcchbuf) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorW(uint32_t hview, void* szcolumnnamebuffer, void* pcchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7473,7 +7473,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiV
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msiViewModify(uint32_t hview, int32_t emodifymode, uint32_t hrecord) {
+uint32_t windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewModify(uint32_t hview, int32_t emodifymode, uint32_t hrecord) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7497,7 +7497,7 @@ uint32_t windowssys_windows_win32_system_applicationinstallationandservicing_msi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_normalizeFileForPatchSignature(void* filebuffer, uint32_t filesize, uint32_t optionflags, void* optiondata, uint32_t newfilecoffbase, uint32_t newfilecofftime, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingNormalizeFileForPatchSignature(void* filebuffer, uint32_t filesize, uint32_t optionflags, void* optiondata, uint32_t newfilecoffbase, uint32_t newfilecofftime, uint32_t ignorerangecount, void* ignorerangearray, uint32_t retainrangecount, void* retainrangearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7528,7 +7528,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_norm
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxSettingsW(uint32_t dwflags, void* hactctx, void* settingsnamespace, void* settingname, void* pvbuffer, uint64_t dwbuffer, void* pdwwrittenorrequired) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxSettingsW(uint32_t dwflags, void* hactctx, void* settingsnamespace, void* settingname, void* pvbuffer, uint64_t dwbuffer, void* pdwwrittenorrequired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7556,7 +7556,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_quer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxW(uint32_t dwflags, void* hactctx, void* pvsubinstance, uint32_t ulinfoclass, void* pvbuffer, uint64_t cbbuffer, void* pcbwrittenorrequired) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxW(uint32_t dwflags, void* hactctx, void* pvsubinstance, uint32_t ulinfoclass, void* pvbuffer, uint64_t cbbuffer, void* pcbwrittenorrequired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7584,7 +7584,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_quer
 #endif
 }
 
-void windowssys_windows_win32_system_applicationinstallationandservicing_releaseActCtx(void* hactctx) {
+void windowssysWindowsWin32SystemApplicationinstallationandservicingReleaseActCtx(void* hactctx) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7605,7 +7605,7 @@ void windowssys_windows_win32_system_applicationinstallationandservicing_release
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfcGetNextProtectedFile(void* rpchandle, void* protfiledata) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingSfcGetNextProtectedFile(void* rpchandle, void* protfiledata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7628,7 +7628,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfcG
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsFileProtected(void* rpchandle, void* protfilename) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingSfcIsFileProtected(void* rpchandle, void* protfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7651,7 +7651,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfcI
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsKeyProtected(void* keyhandle, void* subkeyname, uint32_t keysam) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingSfcIsKeyProtected(void* keyhandle, void* subkeyname, uint32_t keysam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7675,7 +7675,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfcI
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfpVerifyFile(void* pszfilename, void* pszerror, uint32_t dwerrsize) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingSfpVerifyFile(void* pszfilename, void* pszerror, uint32_t dwerrsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7699,7 +7699,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_sfpV
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileA(void* patchfilename, void* oldfilename, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileA(void* patchfilename, void* oldfilename, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7723,7 +7723,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_test
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByBuffers(void* patchfilebuffer, uint32_t patchfilesize, void* oldfilebuffer, uint32_t oldfilesize, void* newfilesize, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByBuffers(void* patchfilebuffer, uint32_t patchfilesize, void* oldfilebuffer, uint32_t oldfilesize, void* newfilesize, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7750,7 +7750,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_test
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByHandles(void* patchfilehandle, void* oldfilehandle, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByHandles(void* patchfilehandle, void* oldfilehandle, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7774,7 +7774,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_test
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileW(void* patchfilename, void* oldfilename, uint32_t applyoptionflags) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileW(void* patchfilename, void* oldfilename, uint32_t applyoptionflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7798,7 +7798,7 @@ int32_t windowssys_windows_win32_system_applicationinstallationandservicing_test
 #endif
 }
 
-int32_t windowssys_windows_win32_system_applicationinstallationandservicing_zombifyActCtx(void* hactctx) {
+int32_t windowssysWindowsWin32SystemApplicationinstallationandservicingZombifyActCtx(void* hactctx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

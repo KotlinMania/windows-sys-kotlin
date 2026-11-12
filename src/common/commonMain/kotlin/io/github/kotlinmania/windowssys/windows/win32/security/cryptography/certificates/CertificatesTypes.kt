@@ -1,9 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
 public typealias AddedCertType = Int
 
@@ -76,115 +80,115 @@ public typealias EnrollmentSelectionStatus = Int
 public typealias EnrollmentTemplateProperty = Int
 
 public fun interface FncertsrvbackupcloseFn {
-    public operator fun invoke(hbc: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>): Hresult
 }
 
 public typealias Fncertsrvbackupclose = FncertsrvbackupcloseFn?
 
 public fun interface FncertsrvbackupendFn {
-    public operator fun invoke(hbc: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>): Hresult
 }
 
 public typealias Fncertsrvbackupend = FncertsrvbackupendFn?
 
 public fun interface FncertsrvbackupfreeFn {
-    public operator fun invoke(pv: COpaquePointer?)
+    public operator fun invoke(pv: MutPtr<CVoid>)
 }
 
 public typealias Fncertsrvbackupfree = FncertsrvbackupfreeFn?
 
 public fun interface FncertsrvbackupgetbackuplogswFn {
-    public operator fun invoke(hbc: COpaquePointer?, ppwszzbackuplogfiles: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, ppwszzbackuplogfiles: MutPtr<MutPtr<UShort>>, pcbsize: MutPtr<UInt>): Hresult
 }
 
 public typealias Fncertsrvbackupgetbackuplogsw = FncertsrvbackupgetbackuplogswFn?
 
 public fun interface FncertsrvbackupgetdatabasenameswFn {
-    public operator fun invoke(hbc: COpaquePointer?, ppwszzattachmentinformation: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, ppwszzattachmentinformation: MutPtr<MutPtr<UShort>>, pcbsize: MutPtr<UInt>): Hresult
 }
 
 public typealias Fncertsrvbackupgetdatabasenamesw = FncertsrvbackupgetdatabasenameswFn?
 
 public fun interface FncertsrvbackupgetdynamicfilelistwFn {
-    public operator fun invoke(hbc: COpaquePointer?, ppwszzfilelist: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: ConstPtr<CVoid>, ppwszzfilelist: MutPtr<MutPtr<UShort>>, pcbsize: MutPtr<UInt>): Hresult
 }
 
 public typealias Fncertsrvbackupgetdynamicfilelistw = FncertsrvbackupgetdynamicfilelistwFn?
 
 public fun interface FncertsrvbackupopenfilewFn {
-    public operator fun invoke(hbc: COpaquePointer?, pwszattachmentname: Pcwstr, cbreadhintsize: UInt, plifilesize: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, pwszattachmentname: Pcwstr, cbreadhintsize: UInt, plifilesize: MutPtr<Long>): Hresult
 }
 
 public typealias Fncertsrvbackupopenfilew = FncertsrvbackupopenfilewFn?
 
 public fun interface FncertsrvbackuppreparewFn {
-    public operator fun invoke(pwszservername: Pcwstr, grbitjet: UInt, dwbackupflags: UInt, phbc: COpaquePointer?): Hresult
+    public operator fun invoke(pwszservername: Pcwstr, grbitjet: UInt, dwbackupflags: UInt, phbc: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public typealias Fncertsrvbackuppreparew = FncertsrvbackuppreparewFn?
 
 public fun interface FncertsrvbackupreadFn {
-    public operator fun invoke(hbc: COpaquePointer?, pvbuffer: COpaquePointer?, cbbuffer: UInt, pcbread: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, pvbuffer: MutPtr<CVoid>, cbbuffer: UInt, pcbread: MutPtr<UInt>): Hresult
 }
 
 public typealias Fncertsrvbackupread = FncertsrvbackupreadFn?
 
 public fun interface FncertsrvbackuptruncatelogsFn {
-    public operator fun invoke(hbc: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>): Hresult
 }
 
 public typealias Fncertsrvbackuptruncatelogs = FncertsrvbackuptruncatelogsFn?
 
 public fun interface FncertsrvisserveronlinewFn {
-    public operator fun invoke(pwszservername: Pcwstr, pfserveronline: COpaquePointer?): Hresult
+    public operator fun invoke(pwszservername: Pcwstr, pfserveronline: MutPtr<Bool>): Hresult
 }
 
 public typealias Fncertsrvisserveronlinew = FncertsrvisserveronlinewFn?
 
 public fun interface FncertsrvrestoreendFn {
-    public operator fun invoke(hbc: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>): Hresult
 }
 
 public typealias Fncertsrvrestoreend = FncertsrvrestoreendFn?
 
 public fun interface FncertsrvrestoregetdatabaselocationswFn {
-    public operator fun invoke(hbc: COpaquePointer?, ppwszzdatabaselocationlist: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, ppwszzdatabaselocationlist: MutPtr<MutPtr<UShort>>, pcbsize: MutPtr<UInt>): Hresult
 }
 
 public typealias Fncertsrvrestoregetdatabaselocationsw = FncertsrvrestoregetdatabaselocationswFn?
 
 public fun interface FncertsrvrestorepreparewFn {
-    public operator fun invoke(pwszservername: Pcwstr, dwrestoreflags: UInt, phbc: COpaquePointer?): Hresult
+    public operator fun invoke(pwszservername: Pcwstr, dwrestoreflags: UInt, phbc: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public typealias Fncertsrvrestorepreparew = FncertsrvrestorepreparewFn?
 
 public fun interface FncertsrvrestoreregistercompleteFn {
-    public operator fun invoke(hbc: COpaquePointer?, hrrestorestate: Hresult): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, hrrestorestate: Hresult): Hresult
 }
 
 public typealias Fncertsrvrestoreregistercomplete = FncertsrvrestoreregistercompleteFn?
 
 public fun interface FncertsrvrestoreregisterwFn {
-    public operator fun invoke(hbc: COpaquePointer?, pwszcheckpointfilepath: Pcwstr, pwszlogpath: Pcwstr, rgrstmap: COpaquePointer?, crstmap: Int, pwszbackuplogpath: Pcwstr, genlow: UInt, genhigh: UInt): Hresult
+    public operator fun invoke(hbc: MutPtr<CVoid>, pwszcheckpointfilepath: Pcwstr, pwszlogpath: Pcwstr, rgrstmap: MutPtr<CsedbRstmapw>, crstmap: Int, pwszbackuplogpath: Pcwstr, genlow: UInt, genhigh: UInt): Hresult
 }
 
 public typealias Fncertsrvrestoreregisterw = FncertsrvrestoreregisterwFn?
 
 public fun interface FncertsrvservercontrolwFn {
-    public operator fun invoke(pwszservername: Pcwstr, dwcontrolflags: UInt, pcbout: COpaquePointer?, ppbout: COpaquePointer?): Hresult
+    public operator fun invoke(pwszservername: Pcwstr, dwcontrolflags: UInt, pcbout: MutPtr<UInt>, ppbout: MutPtr<MutPtr<UByte>>): Hresult
 }
 
 public typealias Fncertsrvservercontrolw = FncertsrvservercontrolwFn?
 
 public fun interface FnimportpfxtoproviderFn {
-    public operator fun invoke(hwndparent: Hwnd, pbpfx: COpaquePointer?, cbpfx: UInt, importflags: ImportPFXFlags, pwszpassword: Pcwstr, pwszprovidername: Pcwstr, pwszreadername: Pcwstr, pwszcontainernameprefix: Pcwstr, pwszpin: Pcwstr, pwszfriendlyname: Pcwstr, pccertout: COpaquePointer?, prgpcertout: COpaquePointer?): Hresult
+    public operator fun invoke(hwndparent: Hwnd, pbpfx: ConstPtr<UByte>, cbpfx: UInt, importflags: ImportPFXFlags, pwszpassword: Pcwstr, pwszprovidername: Pcwstr, pwszreadername: Pcwstr, pwszcontainernameprefix: Pcwstr, pwszpin: Pcwstr, pwszfriendlyname: Pcwstr, pccertout: MutPtr<UInt>, prgpcertout: MutPtr<MutPtr<MutPtr<CertContext>>>): Hresult
 }
 
 public typealias Fnimportpfxtoprovider = FnimportpfxtoproviderFn?
 
 public fun interface FnimportpfxtoproviderfreedataFn {
-    public operator fun invoke(ccert: UInt, rgpcert: COpaquePointer?)
+    public operator fun invoke(ccert: UInt, rgpcert: ConstPtr<ConstPtr<CertContext>>)
 }
 
 public typealias Fnimportpfxtoproviderfreedata = FnimportpfxtoproviderfreedataFn?

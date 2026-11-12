@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseColorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsChooseColorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseColorA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseColorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsChooseColorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseColorW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseFontA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsChooseFontA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -126,7 +126,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseFontA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseFontW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsChooseFontW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_chooseFontW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -174,7 +174,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_findTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsFindTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -199,7 +199,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_findTextA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_findTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsFindTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -224,7 +224,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_findTextW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getFileTitleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsGetFileTitleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getFileTitleA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getFileTitleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsGetFileTitleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -282,7 +282,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getFileTitleW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -307,7 +307,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -332,7 +332,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -357,7 +357,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -382,7 +382,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsPageSetupDlgA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -407,7 +407,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsPageSetupDlgW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -432,7 +432,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsPrintDlgA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsPrintDlgExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgExA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsPrintDlgExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -507,7 +507,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgExW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsPrintDlgW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -532,7 +532,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_printDlgW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_replaceTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsReplaceTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -557,7 +557,7 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_replaceTextA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_controls_dialogs_replaceTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiControlsDialogsReplaceTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -583,27 +583,27 @@ static Napi::Value windowssys_windows_win32_ui_controls_dialogs_replaceTextW_nap
 }
 
 static void register_windows_win32_ui_controls_dialogs_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_chooseColorA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_chooseColorA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_chooseColorW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_chooseColorW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_chooseFontA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_chooseFontA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_chooseFontW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_chooseFontW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_findTextA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_findTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_findTextW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_findTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_getFileTitleA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_getFileTitleA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_getFileTitleW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_getFileTitleW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_printDlgA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_printDlgA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_printDlgExA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_printDlgExA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_printDlgExW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_printDlgExW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_printDlgW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_printDlgW_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_replaceTextA", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_replaceTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_controls_dialogs_replaceTextW", Napi::Function::New(env, windowssys_windows_win32_ui_controls_dialogs_replaceTextW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsChooseColorA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsChooseColorA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsChooseColorW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsChooseColorW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsChooseFontA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsChooseFontA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsChooseFontW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsChooseFontW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsFindTextA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsFindTextA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsFindTextW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsFindTextW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsGetFileTitleA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsGetFileTitleA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsGetFileTitleW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsGetFileTitleW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsPageSetupDlgA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsPageSetupDlgA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsPageSetupDlgW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsPageSetupDlgW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsPrintDlgA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsPrintDlgA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsPrintDlgExA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsPrintDlgExA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsPrintDlgExW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsPrintDlgExW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsPrintDlgW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsPrintDlgW_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsReplaceTextA", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsReplaceTextA_napi));
+    exports.Set("windowssysWindowsWin32UiControlsDialogsReplaceTextW", Napi::Function::New(env, windowssysWindowsWin32UiControlsDialogsReplaceTextW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_controls_dialogs_napi, nullptr };

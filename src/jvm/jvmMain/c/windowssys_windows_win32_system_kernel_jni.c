@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlFirstEntrySList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlFirstEntrySList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlInitializeSListHead(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlInitializeSListHead(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -65,7 +65,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlInterlockedFlushSList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -90,7 +90,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlInterlockedPopEntrySList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlInterlockedPushEntrySList(JNIEnv* km_env, jclass km_clazz, jlong listhead, jlong listentry) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(JNIEnv* km_env, jclass km_clazz, jlong listhead, jlong listentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -141,7 +141,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlInterlockedPushListSListEx(JNIEnv* km_env, jclass km_clazz, jlong listhead, jlong list, jlong listend, jint count) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(JNIEnv* km_env, jclass km_clazz, jlong listhead, jlong list, jlong listend, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -169,7 +169,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssys_1windows_1win32_1system_1kernel_1rtlQueryDepthSList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_kernel_WindowsWin32SystemKernelJniBridge_windowssysWindowsWin32SystemKernelRtlQueryDepthSList(JNIEnv* km_env, jclass km_clazz, jlong listhead) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

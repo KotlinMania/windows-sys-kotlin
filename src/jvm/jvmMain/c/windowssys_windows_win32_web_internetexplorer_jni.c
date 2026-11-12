@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1computeInvCMAP(JNIEnv* km_env, jclass km_clazz, jlong prgbcolors, jint ncolors, jlong pinvtable, jint cbtable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerComputeInvCMAP(JNIEnv* km_env, jclass km_clazz, jlong prgbcolors, jint ncolors, jlong pinvtable, jint cbtable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -47,7 +47,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1createMIMEMap(JNIEnv* km_env, jclass km_clazz, jlong ppmap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerCreateMIMEMap(JNIEnv* km_env, jclass km_clazz, jlong ppmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1decodeImage(JNIEnv* km_env, jclass km_clazz, jlong pstream, jlong pmap, jlong peventsink) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerDecodeImage(JNIEnv* km_env, jclass km_clazz, jlong pstream, jlong pmap, jlong peventsink) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1decodeImageEx(JNIEnv* km_env, jclass km_clazz, jlong pstream, jlong pmap, jlong peventsink, jlong pszmimetypeparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerDecodeImageEx(JNIEnv* km_env, jclass km_clazz, jlong pstream, jlong pmap, jlong peventsink, jlong pszmimetypeparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ditherTo8(JNIEnv* km_env, jclass km_clazz, jlong pdestbits, jint ndestpitch, jlong psrcbits, jint nsrcpitch, jlong bfidsrc, jlong prgbdestcolors, jlong prgbsrccolors, jlong pbdestinvmap, jint x, jint y, jint cx, jint cy, jint ldesttrans, jint lsrctrans) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerDitherTo8(JNIEnv* km_env, jclass km_clazz, jlong pdestbits, jint ndestpitch, jlong psrcbits, jint nsrcpitch, jlong bfidsrc, jlong prgbdestcolors, jlong prgbsrccolors, jlong pbdestinvmap, jint x, jint y, jint cx, jint cy, jint ldesttrans, jint lsrctrans) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -165,7 +165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1getMaxMIMEIDBytes(JNIEnv* km_env, jclass km_clazz, jlong pnmaxbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerGetMaxMIMEIDBytes(JNIEnv* km_env, jclass km_clazz, jlong pnmaxbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -190,7 +190,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEAssociateThreadWithTab(JNIEnv* km_env, jclass km_clazz, jint dwtabthreadid, jint dwassociatedthreadid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEAssociateThreadWithTab(JNIEnv* km_env, jclass km_clazz, jint dwtabthreadid, jint dwassociatedthreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -216,7 +216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iECancelSaveFile(JNIEnv* km_env, jclass km_clazz, jlong hstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIECancelSaveFile(JNIEnv* km_env, jclass km_clazz, jlong hstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -241,7 +241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iECreateDirectory(JNIEnv* km_env, jclass km_clazz, jlong lppathname, jlong lpsecurityattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIECreateDirectory(JNIEnv* km_env, jclass km_clazz, jlong lppathname, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -267,7 +267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iECreateFile(JNIEnv* km_env, jclass km_clazz, jlong lpfilename, jint dwdesiredaccess, jint dwsharemode, jlong lpsecurityattributes, jint dwcreationdisposition, jint dwflagsandattributes, jlong htemplatefile) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIECreateFile(JNIEnv* km_env, jclass km_clazz, jlong lpfilename, jint dwdesiredaccess, jint dwsharemode, jlong lpsecurityattributes, jint dwcreationdisposition, jint dwflagsandattributes, jlong htemplatefile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -298,7 +298,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEDeleteFile(JNIEnv* km_env, jclass km_clazz, jlong lpfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEDeleteFile(JNIEnv* km_env, jclass km_clazz, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -323,7 +323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEDisassociateThreadWithTab(JNIEnv* km_env, jclass km_clazz, jint dwtabthreadid, jint dwassociatedthreadid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEDisassociateThreadWithTab(JNIEnv* km_env, jclass km_clazz, jint dwtabthreadid, jint dwassociatedthreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -349,7 +349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEFindFirstFile(JNIEnv* km_env, jclass km_clazz, jlong lpfilename, jlong lpfindfiledata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEFindFirstFile(JNIEnv* km_env, jclass km_clazz, jlong lpfilename, jlong lpfindfiledata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -375,7 +375,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEGetFileAttributesEx(JNIEnv* km_env, jclass km_clazz, jlong lpfilename, jint finfolevelid, jlong lpfileinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEGetFileAttributesEx(JNIEnv* km_env, jclass km_clazz, jlong lpfilename, jint finfolevelid, jlong lpfileinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEGetProtectedModeCookie(JNIEnv* km_env, jclass km_clazz, jlong lpszurl, jlong lpszcookiename, jlong lpszcookiedata, jlong pcchcookiedata, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEGetProtectedModeCookie(JNIEnv* km_env, jclass km_clazz, jlong lpszurl, jlong lpszcookiename, jlong lpszcookiedata, jlong pcchcookiedata, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEGetWriteableFolderPath(JNIEnv* km_env, jclass km_clazz, jlong clsidfolderid, jlong lppwstrpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEGetWriteableFolderPath(JNIEnv* km_env, jclass km_clazz, jlong clsidfolderid, jlong lppwstrpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -457,7 +457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEGetWriteableLowHKCU(JNIEnv* km_env, jclass km_clazz, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEGetWriteableLowHKCU(JNIEnv* km_env, jclass km_clazz, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -482,7 +482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEInPrivateFilteringEnabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEInPrivateFilteringEnabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEIsInPrivateBrowsing(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEIsProtectedModeProcess(JNIEnv* km_env, jclass km_clazz, jlong pbresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeProcess(JNIEnv* km_env, jclass km_clazz, jlong pbresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -555,7 +555,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEIsProtectedModeURL(JNIEnv* km_env, jclass km_clazz, jlong lpwstrurl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeURL(JNIEnv* km_env, jclass km_clazz, jlong lpwstrurl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -580,7 +580,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iELaunchURL(JNIEnv* km_env, jclass km_clazz, jlong lpwstrurl, jlong lpprocinfo, jlong lpinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIELaunchURL(JNIEnv* km_env, jclass km_clazz, jlong lpwstrurl, jlong lpprocinfo, jlong lpinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -607,7 +607,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEMoveFileEx(JNIEnv* km_env, jclass km_clazz, jlong lpexistingfilename, jlong lpnewfilename, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEMoveFileEx(JNIEnv* km_env, jclass km_clazz, jlong lpexistingfilename, jlong lpnewfilename, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -634,7 +634,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iERefreshElevationPolicy(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIERefreshElevationPolicy(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -658,7 +658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iERegCreateKeyEx(JNIEnv* km_env, jclass km_clazz, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIERegCreateKeyEx(JNIEnv* km_env, jclass km_clazz, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -690,7 +690,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iERegSetValueEx(JNIEnv* km_env, jclass km_clazz, jlong lpsubkey, jlong lpvaluename, jint reserved, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIERegSetValueEx(JNIEnv* km_env, jclass km_clazz, jlong lpsubkey, jlong lpvaluename, jint reserved, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -720,7 +720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iERemoveDirectory(JNIEnv* km_env, jclass km_clazz, jlong lppathname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIERemoveDirectory(JNIEnv* km_env, jclass km_clazz, jlong lppathname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -745,7 +745,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iESaveFile(JNIEnv* km_env, jclass km_clazz, jlong hstate, jlong lpwstrsourcefile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIESaveFile(JNIEnv* km_env, jclass km_clazz, jlong hstate, jlong lpwstrsourcefile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -771,7 +771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iESetProtectedModeCookie(JNIEnv* km_env, jclass km_clazz, jlong lpszurl, jlong lpszcookiename, jlong lpszcookiedata, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIESetProtectedModeCookie(JNIEnv* km_env, jclass km_clazz, jlong lpszurl, jlong lpszcookiename, jlong lpszcookiedata, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -799,7 +799,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEShowOpenFileDialog(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwstrfilename, jint cchmaxfilename, jlong lpwstrinitialdir, jlong lpwstrfilter, jlong lpwstrdefext, jint dwfilterindex, jint dwflags, jlong phfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEShowOpenFileDialog(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwstrfilename, jint cchmaxfilename, jlong lpwstrinitialdir, jlong lpwstrfilter, jlong lpwstrdefext, jint dwfilterindex, jint dwflags, jlong phfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -832,7 +832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iEShowSaveFileDialog(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwstrinitialfilename, jlong lpwstrinitialdir, jlong lpwstrfilter, jlong lpwstrdefext, jint dwfilterindex, jint dwflags, jlong lppwstrdestinationfilepath, jlong phstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIEShowSaveFileDialog(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwstrinitialfilename, jlong lpwstrinitialdir, jlong lpwstrfilter, jlong lpwstrdefext, jint dwfilterindex, jint dwflags, jlong lppwstrdestinationfilepath, jlong phstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1iETrackingProtectionEnabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIETrackingProtectionEnabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -889,7 +889,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1identifyMIMEType(JNIEnv* km_env, jclass km_clazz, jlong pbbytes, jint nbytes, jlong pnformat) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerIdentifyMIMEType(JNIEnv* km_env, jclass km_clazz, jlong pbbytes, jint nbytes, jlong pnformat) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -916,7 +916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingAccessDeniedDialog(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pszcontentdescription, jlong pratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pszcontentdescription, jlong pratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -944,7 +944,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingAccessDeniedDialog2(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog2(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -971,7 +971,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingAccessDeniedDialog2W(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog2W(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -998,7 +998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingAccessDeniedDialogW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pszcontentdescription, jlong pratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialogW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername, jlong pszcontentdescription, jlong pratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1026,7 +1026,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingAddToApprovedSites(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint cbpasswordblob, jlong pbpasswordblob, jlong lpszurl, jint falwaysnever, jint fsitepage, jint fapprovedsitesenforced) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingAddToApprovedSites(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint cbpasswordblob, jlong pbpasswordblob, jlong lpszurl, jint falwaysnever, jint fsitepage, jint fapprovedsitesenforced) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1057,7 +1057,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingCheckUserAccess(JNIEnv* km_env, jclass km_clazz, jlong pszusername, jlong pszurl, jlong pszratinginfo, jlong pdata, jint cbdata, jlong ppratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingCheckUserAccess(JNIEnv* km_env, jclass km_clazz, jlong pszusername, jlong pszurl, jlong pszratinginfo, jlong pdata, jint cbdata, jlong ppratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1087,7 +1087,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingCheckUserAccessW(JNIEnv* km_env, jclass km_clazz, jlong pszusername, jlong pszurl, jlong pszratinginfo, jlong pdata, jint cbdata, jlong ppratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingCheckUserAccessW(JNIEnv* km_env, jclass km_clazz, jlong pszusername, jlong pszurl, jlong pszratinginfo, jlong pdata, jint cbdata, jlong ppratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1117,7 +1117,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingClickedOnPRFInternal(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong param1, jlong lpszfilename, jint nshow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingClickedOnPRFInternal(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong param1, jlong lpszfilename, jint nshow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1145,7 +1145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingClickedOnRATInternal(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong param1, jlong lpszfilename, jint nshow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingClickedOnRATInternal(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong param1, jlong lpszfilename, jint nshow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1173,7 +1173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingEnable(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong pszusername, jint fenable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingEnable(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong pszusername, jint fenable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1200,7 +1200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingEnableW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong pszusername, jint fenable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingEnableW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong pszusername, jint fenable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1227,7 +1227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingEnabledQuery(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingEnabledQuery(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1251,7 +1251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingFreeDetails(JNIEnv* km_env, jclass km_clazz, jlong pratingdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingFreeDetails(JNIEnv* km_env, jclass km_clazz, jlong pratingdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1276,7 +1276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingInit(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingInit(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1300,7 +1300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingObtainCancel(JNIEnv* km_env, jclass km_clazz, jlong hratingobtainquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingObtainCancel(JNIEnv* km_env, jclass km_clazz, jlong hratingobtainquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1325,7 +1325,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingObtainQuery(JNIEnv* km_env, jclass km_clazz, jlong psztargeturl, jint dwuserdata, jlong fcallback, jlong phratingobtainquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingObtainQuery(JNIEnv* km_env, jclass km_clazz, jlong psztargeturl, jint dwuserdata, jlong fcallback, jlong phratingobtainquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1353,7 +1353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingObtainQueryW(JNIEnv* km_env, jclass km_clazz, jlong psztargeturl, jint dwuserdata, jlong fcallback, jlong phratingobtainquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingObtainQueryW(JNIEnv* km_env, jclass km_clazz, jlong psztargeturl, jint dwuserdata, jlong fcallback, jlong phratingobtainquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1381,7 +1381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingSetupUI(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingSetupUI(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1407,7 +1407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1ratingSetupUIW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerRatingSetupUIW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong pszusername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1433,7 +1433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_i
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssys_1windows_1win32_1web_1internetexplorer_1sniffStream(JNIEnv* km_env, jclass km_clazz, jlong pinstream, jlong pnformat, jlong ppoutstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_web_internetexplorer_WindowsWin32WebInternetexplorerJniBridge_windowssysWindowsWin32WebInternetexplorerSniffStream(JNIEnv* km_env, jclass km_clazz, jlong pinstream, jlong pnformat, jlong ppoutstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

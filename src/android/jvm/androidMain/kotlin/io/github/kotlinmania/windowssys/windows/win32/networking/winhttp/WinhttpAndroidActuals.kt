@@ -2,10 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 private object WindowsWin32NetworkingWinhttpJniBridge {
     init {
@@ -13,342 +17,342 @@ private object WindowsWin32NetworkingWinhttpJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, dwmodifiers: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeaders(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, dwmodifiers: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx(hrequest: Long, dwmodifiers: Int, ullflags: Long, ullextra: Long, cheaders: Int, pheaders: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeadersEx(hrequest: Long, dwmodifiers: Int, ullflags: Long, ullextra: Long, cheaders: Int, pheaders: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform(): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpCloseHandle(hinternet: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpCloseHandle(hinternet: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpConnect(hsession: Long, pswzservername: Long, nserverport: Short, dwreserved: Int): Long
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpConnect(hsession: Long, pswzservername: Long, nserverport: Short, dwreserved: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpCrackUrl(pwszurl: Long, dwurllength: Int, dwflags: Int, lpurlcomponents: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpCrackUrl(pwszurl: Long, dwurllength: Int, dwflags: Int, lpurlcomponents: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver(hsession: Long, phresolver: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpCreateProxyResolver(hsession: Long, phresolver: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpCreateUrl(lpurlcomponents: Long, dwflags: Int, pwszurl: Long, pdwurllength: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpCreateUrl(lpurlcomponents: Long, dwflags: Int, pwszurl: Long, pdwurllength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl(dwautodetectflags: Int, ppwstrautoconfigurl: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpDetectAutoProxyConfigUrl(dwautodetectflags: Int, ppwstrautoconfigurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult(pproxyresult: Long)
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResult(pproxyresult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx(pproxyresultex: Long)
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResultEx(pproxyresultex: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings(pwinhttpproxysettings: Long)
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettings(pwinhttpproxysettings: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx(proxysettingstype: Int, pproxysettingsex: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettingsEx(proxysettingstype: Int, pproxysettingsex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult(presult: Long)
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpFreeQueryConnectionGroupResult(presult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration(pproxyinfo: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetDefaultProxyConfiguration(pproxyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser(pproxyconfig: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl(hsession: Long, lpcwszurl: Long, pautoproxyoptions: Long, pproxyinfo: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrl(hsession: Long, lpcwszurl: Long, pautoproxyoptions: Long, pproxyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx(hresolver: Long, pcwszurl: Long, pautoproxyoptions: Long, pcontext: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx(hresolver: Long, pcwszurl: Long, pautoproxyoptions: Long, pcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2(hresolver: Long, pcwszurl: Long, pautoproxyoptions: Long, cbinterfaceselectioncontext: Int, pinterfaceselectioncontext: Long, pcontext: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx2(hresolver: Long, pcwszurl: Long, pautoproxyoptions: Long, cbinterfaceselectioncontext: Int, pinterfaceselectioncontext: Long, pcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult(hresolver: Long, pproxyresult: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResult(hresolver: Long, pproxyresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx(hresolver: Long, pproxyresultex: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResultEx(hresolver: Long, pproxyresultex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx(hresolver: Long, proxysettingstype: Int, pproxysettingsparam: Long, pcontext: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsEx(hresolver: Long, proxysettingstype: Int, pproxysettingsparam: Long, pcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx(hresolver: Long, pproxysettingsex: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsResultEx(hresolver: Long, pproxysettingsex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion(hsession: Long, pdwproxysettingsversion: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsVersion(hsession: Long, pdwproxysettingsversion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpOpen(pszagentw: Long, dwaccesstype: Int, pszproxyw: Long, pszproxybypassw: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpOpen(pszagentw: Long, dwaccesstype: Int, pszproxyw: Long, pszproxybypassw: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpOpenRequest(hconnect: Long, pwszverb: Long, pwszobjectname: Long, pwszversion: Long, pwszreferrer: Long, ppwszaccepttypes: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpOpenRequest(hconnect: Long, pwszverb: Long, pwszobjectname: Long, pwszversion: Long, pwszreferrer: Long, ppwszaccepttypes: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes(hrequest: Long, lpdwsupportedschemes: Long, lpdwfirstscheme: Long, pdwauthtarget: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpQueryAuthSchemes(hrequest: Long, lpdwsupportedschemes: Long, lpdwfirstscheme: Long, pdwauthtarget: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup(hinternet: Long, pguidconnection: Long, ullflags: Long, ppresult: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpQueryConnectionGroup(hinternet: Long, pguidconnection: Long, ullflags: Long, ppresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable(hrequest: Long, lpdwnumberofbytesavailable: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpQueryDataAvailable(hrequest: Long, lpdwnumberofbytesavailable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders(hrequest: Long, dwinfolevel: Int, pwszname: Long, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeaders(hrequest: Long, dwinfolevel: Int, pwszname: Long, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx(hrequest: Long, dwinfolevel: Int, ullflags: Long, uicodepage: Int, pdwindex: Long, pheadername: Long, pbuffer: Long, pdwbufferlength: Long, ppheaders: Long, pdwheaderscount: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeadersEx(hrequest: Long, dwinfolevel: Int, ullflags: Long, uicodepage: Int, pdwindex: Long, pheadername: Long, pbuffer: Long, pdwbufferlength: Long, ppheaders: Long, pdwheaderscount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpQueryOption(hinternet: Long, dwoption: Int, lpbuffer: Long, lpdwbufferlength: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpQueryOption(hinternet: Long, dwoption: Int, lpbuffer: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpReadData(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: Int, lpdwnumberofbytesread: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpReadData(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: Int, lpdwnumberofbytesread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpReadDataEx(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: Int, lpdwnumberofbytesread: Long, ullflags: Long, cbproperty: Int, pvproperty: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpReadDataEx(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: Int, lpdwnumberofbytesread: Long, ullflags: Long, cbproperty: Int, pvproperty: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings(hsession: Long, pcwszconnectionname: Long, ffallbacktodefaultsettings: Int, fsetautodiscoverfordefaultsettings: Int, pdwsettingsversion: Long, pfdefaultsettingsarereturned: Long, pwinhttpproxysettings: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpReadProxySettings(hsession: Long, pcwszconnectionname: Long, ffallbacktodefaultsettings: Int, fsetautodiscoverfordefaultsettings: Int, pdwsettingsversion: Long, pfdefaultsettingsarereturned: Long, pwinhttpproxysettings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse(hrequest: Long, lpreserved: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpReceiveResponse(hrequest: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification(ullflags: Long, pfncallback: Long, pvcontext: Long, hregistration: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpRegisterProxyChangeNotification(ullflags: Long, pfncallback: Long, pvcontext: Long, hregistration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy(hsession: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpResetAutoProxy(hsession: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSendRequest(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, lpoptional: Long, dwoptionallength: Int, dwtotallength: Int, dwcontext: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSendRequest(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, lpoptional: Long, dwoptionallength: Int, dwtotallength: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSetCredentials(hrequest: Long, authtargets: Int, authscheme: Int, pwszusername: Long, pwszpassword: Long, pauthparams: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSetCredentials(hrequest: Long, authtargets: Int, authscheme: Int, pwszusername: Long, pwszpassword: Long, pauthparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration(pproxyinfo: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSetDefaultProxyConfiguration(pproxyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSetOption(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSetOption(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser(fproxysettingsperuser: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSetProxySettingsPerUser(fproxysettingsperuser: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSetStatusCallback(hinternet: Long, lpfninternetcallback: Long, dwnotificationflags: Int, dwreserved: Long): Long
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSetStatusCallback(hinternet: Long, lpfninternetcallback: Long, dwnotificationflags: Int, dwreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts(hinternet: Long, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpSetTimeouts(hinternet: Long, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime(pst: Long, pwsztime: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpTimeFromSystemTime(pst: Long, pwsztime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime(pwsztime: Long, pst: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpTimeToSystemTime(pwsztime: Long, pst: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification(hregistration: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpUnregisterProxyChangeNotification(hregistration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketClose(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade(hrequest: Long, pcontext: Long): Long
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketCompleteUpgrade(hrequest: Long, pcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: Int, pdwreasonlengthconsumed: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: Int, pdwreasonlengthconsumed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: Int, pdwbytesread: Long, pebuffertype: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: Int, pdwbytesread: Long, pebuffertype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend(hwebsocket: Long, ebuffertype: Int, pvbuffer: Long, dwbufferlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketSend(hwebsocket: Long, ebuffertype: Int, pvbuffer: Long, dwbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketShutdown(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWriteData(hrequest: Long, lpbuffer: Long, dwnumberofbytestowrite: Int, lpdwnumberofbyteswritten: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWriteData(hrequest: Long, lpbuffer: Long, dwnumberofbytestowrite: Int, lpdwnumberofbyteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings(hsession: Long, fforceupdate: Int, pwinhttpproxysettings: Long): Int
+    external fun windowssysWindowsWin32NetworkingWinhttpWinHttpWriteProxySettings(hsession: Long, fforceupdate: Int, pwinhttpproxysettings: Long): Int
 }
 
-public actual fun winHttpAddRequestHeaders(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: UInt): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders((hrequest?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), dwmodifiers.toInt())
+public actual fun winHttpAddRequestHeaders(hrequest: MutPtr<CVoid>, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: UInt): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeaders(hrequest.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), dwmodifiers.toInt())
 
-public actual fun winHttpAddRequestHeadersEx(hrequest: COpaquePointer?, dwmodifiers: UInt, ullflags: ULong, ullextra: ULong, cheaders: UInt, pheaders: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx((hrequest?.value ?: 0L), dwmodifiers.toInt(), ullflags.toLong(), ullextra.toLong(), cheaders.toInt(), (pheaders?.value ?: 0L)).toUInt()
+public actual fun winHttpAddRequestHeadersEx(hrequest: MutPtr<CVoid>, dwmodifiers: UInt, ullflags: ULong, ullextra: ULong, cheaders: UInt, pheaders: ConstPtr<WinhttpExtendedHeader>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeadersEx(hrequest.rawAddress, dwmodifiers.toInt(), ullflags.toLong(), ullextra.toLong(), cheaders.toInt(), pheaders.rawAddress).toUInt()
 
 public actual fun winHttpCheckPlatform(): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform()
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform()
 
-public actual fun winHttpCloseHandle(hinternet: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpCloseHandle((hinternet?.value ?: 0L))
+public actual fun winHttpCloseHandle(hinternet: MutPtr<CVoid>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpCloseHandle(hinternet.rawAddress)
 
-public actual fun winHttpConnect(hsession: COpaquePointer?, pswzservername: Pcwstr, nserverport: UShort, dwreserved: UInt): COpaquePointer? =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpConnect((hsession?.value ?: 0L), (pswzservername?.value ?: 0L), nserverport.toShort(), dwreserved.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun winHttpConnect(hsession: MutPtr<CVoid>, pswzservername: Pcwstr, nserverport: UShort, dwreserved: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpConnect(hsession.rawAddress, pswzservername.rawAddress, nserverport.toShort(), dwreserved.toInt()))
 
-public actual fun winHttpCrackUrl(pwszurl: Pcwstr, dwurllength: UInt, dwflags: UInt, lpurlcomponents: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpCrackUrl((pwszurl?.value ?: 0L), dwurllength.toInt(), dwflags.toInt(), (lpurlcomponents?.value ?: 0L))
+public actual fun winHttpCrackUrl(pwszurl: Pcwstr, dwurllength: UInt, dwflags: UInt, lpurlcomponents: MutPtr<UrlComponents>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpCrackUrl(pwszurl.rawAddress, dwurllength.toInt(), dwflags.toInt(), lpurlcomponents.rawAddress)
 
-public actual fun winHttpCreateProxyResolver(hsession: COpaquePointer?, phresolver: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver((hsession?.value ?: 0L), (phresolver?.value ?: 0L)).toUInt()
+public actual fun winHttpCreateProxyResolver(hsession: ConstPtr<CVoid>, phresolver: MutPtr<MutPtr<CVoid>>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpCreateProxyResolver(hsession.rawAddress, phresolver.rawAddress).toUInt()
 
-public actual fun winHttpCreateUrl(lpurlcomponents: COpaquePointer?, dwflags: WinHttpCreateUrlFlags, pwszurl: Pwstr, pdwurllength: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpCreateUrl((lpurlcomponents?.value ?: 0L), dwflags.toInt(), (pwszurl?.value ?: 0L), (pdwurllength?.value ?: 0L))
+public actual fun winHttpCreateUrl(lpurlcomponents: ConstPtr<UrlComponents>, dwflags: WinHttpCreateUrlFlags, pwszurl: Pwstr, pdwurllength: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpCreateUrl(lpurlcomponents.rawAddress, dwflags.toInt(), pwszurl.rawAddress, pdwurllength.rawAddress)
 
-public actual fun winHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl(dwautodetectflags.toInt(), (ppwstrautoconfigurl?.value ?: 0L))
+public actual fun winHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: MutPtr<Pwstr>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpDetectAutoProxyConfigUrl(dwautodetectflags.toInt(), ppwstrautoconfigurl.rawAddress)
 
-public actual fun winHttpFreeProxyResult(pproxyresult: COpaquePointer?) {
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult((pproxyresult?.value ?: 0L))
+public actual fun winHttpFreeProxyResult(pproxyresult: MutPtr<WinhttpProxyResult>) {
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResult(pproxyresult.rawAddress)
 }
 
-public actual fun winHttpFreeProxyResultEx(pproxyresultex: COpaquePointer?) {
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx((pproxyresultex?.value ?: 0L))
+public actual fun winHttpFreeProxyResultEx(pproxyresultex: MutPtr<WinhttpProxyResultEx>) {
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResultEx(pproxyresultex.rawAddress)
 }
 
-public actual fun winHttpFreeProxySettings(pwinhttpproxysettings: COpaquePointer?) {
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings((pwinhttpproxysettings?.value ?: 0L))
+public actual fun winHttpFreeProxySettings(pwinhttpproxysettings: ConstPtr<WinhttpProxySettings>) {
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettings(pwinhttpproxysettings.rawAddress)
 }
 
-public actual fun winHttpFreeProxySettingsEx(proxysettingstype: WinhttpProxySettingsType, pproxysettingsex: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx(proxysettingstype, (pproxysettingsex?.value ?: 0L)).toUInt()
+public actual fun winHttpFreeProxySettingsEx(proxysettingstype: WinhttpProxySettingsType, pproxysettingsex: ConstPtr<CVoid>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettingsEx(proxysettingstype, pproxysettingsex.rawAddress).toUInt()
 
-public actual fun winHttpFreeQueryConnectionGroupResult(presult: COpaquePointer?) {
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult((presult?.value ?: 0L))
+public actual fun winHttpFreeQueryConnectionGroupResult(presult: MutPtr<WinhttpQueryConnectionGroupResult>) {
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpFreeQueryConnectionGroupResult(presult.rawAddress)
 }
 
-public actual fun winHttpGetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration((pproxyinfo?.value ?: 0L))
+public actual fun winHttpGetDefaultProxyConfiguration(pproxyinfo: MutPtr<WinhttpProxyInfo>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetDefaultProxyConfiguration(pproxyinfo.rawAddress)
 
-public actual fun winHttpGetIEProxyConfigForCurrentUser(pproxyconfig: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser((pproxyconfig?.value ?: 0L))
+public actual fun winHttpGetIEProxyConfigForCurrentUser(pproxyconfig: MutPtr<WinhttpCurrentUserIeProxyConfig>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetIEProxyConfigForCurrentUser(pproxyconfig.rawAddress)
 
-public actual fun winHttpGetProxyForUrl(hsession: COpaquePointer?, lpcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, pproxyinfo: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl((hsession?.value ?: 0L), (lpcwszurl?.value ?: 0L), (pautoproxyoptions?.value ?: 0L), (pproxyinfo?.value ?: 0L))
+public actual fun winHttpGetProxyForUrl(hsession: MutPtr<CVoid>, lpcwszurl: Pcwstr, pautoproxyoptions: MutPtr<WinhttpAutoproxyOptions>, pproxyinfo: MutPtr<WinhttpProxyInfo>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrl(hsession.rawAddress, lpcwszurl.rawAddress, pautoproxyoptions.rawAddress, pproxyinfo.rawAddress)
 
-public actual fun winHttpGetProxyForUrlEx(hresolver: COpaquePointer?, pcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, pcontext: ULong): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx((hresolver?.value ?: 0L), (pcwszurl?.value ?: 0L), (pautoproxyoptions?.value ?: 0L), pcontext.toLong()).toUInt()
+public actual fun winHttpGetProxyForUrlEx(hresolver: ConstPtr<CVoid>, pcwszurl: Pcwstr, pautoproxyoptions: ConstPtr<WinhttpAutoproxyOptions>, pcontext: ULong): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx(hresolver.rawAddress, pcwszurl.rawAddress, pautoproxyoptions.rawAddress, pcontext.toLong()).toUInt()
 
-public actual fun winHttpGetProxyForUrlEx2(hresolver: COpaquePointer?, pcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, cbinterfaceselectioncontext: UInt, pinterfaceselectioncontext: COpaquePointer?, pcontext: ULong): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2((hresolver?.value ?: 0L), (pcwszurl?.value ?: 0L), (pautoproxyoptions?.value ?: 0L), cbinterfaceselectioncontext.toInt(), (pinterfaceselectioncontext?.value ?: 0L), pcontext.toLong()).toUInt()
+public actual fun winHttpGetProxyForUrlEx2(hresolver: ConstPtr<CVoid>, pcwszurl: Pcwstr, pautoproxyoptions: ConstPtr<WinhttpAutoproxyOptions>, cbinterfaceselectioncontext: UInt, pinterfaceselectioncontext: ConstPtr<UByte>, pcontext: ULong): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx2(hresolver.rawAddress, pcwszurl.rawAddress, pautoproxyoptions.rawAddress, cbinterfaceselectioncontext.toInt(), pinterfaceselectioncontext.rawAddress, pcontext.toLong()).toUInt()
 
-public actual fun winHttpGetProxyResult(hresolver: COpaquePointer?, pproxyresult: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult((hresolver?.value ?: 0L), (pproxyresult?.value ?: 0L)).toUInt()
+public actual fun winHttpGetProxyResult(hresolver: ConstPtr<CVoid>, pproxyresult: MutPtr<WinhttpProxyResult>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResult(hresolver.rawAddress, pproxyresult.rawAddress).toUInt()
 
-public actual fun winHttpGetProxyResultEx(hresolver: COpaquePointer?, pproxyresultex: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx((hresolver?.value ?: 0L), (pproxyresultex?.value ?: 0L)).toUInt()
+public actual fun winHttpGetProxyResultEx(hresolver: ConstPtr<CVoid>, pproxyresultex: MutPtr<WinhttpProxyResultEx>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResultEx(hresolver.rawAddress, pproxyresultex.rawAddress).toUInt()
 
-public actual fun winHttpGetProxySettingsEx(hresolver: COpaquePointer?, proxysettingstype: WinhttpProxySettingsType, pproxysettingsparam: COpaquePointer?, pcontext: ULong): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx((hresolver?.value ?: 0L), proxysettingstype, (pproxysettingsparam?.value ?: 0L), pcontext.toLong()).toUInt()
+public actual fun winHttpGetProxySettingsEx(hresolver: ConstPtr<CVoid>, proxysettingstype: WinhttpProxySettingsType, pproxysettingsparam: ConstPtr<WinhttpProxySettingsParam>, pcontext: ULong): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsEx(hresolver.rawAddress, proxysettingstype, pproxysettingsparam.rawAddress, pcontext.toLong()).toUInt()
 
-public actual fun winHttpGetProxySettingsResultEx(hresolver: COpaquePointer?, pproxysettingsex: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx((hresolver?.value ?: 0L), (pproxysettingsex?.value ?: 0L)).toUInt()
+public actual fun winHttpGetProxySettingsResultEx(hresolver: ConstPtr<CVoid>, pproxysettingsex: MutPtr<CVoid>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsResultEx(hresolver.rawAddress, pproxysettingsex.rawAddress).toUInt()
 
-public actual fun winHttpGetProxySettingsVersion(hsession: COpaquePointer?, pdwproxysettingsversion: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion((hsession?.value ?: 0L), (pdwproxysettingsversion?.value ?: 0L)).toUInt()
+public actual fun winHttpGetProxySettingsVersion(hsession: ConstPtr<CVoid>, pdwproxysettingsversion: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsVersion(hsession.rawAddress, pdwproxysettingsversion.rawAddress).toUInt()
 
-public actual fun winHttpOpen(pszagentw: Pcwstr, dwaccesstype: WinhttpAccessType, pszproxyw: Pcwstr, pszproxybypassw: Pcwstr, dwflags: UInt): COpaquePointer? =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpOpen((pszagentw?.value ?: 0L), dwaccesstype.toInt(), (pszproxyw?.value ?: 0L), (pszproxybypassw?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun winHttpOpen(pszagentw: Pcwstr, dwaccesstype: WinhttpAccessType, pszproxyw: Pcwstr, pszproxybypassw: Pcwstr, dwflags: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpOpen(pszagentw.rawAddress, dwaccesstype.toInt(), pszproxyw.rawAddress, pszproxybypassw.rawAddress, dwflags.toInt()))
 
-public actual fun winHttpOpenRequest(hconnect: COpaquePointer?, pwszverb: Pcwstr, pwszobjectname: Pcwstr, pwszversion: Pcwstr, pwszreferrer: Pcwstr, ppwszaccepttypes: COpaquePointer?, dwflags: WinhttpOpenRequestFlags): COpaquePointer? =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpOpenRequest((hconnect?.value ?: 0L), (pwszverb?.value ?: 0L), (pwszobjectname?.value ?: 0L), (pwszversion?.value ?: 0L), (pwszreferrer?.value ?: 0L), (ppwszaccepttypes?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun winHttpOpenRequest(hconnect: MutPtr<CVoid>, pwszverb: Pcwstr, pwszobjectname: Pcwstr, pwszversion: Pcwstr, pwszreferrer: Pcwstr, ppwszaccepttypes: ConstPtr<Pcwstr>, dwflags: WinhttpOpenRequestFlags): MutPtr<CVoid> =
+    MutPtr(WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpOpenRequest(hconnect.rawAddress, pwszverb.rawAddress, pwszobjectname.rawAddress, pwszversion.rawAddress, pwszreferrer.rawAddress, ppwszaccepttypes.rawAddress, dwflags.toInt()))
 
-public actual fun winHttpQueryAuthSchemes(hrequest: COpaquePointer?, lpdwsupportedschemes: COpaquePointer?, lpdwfirstscheme: COpaquePointer?, pdwauthtarget: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes((hrequest?.value ?: 0L), (lpdwsupportedschemes?.value ?: 0L), (lpdwfirstscheme?.value ?: 0L), (pdwauthtarget?.value ?: 0L))
+public actual fun winHttpQueryAuthSchemes(hrequest: MutPtr<CVoid>, lpdwsupportedschemes: MutPtr<UInt>, lpdwfirstscheme: MutPtr<UInt>, pdwauthtarget: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpQueryAuthSchemes(hrequest.rawAddress, lpdwsupportedschemes.rawAddress, lpdwfirstscheme.rawAddress, pdwauthtarget.rawAddress)
 
-public actual fun winHttpQueryConnectionGroup(hinternet: COpaquePointer?, pguidconnection: COpaquePointer?, ullflags: ULong, ppresult: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup((hinternet?.value ?: 0L), (pguidconnection?.value ?: 0L), ullflags.toLong(), (ppresult?.value ?: 0L)).toUInt()
+public actual fun winHttpQueryConnectionGroup(hinternet: ConstPtr<CVoid>, pguidconnection: ConstPtr<Guid>, ullflags: ULong, ppresult: MutPtr<MutPtr<WinhttpQueryConnectionGroupResult>>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpQueryConnectionGroup(hinternet.rawAddress, pguidconnection.rawAddress, ullflags.toLong(), ppresult.rawAddress).toUInt()
 
-public actual fun winHttpQueryDataAvailable(hrequest: COpaquePointer?, lpdwnumberofbytesavailable: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable((hrequest?.value ?: 0L), (lpdwnumberofbytesavailable?.value ?: 0L))
+public actual fun winHttpQueryDataAvailable(hrequest: MutPtr<CVoid>, lpdwnumberofbytesavailable: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpQueryDataAvailable(hrequest.rawAddress, lpdwnumberofbytesavailable.rawAddress)
 
-public actual fun winHttpQueryHeaders(hrequest: COpaquePointer?, dwinfolevel: UInt, pwszname: Pcwstr, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders((hrequest?.value ?: 0L), dwinfolevel.toInt(), (pwszname?.value ?: 0L), (lpbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), (lpdwindex?.value ?: 0L))
+public actual fun winHttpQueryHeaders(hrequest: MutPtr<CVoid>, dwinfolevel: UInt, pwszname: Pcwstr, lpbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>, lpdwindex: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeaders(hrequest.rawAddress, dwinfolevel.toInt(), pwszname.rawAddress, lpbuffer.rawAddress, lpdwbufferlength.rawAddress, lpdwindex.rawAddress)
 
-public actual fun winHttpQueryHeadersEx(hrequest: COpaquePointer?, dwinfolevel: UInt, ullflags: ULong, uicodepage: UInt, pdwindex: COpaquePointer?, pheadername: COpaquePointer?, pbuffer: COpaquePointer?, pdwbufferlength: COpaquePointer?, ppheaders: COpaquePointer?, pdwheaderscount: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx((hrequest?.value ?: 0L), dwinfolevel.toInt(), ullflags.toLong(), uicodepage.toInt(), (pdwindex?.value ?: 0L), (pheadername?.value ?: 0L), (pbuffer?.value ?: 0L), (pdwbufferlength?.value ?: 0L), (ppheaders?.value ?: 0L), (pdwheaderscount?.value ?: 0L)).toUInt()
+public actual fun winHttpQueryHeadersEx(hrequest: ConstPtr<CVoid>, dwinfolevel: UInt, ullflags: ULong, uicodepage: UInt, pdwindex: MutPtr<UInt>, pheadername: ConstPtr<WinhttpHeaderName>, pbuffer: MutPtr<CVoid>, pdwbufferlength: MutPtr<UInt>, ppheaders: MutPtr<MutPtr<WinhttpExtendedHeader>>, pdwheaderscount: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeadersEx(hrequest.rawAddress, dwinfolevel.toInt(), ullflags.toLong(), uicodepage.toInt(), pdwindex.rawAddress, pheadername.rawAddress, pbuffer.rawAddress, pdwbufferlength.rawAddress, ppheaders.rawAddress, pdwheaderscount.rawAddress).toUInt()
 
-public actual fun winHttpQueryOption(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpQueryOption((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
+public actual fun winHttpQueryOption(hinternet: MutPtr<CVoid>, dwoption: UInt, lpbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpQueryOption(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun winHttpReadData(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpReadData((hrequest?.value ?: 0L), (lpbuffer?.value ?: 0L), dwnumberofbytestoread.toInt(), (lpdwnumberofbytesread?.value ?: 0L))
+public actual fun winHttpReadData(hrequest: MutPtr<CVoid>, lpbuffer: MutPtr<CVoid>, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpReadData(hrequest.rawAddress, lpbuffer.rawAddress, dwnumberofbytestoread.toInt(), lpdwnumberofbytesread.rawAddress)
 
-public actual fun winHttpReadDataEx(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?, ullflags: ULong, cbproperty: UInt, pvproperty: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpReadDataEx((hrequest?.value ?: 0L), (lpbuffer?.value ?: 0L), dwnumberofbytestoread.toInt(), (lpdwnumberofbytesread?.value ?: 0L), ullflags.toLong(), cbproperty.toInt(), (pvproperty?.value ?: 0L)).toUInt()
+public actual fun winHttpReadDataEx(hrequest: MutPtr<CVoid>, lpbuffer: MutPtr<CVoid>, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: MutPtr<UInt>, ullflags: ULong, cbproperty: UInt, pvproperty: ConstPtr<CVoid>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpReadDataEx(hrequest.rawAddress, lpbuffer.rawAddress, dwnumberofbytestoread.toInt(), lpdwnumberofbytesread.rawAddress, ullflags.toLong(), cbproperty.toInt(), pvproperty.rawAddress).toUInt()
 
-public actual fun winHttpReadProxySettings(hsession: COpaquePointer?, pcwszconnectionname: Pcwstr, ffallbacktodefaultsettings: Bool, fsetautodiscoverfordefaultsettings: Bool, pdwsettingsversion: COpaquePointer?, pfdefaultsettingsarereturned: COpaquePointer?, pwinhttpproxysettings: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings((hsession?.value ?: 0L), (pcwszconnectionname?.value ?: 0L), ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, (pdwsettingsversion?.value ?: 0L), (pfdefaultsettingsarereturned?.value ?: 0L), (pwinhttpproxysettings?.value ?: 0L)).toUInt()
+public actual fun winHttpReadProxySettings(hsession: ConstPtr<CVoid>, pcwszconnectionname: Pcwstr, ffallbacktodefaultsettings: Bool, fsetautodiscoverfordefaultsettings: Bool, pdwsettingsversion: MutPtr<UInt>, pfdefaultsettingsarereturned: MutPtr<Bool>, pwinhttpproxysettings: MutPtr<WinhttpProxySettings>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpReadProxySettings(hsession.rawAddress, pcwszconnectionname.rawAddress, ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, pdwsettingsversion.rawAddress, pfdefaultsettingsarereturned.rawAddress, pwinhttpproxysettings.rawAddress).toUInt()
 
-public actual fun winHttpReceiveResponse(hrequest: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse((hrequest?.value ?: 0L), (lpreserved?.value ?: 0L))
+public actual fun winHttpReceiveResponse(hrequest: MutPtr<CVoid>, lpreserved: MutPtr<CVoid>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpReceiveResponse(hrequest.rawAddress, lpreserved.rawAddress)
 
-public actual fun winHttpRegisterProxyChangeNotification(ullflags: ULong, pfncallback: WinhttpProxyChangeCallback, pvcontext: COpaquePointer?, hregistration: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification(ullflags.toLong(), 0L, (pvcontext?.value ?: 0L), (hregistration?.value ?: 0L)).toUInt()
+public actual fun winHttpRegisterProxyChangeNotification(ullflags: ULong, pfncallback: WinhttpProxyChangeCallback, pvcontext: ConstPtr<CVoid>, hregistration: MutPtr<MutPtr<CVoid>>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpRegisterProxyChangeNotification(ullflags.toLong(), 0L, pvcontext.rawAddress, hregistration.rawAddress).toUInt()
 
-public actual fun winHttpResetAutoProxy(hsession: COpaquePointer?, dwflags: UInt): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy((hsession?.value ?: 0L), dwflags.toInt()).toUInt()
+public actual fun winHttpResetAutoProxy(hsession: ConstPtr<CVoid>, dwflags: UInt): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpResetAutoProxy(hsession.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun winHttpSendRequest(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt, dwtotallength: UInt, dwcontext: ULong): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpSendRequest((hrequest?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), (lpoptional?.value ?: 0L), dwoptionallength.toInt(), dwtotallength.toInt(), dwcontext.toLong())
+public actual fun winHttpSendRequest(hrequest: MutPtr<CVoid>, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: ConstPtr<CVoid>, dwoptionallength: UInt, dwtotallength: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpSendRequest(hrequest.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), lpoptional.rawAddress, dwoptionallength.toInt(), dwtotallength.toInt(), dwcontext.toLong())
 
-public actual fun winHttpSetCredentials(hrequest: COpaquePointer?, authtargets: UInt, authscheme: UInt, pwszusername: Pcwstr, pwszpassword: Pcwstr, pauthparams: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpSetCredentials((hrequest?.value ?: 0L), authtargets.toInt(), authscheme.toInt(), (pwszusername?.value ?: 0L), (pwszpassword?.value ?: 0L), (pauthparams?.value ?: 0L))
+public actual fun winHttpSetCredentials(hrequest: MutPtr<CVoid>, authtargets: UInt, authscheme: UInt, pwszusername: Pcwstr, pwszpassword: Pcwstr, pauthparams: MutPtr<CVoid>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpSetCredentials(hrequest.rawAddress, authtargets.toInt(), authscheme.toInt(), pwszusername.rawAddress, pwszpassword.rawAddress, pauthparams.rawAddress)
 
-public actual fun winHttpSetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration((pproxyinfo?.value ?: 0L))
+public actual fun winHttpSetDefaultProxyConfiguration(pproxyinfo: MutPtr<WinhttpProxyInfo>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpSetDefaultProxyConfiguration(pproxyinfo.rawAddress)
 
-public actual fun winHttpSetOption(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpSetOption((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), dwbufferlength.toInt())
+public actual fun winHttpSetOption(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: ConstPtr<CVoid>, dwbufferlength: UInt): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpSetOption(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, dwbufferlength.toInt())
 
 public actual fun winHttpSetProxySettingsPerUser(fproxysettingsperuser: Bool): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser(fproxysettingsperuser).toUInt()
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpSetProxySettingsPerUser(fproxysettingsperuser).toUInt()
 
-public actual fun winHttpSetStatusCallback(hinternet: COpaquePointer?, lpfninternetcallback: WinhttpStatusCallback, dwnotificationflags: UInt, dwreserved: ULong): WinhttpStatusCallback =
+public actual fun winHttpSetStatusCallback(hinternet: MutPtr<CVoid>, lpfninternetcallback: WinhttpStatusCallback, dwnotificationflags: UInt, dwreserved: ULong): WinhttpStatusCallback =
     null
 
-public actual fun winHttpSetTimeouts(hinternet: COpaquePointer?, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts((hinternet?.value ?: 0L), nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout)
+public actual fun winHttpSetTimeouts(hinternet: MutPtr<CVoid>, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpSetTimeouts(hinternet.rawAddress, nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout)
 
-public actual fun winHttpTimeFromSystemTime(pst: COpaquePointer?, pwsztime: Pwstr): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime((pst?.value ?: 0L), (pwsztime?.value ?: 0L))
+public actual fun winHttpTimeFromSystemTime(pst: ConstPtr<Systemtime>, pwsztime: Pwstr): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpTimeFromSystemTime(pst.rawAddress, pwsztime.rawAddress)
 
-public actual fun winHttpTimeToSystemTime(pwsztime: Pcwstr, pst: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime((pwsztime?.value ?: 0L), (pst?.value ?: 0L))
+public actual fun winHttpTimeToSystemTime(pwsztime: Pcwstr, pst: MutPtr<Systemtime>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpTimeToSystemTime(pwsztime.rawAddress, pst.rawAddress)
 
-public actual fun winHttpUnregisterProxyChangeNotification(hregistration: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification((hregistration?.value ?: 0L)).toUInt()
+public actual fun winHttpUnregisterProxyChangeNotification(hregistration: ConstPtr<CVoid>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpUnregisterProxyChangeNotification(hregistration.rawAddress).toUInt()
 
-public actual fun winHttpWebSocketClose(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose((hwebsocket?.value ?: 0L), usstatus.toShort(), (pvreason?.value ?: 0L), dwreasonlength.toInt()).toUInt()
+public actual fun winHttpWebSocketClose(hwebsocket: ConstPtr<CVoid>, usstatus: UShort, pvreason: ConstPtr<CVoid>, dwreasonlength: UInt): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketClose(hwebsocket.rawAddress, usstatus.toShort(), pvreason.rawAddress, dwreasonlength.toInt()).toUInt()
 
-public actual fun winHttpWebSocketCompleteUpgrade(hrequest: COpaquePointer?, pcontext: ULong): COpaquePointer? =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade((hrequest?.value ?: 0L), pcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun winHttpWebSocketCompleteUpgrade(hrequest: ConstPtr<CVoid>, pcontext: ULong): MutPtr<CVoid> =
+    MutPtr(WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketCompleteUpgrade(hrequest.rawAddress, pcontext.toLong()))
 
-public actual fun winHttpWebSocketQueryCloseStatus(hwebsocket: COpaquePointer?, pusstatus: COpaquePointer?, pvreason: COpaquePointer?, dwreasonlength: UInt, pdwreasonlengthconsumed: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus((hwebsocket?.value ?: 0L), (pusstatus?.value ?: 0L), (pvreason?.value ?: 0L), dwreasonlength.toInt(), (pdwreasonlengthconsumed?.value ?: 0L)).toUInt()
+public actual fun winHttpWebSocketQueryCloseStatus(hwebsocket: ConstPtr<CVoid>, pusstatus: MutPtr<UShort>, pvreason: MutPtr<CVoid>, dwreasonlength: UInt, pdwreasonlengthconsumed: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketQueryCloseStatus(hwebsocket.rawAddress, pusstatus.rawAddress, pvreason.rawAddress, dwreasonlength.toInt(), pdwreasonlengthconsumed.rawAddress).toUInt()
 
-public actual fun winHttpWebSocketReceive(hwebsocket: COpaquePointer?, pvbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbytesread: COpaquePointer?, pebuffertype: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive((hwebsocket?.value ?: 0L), (pvbuffer?.value ?: 0L), dwbufferlength.toInt(), (pdwbytesread?.value ?: 0L), (pebuffertype?.value ?: 0L)).toUInt()
+public actual fun winHttpWebSocketReceive(hwebsocket: ConstPtr<CVoid>, pvbuffer: MutPtr<CVoid>, dwbufferlength: UInt, pdwbytesread: MutPtr<UInt>, pebuffertype: MutPtr<WinhttpWebSocketBufferType>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketReceive(hwebsocket.rawAddress, pvbuffer.rawAddress, dwbufferlength.toInt(), pdwbytesread.rawAddress, pebuffertype.rawAddress).toUInt()
 
-public actual fun winHttpWebSocketSend(hwebsocket: COpaquePointer?, ebuffertype: WinhttpWebSocketBufferType, pvbuffer: COpaquePointer?, dwbufferlength: UInt): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend((hwebsocket?.value ?: 0L), ebuffertype, (pvbuffer?.value ?: 0L), dwbufferlength.toInt()).toUInt()
+public actual fun winHttpWebSocketSend(hwebsocket: ConstPtr<CVoid>, ebuffertype: WinhttpWebSocketBufferType, pvbuffer: ConstPtr<CVoid>, dwbufferlength: UInt): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketSend(hwebsocket.rawAddress, ebuffertype, pvbuffer.rawAddress, dwbufferlength.toInt()).toUInt()
 
-public actual fun winHttpWebSocketShutdown(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown((hwebsocket?.value ?: 0L), usstatus.toShort(), (pvreason?.value ?: 0L), dwreasonlength.toInt()).toUInt()
+public actual fun winHttpWebSocketShutdown(hwebsocket: ConstPtr<CVoid>, usstatus: UShort, pvreason: ConstPtr<CVoid>, dwreasonlength: UInt): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketShutdown(hwebsocket.rawAddress, usstatus.toShort(), pvreason.rawAddress, dwreasonlength.toInt()).toUInt()
 
-public actual fun winHttpWriteData(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: COpaquePointer?): Bool =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWriteData((hrequest?.value ?: 0L), (lpbuffer?.value ?: 0L), dwnumberofbytestowrite.toInt(), (lpdwnumberofbyteswritten?.value ?: 0L))
+public actual fun winHttpWriteData(hrequest: MutPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: MutPtr<UInt>): Bool =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWriteData(hrequest.rawAddress, lpbuffer.rawAddress, dwnumberofbytestowrite.toInt(), lpdwnumberofbyteswritten.rawAddress)
 
-public actual fun winHttpWriteProxySettings(hsession: COpaquePointer?, fforceupdate: Bool, pwinhttpproxysettings: COpaquePointer?): UInt =
-    WindowsWin32NetworkingWinhttpJniBridge.windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings((hsession?.value ?: 0L), fforceupdate, (pwinhttpproxysettings?.value ?: 0L)).toUInt()
+public actual fun winHttpWriteProxySettings(hsession: ConstPtr<CVoid>, fforceupdate: Bool, pwinhttpproxysettings: ConstPtr<WinhttpProxySettings>): UInt =
+    WindowsWin32NetworkingWinhttpJniBridge.windowssysWindowsWin32NetworkingWinhttpWinHttpWriteProxySettings(hsession.rawAddress, fforceupdate, pwinhttpproxysettings.rawAddress).toUInt()

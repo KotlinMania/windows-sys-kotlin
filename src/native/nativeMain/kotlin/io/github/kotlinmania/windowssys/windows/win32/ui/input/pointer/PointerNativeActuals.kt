@@ -2,121 +2,128 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hsyntheticpointerdevice
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_enableMouseInPointer
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerCursorId
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerDevice
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerDevices
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerInputTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerPenInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getPointerType
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_initializeTouchInjection
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_injectTouchInput
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerDeviceCursorInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerDeviceInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerDeviceProperty
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerTypeInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerEnableMouseInPointer
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerCursorId
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerDevice
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerDeviceCursors
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerDeviceProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerDeviceRects
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerDevices
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerFrameInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerFrameInfoHistory
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerFramePenInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerFramePenInfoHistory
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfoHistory
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerInfoHistory
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerInputTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerPenInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerPenInfoHistory
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerTouchInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerTouchInfoHistory
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetPointerType
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetRawPointerDeviceData
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerGetUnpredictedMessagePos
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerInitializeTouchInjection
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerInjectSyntheticPointerInput
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerInjectTouchInput
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.cinterop.windowssysWindowsWin32UiInputPointerSkipPointerFrameMessages
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun enableMouseInPointer(fenable: Bool): Bool =
-    windowssys_windows_win32_ui_input_pointer_enableMouseInPointer(fenable)
+    windowssysWindowsWin32UiInputPointerEnableMouseInPointer(fenable)
 
-public actual fun getPointerCursorId(pointerid: UInt, cursorid: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerCursorId(pointerid, cursorid?.value?.toCPointer<ByteVar>())
+public actual fun getPointerCursorId(pointerid: UInt, cursorid: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerCursorId(pointerid, cursorid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerDevice(device: Handle, pointerdevice: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerDevice(device?.value?.toCPointer<ByteVar>(), pointerdevice?.value?.toCPointer<ByteVar>())
+public actual fun getPointerDevice(device: Handle, pointerdevice: MutPtr<PointerDeviceInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerDevice(device.rawAddress.toCPointer<ByteVar>(), pointerdevice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerDeviceCursors(device: Handle, cursorcount: COpaquePointer?, devicecursors: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors(device?.value?.toCPointer<ByteVar>(), cursorcount?.value?.toCPointer<ByteVar>(), devicecursors?.value?.toCPointer<ByteVar>())
+public actual fun getPointerDeviceCursors(device: Handle, cursorcount: MutPtr<UInt>, devicecursors: MutPtr<PointerDeviceCursorInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerDeviceCursors(device.rawAddress.toCPointer<ByteVar>(), cursorcount.rawAddress.toCPointer<ByteVar>(), devicecursors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerDeviceProperties(device: Handle, propertycount: COpaquePointer?, pointerproperties: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties(device?.value?.toCPointer<ByteVar>(), propertycount?.value?.toCPointer<ByteVar>(), pointerproperties?.value?.toCPointer<ByteVar>())
+public actual fun getPointerDeviceProperties(device: Handle, propertycount: MutPtr<UInt>, pointerproperties: MutPtr<PointerDeviceProperty>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerDeviceProperties(device.rawAddress.toCPointer<ByteVar>(), propertycount.rawAddress.toCPointer<ByteVar>(), pointerproperties.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerDeviceRects(device: Handle, pointerdevicerect: COpaquePointer?, displayrect: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects(device?.value?.toCPointer<ByteVar>(), pointerdevicerect?.value?.toCPointer<ByteVar>(), displayrect?.value?.toCPointer<ByteVar>())
+public actual fun getPointerDeviceRects(device: Handle, pointerdevicerect: MutPtr<Rect>, displayrect: MutPtr<Rect>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerDeviceRects(device.rawAddress.toCPointer<ByteVar>(), pointerdevicerect.rawAddress.toCPointer<ByteVar>(), displayrect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerDevices(devicecount: COpaquePointer?, pointerdevices: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerDevices(devicecount?.value?.toCPointer<ByteVar>(), pointerdevices?.value?.toCPointer<ByteVar>())
+public actual fun getPointerDevices(devicecount: MutPtr<UInt>, pointerdevices: MutPtr<PointerDeviceInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerDevices(devicecount.rawAddress.toCPointer<ByteVar>(), pointerdevices.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerFrameInfo(pointerid: UInt, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo(pointerid, pointercount?.value?.toCPointer<ByteVar>(), pointerinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerFrameInfo(pointerid: UInt, pointercount: MutPtr<UInt>, pointerinfo: MutPtr<PointerInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerFrameInfo(pointerid, pointercount.rawAddress.toCPointer<ByteVar>(), pointerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerFrameInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory(pointerid, entriescount?.value?.toCPointer<ByteVar>(), pointercount?.value?.toCPointer<ByteVar>(), pointerinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerFrameInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointercount: MutPtr<UInt>, pointerinfo: MutPtr<PointerInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerFrameInfoHistory(pointerid, entriescount.rawAddress.toCPointer<ByteVar>(), pointercount.rawAddress.toCPointer<ByteVar>(), pointerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerFramePenInfo(pointerid: UInt, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo(pointerid, pointercount?.value?.toCPointer<ByteVar>(), peninfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerFramePenInfo(pointerid: UInt, pointercount: MutPtr<UInt>, peninfo: MutPtr<PointerPenInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerFramePenInfo(pointerid, pointercount.rawAddress.toCPointer<ByteVar>(), peninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerFramePenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory(pointerid, entriescount?.value?.toCPointer<ByteVar>(), pointercount?.value?.toCPointer<ByteVar>(), peninfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerFramePenInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointercount: MutPtr<UInt>, peninfo: MutPtr<PointerPenInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerFramePenInfoHistory(pointerid, entriescount.rawAddress.toCPointer<ByteVar>(), pointercount.rawAddress.toCPointer<ByteVar>(), peninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerFrameTouchInfo(pointerid: UInt, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo(pointerid, pointercount?.value?.toCPointer<ByteVar>(), touchinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerFrameTouchInfo(pointerid: UInt, pointercount: MutPtr<UInt>, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfo(pointerid, pointercount.rawAddress.toCPointer<ByteVar>(), touchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory(pointerid, entriescount?.value?.toCPointer<ByteVar>(), pointercount?.value?.toCPointer<ByteVar>(), touchinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointercount: MutPtr<UInt>, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfoHistory(pointerid, entriescount.rawAddress.toCPointer<ByteVar>(), pointercount.rawAddress.toCPointer<ByteVar>(), touchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerInfo(pointerid: UInt, pointerinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerInfo(pointerid, pointerinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerInfo(pointerid: UInt, pointerinfo: MutPtr<PointerInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerInfo(pointerid, pointerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory(pointerid, entriescount?.value?.toCPointer<ByteVar>(), pointerinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointerinfo: MutPtr<PointerInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerInfoHistory(pointerid, entriescount.rawAddress.toCPointer<ByteVar>(), pointerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerInputTransform(pointerid, historycount, inputtransform?.value?.toCPointer<ByteVar>())
+public actual fun getPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: MutPtr<InputTransform>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerInputTransform(pointerid, historycount, inputtransform.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerPenInfo(pointerid: UInt, peninfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerPenInfo(pointerid, peninfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerPenInfo(pointerid: UInt, peninfo: MutPtr<PointerPenInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerPenInfo(pointerid, peninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerPenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory(pointerid, entriescount?.value?.toCPointer<ByteVar>(), peninfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerPenInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, peninfo: MutPtr<PointerPenInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerPenInfoHistory(pointerid, entriescount.rawAddress.toCPointer<ByteVar>(), peninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerTouchInfo(pointerid: UInt, touchinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo(pointerid, touchinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerTouchInfo(pointerid: UInt, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerTouchInfo(pointerid, touchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory(pointerid, entriescount?.value?.toCPointer<ByteVar>(), touchinfo?.value?.toCPointer<ByteVar>())
+public actual fun getPointerTouchInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerTouchInfoHistory(pointerid, entriescount.rawAddress.toCPointer<ByteVar>(), touchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPointerType(pointerid: UInt, pointertype: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getPointerType(pointerid, pointertype?.value?.toCPointer<ByteVar>())
+public actual fun getPointerType(pointerid: UInt, pointertype: MutPtr<PointerInputType>): Bool =
+    windowssysWindowsWin32UiInputPointerGetPointerType(pointerid, pointertype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: COpaquePointer?, pvalues: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData(pointerid, historycount, propertiescount, pproperties?.value?.toCPointer<ByteVar>(), pvalues?.value?.toCPointer<ByteVar>())
+public actual fun getRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: ConstPtr<PointerDeviceProperty>, pvalues: MutPtr<Int>): Bool =
+    windowssysWindowsWin32UiInputPointerGetRawPointerDeviceData(pointerid, historycount, propertiescount, pproperties.rawAddress.toCPointer<ByteVar>(), pvalues.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getUnpredictedMessagePos(): UInt =
-    windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos()
+    windowssysWindowsWin32UiInputPointerGetUnpredictedMessagePos()
 
 public actual fun initializeTouchInjection(maxcount: UInt, dwmode: TouchFeedbackMode): Bool =
-    windowssys_windows_win32_ui_input_pointer_initializeTouchInjection(maxcount, dwmode)
+    windowssysWindowsWin32UiInputPointerInitializeTouchInjection(maxcount, dwmode)
 
-public actual fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: COpaquePointer?, count: UInt): Bool =
-    windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput(device?.value?.toCPointer<ByteVar>(), pointerinfo?.value?.toCPointer<ByteVar>(), count)
+public actual fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: ConstPtr<PointerTypeInfo>, count: UInt): Bool =
+    windowssysWindowsWin32UiInputPointerInjectSyntheticPointerInput(device.rawAddress.toCPointer<ByteVar>(), pointerinfo.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun injectTouchInput(count: UInt, contacts: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_pointer_injectTouchInput(count, contacts?.value?.toCPointer<ByteVar>())
+public actual fun injectTouchInput(count: UInt, contacts: ConstPtr<PointerTouchInfo>): Bool =
+    windowssysWindowsWin32UiInputPointerInjectTouchInput(count, contacts.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isMouseInPointerEnabled(): Bool =
-    windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled()
+    windowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled()
 
 public actual fun skipPointerFrameMessages(pointerid: UInt): Bool =
-    windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages(pointerid)
+    windowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(pointerid)

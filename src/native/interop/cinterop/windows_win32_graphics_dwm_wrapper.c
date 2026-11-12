@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmAttachMilContent(void* hwnd) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmAttachMilContent(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmAttachMilContent(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmDefWindowProc(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, void* plresult) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmDefWindowProc(void* hwnd, uint32_t msg, uint64_t wparam, int64_t lparam, void* plresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmDefWindowProc(void* hwnd, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmDetachMilContent(void* hwnd) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmDetachMilContent(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmDetachMilContent(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow(void* hwnd, void* pblurbehind) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmEnableBlurBehindWindow(void* hwnd, void* pblurbehind) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmEnableComposition(uint32_t ucompositionaction) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmEnableComposition(uint32_t ucompositionaction) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmEnableComposition(uint32_t ucom
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS(int32_t fenablemmcss) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmEnableMMCSS(int32_t fenablemmcss) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS(int32_t fenablemmcs
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea(void* hwnd, void* pmarinset) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmExtendFrameIntoClientArea(void* hwnd, void* pmarinset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -175,7 +175,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmFlush(void) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmFlush(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmFlush(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor(void* pcrcolorization, void* pfopaqueblend) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetColorizationColor(void* pcrcolorization, void* pfopaqueblend) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor(void* pcrc
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo(void* hwnd, void* ptiminginfo) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetCompositionTimingInfo(void* hwnd, void* ptiminginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -242,7 +242,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient(uint32_t uindex, void* pclientuuid) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetGraphicsStreamClient(uint32_t uindex, void* pclientuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint(uint32_t uindex, void* ptransform) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetGraphicsStreamTransformHint(uint32_t uindex, void* ptransform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -288,7 +288,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint(
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes(void* pfisremoting, void* pfisconnected, void* pdwgeneration) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetTransportAttributes(void* pfisremoting, void* pfisconnected, void* pdwgeneration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -312,7 +312,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes(void* pf
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements(void* appwindow, void* value) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetUnmetTabRequirements(void* appwindow, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -335,7 +335,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements(void* a
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute(void* hwnd, uint32_t dwattribute, void* pvattribute, uint32_t cbattribute) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmGetWindowAttribute(void* hwnd, uint32_t dwattribute, void* pvattribute, uint32_t cbattribute) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps(void* hwnd) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmInvalidateIconicBitmaps(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled(void* pfenabled) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmIsCompositionEnabled(void* pfenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -404,7 +404,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled(void* pfen
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration(void* hwnd, int32_t crefreshes, int32_t frelative) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmModifyPreviousDxFrameDuration(void* hwnd, int32_t crefreshes, int32_t frelative) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize(int64_t hthumbnail, void* psize) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmQueryThumbnailSourceSize(int64_t hthumbnail, void* psize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -451,7 +451,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail(void* hwnddestination, void* hwndsource, void* phthumbnailid) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmRegisterThumbnail(void* hwnddestination, void* hwndsource, void* phthumbnailid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail(void* hwnddes
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmRenderGesture(int32_t gt, uint32_t ccontacts, void* pdwpointerid, void* ppoints) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmRenderGesture(int32_t gt, uint32_t ccontacts, void* pdwpointerid, void* ppoints) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -500,7 +500,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmRenderGesture(int32_t gt, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration(void* hwnd, int32_t crefreshes) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmSetDxFrameDuration(void* hwnd, int32_t crefreshes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -523,7 +523,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap(void* hwnd, void* hbmp, void* pptclient, uint32_t dwsitflags) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmSetIconicLivePreviewBitmap(void* hwnd, void* hbmp, void* pptclient, uint32_t dwsitflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -548,7 +548,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail(void* hwnd, void* hbmp, uint32_t dwsitflags) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmSetIconicThumbnail(void* hwnd, void* hbmp, uint32_t dwsitflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -572,7 +572,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters(void* hwnd, void* ppresentparams) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmSetPresentParameters(void* hwnd, void* ppresentparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -595,7 +595,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute(void* hwnd, uint32_t dwattribute, void* pvattribute, uint32_t cbattribute) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmSetWindowAttribute(void* hwnd, uint32_t dwattribute, void* pvattribute, uint32_t cbattribute) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -620,7 +620,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmShowContact(uint32_t dwpointerid, uint32_t eshowcontact) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmShowContact(uint32_t dwpointerid, uint32_t eshowcontact) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -643,7 +643,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmShowContact(uint32_t dwpointeri
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow(void* hwnd, int32_t target) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmTransitionOwnedWindow(void* hwnd, int32_t target) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -666,7 +666,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail(int64_t hthumbnailid) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmUnregisterThumbnail(int64_t hthumbnailid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -688,7 +688,7 @@ int32_t windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail(int64_t hth
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties(int64_t hthumbnailid, void* ptnproperties) {
+int32_t windowssysWindowsWin32GraphicsDwmDwmUpdateThumbnailProperties(int64_t hthumbnailid, void* ptnproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;

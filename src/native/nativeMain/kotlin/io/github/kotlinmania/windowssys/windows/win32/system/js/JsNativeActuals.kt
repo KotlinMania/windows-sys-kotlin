@@ -2,332 +2,335 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.js
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsAddRef
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsBoolToBoolean
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsBooleanToBool
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCallFunction
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCollectGarbage
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConstructObject
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToBoolean
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToNumber
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToObject
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToString
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateArray
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateError
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateExternalObject
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateFunction
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateObject
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateRangeError
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateReferenceError
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateRuntime
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateSyntaxError
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateTypeError
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateURIError
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDefineProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDeleteIndexedProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDeleteProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDisableRuntimeExecution
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDisposeRuntime
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDoubleToNumber
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsEnableRuntimeExecution
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsEquals
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetAndClearException
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetCurrentContext
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetExtensionAllowed
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetExternalData
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetFalseValue
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetGlobalObject
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetIndexedProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetNullValue
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetOwnPropertyNames
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetPropertyIdFromName
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetPropertyNameFromId
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetPrototype
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetRuntime
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetStringLength
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetTrueValue
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetUndefinedValue
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetValueType
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasException
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasExternalData
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasIndexedProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIdle
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIntToNumber
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIsEnumeratingHeap
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsNumberToDouble
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsParseScript
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsParseSerializedScript
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsPointerToString
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsPreventExtension
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsRelease
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsRunScript
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsRunSerializedScript
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSerializeScript
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetCurrentContext
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetException
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetExternalData
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetIndexedProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetProperty
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetPrototype
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsStopProfiling
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsStrictEquals
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsStringToPointer
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsValueToVariant
-import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsVariantToValue
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsAddRef
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsBoolToBoolean
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsBooleanToBool
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCallFunction
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCollectGarbage
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsConstructObject
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsConvertValueToBoolean
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsConvertValueToNumber
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsConvertValueToObject
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsConvertValueToString
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateArray
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateError
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateExternalObject
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateFunction
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateObject
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateRangeError
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateReferenceError
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateRuntime
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateSyntaxError
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateTypeError
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsCreateURIError
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsDefineProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsDeleteIndexedProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsDeleteProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsDisableRuntimeExecution
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsDisposeRuntime
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsDoubleToNumber
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsEnableRuntimeExecution
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsEquals
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetAndClearException
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetCurrentContext
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetExtensionAllowed
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetExternalData
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetFalseValue
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetGlobalObject
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetIndexedProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetNullValue
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetOwnPropertyDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetOwnPropertyNames
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetPropertyIdFromName
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetPropertyNameFromId
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetPrototype
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetRuntime
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetRuntimeMemoryLimit
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetRuntimeMemoryUsage
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetStringLength
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetTrueValue
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetUndefinedValue
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsGetValueType
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsHasException
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsHasExternalData
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsHasIndexedProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsHasProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsIdle
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsIntToNumber
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsIsEnumeratingHeap
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsIsRuntimeExecutionDisabled
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsNumberToDouble
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsParseScript
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsParseSerializedScript
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsPointerToString
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsPreventExtension
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsRelease
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsRunScript
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsRunSerializedScript
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSerializeScript
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetCurrentContext
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetException
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetExternalData
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetIndexedProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetProperty
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetPrototype
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetRuntimeBeforeCollectCallback
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetRuntimeMemoryAllocationCallback
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsSetRuntimeMemoryLimit
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsStopProfiling
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsStrictEquals
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsStringToPointer
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsValueToVariant
+import io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssysWindowsWin32SystemJsJsVariantToValue
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun jsAddRef(ref: COpaquePointer?, count: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsAddRef(ref?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun jsAddRef(ref: ConstPtr<CVoid>, count: MutPtr<UInt>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsAddRef(ref.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsBoolToBoolean(value: UByte, booleanvalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsBoolToBoolean(value, booleanvalue?.value?.toCPointer<ByteVar>())
+public actual fun jsBoolToBoolean(value: UByte, booleanvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsBoolToBoolean(value, booleanvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsBooleanToBool(value: COpaquePointer?, boolvalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsBooleanToBool(value?.value?.toCPointer<ByteVar>(), boolvalue?.value?.toCPointer<ByteVar>())
+public actual fun jsBooleanToBool(value: ConstPtr<CVoid>, boolvalue: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsBooleanToBool(value.rawAddress.toCPointer<ByteVar>(), boolvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCallFunction(function: COpaquePointer?, arguments: COpaquePointer?, argumentcount: UShort, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCallFunction(function?.value?.toCPointer<ByteVar>(), arguments?.value?.toCPointer<ByteVar>(), argumentcount, result?.value?.toCPointer<ByteVar>())
+public actual fun jsCallFunction(function: ConstPtr<CVoid>, arguments: ConstPtr<ConstPtr<CVoid>>, argumentcount: UShort, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCallFunction(function.rawAddress.toCPointer<ByteVar>(), arguments.rawAddress.toCPointer<ByteVar>(), argumentcount, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCollectGarbage(runtime: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCollectGarbage(runtime?.value?.toCPointer<ByteVar>())
+public actual fun jsCollectGarbage(runtime: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCollectGarbage(runtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsConstructObject(function: COpaquePointer?, arguments: COpaquePointer?, argumentcount: UShort, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsConstructObject(function?.value?.toCPointer<ByteVar>(), arguments?.value?.toCPointer<ByteVar>(), argumentcount, result?.value?.toCPointer<ByteVar>())
+public actual fun jsConstructObject(function: ConstPtr<CVoid>, arguments: ConstPtr<ConstPtr<CVoid>>, argumentcount: UShort, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsConstructObject(function.rawAddress.toCPointer<ByteVar>(), arguments.rawAddress.toCPointer<ByteVar>(), argumentcount, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsConvertValueToBoolean(value: COpaquePointer?, booleanvalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsConvertValueToBoolean(value?.value?.toCPointer<ByteVar>(), booleanvalue?.value?.toCPointer<ByteVar>())
+public actual fun jsConvertValueToBoolean(value: ConstPtr<CVoid>, booleanvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsConvertValueToBoolean(value.rawAddress.toCPointer<ByteVar>(), booleanvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsConvertValueToNumber(value: COpaquePointer?, numbervalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsConvertValueToNumber(value?.value?.toCPointer<ByteVar>(), numbervalue?.value?.toCPointer<ByteVar>())
+public actual fun jsConvertValueToNumber(value: ConstPtr<CVoid>, numbervalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsConvertValueToNumber(value.rawAddress.toCPointer<ByteVar>(), numbervalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsConvertValueToObject(value: COpaquePointer?, obj: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsConvertValueToObject(value?.value?.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>())
+public actual fun jsConvertValueToObject(value: ConstPtr<CVoid>, obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsConvertValueToObject(value.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsConvertValueToString(value: COpaquePointer?, stringvalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsConvertValueToString(value?.value?.toCPointer<ByteVar>(), stringvalue?.value?.toCPointer<ByteVar>())
+public actual fun jsConvertValueToString(value: ConstPtr<CVoid>, stringvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsConvertValueToString(value.rawAddress.toCPointer<ByteVar>(), stringvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateArray(length: UInt, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateArray(length, result?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateArray(length: UInt, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateArray(length, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateError(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateExternalObject(data: COpaquePointer?, finalizecallback: JsFinalizeCallback, obj: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateExternalObject(data?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateExternalObject(data: ConstPtr<CVoid>, finalizecallback: JsFinalizeCallback, obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateExternalObject(data.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: COpaquePointer?, function: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateFunction(0L.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), function?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ConstPtr<CVoid>, function: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateFunction(0L.toCPointer<ByteVar>(), callbackstate.rawAddress.toCPointer<ByteVar>(), function.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateObject(obj: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateObject(obj?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateObject(obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateObject(obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateRangeError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateRangeError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateRangeError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateRangeError(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateReferenceError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateReferenceError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateReferenceError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateReferenceError(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateRuntime(attributes, runtimeversion, 0L.toCPointer<ByteVar>(), runtime?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateRuntime(attributes, runtimeversion, 0L.toCPointer<ByteVar>(), runtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateSyntaxError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateSyntaxError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateSyntaxError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateSyntaxError(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateTypeError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateTypeError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateTypeError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateTypeError(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsCreateURIError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsCreateURIError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
+public actual fun jsCreateURIError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsCreateURIError(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsDefineProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, propertydescriptor: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsDefineProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), propertydescriptor?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsDefineProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, propertydescriptor: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsDefineProperty(obj.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>(), propertydescriptor.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsDeleteIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsDeleteIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
+public actual fun jsDeleteIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsDeleteIndexedProperty(obj.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsDeleteProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, usestrictrules: UByte, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsDeleteProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), usestrictrules, result?.value?.toCPointer<ByteVar>())
+public actual fun jsDeleteProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, usestrictrules: UByte, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsDeleteProperty(obj.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>(), usestrictrules, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsDisableRuntimeExecution(runtime: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsDisableRuntimeExecution(runtime?.value?.toCPointer<ByteVar>())
+public actual fun jsDisableRuntimeExecution(runtime: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsDisableRuntimeExecution(runtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsDisposeRuntime(runtime: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsDisposeRuntime(runtime?.value?.toCPointer<ByteVar>())
+public actual fun jsDisposeRuntime(runtime: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsDisposeRuntime(runtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsDoubleToNumber(doublevalue: Double, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsDoubleToNumber(doublevalue, value?.value?.toCPointer<ByteVar>())
+public actual fun jsDoubleToNumber(doublevalue: Double, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsDoubleToNumber(doublevalue, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsEnableRuntimeExecution(runtime: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsEnableRuntimeExecution(runtime?.value?.toCPointer<ByteVar>())
+public actual fun jsEnableRuntimeExecution(runtime: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsEnableRuntimeExecution(runtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsEquals(object1: COpaquePointer?, object2: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsEquals(object1?.value?.toCPointer<ByteVar>(), object2?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsEquals(object1: ConstPtr<CVoid>, object2: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsEquals(object1.rawAddress.toCPointer<ByteVar>(), object2.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetAndClearException(exception: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetAndClearException(exception?.value?.toCPointer<ByteVar>())
+public actual fun jsGetAndClearException(exception: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetAndClearException(exception.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetCurrentContext(currentcontext: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetCurrentContext(currentcontext?.value?.toCPointer<ByteVar>())
+public actual fun jsGetCurrentContext(currentcontext: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetCurrentContext(currentcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetExtensionAllowed(obj: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetExtensionAllowed(obj?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun jsGetExtensionAllowed(obj: ConstPtr<CVoid>, value: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetExtensionAllowed(obj.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetExternalData(obj: COpaquePointer?, externaldata: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetExternalData(obj?.value?.toCPointer<ByteVar>(), externaldata?.value?.toCPointer<ByteVar>())
+public actual fun jsGetExternalData(obj: ConstPtr<CVoid>, externaldata: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetExternalData(obj.rawAddress.toCPointer<ByteVar>(), externaldata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetFalseValue(falsevalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetFalseValue(falsevalue?.value?.toCPointer<ByteVar>())
+public actual fun jsGetFalseValue(falsevalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetFalseValue(falsevalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetGlobalObject(globalobject: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetGlobalObject(globalobject?.value?.toCPointer<ByteVar>())
+public actual fun jsGetGlobalObject(globalobject: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetGlobalObject(globalobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsGetIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetIndexedProperty(obj.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetNullValue(nullvalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetNullValue(nullvalue?.value?.toCPointer<ByteVar>())
+public actual fun jsGetNullValue(nullvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetNullValue(nullvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetOwnPropertyDescriptor(obj: COpaquePointer?, propertyid: COpaquePointer?, propertydescriptor: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), propertydescriptor?.value?.toCPointer<ByteVar>())
+public actual fun jsGetOwnPropertyDescriptor(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, propertydescriptor: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetOwnPropertyDescriptor(obj.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>(), propertydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetOwnPropertyNames(obj: COpaquePointer?, propertynames: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetOwnPropertyNames(obj?.value?.toCPointer<ByteVar>(), propertynames?.value?.toCPointer<ByteVar>())
+public actual fun jsGetOwnPropertyNames(obj: ConstPtr<CVoid>, propertynames: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetOwnPropertyNames(obj.rawAddress.toCPointer<ByteVar>(), propertynames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun jsGetProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetProperty(obj.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetPropertyIdFromName(name?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>())
+public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetPropertyIdFromName(name.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetPropertyNameFromId(propertyid: COpaquePointer?, name: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetPropertyNameFromId(propertyid?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>())
+public actual fun jsGetPropertyNameFromId(propertyid: ConstPtr<CVoid>, name: MutPtr<MutPtr<UShort>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetPropertyNameFromId(propertyid.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetPrototype(obj: COpaquePointer?, prototypeobject: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetPrototype(obj?.value?.toCPointer<ByteVar>(), prototypeobject?.value?.toCPointer<ByteVar>())
+public actual fun jsGetPrototype(obj: ConstPtr<CVoid>, prototypeobject: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetPrototype(obj.rawAddress.toCPointer<ByteVar>(), prototypeobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetRuntime(context: COpaquePointer?, runtime: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetRuntime(context?.value?.toCPointer<ByteVar>(), runtime?.value?.toCPointer<ByteVar>())
+public actual fun jsGetRuntime(context: ConstPtr<CVoid>, runtime: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetRuntime(context.rawAddress.toCPointer<ByteVar>(), runtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetRuntimeMemoryLimit(runtime: COpaquePointer?, memorylimit: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit(runtime?.value?.toCPointer<ByteVar>(), memorylimit?.value?.toCPointer<ByteVar>())
+public actual fun jsGetRuntimeMemoryLimit(runtime: ConstPtr<CVoid>, memorylimit: MutPtr<ULong>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetRuntimeMemoryLimit(runtime.rawAddress.toCPointer<ByteVar>(), memorylimit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetRuntimeMemoryUsage(runtime: COpaquePointer?, memoryusage: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage(runtime?.value?.toCPointer<ByteVar>(), memoryusage?.value?.toCPointer<ByteVar>())
+public actual fun jsGetRuntimeMemoryUsage(runtime: ConstPtr<CVoid>, memoryusage: MutPtr<ULong>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetRuntimeMemoryUsage(runtime.rawAddress.toCPointer<ByteVar>(), memoryusage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetStringLength(stringvalue: COpaquePointer?, length: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetStringLength(stringvalue?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>())
+public actual fun jsGetStringLength(stringvalue: ConstPtr<CVoid>, length: MutPtr<Int>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetStringLength(stringvalue.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetTrueValue(truevalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetTrueValue(truevalue?.value?.toCPointer<ByteVar>())
+public actual fun jsGetTrueValue(truevalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetTrueValue(truevalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetUndefinedValue(undefinedvalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetUndefinedValue(undefinedvalue?.value?.toCPointer<ByteVar>())
+public actual fun jsGetUndefinedValue(undefinedvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetUndefinedValue(undefinedvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsGetValueType(value: COpaquePointer?, type: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsGetValueType(value?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>())
+public actual fun jsGetValueType(value: ConstPtr<CVoid>, type: MutPtr<JsValueType>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsGetValueType(value.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsHasException(hasexception: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsHasException(hasexception?.value?.toCPointer<ByteVar>())
+public actual fun jsHasException(hasexception: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsHasException(hasexception.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsHasExternalData(obj: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsHasExternalData(obj?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun jsHasExternalData(obj: ConstPtr<CVoid>, value: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsHasExternalData(obj.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsHasIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsHasIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsHasIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsHasIndexedProperty(obj.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsHasProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, hasproperty: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsHasProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), hasproperty?.value?.toCPointer<ByteVar>())
+public actual fun jsHasProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, hasproperty: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsHasProperty(obj.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>(), hasproperty.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsIdle(nextidletick: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsIdle(nextidletick?.value?.toCPointer<ByteVar>())
+public actual fun jsIdle(nextidletick: MutPtr<UInt>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsIdle(nextidletick.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsIntToNumber(intvalue: Int, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsIntToNumber(intvalue, value?.value?.toCPointer<ByteVar>())
+public actual fun jsIntToNumber(intvalue: Int, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsIntToNumber(intvalue, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsIsEnumeratingHeap(isenumeratingheap: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsIsEnumeratingHeap(isenumeratingheap?.value?.toCPointer<ByteVar>())
+public actual fun jsIsEnumeratingHeap(isenumeratingheap: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsIsEnumeratingHeap(isenumeratingheap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsIsRuntimeExecutionDisabled(runtime: COpaquePointer?, isdisabled: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled(runtime?.value?.toCPointer<ByteVar>(), isdisabled?.value?.toCPointer<ByteVar>())
+public actual fun jsIsRuntimeExecutionDisabled(runtime: ConstPtr<CVoid>, isdisabled: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsIsRuntimeExecutionDisabled(runtime.rawAddress.toCPointer<ByteVar>(), isdisabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsNumberToDouble(value: COpaquePointer?, doublevalue: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsNumberToDouble(value?.value?.toCPointer<ByteVar>(), doublevalue?.value?.toCPointer<ByteVar>())
+public actual fun jsNumberToDouble(value: ConstPtr<CVoid>, doublevalue: MutPtr<Double>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsNumberToDouble(value.rawAddress.toCPointer<ByteVar>(), doublevalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsParseScript(script?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsParseScript(script.rawAddress.toCPointer<ByteVar>(), sourcecontext, sourceurl.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsParseSerializedScript(script: Pcwstr, buffer: COpaquePointer?, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsParseSerializedScript(script?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsParseSerializedScript(script: Pcwstr, buffer: ConstPtr<UByte>, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsParseSerializedScript(script.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), sourcecontext, sourceurl.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsPointerToString(stringvalue?.value?.toCPointer<ByteVar>(), stringlength, value?.value?.toCPointer<ByteVar>())
+public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsPointerToString(stringvalue.rawAddress.toCPointer<ByteVar>(), stringlength, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsPreventExtension(obj: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsPreventExtension(obj?.value?.toCPointer<ByteVar>())
+public actual fun jsPreventExtension(obj: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsPreventExtension(obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsRelease(ref: COpaquePointer?, count: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsRelease(ref?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun jsRelease(ref: ConstPtr<CVoid>, count: MutPtr<UInt>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsRelease(ref.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsRunScript(script?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsRunScript(script.rawAddress.toCPointer<ByteVar>(), sourcecontext, sourceurl.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsRunSerializedScript(script: Pcwstr, buffer: COpaquePointer?, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsRunSerializedScript(script?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsRunSerializedScript(script: Pcwstr, buffer: ConstPtr<UByte>, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsRunSerializedScript(script.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), sourcecontext, sourceurl.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSerializeScript(script: Pcwstr, buffer: COpaquePointer?, buffersize: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSerializeScript(script?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
+public actual fun jsSerializeScript(script: Pcwstr, buffer: MutPtr<UByte>, buffersize: MutPtr<UInt>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSerializeScript(script.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSetCurrentContext(context: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetCurrentContext(context?.value?.toCPointer<ByteVar>())
+public actual fun jsSetCurrentContext(context: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetCurrentContext(context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSetException(exception: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetException(exception?.value?.toCPointer<ByteVar>())
+public actual fun jsSetException(exception: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetException(exception.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSetExternalData(obj: COpaquePointer?, externaldata: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetExternalData(obj?.value?.toCPointer<ByteVar>(), externaldata?.value?.toCPointer<ByteVar>())
+public actual fun jsSetExternalData(obj: ConstPtr<CVoid>, externaldata: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetExternalData(obj.rawAddress.toCPointer<ByteVar>(), externaldata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSetIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun jsSetIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, value: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetIndexedProperty(obj.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSetProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, value: COpaquePointer?, usestrictrules: UByte): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), usestrictrules)
+public actual fun jsSetProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, value: ConstPtr<CVoid>, usestrictrules: UByte): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetProperty(obj.rawAddress.toCPointer<ByteVar>(), propertyid.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), usestrictrules)
 
-public actual fun jsSetPrototype(obj: COpaquePointer?, prototypeobject: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetPrototype(obj?.value?.toCPointer<ByteVar>(), prototypeobject?.value?.toCPointer<ByteVar>())
+public actual fun jsSetPrototype(obj: ConstPtr<CVoid>, prototypeobject: ConstPtr<CVoid>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetPrototype(obj.rawAddress.toCPointer<ByteVar>(), prototypeobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsSetRuntimeBeforeCollectCallback(runtime: COpaquePointer?, callbackstate: COpaquePointer?, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback(runtime?.value?.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
+public actual fun jsSetRuntimeBeforeCollectCallback(runtime: ConstPtr<CVoid>, callbackstate: ConstPtr<CVoid>, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetRuntimeBeforeCollectCallback(runtime.rawAddress.toCPointer<ByteVar>(), callbackstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: COpaquePointer?, callbackstate: COpaquePointer?, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback(runtime?.value?.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
+public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: ConstPtr<CVoid>, callbackstate: ConstPtr<CVoid>, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetRuntimeMemoryAllocationCallback(runtime.rawAddress.toCPointer<ByteVar>(), callbackstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jsSetRuntimeMemoryLimit(runtime: COpaquePointer?, memorylimit: ULong): JsErrorCode =
-    windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit(runtime?.value?.toCPointer<ByteVar>(), memorylimit)
+public actual fun jsSetRuntimeMemoryLimit(runtime: ConstPtr<CVoid>, memorylimit: ULong): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsSetRuntimeMemoryLimit(runtime.rawAddress.toCPointer<ByteVar>(), memorylimit)
 
 public actual fun jsStopProfiling(reason: Hresult): JsErrorCode =
-    windowssys_windows_win32_system_js_jsStopProfiling(reason)
+    windowssysWindowsWin32SystemJsJsStopProfiling(reason)
 
-public actual fun jsStrictEquals(object1: COpaquePointer?, object2: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsStrictEquals(object1?.value?.toCPointer<ByteVar>(), object2?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+public actual fun jsStrictEquals(object1: ConstPtr<CVoid>, object2: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsStrictEquals(object1.rawAddress.toCPointer<ByteVar>(), object2.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsStringToPointer(value: COpaquePointer?, stringvalue: COpaquePointer?, stringlength: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsStringToPointer(value?.value?.toCPointer<ByteVar>(), stringvalue?.value?.toCPointer<ByteVar>(), stringlength?.value?.toCPointer<ByteVar>())
+public actual fun jsStringToPointer(value: ConstPtr<CVoid>, stringvalue: MutPtr<MutPtr<UShort>>, stringlength: MutPtr<ULong>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsStringToPointer(value.rawAddress.toCPointer<ByteVar>(), stringvalue.rawAddress.toCPointer<ByteVar>(), stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsValueToVariant(obj: COpaquePointer?, variant: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsValueToVariant(obj?.value?.toCPointer<ByteVar>(), variant?.value?.toCPointer<ByteVar>())
+public actual fun jsValueToVariant(obj: ConstPtr<CVoid>, variant: MutPtr<Variant.Variant>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsValueToVariant(obj.rawAddress.toCPointer<ByteVar>(), variant.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jsVariantToValue(variant: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
-    windowssys_windows_win32_system_js_jsVariantToValue(variant?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun jsVariantToValue(variant: ConstPtr<Variant.Variant>, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+    windowssysWindowsWin32SystemJsJsVariantToValue(variant.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t credentialflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* credentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsAcquireCont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t credentialflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* credentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsAcquireCont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcancelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -134,7 +134,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cancelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeletePolicyEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t policyentrytag = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -184,7 +184,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnamelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -233,7 +233,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -255,7 +255,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -277,7 +277,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -299,7 +299,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnamelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -353,7 +353,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszhosturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pselectioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -386,7 +386,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszhosturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pselectioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -421,7 +421,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproxylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -448,7 +448,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t policyentrytag = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppolicyentrylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -475,7 +475,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -504,7 +504,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pconnectionifindexentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -529,7 +529,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdnsbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmessagelength = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -558,7 +558,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsExtractReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdnsbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmessagelength = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsExtractReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t freetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -611,7 +611,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFree_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcservers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppservers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* proxyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -657,7 +657,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyNa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcservers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppdefaultservers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -686,7 +686,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsGetApplicat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* proxyinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -719,7 +719,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddrecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeleterecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -754,7 +754,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddrecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeleterecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -789,7 +789,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddrecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeleterecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -824,7 +824,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pname2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -851,7 +851,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsNameCompare
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pname2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -878,7 +878,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsNameCompare
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t config = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t flag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -913,7 +913,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pqueryrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqueryresults = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -942,7 +942,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queryrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cancelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -969,7 +969,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queryresults = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryRawRes
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wtype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1026,7 +1026,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wtype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1061,7 +1061,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsQueryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wtype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1096,7 +1096,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precord1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precord2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1123,7 +1123,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordCompa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t charsetin = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1152,7 +1152,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1183,7 +1183,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precordset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t charsetin = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1212,7 +1212,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precordlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1259,7 +1259,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReleaseCont
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preplaceset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t options = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1292,7 +1292,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preplaceset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t options = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1325,7 +1325,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preplaceset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t options = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1358,7 +1358,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcancel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1385,7 +1385,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceBrow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcancelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1410,7 +1410,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceBrow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1453,7 +1453,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceCons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* porig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1478,7 +1478,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceCopy
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcancel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1505,7 +1505,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1527,7 +1527,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcancel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1554,7 +1554,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcancelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1579,7 +1579,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcancel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1606,7 +1606,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcancelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1631,7 +1631,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cservers = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pservers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1660,7 +1660,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsSetApplicat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pqueryrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1687,7 +1687,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsStartMultic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1712,7 +1712,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsStopMultica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t format = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1739,7 +1739,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t format = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1766,7 +1766,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t format = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1793,7 +1793,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdnsbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1828,7 +1828,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuesti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdnsbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1864,70 +1864,70 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuesti
 }
 
 static void register_windows_win32_networkmanagement_dns_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsQueryW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsQueryW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeletePolicyEntries", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeletePolicyEntries_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsFree", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsQueryW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsQueryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_dns_napi, nullptr };

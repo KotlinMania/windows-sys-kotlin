@@ -2,7 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
@@ -11,29 +14,108 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.media.TimecodeSample
 
-public class AllocatorPropertiesEx(
-    public var cBuffers: Int = 0,
-    public var cbBuffer: Int = 0,
-    public var cbAlign: Int = 0,
-    public var cbPrefix: Int = 0,
-    public var memoryType: Guid = Guid(),
-    public var busType: Guid = Guid(),
-    public var state: PipeState = 0,
-    public var input: PipeTermination = PipeTermination(),
-    public var output: PipeTermination = PipeTermination(),
-    public var strategy: UInt = 0u,
-    public var flags: UInt = 0u,
-    public var weight: UInt = 0u,
-    public var logicalMemoryType: KsLogicalMemoryType = 0,
-    public var allocatorPlace: PipeAllocatorPlace = 0,
-    public var dimensions: PipeDimensions = PipeDimensions(),
-    public var physicalRange: KsFramingRange = KsFramingRange(),
-    public var prevSegment: COpaquePointer? = null,
-    public var countNextSegments: UInt = 0u,
-    public var nextSegments: COpaquePointer? = null,
-    public var insideFactors: UInt = 0u,
-    public var numberPins: UInt = 0u,
-)
+public class AllocatorPropertiesEx internal constructor(
+    public var cBuffers: Int,
+    public var cbBuffer: Int,
+    public var cbAlign: Int,
+    public var cbPrefix: Int,
+    public var memoryType: Guid,
+    public var busType: Guid,
+    public var state: PipeState,
+    public var input: PipeTermination,
+    public var output: PipeTermination,
+    public var strategy: UInt,
+    public var flags: UInt,
+    public var weight: UInt,
+    public var logicalMemoryType: KsLogicalMemoryType,
+    public var allocatorPlace: PipeAllocatorPlace,
+    public var dimensions: PipeDimensions,
+    public var physicalRange: KsFramingRange,
+    prevSegmentCtorArg: MutPtr<CVoid>,
+    public var countNextSegments: UInt,
+    nextSegmentsCtorArg: MutPtr<MutPtr<CVoid>>,
+    public var insideFactors: UInt,
+    public var numberPins: UInt,
+) {
+    public var prevSegment: MutPtr<CVoid> = prevSegmentCtorArg
+        internal set
+
+    public var nextSegments: MutPtr<MutPtr<CVoid>> = nextSegmentsCtorArg
+        internal set
+
+    public constructor() : this(
+        cBuffers = 0,
+        cbBuffer = 0,
+        cbAlign = 0,
+        cbPrefix = 0,
+        memoryType = Guid(),
+        busType = Guid(),
+        state = 0,
+        input = PipeTermination(),
+        output = PipeTermination(),
+        strategy = 0u,
+        flags = 0u,
+        weight = 0u,
+        logicalMemoryType = 0,
+        allocatorPlace = 0,
+        dimensions = PipeDimensions(),
+        physicalRange = KsFramingRange(),
+        prevSegmentCtorArg = MutPtr(0L),
+        countNextSegments = 0u,
+        nextSegmentsCtorArg = MutPtr(0L),
+        insideFactors = 0u,
+        numberPins = 0u,
+    )
+
+    public companion object {
+        public operator fun invoke(
+            cBuffers: Int = 0,
+            cbBuffer: Int = 0,
+            cbAlign: Int = 0,
+            cbPrefix: Int = 0,
+            memoryType: Guid = Guid(),
+            busType: Guid = Guid(),
+            state: PipeState = 0,
+            input: PipeTermination = PipeTermination(),
+            output: PipeTermination = PipeTermination(),
+            strategy: UInt = 0u,
+            flags: UInt = 0u,
+            weight: UInt = 0u,
+            logicalMemoryType: KsLogicalMemoryType = 0,
+            allocatorPlace: PipeAllocatorPlace = 0,
+            dimensions: PipeDimensions = PipeDimensions(),
+            physicalRange: KsFramingRange = KsFramingRange(),
+            prevSegment: MutPtr<CVoid> = MutPtr(0L),
+            countNextSegments: UInt = 0u,
+            nextSegments: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            insideFactors: UInt = 0u,
+            numberPins: UInt = 0u,
+        ): AllocatorPropertiesEx =
+            AllocatorPropertiesEx(
+                cBuffers = cBuffers,
+                cbBuffer = cbBuffer,
+                cbAlign = cbAlign,
+                cbPrefix = cbPrefix,
+                memoryType = memoryType,
+                busType = busType,
+                state = state,
+                input = input,
+                output = output,
+                strategy = strategy,
+                flags = flags,
+                weight = weight,
+                logicalMemoryType = logicalMemoryType,
+                allocatorPlace = allocatorPlace,
+                dimensions = dimensions,
+                physicalRange = physicalRange,
+                prevSegmentCtorArg = prevSegment,
+                countNextSegments = countNextSegments,
+                nextSegmentsCtorArg = nextSegments,
+                insideFactors = insideFactors,
+                numberPins = numberPins,
+            )
+    }
+}
 
 public data class AudioresourcemanagementResourcegroup(
     public var resourceGroupAcquired: Bool = 0,
@@ -71,6 +153,29 @@ public data class CcBytePair(
         result = 31 * result + this.reserved.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CcBytePair> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CcBytePair> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): CcBytePair =
+                    CcBytePair(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                    )
+                override fun writeNative(addr: Long, value: CcBytePair) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
+                    ).writeNative(addr, value.decoded)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.reserved)
+                }
+            }
+    }
 }
 
 public data class CcHwField(
@@ -78,7 +183,34 @@ public data class CcHwField(
     public var fieldFlags: UInt = 0u,
     public var pictureNumber: Long = 0L,
     public var lines: List<CcBytePair> = List(12) { CcBytePair() },
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CcHwField> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CcHwField> {
+                override val sizeBytes: Long = 192L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): CcHwField =
+                    CcHwField(
+                        (VbicodecfilteringScanlines.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 128L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 136L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(CcBytePair.typeLayout(), (12).toInt())
+                        ).readNative(addr + 144L),
+                    )
+                override fun writeNative(addr: Long, value: CcHwField) {
+                    (VbicodecfilteringScanlines.typeLayout()).writeNative(addr, value.scanlinesRequested)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 128L, value.fieldFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 136L, value.pictureNumber)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(CcBytePair.typeLayout(), (12).toInt())
+                    ).writeNative(addr + 144L, value.lines)
+                }
+            }
+    }
+}
 
 public class Devcaps(
     public var canRecord: Int = 0,
@@ -104,7 +236,66 @@ public class Devcaps(
     public var calibrate: Int = 0,
     public var seekType: Int = 0,
     public var simulatedHardware: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Devcaps> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Devcaps> {
+                override val sizeBytes: Long = 92L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Devcaps =
+                    Devcaps(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 76L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 80L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 84L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 88L),
+                    )
+                override fun writeNative(addr: Long, value: Devcaps) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.canRecord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.canRecordStrobe)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.hasAudio)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.hasVideo)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.usesFiles)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.canSave)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.deviceType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.tCRead)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.tCWrite)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.cTLRead)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 40L, value.indexRead)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 44L, value.preroll)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 48L, value.postroll)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 52L, value.syncAcc)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.normRate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 60L, value.canPreview)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 64L, value.canMonitorSrc)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 68L, value.canTest)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 72L, value.videoIn)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 76L, value.audioIn)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 80L, value.calibrate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 84L, value.seekType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 88L, value.simulatedHardware)
+                }
+            }
+    }
+}
 
 public data class Ds3dvector(
     public var anonymous1: Ds3dvector0 = Ds3dvector0(),
@@ -135,7 +326,34 @@ public data class InterleavedAudioFormatInformation(
     public var interleavedChannelCount: UInt = 0u,
     public var interleavedChannelStartPosition: UInt = 0u,
     public var interleavedChannelMask: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InterleavedAudioFormatInformation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InterleavedAudioFormatInformation> {
+                override val sizeBytes: Long = 28L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): InterleavedAudioFormatInformation =
+                    InterleavedAudioFormatInformation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: InterleavedAudioFormatInformation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.primaryChannelCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.primaryChannelStartPosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.primaryChannelMask)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.interleavedChannelCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.interleavedChannelStartPosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.interleavedChannelMask)
+                }
+            }
+    }
+}
 
 public data class Ksac3AlternateAudio(
     public var fStereo: Bool = 0,
@@ -144,11 +362,41 @@ public data class Ksac3AlternateAudio(
 
 public data class Ksac3BitStreamMode(
     public var bitStreamMode: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksac3BitStreamMode> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksac3BitStreamMode> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksac3BitStreamMode =
+                    Ksac3BitStreamMode(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: Ksac3BitStreamMode) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bitStreamMode)
+                }
+            }
+    }
+}
 
 public data class Ksac3DialogueLevel(
     public var dialogueLevel: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksac3DialogueLevel> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksac3DialogueLevel> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksac3DialogueLevel =
+                    Ksac3DialogueLevel(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: Ksac3DialogueLevel) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dialogueLevel)
+                }
+            }
+    }
+}
 
 public data class Ksac3Downmix(
     public var fDownMix: Bool = 0,
@@ -205,25 +453,99 @@ public data class KsattributeAudiosignalprocessingMode(
 public data class KsaudioengineBufferSizeRange(
     public var minBufferBytes: UInt = 0u,
     public var maxBufferBytes: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineBufferSizeRange> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineBufferSizeRange> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsaudioengineBufferSizeRange =
+                    KsaudioengineBufferSizeRange(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioengineBufferSizeRange) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.minBufferBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.maxBufferBytes)
+                }
+            }
+    }
+}
 
 public data class KsaudioengineDescriptor(
     public var nHostPinId: UInt = 0u,
     public var nOffloadPinId: UInt = 0u,
     public var nLoopbackPinId: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineDescriptor> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineDescriptor> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsaudioengineDescriptor =
+                    KsaudioengineDescriptor(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioengineDescriptor) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nHostPinId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.nOffloadPinId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.nLoopbackPinId)
+                }
+            }
+    }
+}
 
 public data class KsaudioengineDevicecontrols(
     public var volume: EDeviceControlUseType = 0,
     public var mute: EDeviceControlUseType = 0,
     public var peakMeter: EDeviceControlUseType = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineDevicecontrols> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineDevicecontrols> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsaudioengineDevicecontrols =
+                    KsaudioengineDevicecontrols(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioengineDevicecontrols) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.volume)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.mute)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.peakMeter)
+                }
+            }
+    }
+}
 
 public data class KsaudioengineVolumelevel(
     public var targetVolume: Int = 0,
     public var curveType: AudioCurveType = 0,
     public var curveDuration: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineVolumelevel> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioengineVolumelevel> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KsaudioengineVolumelevel =
+                    KsaudioengineVolumelevel(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioengineVolumelevel) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.targetVolume)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.curveType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.curveDuration)
+                }
+            }
+    }
+}
 
 public data class KsaudiomoduleDescriptor(
     public var classId: Guid = Guid(),
@@ -277,7 +599,22 @@ public data class KsaudiomoduleProperty(
 
 public data class KsaudioChannelConfig(
     public var activeSpeakerPositions: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioChannelConfig> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioChannelConfig> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsaudioChannelConfig =
+                    KsaudioChannelConfig(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioChannelConfig) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.activeSpeakerPositions)
+                }
+            }
+    }
+}
 
 public data class KsaudioCopyProtection(
     public var fCopyrighted: Bool = 0,
@@ -287,7 +624,24 @@ public data class KsaudioCopyProtection(
 public data class KsaudioDynamicRange(
     public var quietCompression: UInt = 0u,
     public var loudCompression: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioDynamicRange> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioDynamicRange> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsaudioDynamicRange =
+                    KsaudioDynamicRange(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioDynamicRange) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.quietCompression)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.loudCompression)
+                }
+            }
+    }
+}
 
 public data class KsaudioMicrophoneCoordinates(
     public var usType: UShort = 0u,
@@ -296,7 +650,32 @@ public data class KsaudioMicrophoneCoordinates(
     public var wZCoord: Short = 0,
     public var wVerticalAngle: Short = 0,
     public var wHorizontalAngle: Short = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioMicrophoneCoordinates> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioMicrophoneCoordinates> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): KsaudioMicrophoneCoordinates =
+                    KsaudioMicrophoneCoordinates(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 10L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioMicrophoneCoordinates) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.usType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 2L, value.wXCoord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 4L, value.wYCoord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 6L, value.wZCoord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 8L, value.wVerticalAngle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 10L, value.wHorizontalAngle)
+                }
+            }
+    }
+}
 
 public data class KsaudioMicArrayGeometry(
     public var usVersion: UShort = 0u,
@@ -309,7 +688,46 @@ public data class KsaudioMicArrayGeometry(
     public var usFrequencyBandHi: UShort = 0u,
     public var usNumberOfMicrophones: UShort = 0u,
     public var ksMicCoord: List<KsaudioMicrophoneCoordinates> = List(1) { KsaudioMicrophoneCoordinates() },
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioMicArrayGeometry> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioMicArrayGeometry> {
+                override val sizeBytes: Long = 30L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): KsaudioMicArrayGeometry =
+                    KsaudioMicArrayGeometry(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 10L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 14L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(KsaudioMicrophoneCoordinates.typeLayout(), (1).toInt())
+                        ).readNative(addr + 18L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioMicArrayGeometry) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.usVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.usMicArrayType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 4L, value.wVerticalAngleBegin)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 6L, value.wVerticalAngleEnd)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 8L, value.wHorizontalAngleBegin)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 10L, value.wHorizontalAngleEnd)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 12L, value.usFrequencyBandLo)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 14L, value.usFrequencyBandHi)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 16L, value.usNumberOfMicrophones)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(KsaudioMicrophoneCoordinates.typeLayout(), (1).toInt())
+                    ).writeNative(addr + 18L, value.ksMicCoord)
+                }
+            }
+    }
+}
 
 public data class KsaudioMixcapTable(
     public var inputChannels: UInt = 0u,
@@ -359,19 +777,74 @@ public data class KsaudioPacketsizeProcessingmodeConstraint(
 public data class KsaudioPosition(
     public var playOffset: ULong = 0uL,
     public var writeOffset: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioPosition> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioPosition> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KsaudioPosition =
+                    KsaudioPosition(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioPosition) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.playOffset)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.writeOffset)
+                }
+            }
+    }
+}
 
 public data class KsaudioPositionex(
     public var timerFrequency: Long = 0L,
     public var timeStamp1: Long = 0L,
     public var position: KsaudioPosition = KsaudioPosition(),
     public var timeStamp2: Long = 0L,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioPositionex> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioPositionex> {
+                override val sizeBytes: Long = 40L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KsaudioPositionex =
+                    KsaudioPositionex(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                        (KsaudioPosition.typeLayout()).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioPositionex) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.timerFrequency)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.timeStamp1)
+                    (KsaudioPosition.typeLayout()).writeNative(addr + 16L, value.position)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 32L, value.timeStamp2)
+                }
+            }
+    }
+}
 
 public data class KsaudioPresentationPosition(
     public var u64PositionInBlocks: ULong = 0uL,
     public var u64QPCPosition: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioPresentationPosition> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsaudioPresentationPosition> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KsaudioPresentationPosition =
+                    KsaudioPresentationPosition(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KsaudioPresentationPosition) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.u64PositionInBlocks)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.u64QPCPosition)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropBackgroundsegmentationConfigcaps(
     public var resolution: Size = Size(),
@@ -383,14 +856,52 @@ public data class KscameraExtendedpropBackgroundsegmentationConfigcaps(
 public data class KscameraExtendedpropBackgroundsegmentationConfigcaps0(
     public var numerator: Int = 0,
     public var denominator: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropBackgroundsegmentationConfigcaps0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropBackgroundsegmentationConfigcaps0> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropBackgroundsegmentationConfigcaps0 =
+                    KscameraExtendedpropBackgroundsegmentationConfigcaps0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropBackgroundsegmentationConfigcaps0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.numerator)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.denominator)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropCameraoffset(
     public var pitchAngle: Int = 0,
     public var yawAngle: Int = 0,
     public var flag: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropCameraoffset> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropCameraoffset> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropCameraoffset =
+                    KscameraExtendedpropCameraoffset(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropCameraoffset) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.pitchAngle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.yawAngle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flag)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropDigitalwindowConfigcaps(
     public var resolutionX: Int = 0,
@@ -403,19 +914,90 @@ public data class KscameraExtendedpropDigitalwindowConfigcaps(
     public var minWindowSize: Int = 0,
     public var maxWindowSize: Int = 0,
     public var reserved: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropDigitalwindowConfigcaps> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropDigitalwindowConfigcaps> {
+                override val sizeBytes: Long = 40L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropDigitalwindowConfigcaps =
+                    KscameraExtendedpropDigitalwindowConfigcaps(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropDigitalwindowConfigcaps) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.resolutionX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.resolutionY)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.porchTop)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.porchLeft)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.porchBottom)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.porchRight)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.nonUpscalingWindowSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.minWindowSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.maxWindowSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropDigitalwindowConfigcapsheader(
     public var size: UInt = 0u,
     public var count: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropDigitalwindowConfigcapsheader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropDigitalwindowConfigcapsheader> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropDigitalwindowConfigcapsheader =
+                    KscameraExtendedpropDigitalwindowConfigcapsheader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropDigitalwindowConfigcapsheader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.count)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropDigitalwindowSetting(
     public var originX: Int = 0,
     public var originY: Int = 0,
     public var windowSize: Int = 0,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropDigitalwindowSetting> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropDigitalwindowSetting> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropDigitalwindowSetting =
+                    KscameraExtendedpropDigitalwindowSetting(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropDigitalwindowSetting) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.originX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.originY)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.windowSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropEvcompensation(
     public var mode: UInt = 0u,
@@ -423,14 +1005,58 @@ public data class KscameraExtendedpropEvcompensation(
     public var max: Int = 0,
     public var value: Int = 0,
     public var reserved: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropEvcompensation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropEvcompensation> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraExtendedpropEvcompensation =
+                    KscameraExtendedpropEvcompensation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropEvcompensation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.mode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.min)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.max)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.value)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropFieldofview(
     public var normalizedFocalLengthX: UInt = 0u,
     public var normalizedFocalLengthY: UInt = 0u,
     public var flag: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropFieldofview> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropFieldofview> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropFieldofview =
+                    KscameraExtendedpropFieldofview(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropFieldofview) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.normalizedFocalLengthX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.normalizedFocalLengthY)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flag)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropHeader(
     public var version: UInt = 0u,
@@ -439,19 +1065,82 @@ public data class KscameraExtendedpropHeader(
     public var result: UInt = 0u,
     public var flags: ULong = 0uL,
     public var capability: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropHeader> {
+                override val sizeBytes: Long = 32L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraExtendedpropHeader =
+                    KscameraExtendedpropHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.pinId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.result)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.capability)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropMetadatainfo(
     public var bufferAlignment: Int = 0,
     public var maxMetadataBufferSize: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropMetadatainfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropMetadatainfo> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropMetadatainfo =
+                    KscameraExtendedpropMetadatainfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropMetadatainfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bufferAlignment)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.maxMetadataBufferSize)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropPhotomode(
     public var requestedHistoryFrames: UInt = 0u,
     public var maxHistoryFrames: UInt = 0u,
     public var subMode: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropPhotomode> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropPhotomode> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropPhotomode =
+                    KscameraExtendedpropPhotomode(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropPhotomode) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.requestedHistoryFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.maxHistoryFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.subMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropProfile(
     public var profileId: Guid = Guid(),
@@ -463,13 +1152,51 @@ public data class KscameraExtendedpropRoiConfigcaps(
     public var controlId: UInt = 0u,
     public var maxNumberOfROIs: UInt = 0u,
     public var capability: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiConfigcaps> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiConfigcaps> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraExtendedpropRoiConfigcaps =
+                    KscameraExtendedpropRoiConfigcaps(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropRoiConfigcaps) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.controlId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.maxNumberOfROIs)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.capability)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropRoiConfigcapsheader(
     public var size: UInt = 0u,
     public var configCapCount: UInt = 0u,
     public var reserved: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiConfigcapsheader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiConfigcapsheader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraExtendedpropRoiConfigcapsheader =
+                    KscameraExtendedpropRoiConfigcapsheader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropRoiConfigcapsheader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.configCapCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropRoiExposure(
     public var rOIInfo: KscameraExtendedpropRoiInfo = KscameraExtendedpropRoiInfo(),
@@ -493,13 +1220,53 @@ public data class KscameraExtendedpropRoiIspcontrol(
     public var rOICount: UInt = 0u,
     public var result: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiIspcontrol> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiIspcontrol> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraExtendedpropRoiIspcontrol =
+                    KscameraExtendedpropRoiIspcontrol(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropRoiIspcontrol) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.controlId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.rOICount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.result)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropRoiIspcontrolheader(
     public var size: UInt = 0u,
     public var controlCount: UInt = 0u,
     public var reserved: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiIspcontrolheader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraExtendedpropRoiIspcontrolheader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraExtendedpropRoiIspcontrolheader =
+                    KscameraExtendedpropRoiIspcontrolheader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraExtendedpropRoiIspcontrolheader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.controlCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraExtendedpropRoiWhitebalance(
     public var rOIInfo: KscameraExtendedpropRoiInfo = KscameraExtendedpropRoiInfo(),
@@ -535,7 +1302,32 @@ public data class KscameraMaxvideofpsForphotores(
     public var previewFPSDenom: UInt = 0u,
     public var captureFPSNum: UInt = 0u,
     public var captureFPSDenom: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMaxvideofpsForphotores> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMaxvideofpsForphotores> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraMaxvideofpsForphotores =
+                    KscameraMaxvideofpsForphotores(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraMaxvideofpsForphotores) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.photoResWidth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.photoResHeight)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.previewFPSNum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.previewFPSDenom)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.captureFPSNum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.captureFPSDenom)
+                }
+            }
+    }
+}
 
 public data class KscameraMetadataBackgroundsegmentationmask(
     public var header: KscameraMetadataItemheader = KscameraMetadataItemheader(),
@@ -581,41 +1373,194 @@ public data class KscameraMetadataCapturestats(
     public var zoomFactor: UInt = 0u,
     public var sceneMode: ULong = 0uL,
     public var sensorFramerate: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataCapturestats> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataCapturestats> {
+                override val sizeBytes: Long = 80L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraMetadataCapturestats =
+                    KscameraMetadataCapturestats(
+                        (KscameraMetadataItemheader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 72L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraMetadataCapturestats) {
+                    (KscameraMetadataItemheader.typeLayout()).writeNative(addr, value.header)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.exposureTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.exposureCompensationFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.exposureCompensationValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.isoSpeed)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.focusState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.lensPosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.whiteBalance)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.flash)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.flashPower)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.zoomFactor)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 64L, value.sceneMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 72L, value.sensorFramerate)
+                }
+            }
+    }
+}
 
 public data class KscameraMetadataDigitalwindow(
     public var header: KscameraMetadataItemheader = KscameraMetadataItemheader(),
     public var window: KscameraExtendedpropDigitalwindowSetting = KscameraExtendedpropDigitalwindowSetting(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataDigitalwindow> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataDigitalwindow> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraMetadataDigitalwindow =
+                    KscameraMetadataDigitalwindow(
+                        (KscameraMetadataItemheader.typeLayout()).readNative(addr),
+                        (KscameraExtendedpropDigitalwindowSetting.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraMetadataDigitalwindow) {
+                    (KscameraMetadataItemheader.typeLayout()).writeNative(addr, value.header)
+                    (KscameraExtendedpropDigitalwindowSetting.typeLayout()).writeNative(addr + 8L, value.window)
+                }
+            }
+    }
+}
 
 public data class KscameraMetadataFrameillumination(
     public var header: KscameraMetadataItemheader = KscameraMetadataItemheader(),
     public var flags: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataFrameillumination> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataFrameillumination> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraMetadataFrameillumination =
+                    KscameraMetadataFrameillumination(
+                        (KscameraMetadataItemheader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraMetadataFrameillumination) {
+                    (KscameraMetadataItemheader.typeLayout()).writeNative(addr, value.header)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraMetadataItemheader(
     public var metadataId: UInt = 0u,
     public var size: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataItemheader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataItemheader> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraMetadataItemheader =
+                    KscameraMetadataItemheader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraMetadataItemheader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.metadataId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.size)
+                }
+            }
+    }
+}
 
 public data class KscameraMetadataPhotoconfirmation(
     public var header: KscameraMetadataItemheader = KscameraMetadataItemheader(),
     public var photoConfirmationIndex: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataPhotoconfirmation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraMetadataPhotoconfirmation> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraMetadataPhotoconfirmation =
+                    KscameraMetadataPhotoconfirmation(
+                        (KscameraMetadataItemheader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraMetadataPhotoconfirmation) {
+                    (KscameraMetadataItemheader.typeLayout()).writeNative(addr, value.header)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.photoConfirmationIndex)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraPerframesettingCapHeader(
     public var size: UInt = 0u,
     public var itemCount: UInt = 0u,
     public var flags: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingCapHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingCapHeader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraPerframesettingCapHeader =
+                    KscameraPerframesettingCapHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraPerframesettingCapHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.itemCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.flags)
+                }
+            }
+    }
+}
 
 public data class KscameraPerframesettingCapItemHeader(
     public var size: UInt = 0u,
     public var type: UInt = 0u,
     public var flags: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingCapItemHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingCapItemHeader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraPerframesettingCapItemHeader =
+                    KscameraPerframesettingCapItemHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraPerframesettingCapItemHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.type)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.flags)
+                }
+            }
+    }
+}
 
 public data class KscameraPerframesettingCustomItem(
     public var size: UInt = 0u,
@@ -628,7 +1573,28 @@ public data class KscameraPerframesettingFrameHeader(
     public var id: UInt = 0u,
     public var itemCount: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingFrameHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingFrameHeader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraPerframesettingFrameHeader =
+                    KscameraPerframesettingFrameHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraPerframesettingFrameHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.id)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.itemCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KscameraPerframesettingHeader(
     public var size: UInt = 0u,
@@ -643,21 +1609,146 @@ public data class KscameraPerframesettingItemHeader(
     public var size: UInt = 0u,
     public var type: UInt = 0u,
     public var flags: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingItemHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraPerframesettingItemHeader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraPerframesettingItemHeader =
+                    KscameraPerframesettingItemHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraPerframesettingItemHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.type)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.flags)
+                }
+            }
+    }
+}
 
-public data class KscameraProfileConcurrencyinfo(
-    public var referenceGuid: Guid = Guid(),
-    public var reserved: UInt = 0u,
-    public var profileCount: UInt = 0u,
-    public var profiles: KscameraProfileInfo? = null,
-)
+public class KscameraProfileConcurrencyinfo internal constructor(
+    public var referenceGuid: Guid,
+    public var reserved: UInt,
+    public var profileCount: UInt,
+    profilesCtorArg: MutPtr<KscameraProfileInfo>,
+) {
+    public var profiles: MutPtr<KscameraProfileInfo> = profilesCtorArg
+        internal set
 
-public data class KscameraProfileInfo(
-    public var profileId: Guid = Guid(),
-    public var index: UInt = 0u,
-    public var pinCount: UInt = 0u,
-    public var pins: KscameraProfilePininfo? = null,
-)
+    public constructor() : this(
+        referenceGuid = Guid(),
+        reserved = 0u,
+        profileCount = 0u,
+        profilesCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Guid = this.referenceGuid
+
+    public operator fun component2(): UInt = this.reserved
+
+    public operator fun component3(): UInt = this.profileCount
+
+    public operator fun component4(): MutPtr<KscameraProfileInfo> = this.profiles
+
+    public fun copy(referenceGuid: Guid = this.referenceGuid, reserved: UInt = this.reserved, profileCount: UInt = this.profileCount, profiles: MutPtr<KscameraProfileInfo> = this.profiles): KscameraProfileConcurrencyinfo = KscameraProfileConcurrencyinfo(referenceGuid = referenceGuid, reserved = reserved, profileCount = profileCount, profilesCtorArg = profiles)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KscameraProfileConcurrencyinfo) return false
+        if (this.referenceGuid != other.referenceGuid) return false
+        if (this.reserved != other.reserved) return false
+        if (this.profileCount != other.profileCount) return false
+        if (this.profiles != other.profiles) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.referenceGuid.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.profileCount.hashCode()
+        result = 31 * result + this.profiles.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            referenceGuid: Guid = Guid(),
+            reserved: UInt = 0u,
+            profileCount: UInt = 0u,
+            profiles: MutPtr<KscameraProfileInfo> = MutPtr(0L),
+        ): KscameraProfileConcurrencyinfo =
+            KscameraProfileConcurrencyinfo(
+                referenceGuid = referenceGuid,
+                reserved = reserved,
+                profileCount = profileCount,
+                profilesCtorArg = profiles,
+            )
+    }
+}
+
+public class KscameraProfileInfo internal constructor(
+    public var profileId: Guid,
+    public var index: UInt,
+    public var pinCount: UInt,
+    pinsCtorArg: MutPtr<KscameraProfilePininfo>,
+) {
+    public var pins: MutPtr<KscameraProfilePininfo> = pinsCtorArg
+        internal set
+
+    public constructor() : this(
+        profileId = Guid(),
+        index = 0u,
+        pinCount = 0u,
+        pinsCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Guid = this.profileId
+
+    public operator fun component2(): UInt = this.index
+
+    public operator fun component3(): UInt = this.pinCount
+
+    public operator fun component4(): MutPtr<KscameraProfilePininfo> = this.pins
+
+    public fun copy(profileId: Guid = this.profileId, index: UInt = this.index, pinCount: UInt = this.pinCount, pins: MutPtr<KscameraProfilePininfo> = this.pins): KscameraProfileInfo = KscameraProfileInfo(profileId = profileId, index = index, pinCount = pinCount, pinsCtorArg = pins)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KscameraProfileInfo) return false
+        if (this.profileId != other.profileId) return false
+        if (this.index != other.index) return false
+        if (this.pinCount != other.pinCount) return false
+        if (this.pins != other.pins) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.profileId.hashCode()
+        result = 31 * result + this.index.hashCode()
+        result = 31 * result + this.pinCount.hashCode()
+        result = 31 * result + this.pins.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            profileId: Guid = Guid(),
+            index: UInt = 0u,
+            pinCount: UInt = 0u,
+            pins: MutPtr<KscameraProfilePininfo> = MutPtr(0L),
+        ): KscameraProfileInfo =
+            KscameraProfileInfo(
+                profileId = profileId,
+                index = index,
+                pinCount = pinCount,
+                pinsCtorArg = pins,
+            )
+    }
+}
 
 public data class KscameraProfileMediainfo(
     public var resolution: KscameraProfileMediainfo0 = KscameraProfileMediainfo0(),
@@ -667,24 +1758,138 @@ public data class KscameraProfileMediainfo(
     public var data1: UInt = 0u,
     public var data2: UInt = 0u,
     public var data3: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfileMediainfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfileMediainfo> {
+                override val sizeBytes: Long = 40L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscameraProfileMediainfo =
+                    KscameraProfileMediainfo(
+                        (KscameraProfileMediainfo0.typeLayout()).readNative(addr),
+                        (KscameraProfileMediainfo1.typeLayout()).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraProfileMediainfo) {
+                    (KscameraProfileMediainfo0.typeLayout()).writeNative(addr, value.resolution)
+                    (KscameraProfileMediainfo1.typeLayout()).writeNative(addr + 8L, value.maxFrameRate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.data0)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.data1)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.data2)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.data3)
+                }
+            }
+    }
+}
 
 public data class KscameraProfileMediainfo1(
     public var numerator: UInt = 0u,
     public var denominator: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfileMediainfo1> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfileMediainfo1> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraProfileMediainfo1 =
+                    KscameraProfileMediainfo1(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraProfileMediainfo1) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numerator)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.denominator)
+                }
+            }
+    }
+}
 
 public data class KscameraProfileMediainfo0(
     public var x: UInt = 0u,
     public var y: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfileMediainfo0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfileMediainfo0> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KscameraProfileMediainfo0 =
+                    KscameraProfileMediainfo0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraProfileMediainfo0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.x)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.y)
+                }
+            }
+    }
+}
 
-public data class KscameraProfilePininfo(
-    public var pinCategory: Guid = Guid(),
-    public var anonymous: KscameraProfilePininfo0 = KscameraProfilePininfo0(),
-    public var mediaInfoCount: UInt = 0u,
-    public var mediaInfos: KscameraProfileMediainfo? = null,
-)
+public class KscameraProfilePininfo internal constructor(
+    public var pinCategory: Guid,
+    public var anonymous: KscameraProfilePininfo0,
+    public var mediaInfoCount: UInt,
+    mediaInfosCtorArg: MutPtr<KscameraProfileMediainfo>,
+) {
+    public var mediaInfos: MutPtr<KscameraProfileMediainfo> = mediaInfosCtorArg
+        internal set
+
+    public constructor() : this(
+        pinCategory = Guid(),
+        anonymous = KscameraProfilePininfo0(),
+        mediaInfoCount = 0u,
+        mediaInfosCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Guid = this.pinCategory
+
+    public operator fun component2(): KscameraProfilePininfo0 = this.anonymous
+
+    public operator fun component3(): UInt = this.mediaInfoCount
+
+    public operator fun component4(): MutPtr<KscameraProfileMediainfo> = this.mediaInfos
+
+    public fun copy(pinCategory: Guid = this.pinCategory, anonymous: KscameraProfilePininfo0 = this.anonymous, mediaInfoCount: UInt = this.mediaInfoCount, mediaInfos: MutPtr<KscameraProfileMediainfo> = this.mediaInfos): KscameraProfilePininfo = KscameraProfilePininfo(pinCategory = pinCategory, anonymous = anonymous, mediaInfoCount = mediaInfoCount, mediaInfosCtorArg = mediaInfos)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KscameraProfilePininfo) return false
+        if (this.pinCategory != other.pinCategory) return false
+        if (this.anonymous != other.anonymous) return false
+        if (this.mediaInfoCount != other.mediaInfoCount) return false
+        if (this.mediaInfos != other.mediaInfos) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.pinCategory.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.mediaInfoCount.hashCode()
+        result = 31 * result + this.mediaInfos.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            pinCategory: Guid = Guid(),
+            anonymous: KscameraProfilePininfo0 = KscameraProfilePininfo0(),
+            mediaInfoCount: UInt = 0u,
+            mediaInfos: MutPtr<KscameraProfileMediainfo> = MutPtr(0L),
+        ): KscameraProfilePininfo =
+            KscameraProfilePininfo(
+                pinCategory = pinCategory,
+                anonymous = anonymous,
+                mediaInfoCount = mediaInfoCount,
+                mediaInfosCtorArg = mediaInfos,
+            )
+    }
+}
 
 public data class KscameraProfilePininfo0(
     public var anonymous: KscameraProfilePininfo00 = KscameraProfilePininfo00(),
@@ -694,11 +1899,43 @@ public data class KscameraProfilePininfo0(
 public data class KscameraProfilePininfo00(
     public var pinIndex: UShort = 0u,
     public var profileSensorType: UShort = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfilePininfo00> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscameraProfilePininfo00> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): KscameraProfilePininfo00 =
+                    KscameraProfilePininfo00(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                    )
+                override fun writeNative(addr: Long, value: KscameraProfilePininfo00) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.pinIndex)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.profileSensorType)
+                }
+            }
+    }
+}
 
 public data class KsclockCreate(
     public var createFlags: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsclockCreate> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsclockCreate> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsclockCreate =
+                    KsclockCreate(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: KsclockCreate) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.createFlags)
+                }
+            }
+    }
+}
 
 public data class Kscomponentid(
     public var manufacturer: Guid = Guid(),
@@ -712,7 +1949,24 @@ public data class Kscomponentid(
 public data class KscorrelatedTime(
     public var time: Long = 0L,
     public var systemTime: Long = 0L,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscorrelatedTime> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KscorrelatedTime> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KscorrelatedTime =
+                    KscorrelatedTime(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KscorrelatedTime) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.time)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.systemTime)
+                }
+            }
+    }
+}
 
 public data class Ksdataformat(
     public var anonymous: Ksdataformat0 = Ksdataformat0(),
@@ -756,12 +2010,65 @@ public data class KsdeviceProfileInfo0(
     public var camera: KsdeviceProfileInfo00 = KsdeviceProfileInfo00(),
 )
 
-public data class KsdeviceProfileInfo00(
-    public var info: KscameraProfileInfo = KscameraProfileInfo(),
-    public var reserved: UInt = 0u,
-    public var concurrencyCount: UInt = 0u,
-    public var concurrency: KscameraProfileConcurrencyinfo? = null,
-)
+public class KsdeviceProfileInfo00 internal constructor(
+    public var info: KscameraProfileInfo,
+    public var reserved: UInt,
+    public var concurrencyCount: UInt,
+    concurrencyCtorArg: MutPtr<KscameraProfileConcurrencyinfo>,
+) {
+    public var concurrency: MutPtr<KscameraProfileConcurrencyinfo> = concurrencyCtorArg
+        internal set
+
+    public constructor() : this(
+        info = KscameraProfileInfo(),
+        reserved = 0u,
+        concurrencyCount = 0u,
+        concurrencyCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): KscameraProfileInfo = this.info
+
+    public operator fun component2(): UInt = this.reserved
+
+    public operator fun component3(): UInt = this.concurrencyCount
+
+    public operator fun component4(): MutPtr<KscameraProfileConcurrencyinfo> = this.concurrency
+
+    public fun copy(info: KscameraProfileInfo = this.info, reserved: UInt = this.reserved, concurrencyCount: UInt = this.concurrencyCount, concurrency: MutPtr<KscameraProfileConcurrencyinfo> = this.concurrency): KsdeviceProfileInfo00 = KsdeviceProfileInfo00(info = info, reserved = reserved, concurrencyCount = concurrencyCount, concurrencyCtorArg = concurrency)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KsdeviceProfileInfo00) return false
+        if (this.info != other.info) return false
+        if (this.reserved != other.reserved) return false
+        if (this.concurrencyCount != other.concurrencyCount) return false
+        if (this.concurrency != other.concurrency) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.info.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.concurrencyCount.hashCode()
+        result = 31 * result + this.concurrency.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            info: KscameraProfileInfo = KscameraProfileInfo(),
+            reserved: UInt = 0u,
+            concurrencyCount: UInt = 0u,
+            concurrency: MutPtr<KscameraProfileConcurrencyinfo> = MutPtr(0L),
+        ): KsdeviceProfileInfo00 =
+            KsdeviceProfileInfo00(
+                info = info,
+                reserved = reserved,
+                concurrencyCount = concurrencyCount,
+                concurrencyCtorArg = concurrency,
+            )
+    }
+}
 
 public data class Ksdisplaychange(
     public var pelsWidth: UInt = 0u,
@@ -786,6 +2093,33 @@ public data class Ksdisplaychange(
         result = 31 * result + this.deviceID.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksdisplaychange> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksdisplaychange> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksdisplaychange =
+                    Ksdisplaychange(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                        ).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: Ksdisplaychange) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.pelsWidth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.pelsHeight)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.bitsPerPel)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                    ).writeNative(addr + 12L, value.deviceID)
+                }
+            }
+    }
 }
 
 public data class Ksds3dBufferAll(
@@ -803,14 +2137,52 @@ public data class Ksds3dBufferAll(
 public data class Ksds3dBufferConeAngles(
     public var insideConeAngle: UInt = 0u,
     public var outsideConeAngle: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dBufferConeAngles> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dBufferConeAngles> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksds3dBufferConeAngles =
+                    Ksds3dBufferConeAngles(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Ksds3dBufferConeAngles) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.insideConeAngle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.outsideConeAngle)
+                }
+            }
+    }
+}
 
 public data class Ksds3dHrtfFilterFormatMsg(
     public var filterMethod: Ksds3dHrtfFilterMethod = 0,
     public var coeffFormat: Ksds3dHrtfCoeffFormat = 0,
     public var version: Ksds3dHrtfFilterVersion = 0,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dHrtfFilterFormatMsg> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dHrtfFilterFormatMsg> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksds3dHrtfFilterFormatMsg =
+                    Ksds3dHrtfFilterFormatMsg(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: Ksds3dHrtfFilterFormatMsg) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.filterMethod)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.coeffFormat)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.version)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class Ksds3dHrtfInitMsg(
     public var size: UInt = 0u,
@@ -821,7 +2193,36 @@ public data class Ksds3dHrtfInitMsg(
     public var filterOverlapBufferLength: UInt = 0u,
     public var outputOverlapBufferLength: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dHrtfInitMsg> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dHrtfInitMsg> {
+                override val sizeBytes: Long = 32L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksds3dHrtfInitMsg =
+                    Ksds3dHrtfInitMsg(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                    )
+                override fun writeNative(addr: Long, value: Ksds3dHrtfInitMsg) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.quality)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 8L, value.sampleRate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.maxFilterSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.filterTransientMuteLength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.filterOverlapBufferLength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.outputOverlapBufferLength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class Ksds3dHrtfParamsMsg(
     public var size: UInt = 0u,
@@ -839,14 +2240,60 @@ public data class Ksds3dItdParams(
     public var totalWetAttenuation: Float = 0.0f,
     public var smoothFrequency: Int = 0,
     public var delay: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dItdParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dItdParams> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksds3dItdParams =
+                    Ksds3dItdParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: Ksds3dItdParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.channel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 4L, value.volSmoothScale)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 8L, value.totalDryAttenuation)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 12L, value.totalWetAttenuation)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.smoothFrequency)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.delay)
+                }
+            }
+    }
+}
 
 public data class Ksds3dItdParamsMsg(
     public var enabled: UInt = 0u,
     public var leftParams: Ksds3dItdParams = Ksds3dItdParams(),
     public var rightParams: Ksds3dItdParams = Ksds3dItdParams(),
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dItdParamsMsg> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksds3dItdParamsMsg> {
+                override val sizeBytes: Long = 56L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksds3dItdParamsMsg =
+                    Ksds3dItdParamsMsg(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (Ksds3dItdParams.typeLayout()).readNative(addr + 4L),
+                        (Ksds3dItdParams.typeLayout()).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                    )
+                override fun writeNative(addr: Long, value: Ksds3dItdParamsMsg) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.enabled)
+                    (Ksds3dItdParams.typeLayout()).writeNative(addr + 4L, value.leftParams)
+                    (Ksds3dItdParams.typeLayout()).writeNative(addr + 28L, value.rightParams)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class Ksds3dListenerAll(
     public var position: Ds3dvector = Ds3dvector(),
@@ -863,10 +2310,70 @@ public data class Ksds3dListenerOrientation(
     public var top: Ds3dvector = Ds3dvector(),
 )
 
-public data class Kserror(
-    public var context: COpaquePointer? = null,
-    public var status: UInt = 0u,
-)
+public class Kserror internal constructor(
+    contextCtorArg: MutPtr<CVoid>,
+    public var status: UInt,
+) {
+    public var context: MutPtr<CVoid> = contextCtorArg
+        internal set
+
+    public constructor() : this(
+        contextCtorArg = MutPtr(0L),
+        status = 0u,
+    )
+
+    public operator fun component1(): MutPtr<CVoid> = this.context
+
+    public operator fun component2(): UInt = this.status
+
+    public fun copy(context: MutPtr<CVoid> = this.context, status: UInt = this.status): Kserror = Kserror(contextCtorArg = context, status = status)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Kserror) return false
+        if (this.context != other.context) return false
+        if (this.status != other.status) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.context.hashCode()
+        result = 31 * result + this.status.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kserror> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kserror> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Kserror =
+                    Kserror(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: Kserror) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.context)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.status)
+                }
+            }
+
+        public operator fun invoke(
+            context: MutPtr<CVoid> = MutPtr(0L),
+            status: UInt = 0u,
+        ): Kserror =
+            Kserror(
+                contextCtorArg = context,
+                status = status,
+            )
+    }
+}
 
 public data class Kseventdata(
     public var notificationType: UInt = 0u,
@@ -879,10 +2386,24 @@ public data class Kseventdata0(
     public var alignment: Kseventdata02 = Kseventdata02(),
 )
 
-public data class Kseventdata02(
-    public var unused: COpaquePointer? = null,
-    public var alignment: IntArray = IntArray(2),
+public class Kseventdata02 internal constructor(
+    unusedCtorArg: MutPtr<CVoid>,
+    public var alignment: IntArray,
 ) {
+    public var unused: MutPtr<CVoid> = unusedCtorArg
+        internal set
+
+    public constructor() : this(
+        unusedCtorArg = MutPtr(0L),
+        alignment = IntArray(2),
+    )
+
+    public operator fun component1(): MutPtr<CVoid> = this.unused
+
+    public operator fun component2(): IntArray = this.alignment
+
+    public fun copy(unused: MutPtr<CVoid> = this.unused, alignment: IntArray = this.alignment): Kseventdata02 = Kseventdata02(unusedCtorArg = unused, alignment = alignment)
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Kseventdata02) return false
@@ -896,12 +2417,64 @@ public data class Kseventdata02(
         result = 31 * result + this.alignment.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kseventdata02> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kseventdata02> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Kseventdata02 =
+                    Kseventdata02(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (2).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: Kseventdata02) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.unused)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (2).toInt())
+                    ).writeNative(addr + 8L, value.alignment)
+                }
+            }
+
+        public operator fun invoke(
+            unused: MutPtr<CVoid> = MutPtr(0L),
+            alignment: IntArray = IntArray(2),
+        ): Kseventdata02 =
+            Kseventdata02(
+                unusedCtorArg = unused,
+                alignment = alignment,
+            )
+    }
 }
 
-public data class Kseventdata00(
-    public var event: Handle = null,
-    public var reserved: IntArray = IntArray(2),
+public class Kseventdata00 internal constructor(
+    eventCtorArg: Handle,
+    public var reserved: IntArray,
 ) {
+    public var event: Handle = eventCtorArg
+        internal set
+
+    public constructor() : this(
+        eventCtorArg = MutPtr(0L),
+        reserved = IntArray(2),
+    )
+
+    public operator fun component1(): Handle = this.event
+
+    public operator fun component2(): IntArray = this.reserved
+
+    public fun copy(event: Handle = this.event, reserved: IntArray = this.reserved): Kseventdata00 = Kseventdata00(eventCtorArg = event, reserved = reserved)
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Kseventdata00) return false
@@ -915,13 +2488,70 @@ public data class Kseventdata00(
         result = 31 * result + this.reserved.contentHashCode()
         return result
     }
+
+    public companion object {
+        public operator fun invoke(
+            event: Handle = MutPtr(0L),
+            reserved: IntArray = IntArray(2),
+        ): Kseventdata00 =
+            Kseventdata00(
+                eventCtorArg = event,
+                reserved = reserved,
+            )
+    }
 }
 
-public data class Kseventdata01(
-    public var semaphore: Handle = null,
-    public var reserved: UInt = 0u,
-    public var adjustment: Int = 0,
-)
+public class Kseventdata01 internal constructor(
+    semaphoreCtorArg: Handle,
+    public var reserved: UInt,
+    public var adjustment: Int,
+) {
+    public var semaphore: Handle = semaphoreCtorArg
+        internal set
+
+    public constructor() : this(
+        semaphoreCtorArg = MutPtr(0L),
+        reserved = 0u,
+        adjustment = 0,
+    )
+
+    public operator fun component1(): Handle = this.semaphore
+
+    public operator fun component2(): UInt = this.reserved
+
+    public operator fun component3(): Int = this.adjustment
+
+    public fun copy(semaphore: Handle = this.semaphore, reserved: UInt = this.reserved, adjustment: Int = this.adjustment): Kseventdata01 = Kseventdata01(semaphoreCtorArg = semaphore, reserved = reserved, adjustment = adjustment)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Kseventdata01) return false
+        if (this.semaphore != other.semaphore) return false
+        if (this.reserved != other.reserved) return false
+        if (this.adjustment != other.adjustment) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.semaphore.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.adjustment.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            semaphore: Handle = MutPtr(0L),
+            reserved: UInt = 0u,
+            adjustment: Int = 0,
+        ): Kseventdata01 =
+            Kseventdata01(
+                semaphoreCtorArg = semaphore,
+                reserved = reserved,
+                adjustment = adjustment,
+            )
+    }
+}
 
 public data class KseventTimeInterval(
     public var eventData: Kseventdata = Kseventdata(),
@@ -956,7 +2586,26 @@ public data class Ksframetime(
     public var duration: Long = 0L,
     public var frameFlags: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksframetime> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksframetime> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Ksframetime =
+                    Ksframetime(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: Ksframetime) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.duration)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.frameFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class KsgopUserdata(
     public var sc: UInt = 0u,
@@ -981,6 +2630,33 @@ public data class KsgopUserdata(
         result = 31 * result + this.l21Data.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsgopUserdata> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsgopUserdata> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsgopUserdata =
+                    KsgopUserdata(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (3).toInt())
+                        ).readNative(addr + 9L),
+                    )
+                override fun writeNative(addr: Long, value: KsgopUserdata) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sc)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.reserved1)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.cFields)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (3).toInt())
+                    ).writeNative(addr + 9L, value.l21Data)
+                }
+            }
+    }
 }
 
 public data class Ksidentifier(
@@ -1001,7 +2677,24 @@ public data class Ksidentifier00(
 public data class Ksinterval(
     public var timeBase: Long = 0L,
     public var interval: Long = 0L,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksinterval> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksinterval> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Ksinterval =
+                    Ksinterval(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: Ksinterval) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.timeBase)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.interval)
+                }
+            }
+    }
+}
 
 public data class KsjackDescription(
     public var channelMapping: UInt = 0u,
@@ -1016,11 +2709,43 @@ public data class KsjackDescription(
 public data class KsjackDescription2(
     public var deviceStateInfo: UInt = 0u,
     public var jackCapabilities: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsjackDescription2> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsjackDescription2> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsjackDescription2 =
+                    KsjackDescription2(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KsjackDescription2) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.deviceStateInfo)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.jackCapabilities)
+                }
+            }
+    }
+}
 
 public data class KsjackDescription3(
     public var configId: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsjackDescription3> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsjackDescription3> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsjackDescription3 =
+                    KsjackDescription3(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: KsjackDescription3) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.configId)
+                }
+            }
+    }
+}
 
 public data class KsjackSinkInformation(
     public var connType: KsjackSinkConnectiontype = 0,
@@ -1067,7 +2792,28 @@ public data class KsmpegvidRect(
     public var startY: UInt = 0u,
     public var endX: UInt = 0u,
     public var endY: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsmpegvidRect> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsmpegvidRect> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsmpegvidRect =
+                    KsmpegvidRect(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KsmpegvidRect) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.startX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.startY)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.endX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.endY)
+                }
+            }
+    }
+}
 
 public data class KsmultipleDataProp(
     public var property: Ksidentifier = Ksidentifier(),
@@ -1077,12 +2823,46 @@ public data class KsmultipleDataProp(
 public data class KsmultipleItem(
     public var size: UInt = 0u,
     public var count: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsmultipleItem> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsmultipleItem> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsmultipleItem =
+                    KsmultipleItem(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KsmultipleItem) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.count)
+                }
+            }
+    }
+}
 
 public data class Ksmusicformat(
     public var timeDeltaMs: UInt = 0u,
     public var byteCount: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksmusicformat> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksmusicformat> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Ksmusicformat =
+                    Ksmusicformat(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Ksmusicformat) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.timeDeltaMs)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.byteCount)
+                }
+            }
+    }
+}
 
 public data class KsmNode(
     public var method: Ksidentifier = Ksidentifier(),
@@ -1096,10 +2876,49 @@ public data class Ksnodeproperty(
     public var reserved: UInt = 0u,
 )
 
-public data class KsnodepropertyAudio3dListener(
-    public var nodeProperty: Ksnodeproperty = Ksnodeproperty(),
-    public var listenerId: COpaquePointer? = null,
-)
+public class KsnodepropertyAudio3dListener internal constructor(
+    public var nodeProperty: Ksnodeproperty,
+    listenerIdCtorArg: MutPtr<CVoid>,
+) {
+    public var listenerId: MutPtr<CVoid> = listenerIdCtorArg
+        internal set
+
+    public constructor() : this(
+        nodeProperty = Ksnodeproperty(),
+        listenerIdCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Ksnodeproperty = this.nodeProperty
+
+    public operator fun component2(): MutPtr<CVoid> = this.listenerId
+
+    public fun copy(nodeProperty: Ksnodeproperty = this.nodeProperty, listenerId: MutPtr<CVoid> = this.listenerId): KsnodepropertyAudio3dListener = KsnodepropertyAudio3dListener(nodeProperty = nodeProperty, listenerIdCtorArg = listenerId)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KsnodepropertyAudio3dListener) return false
+        if (this.nodeProperty != other.nodeProperty) return false
+        if (this.listenerId != other.listenerId) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.nodeProperty.hashCode()
+        result = 31 * result + this.listenerId.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            nodeProperty: Ksnodeproperty = Ksnodeproperty(),
+            listenerId: MutPtr<CVoid> = MutPtr(0L),
+        ): KsnodepropertyAudio3dListener =
+            KsnodepropertyAudio3dListener(
+                nodeProperty = nodeProperty,
+                listenerIdCtorArg = listenerId,
+            )
+    }
+}
 
 public data class KsnodepropertyAudioChannel(
     public var nodeProperty: Ksnodeproperty = Ksnodeproperty(),
@@ -1114,39 +2933,256 @@ public data class KsnodepropertyAudioDevSpecific(
     public var length: UInt = 0u,
 )
 
-public data class KsnodepropertyAudioProperty(
-    public var nodeProperty: Ksnodeproperty = Ksnodeproperty(),
-    public var appContext: COpaquePointer? = null,
-    public var length: UInt = 0u,
-)
+public class KsnodepropertyAudioProperty internal constructor(
+    public var nodeProperty: Ksnodeproperty,
+    appContextCtorArg: MutPtr<CVoid>,
+    public var length: UInt,
+) {
+    public var appContext: MutPtr<CVoid> = appContextCtorArg
+        internal set
+
+    public constructor() : this(
+        nodeProperty = Ksnodeproperty(),
+        appContextCtorArg = MutPtr(0L),
+        length = 0u,
+    )
+
+    public operator fun component1(): Ksnodeproperty = this.nodeProperty
+
+    public operator fun component2(): MutPtr<CVoid> = this.appContext
+
+    public operator fun component3(): UInt = this.length
+
+    public fun copy(nodeProperty: Ksnodeproperty = this.nodeProperty, appContext: MutPtr<CVoid> = this.appContext, length: UInt = this.length): KsnodepropertyAudioProperty = KsnodepropertyAudioProperty(nodeProperty = nodeProperty, appContextCtorArg = appContext, length = length)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KsnodepropertyAudioProperty) return false
+        if (this.nodeProperty != other.nodeProperty) return false
+        if (this.appContext != other.appContext) return false
+        if (this.length != other.length) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.nodeProperty.hashCode()
+        result = 31 * result + this.appContext.hashCode()
+        result = 31 * result + this.length.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            nodeProperty: Ksnodeproperty = Ksnodeproperty(),
+            appContext: MutPtr<CVoid> = MutPtr(0L),
+            length: UInt = 0u,
+        ): KsnodepropertyAudioProperty =
+            KsnodepropertyAudioProperty(
+                nodeProperty = nodeProperty,
+                appContextCtorArg = appContext,
+                length = length,
+            )
+    }
+}
 
 public data class KsnodeCreate(
     public var createFlags: UInt = 0u,
     public var node: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsnodeCreate> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsnodeCreate> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KsnodeCreate =
+                    KsnodeCreate(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KsnodeCreate) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.createFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.node)
+                }
+            }
+    }
+}
 
 public data class KspinCinstances(
     public var possibleCount: UInt = 0u,
     public var currentCount: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinCinstances> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinCinstances> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspinCinstances =
+                    KspinCinstances(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspinCinstances) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.possibleCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.currentCount)
+                }
+            }
+    }
+}
 
-public data class KspinConnect(
-    public var iface: Ksidentifier = Ksidentifier(),
-    public var medium: Ksidentifier = Ksidentifier(),
-    public var pinId: UInt = 0u,
-    public var pinToHandle: Handle = null,
-    public var priority: Kspriority = Kspriority(),
-)
+public class KspinConnect internal constructor(
+    public var iface: Ksidentifier,
+    public var medium: Ksidentifier,
+    public var pinId: UInt,
+    pinToHandleCtorArg: Handle,
+    public var priority: Kspriority,
+) {
+    public var pinToHandle: Handle = pinToHandleCtorArg
+        internal set
 
-public data class KspinMdlCachingNotification(
-    public var event: KspinMdlCachingEvent = 0,
-    public var buffer: COpaquePointer? = null,
-)
+    public constructor() : this(
+        iface = Ksidentifier(),
+        medium = Ksidentifier(),
+        pinId = 0u,
+        pinToHandleCtorArg = MutPtr(0L),
+        priority = Kspriority(),
+    )
+
+    public operator fun component1(): Ksidentifier = this.iface
+
+    public operator fun component2(): Ksidentifier = this.medium
+
+    public operator fun component3(): UInt = this.pinId
+
+    public operator fun component4(): Handle = this.pinToHandle
+
+    public operator fun component5(): Kspriority = this.priority
+
+    public fun copy(iface: Ksidentifier = this.iface, medium: Ksidentifier = this.medium, pinId: UInt = this.pinId, pinToHandle: Handle = this.pinToHandle, priority: Kspriority = this.priority): KspinConnect = KspinConnect(iface = iface, medium = medium, pinId = pinId, pinToHandleCtorArg = pinToHandle, priority = priority)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KspinConnect) return false
+        if (this.iface != other.iface) return false
+        if (this.medium != other.medium) return false
+        if (this.pinId != other.pinId) return false
+        if (this.pinToHandle != other.pinToHandle) return false
+        if (this.priority != other.priority) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.iface.hashCode()
+        result = 31 * result + this.medium.hashCode()
+        result = 31 * result + this.pinId.hashCode()
+        result = 31 * result + this.pinToHandle.hashCode()
+        result = 31 * result + this.priority.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            iface: Ksidentifier = Ksidentifier(),
+            medium: Ksidentifier = Ksidentifier(),
+            pinId: UInt = 0u,
+            pinToHandle: Handle = MutPtr(0L),
+            priority: Kspriority = Kspriority(),
+        ): KspinConnect =
+            KspinConnect(
+                iface = iface,
+                medium = medium,
+                pinId = pinId,
+                pinToHandleCtorArg = pinToHandle,
+                priority = priority,
+            )
+    }
+}
+
+public class KspinMdlCachingNotification internal constructor(
+    public var event: KspinMdlCachingEvent,
+    bufferCtorArg: MutPtr<CVoid>,
+) {
+    public var buffer: MutPtr<CVoid> = bufferCtorArg
+        internal set
+
+    public constructor() : this(
+        event = 0,
+        bufferCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): KspinMdlCachingEvent = this.event
+
+    public operator fun component2(): MutPtr<CVoid> = this.buffer
+
+    public fun copy(event: KspinMdlCachingEvent = this.event, buffer: MutPtr<CVoid> = this.buffer): KspinMdlCachingNotification = KspinMdlCachingNotification(event = event, bufferCtorArg = buffer)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KspinMdlCachingNotification) return false
+        if (this.event != other.event) return false
+        if (this.buffer != other.buffer) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.event.hashCode()
+        result = 31 * result + this.buffer.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinMdlCachingNotification> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinMdlCachingNotification> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KspinMdlCachingNotification =
+                    KspinMdlCachingNotification(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KspinMdlCachingNotification) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.event)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.buffer)
+                }
+            }
+
+        public operator fun invoke(
+            event: KspinMdlCachingEvent = 0,
+            buffer: MutPtr<CVoid> = MutPtr(0L),
+        ): KspinMdlCachingNotification =
+            KspinMdlCachingNotification(
+                event = event,
+                bufferCtorArg = buffer,
+            )
+    }
+}
 
 public data class KspinMdlCachingNotification32(
     public var event: KspinMdlCachingEvent = 0,
     public var buffer: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinMdlCachingNotification32> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinMdlCachingNotification32> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspinMdlCachingNotification32 =
+                    KspinMdlCachingNotification32(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspinMdlCachingNotification32) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.event)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.buffer)
+                }
+            }
+    }
+}
 
 public data class KspinPhysicalconnection(
     public var size: UInt = 0u,
@@ -1168,25 +3204,114 @@ public data class KspinPhysicalconnection(
         result = 31 * result + this.symbolicLinkName.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinPhysicalconnection> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspinPhysicalconnection> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspinPhysicalconnection =
+                    KspinPhysicalconnection(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KspinPhysicalconnection) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.pin)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                    ).writeNative(addr + 8L, value.symbolicLinkName)
+                }
+            }
+    }
 }
 
 public data class Kspriority(
     public var priorityClass: UInt = 0u,
     public var prioritySubClass: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kspriority> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kspriority> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Kspriority =
+                    Kspriority(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Kspriority) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.priorityClass)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.prioritySubClass)
+                }
+            }
+    }
+}
 
 public data class KspropertyAllocatorControlCaptureCapsS(
     public var interleavedCapSupported: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyAllocatorControlCaptureCapsS> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyAllocatorControlCaptureCapsS> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyAllocatorControlCaptureCapsS =
+                    KspropertyAllocatorControlCaptureCapsS(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyAllocatorControlCaptureCapsS) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.interleavedCapSupported)
+                }
+            }
+    }
+}
 
 public data class KspropertyAllocatorControlCaptureInterleaveS(
     public var interleavedCapPossible: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyAllocatorControlCaptureInterleaveS> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyAllocatorControlCaptureInterleaveS> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyAllocatorControlCaptureInterleaveS =
+                    KspropertyAllocatorControlCaptureInterleaveS(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyAllocatorControlCaptureInterleaveS) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.interleavedCapPossible)
+                }
+            }
+    }
+}
 
 public data class KspropertyAllocatorControlSurfaceSizeS(
     public var cx: UInt = 0u,
     public var cy: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyAllocatorControlSurfaceSizeS> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyAllocatorControlSurfaceSizeS> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyAllocatorControlSurfaceSizeS =
+                    KspropertyAllocatorControlSurfaceSizeS(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyAllocatorControlSurfaceSizeS) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cx)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cy)
+                }
+            }
+    }
+}
 
 public data class KspropertyBoundsLong(
     public var anonymous1: KspropertyBoundsLong0 = KspropertyBoundsLong0(),
@@ -1196,12 +3321,46 @@ public data class KspropertyBoundsLong(
 public data class KspropertyBoundsLong0(
     public var signedMinimum: Int = 0,
     public var signedMaximum: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLong0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLong0> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyBoundsLong0 =
+                    KspropertyBoundsLong0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyBoundsLong0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.signedMinimum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.signedMaximum)
+                }
+            }
+    }
+}
 
 public data class KspropertyBoundsLong1(
     public var unsignedMinimum: UInt = 0u,
     public var unsignedMaximum: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLong1> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLong1> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyBoundsLong1 =
+                    KspropertyBoundsLong1(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyBoundsLong1) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.unsignedMinimum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.unsignedMaximum)
+                }
+            }
+    }
+}
 
 public data class KspropertyBoundsLonglong(
     public var anonymous1: KspropertyBoundsLonglong0 = KspropertyBoundsLonglong0(),
@@ -1211,17 +3370,68 @@ public data class KspropertyBoundsLonglong(
 public data class KspropertyBoundsLonglong0(
     public var signedMinimum: Long = 0L,
     public var signedMaximum: Long = 0L,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLonglong0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLonglong0> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KspropertyBoundsLonglong0 =
+                    KspropertyBoundsLonglong0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyBoundsLonglong0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.signedMinimum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.signedMaximum)
+                }
+            }
+    }
+}
 
 public data class KspropertyBoundsLonglong1(
     public var unsignedMinimum: ULong = 0uL,
     public var unsignedMaximum: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLonglong1> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyBoundsLonglong1> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KspropertyBoundsLonglong1 =
+                    KspropertyBoundsLonglong1(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyBoundsLonglong1) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.unsignedMinimum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.unsignedMaximum)
+                }
+            }
+    }
+}
 
 public data class KspropertyCameracontrolFlashS(
     public var flash: UInt = 0u,
     public var capabilities: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyCameracontrolFlashS> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyCameracontrolFlashS> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyCameracontrolFlashS =
+                    KspropertyCameracontrolFlashS(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyCameracontrolFlashS) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flash)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.capabilities)
+                }
+            }
+    }
+}
 
 public data class KspropertyCameracontrolFocalLengthS(
     public var property: Ksidentifier = Ksidentifier(),
@@ -1233,7 +3443,24 @@ public data class KspropertyCameracontrolFocalLengthS(
 public data class KspropertyCameracontrolImagePinCapabilityS(
     public var capabilities: UInt = 0u,
     public var reserved0: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyCameracontrolImagePinCapabilityS> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyCameracontrolImagePinCapabilityS> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyCameracontrolImagePinCapabilityS =
+                    KspropertyCameracontrolImagePinCapabilityS(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyCameracontrolImagePinCapabilityS) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.capabilities)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.reserved0)
+                }
+            }
+    }
+}
 
 public data class KspropertyCameracontrolNodeFocalLengthS(
     public var nodeProperty: Ksnodeproperty = Ksnodeproperty(),
@@ -1296,7 +3523,24 @@ public data class KspropertyCameracontrolSEx(
 public data class KspropertyCameracontrolVideostabilizationModeS(
     public var videoStabilizationMode: UInt = 0u,
     public var capabilities: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyCameracontrolVideostabilizationModeS> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyCameracontrolVideostabilizationModeS> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyCameracontrolVideostabilizationModeS =
+                    KspropertyCameracontrolVideostabilizationModeS(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyCameracontrolVideostabilizationModeS) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.videoStabilizationMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.capabilities)
+                }
+            }
+    }
+}
 
 public data class KspropertyCrossbarActiveS(
     public var property: Ksidentifier = Ksidentifier(),
@@ -1408,6 +3652,29 @@ public data class KspropertyExtxportNodeS01(
         result = 31 * result + this.payload.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportNodeS01> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportNodeS01> {
+                override val sizeBytes: Long = 516L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyExtxportNodeS01 =
+                    KspropertyExtxportNodeS01(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (512).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyExtxportNodeS01) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (512).toInt())
+                    ).writeNative(addr + 4L, value.payload)
+                }
+            }
+    }
 }
 
 public data class KspropertyExtxportNodeS00(
@@ -1415,7 +3682,28 @@ public data class KspropertyExtxportNodeS00(
     public var second: UByte = 0u,
     public var minute: UByte = 0u,
     public var hour: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportNodeS00> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportNodeS00> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): KspropertyExtxportNodeS00 =
+                    KspropertyExtxportNodeS00(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 1L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyExtxportNodeS00) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.frame)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 1L, value.second)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.minute)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.hour)
+                }
+            }
+    }
+}
 
 public data class KspropertyExtxportS(
     public var property: Ksidentifier = Ksidentifier(),
@@ -1451,6 +3739,29 @@ public data class KspropertyExtxportS01(
         result = 31 * result + this.payload.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportS01> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportS01> {
+                override val sizeBytes: Long = 516L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyExtxportS01 =
+                    KspropertyExtxportS01(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (512).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyExtxportS01) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (512).toInt())
+                    ).writeNative(addr + 4L, value.payload)
+                }
+            }
+    }
 }
 
 public data class KspropertyExtxportS00(
@@ -1458,19 +3769,78 @@ public data class KspropertyExtxportS00(
     public var second: UByte = 0u,
     public var minute: UByte = 0u,
     public var hour: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportS00> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyExtxportS00> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): KspropertyExtxportS00 =
+                    KspropertyExtxportS00(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 1L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyExtxportS00) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.frame)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 1L, value.second)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.minute)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.hour)
+                }
+            }
+    }
+}
 
 public data class KspropertyMediaavailable(
     public var earliest: Long = 0L,
     public var latest: Long = 0L,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyMediaavailable> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyMediaavailable> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KspropertyMediaavailable =
+                    KspropertyMediaavailable(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyMediaavailable) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.earliest)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.latest)
+                }
+            }
+    }
+}
 
 public data class KspropertyMembersheader(
     public var membersFlags: UInt = 0u,
     public var membersSize: UInt = 0u,
     public var membersCount: UInt = 0u,
     public var flags: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyMembersheader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyMembersheader> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyMembersheader =
+                    KspropertyMembersheader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyMembersheader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.membersFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.membersSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.membersCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.flags)
+                }
+            }
+    }
+}
 
 public data class KspropertyNetworkcameracontrolEventInfo(
     public var header: KscameraMetadataItemheader = KscameraMetadataItemheader(),
@@ -1489,6 +3859,29 @@ public data class KspropertyNetworkcameracontrolEventInfo(
         result = 31 * result + this.eventFilter.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyNetworkcameracontrolEventInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyNetworkcameracontrolEventInfo> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyNetworkcameracontrolEventInfo =
+                    KspropertyNetworkcameracontrolEventInfo(
+                        (KscameraMetadataItemheader.typeLayout()).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyNetworkcameracontrolEventInfo) {
+                    (KscameraMetadataItemheader.typeLayout()).writeNative(addr, value.header)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                    ).writeNative(addr + 8L, value.eventFilter)
+                }
+            }
+    }
 }
 
 public data class KspropertyNetworkcameracontrolMetadataInfo(
@@ -1503,14 +3896,52 @@ public data class KspropertyNetworkcameracontrolMetadataInfo(
 public data class KspropertyNetworkcameracontrolNtpinfoHeader(
     public var size: UInt = 0u,
     public var type: KspropertyNetworkcameracontrolNtpinfoType = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyNetworkcameracontrolNtpinfoHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyNetworkcameracontrolNtpinfoHeader> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertyNetworkcameracontrolNtpinfoHeader =
+                    KspropertyNetworkcameracontrolNtpinfoHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyNetworkcameracontrolNtpinfoHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.type)
+                }
+            }
+    }
+}
 
 public data class KspropertyPositions(
     public var current: Long = 0L,
     public var stop: Long = 0L,
     public var currentFlags: KsSeekingFlags = 0,
     public var stopFlags: KsSeekingFlags = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyPositions> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertyPositions> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): KspropertyPositions =
+                    KspropertyPositions(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertyPositions) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.current)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.stop)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.currentFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.stopFlags)
+                }
+            }
+    }
+}
 
 public data class KspropertySelectorNodeS(
     public var nodeProperty: KspNode = KspNode(),
@@ -1547,11 +3978,63 @@ public data class KspropertySphli(
     public var stopX: UShort = 0u,
     public var stopY: UShort = 0u,
     public var colCon: KsColcon = KsColcon(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertySphli> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertySphli> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): KspropertySphli =
+                    KspropertySphli(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 14L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 18L),
+                        (KsColcon.typeLayout()).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: KspropertySphli) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.hliss)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.reserved)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.startPTM)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.endPTM)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 12L, value.startX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 14L, value.startY)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 16L, value.stopX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 18L, value.stopY)
+                    (KsColcon.typeLayout()).writeNative(addr + 20L, value.colCon)
+                }
+            }
+    }
+}
 
 public data class KspropertySppal(
     public var sppal: List<KsDvdYuv> = List(16) { KsDvdYuv() },
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertySppal> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KspropertySppal> {
+                override val sizeBytes: Long = 64L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): KspropertySppal =
+                    KspropertySppal(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(KsDvdYuv.typeLayout(), (16).toInt())
+                        ).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: KspropertySppal) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(KsDvdYuv.typeLayout(), (16).toInt())
+                    ).writeNative(addr, value.sppal)
+                }
+            }
+    }
+}
 
 public data class KspropertySteppingLong(
     public var steppingDelta: UInt = 0u,
@@ -1620,20 +4103,133 @@ public data class KspropertyTunerModeS(
     public var mode: UInt = 0u,
 )
 
-public data class KspropertyTunerNetworktypeScanCapsS(
-    public var property: Ksidentifier = Ksidentifier(),
-    public var networkType: Guid = Guid(),
-    public var bufferSize: UInt = 0u,
-    public var networkTunerCapabilities: COpaquePointer? = null,
-)
+public class KspropertyTunerNetworktypeScanCapsS internal constructor(
+    public var property: Ksidentifier,
+    public var networkType: Guid,
+    public var bufferSize: UInt,
+    networkTunerCapabilitiesCtorArg: MutPtr<CVoid>,
+) {
+    public var networkTunerCapabilities: MutPtr<CVoid> = networkTunerCapabilitiesCtorArg
+        internal set
 
-public data class KspropertyTunerScanCapsS(
-    public var property: Ksidentifier = Ksidentifier(),
-    public var fSupportsHardwareAssistedScanning: Bool = 0,
-    public var supportedBroadcastStandards: UInt = 0u,
-    public var gUIDBucket: COpaquePointer? = null,
-    public var lengthofBucket: UInt = 0u,
-)
+    public constructor() : this(
+        property = Ksidentifier(),
+        networkType = Guid(),
+        bufferSize = 0u,
+        networkTunerCapabilitiesCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Ksidentifier = this.property
+
+    public operator fun component2(): Guid = this.networkType
+
+    public operator fun component3(): UInt = this.bufferSize
+
+    public operator fun component4(): MutPtr<CVoid> = this.networkTunerCapabilities
+
+    public fun copy(property: Ksidentifier = this.property, networkType: Guid = this.networkType, bufferSize: UInt = this.bufferSize, networkTunerCapabilities: MutPtr<CVoid> = this.networkTunerCapabilities): KspropertyTunerNetworktypeScanCapsS = KspropertyTunerNetworktypeScanCapsS(property = property, networkType = networkType, bufferSize = bufferSize, networkTunerCapabilitiesCtorArg = networkTunerCapabilities)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KspropertyTunerNetworktypeScanCapsS) return false
+        if (this.property != other.property) return false
+        if (this.networkType != other.networkType) return false
+        if (this.bufferSize != other.bufferSize) return false
+        if (this.networkTunerCapabilities != other.networkTunerCapabilities) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.property.hashCode()
+        result = 31 * result + this.networkType.hashCode()
+        result = 31 * result + this.bufferSize.hashCode()
+        result = 31 * result + this.networkTunerCapabilities.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            property: Ksidentifier = Ksidentifier(),
+            networkType: Guid = Guid(),
+            bufferSize: UInt = 0u,
+            networkTunerCapabilities: MutPtr<CVoid> = MutPtr(0L),
+        ): KspropertyTunerNetworktypeScanCapsS =
+            KspropertyTunerNetworktypeScanCapsS(
+                property = property,
+                networkType = networkType,
+                bufferSize = bufferSize,
+                networkTunerCapabilitiesCtorArg = networkTunerCapabilities,
+            )
+    }
+}
+
+public class KspropertyTunerScanCapsS internal constructor(
+    public var property: Ksidentifier,
+    public var fSupportsHardwareAssistedScanning: Bool,
+    public var supportedBroadcastStandards: UInt,
+    gUIDBucketCtorArg: MutPtr<CVoid>,
+    public var lengthofBucket: UInt,
+) {
+    public var gUIDBucket: MutPtr<CVoid> = gUIDBucketCtorArg
+        internal set
+
+    public constructor() : this(
+        property = Ksidentifier(),
+        fSupportsHardwareAssistedScanning = 0,
+        supportedBroadcastStandards = 0u,
+        gUIDBucketCtorArg = MutPtr(0L),
+        lengthofBucket = 0u,
+    )
+
+    public operator fun component1(): Ksidentifier = this.property
+
+    public operator fun component2(): Bool = this.fSupportsHardwareAssistedScanning
+
+    public operator fun component3(): UInt = this.supportedBroadcastStandards
+
+    public operator fun component4(): MutPtr<CVoid> = this.gUIDBucket
+
+    public operator fun component5(): UInt = this.lengthofBucket
+
+    public fun copy(property: Ksidentifier = this.property, fSupportsHardwareAssistedScanning: Bool = this.fSupportsHardwareAssistedScanning, supportedBroadcastStandards: UInt = this.supportedBroadcastStandards, gUIDBucket: MutPtr<CVoid> = this.gUIDBucket, lengthofBucket: UInt = this.lengthofBucket): KspropertyTunerScanCapsS = KspropertyTunerScanCapsS(property = property, fSupportsHardwareAssistedScanning = fSupportsHardwareAssistedScanning, supportedBroadcastStandards = supportedBroadcastStandards, gUIDBucketCtorArg = gUIDBucket, lengthofBucket = lengthofBucket)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KspropertyTunerScanCapsS) return false
+        if (this.property != other.property) return false
+        if (this.fSupportsHardwareAssistedScanning != other.fSupportsHardwareAssistedScanning) return false
+        if (this.supportedBroadcastStandards != other.supportedBroadcastStandards) return false
+        if (this.gUIDBucket != other.gUIDBucket) return false
+        if (this.lengthofBucket != other.lengthofBucket) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.property.hashCode()
+        result = 31 * result + this.fSupportsHardwareAssistedScanning.hashCode()
+        result = 31 * result + this.supportedBroadcastStandards.hashCode()
+        result = 31 * result + this.gUIDBucket.hashCode()
+        result = 31 * result + this.lengthofBucket.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            property: Ksidentifier = Ksidentifier(),
+            fSupportsHardwareAssistedScanning: Bool = 0,
+            supportedBroadcastStandards: UInt = 0u,
+            gUIDBucket: MutPtr<CVoid> = MutPtr(0L),
+            lengthofBucket: UInt = 0u,
+        ): KspropertyTunerScanCapsS =
+            KspropertyTunerScanCapsS(
+                property = property,
+                fSupportsHardwareAssistedScanning = fSupportsHardwareAssistedScanning,
+                supportedBroadcastStandards = supportedBroadcastStandards,
+                gUIDBucketCtorArg = gUIDBucket,
+                lengthofBucket = lengthofBucket,
+            )
+    }
+}
 
 public data class KspropertyTunerScanStatusS(
     public var property: Ksidentifier = Ksidentifier(),
@@ -1854,22 +4450,182 @@ public data class KspTimeformat(
     public var time: Long = 0L,
 )
 
-public data class Ksquality(
-    public var context: COpaquePointer? = null,
-    public var proportion: UInt = 0u,
-    public var deltaTime: Long = 0L,
-)
+public class Ksquality internal constructor(
+    contextCtorArg: MutPtr<CVoid>,
+    public var proportion: UInt,
+    public var deltaTime: Long,
+) {
+    public var context: MutPtr<CVoid> = contextCtorArg
+        internal set
 
-public data class KsqualityManager(
-    public var qualityManager: Handle = null,
-    public var context: COpaquePointer? = null,
-)
+    public constructor() : this(
+        contextCtorArg = MutPtr(0L),
+        proportion = 0u,
+        deltaTime = 0L,
+    )
 
-public data class Ksquerybuffer(
-    public var event: Ksidentifier = Ksidentifier(),
-    public var eventData: Kseventdata? = null,
-    public var reserved: COpaquePointer? = null,
-)
+    public operator fun component1(): MutPtr<CVoid> = this.context
+
+    public operator fun component2(): UInt = this.proportion
+
+    public operator fun component3(): Long = this.deltaTime
+
+    public fun copy(context: MutPtr<CVoid> = this.context, proportion: UInt = this.proportion, deltaTime: Long = this.deltaTime): Ksquality = Ksquality(contextCtorArg = context, proportion = proportion, deltaTime = deltaTime)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Ksquality) return false
+        if (this.context != other.context) return false
+        if (this.proportion != other.proportion) return false
+        if (this.deltaTime != other.deltaTime) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.context.hashCode()
+        result = 31 * result + this.proportion.hashCode()
+        result = 31 * result + this.deltaTime.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksquality> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksquality> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Ksquality =
+                    Ksquality(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: Ksquality) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.context)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.proportion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.deltaTime)
+                }
+            }
+
+        public operator fun invoke(
+            context: MutPtr<CVoid> = MutPtr(0L),
+            proportion: UInt = 0u,
+            deltaTime: Long = 0L,
+        ): Ksquality =
+            Ksquality(
+                contextCtorArg = context,
+                proportion = proportion,
+                deltaTime = deltaTime,
+            )
+    }
+}
+
+public class KsqualityManager internal constructor(
+    qualityManagerCtorArg: Handle,
+    contextCtorArg: MutPtr<CVoid>,
+) {
+    public var qualityManager: Handle = qualityManagerCtorArg
+        internal set
+
+    public var context: MutPtr<CVoid> = contextCtorArg
+        internal set
+
+    public constructor() : this(
+        qualityManagerCtorArg = MutPtr(0L),
+        contextCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Handle = this.qualityManager
+
+    public operator fun component2(): MutPtr<CVoid> = this.context
+
+    public fun copy(qualityManager: Handle = this.qualityManager, context: MutPtr<CVoid> = this.context): KsqualityManager = KsqualityManager(qualityManagerCtorArg = qualityManager, contextCtorArg = context)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is KsqualityManager) return false
+        if (this.qualityManager != other.qualityManager) return false
+        if (this.context != other.context) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.qualityManager.hashCode()
+        result = 31 * result + this.context.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            qualityManager: Handle = MutPtr(0L),
+            context: MutPtr<CVoid> = MutPtr(0L),
+        ): KsqualityManager =
+            KsqualityManager(
+                qualityManagerCtorArg = qualityManager,
+                contextCtorArg = context,
+            )
+    }
+}
+
+public class Ksquerybuffer internal constructor(
+    public var event: Ksidentifier,
+    eventDataCtorArg: MutPtr<Kseventdata>,
+    reservedCtorArg: MutPtr<CVoid>,
+) {
+    public var eventData: MutPtr<Kseventdata> = eventDataCtorArg
+        internal set
+
+    public var reserved: MutPtr<CVoid> = reservedCtorArg
+        internal set
+
+    public constructor() : this(
+        event = Ksidentifier(),
+        eventDataCtorArg = MutPtr(0L),
+        reservedCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Ksidentifier = this.event
+
+    public operator fun component2(): MutPtr<Kseventdata> = this.eventData
+
+    public operator fun component3(): MutPtr<CVoid> = this.reserved
+
+    public fun copy(event: Ksidentifier = this.event, eventData: MutPtr<Kseventdata> = this.eventData, reserved: MutPtr<CVoid> = this.reserved): Ksquerybuffer = Ksquerybuffer(event = event, eventDataCtorArg = eventData, reservedCtorArg = reserved)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Ksquerybuffer) return false
+        if (this.event != other.event) return false
+        if (this.eventData != other.eventData) return false
+        if (this.reserved != other.reserved) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.event.hashCode()
+        result = 31 * result + this.eventData.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            event: Ksidentifier = Ksidentifier(),
+            eventData: MutPtr<Kseventdata> = MutPtr(0L),
+            reserved: MutPtr<CVoid> = MutPtr(0L),
+        ): Ksquerybuffer =
+            Ksquerybuffer(
+                event = event,
+                eventDataCtorArg = eventData,
+                reservedCtorArg = reserved,
+            )
+    }
+}
 
 public data class Ksrate(
     public var presentationStart: Long = 0L,
@@ -1884,11 +4640,78 @@ public data class KsrateCapability(
     public var rate: Ksrate = Ksrate(),
 )
 
-public data class Ksrelativeevent(
-    public var size: UInt = 0u,
-    public var flags: UInt = 0u,
-    public var anonymous: Ksrelativeevent0 = Ksrelativeevent0(),
-    public var reserved: COpaquePointer? = null,
-    public var event: Ksidentifier = Ksidentifier(),
-    public var eventData: Kseventdata = Kseventdata(),
-)
+public class Ksrelativeevent internal constructor(
+    public var size: UInt,
+    public var flags: UInt,
+    public var anonymous: Ksrelativeevent0,
+    reservedCtorArg: MutPtr<CVoid>,
+    public var event: Ksidentifier,
+    public var eventData: Kseventdata,
+) {
+    public var reserved: MutPtr<CVoid> = reservedCtorArg
+        internal set
+
+    public constructor() : this(
+        size = 0u,
+        flags = 0u,
+        anonymous = Ksrelativeevent0(),
+        reservedCtorArg = MutPtr(0L),
+        event = Ksidentifier(),
+        eventData = Kseventdata(),
+    )
+
+    public operator fun component1(): UInt = this.size
+
+    public operator fun component2(): UInt = this.flags
+
+    public operator fun component3(): Ksrelativeevent0 = this.anonymous
+
+    public operator fun component4(): MutPtr<CVoid> = this.reserved
+
+    public operator fun component5(): Ksidentifier = this.event
+
+    public operator fun component6(): Kseventdata = this.eventData
+
+    public fun copy(size: UInt = this.size, flags: UInt = this.flags, anonymous: Ksrelativeevent0 = this.anonymous, reserved: MutPtr<CVoid> = this.reserved, event: Ksidentifier = this.event, eventData: Kseventdata = this.eventData): Ksrelativeevent = Ksrelativeevent(size = size, flags = flags, anonymous = anonymous, reservedCtorArg = reserved, event = event, eventData = eventData)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Ksrelativeevent) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.anonymous != other.anonymous) return false
+        if (this.reserved != other.reserved) return false
+        if (this.event != other.event) return false
+        if (this.eventData != other.eventData) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.event.hashCode()
+        result = 31 * result + this.eventData.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            size: UInt = 0u,
+            flags: UInt = 0u,
+            anonymous: Ksrelativeevent0 = Ksrelativeevent0(),
+            reserved: MutPtr<CVoid> = MutPtr(0L),
+            event: Ksidentifier = Ksidentifier(),
+            eventData: Kseventdata = Kseventdata(),
+        ): Ksrelativeevent =
+            Ksrelativeevent(
+                size = size,
+                flags = flags,
+                anonymous = anonymous,
+                reservedCtorArg = reserved,
+                event = event,
+                eventData = eventData,
+            )
+    }
+}

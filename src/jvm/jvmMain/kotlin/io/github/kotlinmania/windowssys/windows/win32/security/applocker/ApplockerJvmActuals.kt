@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.applocker
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
@@ -10,66 +12,117 @@ import io.github.kotlinmania.windowssys.windows.win32.security.SaferLevelHandle
 
 private object WindowsWin32SecurityApplockerJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SecurityApplockerJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferCloseLevel(hlevelhandle: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferCloseLevel(hlevelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel(levelhandle: Long, inaccesstoken: Long, outaccesstoken: Long, dwflags: Int, lpreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel(levelhandle: Long, inaccesstoken: Long, outaccesstoken: Long, dwflags: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferCreateLevel(dwscopeid: Int, dwlevelid: Int, openflags: Int, plevelhandle: Long, lpreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferCreateLevel(dwscopeid: Int, dwlevelid: Int, openflags: Int, plevelhandle: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferGetLevelInformation(levelhandle: Long, dwinfotype: Int, lpquerybuffer: Long, dwinbuffersize: Int, lpdwoutbuffersize: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation(levelhandle: Long, dwinfotype: Int, lpquerybuffer: Long, dwinbuffersize: Int, lpdwoutbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferGetPolicyInformation(dwscopeid: Int, saferpolicyinfoclass: Int, infobuffersize: Int, infobuffer: Long, infobufferretsize: Long, lpreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation(dwscopeid: Int, saferpolicyinfoclass: Int, infobuffersize: Int, infobuffer: Long, infobufferretsize: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferIdentifyLevel(dwnumproperties: Int, pcodeproperties: Long, plevelhandle: Long, lpreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel(dwnumproperties: Int, pcodeproperties: Long, plevelhandle: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferRecordEventLogEntry(hlevel: Long, sztargetpath: Long, lpreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry(hlevel: Long, sztargetpath: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferSetLevelInformation(levelhandle: Long, dwinfotype: Int, lpquerybuffer: Long, dwinbuffersize: Int): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation(levelhandle: Long, dwinfotype: Int, lpquerybuffer: Long, dwinbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferSetPolicyInformation(dwscopeid: Int, saferpolicyinfoclass: Int, infobuffersize: Int, infobuffer: Long, lpreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation(dwscopeid: Int, saferpolicyinfoclass: Int, infobuffersize: Int, infobuffer: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_applocker_saferiIsExecutableFileType(szfullpathname: Long, bfromshellexecute: Boolean): Int
+    external fun windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType(szfullpathname: Long, bfromshellexecute: Boolean): Int
 }
 
 public actual fun saferCloseLevel(hlevelhandle: SaferLevelHandle): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferCloseLevel((hlevelhandle?.value ?: 0L))
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferCloseLevel(hlevelhandle.rawAddress)
 
-public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: COpaquePointer?, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel((levelhandle?.value ?: 0L), (inaccesstoken?.value ?: 0L), (outaccesstoken?.value ?: 0L), dwflags.toInt(), (lpreserved?.value ?: 0L))
+public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: MutPtr<Handle>, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: MutPtr<CVoid>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel(levelhandle.rawAddress, inaccesstoken.rawAddress, outaccesstoken.rawAddress, dwflags.toInt(), lpreserved.rawAddress)
 
-public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferCreateLevel(dwscopeid.toInt(), dwlevelid.toInt(), openflags.toInt(), (plevelhandle?.value ?: 0L), (lpreserved?.value ?: 0L))
+public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: MutPtr<SaferLevelHandle>, lpreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferCreateLevel(dwscopeid.toInt(), dwlevelid.toInt(), openflags.toInt(), plevelhandle.rawAddress, lpreserved.rawAddress)
 
-public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: COpaquePointer?, dwinbuffersize: UInt, lpdwoutbuffersize: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferGetLevelInformation((levelhandle?.value ?: 0L), dwinfotype, (lpquerybuffer?.value ?: 0L), dwinbuffersize.toInt(), (lpdwoutbuffersize?.value ?: 0L))
+public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: MutPtr<CVoid>, dwinbuffersize: UInt, lpdwoutbuffersize: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation(levelhandle.rawAddress, dwinfotype, lpquerybuffer.rawAddress, dwinbuffersize.toInt(), lpdwoutbuffersize.rawAddress)
 
-public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: COpaquePointer?, infobufferretsize: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferGetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), (infobuffer?.value ?: 0L), (infobufferretsize?.value ?: 0L), (lpreserved?.value ?: 0L))
+public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: MutPtr<CVoid>, infobufferretsize: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), infobuffer.rawAddress, infobufferretsize.rawAddress, lpreserved.rawAddress)
 
-public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: COpaquePointer?, plevelhandle: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferIdentifyLevel(dwnumproperties.toInt(), (pcodeproperties?.value ?: 0L), (plevelhandle?.value ?: 0L), (lpreserved?.value ?: 0L))
+public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: ConstPtr<SaferCodePropertiesV2>, plevelhandle: MutPtr<SaferLevelHandle>, lpreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel(dwnumproperties.toInt(), pcodeproperties.rawAddress, plevelhandle.rawAddress, lpreserved.rawAddress)
 
-public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferRecordEventLogEntry((hlevel?.value ?: 0L), (sztargetpath?.value ?: 0L), (lpreserved?.value ?: 0L))
+public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry(hlevel.rawAddress, sztargetpath.rawAddress, lpreserved.rawAddress)
 
-public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: COpaquePointer?, dwinbuffersize: UInt): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferSetLevelInformation((levelhandle?.value ?: 0L), dwinfotype, (lpquerybuffer?.value ?: 0L), dwinbuffersize.toInt())
+public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: ConstPtr<CVoid>, dwinbuffersize: UInt): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation(levelhandle.rawAddress, dwinfotype, lpquerybuffer.rawAddress, dwinbuffersize.toInt())
 
-public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferSetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), (infobuffer?.value ?: 0L), (lpreserved?.value ?: 0L))
+public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), infobuffer.rawAddress, lpreserved.rawAddress)
 
 public actual fun saferiIsExecutableFileType(szfullpathname: Pcwstr, bfromshellexecute: Boolean): Bool =
-    WindowsWin32SecurityApplockerJniBridge.windowssys_windows_win32_security_applocker_saferiIsExecutableFileType((szfullpathname?.value ?: 0L), bfromshellexecute)
+    WindowsWin32SecurityApplockerJniBridge.windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType(szfullpathname.rawAddress, bfromshellexecute)

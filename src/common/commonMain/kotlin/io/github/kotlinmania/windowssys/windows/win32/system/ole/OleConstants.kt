@@ -874,7 +874,7 @@ public val NUMPRS_TRAILING_WHITE: NumparseFlags = 2u
 
 public val NUMPRS_USE_ALL: NumparseFlags = 4096u
 
-public val OCM__BASE: UInt = 8192u
+public val OCM_BASE: UInt = 8192u
 
 public val OF_GET: UInt = 2u
 

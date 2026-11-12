@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQADsPathToFormatName(JNIEnv* km_env, jclass km_clazz, jlong lpwcsadspath, jlong lpwcsformatname, jlong lpdwformatnamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQADsPathToFormatName(JNIEnv* km_env, jclass km_clazz, jlong lpwcsadspath, jlong lpwcsformatname, jlong lpdwformatnamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQBeginTransaction(JNIEnv* km_env, jclass km_clazz, jlong pptransaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQBeginTransaction(JNIEnv* km_env, jclass km_clazz, jlong pptransaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQCloseCursor(JNIEnv* km_env, jclass km_clazz, jlong hcursor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQCloseCursor(JNIEnv* km_env, jclass km_clazz, jlong hcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQCloseQueue(JNIEnv* km_env, jclass km_clazz, jlong hqueue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQCloseQueue(JNIEnv* km_env, jclass km_clazz, jlong hqueue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQCreateCursor(JNIEnv* km_env, jclass km_clazz, jlong hqueue, jlong phcursor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQCreateCursor(JNIEnv* km_env, jclass km_clazz, jlong hqueue, jlong phcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQCreateQueue(JNIEnv* km_env, jclass km_clazz, jlong psecuritydescriptor, jlong pqueueprops, jlong lpwcsformatname, jlong lpdwformatnamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQCreateQueue(JNIEnv* km_env, jclass km_clazz, jlong psecuritydescriptor, jlong pqueueprops, jlong lpwcsformatname, jlong lpdwformatnamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -175,7 +175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQDeleteQueue(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQDeleteQueue(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pvmemory) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pvmemory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -221,7 +221,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQFreeSecurityContext(JNIEnv* km_env, jclass km_clazz, jlong hsecuritycontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQFreeSecurityContext(JNIEnv* km_env, jclass km_clazz, jlong hsecuritycontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -242,7 +242,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetMachineProperties(JNIEnv* km_env, jclass km_clazz, jlong lpwcsmachinename, jlong pguidmachineid, jlong pqmprops) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetMachineProperties(JNIEnv* km_env, jclass km_clazz, jlong lpwcsmachinename, jlong pguidmachineid, jlong pqmprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -294,7 +294,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetPrivateComputerInformation(JNIEnv* km_env, jclass km_clazz, jlong lpwcscomputername, jlong pprivateprops) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetPrivateComputerInformation(JNIEnv* km_env, jclass km_clazz, jlong lpwcscomputername, jlong pprivateprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -320,7 +320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetQueueProperties(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jlong pqueueprops) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetQueueProperties(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jlong pqueueprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -346,7 +346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetQueueSecurity(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jint requestedinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetQueueSecurity(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jint requestedinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -375,7 +375,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetSecurityContext(JNIEnv* km_env, jclass km_clazz, jlong lpcertbuffer, jint dwcertbufferlength, jlong phsecuritycontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContext(JNIEnv* km_env, jclass km_clazz, jlong lpcertbuffer, jint dwcertbufferlength, jlong phsecuritycontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQGetSecurityContextEx(JNIEnv* km_env, jclass km_clazz, jlong lpcertbuffer, jint dwcertbufferlength, jlong phsecuritycontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContextEx(JNIEnv* km_env, jclass km_clazz, jlong lpcertbuffer, jint dwcertbufferlength, jlong phsecuritycontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -429,7 +429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQHandleToFormatName(JNIEnv* km_env, jclass km_clazz, jlong hqueue, jlong lpwcsformatname, jlong lpdwformatnamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQHandleToFormatName(JNIEnv* km_env, jclass km_clazz, jlong hqueue, jlong lpwcsformatname, jlong lpdwformatnamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -456,7 +456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQInstanceToFormatName(JNIEnv* km_env, jclass km_clazz, jlong pguid, jlong lpwcsformatname, jlong lpdwformatnamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQInstanceToFormatName(JNIEnv* km_env, jclass km_clazz, jlong pguid, jlong lpwcsformatname, jlong lpdwformatnamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -483,7 +483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQLocateBegin(JNIEnv* km_env, jclass km_clazz, jlong lpwcscontext, jlong prestriction, jlong pcolumns, jlong psort, jlong phenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQLocateBegin(JNIEnv* km_env, jclass km_clazz, jlong lpwcscontext, jlong prestriction, jlong pcolumns, jlong psort, jlong phenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -512,7 +512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQLocateEnd(JNIEnv* km_env, jclass km_clazz, jlong henum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQLocateEnd(JNIEnv* km_env, jclass km_clazz, jlong henum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -537,7 +537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQLocateNext(JNIEnv* km_env, jclass km_clazz, jlong henum, jlong pcprops, jlong apropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQLocateNext(JNIEnv* km_env, jclass km_clazz, jlong henum, jlong pcprops, jlong apropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -564,7 +564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQMarkMessageRejected(JNIEnv* km_env, jclass km_clazz, jlong hqueue, jlong ulllookupid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQMarkMessageRejected(JNIEnv* km_env, jclass km_clazz, jlong hqueue, jlong ulllookupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -590,7 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQMgmtAction(JNIEnv* km_env, jclass km_clazz, jlong pcomputername, jlong pobjectname, jlong paction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQMgmtAction(JNIEnv* km_env, jclass km_clazz, jlong pcomputername, jlong pobjectname, jlong paction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -617,7 +617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQMgmtGetInfo(JNIEnv* km_env, jclass km_clazz, jlong pcomputername, jlong pobjectname, jlong pmgmtprops) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQMgmtGetInfo(JNIEnv* km_env, jclass km_clazz, jlong pcomputername, jlong pobjectname, jlong pmgmtprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -644,7 +644,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQMoveMessage(JNIEnv* km_env, jclass km_clazz, jlong hsourcequeue, jlong hdestinationqueue, jlong ulllookupid, jlong ptransaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQMoveMessage(JNIEnv* km_env, jclass km_clazz, jlong hsourcequeue, jlong hdestinationqueue, jlong ulllookupid, jlong ptransaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -672,7 +672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQOpenQueue(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jint dwaccess, jint dwsharemode, jlong phqueue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQOpenQueue(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jint dwaccess, jint dwsharemode, jlong phqueue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -700,7 +700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQPathNameToFormatName(JNIEnv* km_env, jclass km_clazz, jlong lpwcspathname, jlong lpwcsformatname, jlong lpdwformatnamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQPathNameToFormatName(JNIEnv* km_env, jclass km_clazz, jlong lpwcspathname, jlong lpwcsformatname, jlong lpdwformatnamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -727,7 +727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQPurgeQueue(JNIEnv* km_env, jclass km_clazz, jlong hqueue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQPurgeQueue(JNIEnv* km_env, jclass km_clazz, jlong hqueue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -752,7 +752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQReceiveMessage(JNIEnv* km_env, jclass km_clazz, jlong hsource, jint dwtimeout, jint dwaction, jlong pmessageprops, jlong lpoverlapped, jlong fnreceivecallback, jlong hcursor, jlong ptransaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQReceiveMessage(JNIEnv* km_env, jclass km_clazz, jlong hsource, jint dwtimeout, jint dwaction, jlong pmessageprops, jlong lpoverlapped, jlong fnreceivecallback, jlong hcursor, jlong ptransaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -784,7 +784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQReceiveMessageByLookupId(JNIEnv* km_env, jclass km_clazz, jlong hsource, jlong ulllookupid, jint dwlookupaction, jlong pmessageprops, jlong lpoverlapped, jlong fnreceivecallback, jlong ptransaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQReceiveMessageByLookupId(JNIEnv* km_env, jclass km_clazz, jlong hsource, jlong ulllookupid, jint dwlookupaction, jlong pmessageprops, jlong lpoverlapped, jlong fnreceivecallback, jlong ptransaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -815,7 +815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQRegisterCertificate(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpcertbuffer, jint dwcertbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQRegisterCertificate(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpcertbuffer, jint dwcertbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -842,7 +842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQSendMessage(JNIEnv* km_env, jclass km_clazz, jlong hdestinationqueue, jlong pmessageprops, jlong ptransaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQSendMessage(JNIEnv* km_env, jclass km_clazz, jlong hdestinationqueue, jlong pmessageprops, jlong ptransaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -869,7 +869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQSetQueueProperties(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jlong pqueueprops) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQSetQueueProperties(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jlong pqueueprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -895,7 +895,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssys_1windows_1win32_1system_1messagequeuing_1mQSetQueueSecurity(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_messagequeuing_WindowsWin32SystemMessagequeuingJniBridge_windowssysWindowsWin32SystemMessagequeuingMQSetQueueSecurity(JNIEnv* km_env, jclass km_clazz, jlong lpwcsformatname, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

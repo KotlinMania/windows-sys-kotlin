@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_matchEnumTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellMatchEnumTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwcarg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_matchEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_matchToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellMatchToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszusertoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszcmdtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_matchToke
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_preprocessCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellPreprocessCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwcarguments = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -152,7 +152,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_preproces
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellPrintError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwerrid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printErro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellPrintMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t km_vac = km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0;
@@ -226,7 +226,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printMess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printMessageFromModule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellPrintMessageFromModule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmsgid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -264,7 +264,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printMess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_registerContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellRegisterContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchildcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_registerC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_netshell_registerHelper_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementNetshellRegisterHelper_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguidparentcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnregistersubcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -317,14 +317,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_registerH
 }
 
 static void register_windows_win32_networkmanagement_netshell_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_matchEnumTag", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_matchEnumTag_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_matchToken", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_matchToken_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_preprocessCommand", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_preprocessCommand_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_printError", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_printError_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_printMessage", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_printMessage_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_printMessageFromModule", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_printMessageFromModule_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_registerContext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_registerContext_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_netshell_registerHelper", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_netshell_registerHelper_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellMatchEnumTag", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellMatchEnumTag_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellMatchToken", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellMatchToken_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellPreprocessCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellPreprocessCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellPrintError", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellPrintError_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellPrintMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellPrintMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellPrintMessageFromModule", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellPrintMessageFromModule_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellRegisterContext", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellRegisterContext_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementNetshellRegisterHelper", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementNetshellRegisterHelper_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_netshell_napi, nullptr };

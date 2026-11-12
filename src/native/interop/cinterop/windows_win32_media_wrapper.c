@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_media_timeBeginPeriod(uint32_t uperiod) {
+uint32_t windowssysWindowsWin32MediaTimeBeginPeriod(uint32_t uperiod) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_media_timeBeginPeriod(uint32_t uperiod) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_timeEndPeriod(uint32_t uperiod) {
+uint32_t windowssysWindowsWin32MediaTimeEndPeriod(uint32_t uperiod) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint32_t windowssys_windows_win32_media_timeEndPeriod(uint32_t uperiod) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_timeGetDevCaps(void* ptc, uint32_t cbtc) {
+uint32_t windowssysWindowsWin32MediaTimeGetDevCaps(void* ptc, uint32_t cbtc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ uint32_t windowssys_windows_win32_media_timeGetDevCaps(void* ptc, uint32_t cbtc)
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_timeGetSystemTime(void* pmmt, uint32_t cbmmt) {
+uint32_t windowssysWindowsWin32MediaTimeGetSystemTime(void* pmmt, uint32_t cbmmt) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ uint32_t windowssys_windows_win32_media_timeGetSystemTime(void* pmmt, uint32_t c
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_timeGetTime(void) {
+uint32_t windowssysWindowsWin32MediaTimeGetTime(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -126,7 +126,7 @@ uint32_t windowssys_windows_win32_media_timeGetTime(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_timeKillEvent(uint32_t utimerid) {
+uint32_t windowssysWindowsWin32MediaTimeKillEvent(uint32_t utimerid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -148,7 +148,7 @@ uint32_t windowssys_windows_win32_media_timeKillEvent(uint32_t utimerid) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_timeSetEvent(uint32_t udelay, uint32_t uresolution, void* fptc, uint64_t dwuser, uint32_t fuevent) {
+uint32_t windowssysWindowsWin32MediaTimeSetEvent(uint32_t udelay, uint32_t uresolution, void* fptc, uint64_t dwuser, uint32_t fuevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecClose(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcClose(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecDeleteSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcDeleteSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecEnumNextSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionenum, jint subscriptionnamebuffersize, jlong subscriptionnamebuffer, jlong subscriptionnamebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcEnumNextSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionenum, jint subscriptionnamebuffersize, jlong subscriptionnamebuffer, jlong subscriptionnamebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecGetObjectArrayProperty(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint propertyid, jint arrayindex, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcGetObjectArrayProperty(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint propertyid, jint arrayindex, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -129,7 +129,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecGetObjectArraySize(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jlong objectarraysize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcGetObjectArraySize(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jlong objectarraysize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecGetSubscriptionProperty(JNIEnv* km_env, jclass km_clazz, jlong subscription, jint propertyid, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionProperty(JNIEnv* km_env, jclass km_clazz, jlong subscription, jint propertyid, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -185,7 +185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecGetSubscriptionRunTimeStatus(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jint statusinfoid, jlong eventsourcename, jint flags, jint statusvaluebuffersize, jlong statusvaluebuffer, jlong statusvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionRunTimeStatus(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jint statusinfoid, jlong eventsourcename, jint flags, jint statusvaluebuffersize, jlong statusvaluebuffer, jlong statusvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -216,7 +216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecInsertObjectArrayElement(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint arrayindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcInsertObjectArrayElement(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint arrayindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -242,7 +242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecOpenSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jint accessmask, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcOpenSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jint accessmask, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecOpenSubscriptionEnum(JNIEnv* km_env, jclass km_clazz, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcOpenSubscriptionEnum(JNIEnv* km_env, jclass km_clazz, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -294,7 +294,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecRemoveObjectArrayElement(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint arrayindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcRemoveObjectArrayElement(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint arrayindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -320,7 +320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecRetrySubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jlong eventsourcename, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcRetrySubscription(JNIEnv* km_env, jclass km_clazz, jlong subscriptionname, jlong eventsourcename, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecSaveSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscription, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcSaveSubscription(JNIEnv* km_env, jclass km_clazz, jlong subscription, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -373,7 +373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecSetObjectArrayProperty(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint propertyid, jint arrayindex, jint flags, jlong propertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcSetObjectArrayProperty(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint propertyid, jint arrayindex, jint flags, jlong propertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssys_1windows_1win32_1system_1eventcollector_1ecSetSubscriptionProperty(JNIEnv* km_env, jclass km_clazz, jlong subscription, jint propertyid, jint flags, jlong propertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventcollector_WindowsWin32SystemEventcollectorJniBridge_windowssysWindowsWin32SystemEventcollectorEcSetSubscriptionProperty(JNIEnv* km_env, jclass km_clazz, jlong subscription, jint propertyid, jint flags, jlong propertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

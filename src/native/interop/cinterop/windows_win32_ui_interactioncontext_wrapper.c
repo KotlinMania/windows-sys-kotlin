@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext(void* interactioncontext, uint32_t pointerid) {
+int32_t windowssysWindowsWin32UiInteractioncontextAddPointerInteractionContext(void* interactioncontext, uint32_t pointerid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_addPointerInteractionCont
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext(void* interactioncontext, uint32_t entriescount, void* pointerinfo) {
+int32_t windowssysWindowsWin32UiInteractioncontextBufferPointerPacketsInteractionContext(void* interactioncontext, uint32_t entriescount, void* pointerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInter
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_createInteractionContext(void* interactioncontext) {
+int32_t windowssysWindowsWin32UiInteractioncontextCreateInteractionContext(void* interactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_createInteractionContext(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext(void* interactioncontext) {
+int32_t windowssysWindowsWin32UiInteractioncontextDestroyInteractionContext(void* interactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext(void* interactioncontext, int32_t threshold, void* distance) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetCrossSlideParameterInteractionContext(void* interactioncontext, int32_t threshold, void* distance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetHoldParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteracti
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext(void* interactioncontext, int32_t inertiaparameter, void* value) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetInertiaParameterInteractionContext(void* interactioncontext, int32_t inertiaparameter, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -178,7 +178,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getInertiaParameterIntera
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext(void* interactioncontext, uint32_t configurationcount, void* configuration) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetInteractionConfigurationInteractionContext(void* interactioncontext, uint32_t configurationcount, void* configuration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurati
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetMouseWheelParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -226,7 +226,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext(void* interactioncontext, int32_t contextproperty, void* value) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetPropertyInteractionContext(void* interactioncontext, int32_t contextproperty, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionCon
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext(void* interactioncontext, void* pointerinfo, void* state) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetStateInteractionContext(void* interactioncontext, void* pointerinfo, void* state) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -274,7 +274,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getStateInteractionContex
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetTapParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -298,7 +298,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractio
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
+int32_t windowssysWindowsWin32UiInteractioncontextGetTranslationParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -322,7 +322,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_getTranslationParameterIn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext(void* interactioncontext) {
+int32_t windowssysWindowsWin32UiInteractioncontextProcessBufferedPacketsInteractionContext(void* interactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -344,7 +344,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext(void* interactioncontext) {
+int32_t windowssysWindowsWin32UiInteractioncontextProcessInertiaInteractionContext(void* interactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -366,7 +366,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_processInertiaInteraction
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext(void* interactioncontext, uint32_t entriescount, uint32_t pointercount, void* pointerinfo) {
+int32_t windowssysWindowsWin32UiInteractioncontextProcessPointerFramesInteractionContext(void* interactioncontext, uint32_t entriescount, uint32_t pointercount, void* pointerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_processPointerFramesInter
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext(void* interactioncontext, void* outputcallback, void* clientdata) {
+int32_t windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext(void* interactioncontext, void* outputcallback, void* clientdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -415,7 +415,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2(void* interactioncontext, void* outputcallback, void* clientdata) {
+int32_t windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext2(void* interactioncontext, void* outputcallback, void* clientdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -439,7 +439,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext(void* interactioncontext, uint32_t pointerid) {
+int32_t windowssysWindowsWin32UiInteractioncontextRemovePointerInteractionContext(void* interactioncontext, uint32_t pointerid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -462,7 +462,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_removePointerInteractionC
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_resetInteractionContext(void* interactioncontext) {
+int32_t windowssysWindowsWin32UiInteractioncontextResetInteractionContext(void* interactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -484,7 +484,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_resetInteractionContext(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext(void* interactioncontext, uint32_t parametercount, void* crossslideparameters) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetCrossSlideParametersInteractionContext(void* interactioncontext, uint32_t parametercount, void* crossslideparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -508,7 +508,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersIn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetHoldParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -532,7 +532,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteracti
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext(void* interactioncontext, int32_t inertiaparameter, float value) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetInertiaParameterInteractionContext(void* interactioncontext, int32_t inertiaparameter, float value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -556,7 +556,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setInertiaParameterIntera
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext(void* interactioncontext, uint32_t configurationcount, void* configuration) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetInteractionConfigurationInteractionContext(void* interactioncontext, uint32_t configurationcount, void* configuration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -580,7 +580,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurati
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetMouseWheelParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -604,7 +604,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext(void* interactioncontext, float x, float y, float radius) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetPivotInteractionContext(void* interactioncontext, float x, float y, float radius) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -629,7 +629,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContex
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext(void* interactioncontext, int32_t contextproperty, uint32_t value) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetPropertyInteractionContext(void* interactioncontext, int32_t contextproperty, uint32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -653,7 +653,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionCon
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetTapParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractio
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
+int32_t windowssysWindowsWin32UiInteractioncontextSetTranslationParameterInteractionContext(void* interactioncontext, int32_t parameter, float value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -701,7 +701,7 @@ int32_t windowssys_windows_win32_ui_interactioncontext_setTranslationParameterIn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_interactioncontext_stopInteractionContext(void* interactioncontext) {
+int32_t windowssysWindowsWin32UiInteractioncontextStopInteractionContext(void* interactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32SystemDeveloperlicensingJniBridge {
@@ -12,20 +13,20 @@ private object WindowsWin32SystemDeveloperlicensingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense(hwndparent: Long, pexpiration: Long): Int
+    external fun windowssysWindowsWin32SystemDeveloperlicensingAcquireDeveloperLicense(hwndparent: Long, pexpiration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense(pexpiration: Long): Int
+    external fun windowssysWindowsWin32SystemDeveloperlicensingCheckDeveloperLicense(pexpiration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense(hwndparent: Long): Int
+    external fun windowssysWindowsWin32SystemDeveloperlicensingRemoveDeveloperLicense(hwndparent: Long): Int
 }
 
-public actual fun acquireDeveloperLicense(hwndparent: Hwnd, pexpiration: COpaquePointer?): Hresult =
-    WindowsWin32SystemDeveloperlicensingJniBridge.windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense((hwndparent?.value ?: 0L), (pexpiration?.value ?: 0L))
+public actual fun acquireDeveloperLicense(hwndparent: Hwnd, pexpiration: MutPtr<Filetime>): Hresult =
+    WindowsWin32SystemDeveloperlicensingJniBridge.windowssysWindowsWin32SystemDeveloperlicensingAcquireDeveloperLicense(hwndparent.rawAddress, pexpiration.rawAddress)
 
-public actual fun checkDeveloperLicense(pexpiration: COpaquePointer?): Hresult =
-    WindowsWin32SystemDeveloperlicensingJniBridge.windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense((pexpiration?.value ?: 0L))
+public actual fun checkDeveloperLicense(pexpiration: MutPtr<Filetime>): Hresult =
+    WindowsWin32SystemDeveloperlicensingJniBridge.windowssysWindowsWin32SystemDeveloperlicensingCheckDeveloperLicense(pexpiration.rawAddress)
 
 public actual fun removeDeveloperLicense(hwndparent: Hwnd): Hresult =
-    WindowsWin32SystemDeveloperlicensingJniBridge.windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense((hwndparent?.value ?: 0L))
+    WindowsWin32SystemDeveloperlicensingJniBridge.windowssysWindowsWin32SystemDeveloperlicensingRemoveDeveloperLicense(hwndparent.rawAddress)

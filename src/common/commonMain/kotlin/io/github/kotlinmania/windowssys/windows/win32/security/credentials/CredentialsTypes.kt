@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -30,25 +31,25 @@ public typealias KeyCredentialManagerOperationErrorStates = Int
 public typealias KeyCredentialManagerOperationType = Int
 
 public fun interface LpocnchkprocFn {
-    public operator fun invoke(param0: ULong, param1: ULong, param2: COpaquePointer?): Bool
+    public operator fun invoke(param0: ULong, param1: ULong, param2: ConstPtr<CVoid>): Bool
 }
 
 public typealias Lpocnchkproc = LpocnchkprocFn?
 
 public fun interface LpocnconnprocaFn {
-    public operator fun invoke(param0: ULong, param1: Pcstr, param2: Pcstr, param3: COpaquePointer?): ULong
+    public operator fun invoke(param0: ULong, param1: Pcstr, param2: Pcstr, param3: ConstPtr<CVoid>): ULong
 }
 
 public typealias Lpocnconnproca = LpocnconnprocaFn?
 
 public fun interface LpocnconnprocwFn {
-    public operator fun invoke(param0: ULong, param1: Pcwstr, param2: Pcwstr, param3: COpaquePointer?): ULong
+    public operator fun invoke(param0: ULong, param1: Pcwstr, param2: Pcwstr, param3: ConstPtr<CVoid>): ULong
 }
 
 public typealias Lpocnconnprocw = LpocnconnprocwFn?
 
 public fun interface LpocndscprocFn {
-    public operator fun invoke(param0: ULong, param1: ULong, param2: COpaquePointer?)
+    public operator fun invoke(param0: ULong, param1: ULong, param2: ConstPtr<CVoid>)
 }
 
 public typealias Lpocndscproc = LpocndscprocFn?

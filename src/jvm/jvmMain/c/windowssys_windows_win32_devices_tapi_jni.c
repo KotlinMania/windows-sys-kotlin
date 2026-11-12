@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1getTnefStreamCodepage(JNIEnv* km_env, jclass km_clazz, jlong lpstream, jlong lpulcodepage, jlong lpulsubcodepage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiGetTnefStreamCodepage(JNIEnv* km_env, jclass km_clazz, jlong lpstream, jlong lpulcodepage, jlong lpulsubcodepage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1openTnefStream(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpptnef) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiOpenTnefStream(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpptnef) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -77,7 +77,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1openTnefStreamEx(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpadressbook, jlong lpptnef) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiOpenTnefStreamEx(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpadressbook, jlong lpptnef) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -109,7 +109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAccept(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAccept(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -136,7 +136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAddProvider(JNIEnv* km_env, jclass km_clazz, jlong lpszproviderfilename, jlong hwndowner, jlong lpdwpermanentproviderid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAddProvider(JNIEnv* km_env, jclass km_clazz, jlong lpszproviderfilename, jlong hwndowner, jlong lpdwpermanentproviderid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -163,7 +163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAddProviderA(JNIEnv* km_env, jclass km_clazz, jlong lpszproviderfilename, jlong hwndowner, jlong lpdwpermanentproviderid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAddProviderA(JNIEnv* km_env, jclass km_clazz, jlong lpszproviderfilename, jlong hwndowner, jlong lpdwpermanentproviderid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -190,7 +190,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAddProviderW(JNIEnv* km_env, jclass km_clazz, jlong lpszproviderfilename, jlong hwndowner, jlong lpdwpermanentproviderid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAddProviderW(JNIEnv* km_env, jclass km_clazz, jlong lpszproviderfilename, jlong hwndowner, jlong lpdwpermanentproviderid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAddToConference(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jint hconsultcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAddToConference(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jint hconsultcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -243,7 +243,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAgentSpecific(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwagentextensionidindex, jlong lpparams, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAgentSpecific(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwagentextensionidindex, jlong lpparams, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -272,7 +272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineAnswer(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineAnswer(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -299,7 +299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineBlindTransfer(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineBlindTransfer(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -326,7 +326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineBlindTransferA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineBlindTransferA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -353,7 +353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineBlindTransferW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddressw, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineBlindTransferW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddressw, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineClose(JNIEnv* km_env, jclass km_clazz, jint hline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineClose(JNIEnv* km_env, jclass km_clazz, jint hline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -405,7 +405,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineCompleteCall(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpdwcompletionid, jint dwcompletionmode, jint dwmessageid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineCompleteCall(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpdwcompletionid, jint dwcompletionmode, jint dwmessageid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,7 +433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineCompleteTransfer(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hconsultcall, jlong lphconfcall, jint dwtransfermode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineCompleteTransfer(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hconsultcall, jlong lphconfcall, jint dwtransfermode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -461,7 +461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigDialog(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigDialog(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -488,7 +488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigDialogA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigDialogA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -515,7 +515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigDialogEdit(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass, jlong lpdeviceconfigin, jint dwsize, jlong lpdeviceconfigout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigDialogEdit(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass, jlong lpdeviceconfigin, jint dwsize, jlong lpdeviceconfigout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -545,7 +545,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigDialogEditA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass, jlong lpdeviceconfigin, jint dwsize, jlong lpdeviceconfigout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigDialogEditA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass, jlong lpdeviceconfigin, jint dwsize, jlong lpdeviceconfigout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -575,7 +575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigDialogEditW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass, jlong lpdeviceconfigin, jint dwsize, jlong lpdeviceconfigout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigDialogEditW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass, jlong lpdeviceconfigin, jint dwsize, jlong lpdeviceconfigout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -605,7 +605,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigDialogW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigDialogW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -632,7 +632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineConfigProvider(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint dwpermanentproviderid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineConfigProvider(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint dwpermanentproviderid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -658,7 +658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineCreateAgentA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpszagentid, jlong lpszagentpin, jlong lphagent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineCreateAgentA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpszagentid, jlong lpszagentpin, jlong lphagent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -686,7 +686,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineCreateAgentSessionA(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpszagentpin, jint dwworkingaddressid, jlong lpgroupid, jlong lphagentsession) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineCreateAgentSessionA(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpszagentpin, jint dwworkingaddressid, jlong lpgroupid, jlong lphagentsession) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -716,7 +716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineCreateAgentSessionW(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpszagentpin, jint dwworkingaddressid, jlong lpgroupid, jlong lphagentsession) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineCreateAgentSessionW(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpszagentpin, jint dwworkingaddressid, jlong lpgroupid, jlong lphagentsession) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -746,7 +746,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineCreateAgentW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpszagentid, jlong lpszagentpin, jlong lphagent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineCreateAgentW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpszagentid, jlong lpszagentpin, jlong lphagent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -774,7 +774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDeallocateCall(JNIEnv* km_env, jclass km_clazz, jint hcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDeallocateCall(JNIEnv* km_env, jclass km_clazz, jint hcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -799,7 +799,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDevSpecific(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jlong lpparams, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDevSpecific(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jlong lpparams, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -828,7 +828,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDevSpecificFeature(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwfeature, jlong lpparams, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDevSpecificFeature(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwfeature, jlong lpparams, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -856,7 +856,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDial(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDial(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -883,7 +883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDialA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDialA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -910,7 +910,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDialW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDialW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -937,7 +937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineDrop(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineDrop(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -964,7 +964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineForward(JNIEnv* km_env, jclass km_clazz, jint hline, jint balladdresses, jint dwaddressid, jlong lpforwardlist, jint dwnumringsnoanswer, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineForward(JNIEnv* km_env, jclass km_clazz, jint hline, jint balladdresses, jint dwaddressid, jlong lpforwardlist, jint dwnumringsnoanswer, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -995,7 +995,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineForwardA(JNIEnv* km_env, jclass km_clazz, jint hline, jint balladdresses, jint dwaddressid, jlong lpforwardlist, jint dwnumringsnoanswer, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineForwardA(JNIEnv* km_env, jclass km_clazz, jint hline, jint balladdresses, jint dwaddressid, jlong lpforwardlist, jint dwnumringsnoanswer, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1026,7 +1026,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineForwardW(JNIEnv* km_env, jclass km_clazz, jint hline, jint balladdresses, jint dwaddressid, jlong lpforwardlist, jint dwnumringsnoanswer, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineForwardW(JNIEnv* km_env, jclass km_clazz, jint hline, jint balladdresses, jint dwaddressid, jlong lpforwardlist, jint dwnumringsnoanswer, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1057,7 +1057,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGatherDigits(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes, jlong lpsdigits, jint dwnumdigits, jlong lpszterminationdigits, jint dwfirstdigittimeout, jint dwinterdigittimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGatherDigits(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes, jlong lpsdigits, jint dwnumdigits, jlong lpszterminationdigits, jint dwfirstdigittimeout, jint dwinterdigittimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1088,7 +1088,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGatherDigitsA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes, jlong lpsdigits, jint dwnumdigits, jlong lpszterminationdigits, jint dwfirstdigittimeout, jint dwinterdigittimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGatherDigitsA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes, jlong lpsdigits, jint dwnumdigits, jlong lpszterminationdigits, jint dwfirstdigittimeout, jint dwinterdigittimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1119,7 +1119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGatherDigitsW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes, jlong lpsdigits, jint dwnumdigits, jlong lpszterminationdigits, jint dwfirstdigittimeout, jint dwinterdigittimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGatherDigitsW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes, jlong lpsdigits, jint dwnumdigits, jlong lpszterminationdigits, jint dwfirstdigittimeout, jint dwinterdigittimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1150,7 +1150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGenerateDigits(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmode, jlong lpszdigits, jint dwduration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGenerateDigits(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmode, jlong lpszdigits, jint dwduration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1178,7 +1178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGenerateDigitsA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmode, jlong lpszdigits, jint dwduration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGenerateDigitsA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmode, jlong lpszdigits, jint dwduration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1206,7 +1206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGenerateDigitsW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmode, jlong lpszdigits, jint dwduration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGenerateDigitsW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmode, jlong lpszdigits, jint dwduration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1234,7 +1234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGenerateTone(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwtonemode, jint dwduration, jint dwnumtones, jlong lptones) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGenerateTone(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwtonemode, jint dwduration, jint dwnumtones, jlong lptones) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1263,7 +1263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressCaps(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwapiversion, jint dwextversion, jlong lpaddresscaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressCaps(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwapiversion, jint dwextversion, jlong lpaddresscaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1293,7 +1293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwapiversion, jint dwextversion, jlong lpaddresscaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwapiversion, jint dwextversion, jlong lpaddresscaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1323,7 +1323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwapiversion, jint dwextversion, jlong lpaddresscaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwapiversion, jint dwextversion, jlong lpaddresscaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1353,7 +1353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressID(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwaddressid, jint dwaddressmode, jlong lpsaddress, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressID(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwaddressid, jint dwaddressmode, jlong lpsaddress, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1382,7 +1382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressIDA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwaddressid, jint dwaddressmode, jlong lpsaddress, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressIDA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwaddressid, jint dwaddressmode, jlong lpsaddress, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressIDW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwaddressid, jint dwaddressmode, jlong lpsaddress, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressIDW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwaddressid, jint dwaddressmode, jlong lpsaddress, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1440,7 +1440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressStatus(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpaddressstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressStatus(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpaddressstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1467,7 +1467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressStatusA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpaddressstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressStatusA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpaddressstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1494,7 +1494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAddressStatusW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpaddressstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAddressStatusW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpaddressstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1521,7 +1521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentActivityListA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentactivitylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentActivityListA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentactivitylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1548,7 +1548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentActivityListW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentactivitylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentActivityListW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentactivitylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1575,7 +1575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwappapiversion, jlong lpagentcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwappapiversion, jlong lpagentcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1604,7 +1604,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwappapiversion, jlong lpagentcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwaddressid, jint dwappapiversion, jlong lpagentcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1633,7 +1633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentGroupListA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentgrouplist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentGroupListA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentgrouplist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1660,7 +1660,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentGroupListW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentgrouplist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentGroupListW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentgrouplist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1687,7 +1687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentInfo(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpagentinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentInfo(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpagentinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1714,7 +1714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentSessionInfo(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagentsession, jlong lpagentsessioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagentsession, jlong lpagentsessioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1741,7 +1741,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentSessionList(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpagentsessionlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentSessionList(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jlong lpagentsessionlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1768,7 +1768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentStatusA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentStatusA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1795,7 +1795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAgentStatusW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAgentStatusW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1822,7 +1822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAppPriority(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpextensionname, jlong lpdwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAppPriority(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpextensionname, jlong lpdwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1852,7 +1852,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAppPriorityA(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpextensionname, jlong lpdwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAppPriorityA(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpextensionname, jlong lpdwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1882,7 +1882,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetAppPriorityW(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpextensionname, jlong lpdwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetAppPriorityW(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpextensionname, jlong lpdwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1912,7 +1912,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCallInfo(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCallInfo(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1938,7 +1938,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCallInfoA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCallInfoA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1964,7 +1964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCallInfoW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCallInfoW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1990,7 +1990,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCallStatus(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCallStatus(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcallstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2016,7 +2016,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetConfRelatedCalls(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcalllist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcalllist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2042,7 +2042,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCountry(JNIEnv* km_env, jclass km_clazz, jint dwcountryid, jint dwapiversion, jlong lplinecountrylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCountry(JNIEnv* km_env, jclass km_clazz, jint dwcountryid, jint dwapiversion, jlong lplinecountrylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2069,7 +2069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCountryA(JNIEnv* km_env, jclass km_clazz, jint dwcountryid, jint dwapiversion, jlong lplinecountrylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCountryA(JNIEnv* km_env, jclass km_clazz, jint dwcountryid, jint dwapiversion, jlong lplinecountrylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2096,7 +2096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetCountryW(JNIEnv* km_env, jclass km_clazz, jint dwcountryid, jint dwapiversion, jlong lplinecountrylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetCountryW(JNIEnv* km_env, jclass km_clazz, jint dwcountryid, jint dwapiversion, jlong lplinecountrylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2123,7 +2123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetDevCaps(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lplinedevcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetDevCaps(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lplinedevcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2152,7 +2152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lplinedevcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lplinedevcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2181,7 +2181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lplinedevcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lplinedevcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2210,7 +2210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetDevConfig(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetDevConfig(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2237,7 +2237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetDevConfigA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetDevConfigA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2264,7 +2264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetDevConfigW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetDevConfigW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2291,7 +2291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetGroupListA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgrouplist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetGroupListA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgrouplist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2317,7 +2317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetGroupListW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgrouplist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetGroupListW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgrouplist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2343,7 +2343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetID(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdeviceid, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetID(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdeviceid, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2373,7 +2373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetIDA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdeviceid, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetIDA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdeviceid, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2403,7 +2403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetIDW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdeviceid, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetIDW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdeviceid, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2433,7 +2433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetIcon(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetIcon(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2460,7 +2460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetIconA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetIconA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2487,7 +2487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetIconW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetIconW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2514,7 +2514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetLineDevStatus(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lplinedevstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetLineDevStatus(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lplinedevstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2540,7 +2540,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetLineDevStatusA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lplinedevstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetLineDevStatusA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lplinedevstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2566,7 +2566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetLineDevStatusW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lplinedevstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetLineDevStatusW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lplinedevstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2592,7 +2592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetMessage(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jlong lpmessage, jint dwtimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetMessage(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jlong lpmessage, jint dwtimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2619,7 +2619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetNewCalls(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwselect, jlong lpcalllist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetNewCalls(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwselect, jlong lpcalllist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2647,7 +2647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetNumRings(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpdwnumrings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetNumRings(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpdwnumrings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2674,7 +2674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetProviderList(JNIEnv* km_env, jclass km_clazz, jint dwapiversion, jlong lpproviderlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetProviderList(JNIEnv* km_env, jclass km_clazz, jint dwapiversion, jlong lpproviderlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2700,7 +2700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetProviderListA(JNIEnv* km_env, jclass km_clazz, jint dwapiversion, jlong lpproviderlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetProviderListA(JNIEnv* km_env, jclass km_clazz, jint dwapiversion, jlong lpproviderlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2726,7 +2726,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetProviderListW(JNIEnv* km_env, jclass km_clazz, jint dwapiversion, jlong lpproviderlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetProviderListW(JNIEnv* km_env, jclass km_clazz, jint dwapiversion, jlong lpproviderlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2752,7 +2752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetProxyStatus(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwappapiversion, jlong lplineproxyreqestlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetProxyStatus(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwappapiversion, jlong lplineproxyreqestlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2780,7 +2780,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetQueueInfo(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwqueueid, jlong lplinequeueinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetQueueInfo(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwqueueid, jlong lplinequeueinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2807,7 +2807,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetQueueListA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgroupid, jlong lpqueuelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetQueueListA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgroupid, jlong lpqueuelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2834,7 +2834,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetQueueListW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgroupid, jlong lpqueuelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetQueueListW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpgroupid, jlong lpqueuelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2861,7 +2861,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetRequest(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwrequestmode, jlong lprequestbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetRequest(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwrequestmode, jlong lprequestbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2888,7 +2888,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetRequestA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwrequestmode, jlong lprequestbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetRequestA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwrequestmode, jlong lprequestbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2915,7 +2915,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetRequestW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwrequestmode, jlong lprequestbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetRequestW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwrequestmode, jlong lprequestbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2942,7 +2942,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwlinestates, jlong lpdwaddressstates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpdwlinestates, jlong lpdwaddressstates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2969,7 +2969,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetTranslateCaps(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwapiversion, jlong lptranslatecaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetTranslateCaps(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwapiversion, jlong lptranslatecaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2996,7 +2996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetTranslateCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwapiversion, jlong lptranslatecaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetTranslateCapsA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwapiversion, jlong lptranslatecaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3023,7 +3023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineGetTranslateCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwapiversion, jlong lptranslatecaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineGetTranslateCapsW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwapiversion, jlong lptranslatecaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3050,7 +3050,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineHandoff(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszfilename, jint dwmediamode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineHandoff(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszfilename, jint dwmediamode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3077,7 +3077,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineHandoffA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszfilename, jint dwmediamode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineHandoffA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszfilename, jint dwmediamode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3104,7 +3104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineHandoffW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszfilename, jint dwmediamode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineHandoffW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszfilename, jint dwmediamode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3131,7 +3131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineHold(JNIEnv* km_env, jclass km_clazz, jint hcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineHold(JNIEnv* km_env, jclass km_clazz, jint hcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3156,7 +3156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineInitialize(JNIEnv* km_env, jclass km_clazz, jlong lphlineapp, jlong hinstance, jlong lpfncallback, jlong lpszappname, jlong lpdwnumdevs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineInitialize(JNIEnv* km_env, jclass km_clazz, jlong lphlineapp, jlong hinstance, jlong lpfncallback, jlong lpszappname, jlong lpdwnumdevs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3185,7 +3185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineInitializeExA(JNIEnv* km_env, jclass km_clazz, jlong lphlineapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lplineinitializeexparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineInitializeExA(JNIEnv* km_env, jclass km_clazz, jlong lphlineapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lplineinitializeexparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3216,7 +3216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineInitializeExW(JNIEnv* km_env, jclass km_clazz, jlong lphlineapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lplineinitializeexparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineInitializeExW(JNIEnv* km_env, jclass km_clazz, jlong lphlineapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lplineinitializeexparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3247,7 +3247,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineMakeCall(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lphcall, jlong lpszdestaddress, jint dwcountrycode, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineMakeCall(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lphcall, jlong lpszdestaddress, jint dwcountrycode, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3276,7 +3276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineMakeCallA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lphcall, jlong lpszdestaddress, jint dwcountrycode, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineMakeCallA(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lphcall, jlong lpszdestaddress, jint dwcountrycode, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3305,7 +3305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineMakeCallW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lphcall, jlong lpszdestaddress, jint dwcountrycode, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineMakeCallW(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lphcall, jlong lpszdestaddress, jint dwcountrycode, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3334,7 +3334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineMonitorDigits(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineMonitorDigits(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwdigitmodes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3360,7 +3360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineMonitorMedia(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwmediamodes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineMonitorMedia(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwmediamodes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3386,7 +3386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineMonitorTones(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lptonelist, jint dwnumentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineMonitorTones(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lptonelist, jint dwnumentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3413,7 +3413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineNegotiateAPIVersion(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapilowversion, jint dwapihighversion, jlong lpdwapiversion, jlong lpextensionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapilowversion, jint dwapihighversion, jlong lpdwapiversion, jlong lpextensionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3443,7 +3443,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineNegotiateExtVersion(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextlowversion, jint dwexthighversion, jlong lpdwextversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineNegotiateExtVersion(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jint dwextlowversion, jint dwexthighversion, jlong lpdwextversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3473,7 +3473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineOpen(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lphline, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivileges, jint dwmediamodes, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineOpen(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lphline, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivileges, jint dwmediamodes, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3506,7 +3506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineOpenA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lphline, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivileges, jint dwmediamodes, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineOpenA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lphline, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivileges, jint dwmediamodes, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3539,7 +3539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineOpenW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lphline, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivileges, jint dwmediamodes, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineOpenW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lphline, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivileges, jint dwmediamodes, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3572,7 +3572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePark(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwparkmode, jlong lpszdiraddress, jlong lpnondiraddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePark(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwparkmode, jlong lpszdiraddress, jlong lpnondiraddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3600,7 +3600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineParkA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwparkmode, jlong lpszdiraddress, jlong lpnondiraddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineParkA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwparkmode, jlong lpszdiraddress, jlong lpnondiraddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3628,7 +3628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineParkW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwparkmode, jlong lpszdiraddress, jlong lpnondiraddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineParkW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwparkmode, jlong lpszdiraddress, jlong lpnondiraddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3656,7 +3656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePickup(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress, jlong lpszgroupid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePickup(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress, jlong lpszgroupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3685,7 +3685,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePickupA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress, jlong lpszgroupid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePickupA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress, jlong lpszgroupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3714,7 +3714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePickupW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress, jlong lpszgroupid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePickupW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress, jlong lpszgroupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3743,7 +3743,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePrepareAddToConference(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePrepareAddToConference(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3770,7 +3770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePrepareAddToConferenceA(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3797,7 +3797,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1linePrepareAddToConferenceW(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW(JNIEnv* km_env, jclass km_clazz, jint hconfcall, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3824,7 +3824,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineProxyMessage(JNIEnv* km_env, jclass km_clazz, jint hline, jint hcall, jint dwmsg, jint dwparam1, jint dwparam2, jint dwparam3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineProxyMessage(JNIEnv* km_env, jclass km_clazz, jint hline, jint hcall, jint dwmsg, jint dwparam1, jint dwparam2, jint dwparam3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3854,7 +3854,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineProxyResponse(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpproxyrequest, jint dwresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineProxyResponse(JNIEnv* km_env, jclass km_clazz, jint hline, jlong lpproxyrequest, jint dwresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3881,7 +3881,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineRedirect(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineRedirect(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3908,7 +3908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineRedirectA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineRedirectA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3935,7 +3935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineRedirectW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineRedirectW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpszdestaddress, jint dwcountrycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3962,7 +3962,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineRegisterRequestRecipient(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwregistrationinstance, jint dwrequestmode, jint benable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwregistrationinstance, jint dwrequestmode, jint benable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3990,7 +3990,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineReleaseUserUserInfo(JNIEnv* km_env, jclass km_clazz, jint hcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo(JNIEnv* km_env, jclass km_clazz, jint hcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4015,7 +4015,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineRemoveFromConference(JNIEnv* km_env, jclass km_clazz, jint hcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineRemoveFromConference(JNIEnv* km_env, jclass km_clazz, jint hcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4040,7 +4040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineRemoveProvider(JNIEnv* km_env, jclass km_clazz, jint dwpermanentproviderid, jlong hwndowner) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineRemoveProvider(JNIEnv* km_env, jclass km_clazz, jint dwpermanentproviderid, jlong hwndowner) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4066,7 +4066,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSecureCall(JNIEnv* km_env, jclass km_clazz, jint hcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSecureCall(JNIEnv* km_env, jclass km_clazz, jint hcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4091,7 +4091,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSendUserUserInfo(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSendUserUserInfo(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsuseruserinfo, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4118,7 +4118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAgentActivity(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwactivityid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAgentActivity(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwactivityid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4145,7 +4145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAgentGroup(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentgrouplist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAgentGroup(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lpagentgrouplist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4172,7 +4172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAgentMeasurementPeriod(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jint dwmeasurementperiod) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jint dwmeasurementperiod) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4199,7 +4199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAgentSessionState(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagentsession, jint dwagentsessionstate, jint dwnextagentsessionstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAgentSessionState(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagentsession, jint dwagentsessionstate, jint dwnextagentsessionstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4227,7 +4227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAgentState(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwagentstate, jint dwnextagentstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAgentState(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwagentstate, jint dwnextagentstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4255,7 +4255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAgentStateEx(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jint dwagentstate, jint dwnextagentstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAgentStateEx(JNIEnv* km_env, jclass km_clazz, jint hline, jint hagent, jint dwagentstate, jint dwnextagentstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4283,7 +4283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAppPriority(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpszextensionname, jint dwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAppPriority(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpszextensionname, jint dwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4313,7 +4313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAppPriorityA(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpszextensionname, jint dwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAppPriorityA(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpszextensionname, jint dwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4343,7 +4343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAppPriorityW(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpszextensionname, jint dwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAppPriorityW(JNIEnv* km_env, jclass km_clazz, jlong lpszappfilename, jint dwmediamode, jlong lpextensionid, jint dwrequestmode, jlong lpszextensionname, jint dwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4373,7 +4373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetAppSpecific(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwappspecific) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetAppSpecific(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwappspecific) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4399,7 +4399,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetCallData(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcalldata, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetCallData(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpcalldata, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4426,7 +4426,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetCallParams(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwbearermode, jint dwminrate, jint dwmaxrate, jlong lpdialparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetCallParams(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwbearermode, jint dwminrate, jint dwmaxrate, jlong lpdialparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4455,7 +4455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetCallPrivilege(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwcallprivilege) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetCallPrivilege(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwcallprivilege) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4481,7 +4481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetCallQualityOfService(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsendingflowspec, jint dwsendingflowspecsize, jlong lpreceivingflowspec, jint dwreceivingflowspecsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lpsendingflowspec, jint dwsendingflowspecsize, jlong lpreceivingflowspec, jint dwreceivingflowspecsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4510,7 +4510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetCallTreatment(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwtreatment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetCallTreatment(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwtreatment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4536,7 +4536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetCurrentLocation(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwlocation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetCurrentLocation(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwlocation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4562,7 +4562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetDevConfig(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jint dwsize, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetDevConfig(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jint dwsize, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4590,7 +4590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetDevConfigA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jint dwsize, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetDevConfigA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jint dwsize, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4618,7 +4618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetDevConfigW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jint dwsize, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetDevConfigW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpdeviceconfig, jint dwsize, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4646,7 +4646,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetLineDevStatus(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwstatustochange, jint fstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetLineDevStatus(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwstatustochange, jint fstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4673,7 +4673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetMediaControl(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdigitlist, jint dwdigitnumentries, jlong lpmedialist, jint dwmedianumentries, jlong lptonelist, jint dwtonenumentries, jlong lpcallstatelist, jint dwcallstatenumentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetMediaControl(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jlong lpdigitlist, jint dwdigitnumentries, jlong lpmedialist, jint dwmedianumentries, jlong lptonelist, jint dwtonenumentries, jlong lpcallstatelist, jint dwcallstatenumentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4709,7 +4709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetMediaMode(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwmediamodes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetMediaMode(JNIEnv* km_env, jclass km_clazz, jint hcall, jint dwmediamodes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4735,7 +4735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetNumRings(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwnumrings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetNumRings(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint dwnumrings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4762,7 +4762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetQueueMeasurementPeriod(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwqueueid, jint dwmeasurementperiod) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwqueueid, jint dwmeasurementperiod) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4789,7 +4789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwlinestates, jint dwaddressstates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwlinestates, jint dwaddressstates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4816,7 +4816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetTerminal(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jint dwterminalmodes, jint dwterminalid, jint benable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetTerminal(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jint hcall, jint dwselect, jint dwterminalmodes, jint dwterminalid, jint benable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4847,7 +4847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetTollList(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lpszaddressin, jint dwtolllistoption) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetTollList(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lpszaddressin, jint dwtolllistoption) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4875,7 +4875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetTollListA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lpszaddressin, jint dwtolllistoption) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetTollListA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lpszaddressin, jint dwtolllistoption) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4903,7 +4903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetTollListW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lpszaddressinw, jint dwtolllistoption) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetTollListW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jlong lpszaddressinw, jint dwtolllistoption) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4931,7 +4931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetupConference(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hline, jlong lphconfcall, jlong lphconsultcall, jint dwnumparties, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetupConference(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hline, jlong lphconfcall, jlong lphconsultcall, jint dwnumparties, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4961,7 +4961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetupConferenceA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hline, jlong lphconfcall, jlong lphconsultcall, jint dwnumparties, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetupConferenceA(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hline, jlong lphconfcall, jlong lphconsultcall, jint dwnumparties, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4991,7 +4991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetupConferenceW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hline, jlong lphconfcall, jlong lphconsultcall, jint dwnumparties, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetupConferenceW(JNIEnv* km_env, jclass km_clazz, jint hcall, jint hline, jlong lphconfcall, jlong lphconsultcall, jint dwnumparties, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5021,7 +5021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetupTransfer(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetupTransfer(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5048,7 +5048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetupTransferA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetupTransferA(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5075,7 +5075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSetupTransferW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lphconsultcall, jlong lpcallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSetupTransferW(JNIEnv* km_env, jclass km_clazz, jint hcall, jlong lphconsultcall, jlong lpcallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5102,7 +5102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineShutdown(JNIEnv* km_env, jclass km_clazz, jint hlineapp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineShutdown(JNIEnv* km_env, jclass km_clazz, jint hlineapp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5127,7 +5127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineSwapHold(JNIEnv* km_env, jclass km_clazz, jint hactivecall, jint hheldcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineSwapHold(JNIEnv* km_env, jclass km_clazz, jint hactivecall, jint hheldcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5153,7 +5153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineTranslateAddress(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong lpszaddressin, jint dwcard, jint dwtranslateoptions, jlong lptranslateoutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineTranslateAddress(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong lpszaddressin, jint dwcard, jint dwtranslateoptions, jlong lptranslateoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5184,7 +5184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineTranslateAddressA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong lpszaddressin, jint dwcard, jint dwtranslateoptions, jlong lptranslateoutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineTranslateAddressA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong lpszaddressin, jint dwcard, jint dwtranslateoptions, jlong lptranslateoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5215,7 +5215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineTranslateAddressW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong lpszaddressin, jint dwcard, jint dwtranslateoptions, jlong lptranslateoutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineTranslateAddressW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong lpszaddressin, jint dwcard, jint dwtranslateoptions, jlong lptranslateoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5246,7 +5246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineTranslateDialog(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong hwndowner, jlong lpszaddressin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineTranslateDialog(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong hwndowner, jlong lpszaddressin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5275,7 +5275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineTranslateDialogA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong hwndowner, jlong lpszaddressin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineTranslateDialogA(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong hwndowner, jlong lpszaddressin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5304,7 +5304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineTranslateDialogW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong hwndowner, jlong lpszaddressin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineTranslateDialogW(JNIEnv* km_env, jclass km_clazz, jint hlineapp, jint dwdeviceid, jint dwapiversion, jlong hwndowner, jlong lpszaddressin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5333,7 +5333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineUncompleteCall(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwcompletionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineUncompleteCall(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwcompletionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5359,7 +5359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineUnhold(JNIEnv* km_env, jclass km_clazz, jint hcall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineUnhold(JNIEnv* km_env, jclass km_clazz, jint hcall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5384,7 +5384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineUnpark(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineUnpark(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5412,7 +5412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineUnparkA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineUnparkA(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5440,7 +5440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1lineUnparkW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiLineUnparkW(JNIEnv* km_env, jclass km_clazz, jint hline, jint dwaddressid, jlong lphcall, jlong lpszdestaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5468,7 +5468,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneClose(JNIEnv* km_env, jclass km_clazz, jint hphone) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneClose(JNIEnv* km_env, jclass km_clazz, jint hphone) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5493,7 +5493,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneConfigDialog(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneConfigDialog(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5520,7 +5520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneConfigDialogA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneConfigDialogA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5547,7 +5547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneConfigDialogW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneConfigDialogW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong hwndowner, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5574,7 +5574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneDevSpecific(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpparams, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneDevSpecific(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpparams, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5601,7 +5601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetButtonInfo(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetButtonInfo(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5628,7 +5628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetButtonInfoA(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5655,7 +5655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetButtonInfoW(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5682,7 +5682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetData(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwdataid, jlong lpdata, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetData(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwdataid, jlong lpdata, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5710,7 +5710,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetDevCaps(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lpphonecaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetDevCaps(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lpphonecaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5739,7 +5739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lpphonecaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lpphonecaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5768,7 +5768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lpphonecaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextversion, jlong lpphonecaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5797,7 +5797,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetDisplay(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdisplay) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetDisplay(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdisplay) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5823,7 +5823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetGain(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jlong lpdwgain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetGain(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jlong lpdwgain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5850,7 +5850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetHookSwitch(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdwhookswitchdevs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetHookSwitch(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdwhookswitchdevs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5876,7 +5876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetID(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdeviceid, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetID(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdeviceid, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5903,7 +5903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetIDA(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdeviceid, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetIDA(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdeviceid, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5930,7 +5930,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetIDW(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdeviceid, jlong lpszdeviceclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetIDW(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdeviceid, jlong lpszdeviceclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5957,7 +5957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetIcon(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetIcon(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5984,7 +5984,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetIconA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetIconA(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6011,7 +6011,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetIconW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetIconW(JNIEnv* km_env, jclass km_clazz, jint dwdeviceid, jlong lpszdeviceclass, jlong lphicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6038,7 +6038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetLamp(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpdwlampmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetLamp(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpdwlampmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6065,7 +6065,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetMessage(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jlong lpmessage, jint dwtimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetMessage(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jlong lpmessage, jint dwtimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6092,7 +6092,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetRing(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdwringmode, jlong lpdwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetRing(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdwringmode, jlong lpdwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6119,7 +6119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetStatus(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpphonestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetStatus(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpphonestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6145,7 +6145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetStatusA(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpphonestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetStatusA(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpphonestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6171,7 +6171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdwphonestates, jlong lpdwbuttonmodes, jlong lpdwbuttonstates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpdwphonestates, jlong lpdwbuttonmodes, jlong lpdwbuttonstates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6199,7 +6199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetStatusW(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpphonestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetStatusW(JNIEnv* km_env, jclass km_clazz, jint hphone, jlong lpphonestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6225,7 +6225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneGetVolume(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jlong lpdwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneGetVolume(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jlong lpdwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6252,7 +6252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneInitialize(JNIEnv* km_env, jclass km_clazz, jlong lphphoneapp, jlong hinstance, jlong lpfncallback, jlong lpszappname, jlong lpdwnumdevs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneInitialize(JNIEnv* km_env, jclass km_clazz, jlong lphphoneapp, jlong hinstance, jlong lpfncallback, jlong lpszappname, jlong lpdwnumdevs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6281,7 +6281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneInitializeExA(JNIEnv* km_env, jclass km_clazz, jlong lphphoneapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lpphoneinitializeexparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneInitializeExA(JNIEnv* km_env, jclass km_clazz, jlong lphphoneapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lpphoneinitializeexparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6312,7 +6312,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneInitializeExW(JNIEnv* km_env, jclass km_clazz, jlong lphphoneapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lpphoneinitializeexparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneInitializeExW(JNIEnv* km_env, jclass km_clazz, jlong lphphoneapp, jlong hinstance, jlong lpfncallback, jlong lpszfriendlyappname, jlong lpdwnumdevs, jlong lpdwapiversion, jlong lpphoneinitializeexparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6343,7 +6343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneNegotiateAPIVersion(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapilowversion, jint dwapihighversion, jlong lpdwapiversion, jlong lpextensionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapilowversion, jint dwapihighversion, jlong lpdwapiversion, jlong lpextensionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6373,7 +6373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneNegotiateExtVersion(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextlowversion, jint dwexthighversion, jlong lpdwextversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jint dwapiversion, jint dwextlowversion, jint dwexthighversion, jlong lpdwextversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6403,7 +6403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneOpen(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jlong lphphone, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivilege) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneOpen(JNIEnv* km_env, jclass km_clazz, jint hphoneapp, jint dwdeviceid, jlong lphphone, jint dwapiversion, jint dwextversion, jlong dwcallbackinstance, jint dwprivilege) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6434,7 +6434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetButtonInfo(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetButtonInfo(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6461,7 +6461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetButtonInfoA(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6488,7 +6488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetButtonInfoW(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jlong lpbuttoninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6515,7 +6515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetData(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwdataid, jlong lpdata, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetData(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwdataid, jlong lpdata, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6543,7 +6543,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetDisplay(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwrow, jint dwcolumn, jlong lpsdisplay, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetDisplay(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwrow, jint dwcolumn, jlong lpsdisplay, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6572,7 +6572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetGain(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jint dwgain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetGain(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jint dwgain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6599,7 +6599,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetHookSwitch(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdevs, jint dwhookswitchmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetHookSwitch(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdevs, jint dwhookswitchmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6626,7 +6626,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetLamp(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jint dwlampmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetLamp(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwbuttonlampid, jint dwlampmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6653,7 +6653,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetRing(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwringmode, jint dwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetRing(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwringmode, jint dwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6680,7 +6680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwphonestates, jint dwbuttonmodes, jint dwbuttonstates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetStatusMessages(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwphonestates, jint dwbuttonmodes, jint dwbuttonstates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6708,7 +6708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneSetVolume(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jint dwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneSetVolume(JNIEnv* km_env, jclass km_clazz, jint hphone, jint dwhookswitchdev, jint dwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6735,7 +6735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1phoneShutdown(JNIEnv* km_env, jclass km_clazz, jint hphoneapp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiPhoneShutdown(JNIEnv* km_env, jclass km_clazz, jint hphoneapp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6760,7 +6760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiGetLocationInfo(JNIEnv* km_env, jclass km_clazz, jlong lpszcountrycode, jlong lpszcitycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiGetLocationInfo(JNIEnv* km_env, jclass km_clazz, jlong lpszcountrycode, jlong lpszcitycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6786,7 +6786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiGetLocationInfoA(JNIEnv* km_env, jclass km_clazz, jlong lpszcountrycode, jlong lpszcitycode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiGetLocationInfoA(JNIEnv* km_env, jclass km_clazz, jlong lpszcountrycode, jlong lpszcitycode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6812,7 +6812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiGetLocationInfoW(JNIEnv* km_env, jclass km_clazz, jlong lpszcountrycodew, jlong lpszcitycodew) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiGetLocationInfoW(JNIEnv* km_env, jclass km_clazz, jlong lpszcountrycodew, jlong lpszcitycodew) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6838,7 +6838,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestDrop(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestDrop(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6864,7 +6864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestMakeCall(JNIEnv* km_env, jclass km_clazz, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestMakeCall(JNIEnv* km_env, jclass km_clazz, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6892,7 +6892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestMakeCallA(JNIEnv* km_env, jclass km_clazz, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestMakeCallA(JNIEnv* km_env, jclass km_clazz, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6920,7 +6920,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestMakeCallW(JNIEnv* km_env, jclass km_clazz, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestMakeCallW(JNIEnv* km_env, jclass km_clazz, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6948,7 +6948,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestMediaCall(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid, jlong lpszdeviceclass, jlong lpdeviceid, jint dwsize, jint dwsecure, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestMediaCall(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid, jlong lpszdeviceclass, jlong lpdeviceid, jint dwsize, jint dwsecure, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6982,7 +6982,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestMediaCallA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid, jlong lpszdeviceclass, jlong lpdeviceid, jint dwsize, jint dwsecure, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestMediaCallA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid, jlong lpszdeviceclass, jlong lpdeviceid, jint dwsize, jint dwsecure, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7016,7 +7016,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1tapiRequestMediaCallW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid, jlong lpszdeviceclass, jlong lpdeviceid, jint dwsize, jint dwsecure, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssysWindowsWin32DevicesTapiTapiRequestMediaCallW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wrequestid, jlong lpszdeviceclass, jlong lpdeviceid, jint dwsize, jint dwsecure, jlong lpszdestaddress, jlong lpszappname, jlong lpszcalledparty, jlong lpszcomment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

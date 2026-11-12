@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -10,73 +11,124 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32NetworkmanagementWebdavJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32NetworkmanagementWebdavJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davAddConnection(connectionhandle: Long, remotename: Long, username: Long, password: Long, clientcert: Long, certsize: Int): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavAddConnection(connectionhandle: Long, remotename: Long, username: Long, password: Long, clientcert: Long, certsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsToServer(lpname: Long, fforce: Int): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavCancelConnectionsToServer(lpname: Long, fforce: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection(connectionhandle: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavDeleteConnection(connectionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davFlushFile(hfile: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavFlushFile(hfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError(hfile: Long, exterror: Long, exterrorstring: Long, cchsize: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavGetExtendedError(hfile: Long, exterror: Long, exterrorstring: Long, cchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath(uncpath: Long, url: Long, lpsize: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavGetHTTPFromUNCPath(uncpath: Long, url: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfTheFile(filename: Long, lockownername: Long, lockownernamelengthinbytes: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavGetTheLockOwnerOfTheFile(filename: Long, lockownername: Long, lockownernamelengthinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath(url: Long, uncpath: Long, lpsize: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavGetUNCFromHTTPPath(url: Long, uncpath: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache(urlname: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavInvalidateCache(urlname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallback(callback: Long, version: Int): Int
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavRegisterAuthCallback(callback: Long, version: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_webdav_davUnregisterAuthCallback(hcallback: Int)
+    external fun windowssysWindowsWin32NetworkmanagementWebdavDavUnregisterAuthCallback(hcallback: Int)
 }
 
-public actual fun davAddConnection(connectionhandle: COpaquePointer?, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: COpaquePointer?, certsize: UInt): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davAddConnection((connectionhandle?.value ?: 0L), (remotename?.value ?: 0L), (username?.value ?: 0L), (password?.value ?: 0L), (clientcert?.value ?: 0L), certsize.toInt()).toUInt()
+public actual fun davAddConnection(connectionhandle: MutPtr<Handle>, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: ConstPtr<UByte>, certsize: UInt): UInt =
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavAddConnection(connectionhandle.rawAddress, remotename.rawAddress, username.rawAddress, password.rawAddress, clientcert.rawAddress, certsize.toInt()).toUInt()
 
 public actual fun davCancelConnectionsToServer(lpname: Pcwstr, fforce: Bool): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsToServer((lpname?.value ?: 0L), fforce).toUInt()
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavCancelConnectionsToServer(lpname.rawAddress, fforce).toUInt()
 
 public actual fun davDeleteConnection(connectionhandle: Handle): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection((connectionhandle?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavDeleteConnection(connectionhandle.rawAddress).toUInt()
 
 public actual fun davFlushFile(hfile: Handle): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davFlushFile((hfile?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavFlushFile(hfile.rawAddress).toUInt()
 
-public actual fun davGetExtendedError(hfile: Handle, exterror: COpaquePointer?, exterrorstring: Pwstr, cchsize: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError((hfile?.value ?: 0L), (exterror?.value ?: 0L), (exterrorstring?.value ?: 0L), (cchsize?.value ?: 0L)).toUInt()
+public actual fun davGetExtendedError(hfile: Handle, exterror: MutPtr<UInt>, exterrorstring: Pwstr, cchsize: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavGetExtendedError(hfile.rawAddress, exterror.rawAddress, exterrorstring.rawAddress, cchsize.rawAddress).toUInt()
 
-public actual fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath((uncpath?.value ?: 0L), (url?.value ?: 0L), (lpsize?.value ?: 0L)).toUInt()
+public actual fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavGetHTTPFromUNCPath(uncpath.rawAddress, url.rawAddress, lpsize.rawAddress).toUInt()
 
-public actual fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfTheFile((filename?.value ?: 0L), (lockownername?.value ?: 0L), (lockownernamelengthinbytes?.value ?: 0L)).toUInt()
+public actual fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavGetTheLockOwnerOfTheFile(filename.rawAddress, lockownername.rawAddress, lockownernamelengthinbytes.rawAddress).toUInt()
 
-public actual fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath((url?.value ?: 0L), (uncpath?.value ?: 0L), (lpsize?.value ?: 0L)).toUInt()
+public actual fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavGetUNCFromHTTPPath(url.rawAddress, uncpath.rawAddress, lpsize.rawAddress).toUInt()
 
 public actual fun davInvalidateCache(urlname: Pcwstr): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache((urlname?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavInvalidateCache(urlname.rawAddress).toUInt()
 
 public actual fun davRegisterAuthCallback(callback: Pfndavauthcallback, version: UInt): UInt =
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallback(0L, version.toInt()).toUInt()
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavRegisterAuthCallback(0L, version.toInt()).toUInt()
 
 public actual fun davUnregisterAuthCallback(hcallback: UInt) {
-    WindowsWin32NetworkmanagementWebdavJniBridge.windowssys_windows_win32_networkmanagement_webdav_davUnregisterAuthCallback(hcallback.toInt())
+    WindowsWin32NetworkmanagementWebdavJniBridge.windowssysWindowsWin32NetworkmanagementWebdavDavUnregisterAuthCallback(hcallback.toInt())
 }

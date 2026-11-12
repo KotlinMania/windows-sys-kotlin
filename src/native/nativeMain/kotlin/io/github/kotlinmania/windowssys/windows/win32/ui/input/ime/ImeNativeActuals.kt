@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,336 +13,339 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immAssociateContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immAssociateContextEx
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immConfigureIMEA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immConfigureIMEW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immCreateContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immCreateIMCC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immDestroyContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immDestroyIMCC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immDisableIME
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immDisableLegacyIME
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immDisableTextFrameService
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immEnumInputContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immEscapeA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immEscapeW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGenerateMessage
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCandidateListA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCandidateListW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCandidateWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCompositionFontA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCompositionFontW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCompositionStringA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCompositionStringW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetCompositionWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetConversionListA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetConversionListW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetConversionStatus
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetDescriptionA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetDescriptionW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetGuideLineA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetGuideLineW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetHotKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetIMCCSize
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetIMCLockCount
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetOpenStatus
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetProperty
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immGetVirtualKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immInstallIMEA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immInstallIMEW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immIsIME
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immIsUIMessageA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immIsUIMessageW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immLockIMC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immLockIMCC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immNotifyIME
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immReSizeIMCC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immRegisterWordA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immRegisterWordW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immReleaseContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immRequestMessageA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immRequestMessageW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetCandidateWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetCompositionFontA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetCompositionFontW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetCompositionStringA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetCompositionStringW
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetCompositionWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetConversionStatus
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetHotKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetOpenStatus
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immSimulateHotKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immUnlockIMC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immUnlockIMCC
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immUnregisterWordA
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssys_windows_win32_ui_input_ime_immUnregisterWordW
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmAssociateContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmAssociateContextEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmConfigureIMEA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmConfigureIMEW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmCreateContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmCreateIMCC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmCreateSoftKeyboard
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmDestroyContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmDestroyIMCC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmDestroySoftKeyboard
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmDisableIME
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmDisableLegacyIME
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmDisableTextFrameService
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmEnumInputContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmEnumRegisterWordA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmEnumRegisterWordW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmEscapeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmEscapeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGenerateMessage
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCandidateListA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCandidateListCountA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCandidateListCountW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCandidateListW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCandidateWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCompositionFontA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCompositionFontW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCompositionStringA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCompositionStringW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetCompositionWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetConversionListA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetConversionListW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetConversionStatus
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetDefaultIMEWnd
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetDescriptionA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetDescriptionW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetGuideLineA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetGuideLineW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetHotKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetIMCCLockCount
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetIMCCSize
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetIMCLockCount
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetIMEFileNameA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetIMEFileNameW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetImeMenuItemsA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetImeMenuItemsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetOpenStatus
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetProperty
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetStatusWindowPos
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmGetVirtualKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmInstallIMEA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmInstallIMEW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmIsIME
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmIsUIMessageA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmIsUIMessageW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmLockIMC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmLockIMCC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmNotifyIME
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmReSizeIMCC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmRegisterWordA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmRegisterWordW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmReleaseContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmRequestMessageA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmRequestMessageW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetCandidateWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetCompositionFontA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetCompositionFontW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetCompositionStringA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetCompositionStringW
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetCompositionWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetConversionStatus
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetHotKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetOpenStatus
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSetStatusWindowPos
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmShowSoftKeyboard
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmSimulateHotKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmUnlockIMC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmUnlockIMCC
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmUnregisterWordA
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmUnregisterWordW
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.Hkl
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
 public actual fun immAssociateContext(param0: Hwnd, param1: Himc): Himc =
-    windowssys_windows_win32_ui_input_ime_immAssociateContext(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmAssociateContext(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immAssociateContextEx(param0: Hwnd, param1: Himc, param2: UInt): Bool =
-    windowssys_windows_win32_ui_input_ime_immAssociateContextEx(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2)
+    windowssysWindowsWin32UiInputImeImmAssociateContextEx(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2)
 
-public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immConfigureIMEA(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3?.value?.toCPointer<ByteVar>())
+public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+    windowssysWindowsWin32UiInputImeImmConfigureIMEA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immConfigureIMEW(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3?.value?.toCPointer<ByteVar>())
+public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+    windowssysWindowsWin32UiInputImeImmConfigureIMEW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immCreateContext(): Himc =
-    windowssys_windows_win32_ui_input_ime_immCreateContext()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmCreateContext()?.toLong() ?: 0L)
 
 public actual fun immCreateIMCC(param0: UInt): Himcc =
-    windowssys_windows_win32_ui_input_ime_immCreateIMCC(param0)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmCreateIMCC(param0)?.toLong() ?: 0L)
 
 public actual fun immCreateSoftKeyboard(param0: UInt, param1: Hwnd, param2: Int, param3: Int): Hwnd =
-    windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard(param0, param1?.value?.toCPointer<ByteVar>(), param2, param3)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmCreateSoftKeyboard(param0, param1.rawAddress.toCPointer<ByteVar>(), param2, param3)?.toLong() ?: 0L)
 
 public actual fun immDestroyContext(param0: Himc): Bool =
-    windowssys_windows_win32_ui_input_ime_immDestroyContext(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmDestroyContext(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immDestroyIMCC(param0: Himcc): Himcc =
-    windowssys_windows_win32_ui_input_ime_immDestroyIMCC(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmDestroyIMCC(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immDestroySoftKeyboard(param0: Hwnd): Bool =
-    windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmDestroySoftKeyboard(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immDisableIME(param0: UInt): Bool =
-    windowssys_windows_win32_ui_input_ime_immDisableIME(param0)
+    windowssysWindowsWin32UiInputImeImmDisableIME(param0)
 
 public actual fun immDisableLegacyIME(): Bool =
-    windowssys_windows_win32_ui_input_ime_immDisableLegacyIME()
+    windowssysWindowsWin32UiInputImeImmDisableLegacyIME()
 
 public actual fun immDisableTextFrameService(idthread: UInt): Bool =
-    windowssys_windows_win32_ui_input_ime_immDisableTextFrameService(idthread)
+    windowssysWindowsWin32UiInputImeImmDisableTextFrameService(idthread)
 
 public actual fun immEnumInputContext(idthread: UInt, lpfn: Imcenumproc, lparam: Lparam): Bool =
-    windowssys_windows_win32_ui_input_ime_immEnumInputContext(idthread, 0L.toCPointer<ByteVar>(), lparam)
+    windowssysWindowsWin32UiInputImeImmEnumInputContext(idthread, 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA(param0?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszreading?.value?.toCPointer<ByteVar>(), param3, lpszregister?.value?.toCPointer<ByteVar>(), param5?.value?.toCPointer<ByteVar>())
+public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: MutPtr<CVoid>): UInt =
+    windowssysWindowsWin32UiInputImeImmEnumRegisterWordA(param0.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param3, lpszregister.rawAddress.toCPointer<ByteVar>(), param5.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW(param0?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszreading?.value?.toCPointer<ByteVar>(), param3, lpszregister?.value?.toCPointer<ByteVar>(), param5?.value?.toCPointer<ByteVar>())
+public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: MutPtr<CVoid>): UInt =
+    windowssysWindowsWin32UiInputImeImmEnumRegisterWordW(param0.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param3, lpszregister.rawAddress.toCPointer<ByteVar>(), param5.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: COpaquePointer?): Lresult =
-    windowssys_windows_win32_ui_input_ime_immEscapeA(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3?.value?.toCPointer<ByteVar>())
+public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+    windowssysWindowsWin32UiInputImeImmEscapeA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: COpaquePointer?): Lresult =
-    windowssys_windows_win32_ui_input_ime_immEscapeW(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3?.value?.toCPointer<ByteVar>())
+public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+    windowssysWindowsWin32UiInputImeImmEscapeW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGenerateMessage(param0: Himc): Bool =
-    windowssys_windows_win32_ui_input_ime_immGenerateMessage(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmGenerateMessage(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: COpaquePointer?, dwbuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetCandidateListA(param0?.value?.toCPointer<ByteVar>(), deindex, lpcandlist?.value?.toCPointer<ByteVar>(), dwbuflen)
+public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+    windowssysWindowsWin32UiInputImeImmGetCandidateListA(param0.rawAddress.toCPointer<ByteVar>(), deindex, lpcandlist.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA(param0?.value?.toCPointer<ByteVar>(), lpdwlistcount?.value?.toCPointer<ByteVar>())
+public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32UiInputImeImmGetCandidateListCountA(param0.rawAddress.toCPointer<ByteVar>(), lpdwlistcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW(param0?.value?.toCPointer<ByteVar>(), lpdwlistcount?.value?.toCPointer<ByteVar>())
+public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32UiInputImeImmGetCandidateListCountW(param0.rawAddress.toCPointer<ByteVar>(), lpdwlistcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: COpaquePointer?, dwbuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetCandidateListW(param0?.value?.toCPointer<ByteVar>(), deindex, lpcandlist?.value?.toCPointer<ByteVar>(), dwbuflen)
+public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+    windowssysWindowsWin32UiInputImeImmGetCandidateListW(param0.rawAddress.toCPointer<ByteVar>(), deindex, lpcandlist.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetCandidateWindow(param0?.value?.toCPointer<ByteVar>(), param1, lpcandidate?.value?.toCPointer<ByteVar>())
+public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: MutPtr<Candidateform>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetCandidateWindow(param0.rawAddress.toCPointer<ByteVar>(), param1, lpcandidate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCompositionFontA(param0: Himc, lplf: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetCompositionFontA(param0?.value?.toCPointer<ByteVar>(), lplf?.value?.toCPointer<ByteVar>())
+public actual fun immGetCompositionFontA(param0: Himc, lplf: MutPtr<Logfonta>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetCompositionFontA(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCompositionFontW(param0: Himc, lplf: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetCompositionFontW(param0?.value?.toCPointer<ByteVar>(), lplf?.value?.toCPointer<ByteVar>())
+public actual fun immGetCompositionFontW(param0: Himc, lplf: MutPtr<Logfontw>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetCompositionFontW(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: COpaquePointer?, dwbuflen: UInt): Int =
-    windowssys_windows_win32_ui_input_ime_immGetCompositionStringA(param0?.value?.toCPointer<ByteVar>(), param1, lpbuf?.value?.toCPointer<ByteVar>(), dwbuflen)
+public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+    windowssysWindowsWin32UiInputImeImmGetCompositionStringA(param0.rawAddress.toCPointer<ByteVar>(), param1, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: COpaquePointer?, dwbuflen: UInt): Int =
-    windowssys_windows_win32_ui_input_ime_immGetCompositionStringW(param0?.value?.toCPointer<ByteVar>(), param1, lpbuf?.value?.toCPointer<ByteVar>(), dwbuflen)
+public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+    windowssysWindowsWin32UiInputImeImmGetCompositionStringW(param0.rawAddress.toCPointer<ByteVar>(), param1, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCompositionWindow(param0: Himc, lpcompform: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetCompositionWindow(param0?.value?.toCPointer<ByteVar>(), lpcompform?.value?.toCPointer<ByteVar>())
+public actual fun immGetCompositionWindow(param0: Himc, lpcompform: MutPtr<Compositionform>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetCompositionWindow(param0.rawAddress.toCPointer<ByteVar>(), lpcompform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetContext(param0: Hwnd): Himc =
-    windowssys_windows_win32_ui_input_ime_immGetContext(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmGetContext(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: COpaquePointer?, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetConversionListA(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), lpsrc?.value?.toCPointer<ByteVar>(), lpdst?.value?.toCPointer<ByteVar>(), dwbuflen, uflag)
+public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+    windowssysWindowsWin32UiInputImeImmGetConversionListA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), lpsrc.rawAddress.toCPointer<ByteVar>(), lpdst.rawAddress.toCPointer<ByteVar>(), dwbuflen, uflag)
 
-public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: COpaquePointer?, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetConversionListW(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), lpsrc?.value?.toCPointer<ByteVar>(), lpdst?.value?.toCPointer<ByteVar>(), dwbuflen, uflag)
+public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+    windowssysWindowsWin32UiInputImeImmGetConversionListW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), lpsrc.rawAddress.toCPointer<ByteVar>(), lpdst.rawAddress.toCPointer<ByteVar>(), dwbuflen, uflag)
 
-public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: COpaquePointer?, lpfdwsentence: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetConversionStatus(param0?.value?.toCPointer<ByteVar>(), lpfdwconversion?.value?.toCPointer<ByteVar>(), lpfdwsentence?.value?.toCPointer<ByteVar>())
+public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: MutPtr<ImeConversionMode>, lpfdwsentence: MutPtr<ImeSentenceMode>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetConversionStatus(param0.rawAddress.toCPointer<ByteVar>(), lpfdwconversion.rawAddress.toCPointer<ByteVar>(), lpfdwsentence.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetDefaultIMEWnd(param0: Hwnd): Hwnd =
-    windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmGetDefaultIMEWnd(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immGetDescriptionA(param0: Hkl, lpszdescription: Pstr, ubuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetDescriptionA(param0?.value?.toCPointer<ByteVar>(), lpszdescription?.value?.toCPointer<ByteVar>(), ubuflen)
+    windowssysWindowsWin32UiInputImeImmGetDescriptionA(param0.rawAddress.toCPointer<ByteVar>(), lpszdescription.rawAddress.toCPointer<ByteVar>(), ubuflen)
 
 public actual fun immGetDescriptionW(param0: Hkl, lpszdescription: Pwstr, ubuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetDescriptionW(param0?.value?.toCPointer<ByteVar>(), lpszdescription?.value?.toCPointer<ByteVar>(), ubuflen)
+    windowssysWindowsWin32UiInputImeImmGetDescriptionW(param0.rawAddress.toCPointer<ByteVar>(), lpszdescription.rawAddress.toCPointer<ByteVar>(), ubuflen)
 
 public actual fun immGetGuideLineA(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pstr, dwbuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetGuideLineA(param0?.value?.toCPointer<ByteVar>(), dwindex, lpbuf?.value?.toCPointer<ByteVar>(), dwbuflen)
+    windowssysWindowsWin32UiInputImeImmGetGuideLineA(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
 public actual fun immGetGuideLineW(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pwstr, dwbuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetGuideLineW(param0?.value?.toCPointer<ByteVar>(), dwindex, lpbuf?.value?.toCPointer<ByteVar>(), dwbuflen)
+    windowssysWindowsWin32UiInputImeImmGetGuideLineW(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetHotKey(param0: UInt, lpumodifiers: COpaquePointer?, lpuvkey: COpaquePointer?, phkl: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetHotKey(param0, lpumodifiers?.value?.toCPointer<ByteVar>(), lpuvkey?.value?.toCPointer<ByteVar>(), phkl?.value?.toCPointer<ByteVar>())
+public actual fun immGetHotKey(param0: UInt, lpumodifiers: MutPtr<UInt>, lpuvkey: MutPtr<UInt>, phkl: MutPtr<Hkl>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetHotKey(param0, lpumodifiers.rawAddress.toCPointer<ByteVar>(), lpuvkey.rawAddress.toCPointer<ByteVar>(), phkl.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetIMCCLockCount(param0: Himcc): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmGetIMCCLockCount(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetIMCCSize(param0: Himcc): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetIMCCSize(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmGetIMCCSize(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetIMCLockCount(param0: Himc): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetIMCLockCount(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmGetIMCLockCount(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetIMEFileNameA(param0: Hkl, lpszfilename: Pstr, ubuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA(param0?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), ubuflen)
+    windowssysWindowsWin32UiInputImeImmGetIMEFileNameA(param0.rawAddress.toCPointer<ByteVar>(), lpszfilename.rawAddress.toCPointer<ByteVar>(), ubuflen)
 
 public actual fun immGetIMEFileNameW(param0: Hkl, lpszfilename: Pwstr, ubuflen: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW(param0?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), ubuflen)
+    windowssysWindowsWin32UiInputImeImmGetIMEFileNameW(param0.rawAddress.toCPointer<ByteVar>(), lpszfilename.rawAddress.toCPointer<ByteVar>(), ubuflen)
 
-public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: COpaquePointer?, lpimemenu: COpaquePointer?, dwsize: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA(param0?.value?.toCPointer<ByteVar>(), param1, param2, lpimeparentmenu?.value?.toCPointer<ByteVar>(), lpimemenu?.value?.toCPointer<ByteVar>(), dwsize)
+public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfoa>, lpimemenu: MutPtr<Imemenuiteminfoa>, dwsize: UInt): UInt =
+    windowssysWindowsWin32UiInputImeImmGetImeMenuItemsA(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, lpimeparentmenu.rawAddress.toCPointer<ByteVar>(), lpimemenu.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: COpaquePointer?, lpimemenu: COpaquePointer?, dwsize: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW(param0?.value?.toCPointer<ByteVar>(), param1, param2, lpimeparentmenu?.value?.toCPointer<ByteVar>(), lpimemenu?.value?.toCPointer<ByteVar>(), dwsize)
+public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfow>, lpimemenu: MutPtr<Imemenuiteminfow>, dwsize: UInt): UInt =
+    windowssysWindowsWin32UiInputImeImmGetImeMenuItemsW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, lpimeparentmenu.rawAddress.toCPointer<ByteVar>(), lpimemenu.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun immGetOpenStatus(param0: Himc): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetOpenStatus(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmGetOpenStatus(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetProperty(param0: Hkl, param1: UInt): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetProperty(param0?.value?.toCPointer<ByteVar>(), param1)
+    windowssysWindowsWin32UiInputImeImmGetProperty(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
-public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA(param0?.value?.toCPointer<ByteVar>(), nitem, lpstylebuf?.value?.toCPointer<ByteVar>())
+public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufa>): UInt =
+    windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleA(param0.rawAddress.toCPointer<ByteVar>(), nitem, lpstylebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW(param0?.value?.toCPointer<ByteVar>(), nitem, lpstylebuf?.value?.toCPointer<ByteVar>())
+public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufw>): UInt =
+    windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleW(param0.rawAddress.toCPointer<ByteVar>(), nitem, lpstylebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos(param0?.value?.toCPointer<ByteVar>(), lpptpos?.value?.toCPointer<ByteVar>())
+public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: MutPtr<Point>): Bool =
+    windowssysWindowsWin32UiInputImeImmGetStatusWindowPos(param0.rawAddress.toCPointer<ByteVar>(), lpptpos.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetVirtualKey(param0: Hwnd): UInt =
-    windowssys_windows_win32_ui_input_ime_immGetVirtualKey(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmGetVirtualKey(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immInstallIMEA(lpszimefilename: Pcstr, lpszlayouttext: Pcstr): Hkl =
-    windowssys_windows_win32_ui_input_ime_immInstallIMEA(lpszimefilename?.value?.toCPointer<ByteVar>(), lpszlayouttext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmInstallIMEA(lpszimefilename.rawAddress.toCPointer<ByteVar>(), lpszlayouttext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immInstallIMEW(lpszimefilename: Pcwstr, lpszlayouttext: Pcwstr): Hkl =
-    windowssys_windows_win32_ui_input_ime_immInstallIMEW(lpszimefilename?.value?.toCPointer<ByteVar>(), lpszlayouttext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmInstallIMEW(lpszimefilename.rawAddress.toCPointer<ByteVar>(), lpszlayouttext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immIsIME(param0: Hkl): Bool =
-    windowssys_windows_win32_ui_input_ime_immIsIME(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmIsIME(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immIsUIMessageA(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool =
-    windowssys_windows_win32_ui_input_ime_immIsUIMessageA(param0?.value?.toCPointer<ByteVar>(), param1, param2, param3)
+    windowssysWindowsWin32UiInputImeImmIsUIMessageA(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3)
 
 public actual fun immIsUIMessageW(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool =
-    windowssys_windows_win32_ui_input_ime_immIsUIMessageW(param0?.value?.toCPointer<ByteVar>(), param1, param2, param3)
+    windowssysWindowsWin32UiInputImeImmIsUIMessageW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3)
 
-public actual fun immLockIMC(param0: Himc): COpaquePointer? =
-    windowssys_windows_win32_ui_input_ime_immLockIMC(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun immLockIMC(param0: Himc): MutPtr<Inputcontext> =
+    MutPtr(windowssysWindowsWin32UiInputImeImmLockIMC(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun immLockIMCC(param0: Himcc): COpaquePointer? =
-    windowssys_windows_win32_ui_input_ime_immLockIMCC(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun immLockIMCC(param0: Himcc): MutPtr<CVoid> =
+    MutPtr(windowssysWindowsWin32UiInputImeImmLockIMCC(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immNotifyIME(param0: Himc, dwaction: NotifyImeAction, dwindex: NotifyImeIndex, dwvalue: UInt): Bool =
-    windowssys_windows_win32_ui_input_ime_immNotifyIME(param0?.value?.toCPointer<ByteVar>(), dwaction, dwindex, dwvalue)
+    windowssysWindowsWin32UiInputImeImmNotifyIME(param0.rawAddress.toCPointer<ByteVar>(), dwaction, dwindex, dwvalue)
 
 public actual fun immReSizeIMCC(param0: Himcc, param1: UInt): Himcc =
-    windowssys_windows_win32_ui_input_ime_immReSizeIMCC(param0?.value?.toCPointer<ByteVar>(), param1)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiInputImeImmReSizeIMCC(param0.rawAddress.toCPointer<ByteVar>(), param1)?.toLong() ?: 0L)
 
 public actual fun immRegisterWordA(param0: Hkl, lpszreading: Pcstr, param2: UInt, lpszregister: Pcstr): Bool =
-    windowssys_windows_win32_ui_input_ime_immRegisterWordA(param0?.value?.toCPointer<ByteVar>(), lpszreading?.value?.toCPointer<ByteVar>(), param2, lpszregister?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmRegisterWordA(param0.rawAddress.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param2, lpszregister.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immRegisterWordW(param0: Hkl, lpszreading: Pcwstr, param2: UInt, lpszregister: Pcwstr): Bool =
-    windowssys_windows_win32_ui_input_ime_immRegisterWordW(param0?.value?.toCPointer<ByteVar>(), lpszreading?.value?.toCPointer<ByteVar>(), param2, lpszregister?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmRegisterWordW(param0.rawAddress.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param2, lpszregister.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immReleaseContext(param0: Hwnd, param1: Himc): Bool =
-    windowssys_windows_win32_ui_input_ime_immReleaseContext(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmReleaseContext(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immRequestMessageA(param0: Himc, param1: Wparam, param2: Lparam): Lresult =
-    windowssys_windows_win32_ui_input_ime_immRequestMessageA(param0?.value?.toCPointer<ByteVar>(), param1, param2)
+    windowssysWindowsWin32UiInputImeImmRequestMessageA(param0.rawAddress.toCPointer<ByteVar>(), param1, param2)
 
 public actual fun immRequestMessageW(param0: Himc, param1: Wparam, param2: Lparam): Lresult =
-    windowssys_windows_win32_ui_input_ime_immRequestMessageW(param0?.value?.toCPointer<ByteVar>(), param1, param2)
+    windowssysWindowsWin32UiInputImeImmRequestMessageW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2)
 
-public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetCandidateWindow(param0?.value?.toCPointer<ByteVar>(), lpcandidate?.value?.toCPointer<ByteVar>())
+public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: ConstPtr<Candidateform>): Bool =
+    windowssysWindowsWin32UiInputImeImmSetCandidateWindow(param0.rawAddress.toCPointer<ByteVar>(), lpcandidate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immSetCompositionFontA(param0: Himc, lplf: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetCompositionFontA(param0?.value?.toCPointer<ByteVar>(), lplf?.value?.toCPointer<ByteVar>())
+public actual fun immSetCompositionFontA(param0: Himc, lplf: ConstPtr<Logfonta>): Bool =
+    windowssysWindowsWin32UiInputImeImmSetCompositionFontA(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immSetCompositionFontW(param0: Himc, lplf: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetCompositionFontW(param0?.value?.toCPointer<ByteVar>(), lplf?.value?.toCPointer<ByteVar>())
+public actual fun immSetCompositionFontW(param0: Himc, lplf: ConstPtr<Logfontw>): Bool =
+    windowssysWindowsWin32UiInputImeImmSetCompositionFontW(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: COpaquePointer?, dwcomplen: UInt, lpread: COpaquePointer?, dwreadlen: UInt): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetCompositionStringA(param0?.value?.toCPointer<ByteVar>(), dwindex, lpcomp?.value?.toCPointer<ByteVar>(), dwcomplen, lpread?.value?.toCPointer<ByteVar>(), dwreadlen)
+public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+    windowssysWindowsWin32UiInputImeImmSetCompositionStringA(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpcomp.rawAddress.toCPointer<ByteVar>(), dwcomplen, lpread.rawAddress.toCPointer<ByteVar>(), dwreadlen)
 
-public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: COpaquePointer?, dwcomplen: UInt, lpread: COpaquePointer?, dwreadlen: UInt): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetCompositionStringW(param0?.value?.toCPointer<ByteVar>(), dwindex, lpcomp?.value?.toCPointer<ByteVar>(), dwcomplen, lpread?.value?.toCPointer<ByteVar>(), dwreadlen)
+public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+    windowssysWindowsWin32UiInputImeImmSetCompositionStringW(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpcomp.rawAddress.toCPointer<ByteVar>(), dwcomplen, lpread.rawAddress.toCPointer<ByteVar>(), dwreadlen)
 
-public actual fun immSetCompositionWindow(param0: Himc, lpcompform: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetCompositionWindow(param0?.value?.toCPointer<ByteVar>(), lpcompform?.value?.toCPointer<ByteVar>())
+public actual fun immSetCompositionWindow(param0: Himc, lpcompform: ConstPtr<Compositionform>): Bool =
+    windowssysWindowsWin32UiInputImeImmSetCompositionWindow(param0.rawAddress.toCPointer<ByteVar>(), lpcompform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immSetConversionStatus(param0: Himc, param1: ImeConversionMode, param2: ImeSentenceMode): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetConversionStatus(param0?.value?.toCPointer<ByteVar>(), param1, param2)
+    windowssysWindowsWin32UiInputImeImmSetConversionStatus(param0.rawAddress.toCPointer<ByteVar>(), param1, param2)
 
 public actual fun immSetHotKey(param0: UInt, param1: UInt, param2: UInt, param3: Hkl): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetHotKey(param0, param1, param2, param3?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmSetHotKey(param0, param1, param2, param3.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immSetOpenStatus(param0: Himc, param1: Bool): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetOpenStatus(param0?.value?.toCPointer<ByteVar>(), param1)
+    windowssysWindowsWin32UiInputImeImmSetOpenStatus(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
-public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos(param0?.value?.toCPointer<ByteVar>(), lpptpos?.value?.toCPointer<ByteVar>())
+public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: ConstPtr<Point>): Bool =
+    windowssysWindowsWin32UiInputImeImmSetStatusWindowPos(param0.rawAddress.toCPointer<ByteVar>(), lpptpos.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immShowSoftKeyboard(param0: Hwnd, param1: Int): Bool =
-    windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard(param0?.value?.toCPointer<ByteVar>(), param1)
+    windowssysWindowsWin32UiInputImeImmShowSoftKeyboard(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
 public actual fun immSimulateHotKey(param0: Hwnd, param1: ImeHotkeyIdentifier): Bool =
-    windowssys_windows_win32_ui_input_ime_immSimulateHotKey(param0?.value?.toCPointer<ByteVar>(), param1)
+    windowssysWindowsWin32UiInputImeImmSimulateHotKey(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
 public actual fun immUnlockIMC(param0: Himc): Bool =
-    windowssys_windows_win32_ui_input_ime_immUnlockIMC(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmUnlockIMC(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immUnlockIMCC(param0: Himcc): Bool =
-    windowssys_windows_win32_ui_input_ime_immUnlockIMCC(param0?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmUnlockIMCC(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immUnregisterWordA(param0: Hkl, lpszreading: Pcstr, param2: UInt, lpszunregister: Pcstr): Bool =
-    windowssys_windows_win32_ui_input_ime_immUnregisterWordA(param0?.value?.toCPointer<ByteVar>(), lpszreading?.value?.toCPointer<ByteVar>(), param2, lpszunregister?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmUnregisterWordA(param0.rawAddress.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param2, lpszunregister.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immUnregisterWordW(param0: Hkl, lpszreading: Pcwstr, param2: UInt, lpszunregister: Pcwstr): Bool =
-    windowssys_windows_win32_ui_input_ime_immUnregisterWordW(param0?.value?.toCPointer<ByteVar>(), lpszreading?.value?.toCPointer<ByteVar>(), param2, lpszunregister?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiInputImeImmUnregisterWordW(param0.rawAddress.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param2, lpszunregister.rawAddress.toCPointer<ByteVar>())

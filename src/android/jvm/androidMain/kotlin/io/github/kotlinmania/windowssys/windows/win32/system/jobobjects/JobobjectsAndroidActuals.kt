@@ -2,11 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
 private object WindowsWin32SystemJobobjectsJniBridge {
     init {
@@ -14,87 +17,87 @@ private object WindowsWin32SystemJobobjectsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_assignProcessToJobObject(hjob: Long, hprocess: Long): Int
+    external fun windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject(hjob: Long, hprocess: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_createJobObjectA(lpjobattributes: Long, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemJobobjectsCreateJobObjectA(lpjobattributes: Long, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_createJobObjectW(lpjobattributes: Long, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemJobobjectsCreateJobObjectW(lpjobattributes: Long, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_createJobSet(numjob: Int, userjobset: Long, flags: Int): Int
+    external fun windowssysWindowsWin32SystemJobobjectsCreateJobSet(numjob: Int, userjobset: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_freeMemoryJobObject(buffer: Long)
+    external fun windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject(buffer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_isProcessInJob(processhandle: Long, jobhandle: Long, result: Long): Int
+    external fun windowssysWindowsWin32SystemJobobjectsIsProcessInJob(processhandle: Long, jobhandle: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_openJobObjectA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemJobobjectsOpenJobObjectA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_openJobObjectW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemJobobjectsOpenJobObjectW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_queryInformationJobObject(hjob: Long, jobobjectinformationclass: Int, lpjobobjectinformation: Long, cbjobobjectinformationlength: Int, lpreturnlength: Long): Int
+    external fun windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject(hjob: Long, jobobjectinformationclass: Int, lpjobobjectinformation: Long, cbjobobjectinformationlength: Int, lpreturnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject(hjob: Long, volumename: Long, infoblocks: Long, infoblockcount: Long): Int
+    external fun windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject(hjob: Long, volumename: Long, infoblocks: Long, infoblockcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_setInformationJobObject(hjob: Long, jobobjectinformationclass: Int, lpjobobjectinformation: Long, cbjobobjectinformationlength: Int): Int
+    external fun windowssysWindowsWin32SystemJobobjectsSetInformationJobObject(hjob: Long, jobobjectinformationclass: Int, lpjobobjectinformation: Long, cbjobobjectinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject(hjob: Long, ioratecontrolinfo: Long): Int
+    external fun windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject(hjob: Long, ioratecontrolinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_terminateJobObject(hjob: Long, uexitcode: Int): Int
+    external fun windowssysWindowsWin32SystemJobobjectsTerminateJobObject(hjob: Long, uexitcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_jobobjects_userHandleGrantAccess(huserhandle: Long, hjob: Long, bgrant: Int): Int
+    external fun windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess(huserhandle: Long, hjob: Long, bgrant: Int): Int
 }
 
 public actual fun assignProcessToJobObject(hjob: Handle, hprocess: Handle): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_assignProcessToJobObject((hjob?.value ?: 0L), (hprocess?.value ?: 0L))
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject(hjob.rawAddress, hprocess.rawAddress)
 
-public actual fun createJobObjectA(lpjobattributes: COpaquePointer?, lpname: Pcstr): Handle =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_createJobObjectA((lpjobattributes?.value ?: 0L), (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createJobObjectA(lpjobattributes: ConstPtr<SecurityAttributes>, lpname: Pcstr): Handle =
+    MutPtr(WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsCreateJobObjectA(lpjobattributes.rawAddress, lpname.rawAddress))
 
-public actual fun createJobObjectW(lpjobattributes: COpaquePointer?, lpname: Pcwstr): Handle =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_createJobObjectW((lpjobattributes?.value ?: 0L), (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createJobObjectW(lpjobattributes: ConstPtr<SecurityAttributes>, lpname: Pcwstr): Handle =
+    MutPtr(WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsCreateJobObjectW(lpjobattributes.rawAddress, lpname.rawAddress))
 
-public actual fun createJobSet(numjob: UInt, userjobset: COpaquePointer?, flags: UInt): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_createJobSet(numjob.toInt(), (userjobset?.value ?: 0L), flags.toInt())
+public actual fun createJobSet(numjob: UInt, userjobset: ConstPtr<JobSetArray>, flags: UInt): Bool =
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsCreateJobSet(numjob.toInt(), userjobset.rawAddress, flags.toInt())
 
-public actual fun freeMemoryJobObject(buffer: COpaquePointer?) {
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_freeMemoryJobObject((buffer?.value ?: 0L))
+public actual fun freeMemoryJobObject(buffer: ConstPtr<CVoid>) {
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject(buffer.rawAddress)
 }
 
-public actual fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: COpaquePointer?): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_isProcessInJob((processhandle?.value ?: 0L), (jobhandle?.value ?: 0L), (result?.value ?: 0L))
+public actual fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: MutPtr<Bool>): Bool =
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsIsProcessInJob(processhandle.rawAddress, jobhandle.rawAddress, result.rawAddress)
 
 public actual fun openJobObjectA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_openJobObjectA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsOpenJobObjectA(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress))
 
 public actual fun openJobObjectW(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcwstr): Handle =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_openJobObjectW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsOpenJobObjectW(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress))
 
-public actual fun queryInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: COpaquePointer?, cbjobobjectinformationlength: UInt, lpreturnlength: COpaquePointer?): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_queryInformationJobObject((hjob?.value ?: 0L), jobobjectinformationclass, (lpjobobjectinformation?.value ?: 0L), cbjobobjectinformationlength.toInt(), (lpreturnlength?.value ?: 0L))
+public actual fun queryInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: MutPtr<CVoid>, cbjobobjectinformationlength: UInt, lpreturnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject(hjob.rawAddress, jobobjectinformationclass, lpjobobjectinformation.rawAddress, cbjobobjectinformationlength.toInt(), lpreturnlength.rawAddress)
 
-public actual fun queryIoRateControlInformationJobObject(hjob: Handle, volumename: Pcwstr, infoblocks: COpaquePointer?, infoblockcount: COpaquePointer?): UInt =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject((hjob?.value ?: 0L), (volumename?.value ?: 0L), (infoblocks?.value ?: 0L), (infoblockcount?.value ?: 0L)).toUInt()
+public actual fun queryIoRateControlInformationJobObject(hjob: Handle, volumename: Pcwstr, infoblocks: MutPtr<MutPtr<JobobjectIoRateControlInformation>>, infoblockcount: MutPtr<UInt>): UInt =
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject(hjob.rawAddress, volumename.rawAddress, infoblocks.rawAddress, infoblockcount.rawAddress).toUInt()
 
-public actual fun setInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: COpaquePointer?, cbjobobjectinformationlength: UInt): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_setInformationJobObject((hjob?.value ?: 0L), jobobjectinformationclass, (lpjobobjectinformation?.value ?: 0L), cbjobobjectinformationlength.toInt())
+public actual fun setInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: ConstPtr<CVoid>, cbjobobjectinformationlength: UInt): Bool =
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsSetInformationJobObject(hjob.rawAddress, jobobjectinformationclass, lpjobobjectinformation.rawAddress, cbjobobjectinformationlength.toInt())
 
-public actual fun setIoRateControlInformationJobObject(hjob: Handle, ioratecontrolinfo: COpaquePointer?): UInt =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject((hjob?.value ?: 0L), (ioratecontrolinfo?.value ?: 0L)).toUInt()
+public actual fun setIoRateControlInformationJobObject(hjob: Handle, ioratecontrolinfo: ConstPtr<JobobjectIoRateControlInformation>): UInt =
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject(hjob.rawAddress, ioratecontrolinfo.rawAddress).toUInt()
 
 public actual fun terminateJobObject(hjob: Handle, uexitcode: UInt): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_terminateJobObject((hjob?.value ?: 0L), uexitcode.toInt())
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsTerminateJobObject(hjob.rawAddress, uexitcode.toInt())
 
 public actual fun userHandleGrantAccess(huserhandle: Handle, hjob: Handle, bgrant: Bool): Bool =
-    WindowsWin32SystemJobobjectsJniBridge.windowssys_windows_win32_system_jobobjects_userHandleGrantAccess((huserhandle?.value ?: 0L), (hjob?.value ?: 0L), bgrant)
+    WindowsWin32SystemJobobjectsJniBridge.windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess(huserhandle.rawAddress, hjob.rawAddress, bgrant)

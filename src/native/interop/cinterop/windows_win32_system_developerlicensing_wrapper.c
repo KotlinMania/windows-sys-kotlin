@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense(void* hwndparent, void* pexpiration) {
+int32_t windowssysWindowsWin32SystemDeveloperlicensingAcquireDeveloperLicense(void* hwndparent, void* pexpiration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense(void* pexpiration) {
+int32_t windowssysWindowsWin32SystemDeveloperlicensingCheckDeveloperLicense(void* pexpiration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense
 #endif
 }
 
-int32_t windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense(void* hwndparent) {
+int32_t windowssysWindowsWin32SystemDeveloperlicensingRemoveDeveloperLicense(void* hwndparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

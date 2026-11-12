@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_services_changeServiceConfig2A(void* hservice, uint32_t dwinfolevel, void* lpinfo) {
+int32_t windowssysWindowsWin32SystemServicesChangeServiceConfig2A(void* hservice, uint32_t dwinfolevel, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_system_services_changeServiceConfig2A(void* hse
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_changeServiceConfig2W(void* hservice, uint32_t dwinfolevel, void* lpinfo) {
+int32_t windowssysWindowsWin32SystemServicesChangeServiceConfig2W(void* hservice, uint32_t dwinfolevel, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_system_services_changeServiceConfig2W(void* hse
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_changeServiceConfigA(void* hservice, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword, void* lpdisplayname) {
+int32_t windowssysWindowsWin32SystemServicesChangeServiceConfigA(void* hservice, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword, void* lpdisplayname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -95,7 +95,7 @@ int32_t windowssys_windows_win32_system_services_changeServiceConfigA(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_changeServiceConfigW(void* hservice, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword, void* lpdisplayname) {
+int32_t windowssysWindowsWin32SystemServicesChangeServiceConfigW(void* hservice, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword, void* lpdisplayname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_system_services_changeServiceConfigW(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_closeServiceHandle(void* hscobject) {
+int32_t windowssysWindowsWin32SystemServicesCloseServiceHandle(void* hscobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -149,7 +149,7 @@ int32_t windowssys_windows_win32_system_services_closeServiceHandle(void* hscobj
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_controlService(void* hservice, uint32_t dwcontrol, void* lpservicestatus) {
+int32_t windowssysWindowsWin32SystemServicesControlService(void* hservice, uint32_t dwcontrol, void* lpservicestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -173,7 +173,7 @@ int32_t windowssys_windows_win32_system_services_controlService(void* hservice, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_controlServiceExA(void* hservice, uint32_t dwcontrol, uint32_t dwinfolevel, void* pcontrolparams) {
+int32_t windowssysWindowsWin32SystemServicesControlServiceExA(void* hservice, uint32_t dwcontrol, uint32_t dwinfolevel, void* pcontrolparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ int32_t windowssys_windows_win32_system_services_controlServiceExA(void* hservic
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_controlServiceExW(void* hservice, uint32_t dwcontrol, uint32_t dwinfolevel, void* pcontrolparams) {
+int32_t windowssysWindowsWin32SystemServicesControlServiceExW(void* hservice, uint32_t dwcontrol, uint32_t dwinfolevel, void* pcontrolparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ int32_t windowssys_windows_win32_system_services_controlServiceExW(void* hservic
 #endif
 }
 
-void* windowssys_windows_win32_system_services_createServiceA(void* hscmanager, void* lpservicename, void* lpdisplayname, uint32_t dwdesiredaccess, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword) {
+void* windowssysWindowsWin32SystemServicesCreateServiceA(void* hscmanager, void* lpservicename, void* lpdisplayname, uint32_t dwdesiredaccess, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -257,7 +257,7 @@ void* windowssys_windows_win32_system_services_createServiceA(void* hscmanager, 
 #endif
 }
 
-void* windowssys_windows_win32_system_services_createServiceW(void* hscmanager, void* lpservicename, void* lpdisplayname, uint32_t dwdesiredaccess, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword) {
+void* windowssysWindowsWin32SystemServicesCreateServiceW(void* hscmanager, void* lpservicename, void* lpdisplayname, uint32_t dwdesiredaccess, uint32_t dwservicetype, uint32_t dwstarttype, uint32_t dwerrorcontrol, void* lpbinarypathname, void* lploadordergroup, void* lpdwtagid, void* lpdependencies, void* lpservicestartname, void* lppassword) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ void* windowssys_windows_win32_system_services_createServiceW(void* hscmanager, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_deleteService(void* hservice) {
+int32_t windowssysWindowsWin32SystemServicesDeleteService(void* hservice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -313,7 +313,7 @@ int32_t windowssys_windows_win32_system_services_deleteService(void* hservice) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_enumDependentServicesA(void* hservice, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned) {
+int32_t windowssysWindowsWin32SystemServicesEnumDependentServicesA(void* hservice, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ int32_t windowssys_windows_win32_system_services_enumDependentServicesA(void* hs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_enumDependentServicesW(void* hservice, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned) {
+int32_t windowssysWindowsWin32SystemServicesEnumDependentServicesW(void* hservice, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ int32_t windowssys_windows_win32_system_services_enumDependentServicesW(void* hs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_enumServicesStatusA(void* hscmanager, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle) {
+int32_t windowssysWindowsWin32SystemServicesEnumServicesStatusA(void* hscmanager, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ int32_t windowssys_windows_win32_system_services_enumServicesStatusA(void* hscma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_enumServicesStatusExA(void* hscmanager, int32_t infolevel, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle, void* pszgroupname) {
+int32_t windowssysWindowsWin32SystemServicesEnumServicesStatusExA(void* hscmanager, int32_t infolevel, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle, void* pszgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -427,7 +427,7 @@ int32_t windowssys_windows_win32_system_services_enumServicesStatusExA(void* hsc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_enumServicesStatusExW(void* hscmanager, int32_t infolevel, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle, void* pszgroupname) {
+int32_t windowssysWindowsWin32SystemServicesEnumServicesStatusExW(void* hscmanager, int32_t infolevel, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle, void* pszgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ int32_t windowssys_windows_win32_system_services_enumServicesStatusExW(void* hsc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_enumServicesStatusW(void* hscmanager, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle) {
+int32_t windowssysWindowsWin32SystemServicesEnumServicesStatusW(void* hscmanager, uint32_t dwservicetype, uint32_t dwservicestate, void* lpservices, uint32_t cbbufsize, void* pcbbytesneeded, void* lpservicesreturned, void* lpresumehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -487,7 +487,7 @@ int32_t windowssys_windows_win32_system_services_enumServicesStatusW(void* hscma
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_getServiceDirectory(void* hservicestatus, int32_t edirectorytype, void* lppathbuffer, uint32_t cchpathbufferlength, void* lpcchrequiredbufferlength) {
+uint32_t windowssysWindowsWin32SystemServicesGetServiceDirectory(void* hservicestatus, int32_t edirectorytype, void* lppathbuffer, uint32_t cchpathbufferlength, void* lpcchrequiredbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -513,7 +513,7 @@ uint32_t windowssys_windows_win32_system_services_getServiceDirectory(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_getServiceDisplayNameA(void* hscmanager, void* lpservicename, void* lpdisplayname, void* lpcchbuffer) {
+int32_t windowssysWindowsWin32SystemServicesGetServiceDisplayNameA(void* hscmanager, void* lpservicename, void* lpdisplayname, void* lpcchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -538,7 +538,7 @@ int32_t windowssys_windows_win32_system_services_getServiceDisplayNameA(void* hs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_getServiceDisplayNameW(void* hscmanager, void* lpservicename, void* lpdisplayname, void* lpcchbuffer) {
+int32_t windowssysWindowsWin32SystemServicesGetServiceDisplayNameW(void* hscmanager, void* lpservicename, void* lpdisplayname, void* lpcchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -563,7 +563,7 @@ int32_t windowssys_windows_win32_system_services_getServiceDisplayNameW(void* hs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_getServiceKeyNameA(void* hscmanager, void* lpdisplayname, void* lpservicename, void* lpcchbuffer) {
+int32_t windowssysWindowsWin32SystemServicesGetServiceKeyNameA(void* hscmanager, void* lpdisplayname, void* lpservicename, void* lpcchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ int32_t windowssys_windows_win32_system_services_getServiceKeyNameA(void* hscman
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_getServiceKeyNameW(void* hscmanager, void* lpdisplayname, void* lpservicename, void* lpcchbuffer) {
+int32_t windowssysWindowsWin32SystemServicesGetServiceKeyNameW(void* hscmanager, void* lpdisplayname, void* lpservicename, void* lpcchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -613,7 +613,7 @@ int32_t windowssys_windows_win32_system_services_getServiceKeyNameW(void* hscman
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_getServiceRegistryStateKey(void* servicestatushandle, int32_t statetype, uint32_t accessmask, void* servicestatekey) {
+uint32_t windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey(void* servicestatushandle, int32_t statetype, uint32_t accessmask, void* servicestatekey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -638,7 +638,7 @@ uint32_t windowssys_windows_win32_system_services_getServiceRegistryStateKey(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_getSharedServiceDirectory(void* servicehandle, int32_t directorytype, void* pathbuffer, uint32_t pathbufferlength, void* requiredbufferlength) {
+uint32_t windowssysWindowsWin32SystemServicesGetSharedServiceDirectory(void* servicehandle, int32_t directorytype, void* pathbuffer, uint32_t pathbufferlength, void* requiredbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ uint32_t windowssys_windows_win32_system_services_getSharedServiceDirectory(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey(void* servicehandle, int32_t statetype, uint32_t accessmask, void* servicestatekey) {
+uint32_t windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey(void* servicehandle, int32_t statetype, uint32_t accessmask, void* servicestatekey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -689,7 +689,7 @@ uint32_t windowssys_windows_win32_system_services_getSharedServiceRegistryStateK
 #endif
 }
 
-void* windowssys_windows_win32_system_services_lockServiceDatabase(void* hscmanager) {
+void* windowssysWindowsWin32SystemServicesLockServiceDatabase(void* hscmanager) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -711,7 +711,7 @@ void* windowssys_windows_win32_system_services_lockServiceDatabase(void* hscmana
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_notifyBootConfigStatus(int32_t bootacceptable) {
+int32_t windowssysWindowsWin32SystemServicesNotifyBootConfigStatus(int32_t bootacceptable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -733,7 +733,7 @@ int32_t windowssys_windows_win32_system_services_notifyBootConfigStatus(int32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_notifyServiceStatusChangeA(void* hservice, uint32_t dwnotifymask, void* pnotifybuffer) {
+uint32_t windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA(void* hservice, uint32_t dwnotifymask, void* pnotifybuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -757,7 +757,7 @@ uint32_t windowssys_windows_win32_system_services_notifyServiceStatusChangeA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_notifyServiceStatusChangeW(void* hservice, uint32_t dwnotifymask, void* pnotifybuffer) {
+uint32_t windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW(void* hservice, uint32_t dwnotifymask, void* pnotifybuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ uint32_t windowssys_windows_win32_system_services_notifyServiceStatusChangeW(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_services_openSCManagerA(void* lpmachinename, void* lpdatabasename, uint32_t dwdesiredaccess) {
+void* windowssysWindowsWin32SystemServicesOpenSCManagerA(void* lpmachinename, void* lpdatabasename, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -805,7 +805,7 @@ void* windowssys_windows_win32_system_services_openSCManagerA(void* lpmachinenam
 #endif
 }
 
-void* windowssys_windows_win32_system_services_openSCManagerW(void* lpmachinename, void* lpdatabasename, uint32_t dwdesiredaccess) {
+void* windowssysWindowsWin32SystemServicesOpenSCManagerW(void* lpmachinename, void* lpdatabasename, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -829,7 +829,7 @@ void* windowssys_windows_win32_system_services_openSCManagerW(void* lpmachinenam
 #endif
 }
 
-void* windowssys_windows_win32_system_services_openServiceA(void* hscmanager, void* lpservicename, uint32_t dwdesiredaccess) {
+void* windowssysWindowsWin32SystemServicesOpenServiceA(void* hscmanager, void* lpservicename, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -853,7 +853,7 @@ void* windowssys_windows_win32_system_services_openServiceA(void* hscmanager, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_services_openServiceW(void* hscmanager, void* lpservicename, uint32_t dwdesiredaccess) {
+void* windowssysWindowsWin32SystemServicesOpenServiceW(void* hscmanager, void* lpservicename, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -877,7 +877,7 @@ void* windowssys_windows_win32_system_services_openServiceW(void* hscmanager, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceConfig2A(void* hservice, uint32_t dwinfolevel, void* lpbuffer, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceConfig2A(void* hservice, uint32_t dwinfolevel, void* lpbuffer, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -903,7 +903,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceConfig2A(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceConfig2W(void* hservice, uint32_t dwinfolevel, void* lpbuffer, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceConfig2W(void* hservice, uint32_t dwinfolevel, void* lpbuffer, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -929,7 +929,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceConfig2W(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceConfigA(void* hservice, void* lpserviceconfig, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceConfigA(void* hservice, void* lpserviceconfig, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -954,7 +954,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceConfigA(void* hserv
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceConfigW(void* hservice, void* lpserviceconfig, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceConfigW(void* hservice, void* lpserviceconfig, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -979,7 +979,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceConfigW(void* hserv
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceDynamicInformation(void* hservicestatus, uint32_t dwinfolevel, void* ppdynamicinfo) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation(void* hservicestatus, uint32_t dwinfolevel, void* ppdynamicinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1003,7 +1003,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceDynamicInformation(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceLockStatusA(void* hscmanager, void* lplockstatus, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceLockStatusA(void* hscmanager, void* lplockstatus, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1028,7 +1028,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceLockStatusA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceLockStatusW(void* hscmanager, void* lplockstatus, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceLockStatusW(void* hscmanager, void* lplockstatus, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1053,7 +1053,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceLockStatusW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceObjectSecurity(void* hservice, uint32_t dwsecurityinformation, void* lpsecuritydescriptor, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity(void* hservice, uint32_t dwsecurityinformation, void* lpsecuritydescriptor, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1079,7 +1079,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceObjectSecurity(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceStatus(void* hservice, void* lpservicestatus) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceStatus(void* hservice, void* lpservicestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1102,7 +1102,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceStatus(void* hservi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_queryServiceStatusEx(void* hservice, int32_t infolevel, void* lpbuffer, uint32_t cbbufsize, void* pcbbytesneeded) {
+int32_t windowssysWindowsWin32SystemServicesQueryServiceStatusEx(void* hservice, int32_t infolevel, void* lpbuffer, uint32_t cbbufsize, void* pcbbytesneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1128,7 +1128,7 @@ int32_t windowssys_windows_win32_system_services_queryServiceStatusEx(void* hser
 #endif
 }
 
-void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerA(void* lpservicename, void* lphandlerproc) {
+void* windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA(void* lpservicename, void* lphandlerproc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1151,7 +1151,7 @@ void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerA(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA(void* lpservicename, void* lphandlerproc, void* lpcontext) {
+void* windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA(void* lpservicename, void* lphandlerproc, void* lpcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1175,7 +1175,7 @@ void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW(void* lpservicename, void* lphandlerproc, void* lpcontext) {
+void* windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW(void* lpservicename, void* lphandlerproc, void* lpcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1199,7 +1199,7 @@ void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerW(void* lpservicename, void* lphandlerproc) {
+void* windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW(void* lpservicename, void* lphandlerproc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1222,7 +1222,7 @@ void* windowssys_windows_win32_system_services_registerServiceCtrlHandlerW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_setServiceBits(void* hservicestatus, uint32_t dwservicebits, int32_t bsetbitson, int32_t bupdateimmediately) {
+int32_t windowssysWindowsWin32SystemServicesSetServiceBits(void* hservicestatus, uint32_t dwservicebits, int32_t bsetbitson, int32_t bupdateimmediately) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1247,7 +1247,7 @@ int32_t windowssys_windows_win32_system_services_setServiceBits(void* hservicest
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_setServiceObjectSecurity(void* hservice, uint32_t dwsecurityinformation, void* lpsecuritydescriptor) {
+int32_t windowssysWindowsWin32SystemServicesSetServiceObjectSecurity(void* hservice, uint32_t dwsecurityinformation, void* lpsecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ int32_t windowssys_windows_win32_system_services_setServiceObjectSecurity(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_setServiceStatus(void* hservicestatus, void* lpservicestatus) {
+int32_t windowssysWindowsWin32SystemServicesSetServiceStatus(void* hservicestatus, void* lpservicestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1294,7 +1294,7 @@ int32_t windowssys_windows_win32_system_services_setServiceStatus(void* hservice
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_startServiceA(void* hservice, uint32_t dwnumserviceargs, void* lpserviceargvectors) {
+int32_t windowssysWindowsWin32SystemServicesStartServiceA(void* hservice, uint32_t dwnumserviceargs, void* lpserviceargvectors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1318,7 +1318,7 @@ int32_t windowssys_windows_win32_system_services_startServiceA(void* hservice, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_startServiceCtrlDispatcherA(void* lpservicestarttable) {
+int32_t windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA(void* lpservicestarttable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1340,7 +1340,7 @@ int32_t windowssys_windows_win32_system_services_startServiceCtrlDispatcherA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_startServiceCtrlDispatcherW(void* lpservicestarttable) {
+int32_t windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW(void* lpservicestarttable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ int32_t windowssys_windows_win32_system_services_startServiceCtrlDispatcherW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_startServiceW(void* hservice, uint32_t dwnumserviceargs, void* lpserviceargvectors) {
+int32_t windowssysWindowsWin32SystemServicesStartServiceW(void* hservice, uint32_t dwnumserviceargs, void* lpserviceargvectors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ int32_t windowssys_windows_win32_system_services_startServiceW(void* hservice, u
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_subscribeServiceChangeNotifications(void* hservice, int32_t eeventtype, void* pcallback, void* pcallbackcontext, void* psubscription) {
+uint32_t windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications(void* hservice, int32_t eeventtype, void* pcallback, void* pcallbackcontext, void* psubscription) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1412,7 +1412,7 @@ uint32_t windowssys_windows_win32_system_services_subscribeServiceChangeNotifica
 #endif
 }
 
-int32_t windowssys_windows_win32_system_services_unlockServiceDatabase(void* sclock) {
+int32_t windowssysWindowsWin32SystemServicesUnlockServiceDatabase(void* sclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1434,7 +1434,7 @@ int32_t windowssys_windows_win32_system_services_unlockServiceDatabase(void* scl
 #endif
 }
 
-void windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications(int64_t psubscription) {
+void windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications(int64_t psubscription) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1455,7 +1455,7 @@ void windowssys_windows_win32_system_services_unsubscribeServiceChangeNotificati
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_services_waitServiceState(void* hservice, uint32_t dwnotify, uint32_t dwtimeout, void* hcancelevent) {
+uint32_t windowssysWindowsWin32SystemServicesWaitServiceState(void* hservice, uint32_t dwnotify, uint32_t dwtimeout, void* hcancelevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

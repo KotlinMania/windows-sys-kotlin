@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlicensestorage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszlicense = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hclient = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -119,7 +119,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMAcquireLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsession = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -156,7 +156,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireLice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMActivate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMActivate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hclient = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMActivate_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAddLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMAddLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlicensestorage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -220,7 +220,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAddLicense_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hright = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAddRightWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAttest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMAttest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henablingprincipal = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -282,7 +282,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAttest_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCheckSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t clevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -309,7 +309,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCheckSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMClearAllRights_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -334,7 +334,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMClearAllRig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseEnviro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t handle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -384,7 +384,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMClosePubHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hpub = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMClosePubHan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hquery = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -434,7 +434,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCloseSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsession = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseSessio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ccertificates = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rgwszcertificates = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -490,7 +490,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMConstructCe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateBound
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateClientSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ucallbackversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -556,7 +556,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateClien
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hboundlicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -589,7 +589,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hboundlicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -622,7 +622,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hlibrary = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -657,7 +657,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psttimefrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psttimeuntil = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -696,7 +696,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateIssua
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdefaultlibrary = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -731,7 +731,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateLicen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateRight_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateRight_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszrightname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstfrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -768,7 +768,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateRight
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMCreateUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* wszuserid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -799,7 +799,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateUser_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDecode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszalgid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* wszencodedstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -830,7 +830,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecode_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iwhich = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -861,7 +861,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDeconstruct
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecrypt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDecrypt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcryptoprovider = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t iposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -896,7 +896,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecrypt_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDeleteLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsession = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszlicenseid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -923,7 +923,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t htocopy = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phcopy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -950,7 +950,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t htocopy = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phcopy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -977,7 +977,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hpubin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phpubout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1004,7 +1004,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMDuplicateSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsessionin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phsessionout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1031,7 +1031,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMEncode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszalgid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t udatalen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1064,7 +1064,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncode_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncrypt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMEncrypt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcryptoprovider = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t iposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1099,7 +1099,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncrypt_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsession = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1134,7 +1134,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1169,7 +1169,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetApplicat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1204,7 +1204,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1233,7 +1233,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszsubobjecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1264,7 +1264,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszsubobjecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1293,7 +1293,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pccertcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1320,7 +1320,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetCertific
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetClientVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdrmclientversioninfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetClientVe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t handle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1378,7 +1378,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t handle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcdays = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1438,7 +1438,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetInterval
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psttimefrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1481,7 +1481,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puissuancelicensetemplatelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1510,7 +1510,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetMetaData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pucontentidlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1559,7 +1559,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1596,7 +1596,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puownerlicenselength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1625,7 +1625,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetProcAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlibrary = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszprocname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1654,7 +1654,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puidlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1701,7 +1701,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRevocati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hright = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1736,7 +1736,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightExt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetRightInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hright = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* purightnamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1769,7 +1769,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* putypelen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1802,7 +1802,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hclient = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uservicetype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1837,7 +1837,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetServiceL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1880,7 +1880,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1925,7 +1925,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t etimeridtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1954,7 +1954,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetTime_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszattributetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1989,7 +1989,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszattributetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2018,7 +2018,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszsubobjecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2049,7 +2049,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hqueryroot = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszsubobjecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2078,7 +2078,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2133,7 +2133,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUserInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t huser = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puusernamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2170,7 +2170,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUserRights_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t huser = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2201,7 +2201,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserRigh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMGetUsers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2230,7 +2230,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsers_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMInitEnvironment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t esecurityprovidertype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t especification = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2267,7 +2267,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMInitEnviron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMIsActivated_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMIsActivated_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hclient = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2296,7 +2296,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMIsActivated
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfprotected = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2323,7 +2323,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMIsWindowPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMLoadLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t especification = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2356,7 +2356,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszcertificate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phqueryroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2383,7 +2383,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMParseUnboun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMRegisterContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fregister = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2408,7 +2408,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2435,7 +2435,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t henv = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszrevocationlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2462,7 +2462,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterRev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRepair_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMRepair_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2485,7 +2485,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRepair_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fdelete = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2516,7 +2516,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetApplicat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t eglobaloptions = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2545,7 +2545,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cdays = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2572,7 +2572,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetInterval
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetMetaData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wszcontentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fdelete = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2642,7 +2642,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fdelete = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2681,7 +2681,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetRevocati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hissuancelicense = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t eusagepolicytype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2726,7 +2726,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMVerify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DataRightsmanagementDRMVerify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcattesteddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2766,90 +2766,90 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMVerify_napi
 }
 
 static void register_windows_win32_data_rightsmanagement_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMActivate", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMActivate_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMAddLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMAddLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMAttest", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMAttest_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCloseSession", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCloseSession_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateRight", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateRight_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMCreateUser", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMCreateUser_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDecode", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDecode_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDecrypt", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDecrypt_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMEncode", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMEncode_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMEncrypt", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMEncrypt_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetInfo", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetInfo_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetTime", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetTime_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMGetUsers", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMGetUsers_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMIsActivated", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMIsActivated_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMRepair", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMRepair_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy_napi));
-    exports.Set("windowssys_windows_win32_data_rightsmanagement_dRMVerify", Napi::Function::New(env, windowssys_windows_win32_data_rightsmanagement_dRMVerify_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMAcquireLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMAcquireLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMActivate", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMActivate_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMAddLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMAddLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMAttest", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMAttest_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCheckSecurity", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCheckSecurity_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMClearAllRights", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMClearAllRights_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCloseHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMClosePubHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMClosePubHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCloseSession", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCloseSession_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateClientSession", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateClientSession_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateRight", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateRight_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMCreateUser", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMCreateUser_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDecode", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDecode_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDecrypt", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDecrypt_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDeleteLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDeleteLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMDuplicateSession", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMDuplicateSession_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMEncode", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMEncode_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMEncrypt", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMEncrypt_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetClientVersion", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetClientVersion_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetInfo", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetInfo_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetMetaData", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetMetaData_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetProcAddress", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetProcAddress_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetRightInfo", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetRightInfo_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetTime", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetTime_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUserInfo", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUserInfo_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUserRights", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUserRights_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMGetUsers", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMGetUsers_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMInitEnvironment", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMInitEnvironment_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMIsActivated", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMIsActivated_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMLoadLibrary", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMLoadLibrary_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMRegisterContent", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMRegisterContent_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMRepair", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMRepair_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetMetaData", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetMetaData_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy_napi));
+    exports.Set("windowssysWindowsWin32DataRightsmanagementDRMVerify", Napi::Function::New(env, windowssysWindowsWin32DataRightsmanagementDRMVerify_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_data_rightsmanagement_napi, nullptr };

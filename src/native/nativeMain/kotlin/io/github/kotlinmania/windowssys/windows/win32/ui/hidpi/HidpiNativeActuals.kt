@@ -2,43 +2,46 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDpiForMonitor
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDpiForSystem
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDpiForWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_openThemeDataForDpi
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior
-import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDpiForMonitor
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDpiForSystem
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDpiForWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetProcessDpiAwareness
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetSystemDpiForProcess
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiOpenThemeDataForDpi
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSetProcessDpiAwareness
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior
+import io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop.windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowExStyle
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowStyle
@@ -46,89 +49,89 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun adjustWindowRectExForDpi(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
-    windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi(lprect?.value?.toCPointer<ByteVar>(), dwstyle, bmenu, dwexstyle, dpi)
+public actual fun adjustWindowRectExForDpi(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
+    windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi(lprect.rawAddress.toCPointer<ByteVar>(), dwstyle, bmenu, dwexstyle, dpi)
 
 public actual fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool =
-    windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual(dpicontexta?.value?.toCPointer<ByteVar>(), dpicontextb?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual(dpicontexta.rawAddress.toCPointer<ByteVar>(), dpicontextb.rawAddress.toCPointer<ByteVar>())
 
 public actual fun enableNonClientDpiScaling(hwnd: Hwnd): Bool =
-    windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling(hwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getAwarenessFromDpiAwarenessContext(value: DpiAwarenessContext): DpiAwareness =
-    windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext(value?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext(value.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDialogControlDpiChangeBehavior(hwnd: Hwnd): DialogControlDpiChangeBehaviors =
-    windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior(hwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehaviors =
-    windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior(hdlg?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior(hdlg.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext =
-    windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess(hprocess?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess(hprocess.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: COpaquePointer?, dpiy: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_hidpi_getDpiForMonitor(hmonitor?.value?.toCPointer<ByteVar>(), dpitype, dpix?.value?.toCPointer<ByteVar>(), dpiy?.value?.toCPointer<ByteVar>())
+public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr<UInt>, dpiy: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32UiHidpiGetDpiForMonitor(hmonitor.rawAddress.toCPointer<ByteVar>(), dpitype, dpix.rawAddress.toCPointer<ByteVar>(), dpiy.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDpiForSystem(): UInt =
-    windowssys_windows_win32_ui_hidpi_getDpiForSystem()
+    windowssysWindowsWin32UiHidpiGetDpiForSystem()
 
 public actual fun getDpiForWindow(hwnd: Hwnd): UInt =
-    windowssys_windows_win32_ui_hidpi_getDpiForWindow(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetDpiForWindow(hwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt =
-    windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext(value?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext(value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProcessDpiAwareness(hprocess: Handle, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness(hprocess?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr<ProcessDpiAwareness>): Hresult =
+    windowssysWindowsWin32UiHidpiGetProcessDpiAwareness(hprocess.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getSystemDpiForProcess(hprocess: Handle): UInt =
-    windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess(hprocess?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetSystemDpiForProcess(hprocess.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getSystemMetricsForDpi(nindex: SystemMetricsIndex, dpi: UInt): Int =
-    windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi(nindex, dpi)
+    windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi(nindex, dpi)
 
 public actual fun getThreadDpiAwarenessContext(): DpiAwarenessContext =
-    windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext()?.toLong() ?: 0L)
 
 public actual fun getThreadDpiHostingBehavior(): DpiHostingBehavior =
-    windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior()
+    windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior()
 
 public actual fun getWindowDpiAwarenessContext(hwnd: Hwnd): DpiAwarenessContext =
-    windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext(hwnd.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior =
-    windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior(hwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool =
-    windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext(value?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext(value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI(hwnd?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>())
+public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+    windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI(hwnd.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme =
-    windowssys_windows_win32_ui_hidpi_openThemeDataForDpi(hwnd?.value?.toCPointer<ByteVar>(), pszclasslist?.value?.toCPointer<ByteVar>(), dpi)
+    windowssysWindowsWin32UiHidpiOpenThemeDataForDpi(hwnd.rawAddress.toCPointer<ByteVar>(), pszclasslist.rawAddress.toCPointer<ByteVar>(), dpi)
 
-public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI(hwnd?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>())
+public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+    windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI(hwnd.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool =
-    windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior(hwnd?.value?.toCPointer<ByteVar>(), mask, values)
+    windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior(hwnd.rawAddress.toCPointer<ByteVar>(), mask, values)
 
 public actual fun setDialogDpiChangeBehavior(hdlg: Hwnd, mask: DialogDpiChangeBehaviors, values: DialogDpiChangeBehaviors): Bool =
-    windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior(hdlg?.value?.toCPointer<ByteVar>(), mask, values)
+    windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior(hdlg.rawAddress.toCPointer<ByteVar>(), mask, values)
 
 public actual fun setProcessDpiAwareness(value: ProcessDpiAwareness): Hresult =
-    windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness(value)
+    windowssysWindowsWin32UiHidpiSetProcessDpiAwareness(value)
 
 public actual fun setProcessDpiAwarenessContext(value: DpiAwarenessContext): Bool =
-    windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext(value?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext(value.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext): DpiAwarenessContext =
-    windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext(dpicontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext(dpicontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior =
-    windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior(value)
+    windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value)
 
-public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: COpaquePointer?, fwinini: UInt, dpi: UInt): Bool =
-    windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi(uiaction, uiparam, pvparam?.value?.toCPointer<ByteVar>(), fwinini, dpi)
+public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool =
+    windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(uiaction, uiparam, pvparam.rawAddress.toCPointer<ByteVar>(), fwinini, dpi)

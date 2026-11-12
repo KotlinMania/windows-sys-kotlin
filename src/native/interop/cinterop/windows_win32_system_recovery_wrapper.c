@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_system_recovery_applicationRecoveryFinished(int32_t bsuccess) {
+void windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished(int32_t bsuccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_system_recovery_applicationRecoveryFinished(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_applicationRecoveryInProgress(void* pbcancelled) {
+int32_t windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress(void* pbcancelled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ int32_t windowssys_windows_win32_system_recovery_applicationRecoveryInProgress(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback(void* hprocess, void* precoverycallback, void* ppvparameter, void* pdwpinginterval, void* pdwflags) {
+int32_t windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback(void* hprocess, void* precoverycallback, void* ppvparameter, void* pdwpinginterval, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_getApplicationRestartSettings(void* hprocess, void* pwzcommandline, void* pcchsize, void* pdwflags) {
+int32_t windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings(void* hprocess, void* pwzcommandline, void* pcchsize, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_system_recovery_getApplicationRestartSettings(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback(void* precoveycallback, void* pvparameter, uint32_t dwpinginterval, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback(void* precoveycallback, void* pvparameter, uint32_t dwpinginterval, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_system_recovery_registerApplicationRecoveryCall
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_registerApplicationRestart(void* pwzcommandline, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart(void* pwzcommandline, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -157,7 +157,7 @@ int32_t windowssys_windows_win32_system_recovery_registerApplicationRestart(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback(void) {
+int32_t windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -178,7 +178,7 @@ int32_t windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_recovery_unregisterApplicationRestart(void) {
+int32_t windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

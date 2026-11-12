@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppbackup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateBac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppeditor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -103,7 +103,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateEdi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppindexer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateInd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppprofilemanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreatePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateReader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwrights = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -182,7 +182,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateRea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwrights = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateSyn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwriter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -238,7 +238,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppsink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppsink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -288,7 +288,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppsink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfisprotected = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -341,17 +341,17 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMIsContent
 }
 
 static void register_windows_win32_media_windowsmediaformat_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateReader", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateReader_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink_napi));
-    exports.Set("windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected", Napi::Function::New(env, windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink_napi));
+    exports.Set("windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected", Napi::Function::New(env, windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_media_windowsmediaformat_napi, nullptr };

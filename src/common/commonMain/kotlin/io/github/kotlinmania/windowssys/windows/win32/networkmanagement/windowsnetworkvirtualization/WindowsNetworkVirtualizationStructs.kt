@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.AddressFamily
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.DlEui48
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.In6Addr
@@ -45,12 +47,90 @@ public data class WnvIpAddress0(
     }
 }
 
-public data class WnvNotificationParam(
-    public var header: WnvObjectHeader = WnvObjectHeader(),
-    public var notificationType: WnvNotificationType = 0,
-    public var pendingNotifications: UInt = 0u,
-    public var buffer: COpaquePointer? = null,
-)
+public class WnvNotificationParam internal constructor(
+    public var header: WnvObjectHeader,
+    public var notificationType: WnvNotificationType,
+    public var pendingNotifications: UInt,
+    bufferCtorArg: MutPtr<UByte>,
+) {
+    public var buffer: MutPtr<UByte> = bufferCtorArg
+        internal set
+
+    public constructor() : this(
+        header = WnvObjectHeader(),
+        notificationType = 0,
+        pendingNotifications = 0u,
+        bufferCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): WnvObjectHeader = this.header
+
+    public operator fun component2(): WnvNotificationType = this.notificationType
+
+    public operator fun component3(): UInt = this.pendingNotifications
+
+    public operator fun component4(): MutPtr<UByte> = this.buffer
+
+    public fun copy(header: WnvObjectHeader = this.header, notificationType: WnvNotificationType = this.notificationType, pendingNotifications: UInt = this.pendingNotifications, buffer: MutPtr<UByte> = this.buffer): WnvNotificationParam = WnvNotificationParam(header = header, notificationType = notificationType, pendingNotifications = pendingNotifications, bufferCtorArg = buffer)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WnvNotificationParam) return false
+        if (this.header != other.header) return false
+        if (this.notificationType != other.notificationType) return false
+        if (this.pendingNotifications != other.pendingNotifications) return false
+        if (this.buffer != other.buffer) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.header.hashCode()
+        result = 31 * result + this.notificationType.hashCode()
+        result = 31 * result + this.pendingNotifications.hashCode()
+        result = 31 * result + this.buffer.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvNotificationParam> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvNotificationParam> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): WnvNotificationParam =
+                    WnvNotificationParam(
+                        (WnvObjectHeader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: WnvNotificationParam) {
+                    (WnvObjectHeader.typeLayout()).writeNative(addr, value.header)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.notificationType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.pendingNotifications)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 16L, value.buffer)
+                }
+            }
+
+        public operator fun invoke(
+            header: WnvObjectHeader = WnvObjectHeader(),
+            notificationType: WnvNotificationType = 0,
+            pendingNotifications: UInt = 0u,
+            buffer: MutPtr<UByte> = MutPtr(0L),
+        ): WnvNotificationParam =
+            WnvNotificationParam(
+                header = header,
+                notificationType = notificationType,
+                pendingNotifications = pendingNotifications,
+                bufferCtorArg = buffer,
+            )
+    }
+}
 
 public data class WnvObjectChangeParam(
     public var objectType: WnvObjectType = 0,
@@ -66,7 +146,26 @@ public data class WnvObjectHeader(
     public var majorVersion: UByte = 0u,
     public var minorVersion: UByte = 0u,
     public var size: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvObjectHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvObjectHeader> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WnvObjectHeader =
+                    WnvObjectHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 1L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WnvObjectHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.majorVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 1L, value.minorVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.size)
+                }
+            }
+    }
+}
 
 public data class WnvPolicyMismatchParam(
     public var cAFamily: AddressFamily = 0u,

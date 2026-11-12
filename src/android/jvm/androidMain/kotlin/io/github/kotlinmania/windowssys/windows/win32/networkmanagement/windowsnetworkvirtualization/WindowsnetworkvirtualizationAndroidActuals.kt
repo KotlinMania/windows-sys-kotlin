@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge {
     init {
@@ -11,14 +12,14 @@ private object WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridg
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen(): Long
+    external fun windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification(wnvhandle: Long, notificationparam: Long, overlapped: Long, bytestransferred: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(wnvhandle: Long, notificationparam: Long, overlapped: Long, bytestransferred: Long): Int
 }
 
 public actual fun wnvOpen(): Handle =
-    WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge.windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge.windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen())
 
-public actual fun wnvRequestNotification(wnvhandle: Handle, notificationparam: COpaquePointer?, overlapped: COpaquePointer?, bytestransferred: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge.windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification((wnvhandle?.value ?: 0L), (notificationparam?.value ?: 0L), (overlapped?.value ?: 0L), (bytestransferred?.value ?: 0L)).toUInt()
+public actual fun wnvRequestNotification(wnvhandle: Handle, notificationparam: MutPtr<WnvNotificationParam>, overlapped: MutPtr<Overlapped>, bytestransferred: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge.windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(wnvhandle.rawAddress, notificationparam.rawAddress, overlapped.rawAddress, bytestransferred.rawAddress).toUInt()

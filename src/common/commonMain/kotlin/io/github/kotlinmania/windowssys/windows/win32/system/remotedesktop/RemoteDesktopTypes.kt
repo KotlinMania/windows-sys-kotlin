@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 
@@ -19,13 +20,13 @@ public typealias ConnectionChangeNotification = Int
 public typealias KeyCombinationType = Int
 
 public fun interface PchannelInitEventFnFn {
-    public operator fun invoke(pinithandle: COpaquePointer?, event: UInt, pdata: COpaquePointer?, datalength: UInt)
+    public operator fun invoke(pinithandle: MutPtr<CVoid>, event: UInt, pdata: MutPtr<CVoid>, datalength: UInt)
 }
 
 public typealias PchannelInitEventFn = PchannelInitEventFnFn?
 
 public fun interface PchannelOpenEventFnFn {
-    public operator fun invoke(openhandle: UInt, event: UInt, pdata: COpaquePointer?, datalength: UInt, totallength: UInt, dataflags: UInt)
+    public operator fun invoke(openhandle: UInt, event: UInt, pdata: MutPtr<CVoid>, datalength: UInt, totallength: UInt, dataflags: UInt)
 }
 
 public typealias PchannelOpenEventFn = PchannelOpenEventFnFn?
@@ -39,25 +40,25 @@ public fun interface PvirtualchannelcloseFn {
 public typealias Pvirtualchannelclose = PvirtualchannelcloseFn?
 
 public fun interface PvirtualchannelentryFn {
-    public operator fun invoke(pentrypoints: COpaquePointer?): Bool
+    public operator fun invoke(pentrypoints: MutPtr<ChannelEntryPoints>): Bool
 }
 
 public typealias Pvirtualchannelentry = PvirtualchannelentryFn?
 
 public fun interface PvirtualchannelinitFn {
-    public operator fun invoke(ppinithandle: COpaquePointer?, pchannel: COpaquePointer?, channelcount: Int, versionrequested: UInt, pchanneliniteventproc: PchannelInitEventFn): UInt
+    public operator fun invoke(ppinithandle: MutPtr<MutPtr<CVoid>>, pchannel: MutPtr<ChannelDef>, channelcount: Int, versionrequested: UInt, pchanneliniteventproc: PchannelInitEventFn): UInt
 }
 
 public typealias Pvirtualchannelinit = PvirtualchannelinitFn?
 
 public fun interface PvirtualchannelopenFn {
-    public operator fun invoke(pinithandle: COpaquePointer?, popenhandle: COpaquePointer?, pchannelname: Pcstr, pchannelopeneventproc: PchannelOpenEventFn): UInt
+    public operator fun invoke(pinithandle: MutPtr<CVoid>, popenhandle: MutPtr<UInt>, pchannelname: Pcstr, pchannelopeneventproc: PchannelOpenEventFn): UInt
 }
 
 public typealias Pvirtualchannelopen = PvirtualchannelopenFn?
 
 public fun interface PvirtualchannelwriteFn {
-    public operator fun invoke(openhandle: UInt, pdata: COpaquePointer?, datalength: UInt, puserdata: COpaquePointer?): UInt
+    public operator fun invoke(openhandle: UInt, pdata: MutPtr<CVoid>, datalength: UInt, puserdata: MutPtr<CVoid>): UInt
 }
 
 public typealias Pvirtualchannelwrite = PvirtualchannelwriteFn?

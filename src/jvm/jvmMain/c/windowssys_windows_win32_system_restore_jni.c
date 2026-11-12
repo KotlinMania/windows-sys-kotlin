@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restore_WindowsWin32SystemRestoreJniBridge_windowssys_1windows_1win32_1system_1restore_1sRRemoveRestorePoint(JNIEnv* km_env, jclass km_clazz, jint dwrpnum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restore_WindowsWin32SystemRestoreJniBridge_windowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(JNIEnv* km_env, jclass km_clazz, jint dwrpnum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restore_WindowsWin32SystemRestoreJniBridge_windowssys_1windows_1win32_1system_1restore_1sRSetRestorePointA(JNIEnv* km_env, jclass km_clazz, jlong prestoreptspec, jlong psmgrstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restore_WindowsWin32SystemRestoreJniBridge_windowssysWindowsWin32SystemRestoreSRSetRestorePointA(JNIEnv* km_env, jclass km_clazz, jlong prestoreptspec, jlong psmgrstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restore_WindowsWin32SystemRestoreJniBridge_windowssys_1windows_1win32_1system_1restore_1sRSetRestorePointW(JNIEnv* km_env, jclass km_clazz, jlong prestoreptspec, jlong psmgrstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restore_WindowsWin32SystemRestoreJniBridge_windowssysWindowsWin32SystemRestoreSRSetRestorePointW(JNIEnv* km_env, jclass km_clazz, jlong prestoreptspec, jlong psmgrstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

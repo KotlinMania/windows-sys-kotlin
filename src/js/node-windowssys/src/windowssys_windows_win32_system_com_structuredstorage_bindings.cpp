@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageClearPropVariantArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rgpropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cvars = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_clearPr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageCoGetInstanceFromFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pserverinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -114,7 +114,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageCoGetInstanceFromIStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pserverinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageCoGetInterfaceAndReleaseStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -180,7 +180,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageCreateILockBytesOnHGlobal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hglobal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fdeleteonrelease = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_createI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageCreateStreamOnHGlobal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hglobal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fdeleteonrelease = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -238,7 +238,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_createS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageFmtIdToPropStgName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfmtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -265,7 +265,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_fmtIdTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageFreePropVariantArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cvariants = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rgvars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -292,7 +292,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_freePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getConvertStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageGetConvertStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageGetHGlobalFromILockBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plkbyt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phglobal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -344,7 +344,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getHGlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageGetHGlobalFromStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phglobal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -371,7 +371,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getHGlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromBooleanVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -400,7 +400,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -429,7 +429,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromCLSID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -456,7 +456,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromDoubleVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pftin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -512,7 +512,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromFileTimeVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -541,7 +541,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromGUIDAsString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -568,7 +568,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt16Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -597,7 +597,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt32Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -626,7 +626,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt64Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -655,7 +655,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromPropVariantVectorElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -684,7 +684,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromStringAsVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -740,7 +740,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromStringVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -769,7 +769,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt16Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -798,7 +798,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt32Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -827,7 +827,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt64Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celems = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -856,7 +856,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageInitPropVariantVectorFromPropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarsingle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvarvector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageOleConvertIStorageToOLESTREAM_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpolestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -910,7 +910,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageOleConvertIStorageToOLESTREAMEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t cfformat = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageOleConvertOLESTREAMToIStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpolestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -976,7 +976,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageOleConvertOLESTREAMToIStorageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* polestm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1013,7 +1013,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropStgNameToFmtId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfmtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1040,7 +1040,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propStg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantChangeType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropvardest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propvarsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1071,7 +1071,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantClear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantClear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1096,7 +1096,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantCompareEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propvar2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1127,7 +1127,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvardest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1154,7 +1154,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetBooleanElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1183,7 +1183,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetDoubleElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1212,7 +1212,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetElementCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetFileTimeElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1266,7 +1266,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt16Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1295,7 +1295,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt32Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1324,7 +1324,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt64Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1353,7 +1353,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetStringElem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1382,7 +1382,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt16Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt32Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1440,7 +1440,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt64Elem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ielem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1469,7 +1469,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToBSTR_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbstrout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1496,7 +1496,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToBoolean_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1523,7 +1523,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1554,7 +1554,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1583,7 +1583,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanWithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fdefault = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1610,7 +1610,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1639,7 +1639,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToDouble_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdblret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1666,7 +1666,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1697,7 +1697,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1726,7 +1726,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleWithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double dbldefault = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -1753,7 +1753,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<double>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pstfout = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1782,7 +1782,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTimeVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1813,7 +1813,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTimeVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1842,7 +1842,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToGUID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1869,7 +1869,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* piret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1896,7 +1896,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1927,7 +1927,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1956,7 +1956,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t idefault = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1983,7 +1983,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2010,7 +2010,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2041,7 +2041,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2070,7 +2070,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ldefault = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2097,7 +2097,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pllret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2124,7 +2124,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2155,7 +2155,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2184,7 +2184,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lldefault = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2211,7 +2211,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2240,7 +2240,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2267,7 +2267,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2298,7 +2298,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringVectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2327,7 +2327,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringWithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdefault = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2354,7 +2354,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puiret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2381,7 +2381,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2412,7 +2412,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2441,7 +2441,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t uidefault = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2468,7 +2468,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2495,7 +2495,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2526,7 +2526,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2555,7 +2555,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uldefault = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2582,7 +2582,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pullret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64Vector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2640,7 +2640,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64VectorAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2669,7 +2669,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64WithDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ulldefault = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2696,7 +2696,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2723,7 +2723,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstoragePropVariantToWinRTPropertyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2752,7 +2752,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readClassStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageReadClassStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2779,7 +2779,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readClassStm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageReadClassStm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2806,7 +2806,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageReadFmtUserTypeStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2835,7 +2835,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readFmt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_setConvertStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageSetConvertStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fconvert = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2862,7 +2862,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_setConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgConvertPropertyToVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t codepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2893,7 +2893,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConv
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgConvertVariantToProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t codepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2930,7 +2930,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConv
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgCreateDocfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2961,7 +2961,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgCreateDocfileOnILockBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plkbyt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2992,7 +2992,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgCreatePropSetStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstorage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3021,7 +3021,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgCreatePropStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fmtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3056,7 +3056,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgCreateStorageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3095,7 +3095,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgDeserializePropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3124,7 +3124,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgDese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgGetIFillLockBytesOnFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppflb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3151,7 +3151,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgGetIFillLockBytesOnILockBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pilb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppflb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3178,7 +3178,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgIsStorageFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3203,7 +3203,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgIsSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgIsStorageILockBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plkbyt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3228,7 +3228,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgIsSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgOpenAsyncDocfileOnIFillLockBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pflb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3259,7 +3259,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgOpenLayoutDocfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsdfname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3290,7 +3290,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgOpenPropStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fmtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3323,7 +3323,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgOpenStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstgpriority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3358,7 +3358,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgOpenStorageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3397,7 +3397,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgOpenStorageOnILockBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plkbyt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstgpriority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3432,7 +3432,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgPropertyLengthAsVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbprop = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3463,7 +3463,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgSerializePropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3492,7 +3492,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgSeri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgSetTimes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageStgSetTimes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pctime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3523,7 +3523,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgSetT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageVariantToPropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3550,7 +3550,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_variant
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageWinRTPropertyValueToPropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkpropertyvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3577,7 +3577,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_winRTPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeClassStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageWriteClassStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3604,7 +3604,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeClassStm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageWriteClassStm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3631,7 +3631,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStructuredstorageWriteFmtUserTypeStg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t cf = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3661,130 +3661,130 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeFm
 }
 
 static void register_windows_win32_system_com_structuredstorage_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_getConvertStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_getConvertStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantClear", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantClear_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantCopy", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantCopy_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToString", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToString_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_readClassStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_readClassStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_readClassStm", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_readClassStm_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_setConvertStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_setConvertStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_stgSetTimes", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_stgSetTimes_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_writeClassStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_writeClassStg_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_writeClassStm", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_writeClassStm_napi));
-    exports.Set("windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg", Napi::Function::New(env, windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageClearPropVariantArray", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageClearPropVariantArray_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageCoGetInstanceFromFile", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageCoGetInstanceFromFile_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageCoGetInstanceFromIStorage", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageCoGetInstanceFromIStorage_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageCoGetInterfaceAndReleaseStream", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageCoGetInterfaceAndReleaseStream_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageCreateILockBytesOnHGlobal", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageCreateILockBytesOnHGlobal_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageCreateStreamOnHGlobal", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageCreateStreamOnHGlobal_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageFmtIdToPropStgName", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageFmtIdToPropStgName_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageFreePropVariantArray", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageFreePropVariantArray_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageGetConvertStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageGetConvertStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageGetHGlobalFromILockBytes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageGetHGlobalFromILockBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageGetHGlobalFromStream", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageGetHGlobalFromStream_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromBooleanVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromBooleanVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromCLSID", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromCLSID_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromDoubleVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromDoubleVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromFileTime", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromFileTime_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromFileTimeVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromFileTimeVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromGUIDAsString", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromGUIDAsString_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt16Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt16Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt32Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt32Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt64Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromInt64Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromPropVariantVectorElem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromPropVariantVectorElem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromResource", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromResource_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromStringAsVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromStringAsVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromStringVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromStringVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt16Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt16Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt32Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt32Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt64Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantFromUInt64Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageInitPropVariantVectorFromPropVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageInitPropVariantVectorFromPropVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageOleConvertIStorageToOLESTREAM", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageOleConvertIStorageToOLESTREAM_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageOleConvertIStorageToOLESTREAMEx", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageOleConvertIStorageToOLESTREAMEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageOleConvertOLESTREAMToIStorage", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageOleConvertOLESTREAMToIStorage_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageOleConvertOLESTREAMToIStorageEx", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageOleConvertOLESTREAMToIStorageEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropStgNameToFmtId", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropStgNameToFmtId_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantChangeType", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantChangeType_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantClear", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantClear_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantCompareEx", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantCompareEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantCopy", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantCopy_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetBooleanElem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetBooleanElem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetDoubleElem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetDoubleElem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetElementCount", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetElementCount_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetFileTimeElem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetFileTimeElem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt16Elem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt16Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt32Elem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt32Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt64Elem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetInt64Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetStringElem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetStringElem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt16Elem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt16Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt32Elem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt32Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt64Elem", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantGetUInt64Elem_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToBSTR", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToBSTR_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToBoolean", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToBoolean_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanVectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanVectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanWithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToBooleanWithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToDouble", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToDouble_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleVectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleVectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleWithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleWithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTime", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTime_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTimeVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTimeVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTimeVectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTimeVectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToGUID", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToGUID_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16VectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16VectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt16WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32VectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32VectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt32WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64VectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64VectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToInt64WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToString", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToString_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringVector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringVector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringVectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringVectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringWithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToStringWithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16VectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16VectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt16WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32VectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32VectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt32WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64Vector", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64Vector_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64VectorAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64VectorAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64WithDefault", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToUInt64WithDefault_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstoragePropVariantToWinRTPropertyValue", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstoragePropVariantToWinRTPropertyValue_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageReadClassStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageReadClassStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageReadClassStm", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageReadClassStm_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageReadFmtUserTypeStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageReadFmtUserTypeStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageSetConvertStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageSetConvertStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgConvertPropertyToVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgConvertPropertyToVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgConvertVariantToProperty", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgConvertVariantToProperty_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgCreateDocfile", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgCreateDocfile_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgCreateDocfileOnILockBytes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgCreateDocfileOnILockBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgCreatePropSetStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgCreatePropSetStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgCreatePropStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgCreatePropStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgCreateStorageEx", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgCreateStorageEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgDeserializePropVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgDeserializePropVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgGetIFillLockBytesOnFile", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgGetIFillLockBytesOnFile_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgGetIFillLockBytesOnILockBytes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgGetIFillLockBytesOnILockBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgIsStorageFile", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgIsStorageFile_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgIsStorageILockBytes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgIsStorageILockBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgOpenAsyncDocfileOnIFillLockBytes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgOpenAsyncDocfileOnIFillLockBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgOpenLayoutDocfile", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgOpenLayoutDocfile_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgOpenPropStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgOpenPropStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgOpenStorage", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgOpenStorage_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgOpenStorageEx", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgOpenStorageEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgOpenStorageOnILockBytes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgOpenStorageOnILockBytes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgPropertyLengthAsVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgPropertyLengthAsVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgSerializePropVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgSerializePropVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageStgSetTimes", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageStgSetTimes_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageVariantToPropVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageVariantToPropVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageWinRTPropertyValueToPropVariant", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageWinRTPropertyValueToPropVariant_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageWriteClassStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageWriteClassStg_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageWriteClassStm", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageWriteClassStm_napi));
+    exports.Set("windowssysWindowsWin32SystemComStructuredstorageWriteFmtUserTypeStg", Napi::Function::New(env, windowssysWindowsWin32SystemComStructuredstorageWriteFmtUserTypeStg_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_com_structuredstorage_napi, nullptr };

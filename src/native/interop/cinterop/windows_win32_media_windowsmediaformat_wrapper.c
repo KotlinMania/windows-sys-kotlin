@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer(void* pcallback, void* ppbackup) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(void* pcallback, void* ppbackup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor(void* ppeditor) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(void* ppeditor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer(void* ppindexer) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(void* ppindexer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager(void* ppprofilemanager) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(void* ppprofilemanager) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateReader(void* punkcert, uint32_t dwrights, void* ppreader) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(void* punkcert, uint32_t dwrights, void* ppreader) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateReader(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader(void* punkcert, uint32_t dwrights, void* ppsyncreader) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(void* punkcert, uint32_t dwrights, void* ppsyncreader) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter(void* punkcert, void* ppwriter) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(void* punkcert, void* ppwriter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -175,7 +175,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink(void* ppsink) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(void* ppsink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink(void* ppsink) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(void* ppsink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkS
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink(void* ppsink) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(void* ppsink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -241,7 +241,7 @@ int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink
 #endif
 }
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected(void* pwszfilename, void* pfisprotected) {
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(void* pwszfilename, void* pfisprotected) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -10,14 +11,14 @@ public typealias FtpAccess = Int
 
 public typealias FtpProcessStatus = Int
 
-public typealias Hconn = COpaquePointer?
+public typealias Hconn = MutPtr<CVoid>
 
 public typealias HttpTraceType = Int
 
 public typealias Metadatatypes = Int
 
 public fun interface PfnGetextensionversionFn {
-    public operator fun invoke(pver: COpaquePointer?): Bool
+    public operator fun invoke(pver: MutPtr<HseVersionInfo>): Bool
 }
 
 public typealias PfnGetextensionversion = PfnGetextensionversionFn?
@@ -29,43 +30,43 @@ public fun interface PfnHseCacheInvalidationCallbackFn {
 public typealias PfnHseCacheInvalidationCallback = PfnHseCacheInvalidationCallbackFn?
 
 public fun interface PfnHseGetProtocolManagerCustomInterfaceCallbackFn {
-    public operator fun invoke(pszprotocolmanagerdll: Pcwstr, pszprotocolmanagerdllinitfunction: Pcwstr, dwcustominterfaceid: UInt, ppcustominterface: COpaquePointer?): Hresult
+    public operator fun invoke(pszprotocolmanagerdll: Pcwstr, pszprotocolmanagerdllinitfunction: Pcwstr, dwcustominterfaceid: UInt, ppcustominterface: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public typealias PfnHseGetProtocolManagerCustomInterfaceCallback = PfnHseGetProtocolManagerCustomInterfaceCallbackFn?
 
 public fun interface PfnHseIoCompletionFn {
-    public operator fun invoke(pecb: COpaquePointer?, pcontext: COpaquePointer?, cbio: UInt, dwerror: UInt)
+    public operator fun invoke(pecb: MutPtr<ExtensionControlBlock>, pcontext: MutPtr<CVoid>, cbio: UInt, dwerror: UInt)
 }
 
 public typealias PfnHseIoCompletion = PfnHseIoCompletionFn?
 
 public fun interface PfnHttpextensionprocFn {
-    public operator fun invoke(pecb: COpaquePointer?): UInt
+    public operator fun invoke(pecb: MutPtr<ExtensionControlBlock>): UInt
 }
 
 public typealias PfnHttpextensionproc = PfnHttpextensionprocFn?
 
 public fun interface PfnIisGetservervariableFn {
-    public operator fun invoke(param0: Hconn, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?): Bool
+    public operator fun invoke(param0: Hconn, param1: Pcstr, param2: MutPtr<CVoid>, param3: MutPtr<UInt>): Bool
 }
 
 public typealias PfnIisGetservervariable = PfnIisGetservervariableFn?
 
 public fun interface PfnIisReadclientFn {
-    public operator fun invoke(param0: Hconn, param1: COpaquePointer?, param2: COpaquePointer?): Bool
+    public operator fun invoke(param0: Hconn, param1: MutPtr<CVoid>, param2: MutPtr<UInt>): Bool
 }
 
 public typealias PfnIisReadclient = PfnIisReadclientFn?
 
 public fun interface PfnIisServersupportfunctionFn {
-    public operator fun invoke(param0: Hconn, param1: UInt, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): Bool
+    public operator fun invoke(param0: Hconn, param1: UInt, param2: MutPtr<CVoid>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): Bool
 }
 
 public typealias PfnIisServersupportfunction = PfnIisServersupportfunctionFn?
 
 public fun interface PfnIisWriteclientFn {
-    public operator fun invoke(param0: Hconn, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt): Bool
+    public operator fun invoke(param0: Hconn, param1: MutPtr<CVoid>, param2: MutPtr<UInt>, param3: UInt): Bool
 }
 
 public typealias PfnIisWriteclient = PfnIisWriteclientFn?

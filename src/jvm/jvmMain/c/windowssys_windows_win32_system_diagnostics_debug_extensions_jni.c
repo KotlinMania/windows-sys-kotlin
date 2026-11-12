@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1createDataModelManager(JNIEnv* km_env, jclass km_clazz, jlong debughost, jlong manager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssysWindowsWin32SystemDiagnosticsDebugExtensionsCreateDataModelManager(JNIEnv* km_env, jclass km_clazz, jlong debughost, jlong manager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugConnect(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg_2_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnect(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg2Interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_2_interface);
+        km_res = km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg2Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -65,14 +65,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #else
     (void)remoteoptions;
     (void)interfaceid;
-    (void)arg_2_interface;
+    (void)arg2Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugConnectWide(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg_2_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnectWide(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg2Interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -84,7 +84,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_2_interface);
+        km_res = km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg2Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -92,14 +92,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #else
     (void)remoteoptions;
     (void)interfaceid;
-    (void)arg_2_interface;
+    (void)arg2Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugCreate(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jlong arg_1_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreate(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jlong arg1Interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -111,21 +111,21 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_1_interface);
+        km_res = km_fn_ptr((void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg1Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)interfaceid;
-    (void)arg_1_interface;
+    (void)arg1Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugCreateEx(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jint dbgengoptions, jlong arg_2_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jint dbgengoptions, jlong arg2Interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)interfaceid, (uint32_t)dbgengoptions, (void*)(uintptr_t)arg_2_interface);
+        km_res = km_fn_ptr((void*)(uintptr_t)interfaceid, (uint32_t)dbgengoptions, (void*)(uintptr_t)arg2Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -145,7 +145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #else
     (void)interfaceid;
     (void)dbgengoptions;
-    (void)arg_2_interface;
+    (void)arg2Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif

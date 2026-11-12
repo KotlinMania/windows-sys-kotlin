@@ -2,38 +2,39 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistribution
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConfiguration
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegistered
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslLaunch
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistribution
-import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssys_windows_win32_system_subsystemforlinux_wslUnregisterDistribution
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslConfigureDistribution
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslGetDistributionConfiguration
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslIsDistributionRegistered
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslLaunch
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslLaunchInteractive
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslRegisterDistribution
+import io.github.kotlinmania.windowssys.windows.win32.system.subsystemforlinux.cinterop.windowssysWindowsWin32SystemSubsystemforlinuxWslUnregisterDistribution
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun wslConfigureDistribution(distributionname: Pcwstr, defaultuid: UInt, wsldistributionflags: WslDistributionFlags): Hresult =
-    windowssys_windows_win32_system_subsystemforlinux_wslConfigureDistribution(distributionname?.value?.toCPointer<ByteVar>(), defaultuid, wsldistributionflags)
+    windowssysWindowsWin32SystemSubsystemforlinuxWslConfigureDistribution(distributionname.rawAddress.toCPointer<ByteVar>(), defaultuid, wsldistributionflags)
 
-public actual fun wslGetDistributionConfiguration(distributionname: Pcwstr, distributionversion: COpaquePointer?, defaultuid: COpaquePointer?, wsldistributionflags: COpaquePointer?, defaultenvironmentvariables: COpaquePointer?, defaultenvironmentvariablecount: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_subsystemforlinux_wslGetDistributionConfiguration(distributionname?.value?.toCPointer<ByteVar>(), distributionversion?.value?.toCPointer<ByteVar>(), defaultuid?.value?.toCPointer<ByteVar>(), wsldistributionflags?.value?.toCPointer<ByteVar>(), defaultenvironmentvariables?.value?.toCPointer<ByteVar>(), defaultenvironmentvariablecount?.value?.toCPointer<ByteVar>())
+public actual fun wslGetDistributionConfiguration(distributionname: Pcwstr, distributionversion: MutPtr<UInt>, defaultuid: MutPtr<UInt>, wsldistributionflags: MutPtr<WslDistributionFlags>, defaultenvironmentvariables: MutPtr<MutPtr<Pstr>>, defaultenvironmentvariablecount: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemSubsystemforlinuxWslGetDistributionConfiguration(distributionname.rawAddress.toCPointer<ByteVar>(), distributionversion.rawAddress.toCPointer<ByteVar>(), defaultuid.rawAddress.toCPointer<ByteVar>(), wsldistributionflags.rawAddress.toCPointer<ByteVar>(), defaultenvironmentvariables.rawAddress.toCPointer<ByteVar>(), defaultenvironmentvariablecount.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wslIsDistributionRegistered(distributionname: Pcwstr): Bool =
-    windowssys_windows_win32_system_subsystemforlinux_wslIsDistributionRegistered(distributionname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSubsystemforlinuxWslIsDistributionRegistered(distributionname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wslLaunch(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, stdin: Handle, stdout: Handle, stderr: Handle, process: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_subsystemforlinux_wslLaunch(distributionname?.value?.toCPointer<ByteVar>(), command?.value?.toCPointer<ByteVar>(), usecurrentworkingdirectory, stdin?.value?.toCPointer<ByteVar>(), stdout?.value?.toCPointer<ByteVar>(), stderr?.value?.toCPointer<ByteVar>(), process?.value?.toCPointer<ByteVar>())
+public actual fun wslLaunch(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, stdin: Handle, stdout: Handle, stderr: Handle, process: MutPtr<Handle>): Hresult =
+    windowssysWindowsWin32SystemSubsystemforlinuxWslLaunch(distributionname.rawAddress.toCPointer<ByteVar>(), command.rawAddress.toCPointer<ByteVar>(), usecurrentworkingdirectory, stdin.rawAddress.toCPointer<ByteVar>(), stdout.rawAddress.toCPointer<ByteVar>(), stderr.rawAddress.toCPointer<ByteVar>(), process.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wslLaunchInteractive(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, exitcode: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_subsystemforlinux_wslLaunchInteractive(distributionname?.value?.toCPointer<ByteVar>(), command?.value?.toCPointer<ByteVar>(), usecurrentworkingdirectory, exitcode?.value?.toCPointer<ByteVar>())
+public actual fun wslLaunchInteractive(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, exitcode: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemSubsystemforlinuxWslLaunchInteractive(distributionname.rawAddress.toCPointer<ByteVar>(), command.rawAddress.toCPointer<ByteVar>(), usecurrentworkingdirectory, exitcode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wslRegisterDistribution(distributionname: Pcwstr, targzfilename: Pcwstr): Hresult =
-    windowssys_windows_win32_system_subsystemforlinux_wslRegisterDistribution(distributionname?.value?.toCPointer<ByteVar>(), targzfilename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSubsystemforlinuxWslRegisterDistribution(distributionname.rawAddress.toCPointer<ByteVar>(), targzfilename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wslUnregisterDistribution(distributionname: Pcwstr): Hresult =
-    windowssys_windows_win32_system_subsystemforlinux_wslUnregisterDistribution(distributionname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSubsystemforlinuxWslUnregisterDistribution(distributionname.rawAddress.toCPointer<ByteVar>())

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_emptyWorkingSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEmptyWorkingSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_emptyWorkingSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_enumDeviceDrivers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEnumDeviceDrivers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpimagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_enumDeviceDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_enumPageFilesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEnumPageFilesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcallbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_enumPageFilesA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_enumPageFilesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEnumPageFilesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcallbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_enumPageFilesW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_enumProcessModules_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEnumProcessModules_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_enumProcessModu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_enumProcessModulesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEnumProcessModulesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_enumProcessModu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_enumProcesses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusEnumProcesses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpidprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -252,7 +252,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_enumProcesses_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriver
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -310,7 +310,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriver
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriver
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -368,7 +368,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getDeviceDriver
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getMappedFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetMappedFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -399,7 +399,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getMappedFileNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getMappedFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetMappedFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getMappedFileNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getModuleBaseNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -461,7 +461,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getModuleBaseNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getModuleBaseNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -492,7 +492,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getModuleBaseNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getModuleFileNameExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getModuleFileNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getModuleFileNameExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -554,7 +554,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getModuleFileNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getModuleInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetModuleInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -585,7 +585,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getModuleInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getPerformanceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetPerformanceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pperformanceinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -612,7 +612,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getPerformanceI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getProcessImageFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpimagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -641,7 +641,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getProcessImage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getProcessImageFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpimagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -670,7 +670,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getProcessImage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getProcessMemoryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetProcessMemoryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsmemcounters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -699,7 +699,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getProcessMemor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getWsChanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetWsChanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwatchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -728,7 +728,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getWsChanges_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_getWsChangesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusGetWsChangesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwatchinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -757,7 +757,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_getWsChangesEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_initializeProcessForWsWatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusInitializeProcessForWsWatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -782,7 +782,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_initializeProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EmptyWorkingSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -807,7 +807,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EmptyWorking
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EnumDeviceDrivers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpimagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -836,7 +836,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumDeviceDr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumPageFilesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcallbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -863,7 +863,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumPageFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumPageFilesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcallbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -890,7 +890,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumPageFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumProcessModules_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EnumProcessModules_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -921,7 +921,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumProcessM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EnumProcessModulesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -954,7 +954,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumProcessM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumProcesses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32EnumProcesses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpidprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -983,7 +983,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32EnumProcesse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1041,7 +1041,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1070,7 +1070,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* imagebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1099,7 +1099,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetDeviceDri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1130,7 +1130,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetMappedFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1161,7 +1161,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetMappedFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1192,7 +1192,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleBas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1223,7 +1223,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleBas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1254,7 +1254,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1285,7 +1285,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetModuleInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1316,7 +1316,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetModuleInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetPerformanceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pperformanceinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1343,7 +1343,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetPerforman
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpimagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1372,7 +1372,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetProcessIm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpimagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1401,7 +1401,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetProcessIm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetProcessMemoryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsmemcounters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1430,7 +1430,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetProcessMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetWsChanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetWsChanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwatchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1459,7 +1459,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetWsChanges
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32GetWsChangesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32GetWsChangesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwatchinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1488,7 +1488,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32GetWsChanges
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsWatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32InitializeProcessForWsWatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1513,7 +1513,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32InitializePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32QueryWorkingSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1542,7 +1542,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32QueryWorking
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSetEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1571,7 +1571,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_k32QueryWorking
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_queryWorkingSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusQueryWorkingSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1600,7 +1600,7 @@ static Napi::Value windowssys_windows_win32_system_processstatus_queryWorkingSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_processstatus_queryWorkingSetEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemProcessstatusQueryWorkingSetEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1630,60 +1630,60 @@ static Napi::Value windowssys_windows_win32_system_processstatus_queryWorkingSet
 }
 
 static void register_windows_win32_system_processstatus_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_processstatus_emptyWorkingSet", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_emptyWorkingSet_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_enumDeviceDrivers", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_enumDeviceDrivers_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_enumPageFilesA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_enumPageFilesA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_enumPageFilesW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_enumPageFilesW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_enumProcessModules", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_enumProcessModules_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_enumProcessModulesEx", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_enumProcessModulesEx_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_enumProcesses", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_enumProcesses_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getMappedFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getMappedFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getMappedFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getMappedFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getModuleBaseNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getModuleBaseNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getModuleBaseNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getModuleBaseNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getModuleFileNameExA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getModuleFileNameExA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getModuleFileNameExW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getModuleFileNameExW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getModuleInformation", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getModuleInformation_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getPerformanceInfo", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getPerformanceInfo_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getProcessImageFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getProcessImageFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getProcessImageFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getProcessImageFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getProcessMemoryInfo", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getProcessMemoryInfo_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getWsChanges", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getWsChanges_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_getWsChangesEx", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_getWsChangesEx_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_initializeProcessForWsWatch", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_initializeProcessForWsWatch_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EnumPageFilesA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EnumPageFilesA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EnumPageFilesW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EnumPageFilesW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EnumProcessModules", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EnumProcessModules_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32EnumProcesses", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32EnumProcesses_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetModuleInformation", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetModuleInformation_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetWsChanges", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetWsChanges_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32GetWsChangesEx", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32GetWsChangesEx_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsWatch", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsWatch_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32QueryWorkingSet", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32QueryWorkingSet_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_queryWorkingSet", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_queryWorkingSet_napi));
-    exports.Set("windowssys_windows_win32_system_processstatus_queryWorkingSetEx", Napi::Function::New(env, windowssys_windows_win32_system_processstatus_queryWorkingSetEx_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEmptyWorkingSet", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEmptyWorkingSet_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEnumDeviceDrivers", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEnumDeviceDrivers_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEnumPageFilesA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEnumPageFilesA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEnumPageFilesW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEnumPageFilesW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEnumProcessModules", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEnumProcessModules_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEnumProcessModulesEx", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEnumProcessModulesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusEnumProcesses", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusEnumProcesses_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetMappedFileNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetMappedFileNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetMappedFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetMappedFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetModuleInformation", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetModuleInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetPerformanceInfo", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetPerformanceInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetProcessMemoryInfo", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetProcessMemoryInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetWsChanges", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetWsChanges_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusGetWsChangesEx", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusGetWsChangesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusInitializeProcessForWsWatch", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusInitializeProcessForWsWatch_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EmptyWorkingSet", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EmptyWorkingSet_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EnumDeviceDrivers", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EnumDeviceDrivers_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EnumProcessModules", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EnumProcessModules_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EnumProcessModulesEx", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EnumProcessModulesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32EnumProcesses", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32EnumProcesses_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetModuleInformation", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetModuleInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetPerformanceInfo", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetPerformanceInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameA", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameW", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetProcessMemoryInfo", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetProcessMemoryInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetWsChanges", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetWsChanges_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32GetWsChangesEx", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32GetWsChangesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32InitializeProcessForWsWatch", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32InitializeProcessForWsWatch_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSet", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSet_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSetEx", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSetEx_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusQueryWorkingSet", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusQueryWorkingSet_napi));
+    exports.Set("windowssysWindowsWin32SystemProcessstatusQueryWorkingSetEx", Napi::Function::New(env, windowssysWindowsWin32SystemProcessstatusQueryWorkingSetEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_processstatus_napi, nullptr };

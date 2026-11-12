@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCancelMsg(int64_t session, int32_t reqid) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCancelMsg(int64_t session, int32_t reqid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCancelMsg(int64_t s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCleanup(void) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCleanup(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCleanup(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCleanupEx(void) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCleanupEx(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -80,7 +80,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCleanupEx(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpClose(int64_t session) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpClose(int64_t session) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -102,7 +102,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpClose(int64_t sessi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpContextToStr(int64_t context, void* string) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpContextToStr(int64_t context, void* string) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -125,7 +125,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpContextToStr(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCountVbl(int64_t vbl) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCountVbl(int64_t vbl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -147,7 +147,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpCountVbl(int64_t vb
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu(int64_t session, uint32_t pdu_type, int32_t request_id, int32_t error_status, int32_t error_index, int64_t varbindlist) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCreatePdu(int64_t session, uint32_t pduType, int32_t requestId, int32_t errorStatus, int32_t errorIndex, int64_t varbindlist) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, int32_t, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,23 +158,23 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu(int64_t se
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(session, pdu_type, request_id, error_status, error_index, varbindlist);
+        return km_fn_ptr(session, pduType, requestId, errorStatus, errorIndex, varbindlist);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)session;
-    (void)pdu_type;
-    (void)request_id;
-    (void)error_status;
-    (void)error_index;
+    (void)pduType;
+    (void)requestId;
+    (void)errorStatus;
+    (void)errorIndex;
     (void)varbindlist;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpCreateSession(void* hwnd, uint32_t wmsg, void* fcallback, void* lpclientdata) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateSession(void* hwnd, uint32_t wmsg, void* fcallback, void* lpclientdata) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpCreateSession(void* 
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpCreateVbl(int64_t session, void* name, void* value) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateVbl(int64_t session, void* name, void* value) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpCreateVbl(int64_t se
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg(int64_t session, void* srcentity, void* dstentity, void* context, void* pdu, void* msgbufdesc) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpDecodeMsg(int64_t session, void* srcentity, void* dstentity, void* context, void* pdu, void* msgbufdesc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg(int64_t s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpDeleteVb(int64_t vbl, uint32_t arg_1_index) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpDeleteVb(int64_t vbl, uint32_t arg1Index) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -261,19 +261,19 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpDeleteVb(int64_t vb
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(vbl, arg_1_index);
+        return km_fn_ptr(vbl, arg1Index);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)vbl;
-    (void)arg_1_index;
+    (void)arg1Index;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpDuplicatePdu(int64_t session, int64_t pdu) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicatePdu(int64_t session, int64_t pdu) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -296,7 +296,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpDuplicatePdu(int64_t
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpDuplicateVbl(int64_t session, int64_t vbl) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl(int64_t session, int64_t vbl) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -319,7 +319,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpDuplicateVbl(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg(int64_t session, int64_t srcentity, int64_t dstentity, int64_t context, int64_t pdu, void* msgbufdesc) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpEncodeMsg(int64_t session, int64_t srcentity, int64_t dstentity, int64_t context, int64_t pdu, void* msgbufdesc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -346,7 +346,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg(int64_t s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpEntityToStr(int64_t entity, uint32_t size, void* string) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpEntityToStr(int64_t entity, uint32_t size, void* string) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -370,7 +370,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpEntityToStr(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeContext(int64_t context) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeContext(int64_t context) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -392,7 +392,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeContext(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeDescriptor(uint32_t syntax, void* descriptor) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeDescriptor(uint32_t syntax, void* descriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -415,7 +415,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeDescriptor(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeEntity(int64_t entity) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeEntity(int64_t entity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -437,7 +437,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeEntity(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreePdu(int64_t pdu) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpFreePdu(int64_t pdu) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -459,7 +459,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreePdu(int64_t pdu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeVbl(int64_t vbl) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeVbl(int64_t vbl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -481,7 +481,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpFreeVbl(int64_t vbl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetLastError(int64_t session) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetLastError(int64_t session) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -503,7 +503,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetLastError(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetPduData(int64_t pdu, void* pdu_type, void* request_id, void* error_status, void* error_index, void* varbindlist) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetPduData(int64_t pdu, void* pduType, void* requestId, void* errorStatus, void* errorIndex, void* varbindlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -514,23 +514,23 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetPduData(int64_t 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(pdu, pdu_type, request_id, error_status, error_index, varbindlist);
+        return km_fn_ptr(pdu, pduType, requestId, errorStatus, errorIndex, varbindlist);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)pdu;
-    (void)pdu_type;
-    (void)request_id;
-    (void)error_status;
-    (void)error_index;
+    (void)pduType;
+    (void)requestId;
+    (void)errorStatus;
+    (void)errorIndex;
     (void)varbindlist;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetRetransmitMode(void* nretransmitmode) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetRetransmitMode(void* nretransmitmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -552,7 +552,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetRetransmitMode(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetRetry(int64_t hentity, void* npolicyretry, void* nactualretry) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetRetry(int64_t hentity, void* npolicyretry, void* nactualretry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -576,7 +576,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetRetry(int64_t he
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetTimeout(int64_t hentity, void* npolicytimeout, void* nactualtimeout) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetTimeout(int64_t hentity, void* npolicytimeout, void* nactualtimeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetTimeout(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetTranslateMode(void* ntranslatemode) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetTranslateMode(void* ntranslatemode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetTranslateMode(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetVb(int64_t vbl, uint32_t arg_1_index, void* name, void* value) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetVb(int64_t vbl, uint32_t arg1Index, void* name, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,13 +633,13 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetVb(int64_t vbl, 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(vbl, arg_1_index, name, value);
+        return km_fn_ptr(vbl, arg1Index, name, value);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)vbl;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)name;
     (void)value;
     errno = ENOSYS;
@@ -647,7 +647,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetVb(int64_t vbl, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetVendorInfo(void* vendorinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpGetVendorInfo(void* vendorinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpGetVendorInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpListen(int64_t hentity, uint32_t lstatus) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpListen(int64_t hentity, uint32_t lstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -692,7 +692,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpListen(int64_t hent
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpListenEx(int64_t hentity, uint32_t lstatus, uint32_t nuseentityaddr) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpListenEx(int64_t hentity, uint32_t lstatus, uint32_t nuseentityaddr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -716,7 +716,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpListenEx(int64_t he
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrClose(void* session) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrClose(void* session) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -738,7 +738,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrClose(void* sessi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl(void* session, uint32_t dwctlcode, void* lpvinbuffer, uint32_t cbinbuffer, void* lpvoutbuffer, uint32_t cboutbuffer, void* lpcbbytesreturned) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrCtl(void* session, uint32_t dwctlcode, void* lpvinbuffer, uint32_t cbinbuffer, void* lpvoutbuffer, uint32_t cboutbuffer, void* lpcbbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -766,7 +766,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl(void* session
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrap(void* enterprise, void* ipaddress, void* generictrap, void* specifictrap, void* timestamp, void* variablebindings) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrGetTrap(void* enterprise, void* ipaddress, void* generictrap, void* specifictrap, void* timestamp, void* variablebindings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -793,7 +793,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrap(void* ent
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrapEx(void* enterprise, void* agentaddress, void* sourceaddress, void* generictrap, void* specifictrap, void* community, void* timestamp, void* variablebindings) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrGetTrapEx(void* enterprise, void* agentaddress, void* sourceaddress, void* generictrap, void* specifictrap, void* community, void* timestamp, void* variablebindings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrapEx(void* e
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrOidToStr(void* oid, void* string) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrOidToStr(void* oid, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -845,7 +845,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrOidToStr(void* oi
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_snmp_snmpMgrOpen(void* lpagentaddress, void* lpagentcommunity, int32_t ntimeout, int32_t nretries) {
+void* windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrOpen(void* lpagentaddress, void* lpagentcommunity, int32_t ntimeout, int32_t nretries) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ void* windowssys_windows_win32_networkmanagement_snmp_snmpMgrOpen(void* lpagenta
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrRequest(void* session, uint8_t requesttype, void* variablebindings, void* errorstatus, void* errorindex) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrRequest(void* session, uint8_t requesttype, void* variablebindings, void* errorstatus, void* errorindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrRequest(void* ses
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrStrToOid(void* string, void* oid) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrStrToOid(void* string, void* oid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -919,7 +919,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrStrToOid(void* st
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrTrapListen(void* phtrapavailable) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrTrapListen(void* phtrapavailable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpMgrTrapListen(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpOidCompare(void* xoid, void* yoid, uint32_t maxlen, void* result) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpOidCompare(void* xoid, void* yoid, uint32_t maxlen, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpOidCompare(void* xo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpOidCopy(void* srcoid, void* dstoid) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpOidCopy(void* srcoid, void* dstoid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -989,7 +989,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpOidCopy(void* srcoi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpOidToStr(void* srcoid, uint32_t size, void* string) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpOidToStr(void* srcoid, uint32_t size, void* string) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1013,7 +1013,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpOidToStr(void* srco
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpOpen(void* hwnd, uint32_t wmsg) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpOpen(void* hwnd, uint32_t wmsg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1036,7 +1036,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpOpen(void* hwnd, uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpRecvMsg(int64_t session, void* srcentity, void* dstentity, void* context, void* pdu) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpRecvMsg(int64_t session, void* srcentity, void* dstentity, void* context, void* pdu) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1062,7 +1062,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpRecvMsg(int64_t ses
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpRegister(int64_t session, int64_t srcentity, int64_t dstentity, int64_t context, void* notification, uint32_t state) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpRegister(int64_t session, int64_t srcentity, int64_t dstentity, int64_t context, void* notification, uint32_t state) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1089,7 +1089,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpRegister(int64_t se
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSendMsg(int64_t session, int64_t srcentity, int64_t dstentity, int64_t context, int64_t pdu) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSendMsg(int64_t session, int64_t srcentity, int64_t dstentity, int64_t context, int64_t pdu) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1115,7 +1115,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSendMsg(int64_t ses
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetPduData(int64_t pdu, void* pdu_type, void* request_id, void* non_repeaters, void* max_repetitions, void* varbindlist) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetPduData(int64_t pdu, void* pduType, void* requestId, void* nonRepeaters, void* maxRepetitions, void* varbindlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1126,23 +1126,23 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetPduData(int64_t 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(pdu, pdu_type, request_id, non_repeaters, max_repetitions, varbindlist);
+        return km_fn_ptr(pdu, pduType, requestId, nonRepeaters, maxRepetitions, varbindlist);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)pdu;
-    (void)pdu_type;
-    (void)request_id;
-    (void)non_repeaters;
-    (void)max_repetitions;
+    (void)pduType;
+    (void)requestId;
+    (void)nonRepeaters;
+    (void)maxRepetitions;
     (void)varbindlist;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetPort(int64_t hentity, uint32_t nport) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetPort(int64_t hentity, uint32_t nport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1165,7 +1165,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetPort(int64_t hen
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetRetransmitMode(uint32_t nretransmitmode) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetRetransmitMode(uint32_t nretransmitmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1187,7 +1187,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetRetransmitMode(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetRetry(int64_t hentity, uint32_t npolicyretry) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetRetry(int64_t hentity, uint32_t npolicyretry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1210,7 +1210,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetRetry(int64_t he
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetTimeout(int64_t hentity, uint32_t npolicytimeout) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetTimeout(int64_t hentity, uint32_t npolicytimeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1233,7 +1233,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetTimeout(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetTranslateMode(uint32_t ntranslatemode) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetTranslateMode(uint32_t ntranslatemode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1255,7 +1255,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetTranslateMode(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetVb(int64_t vbl, uint32_t arg_1_index, void* name, void* value) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSetVb(int64_t vbl, uint32_t arg1Index, void* name, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1266,13 +1266,13 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetVb(int64_t vbl, 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(vbl, arg_1_index, name, value);
+        return km_fn_ptr(vbl, arg1Index, name, value);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)vbl;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)name;
     (void)value;
     errno = ENOSYS;
@@ -1280,7 +1280,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSetVb(int64_t vbl, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpStartup(void* nmajorversion, void* nminorversion, void* nlevel, void* ntranslatemode, void* nretransmitmode) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpStartup(void* nmajorversion, void* nminorversion, void* nlevel, void* ntranslatemode, void* nretransmitmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1306,7 +1306,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpStartup(void* nmajo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpStartupEx(void* nmajorversion, void* nminorversion, void* nlevel, void* ntranslatemode, void* nretransmitmode) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpStartupEx(void* nmajorversion, void* nminorversion, void* nlevel, void* ntranslatemode, void* nretransmitmode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1332,7 +1332,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpStartupEx(void* nma
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpStrToContext(int64_t session, void* string) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToContext(int64_t session, void* string) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1355,7 +1355,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpStrToContext(int64_t
 #endif
 }
 
-int64_t windowssys_windows_win32_networkmanagement_snmp_snmpStrToEntity(int64_t session, void* string) {
+int64_t windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToEntity(int64_t session, void* string) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1378,7 +1378,7 @@ int64_t windowssys_windows_win32_networkmanagement_snmp_snmpStrToEntity(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpStrToOid(void* string, void* dstoid) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToOid(void* string, void* dstoid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1401,7 +1401,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpStrToOid(void* stri
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSvcGetUptime(void) {
+uint32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpSvcGetUptime(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ uint32_t windowssys_windows_win32_networkmanagement_snmp_snmpSvcGetUptime(void) 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogLevel(int32_t nloglevel) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpSvcSetLogLevel(int32_t nloglevel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1443,7 +1443,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogLevel(int32_t 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogType(int32_t nlogtype) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpSvcSetLogType(int32_t nlogtype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1464,7 +1464,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogType(int32_t n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyCpy(void* panydst, void* panysrc) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilAsnAnyCpy(void* panydst, void* panysrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1487,7 +1487,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyCpy(void* 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyFree(void* pany) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilAsnAnyFree(void* pany) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1508,7 +1508,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyFree(void* pa
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilDbgPrint(int32_t nloglevel, void* szformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilDbgPrint(int32_t nloglevel, void* szformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -1541,7 +1541,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilDbgPrint(int32_t nl
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilIdsToA(void* ids, uint32_t idlength) {
+void* windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilIdsToA(void* ids, uint32_t idlength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1564,7 +1564,7 @@ void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilIdsToA(void* ids, 
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemAlloc(uint32_t nbytes) {
+void* windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemAlloc(uint32_t nbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1586,7 +1586,7 @@ void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemAlloc(uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemFree(void* pmem) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemFree(void* pmem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1607,7 +1607,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemFree(void* pmem)
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemReAlloc(void* pmem, uint32_t nbytes) {
+void* windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemReAlloc(void* pmem, uint32_t nbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1630,7 +1630,7 @@ void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemReAlloc(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCmp(void* poctets1, void* poctets2) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsCmp(void* poctets1, void* poctets2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1653,7 +1653,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCmp(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCpy(void* poctetsdst, void* poctetssrc) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsCpy(void* poctetsdst, void* poctetssrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1676,7 +1676,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCpy(void* 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsFree(void* poctets) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsFree(void* poctets) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1697,7 +1697,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsFree(void* po
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsNCmp(void* poctets1, void* poctets2, uint32_t nchars) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsNCmp(void* poctets1, void* poctets2, uint32_t nchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1721,7 +1721,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsNCmp(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidAppend(void* poiddst, void* poidsrc) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidAppend(void* poiddst, void* poidsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1744,7 +1744,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidAppend(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCmp(void* poid1, void* poid2) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidCmp(void* poid1, void* poid2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1767,7 +1767,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCmp(void* poi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCpy(void* poiddst, void* poidsrc) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidCpy(void* poiddst, void* poidsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1790,7 +1790,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCpy(void* poi
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidFree(void* poid) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidFree(void* poid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1811,7 +1811,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidFree(void* poid)
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidNCmp(void* poid1, void* poid2, uint32_t nsubids) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidNCmp(void* poid1, void* poid2, uint32_t nsubids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1835,7 +1835,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidNCmp(void* po
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidToA(void* oid) {
+void* windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidToA(void* oid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1857,7 +1857,7 @@ void* windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidToA(void* oid) 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintAsnAny(void* pany) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilPrintAsnAny(void* pany) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1878,7 +1878,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintAsnAny(void* p
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintOid(void* oid) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilPrintOid(void* oid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1899,7 +1899,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintOid(void* oid)
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindCpy(void* pvbdst, void* pvbsrc) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindCpy(void* pvbdst, void* pvbsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1922,7 +1922,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindCpy(void*
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindFree(void* pvb) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindFree(void* pvb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1943,7 +1943,7 @@ void windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindFree(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListCpy(void* pvbldst, void* pvblsrc) {
+int32_t windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindListCpy(void* pvbldst, void* pvblsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +1966,7 @@ int32_t windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListCpy(v
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListFree(void* pvbl) {
+void windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindListFree(void* pvbl) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

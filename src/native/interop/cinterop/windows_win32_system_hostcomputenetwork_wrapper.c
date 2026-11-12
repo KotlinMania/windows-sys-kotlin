@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseEndpoint(void* endpoint) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCloseEndpoint(void* endpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseEndpoint(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseGuestNetworkService(void* guestnetworkservice) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCloseGuestNetworkService(void* guestnetworkservice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseGuestNetworkS
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseLoadBalancer(void* loadbalancer) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCloseLoadBalancer(void* loadbalancer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseLoadBalancer(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNamespace(void* arg_0_namespace) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCloseNamespace(void* arg0Namespace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -92,18 +92,18 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNamespace(voi
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_namespace);
+        return km_fn_ptr(arg0Namespace);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_namespace;
+    (void)arg0Namespace;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNetwork(void* network) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCloseNetwork(void* network) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -125,7 +125,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNetwork(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateEndpoint(void* network, void* id, void* settings, void* endpoint, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCreateEndpoint(void* network, void* id, void* settings, void* endpoint, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -151,7 +151,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateEndpoint(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateGuestNetworkService(void* id, void* settings, void* guestnetworkservice, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCreateGuestNetworkService(void* id, void* settings, void* guestnetworkservice, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateGuestNetwork
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateLoadBalancer(void* id, void* settings, void* loadbalancer, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCreateLoadBalancer(void* id, void* settings, void* loadbalancer, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -201,7 +201,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateLoadBalancer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNamespace(void* id, void* settings, void* arg_2_namespace, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCreateNamespace(void* id, void* settings, void* arg2Namespace, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,21 +212,21 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNamespace(vo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(id, settings, arg_2_namespace, errorrecord);
+        return km_fn_ptr(id, settings, arg2Namespace, errorrecord);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)id;
     (void)settings;
-    (void)arg_2_namespace;
+    (void)arg2Namespace;
     (void)errorrecord;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNetwork(void* id, void* settings, void* network, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnCreateNetwork(void* id, void* settings, void* network, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -251,7 +251,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNetwork(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteEndpoint(void* id, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteEndpoint(void* id, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -274,7 +274,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteEndpoint(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteGuestNetworkService(void* id, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteGuestNetworkService(void* id, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -297,7 +297,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteGuestNetwork
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteLoadBalancer(void* id, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteLoadBalancer(void* id, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -320,7 +320,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteLoadBalancer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNamespace(void* id, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteNamespace(void* id, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -343,7 +343,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNamespace(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNetwork(void* id, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteNetwork(void* id, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -366,7 +366,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNetwork(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateEndpoints(void* query, void* endpoints, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateEndpoints(void* query, void* endpoints, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -390,7 +390,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateEndpoints
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateGuestNetworkPortReservations(void* returncount, void* portentries) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateGuestNetworkPortReservations(void* returncount, void* portentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -413,7 +413,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateGuestNetw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateLoadBalancers(void* query, void* loadbalancer, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateLoadBalancers(void* query, void* loadbalancer, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -437,7 +437,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateLoadBalan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNamespaces(void* query, void* namespaces, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateNamespaces(void* query, void* namespaces, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -461,7 +461,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNamespace
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNetworks(void* query, void* networks, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateNetworks(void* query, void* networks, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -485,7 +485,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNetworks(
 #endif
 }
 
-void windowssys_windows_win32_system_hostcomputenetwork_hcnFreeGuestNetworkPortReservations(void* portentries) {
+void windowssysWindowsWin32SystemHostcomputenetworkHcnFreeGuestNetworkPortReservations(void* portentries) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ void windowssys_windows_win32_system_hostcomputenetwork_hcnFreeGuestNetworkPortR
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyEndpoint(void* endpoint, void* settings, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnModifyEndpoint(void* endpoint, void* settings, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyEndpoint(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyGuestNetworkService(void* guestnetworkservice, void* settings, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnModifyGuestNetworkService(void* guestnetworkservice, void* settings, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -554,7 +554,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyGuestNetwork
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyLoadBalancer(void* loadbalancer, void* settings, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnModifyLoadBalancer(void* loadbalancer, void* settings, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -578,7 +578,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyLoadBalancer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNamespace(void* arg_0_namespace, void* settings, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnModifyNamespace(void* arg0Namespace, void* settings, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -589,12 +589,12 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNamespace(vo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_namespace, settings, errorrecord);
+        return km_fn_ptr(arg0Namespace, settings, errorrecord);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_namespace;
+    (void)arg0Namespace;
     (void)settings;
     (void)errorrecord;
     errno = ENOSYS;
@@ -602,7 +602,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNamespace(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNetwork(void* network, void* settings, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnModifyNetwork(void* network, void* settings, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -626,7 +626,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNetwork(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenEndpoint(void* id, void* endpoint, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnOpenEndpoint(void* id, void* endpoint, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -650,7 +650,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenEndpoint(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenLoadBalancer(void* id, void* loadbalancer, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnOpenLoadBalancer(void* id, void* loadbalancer, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -674,7 +674,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenLoadBalancer(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNamespace(void* id, void* arg_1_namespace, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnOpenNamespace(void* id, void* arg1Namespace, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -685,20 +685,20 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNamespace(void
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(id, arg_1_namespace, errorrecord);
+        return km_fn_ptr(id, arg1Namespace, errorrecord);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)id;
-    (void)arg_1_namespace;
+    (void)arg1Namespace;
     (void)errorrecord;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNetwork(void* id, void* network, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnOpenNetwork(void* id, void* network, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNetwork(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointAddresses(void* endpoint, void* query, void* addresses, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnQueryEndpointAddresses(void* endpoint, void* query, void* addresses, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -747,7 +747,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointAddre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointProperties(void* endpoint, void* query, void* properties, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnQueryEndpointProperties(void* endpoint, void* query, void* properties, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +772,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointPrope
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointStats(void* endpoint, void* query, void* stats, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnQueryEndpointStats(void* endpoint, void* query, void* stats, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -797,7 +797,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointStats
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryLoadBalancerProperties(void* loadbalancer, void* query, void* properties, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnQueryLoadBalancerProperties(void* loadbalancer, void* query, void* properties, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryLoadBalancerP
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNamespaceProperties(void* arg_0_namespace, void* query, void* properties, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnQueryNamespaceProperties(void* arg0Namespace, void* query, void* properties, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -833,12 +833,12 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNamespaceProp
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_namespace, query, properties, errorrecord);
+        return km_fn_ptr(arg0Namespace, query, properties, errorrecord);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_namespace;
+    (void)arg0Namespace;
     (void)query;
     (void)properties;
     (void)errorrecord;
@@ -847,7 +847,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNamespaceProp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNetworkProperties(void* network, void* query, void* properties, void* errorrecord) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnQueryNetworkProperties(void* network, void* query, void* properties, void* errorrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -872,7 +872,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNetworkProper
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterGuestNetworkServiceCallback(void* guestnetworkservice, void* callback, void* context, void* callbackhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnRegisterGuestNetworkServiceCallback(void* guestnetworkservice, void* callback, void* context, void* callbackhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -897,7 +897,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterGuestNetwo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterServiceCallback(void* callback, void* context, void* callbackhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnRegisterServiceCallback(void* callback, void* context, void* callbackhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -921,7 +921,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterServiceCal
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnReleaseGuestNetworkServicePortReservationHandle(void* portreservationhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnReleaseGuestNetworkServicePortReservationHandle(void* portreservationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnReleaseGuestNetwor
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePort(void* guestnetworkservice, int32_t protocol, int32_t access, uint16_t port, void* portreservationhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnReserveGuestNetworkServicePort(void* guestnetworkservice, int32_t protocol, int32_t access, uint16_t port, void* portreservationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -969,7 +969,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetwor
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePortRange(void* guestnetworkservice, uint16_t portcount, void* portrangereservation, void* portreservationhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnReserveGuestNetworkServicePortRange(void* guestnetworkservice, uint16_t portcount, void* portrangereservation, void* portreservationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -994,7 +994,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetwor
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterGuestNetworkServiceCallback(void* callbackhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnUnregisterGuestNetworkServiceCallback(void* callbackhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1016,7 +1016,7 @@ int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterGuestNet
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterServiceCallback(void* callbackhandle) {
+int32_t windowssysWindowsWin32SystemHostcomputenetworkHcnUnregisterServiceCallback(void* callbackhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

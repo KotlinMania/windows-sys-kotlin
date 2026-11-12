@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* syncmlrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* syncmlresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszupn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppmgmtinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszupn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdiscoveryservicecandidate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -134,7 +134,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configstringbufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t deviceinformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppdeviceregistrationinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cchhyperlink = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszhyperlink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfisdeviceregisteredwithmanagement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchupn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -246,7 +246,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfismanagementregistrationallowed = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* isenrollmentallowed = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -296,7 +296,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* alreadyregistered = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -321,7 +321,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszupn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszmdmserviceuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -350,7 +350,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* usertoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -375,7 +375,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mdmapplicationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -450,7 +450,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t ismanagedexternally = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -475,7 +475,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -498,7 +498,7 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enrollmentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -524,24 +524,24 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
 }
 
 static void register_windows_win32_management_mobiledevicemanagementregistration_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement_napi));
-    exports.Set("windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement", Napi::Function::New(env, windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement_napi));
+    exports.Set("windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement", Napi::Function::New(env, windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_management_mobiledevicemanagementregistration_napi, nullptr };

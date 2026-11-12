@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_addIPAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t address = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ipmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_addIPAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notifyoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_cancelIPC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCancelIfTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notificationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_cancelIfT
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCancelMibChangeNotify2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notificationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -156,7 +156,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_cancelMib
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCaptureInterfaceHardwareCrossTimestamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* crosstimestamp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_captureIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentGuidToId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compartmentguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* compartmentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -210,7 +210,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentIdToGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t compartmentid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* compartmentguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceAliasToLuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacealias = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -264,7 +264,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceGuidToLuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -291,7 +291,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceIndexToLuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t interfaceindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -318,7 +318,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToAlias_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfacealias = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -347,7 +347,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -374,7 +374,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -401,7 +401,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -486,7 +486,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -513,7 +513,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertIpv4MaskToLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mask = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* masklength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertIp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperConvertLengthToIpv4Mask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t masklength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* mask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -567,7 +567,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_convertLe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateAnycastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -592,7 +592,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createAny
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* proute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -617,7 +617,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -642,7 +642,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* parpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -667,7 +667,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -692,7 +692,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createIpN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentTcpPortReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t startport = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t numberofports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -721,7 +721,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createPer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentUdpPortReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t startport = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t numberofports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -750,7 +750,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createPer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateProxyArpEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwaddress = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -779,7 +779,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateSortedAddressPairs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourceaddresslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sourceaddresscount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -816,7 +816,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createSor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperCreateUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -841,7 +841,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_createUni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteAnycastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -866,7 +866,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteAny
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteIPAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ntecontext = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -891,7 +891,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIPA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* proute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -916,7 +916,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -941,7 +941,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* parpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -966,7 +966,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteIpN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentTcpPortReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t startport = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t numberofports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1018,7 +1018,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deletePer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentUdpPortReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t startport = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t numberofports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1045,7 +1045,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deletePer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteProxyArpEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwaddress = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1074,7 +1074,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deletePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDeleteUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1099,7 +1099,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_deleteUni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperDisableMediaSense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1126,7 +1126,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_disableMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_enableRouter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperEnableRouter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1153,7 +1153,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_enableRou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwifindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1178,7 +1178,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_flushIpNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t interfaceindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1205,7 +1205,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_flushIpNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperFlushIpPathTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1230,7 +1230,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_flushIpPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperFreeDnsSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1252,7 +1252,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_freeDnsSe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperFreeInterfaceDnsSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1274,7 +1274,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_freeInter
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_freeMibTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperFreeMibTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* memory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1296,7 +1296,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_freeMibTa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetAdapterIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adaptername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ifindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1323,7 +1323,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdapte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetAdapterOrderMap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1346,7 +1346,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdapte
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersAddresses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1379,7 +1379,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdapte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adapterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1406,7 +1406,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAdapte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1431,7 +1431,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAnycas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1458,7 +1458,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getAnycas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetBestInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdestaddr = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwbestifindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1485,7 +1485,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetBestInterfaceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdestaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbestifindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1512,7 +1512,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestRoute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdestaddr = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwsourceaddr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1541,7 +1541,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestRo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t interfaceindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1578,7 +1578,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getBestRo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1601,7 +1601,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getCurren
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentScope_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compartmentscope = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* compartmentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1625,7 +1625,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getCurren
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetDefaultCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1648,7 +1648,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getDefaul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetDnsSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1673,7 +1673,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getDnsSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetExtendedTcpTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptcptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1708,7 +1708,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getExtend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetExtendedUdpTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pudptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1743,7 +1743,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getExtend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetFriendlyIfIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ifindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1768,7 +1768,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getFriend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1793,7 +1793,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIcmpSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1820,7 +1820,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIcmpSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pifrow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1845,7 +1845,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1870,7 +1870,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2Ex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t level = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1897,7 +1897,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfStackTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1922,7 +1922,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfStac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piftable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1951,7 +1951,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfTabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1976,7 +1976,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfTabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2Ex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t level = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2003,7 +2003,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIfTabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceActiveTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timestampcapabilites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2030,7 +2030,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceCurrentTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timestampcapabilites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2057,7 +2057,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceHardwareTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timestampcapabilites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2084,7 +2084,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piftable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dwoutbuflen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2111,7 +2111,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceSupportedTimestampCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timestampcapabilites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2138,7 +2138,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetInvertedIfStackTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2163,7 +2163,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getInvert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpAddrTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pipaddrtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2192,7 +2192,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpErrorString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t errorcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2221,7 +2221,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpErro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2246,7 +2246,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpForw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pipforwardtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2275,7 +2275,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpForw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2302,7 +2302,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpForw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2327,7 +2327,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2354,7 +2354,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2379,7 +2379,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ipnettable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2408,7 +2408,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2435,7 +2435,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpNetworkConnectionBandwidthEstimates_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t interfaceindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t addressfamily = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2464,7 +2464,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpPathEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2489,7 +2489,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpPath
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpPathTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2516,7 +2516,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpPath
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2541,7 +2541,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetIpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2568,7 +2568,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getIpStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetJobCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* jobhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2593,7 +2593,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getJobCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2618,7 +2618,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getMultic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2645,7 +2645,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getMultic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectivityhint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2670,7 +2670,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHintForInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t interfaceindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* connectivityhint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2697,7 +2697,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetNetworkInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* networkguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* compartmentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2730,7 +2730,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetNetworkParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfixedinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poutbuflen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2757,7 +2757,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNetwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetNumberOfInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwnumif = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2782,11 +2782,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getNumber
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromPidAndInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulpid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    int32_t arg_2_class = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    int32_t arg2Class = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
 #ifdef _WIN32
@@ -2798,7 +2798,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(ulpid, pinfo, arg_2_class, pbuffer, pdwsize);
+        km_res = km_fn_ptr(ulpid, pinfo, arg2Class, pbuffer, pdwsize);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2806,7 +2806,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
 #else
     (void)ulpid;
     (void)pinfo;
-    (void)arg_2_class;
+    (void)arg2Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2815,10 +2815,10 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcp6Entry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptcpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    int32_t arg_1_class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t arg1Class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
@@ -2830,14 +2830,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(ptcpentry, arg_1_class, pbuffer, pdwsize);
+        km_res = km_fn_ptr(ptcpentry, arg1Class, pbuffer, pdwsize);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)ptcpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2846,10 +2846,10 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcpEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptcpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    int32_t arg_1_class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t arg1Class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
@@ -2861,14 +2861,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(ptcpentry, arg_1_class, pbuffer, pdwsize);
+        km_res = km_fn_ptr(ptcpentry, arg1Class, pbuffer, pdwsize);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)ptcpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2877,10 +2877,10 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdp6Entry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pudpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    int32_t arg_1_class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t arg1Class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
@@ -2892,14 +2892,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(pudpentry, arg_1_class, pbuffer, pdwsize);
+        km_res = km_fn_ptr(pudpentry, arg1Class, pbuffer, pdwsize);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)pudpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2908,10 +2908,10 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdpEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pudpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    int32_t arg_1_class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t arg1Class = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     void* pdwsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
@@ -2923,14 +2923,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(pudpentry, arg_1_class, pbuffer, pdwsize);
+        km_res = km_fn_ptr(pudpentry, arg1Class, pbuffer, pdwsize);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)pudpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2939,7 +2939,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getOwnerM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetPerAdapterInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ifindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pperadapterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2968,7 +2968,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getPerAda
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetPerTcp6ConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t estatstype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3013,7 +3013,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getPerTcp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetPerTcpConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t estatstype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3058,7 +3058,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getPerTcp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetRTTAndHopCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t destipaddress = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hopcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3089,7 +3089,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getRTTAnd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetSessionCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3114,7 +3114,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getSessio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tcptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3143,7 +3143,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcp6Ta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tcptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3172,7 +3172,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcp6Ta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3197,7 +3197,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3224,7 +3224,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3251,7 +3251,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tcptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3280,7 +3280,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpTab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tcptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3309,7 +3309,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTcpTab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetTeredoPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* port = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3334,7 +3334,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getTeredo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUdp6Table_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* udp6table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3363,7 +3363,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdp6Ta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stats = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3388,7 +3388,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3415,7 +3415,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3442,7 +3442,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUdpTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* udptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sizepointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3471,7 +3471,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUdpTab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUniDirectionalAdapterInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pipifinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dwoutbuflen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3498,7 +3498,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUniDir
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3523,7 +3523,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUnicas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3550,7 +3550,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_getUnicas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmp6CreateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -3573,7 +3573,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmp6Crea
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmp6ParseReplies_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* replybuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t replysize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3600,7 +3600,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmp6Pars
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmp6SendEcho2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* icmphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3647,7 +3647,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmp6Send
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmpCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* icmphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3672,7 +3672,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmpCreateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -3695,7 +3695,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpCreat
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmpParseReplies_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* replybuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t replysize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3722,7 +3722,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpParse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* icmphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t destinationaddress = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3761,7 +3761,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpSendE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* icmphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3806,7 +3806,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpSendE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2Ex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* icmphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3853,7 +3853,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_icmpSendE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperInitializeIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3875,7 +3875,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_initializ
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperInitializeIpInterfaceEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3897,7 +3897,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_initializ
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperInitializeUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3919,7 +3919,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_initializ
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIpReleaseAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adapterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3944,7 +3944,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ipRelease
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIpRenewAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* adapterinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3969,7 +3969,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ipRenewAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentTcpPortReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t startport = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t numberofports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3998,7 +3998,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_lookupPer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentUdpPortReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t startport = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t numberofports = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4027,7 +4027,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_lookupPer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNhpAllocateAndGetInterfaceInfoFromStack_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4060,7 +4060,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_nhpAlloca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyAddrChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* overlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4087,7 +4087,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyAdd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyIfTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4116,7 +4116,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyIfT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyIpInterfaceChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4149,7 +4149,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyIpI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyNetworkConnectivityHintChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4180,7 +4180,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* overlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4207,7 +4207,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyRou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t addressfamily = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4240,7 +4240,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyRou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyStableUnicastIpAddressTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* table = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4273,7 +4273,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifySta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyTeredoPortChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4304,7 +4304,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyTer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperNotifyUnicastIpAddressChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t family = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4337,7 +4337,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_notifyUni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperParseNetworkString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* networkstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t types = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4370,7 +4370,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_parseNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfAddFiltersToInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ih = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cinfilters = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4405,7 +4405,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfAddFilt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfAddGlobalFilterToInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t gffilter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4432,7 +4432,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfAddGlob
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIPAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pfattype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4461,7 +4461,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfBindInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4492,7 +4492,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfBindInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfCreateInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwname = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t inaction = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4527,7 +4527,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfCreateI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfDeleteInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4552,7 +4552,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfDeleteI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfDeleteLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -4575,7 +4575,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfDeleteL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfGetInterfaceStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppfstats = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4606,7 +4606,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfGetInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfMakeLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4631,7 +4631,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfRebindFilters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* platebindinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4658,7 +4658,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRebindF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFilterHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cfilters = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4687,7 +4687,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRemoveF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFiltersFromInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ih = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cinfilters = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4720,7 +4720,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRemoveF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfRemoveGlobalFilterFromInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t gffilter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4747,7 +4747,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfRemoveG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfSetLogBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4784,7 +4784,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfSetLogB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfTestPacket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pininterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poutinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4817,7 +4817,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfTestPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperPfUnBindInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4842,7 +4842,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_pfUnBindI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperRegisterInterfaceTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4871,7 +4871,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_registerI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperResolveIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourceaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4898,7 +4898,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_resolveIp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperResolveNeighbor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* networkaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* physicaladdress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4927,7 +4927,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_resolveNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperRestoreMediaSense_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwenablecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4954,7 +4954,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_restoreMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_sendARP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSendARP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t destip = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t srcip = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4985,7 +4985,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_sendARP_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t compartmentid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5010,7 +5010,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setCurren
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentScope_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t compartmentscope = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5035,7 +5035,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setCurren
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetDnsSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5060,7 +5060,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setDnsSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIfEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIfEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pifrow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5085,7 +5085,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIfEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* proute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5110,7 +5110,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpForw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* route = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5135,7 +5135,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpForw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpInterfaceEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5160,7 +5160,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* parpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5185,7 +5185,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpNetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5210,7 +5210,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpNetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pipstats = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5235,7 +5235,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpStatisticsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t family = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5262,7 +5262,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpTTL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetIpTTL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nttl = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5287,7 +5287,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setIpTTL_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetJobCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* jobhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t compartmentid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5314,7 +5314,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setJobCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetNetworkInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* networkguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t compartmentid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5343,7 +5343,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setNetwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetPerTcp6ConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t estatstype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5378,7 +5378,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setPerTcp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetPerTcpConnectionEStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t estatstype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5413,7 +5413,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setPerTcp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetSessionCompartmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t compartmentid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5440,7 +5440,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setSessio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetTcpEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptcprow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5465,7 +5465,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setTcpEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperSetUnicastIpAddressEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* row = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5490,7 +5490,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_setUnicas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_unenableRouter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwenablecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5517,7 +5517,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_unenableR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperUnregisterInterfaceTimestampConfigChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notificationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5539,7 +5539,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_unregiste
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIfIndextoname_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t interfaceindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5566,7 +5566,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ifIndexto
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementIphelperIfNametoindex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5592,205 +5592,205 @@ static Napi::Value windowssys_windows_win32_networkmanagement_iphelper_ifNametoi
 }
 
 static void register_windows_win32_networkmanagement_iphelper_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_addIPAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_addIPAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_enableRouter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_enableRouter_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_freeMibTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_freeMibTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getBestInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getBestInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getBestRoute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getBestRoute_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfTable2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfTable2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcpTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcpTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUdpTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUdpTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_sendARP", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_sendARP_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIfEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIfEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setIpTTL", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setIpTTL_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_unenableRouter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_unenableRouter_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCancelIfTimestampConfigChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCancelIfTimestampConfigChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCancelMibChangeNotify2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCancelMibChangeNotify2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCaptureInterfaceHardwareCrossTimestamp", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCaptureInterfaceHardwareCrossTimestamp_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentGuidToId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentGuidToId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentIdToGuid", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentIdToGuid_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceAliasToLuid", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceAliasToLuid_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceGuidToLuid", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceGuidToLuid_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceIndexToLuid", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceIndexToLuid_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToAlias", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToAlias_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToGuid", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToGuid_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToIndex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToIndex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertIpv4MaskToLength", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertIpv4MaskToLength_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperConvertLengthToIpv4Mask", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperConvertLengthToIpv4Mask_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateAnycastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateAnycastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentTcpPortReservation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentTcpPortReservation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentUdpPortReservation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentUdpPortReservation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateProxyArpEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateProxyArpEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateSortedAddressPairs", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateSortedAddressPairs_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperCreateUnicastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperCreateUnicastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteAnycastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteAnycastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteIPAddress", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteIPAddress_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentTcpPortReservation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentTcpPortReservation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentUdpPortReservation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentUdpPortReservation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteProxyArpEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteProxyArpEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDeleteUnicastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDeleteUnicastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperDisableMediaSense", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperDisableMediaSense_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperEnableRouter", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperEnableRouter_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperFlushIpPathTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperFlushIpPathTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperFreeDnsSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperFreeDnsSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperFreeInterfaceDnsSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperFreeInterfaceDnsSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperFreeMibTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperFreeMibTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetAdapterIndex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetAdapterIndex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetAdapterOrderMap", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetAdapterOrderMap_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersAddresses", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersAddresses_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetBestInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetBestInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetBestInterfaceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetBestInterfaceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentScope", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentScope_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetDefaultCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetDefaultCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetDnsSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetDnsSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetExtendedTcpTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetExtendedTcpTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetExtendedUdpTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetExtendedUdpTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetFriendlyIfIndex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetFriendlyIfIndex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatisticsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatisticsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2Ex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2Ex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfStackTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfStackTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2Ex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2Ex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceActiveTimestampCapabilities", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceActiveTimestampCapabilities_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceCurrentTimestampCapabilities", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceCurrentTimestampCapabilities_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceHardwareTimestampCapabilities", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceHardwareTimestampCapabilities_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceSupportedTimestampCapabilities", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceSupportedTimestampCapabilities_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetInvertedIfStackTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetInvertedIfStackTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpAddrTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpAddrTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpErrorString", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpErrorString_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpNetEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpNetEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpNetworkConnectionBandwidthEstimates", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpNetworkConnectionBandwidthEstimates_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpPathEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpPathEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpPathTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpPathTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetIpStatisticsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetIpStatisticsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetJobCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetJobCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHint", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHint_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHintForInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHintForInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetNetworkInformation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetNetworkInformation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetNetworkParams", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetNetworkParams_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetNumberOfInterfaces", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetNumberOfInterfaces_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromPidAndInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromPidAndInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcp6Entry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcp6Entry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcpEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcpEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdp6Entry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdp6Entry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdpEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdpEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetPerAdapterInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetPerAdapterInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetPerTcp6ConnectionEStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetPerTcp6ConnectionEStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetPerTcpConnectionEStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetPerTcpConnectionEStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetRTTAndHopCount", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetRTTAndHopCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetSessionCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetSessionCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetTeredoPort", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetTeredoPort_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUdp6Table", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUdp6Table_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUdpTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUdpTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUniDirectionalAdapterInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUniDirectionalAdapterInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmp6CreateFile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmp6CreateFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmp6ParseReplies", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmp6ParseReplies_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmp6SendEcho2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmp6SendEcho2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmpCloseHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmpCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmpCreateFile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmpCreateFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmpParseReplies", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmpParseReplies_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2Ex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2Ex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperInitializeIpForwardEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperInitializeIpForwardEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperInitializeIpInterfaceEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperInitializeIpInterfaceEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperInitializeUnicastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperInitializeUnicastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIpReleaseAddress", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIpReleaseAddress_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIpRenewAddress", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIpRenewAddress_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentTcpPortReservation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentTcpPortReservation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentUdpPortReservation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentUdpPortReservation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNhpAllocateAndGetInterfaceInfoFromStack", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNhpAllocateAndGetInterfaceInfoFromStack_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyAddrChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyAddrChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyIfTimestampConfigChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyIfTimestampConfigChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyIpInterfaceChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyIpInterfaceChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyNetworkConnectivityHintChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyNetworkConnectivityHintChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyStableUnicastIpAddressTable", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyStableUnicastIpAddressTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyTeredoPortChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyTeredoPortChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperNotifyUnicastIpAddressChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperNotifyUnicastIpAddressChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperParseNetworkString", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperParseNetworkString_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfAddFiltersToInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfAddFiltersToInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfAddGlobalFilterToInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfAddGlobalFilterToInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIPAddress", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIPAddress_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIndex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIndex_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfCreateInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfCreateInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfDeleteInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfDeleteInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfDeleteLog", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfDeleteLog_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfGetInterfaceStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfGetInterfaceStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfMakeLog", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfMakeLog_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfRebindFilters", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfRebindFilters_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFilterHandles", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFilterHandles_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFiltersFromInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFiltersFromInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfRemoveGlobalFilterFromInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfRemoveGlobalFilterFromInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfSetLogBuffer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfSetLogBuffer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfTestPacket", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfTestPacket_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperPfUnBindInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperPfUnBindInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperRegisterInterfaceTimestampConfigChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperRegisterInterfaceTimestampConfigChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperResolveIpNetEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperResolveIpNetEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperResolveNeighbor", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperResolveNeighbor_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperRestoreMediaSense", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperRestoreMediaSense_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSendARP", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSendARP_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentScope", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentScope_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetDnsSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetDnsSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIfEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIfEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpInterfaceEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpInterfaceEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpStatisticsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpStatisticsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetIpTTL", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetIpTTL_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetJobCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetJobCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetNetworkInformation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetNetworkInformation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetPerTcp6ConnectionEStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetPerTcp6ConnectionEStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetPerTcpConnectionEStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetPerTcpConnectionEStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetSessionCompartmentId", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetSessionCompartmentId_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetTcpEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetTcpEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperSetUnicastIpAddressEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperSetUnicastIpAddressEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperUnregisterInterfaceTimestampConfigChange", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperUnregisterInterfaceTimestampConfigChange_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIfIndextoname", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIfIndextoname_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementIphelperIfNametoindex", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementIphelperIfNametoindex_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_iphelper_napi, nullptr };

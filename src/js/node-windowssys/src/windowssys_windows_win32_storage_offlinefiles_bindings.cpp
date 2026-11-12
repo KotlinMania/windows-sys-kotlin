@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t benable = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbrebootrequired = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesEna
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbactive = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbactive = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -134,7 +134,7 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -158,10 +158,10 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesSta
 }
 
 static void register_windows_win32_storage_offlinefiles_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable", Napi::Function::New(env, windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable_napi));
-    exports.Set("windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus", Napi::Function::New(env, windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus_napi));
-    exports.Set("windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx", Napi::Function::New(env, windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx_napi));
-    exports.Set("windowssys_windows_win32_storage_offlinefiles_offlineFilesStart", Napi::Function::New(env, windowssys_windows_win32_storage_offlinefiles_offlineFilesStart_napi));
+    exports.Set("windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable", Napi::Function::New(env, windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable_napi));
+    exports.Set("windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus", Napi::Function::New(env, windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus_napi));
+    exports.Set("windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx", Napi::Function::New(env, windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx_napi));
+    exports.Set("windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart", Napi::Function::New(env, windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_offlinefiles_napi, nullptr };

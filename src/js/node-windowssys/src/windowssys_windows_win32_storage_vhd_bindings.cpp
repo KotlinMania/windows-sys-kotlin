@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_addVirtualDiskParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdAddVirtualDiskParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parentpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_addVirtualDiskParent_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_applySnapshotVhdSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdApplySnapshotVhdSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_applySnapshotVhdSet_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_attachVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdAttachVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_attachVirtualDisk_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdBreakMirrorVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_compactVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdCompactVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -198,7 +198,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_compactVirtualDisk_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_completeForkVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdCompleteForkVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_completeForkVirtualDisk_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_createVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdCreateVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualstoragetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -264,7 +264,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_createVirtualDisk_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdDeleteSnapshotVhdSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -293,7 +293,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdDeleteVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* item = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -320,7 +320,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_detachVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdDetachVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -349,7 +349,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_detachVirtualDisk_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdEnumerateVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofitems = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -378,7 +378,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMeta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_expandVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdExpandVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_expandVirtualDisk_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_forkVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdForkVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -440,7 +440,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_forkVirtualDisk_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDiskPhysicalPaths_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdGetAllAttachedVirtualDiskPhysicalPaths_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pathsbuffersizeinbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pathsbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -467,7 +467,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_getStorageDependencyInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdGetStorageDependencyInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -500,7 +500,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getStorageDependencyInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdGetVirtualDiskInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualdiskinfosize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -531,7 +531,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdGetVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* item = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -562,7 +562,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskOperationProgress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdGetVirtualDiskOperationProgress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* overlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -591,7 +591,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskOperationP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdGetVirtualDiskPhysicalPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* diskpathsizeinbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_mergeVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdMergeVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -651,7 +651,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_mergeVirtualDisk_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_mirrorVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdMirrorVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -682,7 +682,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_mirrorVirtualDisk_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_modifyVhdSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdModifyVhdSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -711,7 +711,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_modifyVhdSet_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_openVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdOpenVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualstoragetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -746,7 +746,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_openVirtualDisk_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdQueryChangesVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* changetrackingid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -785,7 +785,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdRawSCSIVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -816,7 +816,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_resizeVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdResizeVirtualDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -847,7 +847,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_resizeVirtualDisk_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_setVirtualDiskInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdSetVirtualDiskInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualdiskinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -874,7 +874,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_setVirtualDiskInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdSetVirtualDiskMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* item = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -905,7 +905,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_vhd_takeSnapshotVhdSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageVhdTakeSnapshotVhdSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualdiskhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -935,35 +935,35 @@ static Napi::Value windowssys_windows_win32_storage_vhd_takeSnapshotVhdSet_napi(
 }
 
 static void register_windows_win32_storage_vhd_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_vhd_addVirtualDiskParent", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_addVirtualDiskParent_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_applySnapshotVhdSet", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_applySnapshotVhdSet_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_attachVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_attachVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_compactVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_compactVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_completeForkVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_completeForkVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_createVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_createVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_detachVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_detachVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_expandVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_expandVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_forkVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_forkVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDiskPhysicalPaths", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDiskPhysicalPaths_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_getStorageDependencyInformation", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_getStorageDependencyInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_getVirtualDiskInformation", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_getVirtualDiskInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_getVirtualDiskOperationProgress", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_getVirtualDiskOperationProgress_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPath", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPath_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_mergeVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_mergeVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_mirrorVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_mirrorVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_modifyVhdSet", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_modifyVhdSet_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_openVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_openVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_resizeVirtualDisk", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_resizeVirtualDisk_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_setVirtualDiskInformation", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_setVirtualDiskInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_vhd_takeSnapshotVhdSet", Napi::Function::New(env, windowssys_windows_win32_storage_vhd_takeSnapshotVhdSet_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdAddVirtualDiskParent", Napi::Function::New(env, windowssysWindowsWin32StorageVhdAddVirtualDiskParent_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdApplySnapshotVhdSet", Napi::Function::New(env, windowssysWindowsWin32StorageVhdApplySnapshotVhdSet_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdAttachVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdAttachVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdBreakMirrorVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdBreakMirrorVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdCompactVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdCompactVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdCompleteForkVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdCompleteForkVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdCreateVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdCreateVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdDeleteSnapshotVhdSet", Napi::Function::New(env, windowssysWindowsWin32StorageVhdDeleteSnapshotVhdSet_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdDeleteVirtualDiskMetadata", Napi::Function::New(env, windowssysWindowsWin32StorageVhdDeleteVirtualDiskMetadata_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdDetachVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdDetachVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdEnumerateVirtualDiskMetadata", Napi::Function::New(env, windowssysWindowsWin32StorageVhdEnumerateVirtualDiskMetadata_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdExpandVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdExpandVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdForkVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdForkVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdGetAllAttachedVirtualDiskPhysicalPaths", Napi::Function::New(env, windowssysWindowsWin32StorageVhdGetAllAttachedVirtualDiskPhysicalPaths_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdGetStorageDependencyInformation", Napi::Function::New(env, windowssysWindowsWin32StorageVhdGetStorageDependencyInformation_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdGetVirtualDiskInformation", Napi::Function::New(env, windowssysWindowsWin32StorageVhdGetVirtualDiskInformation_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdGetVirtualDiskMetadata", Napi::Function::New(env, windowssysWindowsWin32StorageVhdGetVirtualDiskMetadata_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdGetVirtualDiskOperationProgress", Napi::Function::New(env, windowssysWindowsWin32StorageVhdGetVirtualDiskOperationProgress_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdGetVirtualDiskPhysicalPath", Napi::Function::New(env, windowssysWindowsWin32StorageVhdGetVirtualDiskPhysicalPath_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdMergeVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdMergeVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdMirrorVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdMirrorVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdModifyVhdSet", Napi::Function::New(env, windowssysWindowsWin32StorageVhdModifyVhdSet_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdOpenVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdOpenVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdQueryChangesVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdQueryChangesVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdRawSCSIVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdRawSCSIVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdResizeVirtualDisk", Napi::Function::New(env, windowssysWindowsWin32StorageVhdResizeVirtualDisk_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdSetVirtualDiskInformation", Napi::Function::New(env, windowssysWindowsWin32StorageVhdSetVirtualDiskInformation_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdSetVirtualDiskMetadata", Napi::Function::New(env, windowssysWindowsWin32StorageVhdSetVirtualDiskMetadata_napi));
+    exports.Set("windowssysWindowsWin32StorageVhdTakeSnapshotVhdSet", Napi::Function::New(env, windowssysWindowsWin32StorageVhdTakeSnapshotVhdSet_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_vhd_napi, nullptr };

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCloseHive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORCloseHive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCloseHive_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCloseKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORCloseKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCloseKey_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateHive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORCreateHive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* horkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -126,7 +126,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateHive_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORCreateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateKey_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRDeleteKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORDeleteKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRDeleteKey_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRDeleteValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORDeleteValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRDeleteValue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryOREnumKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumKey_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryOREnumValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -291,7 +291,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumValue_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORGetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -322,7 +322,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORGetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -357,7 +357,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetValue_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORGetVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwmajorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwminorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -384,7 +384,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetVersion_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORGetVirtualFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -411,7 +411,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRMergeHives_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORMergeHives_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hivehandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t hivecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -440,7 +440,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRMergeHives_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenHive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryOROpenHive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* horkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -467,7 +467,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenHive_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryOROpenHiveByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* horkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -494,7 +494,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryOROpenKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenKey_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORQueryInfoKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -568,7 +568,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRRenameKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORRenameKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -595,7 +595,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRRenameKey_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSaveHive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORSaveHive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* horkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hivepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -626,7 +626,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSaveHive_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORSetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -655,7 +655,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -688,7 +688,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetValue_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORSetVirtualFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -738,7 +738,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRShutdown_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemOfflineregistryORStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -762,30 +762,30 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRStart_napi(co
 }
 
 static void register_windows_wdk_system_offlineregistry_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRCloseHive", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRCloseHive_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRCloseKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRCloseKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRCreateHive", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRCreateHive_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRCreateKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRCreateKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRDeleteKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRDeleteKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRDeleteValue", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRDeleteValue_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oREnumKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oREnumKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oREnumValue", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oREnumValue_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurity", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurity_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRGetValue", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRGetValue_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRGetVersion", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRGetVersion_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFlags", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFlags_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRMergeHives", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRMergeHives_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oROpenHive", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oROpenHive_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHandle", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHandle_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oROpenKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oROpenKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRRenameKey", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRRenameKey_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRSaveHive", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRSaveHive_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurity", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurity_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRSetValue", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRSetValue_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFlags", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFlags_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRShutdown", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRShutdown_napi));
-    exports.Set("windowssys_windows_wdk_system_offlineregistry_oRStart", Napi::Function::New(env, windowssys_windows_wdk_system_offlineregistry_oRStart_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORCloseHive", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORCloseHive_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORCloseKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORCloseKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORCreateHive", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORCreateHive_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORCreateKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORCreateKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORDeleteKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORDeleteKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORDeleteValue", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORDeleteValue_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryOREnumKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryOREnumKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryOREnumValue", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryOREnumValue_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORGetKeySecurity", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORGetKeySecurity_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORGetValue", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORGetValue_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORGetVersion", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORGetVersion_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORGetVirtualFlags", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORGetVirtualFlags_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORMergeHives", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORMergeHives_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryOROpenHive", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryOROpenHive_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryOROpenHiveByHandle", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryOROpenHiveByHandle_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryOROpenKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryOROpenKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORQueryInfoKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORQueryInfoKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORRenameKey", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORRenameKey_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORSaveHive", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORSaveHive_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORSetKeySecurity", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORSetKeySecurity_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORSetValue", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORSetValue_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORSetVirtualFlags", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORSetVirtualFlags_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORShutdown", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORShutdown_napi));
+    exports.Set("windowssysWindowsWdkSystemOfflineregistryORStart", Napi::Function::New(env, windowssysWindowsWdkSystemOfflineregistryORStart_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_system_offlineregistry_napi, nullptr };

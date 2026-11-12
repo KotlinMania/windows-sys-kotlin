@@ -9,20 +9,20 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_shutdown_abortSystemShutdownA(void* lpmachinename);
-int32_t windowssys_windows_win32_system_shutdown_abortSystemShutdownW(void* lpmachinename);
-uint32_t windowssys_windows_win32_system_shutdown_checkForHiberboot(void* phiberboot, bool bclearflag);
-int32_t windowssys_windows_win32_system_shutdown_exitWindowsEx(uint32_t uflags, uint32_t dwreason);
-uint32_t windowssys_windows_win32_system_shutdown_initiateShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason);
-uint32_t windowssys_windows_win32_system_shutdown_initiateShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason);
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown);
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason);
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason);
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown);
-int32_t windowssys_windows_win32_system_shutdown_lockWorkStation(void);
-int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate(void* hwnd, void* pwszreason);
-int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy(void* hwnd);
-int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery(void* hwnd, void* pwszbuff, void* pcchbuff);
+int32_t windowssysWindowsWin32SystemShutdownAbortSystemShutdownA(void* lpmachinename);
+int32_t windowssysWindowsWin32SystemShutdownAbortSystemShutdownW(void* lpmachinename);
+uint32_t windowssysWindowsWin32SystemShutdownCheckForHiberboot(void* phiberboot, bool bclearflag);
+int32_t windowssysWindowsWin32SystemShutdownExitWindowsEx(uint32_t uflags, uint32_t dwreason);
+uint32_t windowssysWindowsWin32SystemShutdownInitiateShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason);
+uint32_t windowssysWindowsWin32SystemShutdownInitiateShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason);
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown);
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason);
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason);
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown);
+int32_t windowssysWindowsWin32SystemShutdownLockWorkStation(void);
+int32_t windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate(void* hwnd, void* pwszreason);
+int32_t windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy(void* hwnd);
+int32_t windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery(void* hwnd, void* pwszbuff, void* pcchbuff);
 
 #ifdef __cplusplus
 }

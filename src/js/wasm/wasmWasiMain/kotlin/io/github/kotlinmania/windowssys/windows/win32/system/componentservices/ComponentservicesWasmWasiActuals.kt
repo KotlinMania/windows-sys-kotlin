@@ -1,35 +1,40 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
 
-public actual fun coCreateActivity(piunknown: COpaquePointer?, riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+// The host must provide the C companion wrapper exports in import module windowssys.
+public actual fun coCreateActivity(piunknown: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesCoCreateActivity")
 
-public actual fun coEnterServiceDomain(pconfigobject: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun coEnterServiceDomain(pconfigobject: MutPtr<CVoid>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain")
 
-public actual fun coGetDefaultContext(apttype: Apttype, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun coGetDefaultContext(apttype: Apttype, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext")
 
-public actual fun coLeaveServiceDomain(punkstatus: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun coLeaveServiceDomain(punkstatus: MutPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain")
 
-public actual fun getDispenserManager(param0: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getDispenserManager(param0: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesGetDispenserManager")
 
-public actual fun getManagedExtensions(dwexts: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getManagedExtensions(dwexts: MutPtr<UInt>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesGetManagedExtensions")
 
-public actual fun mTSCreateActivity(riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mTSCreateActivity(riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesMTSCreateActivity")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemComponentservicesRecycleSurrogate")
+private external fun wasiWindowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode: Int): Int
 
 public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode).toInt()
 
-public actual fun safeRef(rid: COpaquePointer?, punk: COpaquePointer?): COpaquePointer? =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun safeRef(rid: ConstPtr<Guid>, punk: MutPtr<CVoid>): MutPtr<CVoid> =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesSafeRef")

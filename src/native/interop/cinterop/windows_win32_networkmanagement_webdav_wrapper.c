@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davAddConnection(void* connectionhandle, void* remotename, void* username, void* password, void* clientcert, uint32_t certsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavAddConnection(void* connectionhandle, void* remotename, void* username, void* password, void* clientcert, uint32_t certsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -42,7 +42,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davAddConnection(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsToServer(void* lpname, int32_t fforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavCancelConnectionsToServer(void* lpname, int32_t fforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection(void* connectionhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavDeleteConnection(void* connectionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davFlushFile(void* hfile) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavFlushFile(void* hfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davFlushFile(void* hf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError(void* hfile, void* exterror, void* exterrorstring, void* cchsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavGetExtendedError(void* hfile, void* exterror, void* exterrorstring, void* cchsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath(void* uncpath, void* url, void* lpsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavGetHTTPFromUNCPath(void* uncpath, void* url, void* lpsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfTheFile(void* filename, void* lockownername, void* lockownernamelengthinbytes) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavGetTheLockOwnerOfTheFile(void* filename, void* lockownername, void* lockownernamelengthinbytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -182,7 +182,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath(void* url, void* uncpath, void* lpsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavGetUNCFromHTTPPath(void* url, void* uncpath, void* lpsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -206,7 +206,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache(void* urlname) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavInvalidateCache(void* urlname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -228,7 +228,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallback(void* callback, uint32_t version) {
+uint32_t windowssysWindowsWin32NetworkmanagementWebdavDavRegisterAuthCallback(void* callback, uint32_t version) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -251,7 +251,7 @@ uint32_t windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallba
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_webdav_davUnregisterAuthCallback(uint32_t hcallback) {
+void windowssysWindowsWin32NetworkmanagementWebdavDavUnregisterAuthCallback(uint32_t hcallback) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;

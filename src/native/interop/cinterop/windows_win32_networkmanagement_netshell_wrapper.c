@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_matchEnumTag(void* hmodule, void* pwcarg, uint32_t dwnumarg, void* penumtable, void* pdwvalue) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellMatchEnumTag(void* hmodule, void* pwcarg, uint32_t dwnumarg, void* penumtable, void* pdwvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_matchEnumTag(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netshell_matchToken(void* pwszusertoken, void* pwszcmdtoken) {
+int32_t windowssysWindowsWin32NetworkmanagementNetshellMatchToken(void* pwszusertoken, void* pwszcmdtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_networkmanagement_netshell_matchToken(void* pws
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_preprocessCommand(void* hmodule, void* ppwcarguments, uint32_t dwcurrentindex, uint32_t dwargcount, void* ptttags, uint32_t dwtagcount, uint32_t dwminargs, uint32_t dwmaxargs, void* pdwtagtype) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellPreprocessCommand(void* hmodule, void* ppwcarguments, uint32_t dwcurrentindex, uint32_t dwargcount, void* ptttags, uint32_t dwtagcount, uint32_t dwminargs, uint32_t dwmaxargs, void* pdwtagtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -94,7 +94,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_preprocessCommand(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_printError(void* hmodule, uint32_t dwerrid, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellPrintError(void* hmodule, uint32_t dwerrid, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(void*, uint32_t, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_printError(void* hm
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_printMessage(void* pwszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellPrintMessage(void* pwszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_printMessage(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_printMessageFromModule(void* hmodule, uint32_t dwmsgid, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellPrintMessageFromModule(void* hmodule, uint32_t dwmsgid, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(void*, uint32_t, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -195,7 +195,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_printMessageFromMod
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_registerContext(void* pchildcontext) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellRegisterContext(void* pchildcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -217,7 +217,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_registerContext(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_registerHelper(void* pguidparentcontext, void* pfnregistersubcontext) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetshellRegisterHelper(void* pguidparentcontext, void* pfnregistersubcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -2,382 +2,386 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EapMethodType
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32NetworkmanagementWifiNapiAddon(): Boolean
+private external fun initWindowsWin32NetworkmanagementWifiNapiAddon(): Boolean
 
-private val _windowsWin32NetworkmanagementWifiNapiAvailable: Boolean = _initWindowsWin32NetworkmanagementWifiNapiAddon()
+private val windowsWin32NetworkmanagementWifiNapiAvailable: Boolean = initWindowsWin32NetworkmanagementWifiNapiAddon()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDCloseSession(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDCloseSession(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory(p0: Int): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory(p0: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanConnect(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanConnect(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanConnect(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanConnect(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanConnect2(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanConnect2(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanConnect2(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanConnect2(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String, p6: Int, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String, p6: Int, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanDisconnect(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanDisconnect(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetProfile(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetProfile(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanIhvControl(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanIhvControl(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString(p0: Int, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString(p0: Int, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanScan(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanScan(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanScan(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanScan(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetInterface(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetInterface(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfile(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfile(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile(p0: Int, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile(p0: Int, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
 
 public actual fun wFDCancelOpenSession(hsessionhandle: Handle): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession((hsessionhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession(hsessionhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wFDCloseHandle(hclienthandle: Handle): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle((hclienthandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle(hclienthandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wFDCloseSession(hsessionhandle: Handle): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession((hsessionhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDCloseSession(hsessionhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wFDOpenHandle(dwclientversion: UInt, pdwnegotiatedversion: COpaquePointer?, phclienthandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle(dwclientversion.toInt(), (pdwnegotiatedversion?.value ?: 0L).toString(), (phclienthandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wFDOpenHandle(dwclientversion: UInt, pdwnegotiatedversion: MutPtr<UInt>, phclienthandle: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle(dwclientversion.toInt(), pdwnegotiatedversion.rawAddress.toString(), phclienthandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wFDOpenLegacySession(hclienthandle: Handle, plegacymacaddress: COpaquePointer?, phsessionhandle: COpaquePointer?, pguidsessioninterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession((hclienthandle?.value ?: 0L).toString(), (plegacymacaddress?.value ?: 0L).toString(), (phsessionhandle?.value ?: 0L).toString(), (pguidsessioninterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wFDOpenLegacySession(hclienthandle: Handle, plegacymacaddress: ConstPtr<ConstPtr<UByte>>, phsessionhandle: MutPtr<Handle>, pguidsessioninterface: MutPtr<Guid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession(hclienthandle.rawAddress.toString(), plegacymacaddress.rawAddress.toString(), phsessionhandle.rawAddress.toString(), pguidsessioninterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wFDStartOpenSession(hclienthandle: Handle, pdeviceaddress: COpaquePointer?, pvcontext: COpaquePointer?, pfncallback: WfdOpenSessionCompleteCallback, phsessionhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession((hclienthandle?.value ?: 0L).toString(), (pdeviceaddress?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString(), 0L.toString(), (phsessionhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wFDStartOpenSession(hclienthandle: Handle, pdeviceaddress: ConstPtr<ConstPtr<UByte>>, pvcontext: ConstPtr<CVoid>, pfncallback: WfdOpenSessionCompleteCallback, phsessionhandle: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession(hclienthandle.rawAddress.toString(), pdeviceaddress.rawAddress.toString(), pvcontext.rawAddress.toString(), 0L.toString(), phsessionhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wFDUpdateDeviceVisibility(pdeviceaddress: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility((pdeviceaddress?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wFDUpdateDeviceVisibility(pdeviceaddress: ConstPtr<ConstPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility(pdeviceaddress.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanAllocateMemory(dwmemorysize: UInt): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory(dwmemorysize.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanAllocateMemory(dwmemorysize: UInt): MutPtr<CVoid> =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) MutPtr(wasmWindowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory(dwmemorysize.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanCloseHandle(hclienthandle: Handle, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle((hclienthandle?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanCloseHandle(hclienthandle: Handle, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle(hclienthandle.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanConnect(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pconnectionparameters: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanConnect((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (pconnectionparameters?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanConnect(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pconnectionparameters: ConstPtr<WlanConnectionParameters>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanConnect(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), pconnectionparameters.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanConnect2(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pconnectionparameters: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanConnect2((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (pconnectionparameters?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanConnect2(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pconnectionparameters: ConstPtr<WlanConnectionParametersV2>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanConnect2(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), pconnectionparameters.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanDeleteProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanDeleteProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanDeviceServiceCommand(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pdeviceserviceguid: COpaquePointer?, dwopcode: UInt, dwinbuffersize: UInt, pinbuffer: COpaquePointer?, dwoutbuffersize: UInt, poutbuffer: COpaquePointer?, pdwbytesreturned: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (pdeviceserviceguid?.value ?: 0L).toString(), dwopcode.toInt(), dwinbuffersize.toInt(), (pinbuffer?.value ?: 0L).toString(), dwoutbuffersize.toInt(), (poutbuffer?.value ?: 0L).toString(), (pdwbytesreturned?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanDeviceServiceCommand(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pdeviceserviceguid: ConstPtr<Guid>, dwopcode: UInt, dwinbuffersize: UInt, pinbuffer: ConstPtr<CVoid>, dwoutbuffersize: UInt, poutbuffer: MutPtr<CVoid>, pdwbytesreturned: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), pdeviceserviceguid.rawAddress.toString(), dwopcode.toInt(), dwinbuffersize.toInt(), pinbuffer.rawAddress.toString(), dwoutbuffersize.toInt(), poutbuffer.rawAddress.toString(), pdwbytesreturned.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanDisconnect(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanDisconnect(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanDisconnect(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanEnumInterfaces(hclienthandle: Handle, preserved: COpaquePointer?, ppinterfacelist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces((hclienthandle?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (ppinterfacelist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanEnumInterfaces(hclienthandle: Handle, preserved: ConstPtr<CVoid>, ppinterfacelist: MutPtr<MutPtr<WlanInterfaceInfoList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces(hclienthandle.rawAddress.toString(), preserved.rawAddress.toString(), ppinterfacelist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanExtractPsdIEDataList(hclienthandle: Handle, dwiedatasize: UInt, prawiedata: COpaquePointer?, strformat: Pcwstr, preserved: COpaquePointer?, pppsdiedatalist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList((hclienthandle?.value ?: 0L).toString(), dwiedatasize.toInt(), (prawiedata?.value ?: 0L).toString(), (strformat?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (pppsdiedatalist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanExtractPsdIEDataList(hclienthandle: Handle, dwiedatasize: UInt, prawiedata: ConstPtr<UByte>, strformat: Pcwstr, preserved: ConstPtr<CVoid>, pppsdiedatalist: MutPtr<MutPtr<WlanRawDataList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList(hclienthandle.rawAddress.toString(), dwiedatasize.toInt(), prawiedata.rawAddress.toString(), strformat.rawAddress.toString(), preserved.rawAddress.toString(), pppsdiedatalist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanFreeMemory(pmemory: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory((pmemory?.value ?: 0L).toString())
+public actual fun wlanFreeMemory(pmemory: ConstPtr<CVoid>) {
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory(pmemory.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun wlanGetAvailableNetworkList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwflags: UInt, preserved: COpaquePointer?, ppavailablenetworklist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), dwflags.toInt(), (preserved?.value ?: 0L).toString(), (ppavailablenetworklist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetAvailableNetworkList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwflags: UInt, preserved: ConstPtr<CVoid>, ppavailablenetworklist: MutPtr<MutPtr<WlanAvailableNetworkList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), dwflags.toInt(), preserved.rawAddress.toString(), ppavailablenetworklist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetAvailableNetworkList2(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwflags: UInt, preserved: COpaquePointer?, ppavailablenetworklist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), dwflags.toInt(), (preserved?.value ?: 0L).toString(), (ppavailablenetworklist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetAvailableNetworkList2(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwflags: UInt, preserved: ConstPtr<CVoid>, ppavailablenetworklist: MutPtr<MutPtr<WlanAvailableNetworkListV2>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), dwflags.toInt(), preserved.rawAddress.toString(), ppavailablenetworklist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, preserved: COpaquePointer?, ppnetworklist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList((hclienthandle?.value ?: 0L).toString(), wlanfilterlisttype, (preserved?.value ?: 0L).toString(), (ppnetworklist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, preserved: ConstPtr<CVoid>, ppnetworklist: MutPtr<MutPtr<Dot11NetworkList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList(hclienthandle.rawAddress.toString(), wlanfilterlisttype, preserved.rawAddress.toString(), ppnetworklist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetInterfaceCapability(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, preserved: COpaquePointer?, ppcapability: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (ppcapability?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetInterfaceCapability(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, preserved: ConstPtr<CVoid>, ppcapability: MutPtr<MutPtr<WlanInterfaceCapability>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), preserved.rawAddress.toString(), ppcapability.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetNetworkBssList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pdot11ssid: COpaquePointer?, dot11bsstype: Dot11BssType, bsecurityenabled: Bool, preserved: COpaquePointer?, ppwlanbsslist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (pdot11ssid?.value ?: 0L).toString(), dot11bsstype, bsecurityenabled, (preserved?.value ?: 0L).toString(), (ppwlanbsslist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetNetworkBssList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pdot11ssid: ConstPtr<Dot11Ssid>, dot11bsstype: Dot11BssType, bsecurityenabled: Bool, preserved: ConstPtr<CVoid>, ppwlanbsslist: MutPtr<MutPtr<WlanBssList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), pdot11ssid.rawAddress.toString(), dot11bsstype, bsecurityenabled, preserved.rawAddress.toString(), ppwlanbsslist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, preserved: COpaquePointer?, pstrprofilexml: COpaquePointer?, pdwflags: COpaquePointer?, pdwgrantedaccess: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (pstrprofilexml?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString(), (pdwgrantedaccess?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, preserved: ConstPtr<CVoid>, pstrprofilexml: MutPtr<Pwstr>, pdwflags: MutPtr<UInt>, pdwgrantedaccess: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetProfile(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), preserved.rawAddress.toString(), pstrprofilexml.rawAddress.toString(), pdwflags.rawAddress.toString(), pdwgrantedaccess.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (pdwdatasize?.value ?: 0L).toString(), (ppdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), preserved.rawAddress.toString(), pdwdatasize.rawAddress.toString(), ppdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetProfileList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, preserved: COpaquePointer?, ppprofilelist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (ppprofilelist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetProfileList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, preserved: ConstPtr<CVoid>, ppprofilelist: MutPtr<MutPtr<WlanProfileInfoList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), preserved.rawAddress.toString(), ppprofilelist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, pvaluetype: COpaquePointer?, pstrcurrentsddl: COpaquePointer?, pdwgrantedaccess: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings((hclienthandle?.value ?: 0L).toString(), securableobject, (pvaluetype?.value ?: 0L).toString(), (pstrcurrentsddl?.value ?: 0L).toString(), (pdwgrantedaccess?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, pvaluetype: MutPtr<WlanOpcodeValueType>, pstrcurrentsddl: MutPtr<Pwstr>, pdwgrantedaccess: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings(hclienthandle.rawAddress.toString(), securableobject, pvaluetype.rawAddress.toString(), pstrcurrentsddl.rawAddress.toString(), pdwgrantedaccess.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanGetSupportedDeviceServices(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, ppdevsvcguidlist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (ppdevsvcguidlist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanGetSupportedDeviceServices(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, ppdevsvcguidlist: MutPtr<MutPtr<WlanDeviceServiceGuidList>>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), ppdevsvcguidlist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkForceStart(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart((hclienthandle?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkForceStart(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart(hclienthandle.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkForceStop(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop((hclienthandle?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkForceStop(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop(hclienthandle.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkInitSettings(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings((hclienthandle?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkInitSettings(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings(hclienthandle.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkQueryProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, pdwdatasize: COpaquePointer?, ppvdata: COpaquePointer?, pwlanopcodevaluetype: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty((hclienthandle?.value ?: 0L).toString(), opcode, (pdwdatasize?.value ?: 0L).toString(), (ppvdata?.value ?: 0L).toString(), (pwlanopcodevaluetype?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkQueryProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, pdwdatasize: MutPtr<UInt>, ppvdata: MutPtr<MutPtr<CVoid>>, pwlanopcodevaluetype: MutPtr<WlanOpcodeValueType>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty(hclienthandle.rawAddress.toString(), opcode, pdwdatasize.rawAddress.toString(), ppvdata.rawAddress.toString(), pwlanopcodevaluetype.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkQuerySecondaryKey(hclienthandle: Handle, pdwkeylength: COpaquePointer?, ppuckeydata: COpaquePointer?, pbispassphrase: COpaquePointer?, pbpersistent: COpaquePointer?, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey((hclienthandle?.value ?: 0L).toString(), (pdwkeylength?.value ?: 0L).toString(), (ppuckeydata?.value ?: 0L).toString(), (pbispassphrase?.value ?: 0L).toString(), (pbpersistent?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkQuerySecondaryKey(hclienthandle: Handle, pdwkeylength: MutPtr<UInt>, ppuckeydata: MutPtr<MutPtr<UByte>>, pbispassphrase: MutPtr<Bool>, pbpersistent: MutPtr<Bool>, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey(hclienthandle.rawAddress.toString(), pdwkeylength.rawAddress.toString(), ppuckeydata.rawAddress.toString(), pbispassphrase.rawAddress.toString(), pbpersistent.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkQueryStatus(hclienthandle: Handle, ppwlanhostednetworkstatus: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus((hclienthandle?.value ?: 0L).toString(), (ppwlanhostednetworkstatus?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkQueryStatus(hclienthandle: Handle, ppwlanhostednetworkstatus: MutPtr<MutPtr<WlanHostedNetworkStatus>>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus(hclienthandle.rawAddress.toString(), ppwlanhostednetworkstatus.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkRefreshSecuritySettings(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings((hclienthandle?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkRefreshSecuritySettings(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings(hclienthandle.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkSetProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, dwdatasize: UInt, pvdata: COpaquePointer?, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty((hclienthandle?.value ?: 0L).toString(), opcode, dwdatasize.toInt(), (pvdata?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkSetProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, dwdatasize: UInt, pvdata: ConstPtr<CVoid>, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty(hclienthandle.rawAddress.toString(), opcode, dwdatasize.toInt(), pvdata.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkSetSecondaryKey(hclienthandle: Handle, dwkeylength: UInt, puckeydata: COpaquePointer?, bispassphrase: Bool, bpersistent: Bool, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey((hclienthandle?.value ?: 0L).toString(), dwkeylength.toInt(), (puckeydata?.value ?: 0L).toString(), bispassphrase, bpersistent, (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkSetSecondaryKey(hclienthandle: Handle, dwkeylength: UInt, puckeydata: ConstPtr<UByte>, bispassphrase: Bool, bpersistent: Bool, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey(hclienthandle.rawAddress.toString(), dwkeylength.toInt(), puckeydata.rawAddress.toString(), bispassphrase, bpersistent, pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkStartUsing(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing((hclienthandle?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkStartUsing(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing(hclienthandle.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanHostedNetworkStopUsing(hclienthandle: Handle, pfailreason: COpaquePointer?, pvreserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing((hclienthandle?.value ?: 0L).toString(), (pfailreason?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanHostedNetworkStopUsing(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing(hclienthandle.rawAddress.toString(), pfailreason.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanIhvControl(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, type: WlanIhvControlType, dwinbuffersize: UInt, pinbuffer: COpaquePointer?, dwoutbuffersize: UInt, poutbuffer: COpaquePointer?, pdwbytesreturned: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), type, dwinbuffersize.toInt(), (pinbuffer?.value ?: 0L).toString(), dwoutbuffersize.toInt(), (poutbuffer?.value ?: 0L).toString(), (pdwbytesreturned?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanIhvControl(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, type: WlanIhvControlType, dwinbuffersize: UInt, pinbuffer: ConstPtr<CVoid>, dwoutbuffersize: UInt, poutbuffer: MutPtr<CVoid>, pdwbytesreturned: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanIhvControl(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), type, dwinbuffersize.toInt(), pinbuffer.rawAddress.toString(), dwoutbuffersize.toInt(), poutbuffer.rawAddress.toString(), pdwbytesreturned.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanOpenHandle(dwclientversion: UInt, preserved: COpaquePointer?, pdwnegotiatedversion: COpaquePointer?, phclienthandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle(dwclientversion.toInt(), (preserved?.value ?: 0L).toString(), (pdwnegotiatedversion?.value ?: 0L).toString(), (phclienthandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanOpenHandle(dwclientversion: UInt, preserved: ConstPtr<CVoid>, pdwnegotiatedversion: MutPtr<UInt>, phclienthandle: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle(dwclientversion.toInt(), preserved.rawAddress.toString(), pdwnegotiatedversion.rawAddress.toString(), phclienthandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanQueryAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?, pwlanopcodevaluetype: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter((hclienthandle?.value ?: 0L).toString(), opcode, (preserved?.value ?: 0L).toString(), (pdwdatasize?.value ?: 0L).toString(), (ppdata?.value ?: 0L).toString(), (pwlanopcodevaluetype?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanQueryAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<CVoid>>, pwlanopcodevaluetype: MutPtr<WlanOpcodeValueType>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter(hclienthandle.rawAddress.toString(), opcode, preserved.rawAddress.toString(), pdwdatasize.rawAddress.toString(), ppdata.rawAddress.toString(), pwlanopcodevaluetype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanQueryInterface(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, opcode: WlanIntfOpcode, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?, pwlanopcodevaluetype: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), opcode, (preserved?.value ?: 0L).toString(), (pdwdatasize?.value ?: 0L).toString(), (ppdata?.value ?: 0L).toString(), (pwlanopcodevaluetype?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanQueryInterface(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, opcode: WlanIntfOpcode, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<CVoid>>, pwlanopcodevaluetype: MutPtr<WlanOpcodeValueType>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), opcode, preserved.rawAddress.toString(), pdwdatasize.rawAddress.toString(), ppdata.rawAddress.toString(), pwlanopcodevaluetype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanReasonCodeToString(dwreasoncode: UInt, dwbuffersize: UInt, pstringbuffer: Pcwstr, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString(dwreasoncode.toInt(), dwbuffersize.toInt(), (pstringbuffer?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanReasonCodeToString(dwreasoncode: UInt, dwbuffersize: UInt, pstringbuffer: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString(dwreasoncode.toInt(), dwbuffersize.toInt(), pstringbuffer.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanRegisterDeviceServiceNotification(hclienthandle: Handle, pdevsvcguidlist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification((hclienthandle?.value ?: 0L).toString(), (pdevsvcguidlist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanRegisterDeviceServiceNotification(hclienthandle: Handle, pdevsvcguidlist: ConstPtr<WlanDeviceServiceGuidList>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification(hclienthandle.rawAddress.toString(), pdevsvcguidlist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanRegisterNotification(hclienthandle: Handle, dwnotifsource: WlanNotificationSources, bignoreduplicate: Bool, funccallback: WlanNotificationCallback, pcallbackcontext: COpaquePointer?, preserved: COpaquePointer?, pdwprevnotifsource: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification((hclienthandle?.value ?: 0L).toString(), dwnotifsource.toInt(), bignoreduplicate, 0L.toString(), (pcallbackcontext?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (pdwprevnotifsource?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanRegisterNotification(hclienthandle: Handle, dwnotifsource: WlanNotificationSources, bignoreduplicate: Bool, funccallback: WlanNotificationCallback, pcallbackcontext: ConstPtr<CVoid>, preserved: ConstPtr<CVoid>, pdwprevnotifsource: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification(hclienthandle.rawAddress.toString(), dwnotifsource.toInt(), bignoreduplicate, 0L.toString(), pcallbackcontext.rawAddress.toString(), preserved.rawAddress.toString(), pdwprevnotifsource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanRegisterVirtualStationNotification(hclienthandle: Handle, bregister: Bool, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification((hclienthandle?.value ?: 0L).toString(), bregister, (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanRegisterVirtualStationNotification(hclienthandle: Handle, bregister: Bool, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification(hclienthandle.rawAddress.toString(), bregister, preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanRenameProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, stroldprofilename: Pcwstr, strnewprofilename: Pcwstr, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (stroldprofilename?.value ?: 0L).toString(), (strnewprofilename?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanRenameProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, stroldprofilename: Pcwstr, strnewprofilename: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), stroldprofilename.rawAddress.toString(), strnewprofilename.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSaveTemporaryProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, stralluserprofilesecurity: Pcwstr, dwflags: UInt, boverwrite: Bool, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), (stralluserprofilesecurity?.value ?: 0L).toString(), dwflags.toInt(), boverwrite, (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSaveTemporaryProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, stralluserprofilesecurity: Pcwstr, dwflags: UInt, boverwrite: Bool, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), stralluserprofilesecurity.rawAddress.toString(), dwflags.toInt(), boverwrite, preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanScan(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, pdot11ssid: COpaquePointer?, piedata: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanScan((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (pdot11ssid?.value ?: 0L).toString(), (piedata?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanScan(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pdot11ssid: ConstPtr<Dot11Ssid>, piedata: ConstPtr<WlanRawData>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanScan(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), pdot11ssid.rawAddress.toString(), piedata.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, dwdatasize: UInt, pdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter((hclienthandle?.value ?: 0L).toString(), opcode, dwdatasize.toInt(), (pdata?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, dwdatasize: UInt, pdata: ConstPtr<CVoid>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter(hclienthandle.rawAddress.toString(), opcode, dwdatasize.toInt(), pdata.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, pnetworklist: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList((hclienthandle?.value ?: 0L).toString(), wlanfilterlisttype, (pnetworklist?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, pnetworklist: ConstPtr<Dot11NetworkList>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList(hclienthandle.rawAddress.toString(), wlanfilterlisttype, pnetworklist.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetInterface(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, opcode: WlanIntfOpcode, dwdatasize: UInt, pdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), opcode, dwdatasize.toInt(), (pdata?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetInterface(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, opcode: WlanIntfOpcode, dwdatasize: UInt, pdata: ConstPtr<CVoid>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetInterface(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), opcode, dwdatasize.toInt(), pdata.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetProfile(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwflags: UInt, strprofilexml: Pcwstr, stralluserprofilesecurity: Pcwstr, boverwrite: Bool, preserved: COpaquePointer?, pdwreasoncode: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), dwflags.toInt(), (strprofilexml?.value ?: 0L).toString(), (stralluserprofilesecurity?.value ?: 0L).toString(), boverwrite, (preserved?.value ?: 0L).toString(), (pdwreasoncode?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwflags: UInt, strprofilexml: Pcwstr, stralluserprofilesecurity: Pcwstr, boverwrite: Bool, preserved: ConstPtr<CVoid>, pdwreasoncode: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfile(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), dwflags.toInt(), strprofilexml.rawAddress.toString(), stralluserprofilesecurity.rawAddress.toString(), boverwrite, preserved.rawAddress.toString(), pdwreasoncode.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, dwdatasize: UInt, pdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), dwdatasize.toInt(), (pdata?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, dwdatasize: UInt, pdata: ConstPtr<UByte>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), dwdatasize.toInt(), pdata.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetProfileEapUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, eaptype: EapMethodType, dwflags: WlanSetEaphostFlags, dweapuserdatasize: UInt, pbeapuserdata: COpaquePointer?, preserved: COpaquePointer?): UInt =
+public actual fun wlanSetProfileEapUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, eaptype: EapMethodType, dwflags: WlanSetEaphostFlags, dweapuserdatasize: UInt, pbeapuserdata: ConstPtr<UByte>, preserved: ConstPtr<CVoid>): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetProfileEapXmlUserData(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, dwflags: WlanSetEaphostFlags, streapxmluserdata: Pcwstr, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), dwflags.toInt(), (streapxmluserdata?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetProfileEapXmlUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, dwflags: WlanSetEaphostFlags, streapxmluserdata: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), dwflags.toInt(), streapxmluserdata.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetProfileList(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, dwitems: UInt, strprofilenames: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), dwitems.toInt(), (strprofilenames?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetProfileList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwitems: UInt, strprofilenames: ConstPtr<Pcwstr>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), dwitems.toInt(), strprofilenames.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetProfilePosition(hclienthandle: Handle, pinterfaceguid: COpaquePointer?, strprofilename: Pcwstr, dwposition: UInt, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition((hclienthandle?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), dwposition.toInt(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetProfilePosition(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, dwposition: UInt, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition(hclienthandle.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), strprofilename.rawAddress.toString(), dwposition.toInt(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanSetPsdIEDataList(hclienthandle: Handle, strformat: Pcwstr, ppsdiedatalist: COpaquePointer?, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList((hclienthandle?.value ?: 0L).toString(), (strformat?.value ?: 0L).toString(), (ppsdiedatalist?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanSetPsdIEDataList(hclienthandle: Handle, strformat: Pcwstr, ppsdiedatalist: ConstPtr<WlanRawDataList>, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList(hclienthandle.rawAddress.toString(), strformat.rawAddress.toString(), ppsdiedatalist.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wlanSetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, strmodifiedsddl: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings((hclienthandle?.value ?: 0L).toString(), securableobject, (strmodifiedsddl?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings(hclienthandle.rawAddress.toString(), securableobject, strmodifiedsddl.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wlanUIEditProfile(dwclientversion: UInt, wstrprofilename: Pcwstr, pinterfaceguid: COpaquePointer?, hwnd: Hwnd, wlstartpage: WlDisplayPages, preserved: COpaquePointer?, pwlanreasoncode: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWifiNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile(dwclientversion.toInt(), (wstrprofilename?.value ?: 0L).toString(), (pinterfaceguid?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), wlstartpage, (preserved?.value ?: 0L).toString(), (pwlanreasoncode?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wlanUIEditProfile(dwclientversion: UInt, wstrprofilename: Pcwstr, pinterfaceguid: ConstPtr<Guid>, hwnd: Hwnd, wlstartpage: WlDisplayPages, preserved: ConstPtr<CVoid>, pwlanreasoncode: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementWifiNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile(dwclientversion.toInt(), wstrprofilename.rawAddress.toString(), pinterfaceguid.rawAddress.toString(), hwnd.rawAddress.toString(), wlstartpage, preserved.rawAddress.toString(), pwlanreasoncode.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

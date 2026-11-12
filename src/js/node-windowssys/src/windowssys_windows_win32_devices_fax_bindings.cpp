@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_canSendToFaxRecipient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxCanSendToFaxRecipient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -74,7 +74,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_canSendToFaxRecipient_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxAbort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxAbort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxAbort_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxAccessCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxAccessCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t accessmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxAccessCheck_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxClose_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxCompleteJobParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* jobparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* coverpageinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -180,7 +180,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxCompleteJobParamsA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxCompleteJobParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* jobparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* coverpageinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxCompleteJobParamsW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxConnectFaxServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxConnectFaxServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* machinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -234,7 +234,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxConnectFaxServerA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxConnectFaxServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxConnectFaxServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* machinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxConnectFaxServerW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -290,7 +290,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -348,7 +348,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -377,7 +377,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumJobsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumJobsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* jobentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -406,7 +406,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumJobsA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumJobsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumJobsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* jobentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumJobsW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumPortsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumPortsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -464,7 +464,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumPortsA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumPortsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumPortsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -493,7 +493,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumPortsW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingmethod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -522,7 +522,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingmethod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -551,7 +551,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxFreeBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxFreeBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -573,7 +573,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxFreeBuffer_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetConfigurationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetConfigurationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faxconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -600,7 +600,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetConfigurationA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetConfigurationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetConfigurationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faxconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -627,7 +627,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetConfigurationW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetDeviceStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* devicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -654,7 +654,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetDeviceStatusA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetDeviceStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* devicestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -681,7 +681,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetDeviceStatusW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetJobA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetJobA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -710,7 +710,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetJobA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetJobW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetJobW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetJobW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* categories = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -768,7 +768,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* categories = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -797,7 +797,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetPageData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetPageData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -832,7 +832,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPageData_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetPortA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetPortA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -859,7 +859,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPortA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetPortW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetPortW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -886,7 +886,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPortW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -917,7 +917,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetRoutingInfoA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxGetRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -948,7 +948,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetRoutingInfoW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxInitializeEventQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxInitializeEventQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -981,7 +981,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxInitializeEventQueue_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxOpenPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxOpenPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t deviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxOpenPort_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxPrintCoverPageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxPrintCoverPageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxcontextinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* coverpageinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1039,7 +1039,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxPrintCoverPageA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxPrintCoverPageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxPrintCoverPageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxcontextinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* coverpageinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1066,7 +1066,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxPrintCoverPageW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxRegisterRoutingExtensionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* extensionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1101,7 +1101,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterRoutingExtens
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxRegisterServiceProviderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* friendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1132,7 +1132,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterServiceProvid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSendDocumentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1165,7 +1165,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1198,7 +1198,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentForBroadc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1231,7 +1231,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentForBroadc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSendDocumentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1264,7 +1264,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetConfigurationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetConfigurationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faxconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1291,7 +1291,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetConfigurationA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetConfigurationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetConfigurationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faxconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1318,7 +1318,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetConfigurationW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1372,7 +1372,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetJobA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetJobA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1403,7 +1403,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetJobA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetJobW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetJobW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1434,7 +1434,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetJobW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* categories = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1463,7 +1463,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* categories = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1492,7 +1492,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetPortA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetPortA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1519,7 +1519,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetPortA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetPortW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetPortW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1546,7 +1546,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetPortW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetRoutingInfoA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxSetRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* faxporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* routingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1608,7 +1608,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetRoutingInfoW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxStartPrintJobA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxStartPrintJobA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* printername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* printinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1639,7 +1639,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxStartPrintJobA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxStartPrintJobW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxStartPrintJobW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* printername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* printinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1670,7 +1670,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxStartPrintJobW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxFaxUnregisterServiceProviderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1695,7 +1695,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxUnregisterServiceProv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_sendToFaxRecipient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxSendToFaxRecipient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t sndmode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1722,7 +1722,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_sendToFaxRecipient_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_fax_stiCreateInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesFaxStiCreateInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwver = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1754,65 +1754,65 @@ static Napi::Value windowssys_windows_win32_devices_fax_stiCreateInstanceW_napi(
 }
 
 static void register_windows_win32_devices_fax_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_fax_canSendToFaxRecipient", Napi::Function::New(env, windowssys_windows_win32_devices_fax_canSendToFaxRecipient_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxAbort", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxAbort_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxAccessCheck", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxAccessCheck_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxClose", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxClose_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxCompleteJobParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxCompleteJobParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxCompleteJobParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxCompleteJobParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxConnectFaxServerA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxConnectFaxServerA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxConnectFaxServerW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxConnectFaxServerW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumJobsA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumJobsA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumJobsW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumJobsW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumPortsA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumPortsA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumPortsW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumPortsW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxFreeBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxFreeBuffer_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetConfigurationA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetConfigurationA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetConfigurationW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetConfigurationW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetDeviceStatusA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetDeviceStatusA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetDeviceStatusW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetDeviceStatusW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetJobA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetJobA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetJobW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetJobW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetPageData", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetPageData_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetPortA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetPortA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetPortW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetPortW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetRoutingInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetRoutingInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxGetRoutingInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxGetRoutingInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxInitializeEventQueue", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxInitializeEventQueue_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxOpenPort", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxOpenPort_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxPrintCoverPageA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxPrintCoverPageA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxPrintCoverPageW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxPrintCoverPageW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSendDocumentA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSendDocumentA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSendDocumentW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSendDocumentW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetConfigurationA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetConfigurationA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetConfigurationW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetConfigurationW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetJobA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetJobA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetJobW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetJobW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetPortA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetPortA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetPortW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetPortW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetRoutingInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetRoutingInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxSetRoutingInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxSetRoutingInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxStartPrintJobA", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxStartPrintJobA_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxStartPrintJobW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxStartPrintJobW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_sendToFaxRecipient", Napi::Function::New(env, windowssys_windows_win32_devices_fax_sendToFaxRecipient_napi));
-    exports.Set("windowssys_windows_win32_devices_fax_stiCreateInstanceW", Napi::Function::New(env, windowssys_windows_win32_devices_fax_stiCreateInstanceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxCanSendToFaxRecipient", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxCanSendToFaxRecipient_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxAbort", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxAbort_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxAccessCheck", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxAccessCheck_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxClose", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxClose_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxConnectFaxServerA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxConnectFaxServerA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxConnectFaxServerW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxConnectFaxServerW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumJobsA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumJobsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumJobsW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumJobsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumPortsA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumPortsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumPortsW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumPortsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxFreeBuffer", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxFreeBuffer_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetConfigurationA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetConfigurationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetConfigurationW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetConfigurationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetJobA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetJobA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetJobW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetJobW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetPageData", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetPageData_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetPortA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetPortA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetPortW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetPortW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxInitializeEventQueue", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxInitializeEventQueue_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxOpenPort", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxOpenPort_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxPrintCoverPageA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxPrintCoverPageA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxPrintCoverPageW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxPrintCoverPageW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxRegisterRoutingExtensionW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxRegisterRoutingExtensionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxRegisterServiceProviderW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxRegisterServiceProviderW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSendDocumentA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSendDocumentA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSendDocumentW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSendDocumentW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetConfigurationA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetConfigurationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetConfigurationW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetConfigurationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetJobA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetJobA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetJobW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetJobW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetPortA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetPortA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetPortW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetPortW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxStartPrintJobA", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxStartPrintJobA_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxStartPrintJobW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxStartPrintJobW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxFaxUnregisterServiceProviderW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxFaxUnregisterServiceProviderW_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxSendToFaxRecipient", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxSendToFaxRecipient_napi));
+    exports.Set("windowssysWindowsWin32DevicesFaxStiCreateInstanceW", Napi::Function::New(env, windowssysWindowsWin32DevicesFaxStiCreateInstanceW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_fax_napi, nullptr };

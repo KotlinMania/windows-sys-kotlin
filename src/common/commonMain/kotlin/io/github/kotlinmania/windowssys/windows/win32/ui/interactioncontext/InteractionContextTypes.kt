@@ -1,12 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias CrossSlideFlags = UInt
 
 public typealias CrossSlideThreshold = Int
 
-public typealias Hinteractioncontext = COpaquePointer?
+public typealias Hinteractioncontext = MutPtr<CVoid>
 
 public typealias HoldParameter = Int
 
@@ -15,13 +17,13 @@ public typealias InertiaParameter = Int
 public typealias InteractionConfigurationFlags = UInt
 
 public fun interface InteractionContextOutputCallbackFn {
-    public operator fun invoke(clientdata: COpaquePointer?, output: COpaquePointer?)
+    public operator fun invoke(clientdata: ConstPtr<CVoid>, output: ConstPtr<InteractionContextOutput>)
 }
 
 public typealias InteractionContextOutputCallback = InteractionContextOutputCallbackFn?
 
 public fun interface InteractionContextOutputCallback2Fn {
-    public operator fun invoke(clientdata: COpaquePointer?, output: COpaquePointer?)
+    public operator fun invoke(clientdata: ConstPtr<CVoid>, output: ConstPtr<InteractionContextOutput2>)
 }
 
 public typealias InteractionContextOutputCallback2 = InteractionContextOutputCallback2Fn?

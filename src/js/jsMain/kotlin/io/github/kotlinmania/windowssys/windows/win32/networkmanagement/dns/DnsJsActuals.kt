@@ -2,254 +2,256 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
-private val _windowsWin32NetworkmanagementDnsNapiAddon: dynamic =
+private val windowsWin32NetworkmanagementDnsNapiAddon: dynamic =
     js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: COpaquePointer?, pcontext: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA(credentialflags.toInt(), (credentials?.value ?: 0L).toString(), (pcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: ConstPtr<CVoid>, pcontext: MutPtr<Handle>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA(credentialflags.toInt(), credentials.rawAddress.toString(), pcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: COpaquePointer?, pcontext: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW(credentialflags.toInt(), (credentials?.value ?: 0L).toString(), (pcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: ConstPtr<CVoid>, pcontext: MutPtr<Handle>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW(credentialflags.toInt(), credentials.rawAddress.toString(), pcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsCancelQuery(pcancelhandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery((pcancelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsCancelQuery(pcancelhandle: ConstPtr<DnsQueryCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery(pcancelhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsCancelQueryRaw(cancelhandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw((cancelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsCancelQueryRaw(cancelhandle: ConstPtr<DnsQueryRawCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw(cancelhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnectionPolicyTag): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries(policyentrytag) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeletePolicyEntries(policyentrytag) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsConnectionDeleteProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo((pwszconnectionname?.value ?: 0L).toString(), type) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo(pwszconnectionname.rawAddress.toString(), type) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionFreeNameList(pnamelist: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList((pnamelist?.value ?: 0L).toString())
+public actual fun dnsConnectionFreeNameList(pnamelist: MutPtr<DnsConnectionNameList>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList(pnamelist.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo((pproxyinfo?.value ?: 0L).toString())
+public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: MutPtr<DnsConnectionProxyInfo>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo(pproxyinfo.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx((pproxyinfoex?.value ?: 0L).toString())
+public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx(pproxyinfoex.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsConnectionFreeProxyList(pproxylist: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList((pproxylist?.value ?: 0L).toString())
+public actual fun dnsConnectionFreeProxyList(pproxylist: MutPtr<DnsConnectionProxyList>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList(pproxylist.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsConnectionGetNameList(pnamelist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList((pnamelist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionGetNameList(pnamelist: MutPtr<DnsConnectionNameList>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList(pnamelist.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo((pwszconnectionname?.value ?: 0L).toString(), type, (pproxyinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: MutPtr<DnsConnectionProxyInfo>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo(pwszconnectionname.rawAddress.toString(), type, pproxyinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: COpaquePointer?, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl((pwszhosturl?.value ?: 0L).toString(), (pselectioncontext?.value ?: 0L).toString(), dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), (pproxyinfoex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr<UByte>, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl(pwszhosturl.rawAddress.toString(), pselectioncontext.rawAddress.toString(), dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), pproxyinfoex.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: COpaquePointer?, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx((pwszhosturl?.value ?: 0L).toString(), (pselectioncontext?.value ?: 0L).toString(), dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), (pwszconnectionname?.value ?: 0L).toString(), (pproxyinfoex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr<UByte>, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.rawAddress.toString(), pselectioncontext.rawAddress.toString(), dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), pwszconnectionname.rawAddress.toString(), pproxyinfoex.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList((pwszconnectionname?.value ?: 0L).toString(), (pproxylist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: MutPtr<DnsConnectionProxyList>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList(pwszconnectionname.rawAddress.toString(), pproxylist.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries(policyentrytag, (ppolicyentrylist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: ConstPtr<DnsConnectionPolicyEntryList>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo((pwszconnectionname?.value ?: 0L).toString(), type, (pproxyinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: ConstPtr<DnsConnectionProxyInfo>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo(pwszconnectionname.rawAddress.toString(), type, pproxyinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable((pconnectionifindexentries?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: ConstPtr<DnsConnectionIfindexList>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable(pconnectionifindexentries.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: COpaquePointer?, wmessagelength: UShort, pprecord: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8((pdnsbuffer?.value ?: 0L).toString(), wmessagelength.toInt(), (pprecord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: ConstPtr<DnsMessageBuffer>, wmessagelength: UShort, pprecord: MutPtr<MutPtr<DnsRecorda>>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8(pdnsbuffer.rawAddress.toString(), wmessagelength.toInt(), pprecord.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: COpaquePointer?, wmessagelength: UShort, pprecord: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW((pdnsbuffer?.value ?: 0L).toString(), wmessagelength.toInt(), (pprecord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: ConstPtr<DnsMessageBuffer>, wmessagelength: UShort, pprecord: MutPtr<MutPtr<DnsRecorda>>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW(pdnsbuffer.rawAddress.toString(), wmessagelength.toInt(), pprecord.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsFree(pdata: COpaquePointer?, freetype: DnsFreeType) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsFree((pdata?.value ?: 0L).toString(), freetype)
+public actual fun dnsFree(pdata: ConstPtr<CVoid>, freetype: DnsFreeType) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsFree(pdata.rawAddress.toString(), freetype)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsFreeCustomServers(pcservers: COpaquePointer?, ppservers: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers((pcservers?.value ?: 0L).toString(), (ppservers?.value ?: 0L).toString())
+public actual fun dnsFreeCustomServers(pcservers: MutPtr<UInt>, ppservers: MutPtr<MutPtr<DnsCustomServer>>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers(pcservers.rawAddress.toString(), ppservers.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun dnsFreeProxyName(proxyname: Pcwstr) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName((proxyname?.value ?: 0L).toString())
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName(proxyname.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsGetApplicationSettings(pcservers: COpaquePointer?, ppdefaultservers: COpaquePointer?, psettings: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings((pcservers?.value ?: 0L).toString(), (ppdefaultservers?.value ?: 0L).toString(), (psettings?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsGetApplicationSettings(pcservers: MutPtr<UInt>, ppdefaultservers: MutPtr<MutPtr<DnsCustomServer>>, psettings: MutPtr<DnsApplicationSettings>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings(pcservers.rawAddress.toString(), ppdefaultservers.rawAddress.toString(), psettings.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: COpaquePointer?, defaultproxyinformation: COpaquePointer?, completionroutine: DnsProxyCompletionRoutine, completioncontext: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation((hostname?.value ?: 0L).toString(), (proxyinformation?.value ?: 0L).toString(), (defaultproxyinformation?.value ?: 0L).toString(), 0L.toString(), (completioncontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: MutPtr<DnsProxyInformation>, defaultproxyinformation: MutPtr<DnsProxyInformation>, completionroutine: DnsProxyCompletionRoutine, completioncontext: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation(hostname.rawAddress.toString(), proxyinformation.rawAddress.toString(), defaultproxyinformation.rawAddress.toString(), 0L.toString(), completioncontext.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsModifyRecordsInSetA(paddrecords: COpaquePointer?, pdeleterecords: COpaquePointer?, options: UInt, hcredentials: Handle, pextralist: COpaquePointer?, preserved: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA((paddrecords?.value ?: 0L).toString(), (pdeleterecords?.value ?: 0L).toString(), options.toInt(), (hcredentials?.value ?: 0L).toString(), (pextralist?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsModifyRecordsInSetA(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA(paddrecords.rawAddress.toString(), pdeleterecords.rawAddress.toString(), options.toInt(), hcredentials.rawAddress.toString(), pextralist.rawAddress.toString(), preserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsModifyRecordsInSetUtf8(paddrecords: COpaquePointer?, pdeleterecords: COpaquePointer?, options: UInt, hcredentials: Handle, pextralist: COpaquePointer?, preserved: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8((paddrecords?.value ?: 0L).toString(), (pdeleterecords?.value ?: 0L).toString(), options.toInt(), (hcredentials?.value ?: 0L).toString(), (pextralist?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsModifyRecordsInSetUtf8(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8(paddrecords.rawAddress.toString(), pdeleterecords.rawAddress.toString(), options.toInt(), hcredentials.rawAddress.toString(), pextralist.rawAddress.toString(), preserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsModifyRecordsInSetW(paddrecords: COpaquePointer?, pdeleterecords: COpaquePointer?, options: UInt, hcredentials: Handle, pextralist: COpaquePointer?, preserved: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW((paddrecords?.value ?: 0L).toString(), (pdeleterecords?.value ?: 0L).toString(), options.toInt(), (hcredentials?.value ?: 0L).toString(), (pextralist?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsModifyRecordsInSetW(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW(paddrecords.rawAddress.toString(), pdeleterecords.rawAddress.toString(), options.toInt(), hcredentials.rawAddress.toString(), pextralist.rawAddress.toString(), preserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsNameCompareA(pname1: Pcstr, pname2: Pcstr): Bool =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA((pname1?.value ?: 0L).toString(), (pname2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareA(pname1.rawAddress.toString(), pname2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsNameCompareW(pname1: Pcwstr, pname2: Pcwstr): Bool =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW((pname1?.value ?: 0L).toString(), (pname2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW(pname1.rawAddress.toString(), pname2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: COpaquePointer?, pbuffer: COpaquePointer?, pbuflen: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig(config, flag.toInt(), (pwsadaptername?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), (pbuflen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: ConstPtr<CVoid>, pbuffer: MutPtr<CVoid>, pbuflen: MutPtr<UInt>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig(config, flag.toInt(), pwsadaptername.rawAddress.toString(), preserved.rawAddress.toString(), pbuffer.rawAddress.toString(), pbuflen.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsQueryEx(pqueryrequest: COpaquePointer?, pqueryresults: COpaquePointer?, pcancelhandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryEx((pqueryrequest?.value ?: 0L).toString(), (pqueryresults?.value ?: 0L).toString(), (pcancelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsQueryEx(pqueryrequest: ConstPtr<DnsQueryRequest>, pqueryresults: MutPtr<DnsQueryResult>, pcancelhandle: MutPtr<DnsQueryCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx(pqueryrequest.rawAddress.toString(), pqueryresults.rawAddress.toString(), pcancelhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsQueryRaw(queryrequest: COpaquePointer?, cancelhandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw((queryrequest?.value ?: 0L).toString(), (cancelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsQueryRaw(queryrequest: ConstPtr<DnsQueryRawRequest>, cancelhandle: MutPtr<DnsQueryRawCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw(queryrequest.rawAddress.toString(), cancelhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsQueryRawResultFree(queryresults: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree((queryresults?.value ?: 0L).toString())
+public actual fun dnsQueryRawResultFree(queryresults: ConstPtr<DnsQueryRawResult>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree(queryresults.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryA((pszname?.value ?: 0L).toString(), wtype.toInt(), options.toInt(), (pextra?.value ?: 0L).toString(), (ppqueryresults?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryA(pszname.rawAddress.toString(), wtype.toInt(), options.toInt(), pextra.rawAddress.toString(), ppqueryresults.rawAddress.toString(), preserved.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8((pszname?.value ?: 0L).toString(), wtype.toInt(), options.toInt(), (pextra?.value ?: 0L).toString(), (ppqueryresults?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8(pszname.rawAddress.toString(), wtype.toInt(), options.toInt(), pextra.rawAddress.toString(), ppqueryresults.rawAddress.toString(), preserved.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsQueryW((pszname?.value ?: 0L).toString(), wtype.toInt(), options.toInt(), (pextra?.value ?: 0L).toString(), (ppqueryresults?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsQueryW(pszname.rawAddress.toString(), wtype.toInt(), options.toInt(), pextra.rawAddress.toString(), ppqueryresults.rawAddress.toString(), preserved.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsRecordCompare(precord1: COpaquePointer?, precord2: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare((precord1?.value ?: 0L).toString(), (precord2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsRecordCompare(precord1: ConstPtr<DnsRecorda>, precord2: ConstPtr<DnsRecorda>): Bool =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare(precord1.rawAddress.toString(), precord2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsRecordCopyEx(precord: COpaquePointer?, charsetin: DnsCharset, charsetout: DnsCharset): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx((precord?.value ?: 0L).toString(), charsetin, charsetout) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsRecordCopyEx(precord: ConstPtr<DnsRecorda>, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr<DnsRecorda> =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) MutPtr((windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx(precord.rawAddress.toString(), charsetin, charsetout) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsRecordSetCompare(prr1: COpaquePointer?, prr2: COpaquePointer?, ppdiff1: COpaquePointer?, ppdiff2: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare((prr1?.value ?: 0L).toString(), (prr2?.value ?: 0L).toString(), (ppdiff1?.value ?: 0L).toString(), (ppdiff2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsRecordSetCompare(prr1: MutPtr<DnsRecorda>, prr2: MutPtr<DnsRecorda>, ppdiff1: MutPtr<MutPtr<DnsRecorda>>, ppdiff2: MutPtr<MutPtr<DnsRecorda>>): Bool =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare(prr1.rawAddress.toString(), prr2.rawAddress.toString(), ppdiff1.rawAddress.toString(), ppdiff2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsRecordSetCopyEx(precordset: COpaquePointer?, charsetin: DnsCharset, charsetout: DnsCharset): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx((precordset?.value ?: 0L).toString(), charsetin, charsetout) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsRecordSetCopyEx(precordset: ConstPtr<DnsRecorda>, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr<DnsRecorda> =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) MutPtr((windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx(precordset.rawAddress.toString(), charsetin, charsetout) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsRecordSetDetach(precordlist: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach((precordlist?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsRecordSetDetach(precordlist: MutPtr<DnsRecorda>): MutPtr<DnsRecorda> =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) MutPtr((windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach(precordlist.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsReleaseContextHandle(hcontext: Handle) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle((hcontext?.value ?: 0L).toString())
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle(hcontext.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsReplaceRecordSetA(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA((preplaceset?.value ?: 0L).toString(), options.toInt(), (hcontext?.value ?: 0L).toString(), (pextrainfo?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsReplaceRecordSetA(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA(preplaceset.rawAddress.toString(), options.toInt(), hcontext.rawAddress.toString(), pextrainfo.rawAddress.toString(), preserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsReplaceRecordSetUTF8(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8((preplaceset?.value ?: 0L).toString(), options.toInt(), (hcontext?.value ?: 0L).toString(), (pextrainfo?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsReplaceRecordSetUTF8(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8(preplaceset.rawAddress.toString(), options.toInt(), hcontext.rawAddress.toString(), pextrainfo.rawAddress.toString(), preserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsReplaceRecordSetW(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW((preplaceset?.value ?: 0L).toString(), options.toInt(), (hcontext?.value ?: 0L).toString(), (pextrainfo?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsReplaceRecordSetW(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW(preplaceset.rawAddress.toString(), options.toInt(), hcontext.rawAddress.toString(), pextrainfo.rawAddress.toString(), preserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceBrowse(prequest: COpaquePointer?, pcancel: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse((prequest?.value ?: 0L).toString(), (pcancel?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceBrowse(prequest: ConstPtr<DnsServiceBrowseRequest>, pcancel: MutPtr<DnsServiceCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse(prequest.rawAddress.toString(), pcancel.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceBrowseCancel(pcancelhandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel((pcancelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceBrowseCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel(pcancelhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: COpaquePointer?, pip6: COpaquePointer?, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: COpaquePointer?, values: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance((pservicename?.value ?: 0L).toString(), (phostname?.value ?: 0L).toString(), (pip4?.value ?: 0L).toString(), (pip6?.value ?: 0L).toString(), wport.toInt(), wpriority.toInt(), wweight.toInt(), dwpropertiescount.toInt(), (keys?.value ?: 0L).toString(), (values?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: ConstPtr<UInt>, pip6: ConstPtr<Ip6Address>, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: ConstPtr<Pcwstr>, values: ConstPtr<Pcwstr>): MutPtr<DnsServiceInstance> =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) MutPtr((windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance(pservicename.rawAddress.toString(), phostname.rawAddress.toString(), pip4.rawAddress.toString(), pip6.rawAddress.toString(), wport.toInt(), wpriority.toInt(), wweight.toInt(), dwpropertiescount.toInt(), keys.rawAddress.toString(), values.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceCopyInstance(porig: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance((porig?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceCopyInstance(porig: ConstPtr<DnsServiceInstance>): MutPtr<DnsServiceInstance> =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) MutPtr((windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance(porig.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceDeRegister(prequest: COpaquePointer?, pcancel: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister((prequest?.value ?: 0L).toString(), (pcancel?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceDeRegister(prequest: ConstPtr<DnsServiceRegisterRequest>, pcancel: MutPtr<DnsServiceCancel>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister(prequest.rawAddress.toString(), pcancel.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceFreeInstance(pinstance: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) {
-        _windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance((pinstance?.value ?: 0L).toString())
+public actual fun dnsServiceFreeInstance(pinstance: ConstPtr<DnsServiceInstance>) {
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) {
+        windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance(pinstance.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun dnsServiceRegister(prequest: COpaquePointer?, pcancel: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister((prequest?.value ?: 0L).toString(), (pcancel?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceRegister(prequest: ConstPtr<DnsServiceRegisterRequest>, pcancel: MutPtr<DnsServiceCancel>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister(prequest.rawAddress.toString(), pcancel.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceRegisterCancel(pcancelhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel((pcancelhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceRegisterCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel(pcancelhandle.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceResolve(prequest: COpaquePointer?, pcancel: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve((prequest?.value ?: 0L).toString(), (pcancel?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceResolve(prequest: ConstPtr<DnsServiceResolveRequest>, pcancel: MutPtr<DnsServiceCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve(prequest.rawAddress.toString(), pcancel.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsServiceResolveCancel(pcancelhandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel((pcancelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsServiceResolveCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel(pcancelhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: COpaquePointer?, psettings: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings(cservers.toInt(), (pservers?.value ?: 0L).toString(), (psettings?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: ConstPtr<DnsCustomServer>, psettings: ConstPtr<DnsApplicationSettings>): UInt =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings(cservers.toInt(), pservers.rawAddress.toString(), psettings.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsStartMulticastQuery(pqueryrequest: COpaquePointer?, phandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery((pqueryrequest?.value ?: 0L).toString(), (phandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsStartMulticastQuery(pqueryrequest: ConstPtr<MdnsQueryRequest>, phandle: MutPtr<MdnsQueryHandle>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery(pqueryrequest.rawAddress.toString(), phandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsStopMulticastQuery(phandle: COpaquePointer?): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery((phandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsStopMulticastQuery(phandle: MutPtr<MdnsQueryHandle>): Int =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery(phandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsValidateNameA(pszname: Pcstr, format: DnsNameFormat): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA((pszname?.value ?: 0L).toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameA(pszname.rawAddress.toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsValidateNameUtf8(pszname: Pcstr, format: DnsNameFormat): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8((pszname?.value ?: 0L).toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameUtf8(pszname.rawAddress.toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dnsValidateNameW(pszname: Pcwstr, format: DnsNameFormat): Int =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW((pszname?.value ?: 0L).toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW(pszname.rawAddress.toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: COpaquePointer?, pdwbuffersize: COpaquePointer?, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8((pdnsbuffer?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pszname?.value ?: 0L).toString(), wtype.toInt(), xid.toInt(), frecursiondesired) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: MutPtr<DnsMessageBuffer>, pdwbuffersize: MutPtr<UInt>, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8(pdnsbuffer.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pszname.rawAddress.toString(), wtype.toInt(), xid.toInt(), frecursiondesired) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: COpaquePointer?, pdwbuffersize: COpaquePointer?, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
-    if (_windowsWin32NetworkmanagementDnsNapiAddon != null) (_windowsWin32NetworkmanagementDnsNapiAddon.windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW((pdnsbuffer?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pszname?.value ?: 0L).toString(), wtype.toInt(), xid.toInt(), frecursiondesired) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: MutPtr<DnsMessageBuffer>, pdwbuffersize: MutPtr<UInt>, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+    if (windowsWin32NetworkmanagementDnsNapiAddon != null) (windowsWin32NetworkmanagementDnsNapiAddon.windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW(pdnsbuffer.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pszname.rawAddress.toString(), wtype.toInt(), xid.toInt(), frecursiondesired) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

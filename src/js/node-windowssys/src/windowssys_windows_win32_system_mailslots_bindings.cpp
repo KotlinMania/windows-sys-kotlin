@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_mailslots_createMailslotA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMailslotsCreateMailslotA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nmaxmessagesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_system_mailslots_createMailslotA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_mailslots_createMailslotW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMailslotsCreateMailslotW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nmaxmessagesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_mailslots_createMailslotW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_mailslots_getMailslotInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMailslotsGetMailslotInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmailslot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmaxmessagesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_system_mailslots_getMailslotInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_mailslots_setMailslotInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMailslotsSetMailslotInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmailslot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lreadtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -174,10 +174,10 @@ static Napi::Value windowssys_windows_win32_system_mailslots_setMailslotInfo_nap
 }
 
 static void register_windows_win32_system_mailslots_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_mailslots_createMailslotA", Napi::Function::New(env, windowssys_windows_win32_system_mailslots_createMailslotA_napi));
-    exports.Set("windowssys_windows_win32_system_mailslots_createMailslotW", Napi::Function::New(env, windowssys_windows_win32_system_mailslots_createMailslotW_napi));
-    exports.Set("windowssys_windows_win32_system_mailslots_getMailslotInfo", Napi::Function::New(env, windowssys_windows_win32_system_mailslots_getMailslotInfo_napi));
-    exports.Set("windowssys_windows_win32_system_mailslots_setMailslotInfo", Napi::Function::New(env, windowssys_windows_win32_system_mailslots_setMailslotInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemMailslotsCreateMailslotA", Napi::Function::New(env, windowssysWindowsWin32SystemMailslotsCreateMailslotA_napi));
+    exports.Set("windowssysWindowsWin32SystemMailslotsCreateMailslotW", Napi::Function::New(env, windowssysWindowsWin32SystemMailslotsCreateMailslotW_napi));
+    exports.Set("windowssysWindowsWin32SystemMailslotsGetMailslotInfo", Napi::Function::New(env, windowssysWindowsWin32SystemMailslotsGetMailslotInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemMailslotsSetMailslotInfo", Napi::Function::New(env, windowssysWindowsWin32SystemMailslotsSetMailslotInfo_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_mailslots_napi, nullptr };

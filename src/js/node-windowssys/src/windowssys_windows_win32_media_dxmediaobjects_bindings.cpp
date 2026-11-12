@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsDMOEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guidcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -88,7 +88,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOEnum_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsDMOGetName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsiddmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetName_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsDMOGetTypes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsiddmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulinputtypesrequested = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -152,7 +152,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMORegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsDMORegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clsiddmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMORegister_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOUnregister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsDMOUnregister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsiddmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* guidcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -218,7 +218,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOUnregister_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsMoCopyMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmtdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmtsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moCreateMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsMoCreateMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -272,7 +272,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moCreateMediaTy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsMoDeleteMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaTy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moDuplicateMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsMoDuplicateMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppmtdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmtsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moDuplicateMedi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsMoFreeMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -349,7 +349,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moInitMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -377,17 +377,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moInitMediaType
 }
 
 static void register_windows_win32_media_dxmediaobjects_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_dMOEnum", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_dMOEnum_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_dMOGetName", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_dMOGetName_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_dMORegister", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_dMORegister_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_dMOUnregister", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_dMOUnregister_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_moCreateMediaType", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_moCreateMediaType_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaType", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaType_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_moDuplicateMediaType", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_moDuplicateMediaType_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType_napi));
-    exports.Set("windowssys_windows_win32_media_dxmediaobjects_moInitMediaType", Napi::Function::New(env, windowssys_windows_win32_media_dxmediaobjects_moInitMediaType_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsDMOEnum", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsDMOEnum_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsDMOGetName", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsDMOGetName_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsDMOGetTypes", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsDMOGetTypes_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsDMORegister", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsDMORegister_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsDMOUnregister", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsDMOUnregister_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsMoCopyMediaType", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsMoCopyMediaType_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsMoCreateMediaType", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsMoCreateMediaType_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsMoDeleteMediaType", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsMoDeleteMediaType_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsMoDuplicateMediaType", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsMoDuplicateMediaType_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsMoFreeMediaType", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsMoFreeMediaType_napi));
+    exports.Set("windowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType", Napi::Function::New(env, windowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_media_dxmediaobjects_napi, nullptr };

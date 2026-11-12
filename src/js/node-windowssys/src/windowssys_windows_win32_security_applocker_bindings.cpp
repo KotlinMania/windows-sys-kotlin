@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferCloseLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferCloseLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlevelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferCloseLevel_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* levelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inaccesstoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferComputeToken
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferCreateLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferCreateLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwscopeid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwlevelid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferCreateLevel_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferGetLevelInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* levelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinfotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferGetLevelInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferGetPolicyInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwscopeid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t saferpolicyinfoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -210,7 +210,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferGetPolicyInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferIdentifyLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnumproperties = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcodeproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferIdentifyLeve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferRecordEventLogEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sztargetpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -270,7 +270,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferRecordEventL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferSetLevelInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* levelhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinfotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferSetLevelInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferSetPolicyInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwscopeid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t saferpolicyinfoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -334,7 +334,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferSetPolicyInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_applocker_saferiIsExecutableFileType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfullpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool bfromshellexecute = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -362,16 +362,16 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferiIsExecutabl
 }
 
 static void register_windows_win32_security_applocker_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_applocker_saferCloseLevel", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferCloseLevel_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferCreateLevel", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferCreateLevel_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferGetLevelInformation", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferGetLevelInformation_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferGetPolicyInformation", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferGetPolicyInformation_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferIdentifyLevel", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferIdentifyLevel_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferRecordEventLogEntry", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferRecordEventLogEntry_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferSetLevelInformation", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferSetLevelInformation_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferSetPolicyInformation", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferSetPolicyInformation_napi));
-    exports.Set("windowssys_windows_win32_security_applocker_saferiIsExecutableFileType", Napi::Function::New(env, windowssys_windows_win32_security_applocker_saferiIsExecutableFileType_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferCloseLevel", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferCloseLevel_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferCreateLevel", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferCreateLevel_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation_napi));
+    exports.Set("windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType", Napi::Function::New(env, windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_applocker_napi, nullptr };

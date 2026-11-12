@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_activatePacka
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_addPackageDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAddPackageDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagedependencyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t rank = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_addPackageDep
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -138,7 +138,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -246,7 +246,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -273,7 +273,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -300,7 +300,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ismsixpackage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -354,7 +354,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_closePackageInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxClosePackageInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageinforeference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -379,7 +379,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_closePackageI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -406,7 +406,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_createPackage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t cookie = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -428,7 +428,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_deactivatePac
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_deletePackageDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagedependencyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -453,7 +453,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_deletePackage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -480,7 +480,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_duplicatePack
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t packagefilters = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -517,7 +517,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_findPackagesB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagerelativeapplicationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -548,7 +548,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_formatApplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* applicationusermodelidlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -577,7 +577,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getApplicatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* applicationusermodelidlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -606,7 +606,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getApplicatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationusermodelidlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* applicationusermodelid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -633,7 +633,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentApp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilynamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -660,7 +660,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullnamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -714,7 +714,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* bufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -745,7 +745,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t packagepathtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -778,7 +778,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t packageinfotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -811,7 +811,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pathlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -838,7 +838,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t packagepathtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pathlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -867,7 +867,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -890,7 +890,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagedependencycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagedependencyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -917,7 +917,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getIdForPacka
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageinforeference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -948,7 +948,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageApp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefamilynamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -977,7 +977,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefamilynamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1006,7 +1006,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullnamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1035,7 +1035,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullnamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1064,7 +1064,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1087,7 +1087,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageGra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bufferlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1116,7 +1116,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageId_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageinforeference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1149,7 +1149,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInfo2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageinforeference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1184,7 +1184,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackagePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1215,7 +1215,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pathlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1244,7 +1244,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t packagepathtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1308,7 +1308,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagesBy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1337,7 +1337,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getProcessesI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagedependencyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1364,7 +1364,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getResolvedPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* origin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1391,7 +1391,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPack
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pathlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1420,7 +1420,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPack
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t packagepathtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1451,7 +1451,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPack
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1480,7 +1480,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_openPackageIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* usersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1511,7 +1511,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_openPackageIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefamilynamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1540,7 +1540,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFamily
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefamilynamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1569,7 +1569,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFamily
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullnamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1598,7 +1598,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFullNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1629,7 +1629,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageIdFrom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagenamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1662,7 +1662,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageNameAn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationusermodelid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefamilynamelength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1695,7 +1695,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_parseApplicat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1717,7 +1717,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_releasePackag
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_removePackageDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagedependencycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1742,7 +1742,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_removePackage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationusermodelid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1767,7 +1767,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyApplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1792,7 +1792,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1817,7 +1817,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackageId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxVerifyPackageId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1842,7 +1842,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagerelativeapplicationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1868,70 +1868,70 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
 }
 
 static void register_windows_win32_storage_packaging_appx_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_addPackageDependency", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_addPackageDependency_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_closePackageInfo", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_closePackageInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_deletePackageDependency", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_deletePackageDependency_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageInfo", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackageInfo2", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackageInfo2_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackagePath", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackagePath_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_removePackageDependency", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_removePackageDependency_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_verifyPackageId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_verifyPackageId_napi));
-    exports.Set("windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId", Napi::Function::New(env, windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAddPackageDependency", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAddPackageDependency_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxClosePackageInfo", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxClosePackageInfo_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageInfo", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageInfo_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackagePath", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackagePath_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxVerifyPackageId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxVerifyPackageId_napi));
+    exports.Set("windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId", Napi::Function::New(env, windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_packaging_appx_napi, nullptr };

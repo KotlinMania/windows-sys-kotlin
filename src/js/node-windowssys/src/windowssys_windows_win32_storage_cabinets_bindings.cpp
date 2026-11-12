@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fCIAddFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFCIAddFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsourcefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -90,7 +90,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIAddFile_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fCICreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFCICreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* perf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnfcifp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCICreate_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fCIDestroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFCIDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -164,7 +164,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIDestroy_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fCIFlushCabinet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFCIFlushCabinet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fgetnextcab = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIFlushCabinet_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fCIFlushFolder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFCIFlushFolder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnfcignc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -224,7 +224,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIFlushFolder_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fDICopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFDICopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszcabinet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDICopy_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fDICreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFDICreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfnalloc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnfree = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -302,7 +302,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDICreate_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fDIDestroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFDIDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDIDestroy_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fDIIsCabinet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFDIIsCabinet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hf = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -356,7 +356,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDIIsCabinet_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_cabinets_fDITruncateCabinet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageCabinetsFDITruncateCabinet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszcabinetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -386,16 +386,16 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDITruncateCabinet_
 }
 
 static void register_windows_win32_storage_cabinets_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_cabinets_fCIAddFile", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fCIAddFile_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fCICreate", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fCICreate_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fCIDestroy", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fCIDestroy_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fCIFlushCabinet", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fCIFlushCabinet_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fCIFlushFolder", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fCIFlushFolder_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fDICopy", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fDICopy_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fDICreate", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fDICreate_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fDIDestroy", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fDIDestroy_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fDIIsCabinet", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fDIIsCabinet_napi));
-    exports.Set("windowssys_windows_win32_storage_cabinets_fDITruncateCabinet", Napi::Function::New(env, windowssys_windows_win32_storage_cabinets_fDITruncateCabinet_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFCIAddFile", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFCIAddFile_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFCICreate", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFCICreate_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFCIDestroy", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFCIDestroy_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFCIFlushCabinet", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFCIFlushCabinet_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFCIFlushFolder", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFCIFlushFolder_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFDICopy", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFDICopy_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFDICreate", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFDICreate_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFDIDestroy", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFDIDestroy_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFDIIsCabinet", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFDIIsCabinet_napi));
+    exports.Set("windowssysWindowsWin32StorageCabinetsFDITruncateCabinet", Napi::Function::New(env, windowssysWindowsWin32StorageCabinetsFDITruncateCabinet_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_cabinets_napi, nullptr };

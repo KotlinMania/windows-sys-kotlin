@@ -9,10 +9,10 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_useraccesslogging_ualInstrument(void* data);
-int32_t windowssys_windows_win32_system_useraccesslogging_ualRegisterProduct(void* wszproductname, void* wszrolename, void* wszguid);
-int32_t windowssys_windows_win32_system_useraccesslogging_ualStart(void* data);
-int32_t windowssys_windows_win32_system_useraccesslogging_ualStop(void* data);
+int32_t windowssysWindowsWin32SystemUseraccessloggingUalInstrument(void* data);
+int32_t windowssysWindowsWin32SystemUseraccessloggingUalRegisterProduct(void* wszproductname, void* wszrolename, void* wszguid);
+int32_t windowssysWindowsWin32SystemUseraccessloggingUalStart(void* data);
+int32_t windowssysWindowsWin32SystemUseraccessloggingUalStop(void* data);
 
 #ifdef __cplusplus
 }

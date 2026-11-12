@@ -1,6 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 
 public typealias AdvancedFeatureFlags = UShort
@@ -31,11 +34,11 @@ public typealias Comsd = Int
 
 public typealias CowaitFlags = Int
 
-public typealias CoDeviceCatalogCookie = COpaquePointer?
+public typealias CoDeviceCatalogCookie = MutPtr<CVoid>
 
 public typealias CoMarshalingContextAttributes = Int
 
-public typealias CoMtaUsageCookie = COpaquePointer?
+public typealias CoMtaUsageCookie = MutPtr<CVoid>
 
 public typealias CwmoFlags = Int
 
@@ -76,7 +79,7 @@ public typealias Invokekind = Int
 public typealias Locktype = Int
 
 public fun interface LpexcepfinoDeferredFillinFn {
-    public operator fun invoke(pexcepinfo: COpaquePointer?): Hresult
+    public operator fun invoke(pexcepinfo: MutPtr<Excepinfo>): Hresult
 }
 
 public typealias LpexcepfinoDeferredFillin = LpexcepfinoDeferredFillinFn?
@@ -88,7 +91,7 @@ public fun interface LpfncanunloadnowFn {
 public typealias Lpfncanunloadnow = LpfncanunloadnowFn?
 
 public fun interface LpfngetclassobjectFn {
-    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): Hresult
+    public operator fun invoke(param0: ConstPtr<Guid>, param1: ConstPtr<Guid>, param2: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public typealias Lpfngetclassobject = LpfngetclassobjectFn?
@@ -103,14 +106,14 @@ public typealias Mshctx = Int
 
 public typealias Mshlflags = Int
 
-public typealias MachineGlobalObjectTableRegistrationToken = COpaquePointer?
+public typealias MachineGlobalObjectTableRegistrationToken = MutPtr<CVoid>
 
 public typealias Pendingmsg = Int
 
 public typealias Pendingtype = Int
 
 public fun interface PfncontextcallFn {
-    public operator fun invoke(pparam: COpaquePointer?): Hresult
+    public operator fun invoke(pparam: MutPtr<ComCallData>): Hresult
 }
 
 public typealias Pfncontextcall = PfncontextcallFn?

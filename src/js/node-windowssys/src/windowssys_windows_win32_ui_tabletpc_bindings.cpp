@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_addStroke_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcAddStroke_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppacketdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_addStroke_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_addWordsToWordList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcAddWordsToWordList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwcwords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_addWordsToWordList_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_adviseInkChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcAdviseInkChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bnewstroke = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -138,7 +138,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_adviseInkChange_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_createContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcCreateContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_createContext_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_createRecognizer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcCreateRecognizer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_createRecognizer_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcDestroyContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyContext_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyRecognizer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcDestroyRecognizer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -242,7 +242,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyRecognizer_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyWordList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcDestroyWordList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -267,7 +267,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyWordList_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_endInkInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcEndInkInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -292,7 +292,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_endInkInput_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getAllRecognizers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetAllRecognizers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* recognizerclsids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getAllRecognizers_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getBestResultString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetBestResultString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -348,7 +348,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getBestResultString_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getLatticePtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetLatticePtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pplattice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -375,7 +375,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getLatticePtr_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getLeftSeparator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetLeftSeparator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -404,7 +404,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getLeftSeparator_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getRecoAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetRecoAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precoattrs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -431,7 +431,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getRecoAttributes_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getResultPropertyList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetResultPropertyList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertycount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -460,7 +460,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getResultPropertyList_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getRightSeparator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetRightSeparator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -489,7 +489,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getRightSeparator_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_getUnicodeRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcGetUnicodeRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcranges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -518,7 +518,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getUnicodeRanges_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_isStringSupported_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcIsStringSupported_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wcstring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_isStringSupported_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_makeWordList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcMakeWordList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -576,7 +576,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_makeWordList_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_process_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbpartialprocessing = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -603,7 +603,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_process_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cranges = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -632,7 +632,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_setFactoid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcSetFactoid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cwcfactoid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -661,7 +661,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setFactoid_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_setFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcSetFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -688,7 +688,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setFlags_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_setGuide_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcSetGuide_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguide = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setGuide_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_setTextContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcSetTextContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cwcbefore = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -750,7 +750,7 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setTextContext_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_tabletpc_setWordList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiTabletpcSetWordList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -778,32 +778,32 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setWordList_napi(const N
 }
 
 static void register_windows_win32_ui_tabletpc_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_tabletpc_addStroke", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_addStroke_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_addWordsToWordList", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_addWordsToWordList_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_adviseInkChange", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_adviseInkChange_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_createContext", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_createContext_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_createRecognizer", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_createRecognizer_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_destroyContext", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_destroyContext_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_destroyRecognizer", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_destroyRecognizer_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_destroyWordList", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_destroyWordList_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_endInkInput", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_endInkInput_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getAllRecognizers", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getAllRecognizers_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getBestResultString", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getBestResultString_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getLatticePtr", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getLatticePtr_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getLeftSeparator", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getLeftSeparator_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getRecoAttributes", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getRecoAttributes_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getResultPropertyList", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getResultPropertyList_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getRightSeparator", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getRightSeparator_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_getUnicodeRanges", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_getUnicodeRanges_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_isStringSupported", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_isStringSupported_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_makeWordList", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_makeWordList_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_process", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_process_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_setFactoid", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_setFactoid_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_setFlags", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_setFlags_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_setGuide", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_setGuide_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_setTextContext", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_setTextContext_napi));
-    exports.Set("windowssys_windows_win32_ui_tabletpc_setWordList", Napi::Function::New(env, windowssys_windows_win32_ui_tabletpc_setWordList_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcAddStroke", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcAddStroke_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcAddWordsToWordList", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcAddWordsToWordList_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcAdviseInkChange", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcAdviseInkChange_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcCreateContext", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcCreateContext_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcCreateRecognizer", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcCreateRecognizer_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcDestroyContext", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcDestroyContext_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcDestroyRecognizer", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcDestroyRecognizer_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcDestroyWordList", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcDestroyWordList_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcEndInkInput", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcEndInkInput_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetAllRecognizers", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetAllRecognizers_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetBestResultString", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetBestResultString_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetLatticePtr", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetLatticePtr_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetLeftSeparator", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetLeftSeparator_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetRecoAttributes", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetRecoAttributes_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetResultPropertyList", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetResultPropertyList_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetRightSeparator", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetRightSeparator_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcGetUnicodeRanges", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcGetUnicodeRanges_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcIsStringSupported", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcIsStringSupported_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcMakeWordList", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcMakeWordList_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcProcess", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcProcess_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcSetFactoid", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcSetFactoid_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcSetFlags", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcSetFlags_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcSetGuide", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcSetGuide_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcSetTextContext", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcSetTextContext_napi));
+    exports.Set("windowssysWindowsWin32UiTabletpcSetWordList", Napi::Function::New(env, windowssysWindowsWin32UiTabletpcSetWordList_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_tabletpc_napi, nullptr };

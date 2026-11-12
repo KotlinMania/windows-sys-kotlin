@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_dwreserved1, jshort i_wcbreserved2, jlong i_pvreserved2, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong iPszhost, jlong iPsztmname, jlong iRiid, jint iDwreserved1, jshort iWcbreserved2, jlong iPvreserved2, jlong oPpvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -31,26 +31,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_dwreserved1, (uint16_t)i_wcbreserved2, (void*)(uintptr_t)i_pvreserved2, (void*)(uintptr_t)o_ppvobject);
+        km_res = km_fn_ptr((void*)(uintptr_t)iPszhost, (void*)(uintptr_t)iPsztmname, (void*)(uintptr_t)iRiid, (uint32_t)iDwreserved1, (uint16_t)iWcbreserved2, (void*)(uintptr_t)iPvreserved2, (void*)(uintptr_t)oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_dwreserved1;
-    (void)i_wcbreserved2;
-    (void)i_pvreserved2;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iDwreserved1;
+    (void)iWcbreserved2;
+    (void)iPvreserved2;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManagerC(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_dwreserved1, jshort i_wcbreserved2, jlong i_pvreserved2, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerC(JNIEnv* km_env, jclass km_clazz, jlong iPszhost, jlong iPsztmname, jlong iRiid, jint iDwreserved1, jshort iWcbreserved2, jlong iPvreserved2, jlong oPpvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -62,26 +62,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_dwreserved1, (uint16_t)i_wcbreserved2, (void*)(uintptr_t)i_pvreserved2, (void*)(uintptr_t)o_ppvobject);
+        km_res = km_fn_ptr((void*)(uintptr_t)iPszhost, (void*)(uintptr_t)iPsztmname, (void*)(uintptr_t)iRiid, (uint32_t)iDwreserved1, (uint16_t)iWcbreserved2, (void*)(uintptr_t)iPvreserved2, (void*)(uintptr_t)oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_dwreserved1;
-    (void)i_wcbreserved2;
-    (void)i_pvreserved2;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iDwreserved1;
+    (void)iWcbreserved2;
+    (void)iPvreserved2;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManagerExA(JNIEnv* km_env, jclass km_clazz, jlong i_pszhost, jlong i_psztmname, jlong i_riid, jint i_grfoptions, jlong i_pvconfigparams, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExA(JNIEnv* km_env, jclass km_clazz, jlong iPszhost, jlong iPsztmname, jlong iRiid, jint iGrfoptions, jlong iPvconfigparams, jlong oPpvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -93,25 +93,25 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_grfoptions, (void*)(uintptr_t)i_pvconfigparams, (void*)(uintptr_t)o_ppvobject);
+        km_res = km_fn_ptr((void*)(uintptr_t)iPszhost, (void*)(uintptr_t)iPsztmname, (void*)(uintptr_t)iRiid, (uint32_t)iGrfoptions, (void*)(uintptr_t)iPvconfigparams, (void*)(uintptr_t)oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_grfoptions;
-    (void)i_pvconfigparams;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iGrfoptions;
+    (void)iPvconfigparams;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssys_1windows_1win32_1system_1distributedtransactioncoordinator_1dtcGetTransactionManagerExW(JNIEnv* km_env, jclass km_clazz, jlong i_pwszhost, jlong i_pwsztmname, jlong i_riid, jint i_grfoptions, jlong i_pvconfigparams, jlong o_ppvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_distributedtransactioncoordinator_WindowsWin32SystemDistributedtransactioncoordinatorJniBridge_windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW(JNIEnv* km_env, jclass km_clazz, jlong iPwszhost, jlong iPwsztmname, jlong iRiid, jint iGrfoptions, jlong iPvconfigparams, jlong oPpvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,18 +123,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)i_pwszhost, (void*)(uintptr_t)i_pwsztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_grfoptions, (void*)(uintptr_t)i_pvconfigparams, (void*)(uintptr_t)o_ppvobject);
+        km_res = km_fn_ptr((void*)(uintptr_t)iPwszhost, (void*)(uintptr_t)iPwsztmname, (void*)(uintptr_t)iRiid, (uint32_t)iGrfoptions, (void*)(uintptr_t)iPvconfigparams, (void*)(uintptr_t)oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pwszhost;
-    (void)i_pwsztmname;
-    (void)i_riid;
-    (void)i_grfoptions;
-    (void)i_pvconfigparams;
-    (void)o_ppvobject;
+    (void)iPwszhost;
+    (void)iPwsztmname;
+    (void)iRiid;
+    (void)iGrfoptions;
+    (void)iPvconfigparams;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif

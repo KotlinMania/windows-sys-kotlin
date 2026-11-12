@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_remotedesktop_processIdToSessionId(uint32_t dwprocessid, void* psessionid) {
+int32_t windowssysWindowsWin32SystemRemotedesktopProcessIdToSessionId(uint32_t dwprocessid, void* psessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_processIdToSessionId(uint3
 #endif
 }
 
-void windowssys_windows_win32_system_remotedesktop_wTSCloseServer(void* hserver) {
+void windowssysWindowsWin32SystemRemotedesktopWTSCloseServer(void* hserver) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ void windowssys_windows_win32_system_remotedesktop_wTSCloseServer(void* hserver)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA(uint32_t logonid, uint32_t targetlogonid, void* ppassword, int32_t bwait) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionA(uint32_t logonid, uint32_t targetlogonid, void* ppassword, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW(uint32_t logonid, uint32_t targetlogonid, void* ppassword, int32_t bwait) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionW(uint32_t logonid, uint32_t targetlogonid, void* ppassword, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer, uint32_t flag) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer, uint32_t flag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer, uint32_t flag) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer, uint32_t flag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -163,7 +163,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession(void* hserver, uint32_t sessionid, int32_t bwait) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSDisconnectSession(void* hserver, uint32_t sessionid, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -187,7 +187,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions(int32_t benable) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions(int32_t benable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -209,7 +209,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA(void* hserver, void* preserved, uint32_t reserved, void* plisteners, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA(void* hserver, void* preserved, uint32_t reserved, void* plisteners, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -235,7 +235,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW(void* hserver, void* preserved, uint32_t reserved, void* plisteners, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersW(void* hserver, void* preserved, uint32_t reserved, void* plisteners, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -261,7 +261,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA(void* hserver, uint32_t reserved, uint32_t version, void* ppprocessinfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesA(void* hserver, uint32_t reserved, uint32_t version, void* ppprocessinfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA(void* hserver, void* plevel, uint32_t sessionid, void* ppprocessinfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExA(void* hserver, void* plevel, uint32_t sessionid, void* ppprocessinfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -313,7 +313,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW(void* hserver, void* plevel, uint32_t sessionid, void* ppprocessinfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExW(void* hserver, void* plevel, uint32_t sessionid, void* ppprocessinfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW(void* hserver, uint32_t reserved, uint32_t version, void* ppprocessinfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesW(void* hserver, uint32_t reserved, uint32_t version, void* ppprocessinfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -365,7 +365,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA(void* pdomainname, uint32_t reserved, uint32_t version, void* ppserverinfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersA(void* pdomainname, uint32_t reserved, uint32_t version, void* ppserverinfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW(void* pdomainname, uint32_t reserved, uint32_t version, void* ppserverinfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersW(void* pdomainname, uint32_t reserved, uint32_t version, void* ppserverinfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -417,7 +417,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA(void* hserver, uint32_t reserved, uint32_t version, void* ppsessioninfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsA(void* hserver, uint32_t reserved, uint32_t version, void* ppsessioninfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -443,7 +443,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA(void* hserver, void* plevel, uint32_t filter, void* ppsessioninfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExA(void* hserver, void* plevel, uint32_t filter, void* ppsessioninfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW(void* hserver, void* plevel, uint32_t filter, void* ppsessioninfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExW(void* hserver, void* plevel, uint32_t filter, void* ppsessioninfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -495,7 +495,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW(void* hserver, uint32_t reserved, uint32_t version, void* ppsessioninfo, void* pcount) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsW(void* hserver, uint32_t reserved, uint32_t version, void* ppsessioninfo, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -521,7 +521,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW(void
 #endif
 }
 
-void windowssys_windows_win32_system_remotedesktop_wTSFreeMemory(void* pmemory) {
+void windowssysWindowsWin32SystemRemotedesktopWTSFreeMemory(void* pmemory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -542,7 +542,7 @@ void windowssys_windows_win32_system_remotedesktop_wTSFreeMemory(void* pmemory) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA(int32_t wtstypeclass, void* pmemory, uint32_t numberofentries) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExA(int32_t wtstypeclass, void* pmemory, uint32_t numberofentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -566,7 +566,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA(int32_t w
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW(int32_t wtstypeclass, void* pmemory, uint32_t numberofentries) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExW(int32_t wtstypeclass, void* pmemory, uint32_t numberofentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -590,7 +590,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW(int32_t w
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessionId(void) {
+uint32_t windowssysWindowsWin32SystemRemotedesktopWTSGetActiveConsoleSessionId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ uint32_t windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId(void* psessionid) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSGetChildSessionId(void* psessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -662,7 +662,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -691,7 +691,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled(void* pbenabled) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSIsChildSessionsEnabled(void* pbenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -713,7 +713,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSLogoffSession(void* hserver, uint32_t sessionid, int32_t bwait) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSLogoffSession(void* hserver, uint32_t sessionid, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSLogoffSession(void* hse
 #endif
 }
 
-void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerA(void* pservername) {
+void* windowssysWindowsWin32SystemRemotedesktopWTSOpenServerA(void* pservername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -759,7 +759,7 @@ void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerA(void* pserver
 #endif
 }
 
-void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA(void* pservername) {
+void* windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExA(void* pservername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA(void* pserv
 #endif
 }
 
-void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW(void* pservername) {
+void* windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExW(void* pservername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -803,7 +803,7 @@ void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW(void* pserv
 #endif
 }
 
-void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerW(void* pservername) {
+void* windowssysWindowsWin32SystemRemotedesktopWTSOpenServerW(void* pservername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ void* windowssys_windows_win32_system_remotedesktop_wTSOpenServerW(void* pserver
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -851,7 +851,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -877,7 +877,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationA(void* hserver, uint32_t sessionid, int32_t wtsinfoclass, void* ppbuffer, void* pbytesreturned) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationA(void* hserver, uint32_t sessionid, int32_t wtsinfoclass, void* ppbuffer, void* pbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -903,7 +903,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformation
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationW(void* hserver, uint32_t sessionid, int32_t wtsinfoclass, void* ppbuffer, void* pbytesreturned) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationW(void* hserver, uint32_t sessionid, int32_t wtsinfoclass, void* ppbuffer, void* pbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -929,7 +929,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformation
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA(void* pservername, void* pusername, int32_t wtsconfigclass, void* ppbuffer, void* pbytesreturned) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigA(void* pservername, void* pusername, int32_t wtsconfigclass, void* ppbuffer, void* pbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -955,7 +955,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW(void* pservername, void* pusername, int32_t wtsconfigclass, void* ppbuffer, void* pbytesreturned) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigW(void* pservername, void* pusername, int32_t wtsconfigclass, void* ppbuffer, void* pbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -981,7 +981,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken(uint32_t sessionid, void* phtoken) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSQueryUserToken(uint32_t sessionid, void* phtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1004,7 +1004,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotification(void* hwnd, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotification(void* hwnd, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1027,7 +1027,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotifica
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotificationEx(void* hserver, void* hwnd, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotificationEx(void* hserver, void* hwnd, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1051,7 +1051,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotifica
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSendMessageA(void* hserver, uint32_t sessionid, void* ptitle, uint32_t titlelength, void* pmessage, uint32_t messagelength, uint32_t style, uint32_t timeout, void* presponse, int32_t bwait) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSendMessageA(void* hserver, uint32_t sessionid, void* ptitle, uint32_t titlelength, void* pmessage, uint32_t messagelength, uint32_t style, uint32_t timeout, void* presponse, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1082,7 +1082,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSendMessageA(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSendMessageW(void* hserver, uint32_t sessionid, void* ptitle, uint32_t titlelength, void* pmessage, uint32_t messagelength, uint32_t style, uint32_t timeout, void* presponse, int32_t bwait) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSendMessageW(void* hserver, uint32_t sessionid, void* ptitle, uint32_t titlelength, void* pmessage, uint32_t messagelength, uint32_t style, uint32_t timeout, void* presponse, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSendMessageW(void* hser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityA(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1140,7 +1140,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityW(void* hserver, void* preserved, uint32_t reserved, void* plistenername, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1167,7 +1167,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint(void* prenderhintid, void* hwndowner, uint32_t renderhinttype, uint32_t cbhintdatalength, void* phintdata) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSetRenderHint(void* prenderhintid, void* hwndowner, uint32_t renderhinttype, uint32_t cbhintdatalength, void* phintdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1193,7 +1193,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint(void* pre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA(void* pservername, void* pusername, int32_t wtsconfigclass, void* pbuffer, uint32_t datalength) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigA(void* pservername, void* pusername, int32_t wtsconfigclass, void* pbuffer, uint32_t datalength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1219,7 +1219,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW(void* pservername, void* pusername, int32_t wtsconfigclass, void* pbuffer, uint32_t datalength) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigW(void* pservername, void* pusername, int32_t wtsconfigclass, void* pbuffer, uint32_t datalength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1245,7 +1245,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem(void* hserver, uint32_t shutdownflag) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSShutdownSystem(void* hserver, uint32_t shutdownflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1268,7 +1268,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem(void* hs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionA(void* ptargetservername, uint32_t targetlogonid, uint8_t hotkeyvk, uint16_t hotkeymodifiers) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionA(void* ptargetservername, uint32_t targetlogonid, uint8_t hotkeyvk, uint16_t hotkeymodifiers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1293,7 +1293,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionW(void* ptargetservername, uint32_t targetlogonid, uint8_t hotkeyvk, uint16_t hotkeymodifiers) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionW(void* ptargetservername, uint32_t targetlogonid, uint8_t hotkeyvk, uint16_t hotkeymodifiers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1318,7 +1318,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSession(uint32_t logonid) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession(uint32_t logonid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1340,7 +1340,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSessio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess(void* hserver, uint32_t processid, uint32_t exitcode) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSTerminateProcess(void* hserver, uint32_t processid, uint32_t exitcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1364,7 +1364,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotification(void* hwnd) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotification(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotifi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotificationEx(void* hserver, void* hwnd) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotificationEx(void* hserver, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1409,7 +1409,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotifi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose(void* hchannelhandle) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelClose(void* hchannelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1431,7 +1431,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen(void* hserver, uint32_t sessionid, void* pvirtualname) {
+void* windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpen(void* hserver, uint32_t sessionid, void* pvirtualname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1455,7 +1455,7 @@ void* windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx(uint32_t sessionid, void* pvirtualname, uint32_t flags) {
+void* windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpenEx(uint32_t sessionid, void* pvirtualname, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ void* windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInput(void* hchannelhandle) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeInput(void* hchannelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1501,7 +1501,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInpu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutput(void* hchannelhandle) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeOutput(void* hchannelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1523,7 +1523,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery(void* hchannelhandle, int32_t param1, void* ppbuffer, void* pbytesreturned) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelQuery(void* hchannelhandle, int32_t param1, void* ppbuffer, void* pbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1548,7 +1548,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead(void* hchannelhandle, uint32_t timeout, void* buffer, uint32_t buffersize, void* pbytesread) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelRead(void* hchannelhandle, uint32_t timeout, void* buffer, uint32_t buffersize, void* pbytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1574,7 +1574,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite(void* hchannelhandle, void* buffer, uint32_t length, void* pbyteswritten) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelWrite(void* hchannelhandle, void* buffer, uint32_t length, void* pbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1599,7 +1599,7 @@ int32_t windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEvent(void* hserver, uint32_t eventmask, void* peventflags) {
+int32_t windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent(void* hserver, uint32_t eventmask, void* peventflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

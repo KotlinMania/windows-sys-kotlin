@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn(void) {
+int32_t windowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

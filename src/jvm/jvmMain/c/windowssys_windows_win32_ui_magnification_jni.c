@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetColorEffect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong peffect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetColorEffect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong peffect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetFullscreenColorEffect(JNIEnv* km_env, jclass km_clazz, jlong peffect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetFullscreenColorEffect(JNIEnv* km_env, jclass km_clazz, jlong peffect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetFullscreenTransform(JNIEnv* km_env, jclass km_clazz, jlong pmaglevel, jlong pxoffset, jlong pyoffset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetFullscreenTransform(JNIEnv* km_env, jclass km_clazz, jlong pmaglevel, jlong pxoffset, jlong pyoffset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetImageScalingCallback(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetImageScalingCallback(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_m
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetInputTransform(JNIEnv* km_env, jclass km_clazz, jlong pfenabled, jlong prectsource, jlong prectdest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetInputTransform(JNIEnv* km_env, jclass km_clazz, jlong pfenabled, jlong prectsource, jlong prectdest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetWindowFilterList(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pdwfiltermode, jint count, jlong phwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetWindowFilterList(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pdwfiltermode, jint count, jlong phwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetWindowSource(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong prect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetWindowSource(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong prect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magGetWindowTransform(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptransform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagGetWindowTransform(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptransform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -229,7 +229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magInitialize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagInitialize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -253,7 +253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetColorEffect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong peffect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetColorEffect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong peffect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetFullscreenColorEffect(JNIEnv* km_env, jclass km_clazz, jlong peffect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetFullscreenColorEffect(JNIEnv* km_env, jclass km_clazz, jlong peffect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -304,7 +304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetFullscreenTransform(JNIEnv* km_env, jclass km_clazz, jfloat maglevel, jint xoffset, jint yoffset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetFullscreenTransform(JNIEnv* km_env, jclass km_clazz, jfloat maglevel, jint xoffset, jint yoffset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetImageScalingCallback(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong callback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetImageScalingCallback(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong callback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -357,7 +357,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetInputTransform(JNIEnv* km_env, jclass km_clazz, jint fenabled, jlong prectsource, jlong prectdest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetInputTransform(JNIEnv* km_env, jclass km_clazz, jint fenabled, jlong prectsource, jlong prectdest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -384,7 +384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetWindowFilterList(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwfiltermode, jint count, jlong phwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetWindowFilterList(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwfiltermode, jint count, jlong phwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -412,7 +412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magSetWindowTransform(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptransform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagSetWindowTransform(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptransform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -438,7 +438,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magShowSystemCursor(JNIEnv* km_env, jclass km_clazz, jint fshowcursor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagShowSystemCursor(JNIEnv* km_env, jclass km_clazz, jint fshowcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -463,7 +463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_ma
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssys_1windows_1win32_1ui_1magnification_1magUninitialize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_magnification_WindowsWin32UiMagnificationJniBridge_windowssysWindowsWin32UiMagnificationMagUninitialize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

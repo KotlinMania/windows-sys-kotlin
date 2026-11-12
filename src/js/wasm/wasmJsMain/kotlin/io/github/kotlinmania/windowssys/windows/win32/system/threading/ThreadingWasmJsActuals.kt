@@ -2,1381 +2,1391 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Papcfunc
 import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessMask
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ProcessorNumber
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SlistEntry
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SlistHeader
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.GroupAffinity
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.ImageFileMachine
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32SystemThreadingNapiAddon(): Boolean
+private external fun initWindowsWin32SystemThreadingNapiAddon(): Boolean
 
-private val _windowsWin32SystemThreadingNapiAvailable: Boolean = _initWindowsWin32SystemThreadingNapiAddon()
+private val windowsWin32SystemThreadingNapiAvailable: Boolean = initWindowsWin32SystemThreadingNapiAddon()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_acquireSRWLockExclusive(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_acquireSRWLockExclusive(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAcquireSRWLockExclusive(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAcquireSRWLockExclusive(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_acquireSRWLockShared(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_acquireSRWLockShared(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAcquireSRWLockShared(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAcquireSRWLockShared(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAddIntegrityLabelToBoundaryDescriptor(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAddIntegrityLabelToBoundaryDescriptor(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAddSIDToBoundaryDescriptor(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAddSIDToBoundaryDescriptor(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_attachThreadInput(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_attachThreadInput(p0: Int, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAttachThreadInput(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAttachThreadInput(p0: Int, p1: Int, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avQuerySystemResponsiveness(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avQuerySystemResponsiveness(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvQuerySystemResponsiveness(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvQuerySystemResponsiveness(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRevertMmThreadCharacteristics(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRevertMmThreadCharacteristics(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroup(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroup(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroupExA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroupExA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroupExW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroupExW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtDeleteThreadOrderingGroup(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtDeleteThreadOrderingGroup(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtJoinThreadOrderingGroup(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtJoinThreadOrderingGroup(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtLeaveThreadOrderingGroup(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtLeaveThreadOrderingGroup(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvRtWaitOnThreadOrderingGroup(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvRtWaitOnThreadOrderingGroup(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvSetMmMaxThreadCharacteristicsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvSetMmMaxThreadCharacteristicsA(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvSetMmMaxThreadCharacteristicsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvSetMmMaxThreadCharacteristicsW(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvSetMmThreadCharacteristicsA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvSetMmThreadCharacteristicsA(p0: String, p1: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvSetMmThreadCharacteristicsW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvSetMmThreadCharacteristicsW(p0: String, p1: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_avSetMmThreadPriority(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_avSetMmThreadPriority(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingAvSetMmThreadPriority(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingAvSetMmThreadPriority(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_callbackMayRunLong(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_callbackMayRunLong(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCallbackMayRunLong(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCallbackMayRunLong(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_cancelThreadpoolIo(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_cancelThreadpoolIo(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCancelThreadpoolIo(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCancelThreadpoolIo(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_cancelTimerQueueTimer(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_cancelTimerQueueTimer(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCancelTimerQueueTimer(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCancelTimerQueueTimer(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_cancelWaitableTimer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_cancelWaitableTimer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCancelWaitableTimer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCancelWaitableTimer(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_changeTimerQueueTimer(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_changeTimerQueueTimer(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingChangeTimerQueueTimer(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingChangeTimerQueueTimer(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closePrivateNamespace(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closePrivateNamespace(p0: String, p1: Int): Boolean
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingClosePrivateNamespace(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingClosePrivateNamespace(p0: String, p1: Int): Boolean
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpool(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpool(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpool(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpool(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpoolCleanupGroup(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolCleanupGroup(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(p0: String, p1: Int, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpoolCleanupGroupMembers(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolCleanupGroupMembers(p0: String, p1: Int, p2: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpoolIo(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpoolIo(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpoolIo(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolIo(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpoolTimer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpoolTimer(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpoolTimer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolTimer(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpoolWait(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpoolWait(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpoolWait(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolWait(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_closeThreadpoolWork(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_closeThreadpoolWork(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCloseThreadpoolWork(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolWork(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_convertFiberToThread()")
-private external fun _wasm_windowssys_windows_win32_system_threading_convertFiberToThread(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingConvertFiberToThread()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingConvertFiberToThread(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_convertThreadToFiber(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_convertThreadToFiber(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingConvertThreadToFiber(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingConvertThreadToFiber(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_convertThreadToFiberEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_convertThreadToFiberEx(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingConvertThreadToFiberEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingConvertThreadToFiberEx(p0: String, p1: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createBoundaryDescriptorA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createBoundaryDescriptorA(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateBoundaryDescriptorA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateBoundaryDescriptorA(p0: String, p1: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createBoundaryDescriptorW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createBoundaryDescriptorW(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateBoundaryDescriptorW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateBoundaryDescriptorW(p0: String, p1: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createEventA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createEventA(p0: String, p1: Int, p2: Int, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateEventA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateEventA(p0: String, p1: Int, p2: Int, p3: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createEventExA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createEventExA(p0: String, p1: String, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateEventExA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateEventExA(p0: String, p1: String, p2: Int, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createEventExW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createEventExW(p0: String, p1: String, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateEventExW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateEventExW(p0: String, p1: String, p2: Int, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createEventW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createEventW(p0: String, p1: Int, p2: Int, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateEventW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateEventW(p0: String, p1: Int, p2: Int, p3: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createFiber(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createFiber(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateFiber(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateFiber(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createFiberEx(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createFiberEx(p0: String, p1: String, p2: Int, p3: String, p4: String): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateFiberEx(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateFiberEx(p0: String, p1: String, p2: Int, p3: String, p4: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createMutexA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createMutexA(p0: String, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateMutexA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateMutexA(p0: String, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createMutexExA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createMutexExA(p0: String, p1: String, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateMutexExA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateMutexExA(p0: String, p1: String, p2: Int, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createMutexExW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createMutexExW(p0: String, p1: String, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateMutexExW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateMutexExW(p0: String, p1: String, p2: Int, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createMutexW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createMutexW(p0: String, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateMutexW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateMutexW(p0: String, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createPrivateNamespaceA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createPrivateNamespaceA(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreatePrivateNamespaceA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreatePrivateNamespaceA(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createPrivateNamespaceW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createPrivateNamespaceW(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreatePrivateNamespaceW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreatePrivateNamespaceW(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createProcessA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createProcessA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateProcessA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateProcessA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createProcessAsUserA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createProcessAsUserA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int, p7: String, p8: String, p9: String, p10: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateProcessAsUserA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateProcessAsUserA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int, p7: String, p8: String, p9: String, p10: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createProcessAsUserW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createProcessAsUserW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int, p7: String, p8: String, p9: String, p10: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateProcessAsUserW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateProcessAsUserW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int, p7: String, p8: String, p9: String, p10: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createProcessW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createProcessW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateProcessW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateProcessW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createProcessWithLogonW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createProcessWithLogonW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int, p7: String, p8: String, p9: String, p10: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateProcessWithLogonW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateProcessWithLogonW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int, p7: String, p8: String, p9: String, p10: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createProcessWithTokenW(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createProcessWithTokenW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateProcessWithTokenW(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateProcessWithTokenW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createRemoteThread(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createRemoteThread(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): String
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateRemoteThread(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateRemoteThread(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createRemoteThreadEx(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createRemoteThreadEx(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: String): String
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateRemoteThreadEx(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateRemoteThreadEx(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createSemaphoreA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createSemaphoreA(p0: String, p1: Int, p2: Int, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateSemaphoreA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreA(p0: String, p1: Int, p2: Int, p3: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createSemaphoreExA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createSemaphoreExA(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: Int): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateSemaphoreExA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreExA(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: Int): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createSemaphoreExW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createSemaphoreExW(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: Int): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateSemaphoreExW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreExW(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createSemaphoreW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createSemaphoreW(p0: String, p1: Int, p2: Int, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateSemaphoreW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreW(p0: String, p1: Int, p2: Int, p3: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThread(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThread(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThread(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThread(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpool(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpool(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThreadpool(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThreadpool(p0: String): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup()")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThreadpoolCleanupGroup()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolCleanupGroup(): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolIo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolIo(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThreadpoolIo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolIo(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolTimer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolTimer(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThreadpoolTimer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolTimer(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolWait(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolWait(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThreadpoolWait(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolWait(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolWork(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolWork(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateThreadpoolWork(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolWork(p0: String, p1: String, p2: String): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createTimerQueue()")
-private external fun _wasm_windowssys_windows_win32_system_threading_createTimerQueue(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateTimerQueue()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateTimerQueue(): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createTimerQueueTimer(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createTimerQueueTimer(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateTimerQueueTimer(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateTimerQueueTimer(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createUmsCompletionList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createUmsCompletionList(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateUmsCompletionList(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateUmsCompletionList(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createUmsThreadContext(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createUmsThreadContext(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateUmsThreadContext(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateUmsThreadContext(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createWaitableTimerA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createWaitableTimerA(p0: String, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateWaitableTimerA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerA(p0: String, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createWaitableTimerExA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createWaitableTimerExA(p0: String, p1: String, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateWaitableTimerExA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerExA(p0: String, p1: String, p2: Int, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createWaitableTimerExW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createWaitableTimerExW(p0: String, p1: String, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateWaitableTimerExW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerExW(p0: String, p1: String, p2: Int, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createWaitableTimerW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createWaitableTimerW(p0: String, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingCreateWaitableTimerW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerW(p0: String, p1: Int, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteBoundaryDescriptor(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteBoundaryDescriptor(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteBoundaryDescriptor(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteBoundaryDescriptor(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteCriticalSection(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteCriticalSection(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteCriticalSection(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteCriticalSection(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteFiber(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteFiber(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteFiber(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteFiber(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteProcThreadAttributeList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteProcThreadAttributeList(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteProcThreadAttributeList(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteProcThreadAttributeList(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteSynchronizationBarrier(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteSynchronizationBarrier(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteSynchronizationBarrier(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteSynchronizationBarrier(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteTimerQueue(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteTimerQueue(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteTimerQueue(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteTimerQueue(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteTimerQueueEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteTimerQueueEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteTimerQueueEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteTimerQueueEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteTimerQueueTimer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteTimerQueueTimer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteTimerQueueTimer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteTimerQueueTimer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteUmsCompletionList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteUmsCompletionList(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteUmsCompletionList(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteUmsCompletionList(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_deleteUmsThreadContext(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_deleteUmsThreadContext(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDeleteUmsThreadContext(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDeleteUmsThreadContext(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDequeueUmsCompletionListItems(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDequeueUmsCompletionListItems(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingDisassociateCurrentThreadFromCallback(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingDisassociateCurrentThreadFromCallback(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_enterCriticalSection(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_enterCriticalSection(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingEnterCriticalSection(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingEnterCriticalSection(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_enterSynchronizationBarrier(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_enterSynchronizationBarrier(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingEnterSynchronizationBarrier(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingEnterSynchronizationBarrier(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_enterUmsSchedulingMode(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_enterUmsSchedulingMode(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingEnterUmsSchedulingMode(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingEnterUmsSchedulingMode(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_executeUmsThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_executeUmsThread(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingExecuteUmsThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingExecuteUmsThread(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_exitProcess(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_exitProcess(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingExitProcess(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingExitProcess(p0: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_exitThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_exitThread(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingExitThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingExitThread(p0: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_flsAlloc(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_flsAlloc(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingFlsAlloc(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingFlsAlloc(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_flsFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_flsFree(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingFlsFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingFlsFree(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_flsGetValue(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_flsGetValue(p0: Int): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingFlsGetValue(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingFlsGetValue(p0: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_flsSetValue(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_flsSetValue(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingFlsSetValue(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingFlsSetValue(p0: Int, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_flushProcessWriteBuffers()")
-private external fun _wasm_windowssys_windows_win32_system_threading_flushProcessWriteBuffers()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingFlushProcessWriteBuffers()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingFlushProcessWriteBuffers()
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingFreeLibraryWhenCallbackReturns(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingFreeLibraryWhenCallbackReturns(p0: String, p1: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getActiveProcessorCount(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getActiveProcessorCount(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetActiveProcessorCount(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetActiveProcessorCount(p0: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getActiveProcessorGroupCount()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getActiveProcessorGroupCount(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetActiveProcessorGroupCount()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetActiveProcessorGroupCount(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentProcess()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentProcess(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentProcess()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcess(): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentProcessId()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentProcessId(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentProcessId()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcessId(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentProcessorNumber()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentProcessorNumber(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentProcessorNumber()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcessorNumber(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentProcessorNumberEx(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcessorNumberEx(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentThread()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentThread(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentThread()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentThread(): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentThreadId()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentThreadId(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentThreadId()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentThreadId(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentThreadStackLimits(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentThreadStackLimits(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentThreadStackLimits(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentThreadStackLimits(p0: String, p1: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getCurrentUmsThread()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getCurrentUmsThread(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetCurrentUmsThread()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetCurrentUmsThread(): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getExitCodeProcess(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getExitCodeProcess(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetExitCodeProcess(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetExitCodeProcess(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getExitCodeThread(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getExitCodeThread(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetExitCodeThread(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetExitCodeThread(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getGuiResources(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getGuiResources(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetGuiResources(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetGuiResources(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getMachineTypeAttributes(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getMachineTypeAttributes(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetMachineTypeAttributes(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetMachineTypeAttributes(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getMaximumProcessorCount(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getMaximumProcessorCount(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetMaximumProcessorCount(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetMaximumProcessorCount(p0: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount()")
-private external fun _wasm_windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetMaximumProcessorGroupCount()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetMaximumProcessorGroupCount(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNextUmsListItem(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNextUmsListItem(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNextUmsListItem(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNextUmsListItem(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaAvailableMemoryNode(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaAvailableMemoryNode(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaAvailableMemoryNodeEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaAvailableMemoryNodeEx(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaHighestNodeNumber(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaHighestNodeNumber(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaHighestNodeNumber(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaHighestNodeNumber(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaNodeNumberFromHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeNumberFromHandle(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMask(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMask(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMask2(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMask2(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMaskEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMaskEx(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaProcessorNode(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaProcessorNode(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaProcessorNode(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaProcessorNode(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaProcessorNodeEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaProcessorNodeEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaProcessorNodeEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaProcessorNodeEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaProximityNode(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaProximityNode(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaProximityNode(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaProximityNode(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getNumaProximityNodeEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getNumaProximityNodeEx(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetNumaProximityNodeEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetNumaProximityNodeEx(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getPriorityClass(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getPriorityClass(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetPriorityClass(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetPriorityClass(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessAffinityMask(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessAffinityMask(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessAffinityMask(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessAffinityMask(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessDEPPolicy(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessDEPPolicy(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessDEPPolicy(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessDEPPolicy(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessDefaultCpuSetMasks(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessDefaultCpuSetMasks(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessDefaultCpuSets(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessDefaultCpuSets(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessDefaultCpuSets(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessDefaultCpuSets(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessGroupAffinity(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessGroupAffinity(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessGroupAffinity(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessGroupAffinity(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessHandleCount(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessHandleCount(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessHandleCount(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessHandleCount(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessHandleFromHwnd(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessHandleFromHwnd(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessHandleFromHwnd(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessHandleFromHwnd(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessId(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessId(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessId(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessId(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessIdOfThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessIdOfThread(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessIdOfThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessIdOfThread(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessInformation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessInformation(p0: String, p1: Int, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessInformation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessInformation(p0: String, p1: Int, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessIoCounters(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessIoCounters(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessIoCounters(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessIoCounters(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessMitigationPolicy(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessMitigationPolicy(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessMitigationPolicy(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessMitigationPolicy(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessPriorityBoost(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessPriorityBoost(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessPriorityBoost(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessPriorityBoost(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessShutdownParameters(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessShutdownParameters(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessShutdownParameters(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessShutdownParameters(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessTimes(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessTimes(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessTimes(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessTimes(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessVersion(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessVersion(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessVersion(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessVersion(p0: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getProcessWorkingSetSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getProcessWorkingSetSize(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetProcessWorkingSetSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetProcessWorkingSetSize(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getStartupInfoA(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getStartupInfoA(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetStartupInfoA(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetStartupInfoA(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getStartupInfoW(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getStartupInfoW(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetStartupInfoW(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetStartupInfoW(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getSystemTimes(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getSystemTimes(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetSystemTimes(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetSystemTimes(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadDescription(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadDescription(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadDescription(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadDescription(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadGroupAffinity(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadGroupAffinity(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadGroupAffinity(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadGroupAffinity(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadIOPendingFlag(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadIOPendingFlag(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadIOPendingFlag(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadIOPendingFlag(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadId(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadId(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadId(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadId(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadIdealProcessorEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadIdealProcessorEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadIdealProcessorEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadIdealProcessorEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadInformation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadInformation(p0: String, p1: Int, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadInformation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadInformation(p0: String, p1: Int, p2: String, p3: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadPriority(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadPriority(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadPriority(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadPriority(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadPriorityBoost(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadPriorityBoost(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadPriorityBoost(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadPriorityBoost(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadSelectedCpuSetMasks(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadSelectedCpuSetMasks(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadSelectedCpuSets(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadSelectedCpuSets(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadSelectedCpuSets(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadSelectedCpuSets(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getThreadTimes(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getThreadTimes(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetThreadTimes(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetThreadTimes(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getUmsCompletionListEvent(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getUmsCompletionListEvent(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetUmsCompletionListEvent(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetUmsCompletionListEvent(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_getUmsSystemThreadInformation(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_getUmsSystemThreadInformation(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingGetUmsSystemThreadInformation(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingGetUmsSystemThreadInformation(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initOnceBeginInitialize(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initOnceBeginInitialize(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitOnceBeginInitialize(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitOnceBeginInitialize(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initOnceComplete(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initOnceComplete(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitOnceComplete(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitOnceComplete(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initOnceExecuteOnce(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initOnceExecuteOnce(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitOnceExecuteOnce(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitOnceExecuteOnce(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initOnceInitialize(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initOnceInitialize(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitOnceInitialize(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitOnceInitialize(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeConditionVariable(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeConditionVariable(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeConditionVariable(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeConditionVariable(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeCriticalSection(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeCriticalSection(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeCriticalSection(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeCriticalSection(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeCriticalSectionAndSpinCount(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeCriticalSectionAndSpinCount(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeCriticalSectionEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeCriticalSectionEx(p0: String, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeCriticalSectionEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeCriticalSectionEx(p0: String, p1: Int, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeProcThreadAttributeList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeProcThreadAttributeList(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeProcThreadAttributeList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeProcThreadAttributeList(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeSListHead(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeSListHead(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeSListHead(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeSListHead(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeSRWLock(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeSRWLock(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeSRWLock(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeSRWLock(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_initializeSynchronizationBarrier(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_initializeSynchronizationBarrier(p0: String, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInitializeSynchronizationBarrier(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInitializeSynchronizationBarrier(p0: String, p1: Int, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_interlockedFlushSList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_interlockedFlushSList(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInterlockedFlushSList(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInterlockedFlushSList(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_interlockedPopEntrySList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_interlockedPopEntrySList(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInterlockedPopEntrySList(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInterlockedPopEntrySList(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_interlockedPushEntrySList(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_interlockedPushEntrySList(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInterlockedPushEntrySList(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInterlockedPushEntrySList(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_interlockedPushListSListEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_interlockedPushListSListEx(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingInterlockedPushListSListEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingInterlockedPushListSListEx(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isImmersiveProcess(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_isImmersiveProcess(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsImmersiveProcess(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsImmersiveProcess(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isProcessCritical(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_isProcessCritical(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsProcessCritical(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsProcessCritical(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isProcessorFeaturePresent(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_isProcessorFeaturePresent(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsProcessorFeaturePresent(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsProcessorFeaturePresent(p0: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isThreadAFiber()")
-private external fun _wasm_windowssys_windows_win32_system_threading_isThreadAFiber(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsThreadAFiber()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsThreadAFiber(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isThreadpoolTimerSet(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_isThreadpoolTimerSet(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isWow64Process(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_isWow64Process(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsWow64Process(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsWow64Process(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_isWow64Process2(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_isWow64Process2(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingIsWow64Process2(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingIsWow64Process2(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_leaveCriticalSection(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_leaveCriticalSection(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingLeaveCriticalSection(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingLeaveCriticalSection(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingLeaveCriticalSectionWhenCallbackReturns(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingLeaveCriticalSectionWhenCallbackReturns(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openEventA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openEventA(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenEventA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenEventA(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openEventW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openEventW(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenEventW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenEventW(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openMutexW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openMutexW(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenMutexW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenMutexW(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openPrivateNamespaceA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openPrivateNamespaceA(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenPrivateNamespaceA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenPrivateNamespaceA(p0: String, p1: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openPrivateNamespaceW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openPrivateNamespaceW(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenPrivateNamespaceW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenPrivateNamespaceW(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openProcess(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openProcess(p0: Int, p1: Int, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenProcess(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenProcess(p0: Int, p1: Int, p2: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openProcessToken(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openProcessToken(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenProcessToken(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenProcessToken(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openSemaphoreW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openSemaphoreW(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenSemaphoreW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenSemaphoreW(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openThread(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openThread(p0: Int, p1: Int, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenThread(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenThread(p0: Int, p1: Int, p2: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openThreadToken(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openThreadToken(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenThreadToken(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenThreadToken(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openWaitableTimerA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openWaitableTimerA(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenWaitableTimerA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenWaitableTimerA(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_openWaitableTimerW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_openWaitableTimerW(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingOpenWaitableTimerW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingOpenWaitableTimerW(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_pulseEvent(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_pulseEvent(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingPulseEvent(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingPulseEvent(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryDepthSList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryDepthSList(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryDepthSList(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryDepthSList(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryFullProcessImageNameA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryFullProcessImageNameA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryFullProcessImageNameA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryFullProcessImageNameA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryFullProcessImageNameW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryFullProcessImageNameW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryFullProcessImageNameW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryFullProcessImageNameW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryProcessAffinityUpdateMode(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryProcessAffinityUpdateMode(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryProtectedPolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryProtectedPolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryProtectedPolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryProtectedPolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryThreadpoolStackInformation(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryThreadpoolStackInformation(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queryUmsThreadInformation(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queryUmsThreadInformation(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueryUmsThreadInformation(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueryUmsThreadInformation(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_queueUserWorkItem(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_queueUserWorkItem(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingQueueUserWorkItem(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingQueueUserWorkItem(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_registerWaitForSingleObject(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_registerWaitForSingleObject(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRegisterWaitForSingleObject(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRegisterWaitForSingleObject(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_releaseMutex(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_releaseMutex(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingReleaseMutex(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingReleaseMutex(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingReleaseMutexWhenCallbackReturns(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingReleaseMutexWhenCallbackReturns(p0: String, p1: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_releaseSRWLockExclusive(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_releaseSRWLockExclusive(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingReleaseSRWLockExclusive(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingReleaseSRWLockExclusive(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_releaseSRWLockShared(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_releaseSRWLockShared(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingReleaseSRWLockShared(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingReleaseSRWLockShared(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_releaseSemaphore(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_releaseSemaphore(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingReleaseSemaphore(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingReleaseSemaphore(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingReleaseSemaphoreWhenCallbackReturns(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingReleaseSemaphoreWhenCallbackReturns(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_resetEvent(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_resetEvent(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingResetEvent(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingResetEvent(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_resumeThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_resumeThread(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingResumeThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingResumeThread(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqAddPeriodicCallback(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqAddPeriodicCallback(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqAllocateSerialWorkQueue(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqAllocateSerialWorkQueue(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqAllocateWorkQueue(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqAllocateWorkQueue(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(p0: Int, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqBeginRegisterWorkQueueWithMMCSS(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqBeginRegisterWorkQueueWithMMCSS(p0: Int, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqBeginUnregisterWorkQueueWithMMCSS(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqBeginUnregisterWorkQueueWithMMCSS(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqCancelDeadline(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqCancelDeadline(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqCancelDeadline(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqCancelDeadline(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqCancelWorkItem(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqCancelWorkItem(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqCancelWorkItem(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqCancelWorkItem(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqCreateAsyncResult(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqCreateAsyncResult(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqCreateAsyncResult(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqCreateAsyncResult(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqEndRegisterWorkQueueWithMMCSS(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqEndRegisterWorkQueueWithMMCSS(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSClass(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSClass(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSPriority(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSPriority(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSTaskId(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSTaskId(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqInvokeCallback(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqInvokeCallback(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqInvokeCallback(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqInvokeCallback(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqJoinWorkQueue(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqJoinWorkQueue(p0: Int, p1: String, p2: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqLockPlatform()")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqLockPlatform(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqLockPlatform()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqLockPlatform(): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqLockSharedWorkQueue(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqLockSharedWorkQueue(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqLockWorkQueue(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqLockWorkQueue(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqLockWorkQueue(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqLockWorkQueue(p0: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqPutWaitingWorkItem(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqPutWaitingWorkItem(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqPutWorkItem(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqPutWorkItem(p0: Int, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqPutWorkItem(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqPutWorkItem(p0: Int, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqRegisterPlatformEvents(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqRegisterPlatformEvents(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqRegisterPlatformWithMMCSS(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqRegisterPlatformWithMMCSS(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqRemovePeriodicCallback(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqRemovePeriodicCallback(p0: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqScheduleWorkItem(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqScheduleWorkItem(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqScheduleWorkItem(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqScheduleWorkItem(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqSetDeadline(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqSetDeadline(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqSetDeadline(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqSetDeadline(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqSetDeadline2(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqSetDeadline2(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqSetDeadline2(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqSetDeadline2(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqSetLongRunning(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqSetLongRunning(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqSetLongRunning(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqSetLongRunning(p0: Int, p1: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqShutdown()")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqShutdown(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqShutdown()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqShutdown(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqStartup()")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqStartup(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqStartup()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqStartup(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqUnjoinWorkQueue(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqUnjoinWorkQueue(p0: Int, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqUnlockPlatform()")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqUnlockPlatform(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqUnlockPlatform()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqUnlockPlatform(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformEvents(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformEvents(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS()")
-private external fun _wasm_windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformFromMMCSS()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformFromMMCSS(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setCriticalSectionSpinCount(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setCriticalSectionSpinCount(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetCriticalSectionSpinCount(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetCriticalSectionSpinCount(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setEvent(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setEvent(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetEvent(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetEvent(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetEventWhenCallbackReturns(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetEventWhenCallbackReturns(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setPriorityClass(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setPriorityClass(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetPriorityClass(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetPriorityClass(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessAffinityMask(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessAffinityMask(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessAffinityMask(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessAffinityMask(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessAffinityUpdateMode(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessAffinityUpdateMode(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessDEPPolicy(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessDEPPolicy(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessDEPPolicy(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessDEPPolicy(p0: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSetMasks(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSetMasks(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessDefaultCpuSets(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessDefaultCpuSets(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSets(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSets(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessDynamicEHContinuationTargets(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessDynamicEHContinuationTargets(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessDynamicEnforcedCetCompatibleRanges(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessDynamicEnforcedCetCompatibleRanges(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessInformation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessInformation(p0: String, p1: Int, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessInformation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessInformation(p0: String, p1: Int, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessMitigationPolicy(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessMitigationPolicy(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessMitigationPolicy(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessMitigationPolicy(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessPriorityBoost(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessPriorityBoost(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessPriorityBoost(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessPriorityBoost(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessRestrictionExemption(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessRestrictionExemption(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessRestrictionExemption(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessRestrictionExemption(p0: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessShutdownParameters(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessShutdownParameters(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessShutdownParameters(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessShutdownParameters(p0: Int, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProcessWorkingSetSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProcessWorkingSetSize(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProcessWorkingSetSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProcessWorkingSetSize(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setProtectedPolicy(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setProtectedPolicy(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetProtectedPolicy(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetProtectedPolicy(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadAffinityMask(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadAffinityMask(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadAffinityMask(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadAffinityMask(p0: String, p1: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadDescription(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadDescription(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadDescription(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadDescription(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadGroupAffinity(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadGroupAffinity(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadGroupAffinity(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadGroupAffinity(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadIdealProcessor(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadIdealProcessor(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadIdealProcessor(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadIdealProcessor(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadIdealProcessorEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadIdealProcessorEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadIdealProcessorEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadIdealProcessorEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadInformation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadInformation(p0: String, p1: Int, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadInformation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadInformation(p0: String, p1: Int, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadPriority(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadPriority(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadPriority(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadPriority(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadPriorityBoost(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadPriorityBoost(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadPriorityBoost(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadPriorityBoost(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadSelectedCpuSetMasks(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadSelectedCpuSetMasks(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadSelectedCpuSets(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadSelectedCpuSets(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadSelectedCpuSets(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadSelectedCpuSets(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadStackGuarantee(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadStackGuarantee(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadStackGuarantee(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadStackGuarantee(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadToken(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadToken(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadToken(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadToken(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolStackInformation(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolStackInformation(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolStackInformation(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolStackInformation(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolThreadMaximum(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMaximum(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolThreadMinimum(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMinimum(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolTimer(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolTimer(p0: String, p1: String, p2: Int, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolTimer(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolTimer(p0: String, p1: String, p2: Int, p3: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolTimerEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolTimerEx(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolTimerEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolTimerEx(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolWait(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolWait(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolWait(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolWait(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setThreadpoolWaitEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setThreadpoolWaitEx(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetThreadpoolWaitEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolWaitEx(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setTimerQueueTimer(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setTimerQueueTimer(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetTimerQueueTimer(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetTimerQueueTimer(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setUmsThreadInformation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setUmsThreadInformation(p0: String, p1: Int, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetUmsThreadInformation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetUmsThreadInformation(p0: String, p1: Int, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setWaitableTimer(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setWaitableTimer(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetWaitableTimer(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetWaitableTimer(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_setWaitableTimerEx(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_threading_setWaitableTimerEx(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSetWaitableTimerEx(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSetWaitableTimerEx(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_signalObjectAndWait(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_signalObjectAndWait(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSignalObjectAndWait(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSignalObjectAndWait(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_sleep(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_sleep(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSleep(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSleep(p0: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_sleepConditionVariableCS(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_sleepConditionVariableCS(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSleepConditionVariableCS(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSleepConditionVariableCS(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_sleepConditionVariableSRW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_sleepConditionVariableSRW(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSleepConditionVariableSRW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSleepConditionVariableSRW(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_sleepEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_sleepEx(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSleepEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSleepEx(p0: Int, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_startThreadpoolIo(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_startThreadpoolIo(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingStartThreadpoolIo(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingStartThreadpoolIo(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_submitThreadpoolWork(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_submitThreadpoolWork(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSubmitThreadpoolWork(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSubmitThreadpoolWork(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_suspendThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_suspendThread(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSuspendThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSuspendThread(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_switchToFiber(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_switchToFiber(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSwitchToFiber(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSwitchToFiber(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_switchToThread()")
-private external fun _wasm_windowssys_windows_win32_system_threading_switchToThread(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingSwitchToThread()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingSwitchToThread(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_terminateProcess(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_terminateProcess(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTerminateProcess(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTerminateProcess(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_terminateThread(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_terminateThread(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTerminateThread(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTerminateThread(p0: String, p1: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tlsAlloc()")
-private external fun _wasm_windowssys_windows_win32_system_threading_tlsAlloc(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTlsAlloc()")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTlsAlloc(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tlsFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_tlsFree(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTlsFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTlsFree(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tlsGetValue(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_tlsGetValue(p0: Int): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTlsGetValue(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTlsGetValue(p0: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tlsSetValue(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_tlsSetValue(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTlsSetValue(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTlsSetValue(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive(p0: String): Boolean
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTryAcquireSRWLockExclusive(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTryAcquireSRWLockExclusive(p0: String): Boolean
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tryAcquireSRWLockShared(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_tryAcquireSRWLockShared(p0: String): Boolean
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTryAcquireSRWLockShared(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTryAcquireSRWLockShared(p0: String): Boolean
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_tryEnterCriticalSection(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_tryEnterCriticalSection(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTryEnterCriticalSection(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTryEnterCriticalSection(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingTrySubmitThreadpoolCallback(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingTrySubmitThreadpoolCallback(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_umsThreadYield(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_umsThreadYield(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingUmsThreadYield(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingUmsThreadYield(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_unregisterWait(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_unregisterWait(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingUnregisterWait(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingUnregisterWait(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_unregisterWaitEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_unregisterWaitEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingUnregisterWaitEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingUnregisterWaitEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_updateProcThreadAttribute(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_threading_updateProcThreadAttribute(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingUpdateProcThreadAttribute(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingUpdateProcThreadAttribute(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForInputIdle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForInputIdle(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForInputIdle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForInputIdle(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForMultipleObjects(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForMultipleObjects(p0: Int, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForMultipleObjects(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForMultipleObjects(p0: Int, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(p0: Int, p1: String, p2: Int, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForMultipleObjectsEx(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForMultipleObjectsEx(p0: Int, p1: String, p2: Int, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForSingleObject(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForSingleObject(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForSingleObject(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForSingleObject(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForSingleObjectEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForSingleObjectEx(p0: String, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForSingleObjectEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForSingleObjectEx(p0: String, p1: Int, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForThreadpoolIoCallbacks(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolIoCallbacks(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForThreadpoolTimerCallbacks(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolTimerCallbacks(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForThreadpoolWaitCallbacks(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolWaitCallbacks(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitForThreadpoolWorkCallbacks(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolWorkCallbacks(p0: String, p1: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_waitOnAddress(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_threading_waitOnAddress(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWaitOnAddress(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWaitOnAddress(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_wakeAllConditionVariable(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_wakeAllConditionVariable(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWakeAllConditionVariable(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWakeAllConditionVariable(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_wakeByAddressAll(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_wakeByAddressAll(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWakeByAddressAll(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWakeByAddressAll(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_wakeByAddressSingle(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_wakeByAddressSingle(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWakeByAddressSingle(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWakeByAddressSingle(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_wakeConditionVariable(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_wakeConditionVariable(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWakeConditionVariable(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWakeConditionVariable(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_winExec(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_threading_winExec(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWinExec(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWinExec(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWow64SetThreadDefaultGuestMachine(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWow64SetThreadDefaultGuestMachine(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_wow64SuspendThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_wow64SuspendThread(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemThreadingWow64SuspendThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemThreadingWow64SuspendThread(p0: String): Int
 
-public actual fun acquireSRWLockExclusive(srwlock: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_acquireSRWLockExclusive((srwlock?.value ?: 0L).toString())
+public actual fun acquireSRWLockExclusive(srwlock: MutPtr<Srwlock>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingAcquireSRWLockExclusive(srwlock.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun acquireSRWLockShared(srwlock: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_acquireSRWLockShared((srwlock?.value ?: 0L).toString())
+public actual fun acquireSRWLockShared(srwlock: MutPtr<Srwlock>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingAcquireSRWLockShared(srwlock.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, integritylabel: Psid): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor((boundarydescriptor?.value ?: 0L).toString(), (integritylabel?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: MutPtr<Handle>, integritylabel: Psid): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAddIntegrityLabelToBoundaryDescriptor(boundarydescriptor.rawAddress.toString(), integritylabel.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addSIDToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, requiredsid: Psid): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor((boundarydescriptor?.value ?: 0L).toString(), (requiredsid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addSIDToBoundaryDescriptor(boundarydescriptor: MutPtr<Handle>, requiredsid: Psid): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAddSIDToBoundaryDescriptor(boundarydescriptor.rawAddress.toString(), requiredsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun attachThreadInput(idattach: UInt, idattachto: UInt, fattach: Bool): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_attachThreadInput(idattach.toInt(), idattachto.toInt(), fattach) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAttachThreadInput(idattach.toInt(), idattachto.toInt(), fattach) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avQuerySystemResponsiveness((avrthandle?.value ?: 0L).toString(), (systemresponsivenessvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvQuerySystemResponsiveness(avrthandle.rawAddress.toString(), systemresponsivenessvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun avRevertMmThreadCharacteristics(avrthandle: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics((avrthandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRevertMmThreadCharacteristics(avrthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avRtCreateThreadOrderingGroup(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup((context?.value ?: 0L).toString(), (period?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avRtCreateThreadOrderingGroup(context: MutPtr<Handle>, period: ConstPtr<Long>, threadorderingguid: MutPtr<Guid>, timeout: ConstPtr<Long>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroup(context.rawAddress.toString(), period.rawAddress.toString(), threadorderingguid.rawAddress.toString(), timeout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avRtCreateThreadOrderingGroupExA(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcstr): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA((context?.value ?: 0L).toString(), (period?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (taskname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avRtCreateThreadOrderingGroupExA(context: MutPtr<Handle>, period: ConstPtr<Long>, threadorderingguid: MutPtr<Guid>, timeout: ConstPtr<Long>, taskname: Pcstr): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroupExA(context.rawAddress.toString(), period.rawAddress.toString(), threadorderingguid.rawAddress.toString(), timeout.rawAddress.toString(), taskname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avRtCreateThreadOrderingGroupExW(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcwstr): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW((context?.value ?: 0L).toString(), (period?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (taskname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avRtCreateThreadOrderingGroupExW(context: MutPtr<Handle>, period: ConstPtr<Long>, threadorderingguid: MutPtr<Guid>, timeout: ConstPtr<Long>, taskname: Pcwstr): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtCreateThreadOrderingGroupExW(context.rawAddress.toString(), period.rawAddress.toString(), threadorderingguid.rawAddress.toString(), timeout.rawAddress.toString(), taskname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun avRtDeleteThreadOrderingGroup(context: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup((context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtDeleteThreadOrderingGroup(context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avRtJoinThreadOrderingGroup(context: COpaquePointer?, threadorderingguid: COpaquePointer?, before: Bool): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup((context?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), before) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avRtJoinThreadOrderingGroup(context: MutPtr<Handle>, threadorderingguid: ConstPtr<Guid>, before: Bool): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtJoinThreadOrderingGroup(context.rawAddress.toString(), threadorderingguid.rawAddress.toString(), before) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun avRtLeaveThreadOrderingGroup(context: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup((context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtLeaveThreadOrderingGroup(context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun avRtWaitOnThreadOrderingGroup(context: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup((context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvRtWaitOnThreadOrderingGroup(context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avSetMmMaxThreadCharacteristicsA(firsttask: Pcstr, secondtask: Pcstr, taskindex: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA((firsttask?.value ?: 0L).toString(), (secondtask?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avSetMmMaxThreadCharacteristicsA(firsttask: Pcstr, secondtask: Pcstr, taskindex: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingAvSetMmMaxThreadCharacteristicsA(firsttask.rawAddress.toString(), secondtask.rawAddress.toString(), taskindex.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avSetMmMaxThreadCharacteristicsW(firsttask: Pcwstr, secondtask: Pcwstr, taskindex: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW((firsttask?.value ?: 0L).toString(), (secondtask?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avSetMmMaxThreadCharacteristicsW(firsttask: Pcwstr, secondtask: Pcwstr, taskindex: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingAvSetMmMaxThreadCharacteristicsW(firsttask.rawAddress.toString(), secondtask.rawAddress.toString(), taskindex.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avSetMmThreadCharacteristicsA(taskname: Pcstr, taskindex: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA((taskname?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avSetMmThreadCharacteristicsA(taskname: Pcstr, taskindex: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingAvSetMmThreadCharacteristicsA(taskname.rawAddress.toString(), taskindex.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun avSetMmThreadCharacteristicsW(taskname: Pcwstr, taskindex: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW((taskname?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun avSetMmThreadCharacteristicsW(taskname: Pcwstr, taskindex: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingAvSetMmThreadCharacteristicsW(taskname.rawAddress.toString(), taskindex.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun avSetMmThreadPriority(avrthandle: Handle, priority: AvrtPriority): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_avSetMmThreadPriority((avrthandle?.value ?: 0L).toString(), priority) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingAvSetMmThreadPriority(avrthandle.rawAddress.toString(), priority) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun callbackMayRunLong(pci: PtpCallbackInstance): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_callbackMayRunLong(pci.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCallbackMayRunLong(pci.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cancelThreadpoolIo(pio: PtpIo) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_cancelThreadpoolIo(pio.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCancelThreadpoolIo(pio.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun cancelTimerQueueTimer(timerqueue: Handle, timer: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_cancelTimerQueueTimer((timerqueue?.value ?: 0L).toString(), (timer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCancelTimerQueueTimer(timerqueue.rawAddress.toString(), timer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cancelWaitableTimer(htimer: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_cancelWaitableTimer((htimer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCancelWaitableTimer(htimer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun changeTimerQueueTimer(timerqueue: Handle, timer: Handle, duetime: UInt, period: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_changeTimerQueueTimer((timerqueue?.value ?: 0L).toString(), (timer?.value ?: 0L).toString(), duetime.toInt(), period.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingChangeTimerQueueTimer(timerqueue.rawAddress.toString(), timer.rawAddress.toString(), duetime.toInt(), period.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_closePrivateNamespace((handle?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingClosePrivateNamespace(handle.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun closeThreadpool(ptpp: PtpPool) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpool(ptpp.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpool(ptpp.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolCleanupGroup(ptpcg.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg.toString(), fcancelpendingcallbacks, (pvcleanupcontext?.value ?: 0L).toString())
+public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: MutPtr<CVoid>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolCleanupGroupMembers(ptpcg.toString(), fcancelpendingcallbacks, pvcleanupcontext.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun closeThreadpoolIo(pio: PtpIo) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpoolIo(pio.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolIo(pio.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun closeThreadpoolTimer(pti: PtpTimer) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpoolTimer(pti.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolTimer(pti.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun closeThreadpoolWait(pwa: PtpWait) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpoolWait(pwa.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolWait(pwa.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun closeThreadpoolWork(pwk: PtpWork) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_closeThreadpoolWork(pwk.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingCloseThreadpoolWork(pwk.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun convertFiberToThread(): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_convertFiberToThread() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingConvertFiberToThread() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertThreadToFiber(lpparameter: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_convertThreadToFiber((lpparameter?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertThreadToFiber(lpparameter: ConstPtr<CVoid>): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingConvertThreadToFiber(lpparameter.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun convertThreadToFiberEx(lpparameter: COpaquePointer?, dwflags: UInt): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_convertThreadToFiberEx((lpparameter?.value ?: 0L).toString(), dwflags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun convertThreadToFiberEx(lpparameter: ConstPtr<CVoid>, dwflags: UInt): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingConvertThreadToFiberEx(lpparameter.rawAddress.toString(), dwflags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createBoundaryDescriptorA(name: Pcstr, flags: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createBoundaryDescriptorA((name?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateBoundaryDescriptorA(name.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createBoundaryDescriptorW(name: Pcwstr, flags: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createBoundaryDescriptorW((name?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateBoundaryDescriptorW(name.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createEventA(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createEventA((lpeventattributes?.value ?: 0L).toString(), bmanualreset, binitialstate, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createEventA(lpeventattributes: ConstPtr<SecurityAttributes>, bmanualreset: Bool, binitialstate: Bool, lpname: Pcstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateEventA(lpeventattributes.rawAddress.toString(), bmanualreset, binitialstate, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createEventExA(lpeventattributes: COpaquePointer?, lpname: Pcstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createEventExA((lpeventattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createEventExA(lpeventattributes: ConstPtr<SecurityAttributes>, lpname: Pcstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateEventExA(lpeventattributes.rawAddress.toString(), lpname.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createEventExW(lpeventattributes: COpaquePointer?, lpname: Pcwstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createEventExW((lpeventattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createEventExW(lpeventattributes: ConstPtr<SecurityAttributes>, lpname: Pcwstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateEventExW(lpeventattributes.rawAddress.toString(), lpname.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createEventW(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createEventW((lpeventattributes?.value ?: 0L).toString(), bmanualreset, binitialstate, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createEventW(lpeventattributes: ConstPtr<SecurityAttributes>, bmanualreset: Bool, binitialstate: Bool, lpname: Pcwstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateEventW(lpeventattributes.rawAddress.toString(), bmanualreset, binitialstate, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createFiber(dwstacksize: ULong, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createFiber(dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createFiber(dwstacksize: ULong, lpstartaddress: LpfiberStartRoutine, lpparameter: ConstPtr<CVoid>): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateFiber(dwstacksize.toString(), 0L.toString(), lpparameter.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createFiberEx(dwstackcommitsize.toString(), dwstackreservesize.toString(), dwflags.toInt(), 0L.toString(), (lpparameter?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LpfiberStartRoutine, lpparameter: ConstPtr<CVoid>): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateFiberEx(dwstackcommitsize.toString(), dwstackreservesize.toString(), dwflags.toInt(), 0L.toString(), lpparameter.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createMutexA(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createMutexA((lpmutexattributes?.value ?: 0L).toString(), binitialowner, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createMutexA(lpmutexattributes: ConstPtr<SecurityAttributes>, binitialowner: Bool, lpname: Pcstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateMutexA(lpmutexattributes.rawAddress.toString(), binitialowner, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createMutexExA(lpmutexattributes: COpaquePointer?, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createMutexExA((lpmutexattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createMutexExA(lpmutexattributes: ConstPtr<SecurityAttributes>, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateMutexExA(lpmutexattributes.rawAddress.toString(), lpname.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createMutexExW(lpmutexattributes: COpaquePointer?, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createMutexExW((lpmutexattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createMutexExW(lpmutexattributes: ConstPtr<SecurityAttributes>, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateMutexExW(lpmutexattributes.rawAddress.toString(), lpname.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createMutexW(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createMutexW((lpmutexattributes?.value ?: 0L).toString(), binitialowner, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createMutexW(lpmutexattributes: ConstPtr<SecurityAttributes>, binitialowner: Bool, lpname: Pcwstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateMutexW(lpmutexattributes.rawAddress.toString(), binitialowner, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPrivateNamespaceA(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createPrivateNamespaceA((lpprivatenamespaceattributes?.value ?: 0L).toString(), (lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createPrivateNamespaceA(lpprivatenamespaceattributes: ConstPtr<SecurityAttributes>, lpboundarydescriptor: ConstPtr<CVoid>, lpaliasprefix: Pcstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreatePrivateNamespaceA(lpprivatenamespaceattributes.rawAddress.toString(), lpboundarydescriptor.rawAddress.toString(), lpaliasprefix.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPrivateNamespaceW(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createPrivateNamespaceW((lpprivatenamespaceattributes?.value ?: 0L).toString(), (lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createPrivateNamespaceW(lpprivatenamespaceattributes: ConstPtr<SecurityAttributes>, lpboundarydescriptor: ConstPtr<CVoid>, lpaliasprefix: Pcwstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreatePrivateNamespaceW(lpprivatenamespaceattributes.rawAddress.toString(), lpboundarydescriptor.rawAddress.toString(), lpaliasprefix.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createProcessA(lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createProcessA((lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createProcessA(lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: ConstPtr<SecurityAttributes>, lpthreadattributes: ConstPtr<SecurityAttributes>, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: ConstPtr<CVoid>, lpcurrentdirectory: Pcstr, lpstartupinfo: ConstPtr<Startupinfoa>, lpprocessinformation: MutPtr<ProcessInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateProcessA(lpapplicationname.rawAddress.toString(), lpcommandline.rawAddress.toString(), lpprocessattributes.rawAddress.toString(), lpthreadattributes.rawAddress.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.rawAddress.toString(), lpcurrentdirectory.rawAddress.toString(), lpstartupinfo.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createProcessAsUserA(htoken: Handle, lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createProcessAsUserA((htoken?.value ?: 0L).toString(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createProcessAsUserA(htoken: Handle, lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: ConstPtr<SecurityAttributes>, lpthreadattributes: ConstPtr<SecurityAttributes>, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: ConstPtr<CVoid>, lpcurrentdirectory: Pcstr, lpstartupinfo: ConstPtr<Startupinfoa>, lpprocessinformation: MutPtr<ProcessInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateProcessAsUserA(htoken.rawAddress.toString(), lpapplicationname.rawAddress.toString(), lpcommandline.rawAddress.toString(), lpprocessattributes.rawAddress.toString(), lpthreadattributes.rawAddress.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.rawAddress.toString(), lpcurrentdirectory.rawAddress.toString(), lpstartupinfo.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createProcessAsUserW(htoken: Handle, lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createProcessAsUserW((htoken?.value ?: 0L).toString(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createProcessAsUserW(htoken: Handle, lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: ConstPtr<SecurityAttributes>, lpthreadattributes: ConstPtr<SecurityAttributes>, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: ConstPtr<CVoid>, lpcurrentdirectory: Pcwstr, lpstartupinfo: ConstPtr<Startupinfow>, lpprocessinformation: MutPtr<ProcessInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateProcessAsUserW(htoken.rawAddress.toString(), lpapplicationname.rawAddress.toString(), lpcommandline.rawAddress.toString(), lpprocessattributes.rawAddress.toString(), lpthreadattributes.rawAddress.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.rawAddress.toString(), lpcurrentdirectory.rawAddress.toString(), lpstartupinfo.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createProcessW(lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createProcessW((lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createProcessW(lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: ConstPtr<SecurityAttributes>, lpthreadattributes: ConstPtr<SecurityAttributes>, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: ConstPtr<CVoid>, lpcurrentdirectory: Pcwstr, lpstartupinfo: ConstPtr<Startupinfow>, lpprocessinformation: MutPtr<ProcessInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateProcessW(lpapplicationname.rawAddress.toString(), lpcommandline.rawAddress.toString(), lpprocessattributes.rawAddress.toString(), lpthreadattributes.rawAddress.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.rawAddress.toString(), lpcurrentdirectory.rawAddress.toString(), lpstartupinfo.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createProcessWithLogonW(lpusername: Pcwstr, lpdomain: Pcwstr, lppassword: Pcwstr, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createProcessWithLogonW((lpusername?.value ?: 0L).toString(), (lpdomain?.value ?: 0L).toString(), (lppassword?.value ?: 0L).toString(), dwlogonflags.toInt(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createProcessWithLogonW(lpusername: Pcwstr, lpdomain: Pcwstr, lppassword: Pcwstr, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: ConstPtr<CVoid>, lpcurrentdirectory: Pcwstr, lpstartupinfo: ConstPtr<Startupinfow>, lpprocessinformation: MutPtr<ProcessInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateProcessWithLogonW(lpusername.rawAddress.toString(), lpdomain.rawAddress.toString(), lppassword.rawAddress.toString(), dwlogonflags.toInt(), lpapplicationname.rawAddress.toString(), lpcommandline.rawAddress.toString(), dwcreationflags.toInt(), lpenvironment.rawAddress.toString(), lpcurrentdirectory.rawAddress.toString(), lpstartupinfo.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createProcessWithTokenW(htoken: Handle, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createProcessWithTokenW((htoken?.value ?: 0L).toString(), dwlogonflags.toInt(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createProcessWithTokenW(htoken: Handle, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: ConstPtr<CVoid>, lpcurrentdirectory: Pcwstr, lpstartupinfo: ConstPtr<Startupinfow>, lpprocessinformation: MutPtr<ProcessInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateProcessWithTokenW(htoken.rawAddress.toString(), dwlogonflags.toInt(), lpapplicationname.rawAddress.toString(), lpcommandline.rawAddress.toString(), dwcreationflags.toInt(), lpenvironment.rawAddress.toString(), lpcurrentdirectory.rawAddress.toString(), lpstartupinfo.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createRemoteThread(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpthreadid: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createRemoteThread((hprocess?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createRemoteThread(hprocess: Handle, lpthreadattributes: ConstPtr<SecurityAttributes>, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: ConstPtr<CVoid>, dwcreationflags: UInt, lpthreadid: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateRemoteThread(hprocess.rawAddress.toString(), lpthreadattributes.rawAddress.toString(), dwstacksize.toString(), 0L.toString(), lpparameter.rawAddress.toString(), dwcreationflags.toInt(), lpthreadid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createRemoteThreadEx(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpattributelist: LpprocThreadAttributeList, lpthreadid: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createRemoteThreadEx((hprocess?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpattributelist?.value ?: 0L).toString(), (lpthreadid?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createRemoteThreadEx(hprocess: Handle, lpthreadattributes: ConstPtr<SecurityAttributes>, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: ConstPtr<CVoid>, dwcreationflags: UInt, lpattributelist: LpprocThreadAttributeList, lpthreadid: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateRemoteThreadEx(hprocess.rawAddress.toString(), lpthreadattributes.rawAddress.toString(), dwstacksize.toString(), 0L.toString(), lpparameter.rawAddress.toString(), dwcreationflags.toInt(), lpattributelist.rawAddress.toString(), lpthreadid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createSemaphoreA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createSemaphoreA((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createSemaphoreA(lpsemaphoreattributes: ConstPtr<SecurityAttributes>, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreA(lpsemaphoreattributes.rawAddress.toString(), linitialcount, lmaximumcount, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createSemaphoreExA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createSemaphoreExA((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createSemaphoreExA(lpsemaphoreattributes: ConstPtr<SecurityAttributes>, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreExA(lpsemaphoreattributes.rawAddress.toString(), linitialcount, lmaximumcount, lpname.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createSemaphoreExW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createSemaphoreExW((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createSemaphoreExW(lpsemaphoreattributes: ConstPtr<SecurityAttributes>, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreExW(lpsemaphoreattributes.rawAddress.toString(), linitialcount, lmaximumcount, lpname.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createSemaphoreW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createSemaphoreW((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createSemaphoreW(lpsemaphoreattributes: ConstPtr<SecurityAttributes>, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateSemaphoreW(lpsemaphoreattributes.rawAddress.toString(), linitialcount, lmaximumcount, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: ThreadCreationFlags, lpthreadid: COpaquePointer?): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThread((lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createThread(lpthreadattributes: ConstPtr<SecurityAttributes>, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: ConstPtr<CVoid>, dwcreationflags: ThreadCreationFlags, lpthreadid: MutPtr<UInt>): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateThread(lpthreadattributes.rawAddress.toString(), dwstacksize.toString(), 0L.toString(), lpparameter.rawAddress.toString(), dwcreationflags.toInt(), lpthreadid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createThreadpool(reserved: COpaquePointer?): PtpPool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createThreadpool(reserved: ConstPtr<CVoid>): PtpPool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateThreadpool(reserved.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolCleanupGroup().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolIo((fl?.value ?: 0L).toString(), 0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: MutPtr<CVoid>, pcbe: ConstPtr<TpCallbackEnvironV3>): PtpIo =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolIo(fl.rawAddress.toString(), 0L.toString(), pv.rawAddress.toString(), pcbe.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createThreadpoolTimer(pfnti: PtpTimerCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpTimer =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolTimer(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createThreadpoolTimer(pfnti: PtpTimerCallback, pv: MutPtr<CVoid>, pcbe: ConstPtr<TpCallbackEnvironV3>): PtpTimer =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolTimer(0L.toString(), pv.rawAddress.toString(), pcbe.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createThreadpoolWait(pfnwa: PtpWaitCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWait =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolWait(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createThreadpoolWait(pfnwa: PtpWaitCallback, pv: MutPtr<CVoid>, pcbe: ConstPtr<TpCallbackEnvironV3>): PtpWait =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolWait(0L.toString(), pv.rawAddress.toString(), pcbe.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createThreadpoolWork(pfnwk: PtpWorkCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWork =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolWork(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createThreadpoolWork(pfnwk: PtpWorkCallback, pv: MutPtr<CVoid>, pcbe: ConstPtr<TpCallbackEnvironV3>): PtpWork =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateThreadpoolWork(0L.toString(), pv.rawAddress.toString(), pcbe.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createTimerQueue(): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createTimerQueue().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateTimerQueue().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createTimerQueueTimer(phnewtimer: COpaquePointer?, timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, flags: WorkerThreadFlags): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createTimerQueueTimer((phnewtimer?.value ?: 0L).toString(), (timerqueue?.value ?: 0L).toString(), 0L.toString(), (parameter?.value ?: 0L).toString(), duetime.toInt(), period.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createTimerQueueTimer(phnewtimer: MutPtr<Handle>, timerqueue: Handle, callback: Waitortimercallback, parameter: ConstPtr<CVoid>, duetime: UInt, period: UInt, flags: WorkerThreadFlags): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateTimerQueueTimer(phnewtimer.rawAddress.toString(), timerqueue.rawAddress.toString(), 0L.toString(), parameter.rawAddress.toString(), duetime.toInt(), period.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createUmsCompletionList((umscompletionlist?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createUmsCompletionList(umscompletionlist: MutPtr<MutPtr<CVoid>>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateUmsCompletionList(umscompletionlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createUmsThreadContext(lpumsthread: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createUmsThreadContext((lpumsthread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createUmsThreadContext(lpumsthread: MutPtr<MutPtr<CVoid>>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingCreateUmsThreadContext(lpumsthread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWaitableTimerA(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createWaitableTimerA((lptimerattributes?.value ?: 0L).toString(), bmanualreset, (lptimername?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createWaitableTimerA(lptimerattributes: ConstPtr<SecurityAttributes>, bmanualreset: Bool, lptimername: Pcstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerA(lptimerattributes.rawAddress.toString(), bmanualreset, lptimername.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWaitableTimerExA(lptimerattributes: COpaquePointer?, lptimername: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createWaitableTimerExA((lptimerattributes?.value ?: 0L).toString(), (lptimername?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createWaitableTimerExA(lptimerattributes: ConstPtr<SecurityAttributes>, lptimername: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerExA(lptimerattributes.rawAddress.toString(), lptimername.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWaitableTimerExW(lptimerattributes: COpaquePointer?, lptimername: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createWaitableTimerExW((lptimerattributes?.value ?: 0L).toString(), (lptimername?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createWaitableTimerExW(lptimerattributes: ConstPtr<SecurityAttributes>, lptimername: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerExW(lptimerattributes.rawAddress.toString(), lptimername.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWaitableTimerW(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createWaitableTimerW((lptimerattributes?.value ?: 0L).toString(), bmanualreset, (lptimername?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createWaitableTimerW(lptimerattributes: ConstPtr<SecurityAttributes>, bmanualreset: Bool, lptimername: Pcwstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingCreateWaitableTimerW(lptimerattributes.rawAddress.toString(), bmanualreset, lptimername.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteBoundaryDescriptor(boundarydescriptor: Handle) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_deleteBoundaryDescriptor((boundarydescriptor?.value ?: 0L).toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingDeleteBoundaryDescriptor(boundarydescriptor.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun deleteCriticalSection(lpcriticalsection: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_deleteCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+public actual fun deleteCriticalSection(lpcriticalsection: MutPtr<CriticalSection>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingDeleteCriticalSection(lpcriticalsection.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun deleteFiber(lpfiber: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_deleteFiber((lpfiber?.value ?: 0L).toString())
+public actual fun deleteFiber(lpfiber: ConstPtr<CVoid>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingDeleteFiber(lpfiber.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun deleteProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_deleteProcThreadAttributeList((lpattributelist?.value ?: 0L).toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingDeleteProcThreadAttributeList(lpattributelist.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun deleteSynchronizationBarrier(lpbarrier: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_deleteSynchronizationBarrier((lpbarrier?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteSynchronizationBarrier(lpbarrier: MutPtr<SynchronizationBarrier>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDeleteSynchronizationBarrier(lpbarrier.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteTimerQueue(timerqueue: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_deleteTimerQueue((timerqueue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDeleteTimerQueue(timerqueue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteTimerQueueEx(timerqueue: Handle, completionevent: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_deleteTimerQueueEx((timerqueue?.value ?: 0L).toString(), (completionevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDeleteTimerQueueEx(timerqueue.rawAddress.toString(), completionevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteTimerQueueTimer(timerqueue: Handle, timer: Handle, completionevent: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_deleteTimerQueueTimer((timerqueue?.value ?: 0L).toString(), (timer?.value ?: 0L).toString(), (completionevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDeleteTimerQueueTimer(timerqueue.rawAddress.toString(), timer.rawAddress.toString(), completionevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_deleteUmsCompletionList((umscompletionlist?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteUmsCompletionList(umscompletionlist: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDeleteUmsCompletionList(umscompletionlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteUmsThreadContext(umsthread: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_deleteUmsThreadContext((umsthread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun deleteUmsThreadContext(umsthread: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDeleteUmsThreadContext(umsthread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dequeueUmsCompletionListItems(umscompletionlist: COpaquePointer?, waittimeout: UInt, umsthreadlist: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems((umscompletionlist?.value ?: 0L).toString(), waittimeout.toInt(), (umsthreadlist?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dequeueUmsCompletionListItems(umscompletionlist: ConstPtr<CVoid>, waittimeout: UInt, umsthreadlist: MutPtr<MutPtr<CVoid>>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingDequeueUmsCompletionListItems(umscompletionlist.rawAddress.toString(), waittimeout.toInt(), umsthreadlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun disassociateCurrentThreadFromCallback(pci: PtpCallbackInstance) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(pci.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingDisassociateCurrentThreadFromCallback(pci.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun enterCriticalSection(lpcriticalsection: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_enterCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+public actual fun enterCriticalSection(lpcriticalsection: MutPtr<CriticalSection>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingEnterCriticalSection(lpcriticalsection.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun enterSynchronizationBarrier(lpbarrier: COpaquePointer?, dwflags: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_enterSynchronizationBarrier((lpbarrier?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun enterSynchronizationBarrier(lpbarrier: MutPtr<SynchronizationBarrier>, dwflags: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingEnterSynchronizationBarrier(lpbarrier.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enterUmsSchedulingMode(schedulerstartupinfo: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_enterUmsSchedulingMode((schedulerstartupinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun enterUmsSchedulingMode(schedulerstartupinfo: ConstPtr<UmsSchedulerStartupInfo>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingEnterUmsSchedulingMode(schedulerstartupinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun executeUmsThread(umsthread: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_executeUmsThread((umsthread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun executeUmsThread(umsthread: MutPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingExecuteUmsThread(umsthread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exitProcess(uexitcode: UInt): Nothing {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_exitProcess(uexitcode.toInt())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingExitProcess(uexitcode.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
@@ -1384,8 +1394,8 @@ public actual fun exitProcess(uexitcode: UInt): Nothing {
 }
 
 public actual fun exitThread(dwexitcode: UInt): Nothing {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_exitThread(dwexitcode.toInt())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingExitThread(dwexitcode.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
@@ -1393,408 +1403,408 @@ public actual fun exitThread(dwexitcode: UInt): Nothing {
 }
 
 public actual fun flsAlloc(lpcallback: PflsCallbackFunction): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_flsAlloc(0L.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingFlsAlloc(0L.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun flsFree(dwflsindex: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_flsFree(dwflsindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingFlsFree(dwflsindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun flsGetValue(dwflsindex: UInt): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_flsGetValue(dwflsindex.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun flsGetValue(dwflsindex: UInt): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingFlsGetValue(dwflsindex.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun flsSetValue(dwflsindex: UInt, lpflsdata: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_flsSetValue(dwflsindex.toInt(), (lpflsdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun flsSetValue(dwflsindex: UInt, lpflsdata: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingFlsSetValue(dwflsindex.toInt(), lpflsdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun flushProcessWriteBuffers() {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_flushProcessWriteBuffers()
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingFlushProcessWriteBuffers()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun freeLibraryWhenCallbackReturns(pci: PtpCallbackInstance, mod: Hmodule) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(pci.toString(), (mod?.value ?: 0L).toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingFreeLibraryWhenCallbackReturns(pci.toString(), mod.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun getActiveProcessorCount(groupnumber: UShort): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getActiveProcessorCount(groupnumber.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetActiveProcessorCount(groupnumber.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getActiveProcessorGroupCount(): UShort =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getActiveProcessorGroupCount().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetActiveProcessorGroupCount().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getCurrentProcess(): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getCurrentProcess().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcess().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getCurrentProcessId(): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getCurrentProcessId().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcessId().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getCurrentProcessorNumber(): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getCurrentProcessorNumber().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcessorNumber().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentProcessorNumberEx(procnumber: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx((procnumber?.value ?: 0L).toString())
+public actual fun getCurrentProcessorNumberEx(procnumber: MutPtr<ProcessorNumber>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingGetCurrentProcessorNumberEx(procnumber.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun getCurrentThread(): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getCurrentThread().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingGetCurrentThread().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getCurrentThreadId(): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getCurrentThreadId().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetCurrentThreadId().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentThreadStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_getCurrentThreadStackLimits((lowlimit?.value ?: 0L).toString(), (highlimit?.value ?: 0L).toString())
+public actual fun getCurrentThreadStackLimits(lowlimit: MutPtr<ULong>, highlimit: MutPtr<ULong>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingGetCurrentThreadStackLimits(lowlimit.rawAddress.toString(), highlimit.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun getCurrentUmsThread(): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getCurrentUmsThread().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getCurrentUmsThread(): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingGetCurrentUmsThread().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getExitCodeProcess(hprocess: Handle, lpexitcode: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getExitCodeProcess((hprocess?.value ?: 0L).toString(), (lpexitcode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getExitCodeProcess(hprocess: Handle, lpexitcode: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetExitCodeProcess(hprocess.rawAddress.toString(), lpexitcode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getExitCodeThread(hthread: Handle, lpexitcode: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getExitCodeThread((hthread?.value ?: 0L).toString(), (lpexitcode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getExitCodeThread(hthread: Handle, lpexitcode: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetExitCodeThread(hthread.rawAddress.toString(), lpexitcode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getGuiResources(hprocess: Handle, uiflags: GetGuiResourcesFlags): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getGuiResources((hprocess?.value ?: 0L).toString(), uiflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetGuiResources(hprocess.rawAddress.toString(), uiflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMachineTypeAttributes(machine: UShort, machinetypeattributes: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getMachineTypeAttributes(machine.toInt(), (machinetypeattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getMachineTypeAttributes(machine: UShort, machinetypeattributes: MutPtr<MachineAttributes>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetMachineTypeAttributes(machine.toInt(), machinetypeattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMaximumProcessorCount(groupnumber: UShort): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getMaximumProcessorCount(groupnumber.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetMaximumProcessorCount(groupnumber.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMaximumProcessorGroupCount(): UShort =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetMaximumProcessorGroupCount().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNextUmsListItem(umscontext: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNextUmsListItem((umscontext?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNextUmsListItem(umscontext: MutPtr<CVoid>): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingGetNextUmsListItem(umscontext.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaAvailableMemoryNode(node: UByte, availablebytes: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(node.toInt(), (availablebytes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaAvailableMemoryNode(node: UByte, availablebytes: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaAvailableMemoryNode(node.toInt(), availablebytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaAvailableMemoryNodeEx(node: UShort, availablebytes: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(node.toInt(), (availablebytes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaAvailableMemoryNodeEx(node: UShort, availablebytes: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaAvailableMemoryNodeEx(node.toInt(), availablebytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaHighestNodeNumber(highestnodenumber: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaHighestNodeNumber((highestnodenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaHighestNodeNumber(highestnodenumber: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaHighestNodeNumber(highestnodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaNodeNumberFromHandle(hfile: Handle, nodenumber: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle((hfile?.value ?: 0L).toString(), (nodenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaNodeNumberFromHandle(hfile: Handle, nodenumber: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeNumberFromHandle(hfile.rawAddress.toString(), nodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaNodeProcessorMask(node: UByte, processormask: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(node.toInt(), (processormask?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaNodeProcessorMask(node: UByte, processormask: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMask(node.toInt(), processormask.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaNodeProcessorMask2(nodenumber: UShort, processormasks: COpaquePointer?, processormaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(nodenumber.toInt(), (processormasks?.value ?: 0L).toString(), processormaskcount.toInt(), (requiredmaskcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaNodeProcessorMask2(nodenumber: UShort, processormasks: MutPtr<GroupAffinity>, processormaskcount: UShort, requiredmaskcount: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMask2(nodenumber.toInt(), processormasks.rawAddress.toString(), processormaskcount.toInt(), requiredmaskcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaNodeProcessorMaskEx(node: UShort, processormask: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(node.toInt(), (processormask?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaNodeProcessorMaskEx(node: UShort, processormask: MutPtr<GroupAffinity>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaNodeProcessorMaskEx(node.toInt(), processormask.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaProcessorNode(processor: UByte, nodenumber: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaProcessorNode(processor.toInt(), (nodenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaProcessorNode(processor: UByte, nodenumber: MutPtr<UByte>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaProcessorNode(processor.toInt(), nodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaProcessorNodeEx(processor: COpaquePointer?, nodenumber: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaProcessorNodeEx((processor?.value ?: 0L).toString(), (nodenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaProcessorNodeEx(processor: ConstPtr<ProcessorNumber>, nodenumber: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaProcessorNodeEx(processor.rawAddress.toString(), nodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaProximityNode(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaProximityNode(proximityid.toInt(), (nodenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaProximityNode(proximityid: UInt, nodenumber: MutPtr<UByte>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaProximityNode(proximityid.toInt(), nodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumaProximityNodeEx(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getNumaProximityNodeEx(proximityid.toInt(), (nodenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getNumaProximityNodeEx(proximityid: UInt, nodenumber: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetNumaProximityNodeEx(proximityid.toInt(), nodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getPriorityClass(hprocess: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getPriorityClass((hprocess?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetPriorityClass(hprocess.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessAffinityMask(hprocess: Handle, lpprocessaffinitymask: COpaquePointer?, lpsystemaffinitymask: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessAffinityMask((hprocess?.value ?: 0L).toString(), (lpprocessaffinitymask?.value ?: 0L).toString(), (lpsystemaffinitymask?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessAffinityMask(hprocess: Handle, lpprocessaffinitymask: MutPtr<ULong>, lpsystemaffinitymask: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessAffinityMask(hprocess.rawAddress.toString(), lpprocessaffinitymask.rawAddress.toString(), lpsystemaffinitymask.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessDEPPolicy(hprocess: Handle, lpflags: COpaquePointer?, lppermanent: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessDEPPolicy((hprocess?.value ?: 0L).toString(), (lpflags?.value ?: 0L).toString(), (lppermanent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessDEPPolicy(hprocess: Handle, lpflags: MutPtr<UInt>, lppermanent: MutPtr<Bool>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessDEPPolicy(hprocess.rawAddress.toString(), lpflags.rawAddress.toString(), lppermanent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks((process?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt(), (requiredmaskcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: MutPtr<GroupAffinity>, cpusetmaskcount: UShort, requiredmaskcount: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessDefaultCpuSetMasks(process.rawAddress.toString(), cpusetmasks.rawAddress.toString(), cpusetmaskcount.toInt(), requiredmaskcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessDefaultCpuSets((process?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt(), (requiredidcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessDefaultCpuSets(process: Handle, cpusetids: MutPtr<UInt>, cpusetidcount: UInt, requiredidcount: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessDefaultCpuSets(process.rawAddress.toString(), cpusetids.rawAddress.toString(), cpusetidcount.toInt(), requiredidcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessGroupAffinity(hprocess: Handle, groupcount: COpaquePointer?, grouparray: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessGroupAffinity((hprocess?.value ?: 0L).toString(), (groupcount?.value ?: 0L).toString(), (grouparray?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessGroupAffinity(hprocess: Handle, groupcount: MutPtr<UShort>, grouparray: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessGroupAffinity(hprocess.rawAddress.toString(), groupcount.rawAddress.toString(), grouparray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessHandleCount(hprocess: Handle, pdwhandlecount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessHandleCount((hprocess?.value ?: 0L).toString(), (pdwhandlecount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessHandleCount(hprocess: Handle, pdwhandlecount: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessHandleCount(hprocess.rawAddress.toString(), pdwhandlecount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getProcessHandleFromHwnd(hwnd: Hwnd): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessHandleFromHwnd((hwnd?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingGetProcessHandleFromHwnd(hwnd.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getProcessId(process: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessId((process?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessId(process.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getProcessIdOfThread(thread: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessIdOfThread((thread?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessIdOfThread(thread.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessInformation((hprocess?.value ?: 0L).toString(), processinformationclass, (processinformation?.value ?: 0L).toString(), processinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: MutPtr<CVoid>, processinformationsize: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessInformation(hprocess.rawAddress.toString(), processinformationclass, processinformation.rawAddress.toString(), processinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessIoCounters(hprocess: Handle, lpiocounters: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessIoCounters((hprocess?.value ?: 0L).toString(), (lpiocounters?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessIoCounters(hprocess: Handle, lpiocounters: MutPtr<IoCounters>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessIoCounters(hprocess.rawAddress.toString(), lpiocounters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessMitigationPolicy(hprocess: Handle, mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessMitigationPolicy((hprocess?.value ?: 0L).toString(), mitigationpolicy, (lpbuffer?.value ?: 0L).toString(), dwlength.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessMitigationPolicy(hprocess: Handle, mitigationpolicy: ProcessMitigationPolicy, lpbuffer: MutPtr<CVoid>, dwlength: ULong): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessMitigationPolicy(hprocess.rawAddress.toString(), mitigationpolicy, lpbuffer.rawAddress.toString(), dwlength.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessPriorityBoost(hprocess: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessPriorityBoost((hprocess?.value ?: 0L).toString(), (pdisablepriorityboost?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessPriorityBoost(hprocess: Handle, pdisablepriorityboost: MutPtr<Bool>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessPriorityBoost(hprocess.rawAddress.toString(), pdisablepriorityboost.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessShutdownParameters(lpdwlevel: COpaquePointer?, lpdwflags: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessShutdownParameters((lpdwlevel?.value ?: 0L).toString(), (lpdwflags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessShutdownParameters(lpdwlevel: MutPtr<UInt>, lpdwflags: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessShutdownParameters(lpdwlevel.rawAddress.toString(), lpdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessTimes(hprocess: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessTimes((hprocess?.value ?: 0L).toString(), (lpcreationtime?.value ?: 0L).toString(), (lpexittime?.value ?: 0L).toString(), (lpkerneltime?.value ?: 0L).toString(), (lpusertime?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessTimes(hprocess: Handle, lpcreationtime: MutPtr<Filetime>, lpexittime: MutPtr<Filetime>, lpkerneltime: MutPtr<Filetime>, lpusertime: MutPtr<Filetime>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessTimes(hprocess.rawAddress.toString(), lpcreationtime.rawAddress.toString(), lpexittime.rawAddress.toString(), lpkerneltime.rawAddress.toString(), lpusertime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getProcessVersion(processid: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessVersion(processid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessVersion(processid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessWorkingSetSize(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getProcessWorkingSetSize((hprocess?.value ?: 0L).toString(), (lpminimumworkingsetsize?.value ?: 0L).toString(), (lpmaximumworkingsetsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getProcessWorkingSetSize(hprocess: Handle, lpminimumworkingsetsize: MutPtr<ULong>, lpmaximumworkingsetsize: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetProcessWorkingSetSize(hprocess.rawAddress.toString(), lpminimumworkingsetsize.rawAddress.toString(), lpmaximumworkingsetsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getStartupInfoA(lpstartupinfo: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_getStartupInfoA((lpstartupinfo?.value ?: 0L).toString())
+public actual fun getStartupInfoA(lpstartupinfo: MutPtr<Startupinfoa>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingGetStartupInfoA(lpstartupinfo.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun getStartupInfoW(lpstartupinfo: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_getStartupInfoW((lpstartupinfo?.value ?: 0L).toString())
+public actual fun getStartupInfoW(lpstartupinfo: MutPtr<Startupinfow>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingGetStartupInfoW(lpstartupinfo.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun getSystemTimes(lpidletime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getSystemTimes((lpidletime?.value ?: 0L).toString(), (lpkerneltime?.value ?: 0L).toString(), (lpusertime?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getSystemTimes(lpidletime: MutPtr<Filetime>, lpkerneltime: MutPtr<Filetime>, lpusertime: MutPtr<Filetime>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetSystemTimes(lpidletime.rawAddress.toString(), lpkerneltime.rawAddress.toString(), lpusertime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadDescription(hthread: Handle, ppszthreaddescription: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadDescription((hthread?.value ?: 0L).toString(), (ppszthreaddescription?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadDescription(hthread: Handle, ppszthreaddescription: MutPtr<Pwstr>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadDescription(hthread.rawAddress.toString(), ppszthreaddescription.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadGroupAffinity((hthread?.value ?: 0L).toString(), (groupaffinity?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadGroupAffinity(hthread: Handle, groupaffinity: MutPtr<GroupAffinity>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadGroupAffinity(hthread.rawAddress.toString(), groupaffinity.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadIOPendingFlag(hthread: Handle, lpioispending: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadIOPendingFlag((hthread?.value ?: 0L).toString(), (lpioispending?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadIOPendingFlag(hthread: Handle, lpioispending: MutPtr<Bool>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadIOPendingFlag(hthread.rawAddress.toString(), lpioispending.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getThreadId(thread: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadId((thread?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadId(thread.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadIdealProcessorEx((hthread?.value ?: 0L).toString(), (lpidealprocessor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: MutPtr<ProcessorNumber>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadIdealProcessorEx(hthread.rawAddress.toString(), lpidealprocessor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadInformation((hthread?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: MutPtr<CVoid>, threadinformationsize: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadInformation(hthread.rawAddress.toString(), threadinformationclass, threadinformation.rawAddress.toString(), threadinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getThreadPriority(hthread: Handle): Int =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadPriority((hthread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadPriority(hthread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadPriorityBoost(hthread: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadPriorityBoost((hthread?.value ?: 0L).toString(), (pdisablepriorityboost?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadPriorityBoost(hthread: Handle, pdisablepriorityboost: MutPtr<Bool>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadPriorityBoost(hthread.rawAddress.toString(), pdisablepriorityboost.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks((thread?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt(), (requiredmaskcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: MutPtr<GroupAffinity>, cpusetmaskcount: UShort, requiredmaskcount: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadSelectedCpuSetMasks(thread.rawAddress.toString(), cpusetmasks.rawAddress.toString(), cpusetmaskcount.toInt(), requiredmaskcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadSelectedCpuSets((thread?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt(), (requiredidcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadSelectedCpuSets(thread: Handle, cpusetids: MutPtr<UInt>, cpusetidcount: UInt, requiredidcount: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadSelectedCpuSets(thread.rawAddress.toString(), cpusetids.rawAddress.toString(), cpusetidcount.toInt(), requiredidcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getThreadTimes(hthread: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getThreadTimes((hthread?.value ?: 0L).toString(), (lpcreationtime?.value ?: 0L).toString(), (lpexittime?.value ?: 0L).toString(), (lpkerneltime?.value ?: 0L).toString(), (lpusertime?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getThreadTimes(hthread: Handle, lpcreationtime: MutPtr<Filetime>, lpexittime: MutPtr<Filetime>, lpkerneltime: MutPtr<Filetime>, lpusertime: MutPtr<Filetime>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetThreadTimes(hthread.rawAddress.toString(), lpcreationtime.rawAddress.toString(), lpexittime.rawAddress.toString(), lpkerneltime.rawAddress.toString(), lpusertime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUmsCompletionListEvent(umscompletionlist: COpaquePointer?, umscompletionevent: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getUmsCompletionListEvent((umscompletionlist?.value ?: 0L).toString(), (umscompletionevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUmsCompletionListEvent(umscompletionlist: ConstPtr<CVoid>, umscompletionevent: MutPtr<Handle>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetUmsCompletionListEvent(umscompletionlist.rawAddress.toString(), umscompletionevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUmsSystemThreadInformation(threadhandle: Handle, systemthreadinfo: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_getUmsSystemThreadInformation((threadhandle?.value ?: 0L).toString(), (systemthreadinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getUmsSystemThreadInformation(threadhandle: Handle, systemthreadinfo: MutPtr<UmsSystemThreadInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingGetUmsSystemThreadInformation(threadhandle.rawAddress.toString(), systemthreadinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initOnceBeginInitialize(lpinitonce: COpaquePointer?, dwflags: UInt, fpending: COpaquePointer?, lpcontext: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initOnceBeginInitialize((lpinitonce?.value ?: 0L).toString(), dwflags.toInt(), (fpending?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initOnceBeginInitialize(lpinitonce: MutPtr<InitOnce>, dwflags: UInt, fpending: MutPtr<Bool>, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitOnceBeginInitialize(lpinitonce.rawAddress.toString(), dwflags.toInt(), fpending.rawAddress.toString(), lpcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initOnceComplete(lpinitonce: COpaquePointer?, dwflags: UInt, lpcontext: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initOnceComplete((lpinitonce?.value ?: 0L).toString(), dwflags.toInt(), (lpcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initOnceComplete(lpinitonce: MutPtr<InitOnce>, dwflags: UInt, lpcontext: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitOnceComplete(lpinitonce.rawAddress.toString(), dwflags.toInt(), lpcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initOnceExecuteOnce(initonce: COpaquePointer?, initfn: PinitOnceFn, parameter: COpaquePointer?, context: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initOnceExecuteOnce((initonce?.value ?: 0L).toString(), 0L.toString(), (parameter?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initOnceExecuteOnce(initonce: MutPtr<InitOnce>, initfn: PinitOnceFn, parameter: MutPtr<CVoid>, context: MutPtr<MutPtr<CVoid>>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitOnceExecuteOnce(initonce.rawAddress.toString(), 0L.toString(), parameter.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initOnceInitialize(initonce: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_initOnceInitialize((initonce?.value ?: 0L).toString())
+public actual fun initOnceInitialize(initonce: MutPtr<InitOnce>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingInitOnceInitialize(initonce.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeConditionVariable(conditionvariable: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_initializeConditionVariable((conditionvariable?.value ?: 0L).toString())
+public actual fun initializeConditionVariable(conditionvariable: MutPtr<ConditionVariable>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingInitializeConditionVariable(conditionvariable.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeCriticalSection(lpcriticalsection: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_initializeCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+public actual fun initializeCriticalSection(lpcriticalsection: MutPtr<CriticalSection>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingInitializeCriticalSection(lpcriticalsection.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeCriticalSectionAndSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount((lpcriticalsection?.value ?: 0L).toString(), dwspincount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initializeCriticalSectionAndSpinCount(lpcriticalsection: MutPtr<CriticalSection>, dwspincount: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitializeCriticalSectionAndSpinCount(lpcriticalsection.rawAddress.toString(), dwspincount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initializeCriticalSectionEx(lpcriticalsection: COpaquePointer?, dwspincount: UInt, flags: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initializeCriticalSectionEx((lpcriticalsection?.value ?: 0L).toString(), dwspincount.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initializeCriticalSectionEx(lpcriticalsection: MutPtr<CriticalSection>, dwspincount: UInt, flags: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitializeCriticalSectionEx(lpcriticalsection.rawAddress.toString(), dwspincount.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initializeProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList, dwattributecount: UInt, dwflags: UInt, lpsize: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initializeProcThreadAttributeList((lpattributelist?.value ?: 0L).toString(), dwattributecount.toInt(), dwflags.toInt(), (lpsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initializeProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList, dwattributecount: UInt, dwflags: UInt, lpsize: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitializeProcThreadAttributeList(lpattributelist.rawAddress.toString(), dwattributecount.toInt(), dwflags.toInt(), lpsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initializeSListHead(listhead: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_initializeSListHead((listhead?.value ?: 0L).toString())
+public actual fun initializeSListHead(listhead: MutPtr<SlistHeader>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingInitializeSListHead(listhead.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeSRWLock(srwlock: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_initializeSRWLock((srwlock?.value ?: 0L).toString())
+public actual fun initializeSRWLock(srwlock: MutPtr<Srwlock>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingInitializeSRWLock(srwlock.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun initializeSynchronizationBarrier(lpbarrier: COpaquePointer?, ltotalthreads: Int, lspincount: Int): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_initializeSynchronizationBarrier((lpbarrier?.value ?: 0L).toString(), ltotalthreads, lspincount) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun initializeSynchronizationBarrier(lpbarrier: MutPtr<SynchronizationBarrier>, ltotalthreads: Int, lspincount: Int): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingInitializeSynchronizationBarrier(lpbarrier.rawAddress.toString(), ltotalthreads, lspincount) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun interlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_interlockedFlushSList((listhead?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun interlockedFlushSList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingInterlockedFlushSList(listhead.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun interlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_interlockedPopEntrySList((listhead?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun interlockedPopEntrySList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingInterlockedPopEntrySList(listhead.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun interlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_interlockedPushEntrySList((listhead?.value ?: 0L).toString(), (listentry?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun interlockedPushEntrySList(listhead: MutPtr<SlistHeader>, listentry: MutPtr<SlistEntry>): MutPtr<SlistEntry> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingInterlockedPushEntrySList(listhead.rawAddress.toString(), listentry.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun interlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_interlockedPushListSListEx((listhead?.value ?: 0L).toString(), (list?.value ?: 0L).toString(), (listend?.value ?: 0L).toString(), count.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun interlockedPushListSListEx(listhead: MutPtr<SlistHeader>, list: MutPtr<SlistEntry>, listend: MutPtr<SlistEntry>, count: UInt): MutPtr<SlistEntry> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingInterlockedPushListSListEx(listhead.rawAddress.toString(), list.rawAddress.toString(), listend.rawAddress.toString(), count.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isImmersiveProcess(hprocess: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isImmersiveProcess((hprocess?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsImmersiveProcess(hprocess.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isProcessCritical(hprocess: Handle, critical: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isProcessCritical((hprocess?.value ?: 0L).toString(), (critical?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun isProcessCritical(hprocess: Handle, critical: MutPtr<Bool>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsProcessCritical(hprocess.rawAddress.toString(), critical.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isProcessorFeaturePresent(processorfeature: ProcessorFeatureId): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isProcessorFeaturePresent(processorfeature.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsProcessorFeaturePresent(processorfeature.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isThreadAFiber(): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isThreadAFiber() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsThreadAFiber() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isThreadpoolTimerSet(pti: PtpTimer): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isThreadpoolTimerSet(pti.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet(pti.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isWow64Process(hprocess: Handle, wow64process: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isWow64Process((hprocess?.value ?: 0L).toString(), (wow64process?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun isWow64Process(hprocess: Handle, wow64process: MutPtr<Bool>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsWow64Process(hprocess.rawAddress.toString(), wow64process.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isWow64Process2(hprocess: Handle, pprocessmachine: COpaquePointer?, pnativemachine: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_isWow64Process2((hprocess?.value ?: 0L).toString(), (pprocessmachine?.value ?: 0L).toString(), (pnativemachine?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun isWow64Process2(hprocess: Handle, pprocessmachine: MutPtr<ImageFileMachine>, pnativemachine: MutPtr<ImageFileMachine>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingIsWow64Process2(hprocess.rawAddress.toString(), pprocessmachine.rawAddress.toString(), pnativemachine.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun leaveCriticalSection(lpcriticalsection: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_leaveCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+public actual fun leaveCriticalSection(lpcriticalsection: MutPtr<CriticalSection>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingLeaveCriticalSection(lpcriticalsection.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun leaveCriticalSectionWhenCallbackReturns(pci: PtpCallbackInstance, pcs: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(pci.toString(), (pcs?.value ?: 0L).toString())
+public actual fun leaveCriticalSectionWhenCallbackReturns(pci: PtpCallbackInstance, pcs: MutPtr<CriticalSection>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingLeaveCriticalSectionWhenCallbackReturns(pci.toString(), pcs.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun openEventA(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openEventA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenEventA(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openEventW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openEventW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenEventW(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openMutexW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openMutexW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenMutexW(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openPrivateNamespaceA(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openPrivateNamespaceA((lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun openPrivateNamespaceA(lpboundarydescriptor: ConstPtr<CVoid>, lpaliasprefix: Pcstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenPrivateNamespaceA(lpboundarydescriptor.rawAddress.toString(), lpaliasprefix.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openPrivateNamespaceW(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openPrivateNamespaceW((lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun openPrivateNamespaceW(lpboundarydescriptor: ConstPtr<CVoid>, lpaliasprefix: Pcwstr): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenPrivateNamespaceW(lpboundarydescriptor.rawAddress.toString(), lpaliasprefix.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openProcess(dwdesiredaccess: ProcessAccessRights, binherithandle: Bool, dwprocessid: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openProcess(dwdesiredaccess.toInt(), binherithandle, dwprocessid.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenProcess(dwdesiredaccess.toInt(), binherithandle, dwprocessid.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openProcessToken(processhandle: Handle, desiredaccess: TokenAccessMask, tokenhandle: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openProcessToken((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (tokenhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun openProcessToken(processhandle: Handle, desiredaccess: TokenAccessMask, tokenhandle: MutPtr<Handle>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingOpenProcessToken(processhandle.rawAddress.toString(), desiredaccess.toInt(), tokenhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openSemaphoreW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openSemaphoreW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenSemaphoreW(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openThread(dwdesiredaccess: ThreadAccessRights, binherithandle: Bool, dwthreadid: UInt): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openThread(dwdesiredaccess.toInt(), binherithandle, dwthreadid.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenThread(dwdesiredaccess.toInt(), binherithandle, dwthreadid.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openThreadToken(threadhandle: Handle, desiredaccess: TokenAccessMask, openasself: Bool, tokenhandle: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openThreadToken((threadhandle?.value ?: 0L).toString(), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun openThreadToken(threadhandle: Handle, desiredaccess: TokenAccessMask, openasself: Bool, tokenhandle: MutPtr<Handle>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingOpenThreadToken(threadhandle.rawAddress.toString(), desiredaccess.toInt(), openasself, tokenhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openWaitableTimerA(dwdesiredaccess: UInt, binherithandle: Bool, lptimername: Pcstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openWaitableTimerA(dwdesiredaccess.toInt(), binherithandle, (lptimername?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenWaitableTimerA(dwdesiredaccess.toInt(), binherithandle, lptimername.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openWaitableTimerW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lptimername: Pcwstr): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_openWaitableTimerW(dwdesiredaccess.toInt(), binherithandle, (lptimername?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingOpenWaitableTimerW(dwdesiredaccess.toInt(), binherithandle, lptimername.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pulseEvent(hevent: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_pulseEvent((hevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingPulseEvent(hevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryDepthSList(listhead: COpaquePointer?): UShort =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryDepthSList((listhead?.value ?: 0L).toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryDepthSList(listhead: ConstPtr<SlistHeader>): UShort =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryDepthSList(listhead.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryFullProcessImageNameA(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pstr, lpdwsize: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryFullProcessImageNameA((hprocess?.value ?: 0L).toString(), dwflags.toInt(), (lpexename?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryFullProcessImageNameA(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pstr, lpdwsize: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryFullProcessImageNameA(hprocess.rawAddress.toString(), dwflags.toInt(), lpexename.rawAddress.toString(), lpdwsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryFullProcessImageNameW(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pwstr, lpdwsize: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryFullProcessImageNameW((hprocess?.value ?: 0L).toString(), dwflags.toInt(), (lpexename?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryFullProcessImageNameW(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pwstr, lpdwsize: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryFullProcessImageNameW(hprocess.rawAddress.toString(), dwflags.toInt(), lpexename.rawAddress.toString(), lpdwsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryProcessAffinityUpdateMode(hprocess: Handle, lpdwflags: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode((hprocess?.value ?: 0L).toString(), (lpdwflags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryProcessAffinityUpdateMode(hprocess: Handle, lpdwflags: MutPtr<ProcessAffinityAutoUpdateFlags>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryProcessAffinityUpdateMode(hprocess.rawAddress.toString(), lpdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryProtectedPolicy((policyguid?.value ?: 0L).toString(), (policyvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryProtectedPolicy(policyguid: ConstPtr<Guid>, policyvalue: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryProtectedPolicy(policyguid.rawAddress.toString(), policyvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp.toString(), (ptpsi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: MutPtr<TpPoolStackInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryThreadpoolStackInformation(ptpp.toString(), ptpsi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queryUmsThreadInformation((umsthread?.value ?: 0L).toString(), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L).toString(), umsthreadinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryUmsThreadInformation(umsthread: ConstPtr<CVoid>, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: MutPtr<CVoid>, umsthreadinformationlength: UInt, returnlength: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueryUmsThreadInformation(umsthread.rawAddress.toString(), umsthreadinfoclass, umsthreadinformation.rawAddress.toString(), umsthreadinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun queueUserAPC(pfnapc: Papcfunc, hthread: Handle, dwdata: ULong): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1802,477 +1812,477 @@ public actual fun queueUserAPC(pfnapc: Papcfunc, hthread: Handle, dwdata: ULong)
 public actual fun queueUserAPC2(apcroutine: Papcfunc, thread: Handle, data: ULong, flags: QueueUserApcFlags): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queueUserWorkItem(function: LpthreadStartRoutine, context: COpaquePointer?, flags: WorkerThreadFlags): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_queueUserWorkItem(0L.toString(), (context?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queueUserWorkItem(function: LpthreadStartRoutine, context: ConstPtr<CVoid>, flags: WorkerThreadFlags): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingQueueUserWorkItem(0L.toString(), context.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerWaitForSingleObject(phnewwaitobject: COpaquePointer?, hobject: Handle, callback: Waitortimercallback, context: COpaquePointer?, dwmilliseconds: UInt, dwflags: WorkerThreadFlags): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_registerWaitForSingleObject((phnewwaitobject?.value ?: 0L).toString(), (hobject?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString(), dwmilliseconds.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun registerWaitForSingleObject(phnewwaitobject: MutPtr<Handle>, hobject: Handle, callback: Waitortimercallback, context: ConstPtr<CVoid>, dwmilliseconds: UInt, dwflags: WorkerThreadFlags): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRegisterWaitForSingleObject(phnewwaitobject.rawAddress.toString(), hobject.rawAddress.toString(), 0L.toString(), context.rawAddress.toString(), dwmilliseconds.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun releaseMutex(hmutex: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_releaseMutex((hmutex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingReleaseMutex(hmutex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun releaseMutexWhenCallbackReturns(pci: PtpCallbackInstance, mut: Handle) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(pci.toString(), (mut?.value ?: 0L).toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingReleaseMutexWhenCallbackReturns(pci.toString(), mut.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun releaseSRWLockExclusive(srwlock: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_releaseSRWLockExclusive((srwlock?.value ?: 0L).toString())
+public actual fun releaseSRWLockExclusive(srwlock: MutPtr<Srwlock>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingReleaseSRWLockExclusive(srwlock.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun releaseSRWLockShared(srwlock: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_releaseSRWLockShared((srwlock?.value ?: 0L).toString())
+public actual fun releaseSRWLockShared(srwlock: MutPtr<Srwlock>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingReleaseSRWLockShared(srwlock.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun releaseSemaphore(hsemaphore: Handle, lreleasecount: Int, lppreviouscount: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_releaseSemaphore((hsemaphore?.value ?: 0L).toString(), lreleasecount, (lppreviouscount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun releaseSemaphore(hsemaphore: Handle, lreleasecount: Int, lppreviouscount: MutPtr<Int>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingReleaseSemaphore(hsemaphore.rawAddress.toString(), lreleasecount, lppreviouscount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun releaseSemaphoreWhenCallbackReturns(pci: PtpCallbackInstance, sem: Handle, crel: UInt) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(pci.toString(), (sem?.value ?: 0L).toString(), crel.toInt())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingReleaseSemaphoreWhenCallbackReturns(pci.toString(), sem.rawAddress.toString(), crel.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun resetEvent(hevent: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_resetEvent((hevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingResetEvent(hevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun resumeThread(hthread: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_resumeThread((hthread?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingResumeThread(hthread.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqAddPeriodicCallback(callback: Rtwqperiodiccallback, context: COpaquePointer?, key: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(0L.toString(), (context?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqAddPeriodicCallback(callback: Rtwqperiodiccallback, context: MutPtr<CVoid>, key: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqAddPeriodicCallback(0L.toString(), context.rawAddress.toString(), key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(workqueueidin.toInt(), (workqueueidout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqAllocateSerialWorkQueue(workqueueidin.toInt(), workqueueidout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqAllocateWorkQueue(workqueuetype: RtwqWorkqueueType, workqueueid: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(workqueuetype, (workqueueid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqAllocateWorkQueue(workqueuetype: RtwqWorkqueueType, workqueueid: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqAllocateWorkQueue(workqueuetype, workqueueid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: Pcwstr, dwtaskid: UInt, lpriority: Int, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid.toInt(), (usageclass?.value ?: 0L).toString(), dwtaskid.toInt(), lpriority, (donecallback?.value ?: 0L).toString(), (donestate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: Pcwstr, dwtaskid: UInt, lpriority: Int, donecallback: MutPtr<CVoid>, donestate: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqBeginRegisterWorkQueueWithMMCSS(workqueueid.toInt(), usageclass.rawAddress.toString(), dwtaskid.toInt(), lpriority, donecallback.rawAddress.toString(), donestate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid.toInt(), (donecallback?.value ?: 0L).toString(), (donestate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: MutPtr<CVoid>, donestate: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid.toInt(), donecallback.rawAddress.toString(), donestate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqCancelDeadline(prequest: Handle): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqCancelDeadline((prequest?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqCancelDeadline(prequest.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqCancelWorkItem(key: ULong): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqCancelWorkItem(key.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqCancelWorkItem(key.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqCreateAsyncResult(appobject: COpaquePointer?, callback: COpaquePointer?, appstate: COpaquePointer?, asyncresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqCreateAsyncResult((appobject?.value ?: 0L).toString(), (callback?.value ?: 0L).toString(), (appstate?.value ?: 0L).toString(), (asyncresult?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqCreateAsyncResult(appobject: MutPtr<CVoid>, callback: MutPtr<CVoid>, appstate: MutPtr<CVoid>, asyncresult: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqCreateAsyncResult(appobject.rawAddress.toString(), callback.rawAddress.toString(), appstate.rawAddress.toString(), asyncresult.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqEndRegisterWorkQueueWithMMCSS(result: COpaquePointer?, taskid: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS((result?.value ?: 0L).toString(), (taskid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqEndRegisterWorkQueueWithMMCSS(result: MutPtr<CVoid>, taskid: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqEndRegisterWorkQueueWithMMCSS(result.rawAddress.toString(), taskid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: Pwstr, usageclasslength: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(workqueueid.toInt(), (usageclass?.value ?: 0L).toString(), (usageclasslength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: Pwstr, usageclasslength: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSClass(workqueueid.toInt(), usageclass.rawAddress.toString(), usageclasslength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(workqueueid.toInt(), (priority?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSPriority(workqueueid.toInt(), priority.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(workqueueid.toInt(), (taskid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqGetWorkQueueMMCSSTaskId(workqueueid.toInt(), taskid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqInvokeCallback(result: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqInvokeCallback((result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqInvokeCallback(result: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqInvokeCallback(result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(workqueueid.toInt(), (hfile?.value ?: 0L).toString(), (out?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: MutPtr<Handle>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqJoinWorkQueue(workqueueid.toInt(), hfile.rawAddress.toString(), out.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqLockPlatform(): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqLockPlatform() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqLockPlatform() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: COpaquePointer?, id: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue((usageclass?.value ?: 0L).toString(), basepriority, (taskid?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: MutPtr<UInt>, id: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqLockSharedWorkQueue(usageclass.rawAddress.toString(), basepriority, taskid.rawAddress.toString(), id.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqLockWorkQueue(workqueueid: UInt): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqLockWorkQueue(workqueueid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqLockWorkQueue(workqueueid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: COpaquePointer?, key: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem((hevent?.value ?: 0L).toString(), lpriority, (result?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: MutPtr<CVoid>, key: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqPutWaitingWorkItem(hevent.rawAddress.toString(), lpriority, result.rawAddress.toString(), key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqPutWorkItem(dwqueue.toInt(), lpriority, (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqPutWorkItem(dwqueue.toInt(), lpriority, result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqRegisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents((platformevents?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqRegisterPlatformEvents(platformevents: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqRegisterPlatformEvents(platformevents.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: COpaquePointer?, lpriority: Int): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS((usageclass?.value ?: 0L).toString(), (taskid?.value ?: 0L).toString(), lpriority) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: MutPtr<UInt>, lpriority: Int): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqRegisterPlatformWithMMCSS(usageclass.rawAddress.toString(), taskid.rawAddress.toString(), lpriority) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqRemovePeriodicCallback(dwkey: UInt): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(dwkey.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqRemovePeriodicCallback(dwkey.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqScheduleWorkItem(result: COpaquePointer?, timeout: Long, key: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqScheduleWorkItem((result?.value ?: 0L).toString(), timeout.toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqScheduleWorkItem(result: MutPtr<CVoid>, timeout: Long, key: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqScheduleWorkItem(result.rawAddress.toString(), timeout.toString(), key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqSetDeadline(workqueueid.toInt(), deadlineinhns.toString(), (prequest?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: MutPtr<Handle>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqSetDeadline(workqueueid.toInt(), deadlineinhns.toString(), prequest.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqSetDeadline2(workqueueid.toInt(), deadlineinhns.toString(), predeadlineinhns.toString(), (prequest?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: MutPtr<Handle>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqSetDeadline2(workqueueid.toInt(), deadlineinhns.toString(), predeadlineinhns.toString(), prequest.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqSetLongRunning(workqueueid: UInt, enable: Bool): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqSetLongRunning(workqueueid.toInt(), enable) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqSetLongRunning(workqueueid.toInt(), enable) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqShutdown(): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqShutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqShutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqStartup(): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqStartup() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqStartup() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(workqueueid.toInt(), (hfile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqUnjoinWorkQueue(workqueueid.toInt(), hfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqUnlockPlatform(): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqUnlockPlatform() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqUnlockPlatform() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqUnlockWorkQueue(workqueueid: UInt): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(workqueueid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue(workqueueid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtwqUnregisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents((platformevents?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtwqUnregisterPlatformEvents(platformevents: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformEvents(platformevents.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtwqUnregisterPlatformFromMMCSS(): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformFromMMCSS() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setCriticalSectionSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setCriticalSectionSpinCount((lpcriticalsection?.value ?: 0L).toString(), dwspincount.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setCriticalSectionSpinCount(lpcriticalsection: MutPtr<CriticalSection>, dwspincount: UInt): UInt =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetCriticalSectionSpinCount(lpcriticalsection.rawAddress.toString(), dwspincount.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setEvent(hevent: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setEvent((hevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetEvent(hevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setEventWhenCallbackReturns(pci: PtpCallbackInstance, evt: Handle) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(pci.toString(), (evt?.value ?: 0L).toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSetEventWhenCallbackReturns(pci.toString(), evt.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun setPriorityClass(hprocess: Handle, dwpriorityclass: ProcessCreationFlags): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setPriorityClass((hprocess?.value ?: 0L).toString(), dwpriorityclass.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetPriorityClass(hprocess.rawAddress.toString(), dwpriorityclass.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessAffinityMask(hprocess: Handle, dwprocessaffinitymask: ULong): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessAffinityMask((hprocess?.value ?: 0L).toString(), dwprocessaffinitymask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessAffinityMask(hprocess.rawAddress.toString(), dwprocessaffinitymask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessAffinityUpdateMode(hprocess: Handle, dwflags: ProcessAffinityAutoUpdateFlags): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode((hprocess?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessAffinityUpdateMode(hprocess.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessDEPPolicy(dwflags: ProcessDepFlags): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessDEPPolicy(dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessDEPPolicy(dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks((process?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: ConstPtr<GroupAffinity>, cpusetmaskcount: UShort): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSetMasks(process.rawAddress.toString(), cpusetmasks.rawAddress.toString(), cpusetmaskcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessDefaultCpuSets((process?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProcessDefaultCpuSets(process: Handle, cpusetids: ConstPtr<UInt>, cpusetidcount: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSets(process.rawAddress.toString(), cpusetids.rawAddress.toString(), cpusetidcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProcessDynamicEHContinuationTargets(process: Handle, numberoftargets: UShort, targets: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets((process?.value ?: 0L).toString(), numberoftargets.toInt(), (targets?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProcessDynamicEHContinuationTargets(process: Handle, numberoftargets: UShort, targets: MutPtr<ProcessDynamicEhContinuationTarget>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessDynamicEHContinuationTargets(process.rawAddress.toString(), numberoftargets.toInt(), targets.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProcessDynamicEnforcedCetCompatibleRanges(process: Handle, numberofranges: UShort, ranges: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges((process?.value ?: 0L).toString(), numberofranges.toInt(), (ranges?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProcessDynamicEnforcedCetCompatibleRanges(process: Handle, numberofranges: UShort, ranges: MutPtr<ProcessDynamicEnforcedAddressRange>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessDynamicEnforcedCetCompatibleRanges(process.rawAddress.toString(), numberofranges.toInt(), ranges.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessInformation((hprocess?.value ?: 0L).toString(), processinformationclass, (processinformation?.value ?: 0L).toString(), processinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: ConstPtr<CVoid>, processinformationsize: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessInformation(hprocess.rawAddress.toString(), processinformationclass, processinformation.rawAddress.toString(), processinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProcessMitigationPolicy(mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessMitigationPolicy(mitigationpolicy, (lpbuffer?.value ?: 0L).toString(), dwlength.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProcessMitigationPolicy(mitigationpolicy: ProcessMitigationPolicy, lpbuffer: ConstPtr<CVoid>, dwlength: ULong): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessMitigationPolicy(mitigationpolicy, lpbuffer.rawAddress.toString(), dwlength.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessPriorityBoost(hprocess: Handle, bdisablepriorityboost: Bool): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessPriorityBoost((hprocess?.value ?: 0L).toString(), bdisablepriorityboost) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessPriorityBoost(hprocess.rawAddress.toString(), bdisablepriorityboost) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessRestrictionExemption(fenableexemption: Bool): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessRestrictionExemption(fenableexemption) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessRestrictionExemption(fenableexemption) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setProcessWorkingSetSize(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProcessWorkingSetSize((hprocess?.value ?: 0L).toString(), dwminimumworkingsetsize.toString(), dwmaximumworkingsetsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProcessWorkingSetSize(hprocess.rawAddress.toString(), dwminimumworkingsetsize.toString(), dwmaximumworkingsetsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setProtectedPolicy(policyguid: COpaquePointer?, policyvalue: ULong, oldpolicyvalue: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setProtectedPolicy((policyguid?.value ?: 0L).toString(), policyvalue.toString(), (oldpolicyvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setProtectedPolicy(policyguid: ConstPtr<Guid>, policyvalue: ULong, oldpolicyvalue: MutPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetProtectedPolicy(policyguid.rawAddress.toString(), policyvalue.toString(), oldpolicyvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setThreadAffinityMask(hthread: Handle, dwthreadaffinitymask: ULong): ULong =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadAffinityMask((hthread?.value ?: 0L).toString(), dwthreadaffinitymask.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadAffinityMask(hthread.rawAddress.toString(), dwthreadaffinitymask.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setThreadDescription(hthread: Handle, lpthreaddescription: Pcwstr): Hresult =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadDescription((hthread?.value ?: 0L).toString(), (lpthreaddescription?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadDescription(hthread.rawAddress.toString(), lpthreaddescription.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?, previousgroupaffinity: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadGroupAffinity((hthread?.value ?: 0L).toString(), (groupaffinity?.value ?: 0L).toString(), (previousgroupaffinity?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadGroupAffinity(hthread: Handle, groupaffinity: ConstPtr<GroupAffinity>, previousgroupaffinity: MutPtr<GroupAffinity>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadGroupAffinity(hthread.rawAddress.toString(), groupaffinity.rawAddress.toString(), previousgroupaffinity.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setThreadIdealProcessor(hthread: Handle, dwidealprocessor: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadIdealProcessor((hthread?.value ?: 0L).toString(), dwidealprocessor.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadIdealProcessor(hthread.rawAddress.toString(), dwidealprocessor.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?, lppreviousidealprocessor: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadIdealProcessorEx((hthread?.value ?: 0L).toString(), (lpidealprocessor?.value ?: 0L).toString(), (lppreviousidealprocessor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: ConstPtr<ProcessorNumber>, lppreviousidealprocessor: MutPtr<ProcessorNumber>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadIdealProcessorEx(hthread.rawAddress.toString(), lpidealprocessor.rawAddress.toString(), lppreviousidealprocessor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadInformation((hthread?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: ConstPtr<CVoid>, threadinformationsize: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadInformation(hthread.rawAddress.toString(), threadinformationclass, threadinformation.rawAddress.toString(), threadinformationsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setThreadPriority(hthread: Handle, npriority: ThreadPriority): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadPriority((hthread?.value ?: 0L).toString(), npriority) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadPriority(hthread.rawAddress.toString(), npriority) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setThreadPriorityBoost(hthread: Handle, bdisablepriorityboost: Bool): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadPriorityBoost((hthread?.value ?: 0L).toString(), bdisablepriorityboost) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadPriorityBoost(hthread.rawAddress.toString(), bdisablepriorityboost) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks((thread?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: ConstPtr<GroupAffinity>, cpusetmaskcount: UShort): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadSelectedCpuSetMasks(thread.rawAddress.toString(), cpusetmasks.rawAddress.toString(), cpusetmaskcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadSelectedCpuSets((thread?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadSelectedCpuSets(thread: Handle, cpusetids: ConstPtr<UInt>, cpusetidcount: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadSelectedCpuSets(thread.rawAddress.toString(), cpusetids.rawAddress.toString(), cpusetidcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadStackGuarantee(stacksizeinbytes: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadStackGuarantee((stacksizeinbytes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadStackGuarantee(stacksizeinbytes: MutPtr<UInt>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadStackGuarantee(stacksizeinbytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadToken((thread?.value ?: 0L).toString(), (token?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadToken(thread: ConstPtr<Handle>, token: Handle): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadToken(thread.rawAddress.toString(), token.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp.toString(), (ptpsi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: ConstPtr<TpPoolStackInformation>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolStackInformation(ptpp.toString(), ptpsi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp.toString(), cthrdmost.toInt())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMaximum(ptpp.toString(), cthrdmost.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp.toString(), cthrdmic.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMinimum(ptpp.toString(), cthrdmic.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_setThreadpoolTimer(pti.toString(), (pftduetime?.value ?: 0L).toString(), msperiod.toInt(), mswindowlength.toInt())
+public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: ConstPtr<Filetime>, msperiod: UInt, mswindowlength: UInt) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolTimer(pti.toString(), pftduetime.rawAddress.toString(), msperiod.toInt(), mswindowlength.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun setThreadpoolTimerEx(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadpoolTimerEx(pti.toString(), (pftduetime?.value ?: 0L).toString(), msperiod.toInt(), mswindowlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadpoolTimerEx(pti: PtpTimer, pftduetime: ConstPtr<Filetime>, msperiod: UInt, mswindowlength: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolTimerEx(pti.toString(), pftduetime.rawAddress.toString(), msperiod.toInt(), mswindowlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setThreadpoolWait(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_setThreadpoolWait(pwa.toString(), (h?.value ?: 0L).toString(), (pfttimeout?.value ?: 0L).toString())
+public actual fun setThreadpoolWait(pwa: PtpWait, h: Handle, pfttimeout: ConstPtr<Filetime>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolWait(pwa.toString(), h.rawAddress.toString(), pfttimeout.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun setThreadpoolWaitEx(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setThreadpoolWaitEx(pwa.toString(), (h?.value ?: 0L).toString(), (pfttimeout?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setThreadpoolWaitEx(pwa: PtpWait, h: Handle, pfttimeout: ConstPtr<Filetime>, reserved: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetThreadpoolWaitEx(pwa.toString(), h.rawAddress.toString(), pfttimeout.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setTimerQueueTimer(timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, preferio: Bool): Handle =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setTimerQueueTimer((timerqueue?.value ?: 0L).toString(), 0L.toString(), (parameter?.value ?: 0L).toString(), duetime.toInt(), period.toInt(), preferio).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setTimerQueueTimer(timerqueue: Handle, callback: Waitortimercallback, parameter: ConstPtr<CVoid>, duetime: UInt, period: UInt, preferio: Bool): Handle =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingSetTimerQueueTimer(timerqueue.rawAddress.toString(), 0L.toString(), parameter.rawAddress.toString(), duetime.toInt(), period.toInt(), preferio).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setUmsThreadInformation((umsthread?.value ?: 0L).toString(), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L).toString(), umsthreadinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setUmsThreadInformation(umsthread: ConstPtr<CVoid>, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: ConstPtr<CVoid>, umsthreadinformationlength: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetUmsThreadInformation(umsthread.rawAddress.toString(), umsthreadinfoclass, umsthreadinformation.rawAddress.toString(), umsthreadinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setWaitableTimer(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, fresume: Bool): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setWaitableTimer((htimer?.value ?: 0L).toString(), (lpduetime?.value ?: 0L).toString(), lperiod, 0L.toString(), (lpargtocompletionroutine?.value ?: 0L).toString(), fresume) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setWaitableTimer(htimer: Handle, lpduetime: ConstPtr<Long>, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: ConstPtr<CVoid>, fresume: Bool): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetWaitableTimer(htimer.rawAddress.toString(), lpduetime.rawAddress.toString(), lperiod, 0L.toString(), lpargtocompletionroutine.rawAddress.toString(), fresume) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setWaitableTimerEx(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, wakecontext: COpaquePointer?, tolerabledelay: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_setWaitableTimerEx((htimer?.value ?: 0L).toString(), (lpduetime?.value ?: 0L).toString(), lperiod, 0L.toString(), (lpargtocompletionroutine?.value ?: 0L).toString(), (wakecontext?.value ?: 0L).toString(), tolerabledelay.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setWaitableTimerEx(htimer: Handle, lpduetime: ConstPtr<Long>, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: ConstPtr<CVoid>, wakecontext: ConstPtr<ReasonContext>, tolerabledelay: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSetWaitableTimerEx(htimer.rawAddress.toString(), lpduetime.rawAddress.toString(), lperiod, 0L.toString(), lpargtocompletionroutine.rawAddress.toString(), wakecontext.rawAddress.toString(), tolerabledelay.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun signalObjectAndWait(hobjecttosignal: Handle, hobjecttowaiton: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_signalObjectAndWait((hobjecttosignal?.value ?: 0L).toString(), (hobjecttowaiton?.value ?: 0L).toString(), dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSignalObjectAndWait(hobjecttosignal.rawAddress.toString(), hobjecttowaiton.rawAddress.toString(), dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sleep(dwmilliseconds: UInt) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_sleep(dwmilliseconds.toInt())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSleep(dwmilliseconds.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun sleepConditionVariableCS(conditionvariable: COpaquePointer?, criticalsection: COpaquePointer?, dwmilliseconds: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_sleepConditionVariableCS((conditionvariable?.value ?: 0L).toString(), (criticalsection?.value ?: 0L).toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun sleepConditionVariableCS(conditionvariable: MutPtr<ConditionVariable>, criticalsection: MutPtr<CriticalSection>, dwmilliseconds: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSleepConditionVariableCS(conditionvariable.rawAddress.toString(), criticalsection.rawAddress.toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sleepConditionVariableSRW(conditionvariable: COpaquePointer?, srwlock: COpaquePointer?, dwmilliseconds: UInt, flags: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_sleepConditionVariableSRW((conditionvariable?.value ?: 0L).toString(), (srwlock?.value ?: 0L).toString(), dwmilliseconds.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun sleepConditionVariableSRW(conditionvariable: MutPtr<ConditionVariable>, srwlock: MutPtr<Srwlock>, dwmilliseconds: UInt, flags: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSleepConditionVariableSRW(conditionvariable.rawAddress.toString(), srwlock.rawAddress.toString(), dwmilliseconds.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sleepEx(dwmilliseconds: UInt, balertable: Bool): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_sleepEx(dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSleepEx(dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun startThreadpoolIo(pio: PtpIo) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_startThreadpoolIo(pio.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingStartThreadpoolIo(pio.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun submitThreadpoolWork(pwk: PtpWork) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_submitThreadpoolWork(pwk.toString())
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSubmitThreadpoolWork(pwk.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun suspendThread(hthread: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_suspendThread((hthread?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSuspendThread(hthread.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun switchToFiber(lpfiber: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_switchToFiber((lpfiber?.value ?: 0L).toString())
+public actual fun switchToFiber(lpfiber: ConstPtr<CVoid>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingSwitchToFiber(lpfiber.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun switchToThread(): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_switchToThread() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingSwitchToThread() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun terminateProcess(hprocess: Handle, uexitcode: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_terminateProcess((hprocess?.value ?: 0L).toString(), uexitcode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTerminateProcess(hprocess.rawAddress.toString(), uexitcode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun terminateThread(hthread: Handle, dwexitcode: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_terminateThread((hthread?.value ?: 0L).toString(), dwexitcode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTerminateThread(hthread.rawAddress.toString(), dwexitcode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun tlsAlloc(): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tlsAlloc().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTlsAlloc().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun tlsFree(dwtlsindex: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tlsFree(dwtlsindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTlsFree(dwtlsindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tlsGetValue(dwtlsindex: UInt): COpaquePointer? =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tlsGetValue(dwtlsindex.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun tlsGetValue(dwtlsindex: UInt): MutPtr<CVoid> =
+    if (windowsWin32SystemThreadingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemThreadingTlsGetValue(dwtlsindex.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tlsSetValue(dwtlsindex: UInt, lptlsvalue: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tlsSetValue(dwtlsindex.toInt(), (lptlsvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun tlsSetValue(dwtlsindex: UInt, lptlsvalue: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTlsSetValue(dwtlsindex.toInt(), lptlsvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tryAcquireSRWLockExclusive(srwlock: COpaquePointer?): Boolean =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive((srwlock?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun tryAcquireSRWLockExclusive(srwlock: MutPtr<Srwlock>): Boolean =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTryAcquireSRWLockExclusive(srwlock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tryAcquireSRWLockShared(srwlock: COpaquePointer?): Boolean =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tryAcquireSRWLockShared((srwlock?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun tryAcquireSRWLockShared(srwlock: MutPtr<Srwlock>): Boolean =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTryAcquireSRWLockShared(srwlock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tryEnterCriticalSection(lpcriticalsection: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_tryEnterCriticalSection((lpcriticalsection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun tryEnterCriticalSection(lpcriticalsection: MutPtr<CriticalSection>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTryEnterCriticalSection(lpcriticalsection.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun trySubmitThreadpoolCallback(pfns: PtpSimpleCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun trySubmitThreadpoolCallback(pfns: PtpSimpleCallback, pv: MutPtr<CVoid>, pcbe: ConstPtr<TpCallbackEnvironV3>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingTrySubmitThreadpoolCallback(0L.toString(), pv.rawAddress.toString(), pcbe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsThreadYield(schedulerparam: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_umsThreadYield((schedulerparam?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun umsThreadYield(schedulerparam: ConstPtr<CVoid>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingUmsThreadYield(schedulerparam.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unregisterWait(waithandle: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_unregisterWait((waithandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingUnregisterWait(waithandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unregisterWaitEx(waithandle: Handle, completionevent: Handle): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_unregisterWaitEx((waithandle?.value ?: 0L).toString(), (completionevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingUnregisterWaitEx(waithandle.rawAddress.toString(), completionevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun updateProcThreadAttribute(lpattributelist: LpprocThreadAttributeList, dwflags: UInt, attribute: ULong, lpvalue: COpaquePointer?, cbsize: ULong, lppreviousvalue: COpaquePointer?, lpreturnsize: COpaquePointer?): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_updateProcThreadAttribute((lpattributelist?.value ?: 0L).toString(), dwflags.toInt(), attribute.toString(), (lpvalue?.value ?: 0L).toString(), cbsize.toString(), (lppreviousvalue?.value ?: 0L).toString(), (lpreturnsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun updateProcThreadAttribute(lpattributelist: LpprocThreadAttributeList, dwflags: UInt, attribute: ULong, lpvalue: ConstPtr<CVoid>, cbsize: ULong, lppreviousvalue: MutPtr<CVoid>, lpreturnsize: ConstPtr<ULong>): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingUpdateProcThreadAttribute(lpattributelist.rawAddress.toString(), dwflags.toInt(), attribute.toString(), lpvalue.rawAddress.toString(), cbsize.toString(), lppreviousvalue.rawAddress.toString(), lpreturnsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waitForInputIdle(hprocess: Handle, dwmilliseconds: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_waitForInputIdle((hprocess?.value ?: 0L).toString(), dwmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWaitForInputIdle(hprocess.rawAddress.toString(), dwmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waitForMultipleObjects(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt): WaitEvent =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_waitForMultipleObjects(ncount.toInt(), (lphandles?.value ?: 0L).toString(), bwaitall, dwmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun waitForMultipleObjects(ncount: UInt, lphandles: ConstPtr<Handle>, bwaitall: Bool, dwmilliseconds: UInt): WaitEvent =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWaitForMultipleObjects(ncount.toInt(), lphandles.rawAddress.toString(), bwaitall, dwmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waitForMultipleObjectsEx(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(ncount.toInt(), (lphandles?.value ?: 0L).toString(), bwaitall, dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun waitForMultipleObjectsEx(ncount: UInt, lphandles: ConstPtr<Handle>, bwaitall: Bool, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWaitForMultipleObjectsEx(ncount.toInt(), lphandles.rawAddress.toString(), bwaitall, dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waitForSingleObject(hhandle: Handle, dwmilliseconds: UInt): WaitEvent =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_waitForSingleObject((hhandle?.value ?: 0L).toString(), dwmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWaitForSingleObject(hhandle.rawAddress.toString(), dwmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waitForSingleObjectEx(hhandle: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_waitForSingleObjectEx((hhandle?.value ?: 0L).toString(), dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWaitForSingleObjectEx(hhandle.rawAddress.toString(), dwmilliseconds.toInt(), balertable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waitForThreadpoolIoCallbacks(pio: PtpIo, fcancelpendingcallbacks: Bool) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(pio.toString(), fcancelpendingcallbacks)
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolIoCallbacks(pio.toString(), fcancelpendingcallbacks)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun waitForThreadpoolTimerCallbacks(pti: PtpTimer, fcancelpendingcallbacks: Bool) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(pti.toString(), fcancelpendingcallbacks)
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolTimerCallbacks(pti.toString(), fcancelpendingcallbacks)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun waitForThreadpoolWaitCallbacks(pwa: PtpWait, fcancelpendingcallbacks: Bool) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(pwa.toString(), fcancelpendingcallbacks)
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolWaitCallbacks(pwa.toString(), fcancelpendingcallbacks)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun waitForThreadpoolWorkCallbacks(pwk: PtpWork, fcancelpendingcallbacks: Bool) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(pwk.toString(), fcancelpendingcallbacks)
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWaitForThreadpoolWorkCallbacks(pwk.toString(), fcancelpendingcallbacks)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun waitOnAddress(address: COpaquePointer?, compareaddress: COpaquePointer?, addresssize: ULong, dwmilliseconds: UInt): Bool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_waitOnAddress((address?.value ?: 0L).toString(), (compareaddress?.value ?: 0L).toString(), addresssize.toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun waitOnAddress(address: ConstPtr<CVoid>, compareaddress: ConstPtr<CVoid>, addresssize: ULong, dwmilliseconds: UInt): Bool =
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWaitOnAddress(address.rawAddress.toString(), compareaddress.rawAddress.toString(), addresssize.toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wakeAllConditionVariable(conditionvariable: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_wakeAllConditionVariable((conditionvariable?.value ?: 0L).toString())
+public actual fun wakeAllConditionVariable(conditionvariable: MutPtr<ConditionVariable>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWakeAllConditionVariable(conditionvariable.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun wakeByAddressAll(address: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_wakeByAddressAll((address?.value ?: 0L).toString())
+public actual fun wakeByAddressAll(address: ConstPtr<CVoid>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWakeByAddressAll(address.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun wakeByAddressSingle(address: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_wakeByAddressSingle((address?.value ?: 0L).toString())
+public actual fun wakeByAddressSingle(address: ConstPtr<CVoid>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWakeByAddressSingle(address.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun wakeConditionVariable(conditionvariable: COpaquePointer?) {
-    if (_windowsWin32SystemThreadingNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_threading_wakeConditionVariable((conditionvariable?.value ?: 0L).toString())
+public actual fun wakeConditionVariable(conditionvariable: MutPtr<ConditionVariable>) {
+    if (windowsWin32SystemThreadingNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemThreadingWakeConditionVariable(conditionvariable.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun winExec(lpcmdline: Pcstr, ucmdshow: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_winExec((lpcmdline?.value ?: 0L).toString(), ucmdshow.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWinExec(lpcmdline.rawAddress.toString(), ucmdshow.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(machine.toInt()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWow64SetThreadDefaultGuestMachine(machine.toInt()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wow64SuspendThread(hthread: Handle): UInt =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_wow64SuspendThread((hthread?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemThreadingNapiAvailable) wasmWindowssysWindowsWin32SystemThreadingWow64SuspendThread(hthread.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

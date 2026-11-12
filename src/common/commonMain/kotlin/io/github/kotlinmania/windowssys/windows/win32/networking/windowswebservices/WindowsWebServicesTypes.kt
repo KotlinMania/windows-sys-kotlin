@@ -1,28 +1,33 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextIssuerListInfoEx
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
 public fun interface WsAbandonMessageCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, message: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsAbandonMessageCallback = WsAbandonMessageCallbackFn?
 
 public fun interface WsAbortChannelCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsAbortChannelCallback = WsAbortChannelCallbackFn?
 
 public fun interface WsAbortListenerCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsAbortListenerCallback = WsAbortListenerCallbackFn?
 
 public fun interface WsAcceptChannelCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, channelinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, channelinstance: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsAcceptChannelCallback = WsAcceptChannelCallbackFn?
@@ -30,13 +35,13 @@ public typealias WsAcceptChannelCallback = WsAcceptChannelCallbackFn?
 public typealias WsAddressingVersion = Int
 
 public fun interface WsAsyncCallbackFn {
-    public operator fun invoke(errorcode: Hresult, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?)
+    public operator fun invoke(errorcode: Hresult, callbackmodel: WsCallbackModel, callbackstate: ConstPtr<CVoid>)
 }
 
 public typealias WsAsyncCallback = WsAsyncCallbackFn?
 
 public fun interface WsAsyncFunctionFn {
-    public operator fun invoke(hr: Hresult, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?, next: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(hr: Hresult, callbackmodel: WsCallbackModel, callbackstate: ConstPtr<CVoid>, next: MutPtr<WsAsyncOperation>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsAsyncFunction = WsAsyncFunctionFn?
@@ -48,7 +53,7 @@ public typealias WsCallbackModel = Int
 public typealias WsCallPropertyId = Int
 
 public fun interface WsCertificateValidationCallbackFn {
-    public operator fun invoke(certcontext: COpaquePointer?, state: COpaquePointer?): Hresult
+    public operator fun invoke(certcontext: ConstPtr<CertContext>, state: ConstPtr<CVoid>): Hresult
 }
 
 public typealias WsCertificateValidationCallback = WsCertificateValidationCallbackFn?
@@ -56,7 +61,7 @@ public typealias WsCertificateValidationCallback = WsCertificateValidationCallba
 public typealias WsCertCredentialType = Int
 
 public fun interface WsCertIssuerListNotificationCallbackFn {
-    public operator fun invoke(certissuerlistnotificationcallbackstate: COpaquePointer?, issuerlist: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(certissuerlistnotificationcallbackstate: ConstPtr<CVoid>, issuerlist: ConstPtr<SecPkgContextIssuerListInfoEx>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCertIssuerListNotificationCallback = WsCertIssuerListNotificationCallbackFn?
@@ -74,13 +79,13 @@ public typealias WsChannelType = Int
 public typealias WsCharset = Int
 
 public fun interface WsCloseChannelCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCloseChannelCallback = WsCloseChannelCallbackFn?
 
 public fun interface WsCloseListenerCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCloseListenerCallback = WsCloseListenerCallbackFn?
@@ -88,31 +93,31 @@ public typealias WsCloseListenerCallback = WsCloseListenerCallbackFn?
 public typealias WsCookieMode = Int
 
 public fun interface WsCreateChannelCallbackFn {
-    public operator fun invoke(channeltype: WsChannelType, channelparameters: COpaquePointer?, channelparameterssize: UInt, channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channeltype: WsChannelType, channelparameters: ConstPtr<CVoid>, channelparameterssize: UInt, channelinstance: MutPtr<MutPtr<CVoid>>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCreateChannelCallback = WsCreateChannelCallbackFn?
 
 public fun interface WsCreateChannelForListenerCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, channelparameters: COpaquePointer?, channelparameterssize: UInt, channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, channelparameters: ConstPtr<CVoid>, channelparameterssize: UInt, channelinstance: MutPtr<MutPtr<CVoid>>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCreateChannelForListenerCallback = WsCreateChannelForListenerCallbackFn?
 
 public fun interface WsCreateDecoderCallbackFn {
-    public operator fun invoke(createcontext: COpaquePointer?, readcallback: WsReadCallback, readcontext: COpaquePointer?, decodercontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(createcontext: ConstPtr<CVoid>, readcallback: WsReadCallback, readcontext: ConstPtr<CVoid>, decodercontext: MutPtr<MutPtr<CVoid>>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCreateDecoderCallback = WsCreateDecoderCallbackFn?
 
 public fun interface WsCreateEncoderCallbackFn {
-    public operator fun invoke(createcontext: COpaquePointer?, writecallback: WsWriteCallback, writecontext: COpaquePointer?, encodercontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(createcontext: ConstPtr<CVoid>, writecallback: WsWriteCallback, writecontext: ConstPtr<CVoid>, encodercontext: MutPtr<MutPtr<CVoid>>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCreateEncoderCallback = WsCreateEncoderCallbackFn?
 
 public fun interface WsCreateListenerCallbackFn {
-    public operator fun invoke(channeltype: WsChannelType, listenerparameters: COpaquePointer?, listenerparameterssize: UInt, listenerinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channeltype: WsChannelType, listenerparameters: ConstPtr<CVoid>, listenerparameterssize: UInt, listenerinstance: MutPtr<MutPtr<CVoid>>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsCreateListenerCallback = WsCreateListenerCallbackFn?
@@ -120,61 +125,61 @@ public typealias WsCreateListenerCallback = WsCreateListenerCallbackFn?
 public typealias WsDatetimeFormat = Int
 
 public fun interface WsDecoderDecodeCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, buffer: COpaquePointer?, maxlength: UInt, length: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, buffer: MutPtr<CVoid>, maxlength: UInt, length: MutPtr<UInt>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsDecoderDecodeCallback = WsDecoderDecodeCallbackFn?
 
 public fun interface WsDecoderEndCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsDecoderEndCallback = WsDecoderEndCallbackFn?
 
 public fun interface WsDecoderGetContentTypeCallbackFn {
-    public operator fun invoke(decodercontext: COpaquePointer?, contenttype: COpaquePointer?, contentencoding: COpaquePointer?, newcontenttype: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(decodercontext: ConstPtr<CVoid>, contenttype: ConstPtr<WsString>, contentencoding: ConstPtr<WsString>, newcontenttype: MutPtr<WsString>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsDecoderGetContentTypeCallback = WsDecoderGetContentTypeCallbackFn?
 
 public fun interface WsDecoderStartCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsDecoderStartCallback = WsDecoderStartCallbackFn?
 
 public fun interface WsDurationComparisonCallbackFn {
-    public operator fun invoke(duration1: COpaquePointer?, duration2: COpaquePointer?, result: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(duration1: ConstPtr<WsDuration>, duration2: ConstPtr<WsDuration>, result: MutPtr<Int>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsDurationComparisonCallback = WsDurationComparisonCallbackFn?
 
 public fun interface WsDynamicStringCallbackFn {
-    public operator fun invoke(callbackstate: COpaquePointer?, string: COpaquePointer?, found: COpaquePointer?, id: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(callbackstate: ConstPtr<CVoid>, string: ConstPtr<WsXmlString>, found: MutPtr<Bool>, id: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsDynamicStringCallback = WsDynamicStringCallbackFn?
 
 public fun interface WsEncoderEncodeCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, buffers: COpaquePointer?, count: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, buffers: ConstPtr<WsBytes>, count: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsEncoderEncodeCallback = WsEncoderEncodeCallbackFn?
 
 public fun interface WsEncoderEndCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsEncoderEndCallback = WsEncoderEndCallbackFn?
 
 public fun interface WsEncoderGetContentTypeCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, contenttype: COpaquePointer?, newcontenttype: COpaquePointer?, contentencoding: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, contenttype: ConstPtr<WsString>, newcontenttype: MutPtr<WsString>, contentencoding: MutPtr<WsString>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsEncoderGetContentTypeCallback = WsEncoderGetContentTypeCallbackFn?
 
 public fun interface WsEncoderStartCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsEncoderStartCallback = WsEncoderStartCallbackFn?
@@ -204,43 +209,43 @@ public typealias WsFaultErrorPropertyId = Int
 public typealias WsFieldMapping = Int
 
 public fun interface WsFreeChannelCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?)
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>)
 }
 
 public typealias WsFreeChannelCallback = WsFreeChannelCallbackFn?
 
 public fun interface WsFreeDecoderCallbackFn {
-    public operator fun invoke(decodercontext: COpaquePointer?)
+    public operator fun invoke(decodercontext: ConstPtr<CVoid>)
 }
 
 public typealias WsFreeDecoderCallback = WsFreeDecoderCallbackFn?
 
 public fun interface WsFreeEncoderCallbackFn {
-    public operator fun invoke(encodercontext: COpaquePointer?)
+    public operator fun invoke(encodercontext: ConstPtr<CVoid>)
 }
 
 public typealias WsFreeEncoderCallback = WsFreeEncoderCallbackFn?
 
 public fun interface WsFreeListenerCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?)
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>)
 }
 
 public typealias WsFreeListenerCallback = WsFreeListenerCallbackFn?
 
 public fun interface WsGetCertCallbackFn {
-    public operator fun invoke(getcertcallbackstate: COpaquePointer?, targetaddress: COpaquePointer?, viauri: COpaquePointer?, cert: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(getcertcallbackstate: ConstPtr<CVoid>, targetaddress: ConstPtr<WsEndpointAddress>, viauri: ConstPtr<WsString>, cert: MutPtr<MutPtr<CertContext>>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsGetCertCallback = WsGetCertCallbackFn?
 
 public fun interface WsGetChannelPropertyCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, id: WsChannelPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsGetChannelPropertyCallback = WsGetChannelPropertyCallbackFn?
 
 public fun interface WsGetListenerPropertyCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, id: WsListenerPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsGetListenerPropertyCallback = WsGetListenerPropertyCallbackFn?
@@ -256,7 +261,7 @@ public typealias WsHttpHeaderAuthTarget = Int
 public typealias WsHttpProxySettingMode = Int
 
 public fun interface WsHttpRedirectCallbackFn {
-    public operator fun invoke(state: COpaquePointer?, originalurl: COpaquePointer?, newurl: COpaquePointer?): Hresult
+    public operator fun invoke(state: ConstPtr<CVoid>, originalurl: ConstPtr<WsString>, newurl: ConstPtr<WsString>): Hresult
 }
 
 public typealias WsHttpRedirectCallback = WsHttpRedirectCallbackFn?
@@ -264,7 +269,7 @@ public typealias WsHttpRedirectCallback = WsHttpRedirectCallbackFn?
 public typealias WsIpVersion = Int
 
 public fun interface WsIsDefaultValueCallbackFn {
-    public operator fun invoke(descriptiondata: COpaquePointer?, value: COpaquePointer?, defaultvalue: COpaquePointer?, valuesize: UInt, isdefault: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(descriptiondata: ConstPtr<CVoid>, value: ConstPtr<CVoid>, defaultvalue: ConstPtr<CVoid>, valuesize: UInt, isdefault: MutPtr<Bool>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsIsDefaultValueCallback = WsIsDefaultValueCallbackFn?
@@ -278,7 +283,7 @@ public typealias WsListenerState = Int
 public typealias WsMessage = Long
 
 public fun interface WsMessageDoneCallbackFn {
-    public operator fun invoke(donecallbackstate: COpaquePointer?)
+    public operator fun invoke(donecallbackstate: ConstPtr<CVoid>)
 }
 
 public typealias WsMessageDoneCallback = WsMessageDoneCallbackFn?
@@ -302,19 +307,19 @@ public typealias WsMetadataState = Int
 public typealias WsMoveTo = Int
 
 public fun interface WsOpenChannelCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, endpointaddress: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, endpointaddress: ConstPtr<WsEndpointAddress>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsOpenChannelCallback = WsOpenChannelCallbackFn?
 
 public fun interface WsOpenListenerCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, url: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, url: ConstPtr<WsString>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsOpenListenerCallback = WsOpenListenerCallbackFn?
 
 public fun interface WsOperationCancelCallbackFn {
-    public operator fun invoke(reason: WsServiceCancelReason, state: COpaquePointer?)
+    public operator fun invoke(reason: WsServiceCancelReason, state: ConstPtr<CVoid>)
 }
 
 public typealias WsOperationCancelCallback = WsOperationCancelCallbackFn?
@@ -324,7 +329,7 @@ public typealias WsOperationContext = Long
 public typealias WsOperationContextPropertyId = Int
 
 public fun interface WsOperationFreeStateCallbackFn {
-    public operator fun invoke(state: COpaquePointer?)
+    public operator fun invoke(state: ConstPtr<CVoid>)
 }
 
 public typealias WsOperationFreeStateCallback = WsOperationFreeStateCallbackFn?
@@ -344,7 +349,7 @@ public typealias WsPolicyState = Int
 public typealias WsProtectionLevel = Int
 
 public fun interface WsProxyMessageCallbackFn {
-    public operator fun invoke(message: COpaquePointer?, heap: COpaquePointer?, state: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(message: ConstPtr<WsMessage>, heap: ConstPtr<WsHeap>, state: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsProxyMessageCallback = WsProxyMessageCallbackFn?
@@ -352,31 +357,31 @@ public typealias WsProxyMessageCallback = WsProxyMessageCallbackFn?
 public typealias WsProxyPropertyId = Int
 
 public fun interface WsPullBytesCallbackFn {
-    public operator fun invoke(callbackstate: COpaquePointer?, bytes: COpaquePointer?, maxsize: UInt, actualsize: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(callbackstate: ConstPtr<CVoid>, bytes: MutPtr<CVoid>, maxsize: UInt, actualsize: MutPtr<UInt>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsPullBytesCallback = WsPullBytesCallbackFn?
 
 public fun interface WsPushBytesCallbackFn {
-    public operator fun invoke(callbackstate: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(callbackstate: ConstPtr<CVoid>, writecallback: WsWriteCallback, writecallbackstate: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsPushBytesCallback = WsPushBytesCallbackFn?
 
 public fun interface WsReadCallbackFn {
-    public operator fun invoke(callbackstate: COpaquePointer?, bytes: COpaquePointer?, maxsize: UInt, actualsize: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(callbackstate: ConstPtr<CVoid>, bytes: MutPtr<CVoid>, maxsize: UInt, actualsize: MutPtr<UInt>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsReadCallback = WsReadCallbackFn?
 
 public fun interface WsReadMessageEndCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsReadMessageEndCallback = WsReadMessageEndCallbackFn?
 
 public fun interface WsReadMessageStartCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsReadMessageStartCallback = WsReadMessageStartCallbackFn?
@@ -384,7 +389,7 @@ public typealias WsReadMessageStartCallback = WsReadMessageStartCallbackFn?
 public typealias WsReadOption = Int
 
 public fun interface WsReadTypeCallbackFn {
-    public operator fun invoke(reader: COpaquePointer?, typemapping: WsTypeMapping, descriptiondata: COpaquePointer?, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
+    public operator fun invoke(reader: ConstPtr<WsXmlReader>, typemapping: WsTypeMapping, descriptiondata: ConstPtr<CVoid>, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsReadTypeCallback = WsReadTypeCallbackFn?
@@ -398,13 +403,13 @@ public typealias WsRequestSecurityTokenAction = Int
 public typealias WsRequestSecurityTokenPropertyId = Int
 
 public fun interface WsResetChannelCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsResetChannelCallback = WsResetChannelCallbackFn?
 
 public fun interface WsResetListenerCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsResetListenerCallback = WsResetListenerCallbackFn?
@@ -454,7 +459,7 @@ public typealias WsSecurityTokenPropertyId = Int
 public typealias WsSecurityTokenReferenceMode = Int
 
 public fun interface WsServiceAcceptChannelCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, channelstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(context: ConstPtr<WsOperationContext>, channelstate: MutPtr<MutPtr<CVoid>>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsServiceAcceptChannelCallback = WsServiceAcceptChannelCallbackFn?
@@ -462,7 +467,7 @@ public typealias WsServiceAcceptChannelCallback = WsServiceAcceptChannelCallback
 public typealias WsServiceCancelReason = Int
 
 public fun interface WsServiceCloseChannelCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, asynccontext: COpaquePointer?): Hresult
+    public operator fun invoke(context: ConstPtr<WsOperationContext>, asynccontext: ConstPtr<WsAsyncContext>): Hresult
 }
 
 public typealias WsServiceCloseChannelCallback = WsServiceCloseChannelCallbackFn?
@@ -474,7 +479,7 @@ public typealias WsServiceHost = Long
 public typealias WsServiceHostState = Int
 
 public fun interface WsServiceMessageReceiveCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(context: ConstPtr<WsOperationContext>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsServiceMessageReceiveCallback = WsServiceMessageReceiveCallbackFn?
@@ -486,31 +491,31 @@ public typealias WsServiceProxy = Long
 public typealias WsServiceProxyState = Int
 
 public fun interface WsServiceSecurityCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, authorized: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(context: ConstPtr<WsOperationContext>, authorized: MutPtr<Bool>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsServiceSecurityCallback = WsServiceSecurityCallbackFn?
 
 public fun interface WsServiceStubCallbackFn {
-    public operator fun invoke(context: COpaquePointer?, frame: COpaquePointer?, callback: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(context: ConstPtr<WsOperationContext>, frame: ConstPtr<CVoid>, callback: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsServiceStubCallback = WsServiceStubCallbackFn?
 
 public fun interface WsSetChannelPropertyCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, id: WsChannelPropertyId, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsSetChannelPropertyCallback = WsSetChannelPropertyCallbackFn?
 
 public fun interface WsSetListenerPropertyCallbackFn {
-    public operator fun invoke(listenerinstance: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
+    public operator fun invoke(listenerinstance: ConstPtr<CVoid>, id: WsListenerPropertyId, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsSetListenerPropertyCallback = WsSetListenerPropertyCallbackFn?
 
 public fun interface WsShutdownSessionChannelCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsShutdownSessionChannelCallback = WsShutdownSessionChannelCallbackFn?
@@ -530,13 +535,13 @@ public typealias WsUrlSchemeType = Int
 public typealias WsUsernameCredentialType = Int
 
 public fun interface WsValidatePasswordCallbackFn {
-    public operator fun invoke(passwordvalidatorcallbackstate: COpaquePointer?, username: COpaquePointer?, password: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(passwordvalidatorcallbackstate: ConstPtr<CVoid>, username: ConstPtr<WsString>, password: ConstPtr<WsString>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsValidatePasswordCallback = WsValidatePasswordCallbackFn?
 
 public fun interface WsValidateSamlCallbackFn {
-    public operator fun invoke(samlvalidatorcallbackstate: COpaquePointer?, samlassertion: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(samlvalidatorcallbackstate: ConstPtr<CVoid>, samlassertion: ConstPtr<WsXmlBuffer>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsValidateSamlCallback = WsValidateSamlCallbackFn?
@@ -548,19 +553,19 @@ public typealias WsWindowsIntegratedAuthCredentialType = Int
 public typealias WsWindowsIntegratedAuthPackage = Int
 
 public fun interface WsWriteCallbackFn {
-    public operator fun invoke(callbackstate: COpaquePointer?, buffers: COpaquePointer?, count: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(callbackstate: ConstPtr<CVoid>, buffers: ConstPtr<WsBytes>, count: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsWriteCallback = WsWriteCallbackFn?
 
 public fun interface WsWriteMessageEndCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsWriteMessageEndCallback = WsWriteMessageEndCallbackFn?
 
 public fun interface WsWriteMessageStartCallbackFn {
-    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
+    public operator fun invoke(channelinstance: ConstPtr<CVoid>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsWriteMessageStartCallback = WsWriteMessageStartCallbackFn?
@@ -568,7 +573,7 @@ public typealias WsWriteMessageStartCallback = WsWriteMessageStartCallbackFn?
 public typealias WsWriteOption = Int
 
 public fun interface WsWriteTypeCallbackFn {
-    public operator fun invoke(writer: COpaquePointer?, typemapping: WsTypeMapping, descriptiondata: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
+    public operator fun invoke(writer: ConstPtr<WsXmlWriter>, typemapping: WsTypeMapping, descriptiondata: ConstPtr<CVoid>, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult
 }
 
 public typealias WsWriteTypeCallback = WsWriteTypeCallbackFn?

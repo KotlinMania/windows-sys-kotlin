@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcknowledgeEcp(int64_t filter, void* ecpcontext) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcknowledgeEcp(int64_t filter, void* ecpcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcknowledgeEcp(int
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockExclusive(void* pushlock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockExclusive(void* pushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockExc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockExclusiveEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockExclusiveEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -80,7 +80,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockExc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockShared(void* pushlock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockShared(void* pushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -101,7 +101,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockSha
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockSharedEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockSharedEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -123,7 +123,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquirePushLockSha
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquireResourceExclusive(void* resource) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquireResourceExclusive(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -144,7 +144,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquireResourceExc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquireResourceShared(void* resource) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquireResourceShared(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltAcquireResourceSha
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAddOpenReparseEntry(int64_t filter, void* data, void* openreparseentry) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAddOpenReparseEntry(int64_t filter, void* data, void* openreparseentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAddOpenReparseE
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAdjustDeviceStackSizeForIoRedirection(int64_t sourceinstance, int64_t targetinstance, void* sourcedevicestacksizemodified) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAdjustDeviceStackSizeForIoRedirection(int64_t sourceinstance, int64_t targetinstance, void* sourcedevicestacksizemodified) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -213,7 +213,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAdjustDeviceSta
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateCallbackData(int64_t instance, void* fileobject, void* retnewcallbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateCallbackData(int64_t instance, void* fileobject, void* retnewcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -237,7 +237,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateCallbac
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateCallbackDataEx(int64_t instance, void* fileobject, uint32_t flags, void* retnewcallbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateCallbackDataEx(int64_t instance, void* fileobject, uint32_t flags, void* retnewcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -262,7 +262,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateCallbac
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateContext(int64_t filter, uint16_t contexttype, uint64_t contextsize, int32_t pooltype, void* returnedcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateContext(int64_t filter, uint16_t contexttype, uint64_t contextsize, int32_t pooltype, void* returnedcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t, uint64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -288,7 +288,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateContext
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateDeferredIoWorkItem(void) {
+int64_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateDeferredIoWorkItem(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateDeferre
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameter(int64_t filter, void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, uint32_t pooltag, void* ecpcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameter(int64_t filter, void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, uint32_t pooltag, void* ecpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterFromLookasideList(int64_t filter, void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, void* lookasidelist, void* ecpcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameterFromLookasideList(int64_t filter, void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, void* lookasidelist, void* ecpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -365,7 +365,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterList(int64_t filter, uint32_t flags, void* ecplist) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameterList(int64_t filter, uint32_t flags, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -389,7 +389,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCr
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateFileLock(void* completelockcallbackdataroutine, void* unlockroutine) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateFileLock(void* completelockcallbackdataroutine, void* unlockroutine) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -412,7 +412,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateFileLock(
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateGenericWorkItem(void) {
+int64_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateGenericWorkItem(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateGeneric
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocatePoolAlignedWithTag(int64_t instance, int32_t pooltype, uint64_t numberofbytes, uint32_t tag) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocatePoolAlignedWithTag(int64_t instance, int32_t pooltype, uint64_t numberofbytes, uint32_t tag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int32_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocatePoolAlign
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltApplyPriorityInfoThread(void* inputpriorityinfo, void* outputpriorityinfo, int64_t thread) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltApplyPriorityInfoThread(void* inputpriorityinfo, void* outputpriorityinfo, int64_t thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -482,7 +482,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltApplyPriorityIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolume(int64_t filter, int64_t volume, void* instancename, void* retinstance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAttachVolume(int64_t filter, int64_t volume, void* instancename, void* retinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -507,7 +507,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolume(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolumeAtAltitude(int64_t filter, int64_t volume, void* altitude, void* instancename, void* retinstance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltAttachVolumeAtAltitude(int64_t filter, int64_t volume, void* altitude, void* instancename, void* retinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolumeAtA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltBuildDefaultSecurityDescriptor(void* securitydescriptor, uint32_t desiredaccess) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltBuildDefaultSecurityDescriptor(void* securitydescriptor, uint32_t desiredaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -556,7 +556,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltBuildDefaultSec
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCancelFileOpen(int64_t instance, void* fileobject) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCancelFileOpen(int64_t instance, void* fileobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -578,7 +578,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCancelFileOpen(int
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCancelIo(void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltCancelIo(void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCancelIo(void* cal
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCancellableWaitForMultipleObjects(uint32_t count, void* objectarray, int32_t waittype, void* timeout, void* waitblockarray, void* callbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCancellableWaitForMultipleObjects(uint32_t count, void* objectarray, int32_t waittype, void* timeout, void* waitblockarray, void* callbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -627,7 +627,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCancellableWait
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCancellableWaitForSingleObject(void* object, void* timeout, void* callbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCancellableWaitForSingleObject(void* object, void* timeout, void* callbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -651,7 +651,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCancellableWait
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqDisable(void* cbdq) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqDisable(void* cbdq) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -672,7 +672,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqDisable(void* 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqEnable(void* cbdq) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqEnable(void* cbdq) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -693,7 +693,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqEnable(void* c
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqInitialize(int64_t instance, void* cbdq, void* cbdqinsertio, void* cbdqremoveio, void* cbdqpeeknextio, void* cbdqacquire, void* cbdqrelease, void* cbdqcompletecanceledio) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqInitialize(int64_t instance, void* cbdq, void* cbdqinsertio, void* cbdqremoveio, void* cbdqpeeknextio, void* cbdqacquire, void* cbdqrelease, void* cbdqcompletecanceledio) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqInitialize(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqInsertIo(void* cbdq, void* cbd, void* context, void* insertcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqInsertIo(void* cbdq, void* cbd, void* context, void* insertcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -747,7 +747,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqInsertIo(vo
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqRemoveIo(void* cbdq, void* context) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqRemoveIo(void* cbdq, void* context) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -770,7 +770,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqRemoveIo(void
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqRemoveNextIo(void* cbdq, void* peekcontext) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqRemoveNextIo(void* cbdq, void* peekcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -793,7 +793,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltCbdqRemoveNextIo(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckAndGrowNameControl(void* namectrl, uint16_t newsize) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckAndGrowNameControl(void* namectrl, uint16_t newsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -816,7 +816,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckAndGrowNam
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckLockForReadAccess(void* filelock, void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckLockForReadAccess(void* filelock, void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -839,7 +839,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckLockForReadAc
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckLockForWriteAccess(void* filelock, void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckLockForWriteAccess(void* filelock, void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -862,7 +862,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckLockForWriteA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckOplock(void* oplock, void* callbackdata, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckOplock(void* oplock, void* callbackdata, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -888,7 +888,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckOplock(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckOplockEx(void* oplock, void* callbackdata, uint32_t flags, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckOplockEx(void* oplock, void* callbackdata, uint32_t flags, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -915,7 +915,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCheckOplockEx(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltClearCallbackDataDirty(void* data) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltClearCallbackDataDirty(void* data) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -936,7 +936,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltClearCallbackDataD
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltClearCancelCompletion(void* callbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltClearCancelCompletion(void* callbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -958,7 +958,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltClearCancelComp
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltClose(void* filehandle) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltClose(void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -980,7 +980,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltClose(void* fil
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseClientPort(int64_t filter, void* clientport) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCloseClientPort(int64_t filter, void* clientport) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1002,7 +1002,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseClientPort(in
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseCommunicationPort(int64_t serverport) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCloseCommunicationPort(int64_t serverport) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1023,7 +1023,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseCommunication
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseSectionForDataScan(void* sectioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCloseSectionForDataScan(void* sectioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1045,7 +1045,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseSectionFor
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCommitComplete(int64_t instance, void* transaction, void* transactioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCommitComplete(int64_t instance, void* transaction, void* transactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1069,7 +1069,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCommitComplete(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCommitFinalizeComplete(int64_t instance, void* transaction, void* transactioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCommitFinalizeComplete(int64_t instance, void* transaction, void* transactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1093,7 +1093,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCommitFinalizeC
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCompareInstanceAltitudes(int64_t instance1, int64_t instance2) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCompareInstanceAltitudes(int64_t instance1, int64_t instance2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1116,7 +1116,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCompareInstance
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCompletePendedPostOperation(void* callbackdata) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCompletePendedPostOperation(void* callbackdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCompletePendedPost
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltCompletePendedPreOperation(void* callbackdata, int32_t callbackstatus, void* context) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltCompletePendedPreOperation(void* callbackdata, int32_t callbackstatus, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1160,7 +1160,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltCompletePendedPreO
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCopyOpenReparseList(int64_t filter, void* data, void* ecplist) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCopyOpenReparseList(int64_t filter, void* data, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1184,7 +1184,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCopyOpenReparse
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateCommunicationPort(int64_t filter, void* serverport, void* objectattributes, void* serverportcookie, void* connectnotifycallback, void* disconnectnotifycallback, void* messagenotifycallback, int32_t maxconnections) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateCommunicationPort(int64_t filter, void* serverport, void* objectattributes, void* serverportcookie, void* connectnotifycallback, void* disconnectnotifycallback, void* messagenotifycallback, int32_t maxconnections) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1213,7 +1213,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateCommunica
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFile(int64_t filter, int64_t instance, void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, uint32_t flags) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateFile(int64_t filter, int64_t instance, void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1248,7 +1248,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFile(int6
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, uint32_t flags) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateFileEx(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1284,7 +1284,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx2(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, uint32_t flags, void* drivercontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateFileEx2(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, uint32_t flags, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1321,7 +1321,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx2(i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateMailslotFile(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t createoptions, uint32_t mailslotquota, uint32_t maximummessagesize, void* readtimeout, void* drivercontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateMailslotFile(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t createoptions, uint32_t mailslotquota, uint32_t maximummessagesize, void* readtimeout, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1354,7 +1354,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateMailslotF
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateNamedPipeFile(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, uint32_t namedpipetype, uint32_t readmode, uint32_t completionmode, uint32_t maximuminstances, uint32_t inboundquota, uint32_t outboundquota, void* defaulttimeout, void* drivercontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateNamedPipeFile(int64_t filter, int64_t instance, void* filehandle, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, uint32_t namedpipetype, uint32_t readmode, uint32_t completionmode, uint32_t maximuminstances, uint32_t inboundquota, uint32_t outboundquota, void* defaulttimeout, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1393,7 +1393,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateNamedPipe
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateSectionForDataScan(int64_t instance, void* fileobject, void* sectioncontext, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, uint32_t flags, void* sectionhandle, void* sectionobject, void* sectionfilesize) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSectionForDataScan(int64_t instance, void* fileobject, void* sectioncontext, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, uint32_t flags, void* sectionhandle, void* sectionobject, void* sectionfilesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1426,7 +1426,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateSectionFo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateSystemVolumeInformationFolder(int64_t instance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSystemVolumeInformationFolder(int64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1448,7 +1448,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateSystemVol
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCurrentBatchOplock(void* oplock) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentBatchOplock(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1470,7 +1470,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCurrentBatchOplock
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCurrentOplock(void* oplock) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentOplock(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1492,7 +1492,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCurrentOplock(void
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCurrentOplockH(void* oplock) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentOplockH(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1514,7 +1514,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltCurrentOplockH(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDecodeParameters(void* callbackdata, void* mdladdresspointer, void* buffer, void* length, void* desiredaccess) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDecodeParameters(void* callbackdata, void* mdladdresspointer, void* buffer, void* length, void* desiredaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1540,7 +1540,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDecodeParameter
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteContext(void* context) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteContext(void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1561,7 +1561,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteContext(void
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteExtraCreateParameterLookasideList(int64_t filter, void* lookaside, uint32_t flags) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteExtraCreateParameterLookasideList(int64_t filter, void* lookaside, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1584,7 +1584,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteExtraCreateP
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteFileContext(int64_t instance, void* fileobject, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteFileContext(int64_t instance, void* fileobject, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1608,7 +1608,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteFileConte
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteInstanceContext(int64_t instance, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteInstanceContext(int64_t instance, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1631,7 +1631,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteInstanceC
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltDeletePushLock(void* pushlock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltDeletePushLock(void* pushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1652,7 +1652,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltDeletePushLock(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteStreamContext(int64_t instance, void* fileobject, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteStreamContext(int64_t instance, void* fileobject, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1676,7 +1676,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteStreamCon
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteStreamHandleContext(int64_t instance, void* fileobject, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteStreamHandleContext(int64_t instance, void* fileobject, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1700,7 +1700,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteStreamHan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteTransactionContext(int64_t instance, void* transaction, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteTransactionContext(int64_t instance, void* transaction, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1724,7 +1724,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteTransacti
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteVolumeContext(int64_t filter, int64_t volume, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteVolumeContext(int64_t filter, int64_t volume, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1748,7 +1748,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteVolumeCon
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDetachVolume(int64_t filter, int64_t volume, void* instancename) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDetachVolume(int64_t filter, int64_t volume, void* instancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1772,7 +1772,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDetachVolume(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeviceIoControlFile(int64_t instance, void* fileobject, uint32_t iocontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltDeviceIoControlFile(int64_t instance, void* fileobject, uint32_t iocontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1801,7 +1801,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltDeviceIoControl
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltDoCompletionProcessingWhenSafe(void* data, void* fltobjects, void* completioncontext, uint32_t flags, void* safepostcallback, void* retpostoperationstatus) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltDoCompletionProcessingWhenSafe(void* data, void* fltobjects, void* completioncontext, uint32_t flags, void* safepostcallback, void* retpostoperationstatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1828,7 +1828,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltDoCompletionProces
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnlistInTransaction(int64_t instance, void* transaction, void* transactioncontext, uint32_t notificationmask) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnlistInTransaction(int64_t instance, void* transaction, void* transactioncontext, uint32_t notificationmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1853,7 +1853,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnlistInTransac
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateFilterInformation(uint32_t arg_0_index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateFilterInformation(uint32_t arg0Index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1864,12 +1864,12 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateFilter
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_index, informationclass, buffer, buffersize, bytesreturned);
+        return km_fn_ptr(arg0Index, informationclass, buffer, buffersize, bytesreturned);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_index;
+    (void)arg0Index;
     (void)informationclass;
     (void)buffer;
     (void)buffersize;
@@ -1879,7 +1879,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateFilter
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateFilters(void* filterlist, uint32_t filterlistsize, void* numberfiltersreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateFilters(void* filterlist, uint32_t filterlistsize, void* numberfiltersreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1903,7 +1903,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateFilter
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByDeviceObject(void* deviceobject, uint32_t arg_1_index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByDeviceObject(void* deviceobject, uint32_t arg1Index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1914,13 +1914,13 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(deviceobject, arg_1_index, informationclass, buffer, buffersize, bytesreturned);
+        return km_fn_ptr(deviceobject, arg1Index, informationclass, buffer, buffersize, bytesreturned);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)deviceobject;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)informationclass;
     (void)buffer;
     (void)buffersize;
@@ -1930,7 +1930,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByFilter(int64_t filter, uint32_t arg_1_index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByFilter(int64_t filter, uint32_t arg1Index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1941,13 +1941,13 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(filter, arg_1_index, informationclass, buffer, buffersize, bytesreturned);
+        return km_fn_ptr(filter, arg1Index, informationclass, buffer, buffersize, bytesreturned);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)filter;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)informationclass;
     (void)buffer;
     (void)buffersize;
@@ -1957,7 +1957,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolume(int64_t volume, uint32_t arg_1_index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByVolume(int64_t volume, uint32_t arg1Index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1968,13 +1968,13 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(volume, arg_1_index, informationclass, buffer, buffersize, bytesreturned);
+        return km_fn_ptr(volume, arg1Index, informationclass, buffer, buffersize, bytesreturned);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)volume;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)informationclass;
     (void)buffer;
     (void)buffersize;
@@ -1984,7 +1984,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolumeName(void* volumename, uint32_t arg_1_index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByVolumeName(void* volumename, uint32_t arg1Index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1995,13 +1995,13 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(volumename, arg_1_index, informationclass, buffer, buffersize, bytesreturned);
+        return km_fn_ptr(volumename, arg1Index, informationclass, buffer, buffersize, bytesreturned);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)volumename;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)informationclass;
     (void)buffer;
     (void)buffersize;
@@ -2011,7 +2011,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstances(int64_t volume, int64_t filter, void* instancelist, uint32_t instancelistsize, void* numberinstancesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstances(int64_t volume, int64_t filter, void* instancelist, uint32_t instancelistsize, void* numberinstancesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2037,7 +2037,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumeInformation(int64_t filter, uint32_t arg_1_index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateVolumeInformation(int64_t filter, uint32_t arg1Index, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2048,13 +2048,13 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolume
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(filter, arg_1_index, informationclass, buffer, buffersize, bytesreturned);
+        return km_fn_ptr(filter, arg1Index, informationclass, buffer, buffersize, bytesreturned);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)filter;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)informationclass;
     (void)buffer;
     (void)buffersize;
@@ -2064,7 +2064,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolume
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumes(int64_t filter, void* volumelist, uint32_t volumelistsize, void* numbervolumesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateVolumes(int64_t filter, void* volumelist, uint32_t volumelistsize, void* numbervolumesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2089,7 +2089,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolume
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlRead(int64_t initiatinginstance, void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoMdlRead(int64_t initiatinginstance, void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2117,7 +2117,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlRead(int6
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlReadComplete(int64_t initiatinginstance, void* fileobject, void* mdlchain) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoMdlReadComplete(int64_t initiatinginstance, void* fileobject, void* mdlchain) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2141,7 +2141,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlReadCompl
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlWriteComplete(int64_t initiatinginstance, void* fileobject, void* fileoffset, void* mdlchain) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoMdlWriteComplete(int64_t initiatinginstance, void* fileobject, void* fileoffset, void* mdlchain) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2166,7 +2166,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlWriteComp
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoPrepareMdlWrite(int64_t initiatinginstance, void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoPrepareMdlWrite(int64_t initiatinginstance, void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2194,7 +2194,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoPrepareMdlWr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFindExtraCreateParameter(int64_t filter, void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltFindExtraCreateParameter(int64_t filter, void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2220,7 +2220,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFindExtraCreate
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFlushBuffers(int64_t instance, void* fileobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltFlushBuffers(int64_t instance, void* fileobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2243,7 +2243,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFlushBuffers(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFlushBuffers2(int64_t instance, void* fileobject, uint32_t flushtype, void* callbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltFlushBuffers2(int64_t instance, void* fileobject, uint32_t flushtype, void* callbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2268,7 +2268,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFlushBuffers2(i
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeCallbackData(void* callbackdata) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeCallbackData(void* callbackdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2289,7 +2289,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeCallbackData(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeDeferredIoWorkItem(int64_t fltworkitem) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeDeferredIoWorkItem(int64_t fltworkitem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2310,7 +2310,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeDeferredIoWork
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameter(int64_t filter, void* ecpcontext) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeExtraCreateParameter(int64_t filter, void* ecpcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2332,7 +2332,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreatePar
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameterList(int64_t filter, void* ecplist) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeExtraCreateParameterList(int64_t filter, void* ecplist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2354,7 +2354,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreatePar
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeFileLock(void* filelock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeFileLock(void* filelock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2375,7 +2375,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeFileLock(void*
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeGenericWorkItem(int64_t fltworkitem) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeGenericWorkItem(int64_t fltworkitem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2396,7 +2396,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeGenericWorkIte
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeOpenReparseList(int64_t filter, void* ecplist) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeOpenReparseList(int64_t filter, void* ecplist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2418,7 +2418,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeOpenReparseLis
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreePoolAlignedWithTag(int64_t instance, void* buffer, uint32_t tag) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreePoolAlignedWithTag(int64_t instance, void* buffer, uint32_t tag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2441,7 +2441,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreePoolAlignedWit
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeSecurityDescriptor(void* securitydescriptor) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeSecurityDescriptor(void* securitydescriptor) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2462,7 +2462,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeSecurityDescri
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFsControlFile(int64_t instance, void* fileobject, uint32_t fscontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltFsControlFile(int64_t instance, void* fileobject, uint32_t fscontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2491,7 +2491,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltFsControlFile(i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetActivityIdCallbackData(void* callbackdata, void* guid) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetActivityIdCallbackData(void* callbackdata, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2514,7 +2514,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetActivityIdCa
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetBottomInstance(int64_t volume, void* instance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetBottomInstance(int64_t volume, void* instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2537,7 +2537,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetBottomInstan
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltGetContexts(void* fltobjects, uint16_t desiredcontexts, void* contexts) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltGetContexts(void* fltobjects, uint16_t desiredcontexts, void* contexts) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2560,7 +2560,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltGetContexts(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetContextsEx(void* fltobjects, uint16_t desiredcontexts, uint64_t contextssize, void* contexts) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetContextsEx(void* fltobjects, uint16_t desiredcontexts, uint64_t contextssize, void* contexts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2585,7 +2585,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetContextsEx(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDestinationFileNameInformation(int64_t instance, void* fileobject, void* rootdirectory, void* filename, uint32_t filenamelength, uint32_t nameoptions, void* retfilenameinformation) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetDestinationFileNameInformation(int64_t instance, void* fileobject, void* rootdirectory, void* filename, uint32_t filenamelength, uint32_t nameoptions, void* retfilenameinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2613,7 +2613,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDestinationF
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDeviceObject(int64_t volume, void* deviceobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetDeviceObject(int64_t volume, void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2636,7 +2636,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDeviceObject
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDiskDeviceObject(int64_t volume, void* diskdeviceobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetDiskDeviceObject(int64_t volume, void* diskdeviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2659,7 +2659,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDiskDeviceOb
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetEcpListFromCallbackData(int64_t filter, void* callbackdata, void* ecplist) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetEcpListFromCallbackData(int64_t filter, void* callbackdata, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2683,7 +2683,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetEcpListFromC
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileContext(int64_t instance, void* fileobject, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileContext(int64_t instance, void* fileobject, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2707,7 +2707,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileContext(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileNameInformation(void* callbackdata, uint32_t nameoptions, void* filenameinformation) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileNameInformation(void* callbackdata, uint32_t nameoptions, void* filenameinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2731,7 +2731,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileNameInfo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileNameInformationUnsafe(void* fileobject, int64_t instance, uint32_t nameoptions, void* filenameinformation) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileNameInformationUnsafe(void* fileobject, int64_t instance, uint32_t nameoptions, void* filenameinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2756,7 +2756,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileNameInfo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileSystemType(void* fltobject, void* filesystemtype) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileSystemType(void* fltobject, void* filesystemtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2779,7 +2779,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileSystemTy
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterFromInstance(int64_t instance, void* retfilter) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFilterFromInstance(int64_t instance, void* retfilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2802,7 +2802,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterFromIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterFromName(void* filtername, void* retfilter) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFilterFromName(void* filtername, void* retfilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2825,7 +2825,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterFromNa
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterInformation(int64_t filter, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFilterInformation(int64_t filter, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2851,7 +2851,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterInform
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFsZeroingOffset(void* data, void* zeroingoffset) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFsZeroingOffset(void* data, void* zeroingoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2874,7 +2874,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFsZeroingOff
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetInstanceContext(int64_t instance, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetInstanceContext(int64_t instance, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2897,7 +2897,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetInstanceCont
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetInstanceInformation(int64_t instance, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetInstanceInformation(int64_t instance, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2923,7 +2923,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetInstanceInfo
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoAttributionHandleFromCallbackData(void* data) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoAttributionHandleFromCallbackData(void* data) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2945,7 +2945,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoAttributionH
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHint(void* data) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHint(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2967,7 +2967,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHintFromCallbackData(void* data) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromCallbackData(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2989,7 +2989,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHintFromFileObject(void* fileobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromFileObject(void* fileobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3011,7 +3011,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHintFromThread(int64_t thread) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromThread(int64_t thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3033,7 +3033,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIoPriorityHi
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIrpName(uint8_t irpmajorcode) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIrpName(uint8_t irpmajorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3055,7 +3055,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetIrpName(uint8_
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetLowerInstance(int64_t currentinstance, void* lowerinstance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetLowerInstance(int64_t currentinstance, void* lowerinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3078,7 +3078,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetLowerInstanc
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNewSystemBufferAddress(void* callbackdata) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltGetNewSystemBufferAddress(void* callbackdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3100,7 +3100,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNewSystemBuffe
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNextExtraCreateParameter(int64_t filter, void* ecplist, void* currentecpcontext, void* nextecptype, void* nextecpcontext, void* nextecpcontextsize) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetNextExtraCreateParameter(int64_t filter, void* ecplist, void* currentecpcontext, void* nextecptype, void* nextecpcontext, void* nextecpcontextsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3127,7 +3127,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNextExtraCre
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorProcess(void* callbackdata) {
+int64_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorProcess(void* callbackdata) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3149,7 +3149,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorPro
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorProcessId(void* callbackdata) {
+uint32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorProcessId(void* callbackdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3171,7 +3171,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorPr
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorProcessIdEx(void* callbackdata) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorProcessIdEx(void* callbackdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3193,7 +3193,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorProce
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorSessionId(void* callbackdata, void* sessionid) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorSessionId(void* callbackdata, void* sessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3216,7 +3216,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorSes
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRoutineAddress(void* fltmgrroutinename) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRoutineAddress(void* fltmgrroutinename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3238,7 +3238,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRoutineAddress
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetSectionContext(int64_t instance, void* fileobject, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetSectionContext(int64_t instance, void* fileobject, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3262,7 +3262,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetSectionConte
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetStreamContext(int64_t instance, void* fileobject, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetStreamContext(int64_t instance, void* fileobject, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3286,7 +3286,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetStreamContex
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetStreamHandleContext(int64_t instance, void* fileobject, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetStreamHandleContext(int64_t instance, void* fileobject, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3310,7 +3310,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetStreamHandle
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetSwappedBufferMdlAddress(void* callbackdata) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltGetSwappedBufferMdlAddress(void* callbackdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3332,7 +3332,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltGetSwappedBufferM
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTopInstance(int64_t volume, void* instance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetTopInstance(int64_t volume, void* instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3355,7 +3355,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTopInstance(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTransactionContext(int64_t instance, void* transaction, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetTransactionContext(int64_t instance, void* transaction, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3379,7 +3379,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTransactionC
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTunneledName(void* callbackdata, void* filenameinformation, void* rettunneledfilenameinformation) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetTunneledName(void* callbackdata, void* filenameinformation, void* rettunneledfilenameinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3403,7 +3403,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTunneledName
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetUpperInstance(int64_t currentinstance, void* upperinstance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetUpperInstance(int64_t currentinstance, void* upperinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3426,7 +3426,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetUpperInstanc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeContext(int64_t filter, int64_t volume, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeContext(int64_t filter, int64_t volume, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3450,7 +3450,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeContex
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromDeviceObject(int64_t filter, void* deviceobject, void* retvolume) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromDeviceObject(int64_t filter, void* deviceobject, void* retvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3474,7 +3474,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromDe
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromFileObject(int64_t filter, void* fileobject, void* retvolume) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromFileObject(int64_t filter, void* fileobject, void* retvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3498,7 +3498,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromFi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromInstance(int64_t instance, void* retvolume) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromInstance(int64_t instance, void* retvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3521,7 +3521,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromName(int64_t filter, void* volumename, void* retvolume) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromName(int64_t filter, void* volumename, void* retvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3545,7 +3545,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromNa
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeGuidName(int64_t volume, void* volumeguidname, void* buffersizeneeded) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeGuidName(int64_t volume, void* volumeguidname, void* buffersizeneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3569,7 +3569,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeGuidNa
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInformation(int64_t volume, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeInformation(int64_t volume, int32_t informationclass, void* buffer, uint32_t buffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3595,7 +3595,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInform
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInstanceFromName(int64_t filter, int64_t volume, void* instancename, void* retinstance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeInstanceFromName(int64_t filter, int64_t volume, void* instancename, void* retinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3620,7 +3620,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInstan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeName(int64_t volume, void* volumename, void* buffersizeneeded) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeName(int64_t volume, void* volumename, void* buffersizeneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3644,7 +3644,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeName(i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeProperties(int64_t volume, void* volumeproperties, uint32_t volumepropertieslength, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeProperties(int64_t volume, void* volumeproperties, uint32_t volumepropertieslength, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3669,7 +3669,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeProper
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitExtraCreateParameterLookasideList(int64_t filter, void* lookaside, uint32_t flags, uint64_t size, uint32_t tag) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltInitExtraCreateParameterLookasideList(int64_t filter, void* lookaside, uint32_t flags, uint64_t size, uint32_t tag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3694,7 +3694,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitExtraCreatePar
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitializeFileLock(void* filelock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltInitializeFileLock(void* filelock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3715,7 +3715,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitializeFileLock
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitializeOplock(void* oplock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltInitializeOplock(void* oplock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3736,7 +3736,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitializeOplock(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitializePushLock(void* pushlock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltInitializePushLock(void* pushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3757,7 +3757,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltInitializePushLock
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltInsertExtraCreateParameter(int64_t filter, void* ecplist, void* ecpcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltInsertExtraCreateParameter(int64_t filter, void* ecplist, void* ecpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3781,7 +3781,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltInsertExtraCrea
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIs32bitProcess(void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIs32bitProcess(void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3803,7 +3803,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIs32bitProcess(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsCallbackDataDirty(void* data) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIsCallbackDataDirty(void* data) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3825,7 +3825,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsCallbackDataDirt
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsDirectory(void* fileobject, int64_t instance, void* isdirectory) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltIsDirectory(void* fileobject, int64_t instance, void* isdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3849,7 +3849,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsDirectory(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpAcknowledged(int64_t filter, void* ecpcontext) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIsEcpAcknowledged(int64_t filter, void* ecpcontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3872,7 +3872,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpAcknowledged(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpFromUserMode(int64_t filter, void* ecpcontext) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIsEcpFromUserMode(int64_t filter, void* ecpcontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3895,7 +3895,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpFromUserMode(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsFltMgrVolumeDeviceObject(void* deviceobject) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIsFltMgrVolumeDeviceObject(void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3917,7 +3917,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsFltMgrVolumeDevi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsIoCanceled(void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIsIoCanceled(void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3939,7 +3939,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsIoCanceled(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsIoRedirectionAllowed(int64_t sourceinstance, int64_t targetinstance, void* redirectionallowed) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltIsIoRedirectionAllowed(int64_t sourceinstance, int64_t targetinstance, void* redirectionallowed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3963,7 +3963,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsIoRedirection
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsIoRedirectionAllowedForOperation(void* data, int64_t targetinstance, void* redirectionallowedthisio, void* redirectionallowedallio) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltIsIoRedirectionAllowedForOperation(void* data, int64_t targetinstance, void* redirectionallowedthisio, void* redirectionallowedallio) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3988,7 +3988,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsIoRedirection
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsOperationSynchronous(void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltIsOperationSynchronous(void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4010,7 +4010,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltIsOperationSynchro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsVolumeSnapshot(void* fltobject, void* issnapshotvolume) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltIsVolumeSnapshot(void* fltobject, void* issnapshotvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4033,7 +4033,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsVolumeSnapsho
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsVolumeWritable(void* fltobject, void* iswritable) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltIsVolumeWritable(void* fltobject, void* iswritable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4056,7 +4056,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltIsVolumeWritabl
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltLoadFilter(void* filtername) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltLoadFilter(void* filtername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4078,7 +4078,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltLoadFilter(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltLockUserBuffer(void* callbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltLockUserBuffer(void* callbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4100,7 +4100,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltLockUserBuffer(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltObjectDereference(void* fltobject) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltObjectDereference(void* fltobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4121,7 +4121,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltObjectDereference(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltObjectReference(void* fltobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltObjectReference(void* fltobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4143,7 +4143,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltObjectReference
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOpenVolume(int64_t instance, void* volumehandle, void* volumefileobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltOpenVolume(int64_t instance, void* volumehandle, void* volumefileobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4167,7 +4167,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOpenVolume(int6
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockBreakH(void* oplock, void* callbackdata, uint32_t flags, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockBreakH(void* oplock, void* callbackdata, uint32_t flags, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4194,7 +4194,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockBreakH(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockBreakToNone(void* oplock, void* callbackdata, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockBreakToNone(void* oplock, void* callbackdata, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4220,7 +4220,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockBreakToNo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockBreakToNoneEx(void* oplock, void* callbackdata, uint32_t flags, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockBreakToNoneEx(void* oplock, void* callbackdata, uint32_t flags, void* context, void* waitcompletionroutine, void* prepostcallbackdataroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4247,7 +4247,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockBreakToNo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockFsctrl(void* oplock, void* callbackdata, uint32_t opencount) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockFsctrl(void* oplock, void* callbackdata, uint32_t opencount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4271,7 +4271,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockFsctrl(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockFsctrlEx(void* oplock, void* callbackdata, uint32_t opencount, uint32_t flags) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockFsctrlEx(void* oplock, void* callbackdata, uint32_t opencount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4296,7 +4296,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockFsctrlEx(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockIsFastIoPossible(void* oplock) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockIsFastIoPossible(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4318,7 +4318,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockIsFastIoPoss
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockIsSharedRequest(void* callbackdata) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockIsSharedRequest(void* callbackdata) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4340,7 +4340,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockIsSharedRequ
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockKeysEqual(void* fo1, void* fo2) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockKeysEqual(void* fo1, void* fo2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4363,7 +4363,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltOplockKeysEqual(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltParseFileName(void* filename, void* extension, void* stream, void* finalcomponent) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltParseFileName(void* filename, void* extension, void* stream, void* finalcomponent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4388,7 +4388,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltParseFileName(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltParseFileNameInformation(void* filenameinformation) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltParseFileNameInformation(void* filenameinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4410,7 +4410,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltParseFileNameIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPerformAsynchronousIo(void* callbackdata, void* callbackroutine, void* callbackcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltPerformAsynchronousIo(void* callbackdata, void* callbackroutine, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4434,7 +4434,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPerformAsynchro
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltPerformSynchronousIo(void* callbackdata) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltPerformSynchronousIo(void* callbackdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4455,7 +4455,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltPerformSynchronous
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPrePrepareComplete(int64_t instance, void* transaction, void* transactioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltPrePrepareComplete(int64_t instance, void* transaction, void* transactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4479,7 +4479,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPrePrepareCompl
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareComplete(int64_t instance, void* transaction, void* transactioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltPrepareComplete(int64_t instance, void* transaction, void* transactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4503,7 +4503,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareComplete
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareToReuseEcp(int64_t filter, void* ecpcontext) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltPrepareToReuseEcp(int64_t filter, void* ecpcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4525,7 +4525,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareToReuseEcp(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltProcessFileLock(void* filelock, void* callbackdata, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltProcessFileLock(void* filelock, void* callbackdata, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4549,7 +4549,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltProcessFileLock
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPropagateActivityIdToThread(void* callbackdata, void* propagateid, void* originalid) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltPropagateActivityIdToThread(void* callbackdata, void* propagateid, void* originalid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4573,7 +4573,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPropagateActivi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPropagateIrpExtension(void* sourcedata, void* targetdata, uint32_t flags) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltPropagateIrpExtension(void* sourcedata, void* targetdata, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4597,7 +4597,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPropagateIrpExt
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPurgeFileNameInformationCache(int64_t instance, void* fileobject) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltPurgeFileNameInformationCache(int64_t instance, void* fileobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4620,7 +4620,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltPurgeFileNameIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryDirectoryFile(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, bool returnsingleentry, void* filename, bool restartscan, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryDirectoryFile(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, bool returnsingleentry, void* filename, bool restartscan, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t, bool, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4650,7 +4650,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryDirectoryF
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryDirectoryFileEx(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, uint32_t queryflags, void* filename, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryDirectoryFileEx(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, uint32_t queryflags, void* filename, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4679,7 +4679,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryDirectoryF
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryEaFile(int64_t instance, void* fileobject, void* returnedeadata, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryEaFile(int64_t instance, void* fileobject, void* returnedeadata, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, bool, void*, uint32_t, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4710,7 +4710,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryEaFile(int
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationByName(int64_t filter, int64_t instance, void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, void* drivercontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryInformationByName(int64_t filter, int64_t instance, void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4739,7 +4739,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformatio
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationFile(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryInformationFile(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4766,7 +4766,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformatio
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryQuotaInformationFile(int64_t instance, void* fileobject, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* sidlist, uint32_t sidlistlength, void* startsid, bool restartscan, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryQuotaInformationFile(int64_t instance, void* fileobject, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* sidlist, uint32_t sidlistlength, void* startsid, bool restartscan, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, bool, void*, uint32_t, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4798,7 +4798,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryQuotaInfor
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQuerySecurityObject(int64_t instance, void* fileobject, uint32_t securityinformation, void* securitydescriptor, uint32_t length, void* lengthneeded) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQuerySecurityObject(int64_t instance, void* fileobject, uint32_t securityinformation, void* securitydescriptor, uint32_t length, void* lengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4825,7 +4825,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQuerySecurityOb
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryVolumeInformation(int64_t instance, void* iosb, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryVolumeInformation(int64_t instance, void* iosb, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4851,7 +4851,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryVolumeInfo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryVolumeInformationFile(int64_t instance, void* fileobject, void* fsinformation, uint32_t length, int32_t fsinformationclass, void* lengthreturned) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryVolumeInformationFile(int64_t instance, void* fileobject, void* fsinformation, uint32_t length, int32_t fsinformationclass, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4878,7 +4878,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryVolumeInfo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueueDeferredIoWorkItem(int64_t fltworkitem, void* data, void* workerroutine, int32_t queuetype, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueueDeferredIoWorkItem(int64_t fltworkitem, void* data, void* workerroutine, int32_t queuetype, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4904,7 +4904,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueueDeferredIo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueueGenericWorkItem(int64_t fltworkitem, void* fltobject, void* workerroutine, int32_t queuetype, void* context) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltQueueGenericWorkItem(int64_t fltworkitem, void* fltobject, void* workerroutine, int32_t queuetype, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4930,7 +4930,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltQueueGenericWor
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltReadFile(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* bytesread, void* callbackroutine, void* callbackcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltReadFile(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* bytesread, void* callbackroutine, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4960,7 +4960,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltReadFile(int64_
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltReadFileEx(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* bytesread, void* callbackroutine, void* callbackcontext, void* key, void* mdl) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltReadFileEx(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* bytesread, void* callbackroutine, void* callbackcontext, void* key, void* mdl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4992,7 +4992,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltReadFileEx(int6
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReferenceContext(void* context) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReferenceContext(void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5013,7 +5013,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReferenceContext(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReferenceFileNameInformation(void* filenameinformation) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReferenceFileNameInformation(void* filenameinformation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5034,7 +5034,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReferenceFileNameI
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRegisterFilter(void* driver, void* registration, void* retfilter) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterFilter(void* driver, void* registration, void* retfilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5058,7 +5058,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRegisterFilter(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRegisterForDataScan(int64_t instance) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterForDataScan(int64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5080,7 +5080,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRegisterForData
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReissueSynchronousIo(int64_t initiatinginstance, void* callbackdata) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReissueSynchronousIo(int64_t initiatinginstance, void* callbackdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5102,7 +5102,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReissueSynchronous
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseContext(void* context) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseContext(void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5123,7 +5123,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseContext(voi
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseContexts(void* contexts) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseContexts(void* contexts) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5144,7 +5144,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseContexts(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseContextsEx(uint64_t contextssize, void* contexts) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseContextsEx(uint64_t contextssize, void* contexts) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5166,7 +5166,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseContextsEx(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseFileNameInformation(void* filenameinformation) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseFileNameInformation(void* filenameinformation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5187,7 +5187,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseFileNameInf
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleasePushLock(void* pushlock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleasePushLock(void* pushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5208,7 +5208,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleasePushLock(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleasePushLockEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleasePushLockEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5230,7 +5230,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleasePushLockEx(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseResource(void* resource) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseResource(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5251,7 +5251,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReleaseResource(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveExtraCreateParameter(int64_t filter, void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRemoveExtraCreateParameter(int64_t filter, void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5277,7 +5277,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveExtraCrea
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveOpenReparseEntry(int64_t filter, void* data, void* openreparseentry) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltRemoveOpenReparseEntry(int64_t filter, void* data, void* openreparseentry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5300,7 +5300,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveOpenReparseE
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestFileInfoOnCreateCompletion(int64_t filter, void* data, uint32_t infoclassflags) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRequestFileInfoOnCreateCompletion(int64_t filter, void* data, uint32_t infoclassflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5324,7 +5324,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestFileInfo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestOperationStatusCallback(void* data, void* callbackroutine, void* requestercontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRequestOperationStatusCallback(void* data, void* callbackroutine, void* requestercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5348,7 +5348,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestOperatio
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltRetainSwappedBufferMdlAddress(void* callbackdata) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltRetainSwappedBufferMdlAddress(void* callbackdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5369,7 +5369,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltRetainSwappedBuffe
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletion(int64_t filter, void* data, uint32_t infoclass, void* size) {
+void* windowssysWindowsWdkStorageFilesystemMinifiltersFltRetrieveFileInfoOnCreateCompletion(int64_t filter, void* data, uint32_t infoclass, void* size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5394,7 +5394,7 @@ void* windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoO
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletionEx(int64_t filter, void* data, uint32_t infoclass, void* retinfosize, void* retinfobuffer) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRetrieveFileInfoOnCreateCompletionEx(int64_t filter, void* data, uint32_t infoclass, void* retinfosize, void* retinfobuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5420,7 +5420,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInf
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveIoPriorityInfo(void* data, void* fileobject, int64_t thread, void* priorityinfo) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRetrieveIoPriorityInfo(void* data, void* fileobject, int64_t thread, void* priorityinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5445,7 +5445,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveIoPrior
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltReuseCallbackData(void* callbackdata) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltReuseCallbackData(void* callbackdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5466,7 +5466,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltReuseCallbackData(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRollbackComplete(int64_t instance, void* transaction, void* transactioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRollbackComplete(int64_t instance, void* transaction, void* transactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5490,7 +5490,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRollbackComplet
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRollbackEnlistment(int64_t instance, void* transaction, void* transactioncontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltRollbackEnlistment(int64_t instance, void* transaction, void* transactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5514,7 +5514,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltRollbackEnlistm
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSendMessage(int64_t filter, void* clientport, void* senderbuffer, uint32_t senderbufferlength, void* replybuffer, void* replylength, void* timeout) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSendMessage(int64_t filter, void* clientport, void* senderbuffer, uint32_t senderbufferlength, void* replybuffer, void* replylength, void* timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5542,7 +5542,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSendMessage(int
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetActivityIdCallbackData(void* callbackdata, void* guid) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetActivityIdCallbackData(void* callbackdata, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5565,7 +5565,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetActivityIdCa
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltSetCallbackDataDirty(void* data) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltSetCallbackDataDirty(void* data) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5586,7 +5586,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltSetCallbackDataDir
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetCancelCompletion(void* callbackdata, void* canceledcallback) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetCancelCompletion(void* callbackdata, void* canceledcallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5609,7 +5609,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetCancelComple
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEaFile(int64_t instance, void* fileobject, void* eabuffer, uint32_t length) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetEaFile(int64_t instance, void* fileobject, void* eabuffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5634,7 +5634,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEaFile(int64
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEcpListIntoCallbackData(int64_t filter, void* callbackdata, void* ecplist) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetEcpListIntoCallbackData(int64_t filter, void* callbackdata, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5658,7 +5658,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEcpListIntoC
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFileContext(int64_t instance, void* fileobject, int32_t operation, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetFileContext(int64_t instance, void* fileobject, int32_t operation, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5684,7 +5684,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFileContext(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFsZeroingOffset(void* data, uint32_t zeroingoffset) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetFsZeroingOffset(void* data, uint32_t zeroingoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5707,7 +5707,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFsZeroingOff
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFsZeroingOffsetRequired(void* data) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetFsZeroingOffsetRequired(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5729,7 +5729,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFsZeroingOff
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetInformationFile(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetInformationFile(int64_t instance, void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5755,7 +5755,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetInformationF
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetInstanceContext(int64_t instance, int32_t operation, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetInstanceContext(int64_t instance, int32_t operation, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5780,7 +5780,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetInstanceCont
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetIoPriorityHintIntoCallbackData(void* data, int32_t priorityhint) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoCallbackData(void* data, int32_t priorityhint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5803,7 +5803,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetIoPriorityHi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetIoPriorityHintIntoFileObject(void* fileobject, int32_t priorityhint) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoFileObject(void* fileobject, int32_t priorityhint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5826,7 +5826,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetIoPriorityHi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetIoPriorityHintIntoThread(int64_t thread, int32_t priorityhint) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoThread(int64_t thread, int32_t priorityhint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5849,7 +5849,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetIoPriorityHi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetQuotaInformationFile(int64_t instance, void* fileobject, void* buffer, uint32_t length) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetQuotaInformationFile(int64_t instance, void* fileobject, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5874,7 +5874,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetQuotaInforma
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetSecurityObject(int64_t instance, void* fileobject, uint32_t securityinformation, void* securitydescriptor) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetSecurityObject(int64_t instance, void* fileobject, uint32_t securityinformation, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5899,7 +5899,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetSecurityObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetStreamContext(int64_t instance, void* fileobject, int32_t operation, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetStreamContext(int64_t instance, void* fileobject, int32_t operation, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5925,7 +5925,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetStreamContex
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetStreamHandleContext(int64_t instance, void* fileobject, int32_t operation, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetStreamHandleContext(int64_t instance, void* fileobject, int32_t operation, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5951,7 +5951,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetStreamHandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetTransactionContext(int64_t instance, void* transaction, int32_t operation, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetTransactionContext(int64_t instance, void* transaction, int32_t operation, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5977,7 +5977,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetTransactionC
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeContext(int64_t volume, int32_t operation, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetVolumeContext(int64_t volume, int32_t operation, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6002,7 +6002,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeContex
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeInformation(int64_t instance, void* iosb, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltSetVolumeInformation(int64_t instance, void* iosb, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6028,7 +6028,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeInform
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltStartFiltering(int64_t filter) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltStartFiltering(int64_t filter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6050,7 +6050,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltStartFiltering(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsFileContexts(void* fileobject) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsFileContexts(void* fileobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6072,7 +6072,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsFileContex
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsFileContextsEx(void* fileobject, int64_t instance) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsFileContextsEx(void* fileobject, int64_t instance) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6095,7 +6095,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsFileContex
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsStreamContexts(void* fileobject) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsStreamContexts(void* fileobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6117,7 +6117,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsStreamCont
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsStreamHandleContexts(void* fileobject) {
+bool windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsStreamHandleContexts(void* fileobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6139,7 +6139,7 @@ bool windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsStreamHand
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltTagFile(int64_t initiatinginstance, void* fileobject, uint32_t filetag, void* guid, void* databuffer, uint16_t databufferlength) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltTagFile(int64_t initiatinginstance, void* fileobject, uint32_t filetag, void* guid, void* databuffer, uint16_t databufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6166,7 +6166,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltTagFile(int64_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltTagFileEx(int64_t initiatinginstance, void* fileobject, uint32_t filetag, void* guid, void* databuffer, uint16_t databufferlength, uint32_t existingfiletag, void* existingguid, uint32_t flags) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltTagFileEx(int64_t initiatinginstance, void* fileobject, uint32_t filetag, void* guid, void* databuffer, uint16_t databufferlength, uint32_t existingfiletag, void* existingguid, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, uint16_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6196,7 +6196,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltTagFileEx(int64
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltUninitializeFileLock(void* filelock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltUninitializeFileLock(void* filelock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6217,7 +6217,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltUninitializeFileLo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltUninitializeOplock(void* oplock) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltUninitializeOplock(void* oplock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6238,7 +6238,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltUninitializeOplock
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltUnloadFilter(void* filtername) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltUnloadFilter(void* filtername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6260,7 +6260,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltUnloadFilter(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_minifilters_fltUnregisterFilter(int64_t filter) {
+void windowssysWindowsWdkStorageFilesystemMinifiltersFltUnregisterFilter(int64_t filter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6281,7 +6281,7 @@ void windowssys_windows_wdk_storage_filesystem_minifilters_fltUnregisterFilter(i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltUntagFile(int64_t initiatinginstance, void* fileobject, uint32_t filetag, void* guid) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltUntagFile(int64_t initiatinginstance, void* fileobject, uint32_t filetag, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6306,7 +6306,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltUntagFile(int64
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltVetoBypassIo(void* callbackdata, void* fltobjects, int32_t operationstatus, void* failurereason) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltVetoBypassIo(void* callbackdata, void* fltobjects, int32_t operationstatus, void* failurereason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6331,7 +6331,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltVetoBypassIo(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltWriteFile(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* byteswritten, void* callbackroutine, void* callbackcontext) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltWriteFile(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* byteswritten, void* callbackroutine, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6361,7 +6361,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltWriteFile(int64
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltWriteFileEx(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* byteswritten, void* callbackroutine, void* callbackcontext, void* key, void* mdl) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltWriteFileEx(int64_t initiatinginstance, void* fileobject, void* byteoffset, uint32_t length, void* buffer, uint32_t flags, void* byteswritten, void* callbackroutine, void* callbackcontext, void* key, void* mdl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6393,7 +6393,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltWriteFileEx(int
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_minifilters_fltpTraceRedirectedFileIo(void* originatingfileobject, void* childcallbackdata) {
+int32_t windowssysWindowsWdkStorageFilesystemMinifiltersFltpTraceRedirectedFileIo(void* originatingfileobject, void* childcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

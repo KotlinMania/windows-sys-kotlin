@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 public typealias AceFlags = UInt
@@ -25,23 +27,23 @@ public typealias Logon32Provider = UInt
 
 public typealias MandatoryLevel = Int
 
-public typealias NcryptDescriptorHandle = COpaquePointer?
+public typealias NcryptDescriptorHandle = MutPtr<CVoid>
 
-public typealias NcryptStreamHandle = COpaquePointer?
+public typealias NcryptStreamHandle = MutPtr<CVoid>
 
 public typealias ObjectSecurityInformation = UInt
 
 public fun interface PlsaApCallPackageUntrustedFn {
-    public operator fun invoke(clientrequest: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
+    public operator fun invoke(clientrequest: ConstPtr<ConstPtr<CVoid>>, protocolsubmitbuffer: ConstPtr<CVoid>, clientbufferbase: ConstPtr<CVoid>, submitbufferlength: UInt, protocolreturnbuffer: MutPtr<MutPtr<CVoid>>, returnbufferlength: MutPtr<UInt>, protocolstatus: MutPtr<Int>): Ntstatus
 }
 
 public typealias PlsaApCallPackageUntrusted = PlsaApCallPackageUntrustedFn?
 
-public typealias PsecurityDescriptor = COpaquePointer?
+public typealias PsecurityDescriptor = MutPtr<CVoid>
 
-public typealias Psid = COpaquePointer?
+public typealias Psid = MutPtr<CVoid>
 
-public typealias SaferLevelHandle = COpaquePointer?
+public typealias SaferLevelHandle = MutPtr<CVoid>
 
 public typealias SecurityAutoInheritFlags = UInt
 
@@ -50,7 +52,7 @@ public typealias SecurityDescriptorControl = UShort
 public typealias SecurityImpersonationLevel = Int
 
 public fun interface SecThreadStartFn {
-    public operator fun invoke(lpthreadparameter: COpaquePointer?): UInt
+    public operator fun invoke(lpthreadparameter: MutPtr<CVoid>): UInt
 }
 
 public typealias SecThreadStart = SecThreadStartFn?

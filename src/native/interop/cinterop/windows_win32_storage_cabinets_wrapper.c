@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_cabinets_fCIAddFile(void* hfci, void* pszsourcefile, void* pszfilename, int32_t fexecute, void* pfnfcignc, void* pfnfcis, void* pfnfcigoi, uint16_t typecompress) {
+int32_t windowssysWindowsWin32StorageCabinetsFCIAddFile(void* hfci, void* pszsourcefile, void* pszfilename, int32_t fexecute, void* pfnfcignc, void* pfnfcis, void* pfnfcigoi, uint16_t typecompress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -44,7 +44,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fCIAddFile(void* hfci, void* p
 #endif
 }
 
-void* windowssys_windows_win32_storage_cabinets_fCICreate(void* perf, void* pfnfcifp, void* pfna, void* pfnf, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, void* pfndelete, void* pfnfcigtf, void* pccab, void* pv) {
+void* windowssysWindowsWin32StorageCabinetsFCICreate(void* perf, void* pfnfcifp, void* pfna, void* pfnf, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, void* pfndelete, void* pfnfcigtf, void* pccab, void* pv) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -78,7 +78,7 @@ void* windowssys_windows_win32_storage_cabinets_fCICreate(void* perf, void* pfnf
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fCIDestroy(void* hfci) {
+int32_t windowssysWindowsWin32StorageCabinetsFCIDestroy(void* hfci) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -100,7 +100,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fCIDestroy(void* hfci) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fCIFlushCabinet(void* hfci, int32_t fgetnextcab, void* pfnfcignc, void* pfnfcis) {
+int32_t windowssysWindowsWin32StorageCabinetsFCIFlushCabinet(void* hfci, int32_t fgetnextcab, void* pfnfcignc, void* pfnfcis) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -125,7 +125,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fCIFlushCabinet(void* hfci, in
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fCIFlushFolder(void* hfci, void* pfnfcignc, void* pfnfcis) {
+int32_t windowssysWindowsWin32StorageCabinetsFCIFlushFolder(void* hfci, void* pfnfcignc, void* pfnfcis) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -149,7 +149,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fCIFlushFolder(void* hfci, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fDICopy(void* hfdi, void* pszcabinet, void* pszcabpath, int32_t flags, void* pfnfdin, void* pfnfdid, void* pvuser) {
+int32_t windowssysWindowsWin32StorageCabinetsFDICopy(void* hfdi, void* pszcabinet, void* pszcabpath, int32_t flags, void* pfnfdin, void* pfnfdid, void* pvuser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fDICopy(void* hfdi, void* pszc
 #endif
 }
 
-void* windowssys_windows_win32_storage_cabinets_fDICreate(void* pfnalloc, void* pfnfree, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, int32_t cputype, void* perf) {
+void* windowssysWindowsWin32StorageCabinetsFDICreate(void* pfnalloc, void* pfnfree, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, int32_t cputype, void* perf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ void* windowssys_windows_win32_storage_cabinets_fDICreate(void* pfnalloc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fDIDestroy(void* hfdi) {
+int32_t windowssysWindowsWin32StorageCabinetsFDIDestroy(void* hfdi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -229,7 +229,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fDIDestroy(void* hfdi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fDIIsCabinet(void* hfdi, int64_t hf, void* pfdici) {
+int32_t windowssysWindowsWin32StorageCabinetsFDIIsCabinet(void* hfdi, int64_t hf, void* pfdici) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -253,7 +253,7 @@ int32_t windowssys_windows_win32_storage_cabinets_fDIIsCabinet(void* hfdi, int64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cabinets_fDITruncateCabinet(void* hfdi, void* pszcabinetname, uint16_t ifoldertodelete) {
+int32_t windowssysWindowsWin32StorageCabinetsFDITruncateCabinet(void* hfdi, void* pszcabinetname, uint16_t ifoldertodelete) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;

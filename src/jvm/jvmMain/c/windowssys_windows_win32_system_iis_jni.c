@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssys_1windows_1win32_1system_1iis_1getExtensionVersion(JNIEnv* km_env, jclass km_clazz, jlong pver) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssysWindowsWin32SystemIisGetExtensionVersion(JNIEnv* km_env, jclass km_clazz, jlong pver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssys_1windows_1win32_1system_1iis_1getFilterVersion(JNIEnv* km_env, jclass km_clazz, jlong pver) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssysWindowsWin32SystemIisGetFilterVersion(JNIEnv* km_env, jclass km_clazz, jlong pver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssys_1windows_1win32_1system_1iis_1httpExtensionProc(JNIEnv* km_env, jclass km_clazz, jlong pecb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssysWindowsWin32SystemIisHttpExtensionProc(JNIEnv* km_env, jclass km_clazz, jlong pecb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssys_1windows_1win32_1system_1iis_1httpFilterProc(JNIEnv* km_env, jclass km_clazz, jlong pfc, jint notificationtype, jlong pvnotification) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_iis_WindowsWin32SystemIisJniBridge_windowssysWindowsWin32SystemIisHttpFilterProc(JNIEnv* km_env, jclass km_clazz, jlong pfc, jint notificationtype, jlong pvnotification) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

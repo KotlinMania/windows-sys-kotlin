@@ -2,37 +2,38 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputEnable
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputGetState
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller.cinterop.windowssysWindowsWin32UiInputXboxcontrollerXInputSetState
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun xInputEnable(enable: Bool) {
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable(enable)
+    windowssysWindowsWin32UiInputXboxcontrollerXInputEnable(enable)
 }
 
-public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: COpaquePointer?, pcapturedeviceid: Pwstr, pcapturecount: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds(dwuserindex, prenderdeviceid?.value?.toCPointer<ByteVar>(), prendercount?.value?.toCPointer<ByteVar>(), pcapturedeviceid?.value?.toCPointer<ByteVar>(), pcapturecount?.value?.toCPointer<ByteVar>())
+public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr<UInt>, pcapturedeviceid: Pwstr, pcapturecount: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds(dwuserindex, prenderdeviceid.rawAddress.toCPointer<ByteVar>(), prendercount.rawAddress.toCPointer<ByteVar>(), pcapturedeviceid.rawAddress.toCPointer<ByteVar>(), pcapturecount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation(dwuserindex, devtype, pbatteryinformation?.value?.toCPointer<ByteVar>())
+public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr<XinputBatteryInformation>): UInt =
+    windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation(dwuserindex, devtype, pbatteryinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities(dwuserindex, dwflags, pcapabilities?.value?.toCPointer<ByteVar>())
+public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr<XinputCapabilities>): UInt =
+    windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities(dwuserindex, dwflags, pcapabilities.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke(dwuserindex, dwreserved, pkeystroke?.value?.toCPointer<ByteVar>())
+public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr<XinputKeystroke>): UInt =
+    windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke(dwuserindex, dwreserved, pkeystroke.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetState(dwuserindex: UInt, pstate: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState(dwuserindex, pstate?.value?.toCPointer<ByteVar>())
+public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr<XinputState>): UInt =
+    windowssysWindowsWin32UiInputXboxcontrollerXInputGetState(dwuserindex, pstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputSetState(dwuserindex: UInt, pvibration: COpaquePointer?): UInt =
-    windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState(dwuserindex, pvibration?.value?.toCPointer<ByteVar>())
+public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr<XinputVibration>): UInt =
+    windowssysWindowsWin32UiInputXboxcontrollerXInputSetState(dwuserindex, pvibration.rawAddress.toCPointer<ByteVar>())

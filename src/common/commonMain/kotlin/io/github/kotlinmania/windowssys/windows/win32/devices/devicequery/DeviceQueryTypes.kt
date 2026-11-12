@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.devicequery
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias DevpropOperator = UInt
 
@@ -12,10 +14,10 @@ public typealias DevQueryResultAction = Int
 
 public typealias DevQueryState = Int
 
-public typealias Hdevquery = COpaquePointer?
+public typealias Hdevquery = MutPtr<CVoid>
 
 public fun interface PdevQueryResultCallbackFn {
-    public operator fun invoke(hdevquery: Hdevquery, pcontext: COpaquePointer?, pactiondata: COpaquePointer?)
+    public operator fun invoke(hdevquery: Hdevquery, pcontext: ConstPtr<CVoid>, pactiondata: ConstPtr<DevQueryResultActionData>)
 }
 
 public typealias PdevQueryResultCallback = PdevQueryResultCallbackFn?

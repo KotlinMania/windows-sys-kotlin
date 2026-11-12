@@ -1,13 +1,18 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.system.services.ScHandle
 
@@ -238,25 +243,25 @@ public typealias Hrestypeenum = Long
 public typealias LogLevel = Int
 
 public fun interface LpgroupCallbackExFn {
-    public operator fun invoke(param0: Hcluster, param1: Hgroup, param2: Hgroup, param3: COpaquePointer?): UInt
+    public operator fun invoke(param0: Hcluster, param1: Hgroup, param2: Hgroup, param3: MutPtr<CVoid>): UInt
 }
 
 public typealias LpgroupCallbackEx = LpgroupCallbackExFn?
 
 public fun interface LpnodeCallbackFn {
-    public operator fun invoke(param0: Hcluster, param1: Hnode, param2: ClusterNodeState, param3: COpaquePointer?): UInt
+    public operator fun invoke(param0: Hcluster, param1: Hnode, param2: ClusterNodeState, param3: MutPtr<CVoid>): UInt
 }
 
 public typealias LpnodeCallback = LpnodeCallbackFn?
 
 public fun interface LpresourceCallbackFn {
-    public operator fun invoke(param0: Hresource, param1: Hresource, param2: COpaquePointer?): UInt
+    public operator fun invoke(param0: Hresource, param1: Hresource, param2: MutPtr<CVoid>): UInt
 }
 
 public typealias LpresourceCallback = LpresourceCallbackFn?
 
 public fun interface LpresourceCallbackExFn {
-    public operator fun invoke(param0: Hcluster, param1: Hresource, param2: Hresource, param3: COpaquePointer?): UInt
+    public operator fun invoke(param0: Hcluster, param1: Hresource, param2: Hresource, param3: MutPtr<CVoid>): UInt
 }
 
 public typealias LpresourceCallbackEx = LpresourceCallbackExFn?
@@ -266,7 +271,7 @@ public typealias MaintenanceModeTypeEnum = Int
 public typealias NodeClusterState = Int
 
 public fun interface ParbitrateRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, lostquorumresource: PquorumResourceLost): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>, lostquorumresource: PquorumResourceLost): UInt
 }
 
 public typealias ParbitrateRoutine = ParbitrateRoutineFn?
@@ -278,31 +283,31 @@ public fun interface ParmWprWatchdogForCurrentResourceCallRoutineFn {
 public typealias ParmWprWatchdogForCurrentResourceCallRoutine = ParmWprWatchdogForCurrentResourceCallRoutineFn?
 
 public fun interface PbeginRescallAsUserRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, tokenhandle: Handle, controlcode: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, bytesreturned: COpaquePointer?, context: Long, returnedasynchronously: COpaquePointer?): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>, tokenhandle: Handle, controlcode: UInt, inbuffer: MutPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, bytesreturned: MutPtr<UInt>, context: Long, returnedasynchronously: MutPtr<Bool>): UInt
 }
 
 public typealias PbeginRescallAsUserRoutine = PbeginRescallAsUserRoutineFn?
 
 public fun interface PbeginRescallRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, controlcode: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, bytesreturned: COpaquePointer?, context: Long, returnedasynchronously: COpaquePointer?): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>, controlcode: UInt, inbuffer: MutPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, bytesreturned: MutPtr<UInt>, context: Long, returnedasynchronously: MutPtr<Bool>): UInt
 }
 
 public typealias PbeginRescallRoutine = PbeginRescallRoutineFn?
 
 public fun interface PbeginRestypecallAsUserRoutineFn {
-    public operator fun invoke(resourcetypename: Pcwstr, tokenhandle: Handle, controlcode: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, bytesreturned: COpaquePointer?, context: Long, returnedasynchronously: COpaquePointer?): UInt
+    public operator fun invoke(resourcetypename: Pcwstr, tokenhandle: Handle, controlcode: UInt, inbuffer: MutPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, bytesreturned: MutPtr<UInt>, context: Long, returnedasynchronously: MutPtr<Bool>): UInt
 }
 
 public typealias PbeginRestypecallAsUserRoutine = PbeginRestypecallAsUserRoutineFn?
 
 public fun interface PbeginRestypecallRoutineFn {
-    public operator fun invoke(resourcetypename: Pcwstr, controlcode: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, bytesreturned: COpaquePointer?, context: Long, returnedasynchronously: COpaquePointer?): UInt
+    public operator fun invoke(resourcetypename: Pcwstr, controlcode: UInt, inbuffer: MutPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, bytesreturned: MutPtr<UInt>, context: Long, returnedasynchronously: MutPtr<Bool>): UInt
 }
 
 public typealias PbeginRestypecallRoutine = PbeginRestypecallRoutineFn?
 
 public fun interface PcancelRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, cancelflagsReserved: UInt): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>, cancelflagsReserved: UInt): UInt
 }
 
 public typealias PcancelRoutine = PcancelRoutineFn?
@@ -326,13 +331,13 @@ public fun interface PcloseClusterCryptProviderFn {
 public typealias PcloseClusterCryptProvider = PcloseClusterCryptProviderFn?
 
 public fun interface PcloseRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?)
+    public operator fun invoke(resource: MutPtr<CVoid>)
 }
 
 public typealias PcloseRoutine = PcloseRoutineFn?
 
 public fun interface PCLUSAPIClusWorkerCheckTerminateFn {
-    public operator fun invoke(lpworker: COpaquePointer?): Bool
+    public operator fun invoke(lpworker: MutPtr<ClusWorker>): Bool
 }
 
 public typealias PCLUSAPIClusWorkerCheckTerminate = PCLUSAPIClusWorkerCheckTerminateFn?
@@ -374,13 +379,13 @@ public fun interface PclusapiAddClusterGroupToGroupGroupsetDependencyExFn {
 public typealias PclusapiAddClusterGroupToGroupGroupsetDependencyEx = PclusapiAddClusterGroupToGroupGroupsetDependencyExFn?
 
 public fun interface PclusapiAddClusterNodeFn {
-    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode
+    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hnode
 }
 
 public typealias PclusapiAddClusterNode = PclusapiAddClusterNodeFn?
 
 public fun interface PclusapiAddClusterNodeExFn {
-    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode
+    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hnode
 }
 
 public typealias PclusapiAddClusterNodeEx = PclusapiAddClusterNodeExFn?
@@ -518,7 +523,7 @@ public fun interface PclusapiClusterAddGroupToGroupGroupsetFn {
 public typealias PclusapiClusterAddGroupToGroupGroupset = PclusapiClusterAddGroupToGroupGroupsetFn?
 
 public fun interface PclusapiClusterAffinityRuleControlFn {
-    public operator fun invoke(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterAffinityRuleControl = PclusapiClusterAffinityRuleControlFn?
@@ -536,13 +541,13 @@ public fun interface PclusapiClusterCloseEnumExFn {
 public typealias PclusapiClusterCloseEnumEx = PclusapiClusterCloseEnumExFn?
 
 public fun interface PclusapiClusterControlFn {
-    public operator fun invoke(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterControl = PclusapiClusterControlFn?
 
 public fun interface PclusapiClusterControlExFn {
-    public operator fun invoke(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterControlEx = PclusapiClusterControlExFn?
@@ -554,13 +559,13 @@ public fun interface PclusapiClusterCreateAffinityRuleFn {
 public typealias PclusapiClusterCreateAffinityRule = PclusapiClusterCreateAffinityRuleFn?
 
 public fun interface PclusapiClusterEnumFn {
-    public operator fun invoke(henum: Hclusenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(henum: Hclusenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterEnum = PclusapiClusterEnumFn?
 
 public fun interface PclusapiClusterEnumExFn {
-    public operator fun invoke(hclusterenum: Hclusenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt
+    public operator fun invoke(hclusterenum: Hclusenumex, dwindex: UInt, pitem: MutPtr<ClusterEnumItem>, cbitem: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterEnumEx = PclusapiClusterEnumExFn?
@@ -590,25 +595,25 @@ public fun interface PclusapiClusterGroupCloseEnumExFn {
 public typealias PclusapiClusterGroupCloseEnumEx = PclusapiClusterGroupCloseEnumExFn?
 
 public fun interface PclusapiClusterGroupControlFn {
-    public operator fun invoke(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterGroupControl = PclusapiClusterGroupControlFn?
 
 public fun interface PclusapiClusterGroupControlExFn {
-    public operator fun invoke(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterGroupControlEx = PclusapiClusterGroupControlExFn?
 
 public fun interface PclusapiClusterGroupEnumFn {
-    public operator fun invoke(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszresourcename: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszresourcename: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterGroupEnum = PclusapiClusterGroupEnumFn?
 
 public fun interface PclusapiClusterGroupEnumExFn {
-    public operator fun invoke(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt
+    public operator fun invoke(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: MutPtr<ClusterGroupEnumItem>, cbitem: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterGroupEnumEx = PclusapiClusterGroupEnumExFn?
@@ -626,13 +631,13 @@ public fun interface PclusapiClusterGroupGetEnumCountExFn {
 public typealias PclusapiClusterGroupGetEnumCountEx = PclusapiClusterGroupGetEnumCountExFn?
 
 public fun interface PclusapiClusterGroupGroupsetControlFn {
-    public operator fun invoke(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterGroupGroupsetControl = PclusapiClusterGroupGroupsetControlFn?
 
 public fun interface PclusapiClusterGroupGroupsetControlExFn {
-    public operator fun invoke(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterGroupGroupsetControlEx = PclusapiClusterGroupGroupsetControlExFn?
@@ -656,19 +661,19 @@ public fun interface PclusapiClusterNetworkCloseEnumFn {
 public typealias PclusapiClusterNetworkCloseEnum = PclusapiClusterNetworkCloseEnumFn?
 
 public fun interface PclusapiClusterNetworkControlFn {
-    public operator fun invoke(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterNetworkControl = PclusapiClusterNetworkControlFn?
 
 public fun interface PclusapiClusterNetworkControlExFn {
-    public operator fun invoke(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterNetworkControlEx = PclusapiClusterNetworkControlExFn?
 
 public fun interface PclusapiClusterNetworkEnumFn {
-    public operator fun invoke(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterNetworkEnum = PclusapiClusterNetworkEnumFn?
@@ -686,13 +691,13 @@ public fun interface PclusapiClusterNetworkOpenEnumFn {
 public typealias PclusapiClusterNetworkOpenEnum = PclusapiClusterNetworkOpenEnumFn?
 
 public fun interface PclusapiClusterNetInterfaceControlFn {
-    public operator fun invoke(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterNetInterfaceControl = PclusapiClusterNetInterfaceControlFn?
 
 public fun interface PclusapiClusterNetInterfaceControlExFn {
-    public operator fun invoke(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterNetInterfaceControlEx = PclusapiClusterNetInterfaceControlExFn?
@@ -710,25 +715,25 @@ public fun interface PclusapiClusterNodeCloseEnumExFn {
 public typealias PclusapiClusterNodeCloseEnumEx = PclusapiClusterNodeCloseEnumExFn?
 
 public fun interface PclusapiClusterNodeControlFn {
-    public operator fun invoke(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterNodeControl = PclusapiClusterNodeControlFn?
 
 public fun interface PclusapiClusterNodeControlExFn {
-    public operator fun invoke(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterNodeControlEx = PclusapiClusterNodeControlExFn?
 
 public fun interface PclusapiClusterNodeEnumFn {
-    public operator fun invoke(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterNodeEnum = PclusapiClusterNodeEnumFn?
 
 public fun interface PclusapiClusterNodeEnumExFn {
-    public operator fun invoke(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt
+    public operator fun invoke(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: MutPtr<ClusterEnumItem>, cbitem: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterNodeEnumEx = PclusapiClusterNodeEnumExFn?
@@ -752,7 +757,7 @@ public fun interface PclusapiClusterNodeOpenEnumFn {
 public typealias PclusapiClusterNodeOpenEnum = PclusapiClusterNodeOpenEnumFn?
 
 public fun interface PclusapiClusterNodeOpenEnumExFn {
-    public operator fun invoke(hnode: Hnode, dwtype: UInt, poptions: COpaquePointer?): Hnodeenumex
+    public operator fun invoke(hnode: Hnode, dwtype: UInt, poptions: ConstPtr<CVoid>): Hnodeenumex
 }
 
 public typealias PclusapiClusterNodeOpenEnumEx = PclusapiClusterNodeOpenEnumExFn?
@@ -764,7 +769,7 @@ public fun interface PclusapiClusterOpenEnumFn {
 public typealias PclusapiClusterOpenEnum = PclusapiClusterOpenEnumFn?
 
 public fun interface PclusapiClusterOpenEnumExFn {
-    public operator fun invoke(hcluster: Hcluster, dwtype: UInt, poptions: COpaquePointer?): Hclusenumex
+    public operator fun invoke(hcluster: Hcluster, dwtype: UInt, poptions: ConstPtr<CVoid>): Hclusenumex
 }
 
 public typealias PclusapiClusterOpenEnumEx = PclusapiClusterOpenEnumExFn?
@@ -776,19 +781,19 @@ public fun interface PclusapiClusterRegCloseKeyFn {
 public typealias PclusapiClusterRegCloseKey = PclusapiClusterRegCloseKeyFn?
 
 public fun interface PclusapiClusterRegCreateBatchFn {
-    public operator fun invoke(hkey: Hkey, phregbatch: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, phregbatch: MutPtr<Hregbatch>): Int
 }
 
 public typealias PclusapiClusterRegCreateBatch = PclusapiClusterRegCreateBatchFn?
 
 public fun interface PclusapiClusterRegCreateKeyFn {
-    public operator fun invoke(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>): Int
 }
 
 public typealias PclusapiClusterRegCreateKey = PclusapiClusterRegCreateKeyFn?
 
 public fun interface PclusapiClusterRegCreateKeyExFn {
-    public operator fun invoke(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?, lpszreason: Pcwstr): Int
+    public operator fun invoke(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>, lpszreason: Pcwstr): Int
 }
 
 public typealias PclusapiClusterRegCreateKeyEx = PclusapiClusterRegCreateKeyExFn?
@@ -818,37 +823,37 @@ public fun interface PclusapiClusterRegDeleteValueExFn {
 public typealias PclusapiClusterRegDeleteValueEx = PclusapiClusterRegDeleteValueExFn?
 
 public fun interface PclusapiClusterRegEnumKeyFn {
-    public operator fun invoke(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>, lpftlastwritetime: MutPtr<Filetime>): Int
 }
 
 public typealias PclusapiClusterRegEnumKey = PclusapiClusterRegEnumKeyFn?
 
 public fun interface PclusapiClusterRegEnumValueFn {
-    public operator fun invoke(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: COpaquePointer?, lpdwtype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): UInt
+    public operator fun invoke(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: MutPtr<UInt>, lpdwtype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterRegEnumValue = PclusapiClusterRegEnumValueFn?
 
 public fun interface PclusapiClusterRegGetKeySecurityFn {
-    public operator fun invoke(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr<UInt>): Int
 }
 
 public typealias PclusapiClusterRegGetKeySecurity = PclusapiClusterRegGetKeySecurityFn?
 
 public fun interface PclusapiClusterRegOpenKeyFn {
-    public operator fun invoke(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: MutPtr<Hkey>): Int
 }
 
 public typealias PclusapiClusterRegOpenKey = PclusapiClusterRegOpenKeyFn?
 
 public fun interface PclusapiClusterRegQueryInfoKeyFn {
-    public operator fun invoke(hkey: Hkey, lpcsubkeys: COpaquePointer?, lpcbmaxsubkeylen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcbmaxvaluenamelen: COpaquePointer?, lpcbmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, lpcsubkeys: MutPtr<UInt>, lpcbmaxsubkeylen: MutPtr<UInt>, lpcvalues: MutPtr<UInt>, lpcbmaxvaluenamelen: MutPtr<UInt>, lpcbmaxvaluelen: MutPtr<UInt>, lpcbsecuritydescriptor: MutPtr<UInt>, lpftlastwritetime: MutPtr<Filetime>): Int
 }
 
 public typealias PclusapiClusterRegQueryInfoKey = PclusapiClusterRegQueryInfoKeyFn?
 
 public fun interface PclusapiClusterRegQueryValueFn {
-    public operator fun invoke(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): Int
 }
 
 public typealias PclusapiClusterRegQueryValue = PclusapiClusterRegQueryValueFn?
@@ -866,13 +871,13 @@ public fun interface PclusapiClusterRegSetKeySecurityExFn {
 public typealias PclusapiClusterRegSetKeySecurityEx = PclusapiClusterRegSetKeySecurityExFn?
 
 public fun interface PclusapiClusterRegSetValueFn {
-    public operator fun invoke(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): UInt
+    public operator fun invoke(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt): UInt
 }
 
 public typealias PclusapiClusterRegSetValue = PclusapiClusterRegSetValueFn?
 
 public fun interface PclusapiClusterRegSetValueExFn {
-    public operator fun invoke(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterRegSetValueEx = PclusapiClusterRegSetValueExFn?
@@ -920,31 +925,31 @@ public fun interface PclusapiClusterResourceCloseEnumExFn {
 public typealias PclusapiClusterResourceCloseEnumEx = PclusapiClusterResourceCloseEnumExFn?
 
 public fun interface PclusapiClusterResourceControlFn {
-    public operator fun invoke(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterResourceControl = PclusapiClusterResourceControlFn?
 
 public fun interface PclusapiClusterResourceControlAsUserExFn {
-    public operator fun invoke(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterResourceControlAsUserEx = PclusapiClusterResourceControlAsUserExFn?
 
 public fun interface PclusapiClusterResourceControlExFn {
-    public operator fun invoke(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterResourceControlEx = PclusapiClusterResourceControlExFn?
 
 public fun interface PclusapiClusterResourceEnumFn {
-    public operator fun invoke(hresenum: Hresenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hresenum: Hresenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterResourceEnum = PclusapiClusterResourceEnumFn?
 
 public fun interface PclusapiClusterResourceEnumExFn {
-    public operator fun invoke(hresourceenumex: Hresenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt
+    public operator fun invoke(hresourceenumex: Hresenumex, dwindex: UInt, pitem: MutPtr<ClusterResourceEnumItem>, cbitem: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterResourceEnumEx = PclusapiClusterResourceEnumExFn?
@@ -980,25 +985,25 @@ public fun interface PclusapiClusterResourceTypeCloseEnumFn {
 public typealias PclusapiClusterResourceTypeCloseEnum = PclusapiClusterResourceTypeCloseEnumFn?
 
 public fun interface PclusapiClusterResourceTypeControlFn {
-    public operator fun invoke(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterResourceTypeControl = PclusapiClusterResourceTypeControlFn?
 
 public fun interface PclusapiClusterResourceTypeControlAsUserExFn {
-    public operator fun invoke(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterResourceTypeControlAsUserEx = PclusapiClusterResourceTypeControlAsUserExFn?
 
 public fun interface PclusapiClusterResourceTypeControlExFn {
-    public operator fun invoke(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiClusterResourceTypeControlEx = PclusapiClusterResourceTypeControlExFn?
 
 public fun interface PclusapiClusterResourceTypeEnumFn {
-    public operator fun invoke(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiClusterResourceTypeEnum = PclusapiClusterResourceTypeEnumFn?
@@ -1016,37 +1021,37 @@ public fun interface PclusapiClusterResourceTypeOpenEnumFn {
 public typealias PclusapiClusterResourceTypeOpenEnum = PclusapiClusterResourceTypeOpenEnumFn?
 
 public fun interface PclusapiClusterUpgradeFn {
-    public operator fun invoke(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: ConstPtr<CVoid>): UInt
 }
 
 public typealias PclusapiClusterUpgrade = PclusapiClusterUpgradeFn?
 
 public fun interface PclusapiClusWorkerCreateFn {
-    public operator fun invoke(lpworker: COpaquePointer?, lpstartaddress: PworkerStartRoutine, lpparameter: COpaquePointer?): UInt
+    public operator fun invoke(lpworker: MutPtr<ClusWorker>, lpstartaddress: PworkerStartRoutine, lpparameter: MutPtr<CVoid>): UInt
 }
 
 public typealias PclusapiClusWorkerCreate = PclusapiClusWorkerCreateFn?
 
 public fun interface PclusapiClusWorkerTerminateFn {
-    public operator fun invoke(lpworker: COpaquePointer?)
+    public operator fun invoke(lpworker: ConstPtr<ClusWorker>)
 }
 
 public typealias PclusapiClusWorkerTerminate = PclusapiClusWorkerTerminateFn?
 
 public fun interface PclusapiCreateClusterFn {
-    public operator fun invoke(pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hcluster
+    public operator fun invoke(pconfig: ConstPtr<CreateClusterConfig>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hcluster
 }
 
 public typealias PclusapiCreateCluster = PclusapiCreateClusterFn?
 
 public fun interface PclusapiCreateClusterAvailabilitySetFn {
-    public operator fun invoke(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: COpaquePointer?): Hgroupset
+    public operator fun invoke(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: ConstPtr<ClusterAvailabilitySetConfig>): Hgroupset
 }
 
 public typealias PclusapiCreateClusterAvailabilitySet = PclusapiCreateClusterAvailabilitySetFn?
 
 public fun interface PclusapiCreateClusterCnolessFn {
-    public operator fun invoke(pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hcluster
+    public operator fun invoke(pconfig: ConstPtr<CreateClusterConfig>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hcluster
 }
 
 public typealias PclusapiCreateClusterCnoless = PclusapiCreateClusterCnolessFn?
@@ -1058,7 +1063,7 @@ public fun interface PclusapiCreateClusterGroupFn {
 public typealias PclusapiCreateClusterGroup = PclusapiCreateClusterGroupFn?
 
 public fun interface PclusapiCreateClusterGroupexFn {
-    public operator fun invoke(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: COpaquePointer?): Hgroup
+    public operator fun invoke(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: ConstPtr<ClusterCreateGroupInfo>): Hgroup
 }
 
 public typealias PclusapiCreateClusterGroupex = PclusapiCreateClusterGroupexFn?
@@ -1070,7 +1075,7 @@ public fun interface PclusapiCreateClusterGroupGroupsetFn {
 public typealias PclusapiCreateClusterGroupGroupset = PclusapiCreateClusterGroupGroupsetFn?
 
 public fun interface PclusapiCreateClusterNameAccountFn {
-    public operator fun invoke(hcluster: Hcluster, pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, pconfig: ConstPtr<CreateClusterNameAccount>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): UInt
 }
 
 public typealias PclusapiCreateClusterNameAccount = PclusapiCreateClusterNameAccountFn?
@@ -1082,7 +1087,7 @@ public fun interface PclusapiCreateClusterNotifyPortFn {
 public typealias PclusapiCreateClusterNotifyPort = PclusapiCreateClusterNotifyPortFn?
 
 public fun interface PclusapiCreateClusterNotifyPortV2Fn {
-    public operator fun invoke(hchange: Hchange, hcluster: Hcluster, filters: COpaquePointer?, dwfiltercount: UInt, dwnotifykey: ULong): Hchange
+    public operator fun invoke(hchange: Hchange, hcluster: Hcluster, filters: ConstPtr<NotifyFilterAndType>, dwfiltercount: UInt, dwnotifykey: ULong): Hchange
 }
 
 public typealias PclusapiCreateClusterNotifyPortV2 = PclusapiCreateClusterNotifyPortV2Fn?
@@ -1160,7 +1165,7 @@ public fun interface PclusapiDeleteClusterResourceTypeExFn {
 public typealias PclusapiDeleteClusterResourceTypeEx = PclusapiDeleteClusterResourceTypeExFn?
 
 public fun interface PclusapiDestroyClusterFn {
-    public operator fun invoke(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, fdeletevirtualcomputerobjects: Bool): UInt
+    public operator fun invoke(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>, fdeletevirtualcomputerobjects: Bool): UInt
 }
 
 public typealias PclusapiDestroyCluster = PclusapiDestroyClusterFn?
@@ -1184,13 +1189,13 @@ public fun interface PclusapiEvictClusterNodeFn {
 public typealias PclusapiEvictClusterNode = PclusapiEvictClusterNodeFn?
 
 public fun interface PclusapiEvictClusterNodeExFn {
-    public operator fun invoke(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?): UInt
+    public operator fun invoke(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr<Hresult>): UInt
 }
 
 public typealias PclusapiEvictClusterNodeEx = PclusapiEvictClusterNodeExFn?
 
 public fun interface PclusapiEvictClusterNodeEx2Fn {
-    public operator fun invoke(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr<Hresult>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiEvictClusterNodeEx2 = PclusapiEvictClusterNodeEx2Fn?
@@ -1250,13 +1255,13 @@ public fun interface PclusapiGetClusterGroupKeyFn {
 public typealias PclusapiGetClusterGroupKey = PclusapiGetClusterGroupKeyFn?
 
 public fun interface PclusapiGetClusterGroupStateFn {
-    public operator fun invoke(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?): ClusterGroupState
+    public operator fun invoke(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: MutPtr<UInt>): ClusterGroupState
 }
 
 public typealias PclusapiGetClusterGroupState = PclusapiGetClusterGroupStateFn?
 
 public fun interface PclusapiGetClusterInformationFn {
-    public operator fun invoke(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: COpaquePointer?, lpclusterinfo: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: MutPtr<UInt>, lpclusterinfo: MutPtr<Clusterversioninfo>): UInt
 }
 
 public typealias PclusapiGetClusterInformation = PclusapiGetClusterInformationFn?
@@ -1268,7 +1273,7 @@ public fun interface PclusapiGetClusterKeyFn {
 public typealias PclusapiGetClusterKey = PclusapiGetClusterKeyFn?
 
 public fun interface PclusapiGetClusterNetworkIdFn {
-    public operator fun invoke(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiGetClusterNetworkId = PclusapiGetClusterNetworkIdFn?
@@ -1286,7 +1291,7 @@ public fun interface PclusapiGetClusterNetworkStateFn {
 public typealias PclusapiGetClusterNetworkState = PclusapiGetClusterNetworkStateFn?
 
 public fun interface PclusapiGetClusterNetInterfaceFn {
-    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiGetClusterNetInterface = PclusapiGetClusterNetInterfaceFn?
@@ -1304,7 +1309,7 @@ public fun interface PclusapiGetClusterNetInterfaceStateFn {
 public typealias PclusapiGetClusterNetInterfaceState = PclusapiGetClusterNetInterfaceStateFn?
 
 public fun interface PclusapiGetClusterNodeIdFn {
-    public operator fun invoke(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: COpaquePointer?): UInt
+    public operator fun invoke(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiGetClusterNodeId = PclusapiGetClusterNodeIdFn?
@@ -1322,25 +1327,25 @@ public fun interface PclusapiGetClusterNodeStateFn {
 public typealias PclusapiGetClusterNodeState = PclusapiGetClusterNodeStateFn?
 
 public fun interface PclusapiGetClusterNotifyFn {
-    public operator fun invoke(hchange: Hchange, lpdwnotifykey: COpaquePointer?, lpdwfiltertype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, dwmilliseconds: UInt): UInt
+    public operator fun invoke(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, lpdwfiltertype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, dwmilliseconds: UInt): UInt
 }
 
 public typealias PclusapiGetClusterNotify = PclusapiGetClusterNotifyFn?
 
 public fun interface PclusapiGetClusterNotifyV2Fn {
-    public operator fun invoke(hchange: Hchange, lpdwnotifykey: COpaquePointer?, pfilterandtype: COpaquePointer?, buffer: COpaquePointer?, lpcchbuffersize: COpaquePointer?, lpszobjectid: Pwstr, lpcchobjectid: COpaquePointer?, lpszparentid: Pwstr, lpcchparentid: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, lpsztype: Pwstr, lpcchtype: COpaquePointer?, dwmilliseconds: UInt): UInt
+    public operator fun invoke(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, pfilterandtype: MutPtr<NotifyFilterAndType>, buffer: MutPtr<UByte>, lpcchbuffersize: MutPtr<UInt>, lpszobjectid: Pwstr, lpcchobjectid: MutPtr<UInt>, lpszparentid: Pwstr, lpcchparentid: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, lpsztype: Pwstr, lpcchtype: MutPtr<UInt>, dwmilliseconds: UInt): UInt
 }
 
 public typealias PclusapiGetClusterNotifyV2 = PclusapiGetClusterNotifyV2Fn?
 
 public fun interface PclusapiGetClusterQuorumResourceFn {
-    public operator fun invoke(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: COpaquePointer?, lpszdevicename: Pwstr, lpcchdevicename: COpaquePointer?, lpdwmaxquorumlogsize: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: MutPtr<UInt>, lpszdevicename: Pwstr, lpcchdevicename: MutPtr<UInt>, lpdwmaxquorumlogsize: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiGetClusterQuorumResource = PclusapiGetClusterQuorumResourceFn?
 
 public fun interface PclusapiGetClusterResourceDependencyExpressionFn {
-    public operator fun invoke(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: COpaquePointer?): UInt
+    public operator fun invoke(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiGetClusterResourceDependencyExpression = PclusapiGetClusterResourceDependencyExpressionFn?
@@ -1352,13 +1357,13 @@ public fun interface PclusapiGetClusterResourceKeyFn {
 public typealias PclusapiGetClusterResourceKey = PclusapiGetClusterResourceKeyFn?
 
 public fun interface PclusapiGetClusterResourceNetworkNameFn {
-    public operator fun invoke(hresource: Hresource, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool
+    public operator fun invoke(hresource: Hresource, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool
 }
 
 public typealias PclusapiGetClusterResourceNetworkName = PclusapiGetClusterResourceNetworkNameFn?
 
 public fun interface PclusapiGetClusterResourceStateFn {
-    public operator fun invoke(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?, lpszgroupname: Pwstr, lpcchgroupname: COpaquePointer?): ClusterResourceState
+    public operator fun invoke(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: MutPtr<UInt>, lpszgroupname: Pwstr, lpcchgroupname: MutPtr<UInt>): ClusterResourceState
 }
 
 public typealias PclusapiGetClusterResourceState = PclusapiGetClusterResourceStateFn?
@@ -1370,19 +1375,19 @@ public fun interface PclusapiGetClusterResourceTypeKeyFn {
 public typealias PclusapiGetClusterResourceTypeKey = PclusapiGetClusterResourceTypeKeyFn?
 
 public fun interface PclusapiGetNodeClusterStateFn {
-    public operator fun invoke(lpsznodename: Pcwstr, pdwclusterstate: COpaquePointer?): UInt
+    public operator fun invoke(lpsznodename: Pcwstr, pdwclusterstate: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiGetNodeClusterState = PclusapiGetNodeClusterStateFn?
 
 public fun interface PclusapiGetNotifyEventHandleV2Fn {
-    public operator fun invoke(hchange: Hchange, lphtargetevent: COpaquePointer?): UInt
+    public operator fun invoke(hchange: Hchange, lphtargetevent: MutPtr<Handle>): UInt
 }
 
 public typealias PclusapiGetNotifyEventHandleV2 = PclusapiGetNotifyEventHandleV2Fn?
 
 public fun interface PclusapiIsFileOnClusterSharedVolumeFn {
-    public operator fun invoke(lpszpathname: Pcwstr, pbfileisonsharedvolume: COpaquePointer?): UInt
+    public operator fun invoke(lpszpathname: Pcwstr, pbfileisonsharedvolume: MutPtr<Bool>): UInt
 }
 
 public typealias PclusapiIsFileOnClusterSharedVolume = PclusapiIsFileOnClusterSharedVolumeFn?
@@ -1424,7 +1429,7 @@ public fun interface PclusapiOpenClusterFn {
 public typealias PclusapiOpenCluster = PclusapiOpenClusterFn?
 
 public fun interface PclusapiOpenClusterExFn {
-    public operator fun invoke(lpszclustername: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hcluster
+    public operator fun invoke(lpszclustername: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hcluster
 }
 
 public typealias PclusapiOpenClusterEx = PclusapiOpenClusterExFn?
@@ -1436,7 +1441,7 @@ public fun interface PclusapiOpenClusterGroupFn {
 public typealias PclusapiOpenClusterGroup = PclusapiOpenClusterGroupFn?
 
 public fun interface PclusapiOpenClusterGroupExFn {
-    public operator fun invoke(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hgroup
+    public operator fun invoke(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hgroup
 }
 
 public typealias PclusapiOpenClusterGroupEx = PclusapiOpenClusterGroupExFn?
@@ -1448,7 +1453,7 @@ public fun interface PclusapiOpenClusterGroupGroupsetFn {
 public typealias PclusapiOpenClusterGroupGroupset = PclusapiOpenClusterGroupGroupsetFn?
 
 public fun interface PclusapiOpenClusterNetinterfaceExFn {
-    public operator fun invoke(hcluster: Hcluster, lpsznetinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetinterface
+    public operator fun invoke(hcluster: Hcluster, lpsznetinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnetinterface
 }
 
 public typealias PclusapiOpenClusterNetinterfaceEx = PclusapiOpenClusterNetinterfaceExFn?
@@ -1460,7 +1465,7 @@ public fun interface PclusapiOpenClusterNetworkFn {
 public typealias PclusapiOpenClusterNetwork = PclusapiOpenClusterNetworkFn?
 
 public fun interface PclusapiOpenClusterNetworkExFn {
-    public operator fun invoke(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetwork
+    public operator fun invoke(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnetwork
 }
 
 public typealias PclusapiOpenClusterNetworkEx = PclusapiOpenClusterNetworkExFn?
@@ -1478,7 +1483,7 @@ public fun interface PclusapiOpenClusterNodeFn {
 public typealias PclusapiOpenClusterNode = PclusapiOpenClusterNodeFn?
 
 public fun interface PclusapiOpenClusterNodeExFn {
-    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnode
+    public operator fun invoke(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnode
 }
 
 public typealias PclusapiOpenClusterNodeEx = PclusapiOpenClusterNodeExFn?
@@ -1490,7 +1495,7 @@ public fun interface PclusapiOpenClusterResourceFn {
 public typealias PclusapiOpenClusterResource = PclusapiOpenClusterResourceFn?
 
 public fun interface PclusapiOpenClusterResourceExFn {
-    public operator fun invoke(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hresource
+    public operator fun invoke(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hresource
 }
 
 public typealias PclusapiOpenClusterResourceEx = PclusapiOpenClusterResourceExFn?
@@ -1520,7 +1525,7 @@ public fun interface PclusapiPauseClusterNodeEx2Fn {
 public typealias PclusapiPauseClusterNodeEx2 = PclusapiPauseClusterNodeEx2Fn?
 
 public fun interface PclusapiPfnReasonHandlerFn {
-    public operator fun invoke(lpparameter: COpaquePointer?, hcluster: Hcluster, szreason: Pwstr, lpsize: COpaquePointer?): Bool
+    public operator fun invoke(lpparameter: ConstPtr<CVoid>, hcluster: Hcluster, szreason: Pwstr, lpsize: MutPtr<UInt>): Bool
 }
 
 public typealias PclusapiPfnReasonHandler = PclusapiPfnReasonHandlerFn?
@@ -1676,13 +1681,13 @@ public fun interface PclusapiSetClusterGroupNameExFn {
 public typealias PclusapiSetClusterGroupNameEx = PclusapiSetClusterGroupNameExFn?
 
 public fun interface PclusapiSetClusterGroupNodeListFn {
-    public operator fun invoke(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?): UInt
+    public operator fun invoke(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr<Hnode>): UInt
 }
 
 public typealias PclusapiSetClusterGroupNodeList = PclusapiSetClusterGroupNodeListFn?
 
 public fun interface PclusapiSetClusterGroupNodeListExFn {
-    public operator fun invoke(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?, lpszreason: Pcwstr): UInt
+    public operator fun invoke(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr<Hnode>, lpszreason: Pcwstr): UInt
 }
 
 public typealias PclusapiSetClusterGroupNodeListEx = PclusapiSetClusterGroupNodeListExFn?
@@ -1706,7 +1711,7 @@ public fun interface PclusapiSetClusterNetworkNameExFn {
 public typealias PclusapiSetClusterNetworkNameEx = PclusapiSetClusterNetworkNameExFn?
 
 public fun interface PclusapiSetClusterNetworkPriorityOrderFn {
-    public operator fun invoke(hcluster: Hcluster, networkcount: UInt, networklist: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, networkcount: UInt, networklist: ConstPtr<Hnetwork>): UInt
 }
 
 public typealias PclusapiSetClusterNetworkPriorityOrder = PclusapiSetClusterNetworkPriorityOrderFn?
@@ -1742,7 +1747,7 @@ public fun interface PclusapiSetClusterResourceNameExFn {
 public typealias PclusapiSetClusterResourceNameEx = PclusapiSetClusterResourceNameExFn?
 
 public fun interface PclusapiSetClusterServiceAccountPasswordFn {
-    public operator fun invoke(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: COpaquePointer?, lpcbreturnstatusbuffersize: COpaquePointer?): UInt
+    public operator fun invoke(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: MutPtr<ClusterSetPasswordStatus>, lpcbreturnstatusbuffersize: MutPtr<UInt>): UInt
 }
 
 public typealias PclusapiSetClusterServiceAccountPassword = PclusapiSetClusterServiceAccountPasswordFn?
@@ -1760,7 +1765,7 @@ public fun interface PclusapiSetGroupDependencyExpressionExFn {
 public typealias PclusapiSetGroupDependencyExpressionEx = PclusapiSetGroupDependencyExpressionExFn?
 
 public fun interface PclusapiSetReasonHandlerFn {
-    public operator fun invoke(lphandler: COpaquePointer?): COpaquePointer?
+    public operator fun invoke(lphandler: ConstPtr<ClusapiReasonHandler>): MutPtr<ClusapiReasonHandler>
 }
 
 public typealias PclusapiSetReasonHandler = PclusapiSetReasonHandlerFn?
@@ -1784,13 +1789,13 @@ public fun interface PclusterClearBackupStateForSharedVolumeFn {
 public typealias PclusterClearBackupStateForSharedVolume = PclusterClearBackupStateForSharedVolumeFn?
 
 public fun interface PclusterDecryptFn {
-    public operator fun invoke(hcluscryptprovider: Hcluscryptprovider, pcryptinput: COpaquePointer?, cbcryptinput: UInt, ppcryptoutput: COpaquePointer?, pcbcryptoutput: COpaquePointer?): UInt
+    public operator fun invoke(hcluscryptprovider: Hcluscryptprovider, pcryptinput: ConstPtr<UByte>, cbcryptinput: UInt, ppcryptoutput: MutPtr<MutPtr<UByte>>, pcbcryptoutput: MutPtr<UInt>): UInt
 }
 
 public typealias PclusterDecrypt = PclusterDecryptFn?
 
 public fun interface PclusterEncryptFn {
-    public operator fun invoke(hcluscryptprovider: Hcluscryptprovider, pdata: COpaquePointer?, cbdata: UInt, ppdata: COpaquePointer?, pcbdata: COpaquePointer?): UInt
+    public operator fun invoke(hcluscryptprovider: Hcluscryptprovider, pdata: ConstPtr<UByte>, cbdata: UInt, ppdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>): UInt
 }
 
 public typealias PclusterEncrypt = PclusterEncryptFn?
@@ -1814,13 +1819,13 @@ public fun interface PclusterIsPathOnSharedVolumeFn {
 public typealias PclusterIsPathOnSharedVolume = PclusterIsPathOnSharedVolumeFn?
 
 public fun interface PclusterPrepareSharedVolumeForBackupFn {
-    public operator fun invoke(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: COpaquePointer?, lpszvolumename: Pwstr, lpcchvolumename: COpaquePointer?): UInt
+    public operator fun invoke(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: MutPtr<UInt>, lpszvolumename: Pwstr, lpcchvolumename: MutPtr<UInt>): UInt
 }
 
 public typealias PclusterPrepareSharedVolumeForBackup = PclusterPrepareSharedVolumeForBackupFn?
 
 public fun interface PclusterRegBatchAddCommandFn {
-    public operator fun invoke(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: COpaquePointer?, cbdata: UInt): Int
+    public operator fun invoke(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: ConstPtr<CVoid>, cbdata: UInt): Int
 }
 
 public typealias PclusterRegBatchAddCommand = PclusterRegBatchAddCommandFn?
@@ -1832,13 +1837,13 @@ public fun interface PclusterRegBatchCloseNotificationFn {
 public typealias PclusterRegBatchCloseNotification = PclusterRegBatchCloseNotificationFn?
 
 public fun interface PclusterRegBatchReadCommandFn {
-    public operator fun invoke(hbatchnotification: Hregbatchnotification, pbatchcommand: COpaquePointer?): Int
+    public operator fun invoke(hbatchnotification: Hregbatchnotification, pbatchcommand: MutPtr<ClusterBatchCommand>): Int
 }
 
 public typealias PclusterRegBatchReadCommand = PclusterRegBatchReadCommandFn?
 
 public fun interface PclusterRegCloseBatchFn {
-    public operator fun invoke(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: COpaquePointer?): Int
+    public operator fun invoke(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: MutPtr<Int>): Int
 }
 
 public typealias PclusterRegCloseBatch = PclusterRegCloseBatchFn?
@@ -1850,13 +1855,13 @@ public fun interface PclusterRegCloseBatchNotifyPortFn {
 public typealias PclusterRegCloseBatchNotifyPort = PclusterRegCloseBatchNotifyPortFn?
 
 public fun interface PclusterRegCloseReadBatchFn {
-    public operator fun invoke(hregreadbatch: Hregreadbatch, phregreadbatchreply: COpaquePointer?): Int
+    public operator fun invoke(hregreadbatch: Hregreadbatch, phregreadbatchreply: MutPtr<Hregreadbatchreply>): Int
 }
 
 public typealias PclusterRegCloseReadBatch = PclusterRegCloseReadBatchFn?
 
 public fun interface PclusterRegCloseReadBatchExFn {
-    public operator fun invoke(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: COpaquePointer?): Int
+    public operator fun invoke(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: MutPtr<Hregreadbatchreply>): Int
 }
 
 public typealias PclusterRegCloseReadBatchEx = PclusterRegCloseReadBatchExFn?
@@ -1868,19 +1873,19 @@ public fun interface PclusterRegCloseReadBatchReplyFn {
 public typealias PclusterRegCloseReadBatchReply = PclusterRegCloseReadBatchReplyFn?
 
 public fun interface PclusterRegCreateBatchNotifyPortFn {
-    public operator fun invoke(hkey: Hkey, phbatchnotifyport: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, phbatchnotifyport: MutPtr<Hregbatchport>): Int
 }
 
 public typealias PclusterRegCreateBatchNotifyPort = PclusterRegCreateBatchNotifyPortFn?
 
 public fun interface PclusterRegCreateReadBatchFn {
-    public operator fun invoke(hkey: Hkey, phregreadbatch: COpaquePointer?): Int
+    public operator fun invoke(hkey: Hkey, phregreadbatch: MutPtr<Hregreadbatch>): Int
 }
 
 public typealias PclusterRegCreateReadBatch = PclusterRegCreateReadBatchFn?
 
 public fun interface PclusterRegGetBatchNotificationFn {
-    public operator fun invoke(hbatchnotify: Hregbatchport, phbatchnotification: COpaquePointer?): Int
+    public operator fun invoke(hbatchnotify: Hregbatchport, phbatchnotification: MutPtr<Hregbatchnotification>): Int
 }
 
 public typealias PclusterRegGetBatchNotification = PclusterRegGetBatchNotificationFn?
@@ -1892,13 +1897,13 @@ public fun interface PclusterRegReadBatchAddCommandFn {
 public typealias PclusterRegReadBatchAddCommand = PclusterRegReadBatchAddCommandFn?
 
 public fun interface PclusterRegReadBatchReplyNextCommandFn {
-    public operator fun invoke(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: COpaquePointer?): Int
+    public operator fun invoke(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: MutPtr<ClusterReadBatchCommand>): Int
 }
 
 public typealias PclusterRegReadBatchReplyNextCommand = PclusterRegReadBatchReplyNextCommandFn?
 
 public fun interface PclusterSetupProgressCallbackFn {
-    public operator fun invoke(pvcallbackarg: COpaquePointer?, esetupphase: ClusterSetupPhase, ephasetype: ClusterSetupPhaseType, ephaseseverity: ClusterSetupPhaseSeverity, dwpercentcomplete: UInt, lpszobjectname: Pcwstr, dwstatus: UInt): Bool
+    public operator fun invoke(pvcallbackarg: MutPtr<CVoid>, esetupphase: ClusterSetupPhase, ephasetype: ClusterSetupPhaseType, ephaseseverity: ClusterSetupPhaseSeverity, dwpercentcomplete: UInt, lpszobjectname: Pcwstr, dwstatus: UInt): Bool
 }
 
 public typealias PclusterSetupProgressCallback = PclusterSetupProgressCallbackFn?
@@ -1910,7 +1915,7 @@ public fun interface PclusterSetAccountAccessFn {
 public typealias PclusterSetAccountAccess = PclusterSetAccountAccessFn?
 
 public fun interface PclusterUpgradeProgressCallbackFn {
-    public operator fun invoke(pvcallbackarg: COpaquePointer?, eupgradephase: ClusterUpgradePhase): Bool
+    public operator fun invoke(pvcallbackarg: MutPtr<CVoid>, eupgradephase: ClusterUpgradePhase): Bool
 }
 
 public typealias PclusterUpgradeProgressCallback = PclusterUpgradeProgressCallbackFn?
@@ -1940,13 +1945,13 @@ public fun interface PextendResTypeControlCallFn {
 public typealias PextendResTypeControlCall = PextendResTypeControlCallFn?
 
 public fun interface PfreeClusterCryptFn {
-    public operator fun invoke(pcryptinfo: COpaquePointer?): UInt
+    public operator fun invoke(pcryptinfo: ConstPtr<CVoid>): UInt
 }
 
 public typealias PfreeClusterCrypt = PfreeClusterCryptFn?
 
 public fun interface PisAliveRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?): Bool
+    public operator fun invoke(resource: MutPtr<CVoid>): Bool
 }
 
 public typealias PisAliveRoutine = PisAliveRoutineFn?
@@ -1960,61 +1965,61 @@ public fun interface PlogEventRoutineFn {
 public typealias PlogEventRoutine = PlogEventRoutineFn?
 
 public fun interface PlooksAliveRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?): Bool
+    public operator fun invoke(resource: MutPtr<CVoid>): Bool
 }
 
 public typealias PlooksAliveRoutine = PlooksAliveRoutineFn?
 
 public fun interface PofflineRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>): UInt
 }
 
 public typealias PofflineRoutine = PofflineRoutineFn?
 
 public fun interface PofflineV2RoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, destinationnodename: Pcwstr, offlineflags: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, reserved: UInt): UInt
+    public operator fun invoke(resource: ConstPtr<CVoid>, destinationnodename: Pcwstr, offlineflags: UInt, inbuffer: ConstPtr<UByte>, inbuffersize: UInt, reserved: UInt): UInt
 }
 
 public typealias PofflineV2Routine = PofflineV2RoutineFn?
 
 public fun interface PonlineRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, eventhandle: COpaquePointer?): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>, eventhandle: MutPtr<Handle>): UInt
 }
 
 public typealias PonlineRoutine = PonlineRoutineFn?
 
 public fun interface PonlineV2RoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, eventhandle: COpaquePointer?, onlineflags: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, reserved: UInt): UInt
+    public operator fun invoke(resource: ConstPtr<CVoid>, eventhandle: MutPtr<Handle>, onlineflags: UInt, inbuffer: ConstPtr<UByte>, inbuffersize: UInt, reserved: UInt): UInt
 }
 
 public typealias PonlineV2Routine = PonlineV2RoutineFn?
 
 public fun interface PopenClusterCryptProviderFn {
-    public operator fun invoke(lpszresource: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider
+    public operator fun invoke(lpszresource: Pcwstr, lpszprovider: ConstPtr<Byte>, dwtype: UInt, dwflags: UInt): Hcluscryptprovider
 }
 
 public typealias PopenClusterCryptProvider = PopenClusterCryptProviderFn?
 
 public fun interface PopenClusterCryptProviderexFn {
-    public operator fun invoke(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider
+    public operator fun invoke(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: ConstPtr<Byte>, dwtype: UInt, dwflags: UInt): Hcluscryptprovider
 }
 
 public typealias PopenClusterCryptProviderex = PopenClusterCryptProviderexFn?
 
 public fun interface PopenRoutineFn {
-    public operator fun invoke(resourcename: Pcwstr, resourcekey: Hkey, resourcehandle: Long): COpaquePointer?
+    public operator fun invoke(resourcename: Pcwstr, resourcekey: Hkey, resourcehandle: Long): MutPtr<CVoid>
 }
 
 public typealias PopenRoutine = PopenRoutineFn?
 
 public fun interface PopenV2RoutineFn {
-    public operator fun invoke(resourcename: Pcwstr, resourcekey: Hkey, resourcehandle: Long, openflags: UInt): COpaquePointer?
+    public operator fun invoke(resourcename: Pcwstr, resourcekey: Hkey, resourcehandle: Long, openflags: UInt): MutPtr<CVoid>
 }
 
 public typealias PopenV2Routine = PopenV2RoutineFn?
 
 public fun interface PqueryAppinstanceVersionFn {
-    public operator fun invoke(appinstanceid: COpaquePointer?, instanceversionhigh: COpaquePointer?, instanceversionlow: COpaquePointer?, versionstatus: COpaquePointer?): UInt
+    public operator fun invoke(appinstanceid: ConstPtr<Guid>, instanceversionhigh: MutPtr<ULong>, instanceversionlow: MutPtr<ULong>, versionstatus: MutPtr<Ntstatus>): UInt
 }
 
 public typealias PqueryAppinstanceVersion = PqueryAppinstanceVersionFn?
@@ -2026,25 +2031,25 @@ public fun interface PquorumResourceLostFn {
 public typealias PquorumResourceLost = PquorumResourceLostFn?
 
 public fun interface PraiseResTypeNotificationFn {
-    public operator fun invoke(resourcetype: Pcwstr, ppayload: COpaquePointer?, payloadsize: UInt): UInt
+    public operator fun invoke(resourcetype: Pcwstr, ppayload: ConstPtr<UByte>, payloadsize: UInt): UInt
 }
 
 public typealias PraiseResTypeNotification = PraiseResTypeNotificationFn?
 
 public fun interface PregisterAppinstanceFn {
-    public operator fun invoke(processhandle: Handle, appinstanceid: COpaquePointer?, childreninheritappinstance: Bool): UInt
+    public operator fun invoke(processhandle: Handle, appinstanceid: ConstPtr<Guid>, childreninheritappinstance: Bool): UInt
 }
 
 public typealias PregisterAppinstance = PregisterAppinstanceFn?
 
 public fun interface PregisterAppinstanceVersionFn {
-    public operator fun invoke(appinstanceid: COpaquePointer?, instanceversionhigh: ULong, instanceversionlow: ULong): UInt
+    public operator fun invoke(appinstanceid: ConstPtr<Guid>, instanceversionhigh: ULong, instanceversionlow: ULong): UInt
 }
 
 public typealias PregisterAppinstanceVersion = PregisterAppinstanceVersionFn?
 
 public fun interface PreleaseRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>): UInt
 }
 
 public typealias PreleaseRoutine = PreleaseRoutineFn?
@@ -2062,19 +2067,19 @@ public fun interface PresetAllAppinstanceVersionsFn {
 public typealias PresetAllAppinstanceVersions = PresetAllAppinstanceVersionsFn?
 
 public fun interface PresourceControlRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?, controlcode: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, bytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(resource: MutPtr<CVoid>, controlcode: UInt, inbuffer: MutPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, bytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PresourceControlRoutine = PresourceControlRoutineFn?
 
 public fun interface PresourceTypeControlRoutineFn {
-    public operator fun invoke(resourcetypename: Pcwstr, controlcode: UInt, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, bytesreturned: COpaquePointer?): UInt
+    public operator fun invoke(resourcetypename: Pcwstr, controlcode: UInt, inbuffer: MutPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, bytesreturned: MutPtr<UInt>): UInt
 }
 
 public typealias PresourceTypeControlRoutine = PresourceTypeControlRoutineFn?
 
 public fun interface PresutilAddUnknownPropertiesFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, pcboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilAddUnknownProperties = PresutilAddUnknownPropertiesFn?
@@ -2086,7 +2091,7 @@ public fun interface PresutilCreateDirectoryTreeFn {
 public typealias PresutilCreateDirectoryTree = PresutilCreateDirectoryTreeFn?
 
 public fun interface PresutilDupParameterBlockFn {
-    public operator fun invoke(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?): UInt
+    public operator fun invoke(poutparams: MutPtr<UByte>, pinparams: ConstPtr<UByte>, ppropertytable: ConstPtr<ResutilPropertyItem>): UInt
 }
 
 public typealias PresutilDupParameterBlock = PresutilDupParameterBlockFn?
@@ -2098,31 +2103,31 @@ public fun interface PresutilDupStringFn {
 public typealias PresutilDupString = PresutilDupStringFn?
 
 public fun interface PresutilEnumPrivatePropertiesFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilEnumPrivateProperties = PresutilEnumPrivatePropertiesFn?
 
 public fun interface PresutilEnumPropertiesFn {
-    public operator fun invoke(ppropertytable: COpaquePointer?, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(ppropertytable: ConstPtr<ResutilPropertyItem>, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilEnumProperties = PresutilEnumPropertiesFn?
 
 public fun interface PresutilEnumResourcesFn {
-    public operator fun invoke(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: COpaquePointer?): UInt
+    public operator fun invoke(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: MutPtr<CVoid>): UInt
 }
 
 public typealias PresutilEnumResources = PresutilEnumResourcesFn?
 
 public fun interface PresutilEnumResourcesExFn {
-    public operator fun invoke(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>): UInt
 }
 
 public typealias PresutilEnumResourcesEx = PresutilEnumResourcesExFn?
 
 public fun interface PresutilEnumResourcesEx2Fn {
-    public operator fun invoke(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?, dwdesiredaccess: UInt): UInt
+    public operator fun invoke(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>, dwdesiredaccess: UInt): UInt
 }
 
 public typealias PresutilEnumResourcesEx2 = PresutilEnumResourcesEx2Fn?
@@ -2134,121 +2139,121 @@ public fun interface PresutilExpandEnvironmentStringsFn {
 public typealias PresutilExpandEnvironmentStrings = PresutilExpandEnvironmentStringsFn?
 
 public fun interface PresutilFindBinaryPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: MutPtr<MutPtr<UByte>>, pcbpropertyvaluesize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilFindBinaryProperty = PresutilFindBinaryPropertyFn?
 
 public fun interface PresutilFindDependentDiskResourceDriveLetterFn {
-    public operator fun invoke(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilFindDependentDiskResourceDriveLetter = PresutilFindDependentDiskResourceDriveLetterFn?
 
 public fun interface PresutilFindDwordPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilFindDwordProperty = PresutilFindDwordPropertyFn?
 
 public fun interface PresutilFindExpandedSzPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt
 }
 
 public typealias PresutilFindExpandedSzProperty = PresutilFindExpandedSzPropertyFn?
 
 public fun interface PresutilFindExpandSzPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt
 }
 
 public typealias PresutilFindExpandSzProperty = PresutilFindExpandSzPropertyFn?
 
 public fun interface PresutilFindFiletimePropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: MutPtr<Filetime>): UInt
 }
 
 public typealias PresutilFindFiletimeProperty = PresutilFindFiletimePropertyFn?
 
 public fun interface PresutilFindLongPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr<Int>): UInt
 }
 
 public typealias PresutilFindLongProperty = PresutilFindLongPropertyFn?
 
 public fun interface PresutilFindMultiSzPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>, pcbpropertyvaluesize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilFindMultiSzProperty = PresutilFindMultiSzPropertyFn?
 
 public fun interface PresutilFindSzPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt
 }
 
 public typealias PresutilFindSzProperty = PresutilFindSzPropertyFn?
 
 public fun interface PresutilFindUlargeintegerPropertyFn {
-    public operator fun invoke(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt
+    public operator fun invoke(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr<ULong>): UInt
 }
 
 public typealias PresutilFindUlargeintegerProperty = PresutilFindUlargeintegerPropertyFn?
 
 public fun interface PresutilFreeEnvironmentFn {
-    public operator fun invoke(lpenvironment: COpaquePointer?): UInt
+    public operator fun invoke(lpenvironment: MutPtr<CVoid>): UInt
 }
 
 public typealias PresutilFreeEnvironment = PresutilFreeEnvironmentFn?
 
 public fun interface PresutilFreeParameterBlockFn {
-    public operator fun invoke(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?)
+    public operator fun invoke(poutparams: MutPtr<UByte>, pinparams: ConstPtr<UByte>, ppropertytable: ConstPtr<ResutilPropertyItem>)
 }
 
 public typealias PresutilFreeParameterBlock = PresutilFreeParameterBlockFn?
 
 public fun interface PresutilGetAllPropertiesFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetAllProperties = PresutilGetAllPropertiesFn?
 
 public fun interface PresutilGetBinaryPropertyFn {
-    public operator fun invoke(ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pboldvalue: COpaquePointer?, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt
+    public operator fun invoke(ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropBinary>, pboldvalue: ConstPtr<UByte>, cboldvaluesize: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetBinaryProperty = PresutilGetBinaryPropertyFn?
 
 public fun interface PresutilGetBinaryValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetBinaryValue = PresutilGetBinaryValueFn?
 
 public fun interface PresutilGetCoreClusterResourcesFn {
-    public operator fun invoke(hcluster: Hcluster, phclusternameresource: COpaquePointer?, phclusteripaddressresource: COpaquePointer?, phclusterquorumresource: COpaquePointer?): UInt
+    public operator fun invoke(hcluster: Hcluster, phclusternameresource: MutPtr<Hresource>, phclusteripaddressresource: MutPtr<Hresource>, phclusterquorumresource: MutPtr<Hresource>): UInt
 }
 
 public typealias PresutilGetCoreClusterResources = PresutilGetCoreClusterResourcesFn?
 
 public fun interface PresutilGetCoreClusterResourcesExFn {
-    public operator fun invoke(hclusterin: Hcluster, phclusternameresourceout: COpaquePointer?, phclusteripaddressresourceout: COpaquePointer?, phclusterquorumresourceout: COpaquePointer?, dwdesiredaccess: UInt): UInt
+    public operator fun invoke(hclusterin: Hcluster, phclusternameresourceout: MutPtr<Hresource>, phclusteripaddressresourceout: MutPtr<Hresource>, phclusterquorumresourceout: MutPtr<Hresource>, dwdesiredaccess: UInt): UInt
 }
 
 public typealias PresutilGetCoreClusterResourcesEx = PresutilGetCoreClusterResourcesExFn?
 
 public fun interface PresutilGetDwordPropertyFn {
-    public operator fun invoke(pdwoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt
+    public operator fun invoke(pdwoutvalue: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropDword>, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetDwordProperty = PresutilGetDwordPropertyFn?
 
 public fun interface PresutilGetDwordValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: COpaquePointer?, dwdefaultvalue: UInt): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: MutPtr<UInt>, dwdefaultvalue: UInt): UInt
 }
 
 public typealias PresutilGetDwordValue = PresutilGetDwordValueFn?
 
 public fun interface PresutilGetEnvironmentWithNetNameFn {
-    public operator fun invoke(hresource: Hresource): COpaquePointer?
+    public operator fun invoke(hresource: Hresource): MutPtr<CVoid>
 }
 
 public typealias PresutilGetEnvironmentWithNetName = PresutilGetEnvironmentWithNetNameFn?
@@ -2260,61 +2265,61 @@ public fun interface PresutilGetExpandSzValueFn {
 public typealias PresutilGetExpandSzValue = PresutilGetExpandSzValueFn?
 
 public fun interface PresutilGetFiletimePropertyFn {
-    public operator fun invoke(pftoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt
+    public operator fun invoke(pftoutvalue: MutPtr<Filetime>, pvaluestruct: ConstPtr<CluspropFiletime>, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetFiletimeProperty = PresutilGetFiletimePropertyFn?
 
 public fun interface PresutilGetLongPropertyFn {
-    public operator fun invoke(ploutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt
+    public operator fun invoke(ploutvalue: MutPtr<Int>, pvaluestruct: ConstPtr<CluspropLong>, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetLongProperty = PresutilGetLongPropertyFn?
 
 public fun interface PresutilGetMultiSzPropertyFn {
-    public operator fun invoke(ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt
+    public operator fun invoke(ppszoutvalue: MutPtr<Pwstr>, pcboutvaluesize: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropSz>, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetMultiSzProperty = PresutilGetMultiSzPropertyFn?
 
 public fun interface PresutilGetPrivatePropertiesFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetPrivateProperties = PresutilGetPrivatePropertiesFn?
 
 public fun interface PresutilGetPropertiesFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetProperties = PresutilGetPropertiesFn?
 
 public fun interface PresutilGetPropertiesToParameterBlockFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutparams: COpaquePointer?, bcheckforrequiredproperties: Bool, psznameofpropinerror: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutparams: MutPtr<UByte>, bcheckforrequiredproperties: Bool, psznameofpropinerror: MutPtr<Pwstr>): UInt
 }
 
 public typealias PresutilGetPropertiesToParameterBlock = PresutilGetPropertiesToParameterBlockFn?
 
 public fun interface PresutilGetPropertyFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, poutpropertyitem: COpaquePointer?, pcboutpropertyitemsize: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr<ResutilPropertyItem>, poutpropertyitem: MutPtr<MutPtr<CVoid>>, pcboutpropertyitemsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetProperty = PresutilGetPropertyFn?
 
 public fun interface PresutilGetPropertyFormatsFn {
-    public operator fun invoke(ppropertytable: COpaquePointer?, poutpropertyformatlist: COpaquePointer?, cbpropertyformatlistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertyformatlist: MutPtr<CVoid>, cbpropertyformatlistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetPropertyFormats = PresutilGetPropertyFormatsFn?
 
 public fun interface PresutilGetPropertySizeFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pnpropertycount: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr<ResutilPropertyItem>, pcboutpropertylistsize: MutPtr<UInt>, pnpropertycount: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetPropertySize = PresutilGetPropertySizeFn?
 
 public fun interface PresutilGetQwordValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: COpaquePointer?, qwdefaultvalue: ULong): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: MutPtr<ULong>, qwdefaultvalue: ULong): UInt
 }
 
 public typealias PresutilGetQwordValue = PresutilGetQwordValueFn?
@@ -2326,13 +2331,13 @@ public fun interface PresutilGetResourceDependencyFn {
 public typealias PresutilGetResourceDependency = PresutilGetResourceDependencyFn?
 
 public fun interface PresutilGetResourceDependencyByClassFn {
-    public operator fun invoke(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool): Hresource
+    public operator fun invoke(hcluster: Hcluster, hself: Handle, prci: MutPtr<ClusResourceClassInfo>, brecurse: Bool): Hresource
 }
 
 public typealias PresutilGetResourceDependencyByClass = PresutilGetResourceDependencyByClassFn?
 
 public fun interface PresutilGetResourceDependencyByClassExFn {
-    public operator fun invoke(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool, dwdesiredaccess: UInt): Hresource
+    public operator fun invoke(hcluster: Hcluster, hself: Handle, prci: MutPtr<ClusResourceClassInfo>, brecurse: Bool, dwdesiredaccess: UInt): Hresource
 }
 
 public typealias PresutilGetResourceDependencyByClassEx = PresutilGetResourceDependencyByClassExFn?
@@ -2356,13 +2361,13 @@ public fun interface PresutilGetResourceDependencyExFn {
 public typealias PresutilGetResourceDependencyEx = PresutilGetResourceDependencyExFn?
 
 public fun interface PresutilGetResourceDependentipAddressPropsFn {
-    public operator fun invoke(hresource: Hresource, pszaddress: Pwstr, pcchaddress: COpaquePointer?, pszsubnetmask: Pwstr, pcchsubnetmask: COpaquePointer?, psznetwork: Pwstr, pcchnetwork: COpaquePointer?): UInt
+    public operator fun invoke(hresource: Hresource, pszaddress: Pwstr, pcchaddress: MutPtr<UInt>, pszsubnetmask: Pwstr, pcchsubnetmask: MutPtr<UInt>, psznetwork: Pwstr, pcchnetwork: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetResourceDependentipAddressProps = PresutilGetResourceDependentipAddressPropsFn?
 
 public fun interface PresutilGetResourceNameFn {
-    public operator fun invoke(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: COpaquePointer?): UInt
+    public operator fun invoke(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetResourceName = PresutilGetResourceNameFn?
@@ -2380,7 +2385,7 @@ public fun interface PresutilGetResourceNameDependencyExFn {
 public typealias PresutilGetResourceNameDependencyEx = PresutilGetResourceNameDependencyExFn?
 
 public fun interface PresutilGetSzPropertyFn {
-    public operator fun invoke(ppszoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt
+    public operator fun invoke(ppszoutvalue: MutPtr<Pwstr>, pvaluestruct: ConstPtr<CluspropSz>, pszoldvalue: Pcwstr, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilGetSzProperty = PresutilGetSzPropertyFn?
@@ -2398,13 +2403,13 @@ public fun interface PresutilIsPathValidFn {
 public typealias PresutilIsPathValid = PresutilIsPathValidFn?
 
 public fun interface PresutilIsResourceClassEqualFn {
-    public operator fun invoke(prci: COpaquePointer?, hresource: Hresource): Bool
+    public operator fun invoke(prci: MutPtr<ClusResourceClassInfo>, hresource: Hresource): Bool
 }
 
 public typealias PresutilIsResourceClassEqual = PresutilIsResourceClassEqualFn?
 
 public fun interface PresutilPropertyListFromParameterBlockFn {
-    public operator fun invoke(ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pinparams: COpaquePointer?, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt
+    public operator fun invoke(ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, pcboutpropertylistsize: MutPtr<UInt>, pinparams: ConstPtr<UByte>, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilPropertyListFromParameterBlock = PresutilPropertyListFromParameterBlockFn?
@@ -2428,61 +2433,61 @@ public fun interface PresutilResourceTypesEqualFn {
 public typealias PresutilResourceTypesEqual = PresutilResourceTypesEqualFn?
 
 public fun interface PresutilSetBinaryValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: COpaquePointer?, cbnewvaluesize: UInt, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: ConstPtr<UByte>, cbnewvaluesize: UInt, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilSetBinaryValue = PresutilSetBinaryValueFn?
 
 public fun interface PresutilSetDwordValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilSetDwordValue = PresutilSetDwordValueFn?
 
 public fun interface PresutilSetExpandSzValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr<Pwstr>): UInt
 }
 
 public typealias PresutilSetExpandSzValue = PresutilSetExpandSzValueFn?
 
 public fun interface PresutilSetMultiSzValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: MutPtr<Pwstr>, pcboutvaluesize: MutPtr<UInt>): UInt
 }
 
 public typealias PresutilSetMultiSzValue = PresutilSetMultiSzValueFn?
 
 public fun interface PresutilSetPrivatePropertyListFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt
 }
 
 public typealias PresutilSetPrivatePropertyList = PresutilSetPrivatePropertyListFn?
 
 public fun interface PresutilSetPropertyParameterBlockFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, pinparams: ConstPtr<UByte>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt
 }
 
 public typealias PresutilSetPropertyParameterBlock = PresutilSetPropertyParameterBlockFn?
 
 public fun interface PresutilSetPropertyParameterBlockExFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, pinparams: ConstPtr<UByte>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr<UByte>): UInt
 }
 
 public typealias PresutilSetPropertyParameterBlockEx = PresutilSetPropertyParameterBlockExFn?
 
 public fun interface PresutilSetPropertyTableFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: ConstPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt
 }
 
 public typealias PresutilSetPropertyTable = PresutilSetPropertyTableFn?
 
 public fun interface PresutilSetPropertyTableExFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr<UByte>): UInt
 }
 
 public typealias PresutilSetPropertyTableEx = PresutilSetPropertyTableExFn?
 
 public fun interface PresutilSetQwordValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: MutPtr<ULong>): UInt
 }
 
 public typealias PresutilSetQwordValue = PresutilSetQwordValueFn?
@@ -2494,31 +2499,31 @@ public fun interface PresutilSetResourceServiceEnvironmentFn {
 public typealias PresutilSetResourceServiceEnvironment = PresutilSetResourceServiceEnvironmentFn?
 
 public fun interface PresutilSetResourceServiceStartParametersFn {
-    public operator fun invoke(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt
+    public operator fun invoke(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr<ScHandle>, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt
 }
 
 public typealias PresutilSetResourceServiceStartParameters = PresutilSetResourceServiceStartParametersFn?
 
 public fun interface PresutilSetResourceServiceStartParametersExFn {
-    public operator fun invoke(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt
+    public operator fun invoke(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr<ScHandle>, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt
 }
 
 public typealias PresutilSetResourceServiceStartParametersEx = PresutilSetResourceServiceStartParametersExFn?
 
 public fun interface PresutilSetSzValueFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr<Pwstr>): UInt
 }
 
 public typealias PresutilSetSzValue = PresutilSetSzValueFn?
 
 public fun interface PresutilSetUnknownPropertiesFn {
-    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt
+    public operator fun invoke(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt
 }
 
 public typealias PresutilSetUnknownProperties = PresutilSetUnknownPropertiesFn?
 
 public fun interface PresutilStartResourceServiceFn {
-    public operator fun invoke(pszservicename: Pcwstr, phservicehandle: COpaquePointer?): UInt
+    public operator fun invoke(pszservicename: Pcwstr, phservicehandle: MutPtr<ScHandle>): UInt
 }
 
 public typealias PresutilStartResourceService = PresutilStartResourceServiceFn?
@@ -2536,19 +2541,19 @@ public fun interface PresutilStopServiceFn {
 public typealias PresutilStopService = PresutilStopServiceFn?
 
 public fun interface PresutilTerminateServiceProcessFromResDllFn {
-    public operator fun invoke(dwservicepid: UInt, boffline: Bool, pdwresourcestate: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt
+    public operator fun invoke(dwservicepid: UInt, boffline: Bool, pdwresourcestate: MutPtr<UInt>, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt
 }
 
 public typealias PresutilTerminateServiceProcessFromResDll = PresutilTerminateServiceProcessFromResDllFn?
 
 public fun interface PresutilVerifyPrivatePropertyListFn {
-    public operator fun invoke(pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt
+    public operator fun invoke(pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt
 }
 
 public typealias PresutilVerifyPrivatePropertyList = PresutilVerifyPrivatePropertyListFn?
 
 public fun interface PresutilVerifyPropertyTableFn {
-    public operator fun invoke(ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt
+    public operator fun invoke(ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: ConstPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt
 }
 
 public typealias PresutilVerifyPropertyTable = PresutilVerifyPropertyTableFn?
@@ -2566,7 +2571,7 @@ public fun interface PresutilVerifyServiceFn {
 public typealias PresutilVerifyService = PresutilVerifyServiceFn?
 
 public fun interface PresUtilVerifyShutdownSafeFn {
-    public operator fun invoke(flags: UInt, reason: UInt, presult: COpaquePointer?): UInt
+    public operator fun invoke(flags: UInt, reason: UInt, presult: MutPtr<UInt>): UInt
 }
 
 public typealias PresUtilVerifyShutdownSafe = PresUtilVerifyShutdownSafeFn?
@@ -2578,7 +2583,7 @@ public fun interface PsetInternalStateFn {
 public typealias PsetInternalState = PsetInternalStateFn?
 
 public fun interface PsetResourceInmemoryNodelocalPropertiesRoutineFn {
-    public operator fun invoke(resourcehandle: Long, propertylistbuffer: COpaquePointer?, propertylistbuffersize: UInt): UInt
+    public operator fun invoke(resourcehandle: Long, propertylistbuffer: ConstPtr<UByte>, propertylistbuffersize: UInt): UInt
 }
 
 public typealias PsetResourceInmemoryNodelocalPropertiesRoutine = PsetResourceInmemoryNodelocalPropertiesRoutineFn?
@@ -2596,13 +2601,13 @@ public fun interface PsetResourceLockedModeRoutineFn {
 public typealias PsetResourceLockedModeRoutine = PsetResourceLockedModeRoutineFn?
 
 public fun interface PsetResourceStatusRoutineFn {
-    public operator fun invoke(resourcehandle: Long, resourcestatus: COpaquePointer?): UInt
+    public operator fun invoke(resourcehandle: Long, resourcestatus: MutPtr<ResourceStatus>): UInt
 }
 
 public typealias PsetResourceStatusRoutine = PsetResourceStatusRoutineFn?
 
 public fun interface PsetResourceStatusRoutineExFn {
-    public operator fun invoke(resourcehandle: Long, resourcestatus: COpaquePointer?): UInt
+    public operator fun invoke(resourcehandle: Long, resourcestatus: MutPtr<ResourceStatusEx>): UInt
 }
 
 public typealias PsetResourceStatusRoutineEx = PsetResourceStatusRoutineExFn?
@@ -2620,25 +2625,25 @@ public fun interface PsignalFailureRoutineFn {
 public typealias PsignalFailureRoutine = PsignalFailureRoutineFn?
 
 public fun interface PstartupExRoutineFn {
-    public operator fun invoke(resourcetype: Pcwstr, minversionsupported: UInt, maxversionsupported: UInt, monitorcallbackfunctions: COpaquePointer?, resourcedllinterfacefunctions: COpaquePointer?): UInt
+    public operator fun invoke(resourcetype: Pcwstr, minversionsupported: UInt, maxversionsupported: UInt, monitorcallbackfunctions: MutPtr<ClresCallbackFunctionTable>, resourcedllinterfacefunctions: MutPtr<MutPtr<ClresFunctionTable>>): UInt
 }
 
 public typealias PstartupExRoutine = PstartupExRoutineFn?
 
 public fun interface PstartupRoutineFn {
-    public operator fun invoke(resourcetype: Pcwstr, minversionsupported: UInt, maxversionsupported: UInt, setresourcestatus: PsetResourceStatusRoutine, logevent: PlogEventRoutine, functiontable: COpaquePointer?): UInt
+    public operator fun invoke(resourcetype: Pcwstr, minversionsupported: UInt, maxversionsupported: UInt, setresourcestatus: PsetResourceStatusRoutine, logevent: PlogEventRoutine, functiontable: MutPtr<MutPtr<ClresFunctionTable>>): UInt
 }
 
 public typealias PstartupRoutine = PstartupRoutineFn?
 
 public fun interface PterminateRoutineFn {
-    public operator fun invoke(resource: COpaquePointer?)
+    public operator fun invoke(resource: MutPtr<CVoid>)
 }
 
 public typealias PterminateRoutine = PterminateRoutineFn?
 
 public fun interface PworkerStartRoutineFn {
-    public operator fun invoke(pworker: COpaquePointer?, lpthreadparameter: COpaquePointer?): UInt
+    public operator fun invoke(pworker: MutPtr<ClusWorker>, lpthreadparameter: MutPtr<CVoid>): UInt
 }
 
 public typealias PworkerStartRoutine = PworkerStartRoutineFn?

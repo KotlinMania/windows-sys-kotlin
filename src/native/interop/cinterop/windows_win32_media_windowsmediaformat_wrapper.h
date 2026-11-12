@@ -9,17 +9,17 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer(void* pcallback, void* ppbackup);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor(void* ppeditor);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer(void* ppindexer);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager(void* ppprofilemanager);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateReader(void* punkcert, uint32_t dwrights, void* ppreader);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader(void* punkcert, uint32_t dwrights, void* ppsyncreader);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter(void* punkcert, void* ppwriter);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink(void* ppsink);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink(void* ppsink);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink(void* ppsink);
-int32_t windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected(void* pwszfilename, void* pfisprotected);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(void* pcallback, void* ppbackup);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(void* ppeditor);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(void* ppindexer);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(void* ppprofilemanager);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(void* punkcert, uint32_t dwrights, void* ppreader);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(void* punkcert, uint32_t dwrights, void* ppsyncreader);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(void* punkcert, void* ppwriter);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(void* ppsink);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(void* ppsink);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(void* ppsink);
+int32_t windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(void* pwszfilename, void* pfisprotected);
 
 #ifdef __cplusplus
 }

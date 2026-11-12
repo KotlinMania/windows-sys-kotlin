@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_graphics_opengl_choosePixelFormat(void* hdc, void* ppfd) {
+int32_t windowssysWindowsWin32GraphicsOpenglChoosePixelFormat(void* hdc, void* ppfd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_graphics_opengl_choosePixelFormat(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_describePixelFormat(void* hdc, int32_t ipixelformat, uint32_t nbytes, void* ppfd) {
+int32_t windowssysWindowsWin32GraphicsOpenglDescribePixelFormat(void* hdc, int32_t ipixelformat, uint32_t nbytes, void* ppfd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_graphics_opengl_describePixelFormat(void* hdc, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat(void* hemf, uint32_t cbbuffer, void* ppfd) {
+uint32_t windowssysWindowsWin32GraphicsOpenglGetEnhMetaFilePixelFormat(void* hemf, uint32_t cbbuffer, void* ppfd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_getPixelFormat(void* hdc) {
+int32_t windowssysWindowsWin32GraphicsOpenglGetPixelFormat(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_graphics_opengl_getPixelFormat(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_setPixelFormat(void* hdc, int32_t format, void* ppfd) {
+int32_t windowssysWindowsWin32GraphicsOpenglSetPixelFormat(void* hdc, int32_t format, void* ppfd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_graphics_opengl_setPixelFormat(void* hdc, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_swapBuffers(void* param0) {
+int32_t windowssysWindowsWin32GraphicsOpenglSwapBuffers(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ int32_t windowssys_windows_win32_graphics_opengl_swapBuffers(void* param0) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glAccum(uint32_t op, float value) {
+void windowssysWindowsWin32GraphicsOpenglGlAccum(uint32_t op, float value) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ void windowssys_windows_win32_graphics_opengl_glAccum(uint32_t op, float value) 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glAlphaFunc(uint32_t func, float ref) {
+void windowssysWindowsWin32GraphicsOpenglGlAlphaFunc(uint32_t func, float ref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ void windowssys_windows_win32_graphics_opengl_glAlphaFunc(uint32_t func, float r
 #endif
 }
 
-uint8_t windowssys_windows_win32_graphics_opengl_glAreTexturesResident(int32_t n, void* textures, void* residences) {
+uint8_t windowssysWindowsWin32GraphicsOpenglGlAreTexturesResident(int32_t n, void* textures, void* residences) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ uint8_t windowssys_windows_win32_graphics_opengl_glAreTexturesResident(int32_t n
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glArrayElement(int32_t i) {
+void windowssysWindowsWin32GraphicsOpenglGlArrayElement(int32_t i) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ void windowssys_windows_win32_graphics_opengl_glArrayElement(int32_t i) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glBegin(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlBegin(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ void windowssys_windows_win32_graphics_opengl_glBegin(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glBindTexture(uint32_t target, uint32_t texture) {
+void windowssysWindowsWin32GraphicsOpenglGlBindTexture(uint32_t target, uint32_t texture) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ void windowssys_windows_win32_graphics_opengl_glBindTexture(uint32_t target, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glBitmap(int32_t width, int32_t height, float xorig, float yorig, float xmove, float ymove, void* bitmap) {
+void windowssysWindowsWin32GraphicsOpenglGlBitmap(int32_t width, int32_t height, float xorig, float yorig, float xmove, float ymove, void* bitmap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, float, float, float, float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ void windowssys_windows_win32_graphics_opengl_glBitmap(int32_t width, int32_t he
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glBlendFunc(uint32_t sfactor, uint32_t dfactor) {
+void windowssysWindowsWin32GraphicsOpenglGlBlendFunc(uint32_t sfactor, uint32_t dfactor) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -336,7 +336,7 @@ void windowssys_windows_win32_graphics_opengl_glBlendFunc(uint32_t sfactor, uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCallList(uint32_t list) {
+void windowssysWindowsWin32GraphicsOpenglGlCallList(uint32_t list) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -357,7 +357,7 @@ void windowssys_windows_win32_graphics_opengl_glCallList(uint32_t list) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCallLists(int32_t n, uint32_t type, void* lists) {
+void windowssysWindowsWin32GraphicsOpenglGlCallLists(int32_t n, uint32_t type, void* lists) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -380,7 +380,7 @@ void windowssys_windows_win32_graphics_opengl_glCallLists(int32_t n, uint32_t ty
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClear(uint32_t mask) {
+void windowssysWindowsWin32GraphicsOpenglGlClear(uint32_t mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -401,7 +401,7 @@ void windowssys_windows_win32_graphics_opengl_glClear(uint32_t mask) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClearAccum(float red, float green, float blue, float alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlClearAccum(float red, float green, float blue, float alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -425,7 +425,7 @@ void windowssys_windows_win32_graphics_opengl_glClearAccum(float red, float gree
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClearColor(float red, float green, float blue, float alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlClearColor(float red, float green, float blue, float alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -449,7 +449,7 @@ void windowssys_windows_win32_graphics_opengl_glClearColor(float red, float gree
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClearDepth(double depth) {
+void windowssysWindowsWin32GraphicsOpenglGlClearDepth(double depth) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double);
     static km_fn_t km_fn_ptr = NULL;
@@ -470,7 +470,7 @@ void windowssys_windows_win32_graphics_opengl_glClearDepth(double depth) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClearIndex(float c) {
+void windowssysWindowsWin32GraphicsOpenglGlClearIndex(float c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -491,7 +491,7 @@ void windowssys_windows_win32_graphics_opengl_glClearIndex(float c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClearStencil(int32_t s) {
+void windowssysWindowsWin32GraphicsOpenglGlClearStencil(int32_t s) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -512,7 +512,7 @@ void windowssys_windows_win32_graphics_opengl_glClearStencil(int32_t s) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glClipPlane(uint32_t plane, void* equation) {
+void windowssysWindowsWin32GraphicsOpenglGlClipPlane(uint32_t plane, void* equation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ void windowssys_windows_win32_graphics_opengl_glClipPlane(uint32_t plane, void* 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3b(int8_t red, int8_t green, int8_t blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3b(int8_t red, int8_t green, int8_t blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int8_t, int8_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -557,7 +557,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3b(int8_t red, int8_t green
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3bv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3bv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -578,7 +578,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3bv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3d(double red, double green, double blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3d(double red, double green, double blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -601,7 +601,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3d(double red, double green
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3f(float red, float green, float blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3f(float red, float green, float blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -645,7 +645,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3f(float red, float green, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -666,7 +666,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3i(int32_t red, int32_t green, int32_t blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3i(int32_t red, int32_t green, int32_t blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -689,7 +689,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3i(int32_t red, int32_t gre
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -710,7 +710,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3s(int16_t red, int16_t green, int16_t blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3s(int16_t red, int16_t green, int16_t blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -733,7 +733,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3s(int16_t red, int16_t gre
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -754,7 +754,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3ub(uint8_t red, uint8_t green, uint8_t blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3ub(uint8_t red, uint8_t green, uint8_t blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t, uint8_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -777,7 +777,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3ub(uint8_t red, uint8_t gr
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3ubv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3ubv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -798,7 +798,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3ubv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3ui(uint32_t red, uint32_t green, uint32_t blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3ui(uint32_t red, uint32_t green, uint32_t blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -821,7 +821,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3ui(uint32_t red, uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3uiv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3uiv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -842,7 +842,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3uiv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3us(uint16_t red, uint16_t green, uint16_t blue) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3us(uint16_t red, uint16_t green, uint16_t blue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -865,7 +865,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3us(uint16_t red, uint16_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor3usv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor3usv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -886,7 +886,7 @@ void windowssys_windows_win32_graphics_opengl_glColor3usv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4b(int8_t red, int8_t green, int8_t blue, int8_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4b(int8_t red, int8_t green, int8_t blue, int8_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int8_t, int8_t, int8_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -910,7 +910,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4b(int8_t red, int8_t green
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4bv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4bv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -931,7 +931,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4bv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4d(double red, double green, double blue, double alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4d(double red, double green, double blue, double alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -955,7 +955,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4d(double red, double green
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -976,7 +976,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4f(float red, float green, float blue, float alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4f(float red, float green, float blue, float alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -1000,7 +1000,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4f(float red, float green, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1021,7 +1021,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4i(int32_t red, int32_t green, int32_t blue, int32_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4i(int32_t red, int32_t green, int32_t blue, int32_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1045,7 +1045,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4i(int32_t red, int32_t gre
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1066,7 +1066,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4s(int16_t red, int16_t green, int16_t blue, int16_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4s(int16_t red, int16_t green, int16_t blue, int16_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1090,7 +1090,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4s(int16_t red, int16_t gre
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1111,7 +1111,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4ub(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4ub(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t, uint8_t, uint8_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1135,7 +1135,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4ub(uint8_t red, uint8_t gr
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4ubv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4ubv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1156,7 +1156,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4ubv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4ui(uint32_t red, uint32_t green, uint32_t blue, uint32_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4ui(uint32_t red, uint32_t green, uint32_t blue, uint32_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1180,7 +1180,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4ui(uint32_t red, uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4uiv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4uiv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1201,7 +1201,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4uiv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4us(uint16_t red, uint16_t green, uint16_t blue, uint16_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4us(uint16_t red, uint16_t green, uint16_t blue, uint16_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint16_t, uint16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1225,7 +1225,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4us(uint16_t red, uint16_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColor4usv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlColor4usv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1246,7 +1246,7 @@ void windowssys_windows_win32_graphics_opengl_glColor4usv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColorMask(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) {
+void windowssysWindowsWin32GraphicsOpenglGlColorMask(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t, uint8_t, uint8_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1270,7 +1270,7 @@ void windowssys_windows_win32_graphics_opengl_glColorMask(uint8_t red, uint8_t g
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColorMaterial(uint32_t face, uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlColorMaterial(uint32_t face, uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1292,7 +1292,7 @@ void windowssys_windows_win32_graphics_opengl_glColorMaterial(uint32_t face, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glColorPointer(int32_t size, uint32_t type, int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlColorPointer(int32_t size, uint32_t type, int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1316,7 +1316,7 @@ void windowssys_windows_win32_graphics_opengl_glColorPointer(int32_t size, uint3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCopyPixels(int32_t x, int32_t y, int32_t width, int32_t height, uint32_t type) {
+void windowssysWindowsWin32GraphicsOpenglGlCopyPixels(int32_t x, int32_t y, int32_t width, int32_t height, uint32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1341,7 +1341,7 @@ void windowssys_windows_win32_graphics_opengl_glCopyPixels(int32_t x, int32_t y,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCopyTexImage1D(uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t border) {
+void windowssysWindowsWin32GraphicsOpenglGlCopyTexImage1D(uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t border) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1368,7 +1368,7 @@ void windowssys_windows_win32_graphics_opengl_glCopyTexImage1D(uint32_t target, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCopyTexImage2D(uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t height, int32_t border) {
+void windowssysWindowsWin32GraphicsOpenglGlCopyTexImage2D(uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t height, int32_t border) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1396,7 +1396,7 @@ void windowssys_windows_win32_graphics_opengl_glCopyTexImage2D(uint32_t target, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCopyTexSubImage1D(uint32_t target, int32_t level, int32_t xoffset, int32_t x, int32_t y, int32_t width) {
+void windowssysWindowsWin32GraphicsOpenglGlCopyTexSubImage1D(uint32_t target, int32_t level, int32_t xoffset, int32_t x, int32_t y, int32_t width) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ void windowssys_windows_win32_graphics_opengl_glCopyTexSubImage1D(uint32_t targe
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCopyTexSubImage2D(uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t x, int32_t y, int32_t width, int32_t height) {
+void windowssysWindowsWin32GraphicsOpenglGlCopyTexSubImage2D(uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t x, int32_t y, int32_t width, int32_t height) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1450,7 +1450,7 @@ void windowssys_windows_win32_graphics_opengl_glCopyTexSubImage2D(uint32_t targe
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glCullFace(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlCullFace(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1471,7 +1471,7 @@ void windowssys_windows_win32_graphics_opengl_glCullFace(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDeleteLists(uint32_t list, int32_t range) {
+void windowssysWindowsWin32GraphicsOpenglGlDeleteLists(uint32_t list, int32_t range) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1493,7 +1493,7 @@ void windowssys_windows_win32_graphics_opengl_glDeleteLists(uint32_t list, int32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDeleteTextures(int32_t n, void* textures) {
+void windowssysWindowsWin32GraphicsOpenglGlDeleteTextures(int32_t n, void* textures) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1515,7 +1515,7 @@ void windowssys_windows_win32_graphics_opengl_glDeleteTextures(int32_t n, void* 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDepthFunc(uint32_t func) {
+void windowssysWindowsWin32GraphicsOpenglGlDepthFunc(uint32_t func) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1536,7 +1536,7 @@ void windowssys_windows_win32_graphics_opengl_glDepthFunc(uint32_t func) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDepthMask(uint8_t flag) {
+void windowssysWindowsWin32GraphicsOpenglGlDepthMask(uint8_t flag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1557,7 +1557,7 @@ void windowssys_windows_win32_graphics_opengl_glDepthMask(uint8_t flag) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDepthRange(double znear, double zfar) {
+void windowssysWindowsWin32GraphicsOpenglGlDepthRange(double znear, double zfar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1579,7 +1579,7 @@ void windowssys_windows_win32_graphics_opengl_glDepthRange(double znear, double 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDisable(uint32_t cap) {
+void windowssysWindowsWin32GraphicsOpenglGlDisable(uint32_t cap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1600,7 +1600,7 @@ void windowssys_windows_win32_graphics_opengl_glDisable(uint32_t cap) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDisableClientState(uint32_t array) {
+void windowssysWindowsWin32GraphicsOpenglGlDisableClientState(uint32_t array) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1621,7 +1621,7 @@ void windowssys_windows_win32_graphics_opengl_glDisableClientState(uint32_t arra
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDrawArrays(uint32_t mode, int32_t first, int32_t count) {
+void windowssysWindowsWin32GraphicsOpenglGlDrawArrays(uint32_t mode, int32_t first, int32_t count) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ void windowssys_windows_win32_graphics_opengl_glDrawArrays(uint32_t mode, int32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDrawBuffer(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlDrawBuffer(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1665,7 +1665,7 @@ void windowssys_windows_win32_graphics_opengl_glDrawBuffer(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDrawElements(uint32_t mode, int32_t count, uint32_t type, void* indices) {
+void windowssysWindowsWin32GraphicsOpenglGlDrawElements(uint32_t mode, int32_t count, uint32_t type, void* indices) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1689,7 +1689,7 @@ void windowssys_windows_win32_graphics_opengl_glDrawElements(uint32_t mode, int3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glDrawPixels(int32_t width, int32_t height, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlDrawPixels(int32_t width, int32_t height, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1714,7 +1714,7 @@ void windowssys_windows_win32_graphics_opengl_glDrawPixels(int32_t width, int32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEdgeFlag(uint8_t flag) {
+void windowssysWindowsWin32GraphicsOpenglGlEdgeFlag(uint8_t flag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1735,7 +1735,7 @@ void windowssys_windows_win32_graphics_opengl_glEdgeFlag(uint8_t flag) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEdgeFlagPointer(int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlEdgeFlagPointer(int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1757,7 +1757,7 @@ void windowssys_windows_win32_graphics_opengl_glEdgeFlagPointer(int32_t stride, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEdgeFlagv(void* flag) {
+void windowssysWindowsWin32GraphicsOpenglGlEdgeFlagv(void* flag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1778,7 +1778,7 @@ void windowssys_windows_win32_graphics_opengl_glEdgeFlagv(void* flag) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEnable(uint32_t cap) {
+void windowssysWindowsWin32GraphicsOpenglGlEnable(uint32_t cap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1799,7 +1799,7 @@ void windowssys_windows_win32_graphics_opengl_glEnable(uint32_t cap) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEnableClientState(uint32_t array) {
+void windowssysWindowsWin32GraphicsOpenglGlEnableClientState(uint32_t array) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1820,7 +1820,7 @@ void windowssys_windows_win32_graphics_opengl_glEnableClientState(uint32_t array
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEnd(void) {
+void windowssysWindowsWin32GraphicsOpenglGlEnd(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1840,7 +1840,7 @@ void windowssys_windows_win32_graphics_opengl_glEnd(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEndList(void) {
+void windowssysWindowsWin32GraphicsOpenglGlEndList(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1860,7 +1860,7 @@ void windowssys_windows_win32_graphics_opengl_glEndList(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord1d(double u) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord1d(double u) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1881,7 +1881,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord1d(double u) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord1dv(void* u) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord1dv(void* u) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1902,7 +1902,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord1dv(void* u) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord1f(float u) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord1f(float u) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -1923,7 +1923,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord1f(float u) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord1fv(void* u) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord1fv(void* u) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1944,7 +1944,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord1fv(void* u) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord2d(double u, double v) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord2d(double u, double v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +1966,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord2d(double u, double v) 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord2dv(void* u) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord2dv(void* u) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1987,7 +1987,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord2dv(void* u) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord2f(float u, float v) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord2f(float u, float v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -2009,7 +2009,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord2f(float u, float v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalCoord2fv(void* u) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalCoord2fv(void* u) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2030,7 +2030,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalCoord2fv(void* u) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalMesh1(uint32_t mode, int32_t i1, int32_t i2) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalMesh1(uint32_t mode, int32_t i1, int32_t i2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2053,7 +2053,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalMesh1(uint32_t mode, int32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalMesh2(uint32_t mode, int32_t i1, int32_t i2, int32_t j1, int32_t j2) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalMesh2(uint32_t mode, int32_t i1, int32_t i2, int32_t j1, int32_t j2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2078,7 +2078,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalMesh2(uint32_t mode, int32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalPoint1(int32_t i) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalPoint1(int32_t i) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2099,7 +2099,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalPoint1(int32_t i) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glEvalPoint2(int32_t i, int32_t j) {
+void windowssysWindowsWin32GraphicsOpenglGlEvalPoint2(int32_t i, int32_t j) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2121,7 +2121,7 @@ void windowssys_windows_win32_graphics_opengl_glEvalPoint2(int32_t i, int32_t j)
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFeedbackBuffer(int32_t size, uint32_t type, void* buffer) {
+void windowssysWindowsWin32GraphicsOpenglGlFeedbackBuffer(int32_t size, uint32_t type, void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2144,7 +2144,7 @@ void windowssys_windows_win32_graphics_opengl_glFeedbackBuffer(int32_t size, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFinish(void) {
+void windowssysWindowsWin32GraphicsOpenglGlFinish(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2164,7 +2164,7 @@ void windowssys_windows_win32_graphics_opengl_glFinish(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFlush(void) {
+void windowssysWindowsWin32GraphicsOpenglGlFlush(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2184,7 +2184,7 @@ void windowssys_windows_win32_graphics_opengl_glFlush(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFogf(uint32_t pname, float param1) {
+void windowssysWindowsWin32GraphicsOpenglGlFogf(uint32_t pname, float param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -2206,7 +2206,7 @@ void windowssys_windows_win32_graphics_opengl_glFogf(uint32_t pname, float param
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFogfv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlFogfv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2228,7 +2228,7 @@ void windowssys_windows_win32_graphics_opengl_glFogfv(uint32_t pname, void* para
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFogi(uint32_t pname, int32_t param1) {
+void windowssysWindowsWin32GraphicsOpenglGlFogi(uint32_t pname, int32_t param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2250,7 +2250,7 @@ void windowssys_windows_win32_graphics_opengl_glFogi(uint32_t pname, int32_t par
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFogiv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlFogiv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2272,7 +2272,7 @@ void windowssys_windows_win32_graphics_opengl_glFogiv(uint32_t pname, void* para
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFrontFace(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlFrontFace(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2293,7 +2293,7 @@ void windowssys_windows_win32_graphics_opengl_glFrontFace(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glFrustum(double left, double right, double bottom, double top, double znear, double zfar) {
+void windowssysWindowsWin32GraphicsOpenglGlFrustum(double left, double right, double bottom, double top, double znear, double zfar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -2319,7 +2319,7 @@ void windowssys_windows_win32_graphics_opengl_glFrustum(double left, double righ
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_opengl_glGenLists(int32_t range) {
+uint32_t windowssysWindowsWin32GraphicsOpenglGlGenLists(int32_t range) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2341,7 +2341,7 @@ uint32_t windowssys_windows_win32_graphics_opengl_glGenLists(int32_t range) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGenTextures(int32_t n, void* textures) {
+void windowssysWindowsWin32GraphicsOpenglGlGenTextures(int32_t n, void* textures) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2363,7 +2363,7 @@ void windowssys_windows_win32_graphics_opengl_glGenTextures(int32_t n, void* tex
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetBooleanv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetBooleanv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2385,7 +2385,7 @@ void windowssys_windows_win32_graphics_opengl_glGetBooleanv(uint32_t pname, void
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetClipPlane(uint32_t plane, void* equation) {
+void windowssysWindowsWin32GraphicsOpenglGlGetClipPlane(uint32_t plane, void* equation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2407,7 +2407,7 @@ void windowssys_windows_win32_graphics_opengl_glGetClipPlane(uint32_t plane, voi
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetDoublev(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetDoublev(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2429,7 +2429,7 @@ void windowssys_windows_win32_graphics_opengl_glGetDoublev(uint32_t pname, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_opengl_glGetError(void) {
+uint32_t windowssysWindowsWin32GraphicsOpenglGlGetError(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2450,7 +2450,7 @@ uint32_t windowssys_windows_win32_graphics_opengl_glGetError(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetFloatv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetFloatv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2472,7 +2472,7 @@ void windowssys_windows_win32_graphics_opengl_glGetFloatv(uint32_t pname, void* 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetIntegerv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetIntegerv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2494,7 +2494,7 @@ void windowssys_windows_win32_graphics_opengl_glGetIntegerv(uint32_t pname, void
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetLightfv(uint32_t light, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetLightfv(uint32_t light, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2517,7 +2517,7 @@ void windowssys_windows_win32_graphics_opengl_glGetLightfv(uint32_t light, uint3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetLightiv(uint32_t light, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetLightiv(uint32_t light, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2540,7 +2540,7 @@ void windowssys_windows_win32_graphics_opengl_glGetLightiv(uint32_t light, uint3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetMapdv(uint32_t target, uint32_t query, void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlGetMapdv(uint32_t target, uint32_t query, void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2563,7 +2563,7 @@ void windowssys_windows_win32_graphics_opengl_glGetMapdv(uint32_t target, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetMapfv(uint32_t target, uint32_t query, void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlGetMapfv(uint32_t target, uint32_t query, void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2586,7 +2586,7 @@ void windowssys_windows_win32_graphics_opengl_glGetMapfv(uint32_t target, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetMapiv(uint32_t target, uint32_t query, void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlGetMapiv(uint32_t target, uint32_t query, void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2609,7 +2609,7 @@ void windowssys_windows_win32_graphics_opengl_glGetMapiv(uint32_t target, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetMaterialfv(uint32_t face, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetMaterialfv(uint32_t face, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2632,7 +2632,7 @@ void windowssys_windows_win32_graphics_opengl_glGetMaterialfv(uint32_t face, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetMaterialiv(uint32_t face, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetMaterialiv(uint32_t face, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2655,7 +2655,7 @@ void windowssys_windows_win32_graphics_opengl_glGetMaterialiv(uint32_t face, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetPixelMapfv(uint32_t map, void* values) {
+void windowssysWindowsWin32GraphicsOpenglGlGetPixelMapfv(uint32_t map, void* values) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2677,7 +2677,7 @@ void windowssys_windows_win32_graphics_opengl_glGetPixelMapfv(uint32_t map, void
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetPixelMapuiv(uint32_t map, void* values) {
+void windowssysWindowsWin32GraphicsOpenglGlGetPixelMapuiv(uint32_t map, void* values) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2699,7 +2699,7 @@ void windowssys_windows_win32_graphics_opengl_glGetPixelMapuiv(uint32_t map, voi
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetPixelMapusv(uint32_t map, void* values) {
+void windowssysWindowsWin32GraphicsOpenglGlGetPixelMapusv(uint32_t map, void* values) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2721,7 +2721,7 @@ void windowssys_windows_win32_graphics_opengl_glGetPixelMapusv(uint32_t map, voi
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetPointerv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetPointerv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2743,7 +2743,7 @@ void windowssys_windows_win32_graphics_opengl_glGetPointerv(uint32_t pname, void
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetPolygonStipple(void* mask) {
+void windowssysWindowsWin32GraphicsOpenglGlGetPolygonStipple(void* mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2764,7 +2764,7 @@ void windowssys_windows_win32_graphics_opengl_glGetPolygonStipple(void* mask) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_glGetString(uint32_t name) {
+void* windowssysWindowsWin32GraphicsOpenglGlGetString(uint32_t name) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2786,7 +2786,7 @@ void* windowssys_windows_win32_graphics_opengl_glGetString(uint32_t name) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexEnvfv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexEnvfv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2809,7 +2809,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexEnvfv(uint32_t target, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexEnviv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexEnviv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2832,7 +2832,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexEnviv(uint32_t target, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexGendv(uint32_t coord, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexGendv(uint32_t coord, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2855,7 +2855,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexGendv(uint32_t coord, uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexGenfv(uint32_t coord, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexGenfv(uint32_t coord, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2878,7 +2878,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexGenfv(uint32_t coord, uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexGeniv(uint32_t coord, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexGeniv(uint32_t coord, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2901,7 +2901,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexGeniv(uint32_t coord, uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexImage(uint32_t target, int32_t level, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexImage(uint32_t target, int32_t level, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2926,7 +2926,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexImage(uint32_t target, int
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexLevelParameterfv(uint32_t target, int32_t level, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexLevelParameterfv(uint32_t target, int32_t level, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2950,7 +2950,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexLevelParameterfv(uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexLevelParameteriv(uint32_t target, int32_t level, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexLevelParameteriv(uint32_t target, int32_t level, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2974,7 +2974,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexLevelParameteriv(uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexParameterfv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexParameterfv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2997,7 +2997,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexParameterfv(uint32_t targe
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glGetTexParameteriv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlGetTexParameteriv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3020,7 +3020,7 @@ void windowssys_windows_win32_graphics_opengl_glGetTexParameteriv(uint32_t targe
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glHint(uint32_t target, uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlHint(uint32_t target, uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3042,7 +3042,7 @@ void windowssys_windows_win32_graphics_opengl_glHint(uint32_t target, uint32_t m
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexMask(uint32_t mask) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexMask(uint32_t mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3063,7 +3063,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexMask(uint32_t mask) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexPointer(uint32_t type, int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexPointer(uint32_t type, int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3086,7 +3086,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexPointer(uint32_t type, int3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexd(double c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexd(double c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double);
     static km_fn_t km_fn_ptr = NULL;
@@ -3107,7 +3107,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexd(double c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexdv(void* c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexdv(void* c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3128,7 +3128,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexdv(void* c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexf(float c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexf(float c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3149,7 +3149,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexf(float c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexfv(void* c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexfv(void* c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3170,7 +3170,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexfv(void* c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexi(int32_t c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexi(int32_t c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3191,7 +3191,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexi(int32_t c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexiv(void* c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexiv(void* c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3212,7 +3212,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexiv(void* c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexs(int16_t c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexs(int16_t c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3233,7 +3233,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexs(int16_t c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexsv(void* c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexsv(void* c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3254,7 +3254,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexsv(void* c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexub(uint8_t c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexub(uint8_t c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3275,7 +3275,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexub(uint8_t c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glIndexubv(void* c) {
+void windowssysWindowsWin32GraphicsOpenglGlIndexubv(void* c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3296,7 +3296,7 @@ void windowssys_windows_win32_graphics_opengl_glIndexubv(void* c) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glInitNames(void) {
+void windowssysWindowsWin32GraphicsOpenglGlInitNames(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3316,7 +3316,7 @@ void windowssys_windows_win32_graphics_opengl_glInitNames(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glInterleavedArrays(uint32_t format, int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlInterleavedArrays(uint32_t format, int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3339,7 +3339,7 @@ void windowssys_windows_win32_graphics_opengl_glInterleavedArrays(uint32_t forma
 #endif
 }
 
-uint8_t windowssys_windows_win32_graphics_opengl_glIsEnabled(uint32_t cap) {
+uint8_t windowssysWindowsWin32GraphicsOpenglGlIsEnabled(uint32_t cap) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3361,7 +3361,7 @@ uint8_t windowssys_windows_win32_graphics_opengl_glIsEnabled(uint32_t cap) {
 #endif
 }
 
-uint8_t windowssys_windows_win32_graphics_opengl_glIsList(uint32_t list) {
+uint8_t windowssysWindowsWin32GraphicsOpenglGlIsList(uint32_t list) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3383,7 +3383,7 @@ uint8_t windowssys_windows_win32_graphics_opengl_glIsList(uint32_t list) {
 #endif
 }
 
-uint8_t windowssys_windows_win32_graphics_opengl_glIsTexture(uint32_t texture) {
+uint8_t windowssysWindowsWin32GraphicsOpenglGlIsTexture(uint32_t texture) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3405,7 +3405,7 @@ uint8_t windowssys_windows_win32_graphics_opengl_glIsTexture(uint32_t texture) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightModelf(uint32_t pname, float param1) {
+void windowssysWindowsWin32GraphicsOpenglGlLightModelf(uint32_t pname, float param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3427,7 +3427,7 @@ void windowssys_windows_win32_graphics_opengl_glLightModelf(uint32_t pname, floa
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightModelfv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlLightModelfv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3449,7 +3449,7 @@ void windowssys_windows_win32_graphics_opengl_glLightModelfv(uint32_t pname, voi
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightModeli(uint32_t pname, int32_t param1) {
+void windowssysWindowsWin32GraphicsOpenglGlLightModeli(uint32_t pname, int32_t param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3471,7 +3471,7 @@ void windowssys_windows_win32_graphics_opengl_glLightModeli(uint32_t pname, int3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightModeliv(uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlLightModeliv(uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3493,7 +3493,7 @@ void windowssys_windows_win32_graphics_opengl_glLightModeliv(uint32_t pname, voi
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightf(uint32_t light, uint32_t pname, float param2) {
+void windowssysWindowsWin32GraphicsOpenglGlLightf(uint32_t light, uint32_t pname, float param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3516,7 +3516,7 @@ void windowssys_windows_win32_graphics_opengl_glLightf(uint32_t light, uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightfv(uint32_t light, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlLightfv(uint32_t light, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3539,7 +3539,7 @@ void windowssys_windows_win32_graphics_opengl_glLightfv(uint32_t light, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLighti(uint32_t light, uint32_t pname, int32_t param2) {
+void windowssysWindowsWin32GraphicsOpenglGlLighti(uint32_t light, uint32_t pname, int32_t param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3562,7 +3562,7 @@ void windowssys_windows_win32_graphics_opengl_glLighti(uint32_t light, uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLightiv(uint32_t light, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlLightiv(uint32_t light, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3585,7 +3585,7 @@ void windowssys_windows_win32_graphics_opengl_glLightiv(uint32_t light, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLineStipple(int32_t factor, uint16_t pattern) {
+void windowssysWindowsWin32GraphicsOpenglGlLineStipple(int32_t factor, uint16_t pattern) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3607,7 +3607,7 @@ void windowssys_windows_win32_graphics_opengl_glLineStipple(int32_t factor, uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLineWidth(float width) {
+void windowssysWindowsWin32GraphicsOpenglGlLineWidth(float width) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3628,7 +3628,7 @@ void windowssys_windows_win32_graphics_opengl_glLineWidth(float width) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glListBase(uint32_t base) {
+void windowssysWindowsWin32GraphicsOpenglGlListBase(uint32_t base) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3649,7 +3649,7 @@ void windowssys_windows_win32_graphics_opengl_glListBase(uint32_t base) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLoadIdentity(void) {
+void windowssysWindowsWin32GraphicsOpenglGlLoadIdentity(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3669,7 +3669,7 @@ void windowssys_windows_win32_graphics_opengl_glLoadIdentity(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLoadMatrixd(void* m) {
+void windowssysWindowsWin32GraphicsOpenglGlLoadMatrixd(void* m) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3690,7 +3690,7 @@ void windowssys_windows_win32_graphics_opengl_glLoadMatrixd(void* m) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLoadMatrixf(void* m) {
+void windowssysWindowsWin32GraphicsOpenglGlLoadMatrixf(void* m) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3711,7 +3711,7 @@ void windowssys_windows_win32_graphics_opengl_glLoadMatrixf(void* m) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLoadName(uint32_t name) {
+void windowssysWindowsWin32GraphicsOpenglGlLoadName(uint32_t name) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3732,7 +3732,7 @@ void windowssys_windows_win32_graphics_opengl_glLoadName(uint32_t name) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glLogicOp(uint32_t opcode) {
+void windowssysWindowsWin32GraphicsOpenglGlLogicOp(uint32_t opcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3753,7 +3753,7 @@ void windowssys_windows_win32_graphics_opengl_glLogicOp(uint32_t opcode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMap1d(uint32_t target, double u1, double u2, int32_t stride, int32_t order, void* points) {
+void windowssysWindowsWin32GraphicsOpenglGlMap1d(uint32_t target, double u1, double u2, int32_t stride, int32_t order, void* points) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, double, double, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3779,7 +3779,7 @@ void windowssys_windows_win32_graphics_opengl_glMap1d(uint32_t target, double u1
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMap1f(uint32_t target, float u1, float u2, int32_t stride, int32_t order, void* points) {
+void windowssysWindowsWin32GraphicsOpenglGlMap1f(uint32_t target, float u1, float u2, int32_t stride, int32_t order, void* points) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float, float, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3805,7 +3805,7 @@ void windowssys_windows_win32_graphics_opengl_glMap1f(uint32_t target, float u1,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMap2d(uint32_t target, double u1, double u2, int32_t ustride, int32_t uorder, double v1, double v2, int32_t vstride, int32_t vorder, void* points) {
+void windowssysWindowsWin32GraphicsOpenglGlMap2d(uint32_t target, double u1, double u2, int32_t ustride, int32_t uorder, double v1, double v2, int32_t vstride, int32_t vorder, void* points) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, double, double, int32_t, int32_t, double, double, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3835,7 +3835,7 @@ void windowssys_windows_win32_graphics_opengl_glMap2d(uint32_t target, double u1
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMap2f(uint32_t target, float u1, float u2, int32_t ustride, int32_t uorder, float v1, float v2, int32_t vstride, int32_t vorder, void* points) {
+void windowssysWindowsWin32GraphicsOpenglGlMap2f(uint32_t target, float u1, float u2, int32_t ustride, int32_t uorder, float v1, float v2, int32_t vstride, int32_t vorder, void* points) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float, float, int32_t, int32_t, float, float, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3865,7 +3865,7 @@ void windowssys_windows_win32_graphics_opengl_glMap2f(uint32_t target, float u1,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMapGrid1d(int32_t un, double u1, double u2) {
+void windowssysWindowsWin32GraphicsOpenglGlMapGrid1d(int32_t un, double u1, double u2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -3888,7 +3888,7 @@ void windowssys_windows_win32_graphics_opengl_glMapGrid1d(int32_t un, double u1,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMapGrid1f(int32_t un, float u1, float u2) {
+void windowssysWindowsWin32GraphicsOpenglGlMapGrid1f(int32_t un, float u1, float u2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3911,7 +3911,7 @@ void windowssys_windows_win32_graphics_opengl_glMapGrid1f(int32_t un, float u1, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMapGrid2d(int32_t un, double u1, double u2, int32_t vn, double v1, double v2) {
+void windowssysWindowsWin32GraphicsOpenglGlMapGrid2d(int32_t un, double u1, double u2, int32_t vn, double v1, double v2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, double, double, int32_t, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -3937,7 +3937,7 @@ void windowssys_windows_win32_graphics_opengl_glMapGrid2d(int32_t un, double u1,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMapGrid2f(int32_t un, float u1, float u2, int32_t vn, float v1, float v2) {
+void windowssysWindowsWin32GraphicsOpenglGlMapGrid2f(int32_t un, float u1, float u2, int32_t vn, float v1, float v2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, float, float, int32_t, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3963,7 +3963,7 @@ void windowssys_windows_win32_graphics_opengl_glMapGrid2f(int32_t un, float u1, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMaterialf(uint32_t face, uint32_t pname, float param2) {
+void windowssysWindowsWin32GraphicsOpenglGlMaterialf(uint32_t face, uint32_t pname, float param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -3986,7 +3986,7 @@ void windowssys_windows_win32_graphics_opengl_glMaterialf(uint32_t face, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMaterialfv(uint32_t face, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlMaterialfv(uint32_t face, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4009,7 +4009,7 @@ void windowssys_windows_win32_graphics_opengl_glMaterialfv(uint32_t face, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMateriali(uint32_t face, uint32_t pname, int32_t param2) {
+void windowssysWindowsWin32GraphicsOpenglGlMateriali(uint32_t face, uint32_t pname, int32_t param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4032,7 +4032,7 @@ void windowssys_windows_win32_graphics_opengl_glMateriali(uint32_t face, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMaterialiv(uint32_t face, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlMaterialiv(uint32_t face, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4055,7 +4055,7 @@ void windowssys_windows_win32_graphics_opengl_glMaterialiv(uint32_t face, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMatrixMode(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlMatrixMode(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4076,7 +4076,7 @@ void windowssys_windows_win32_graphics_opengl_glMatrixMode(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMultMatrixd(void* m) {
+void windowssysWindowsWin32GraphicsOpenglGlMultMatrixd(void* m) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4097,7 +4097,7 @@ void windowssys_windows_win32_graphics_opengl_glMultMatrixd(void* m) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glMultMatrixf(void* m) {
+void windowssysWindowsWin32GraphicsOpenglGlMultMatrixf(void* m) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4118,7 +4118,7 @@ void windowssys_windows_win32_graphics_opengl_glMultMatrixf(void* m) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNewList(uint32_t list, uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlNewList(uint32_t list, uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4140,7 +4140,7 @@ void windowssys_windows_win32_graphics_opengl_glNewList(uint32_t list, uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3b(int8_t nx, int8_t ny, int8_t nz) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3b(int8_t nx, int8_t ny, int8_t nz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int8_t, int8_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4163,7 +4163,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3b(int8_t nx, int8_t ny, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3bv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3bv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4184,7 +4184,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3bv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3d(double nx, double ny, double nz) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3d(double nx, double ny, double nz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -4207,7 +4207,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3d(double nx, double ny, d
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4228,7 +4228,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3f(float nx, float ny, float nz) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3f(float nx, float ny, float nz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4251,7 +4251,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3f(float nx, float ny, flo
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4272,7 +4272,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3i(int32_t nx, int32_t ny, int32_t nz) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3i(int32_t nx, int32_t ny, int32_t nz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4295,7 +4295,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3i(int32_t nx, int32_t ny,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4316,7 +4316,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3s(int16_t nx, int16_t ny, int16_t nz) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3s(int16_t nx, int16_t ny, int16_t nz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4339,7 +4339,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3s(int16_t nx, int16_t ny,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormal3sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlNormal3sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4360,7 +4360,7 @@ void windowssys_windows_win32_graphics_opengl_glNormal3sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glNormalPointer(uint32_t type, int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlNormalPointer(uint32_t type, int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4383,7 +4383,7 @@ void windowssys_windows_win32_graphics_opengl_glNormalPointer(uint32_t type, int
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glOrtho(double left, double right, double bottom, double top, double znear, double zfar) {
+void windowssysWindowsWin32GraphicsOpenglGlOrtho(double left, double right, double bottom, double top, double znear, double zfar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -4409,7 +4409,7 @@ void windowssys_windows_win32_graphics_opengl_glOrtho(double left, double right,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPassThrough(float token) {
+void windowssysWindowsWin32GraphicsOpenglGlPassThrough(float token) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4430,7 +4430,7 @@ void windowssys_windows_win32_graphics_opengl_glPassThrough(float token) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelMapfv(uint32_t map, int32_t mapsize, void* values) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelMapfv(uint32_t map, int32_t mapsize, void* values) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4453,7 +4453,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelMapfv(uint32_t map, int32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelMapuiv(uint32_t map, int32_t mapsize, void* values) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelMapuiv(uint32_t map, int32_t mapsize, void* values) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4476,7 +4476,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelMapuiv(uint32_t map, int32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelMapusv(uint32_t map, int32_t mapsize, void* values) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelMapusv(uint32_t map, int32_t mapsize, void* values) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4499,7 +4499,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelMapusv(uint32_t map, int32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelStoref(uint32_t pname, float param1) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelStoref(uint32_t pname, float param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4521,7 +4521,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelStoref(uint32_t pname, floa
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelStorei(uint32_t pname, int32_t param1) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelStorei(uint32_t pname, int32_t param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4543,7 +4543,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelStorei(uint32_t pname, int3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelTransferf(uint32_t pname, float param1) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelTransferf(uint32_t pname, float param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4565,7 +4565,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelTransferf(uint32_t pname, f
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelTransferi(uint32_t pname, int32_t param1) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelTransferi(uint32_t pname, int32_t param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4587,7 +4587,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelTransferi(uint32_t pname, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPixelZoom(float xfactor, float yfactor) {
+void windowssysWindowsWin32GraphicsOpenglGlPixelZoom(float xfactor, float yfactor) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4609,7 +4609,7 @@ void windowssys_windows_win32_graphics_opengl_glPixelZoom(float xfactor, float y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPointSize(float size) {
+void windowssysWindowsWin32GraphicsOpenglGlPointSize(float size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4630,7 +4630,7 @@ void windowssys_windows_win32_graphics_opengl_glPointSize(float size) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPolygonMode(uint32_t face, uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlPolygonMode(uint32_t face, uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4652,7 +4652,7 @@ void windowssys_windows_win32_graphics_opengl_glPolygonMode(uint32_t face, uint3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPolygonOffset(float factor, float units) {
+void windowssysWindowsWin32GraphicsOpenglGlPolygonOffset(float factor, float units) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4674,7 +4674,7 @@ void windowssys_windows_win32_graphics_opengl_glPolygonOffset(float factor, floa
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPolygonStipple(void* mask) {
+void windowssysWindowsWin32GraphicsOpenglGlPolygonStipple(void* mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4695,7 +4695,7 @@ void windowssys_windows_win32_graphics_opengl_glPolygonStipple(void* mask) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPopAttrib(void) {
+void windowssysWindowsWin32GraphicsOpenglGlPopAttrib(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4715,7 +4715,7 @@ void windowssys_windows_win32_graphics_opengl_glPopAttrib(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPopClientAttrib(void) {
+void windowssysWindowsWin32GraphicsOpenglGlPopClientAttrib(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4735,7 +4735,7 @@ void windowssys_windows_win32_graphics_opengl_glPopClientAttrib(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPopMatrix(void) {
+void windowssysWindowsWin32GraphicsOpenglGlPopMatrix(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4755,7 +4755,7 @@ void windowssys_windows_win32_graphics_opengl_glPopMatrix(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPopName(void) {
+void windowssysWindowsWin32GraphicsOpenglGlPopName(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4775,7 +4775,7 @@ void windowssys_windows_win32_graphics_opengl_glPopName(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPrioritizeTextures(int32_t n, void* textures, void* priorities) {
+void windowssysWindowsWin32GraphicsOpenglGlPrioritizeTextures(int32_t n, void* textures, void* priorities) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4798,7 +4798,7 @@ void windowssys_windows_win32_graphics_opengl_glPrioritizeTextures(int32_t n, vo
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPushAttrib(uint32_t mask) {
+void windowssysWindowsWin32GraphicsOpenglGlPushAttrib(uint32_t mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4819,7 +4819,7 @@ void windowssys_windows_win32_graphics_opengl_glPushAttrib(uint32_t mask) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPushClientAttrib(uint32_t mask) {
+void windowssysWindowsWin32GraphicsOpenglGlPushClientAttrib(uint32_t mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4840,7 +4840,7 @@ void windowssys_windows_win32_graphics_opengl_glPushClientAttrib(uint32_t mask) 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPushMatrix(void) {
+void windowssysWindowsWin32GraphicsOpenglGlPushMatrix(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4860,7 +4860,7 @@ void windowssys_windows_win32_graphics_opengl_glPushMatrix(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glPushName(uint32_t name) {
+void windowssysWindowsWin32GraphicsOpenglGlPushName(uint32_t name) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4881,7 +4881,7 @@ void windowssys_windows_win32_graphics_opengl_glPushName(uint32_t name) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2d(double x, double y) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2d(double x, double y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -4903,7 +4903,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2d(double x, double y) 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4924,7 +4924,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2f(float x, float y) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2f(float x, float y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -4946,7 +4946,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2f(float x, float y) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4967,7 +4967,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2i(int32_t x, int32_t y) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2i(int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4989,7 +4989,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2i(int32_t x, int32_t y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5010,7 +5010,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2s(int16_t x, int16_t y) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2s(int16_t x, int16_t y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5032,7 +5032,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2s(int16_t x, int16_t y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos2sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos2sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5053,7 +5053,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos2sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3d(double x, double y, double z) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3d(double x, double y, double z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5076,7 +5076,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3d(double x, double y, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5097,7 +5097,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3f(float x, float y, float z) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3f(float x, float y, float z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -5120,7 +5120,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3f(float x, float y, fl
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5141,7 +5141,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3i(int32_t x, int32_t y, int32_t z) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3i(int32_t x, int32_t y, int32_t z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5164,7 +5164,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3i(int32_t x, int32_t y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5185,7 +5185,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3s(int16_t x, int16_t y, int16_t z) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3s(int16_t x, int16_t y, int16_t z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5208,7 +5208,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3s(int16_t x, int16_t y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos3sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos3sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5229,7 +5229,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos3sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4d(double x, double y, double z, double w) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4d(double x, double y, double z, double w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5253,7 +5253,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4d(double x, double y, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5274,7 +5274,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4f(float x, float y, float z, float w) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4f(float x, float y, float z, float w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -5298,7 +5298,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4f(float x, float y, fl
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5319,7 +5319,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4i(int32_t x, int32_t y, int32_t z, int32_t w) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4i(int32_t x, int32_t y, int32_t z, int32_t w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5343,7 +5343,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4i(int32_t x, int32_t y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5364,7 +5364,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4s(int16_t x, int16_t y, int16_t z, int16_t w) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4s(int16_t x, int16_t y, int16_t z, int16_t w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5388,7 +5388,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4s(int16_t x, int16_t y
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRasterPos4sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlRasterPos4sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5409,7 +5409,7 @@ void windowssys_windows_win32_graphics_opengl_glRasterPos4sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glReadBuffer(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlReadBuffer(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5430,7 +5430,7 @@ void windowssys_windows_win32_graphics_opengl_glReadBuffer(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glReadPixels(int32_t x, int32_t y, int32_t width, int32_t height, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlReadPixels(int32_t x, int32_t y, int32_t width, int32_t height, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5457,7 +5457,7 @@ void windowssys_windows_win32_graphics_opengl_glReadPixels(int32_t x, int32_t y,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRectd(double x1, double y1, double x2, double y2) {
+void windowssysWindowsWin32GraphicsOpenglGlRectd(double x1, double y1, double x2, double y2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5481,7 +5481,7 @@ void windowssys_windows_win32_graphics_opengl_glRectd(double x1, double y1, doub
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRectdv(void* v1, void* v2) {
+void windowssysWindowsWin32GraphicsOpenglGlRectdv(void* v1, void* v2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5503,7 +5503,7 @@ void windowssys_windows_win32_graphics_opengl_glRectdv(void* v1, void* v2) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRectf(float x1, float y1, float x2, float y2) {
+void windowssysWindowsWin32GraphicsOpenglGlRectf(float x1, float y1, float x2, float y2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -5527,7 +5527,7 @@ void windowssys_windows_win32_graphics_opengl_glRectf(float x1, float y1, float 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRectfv(void* v1, void* v2) {
+void windowssysWindowsWin32GraphicsOpenglGlRectfv(void* v1, void* v2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5549,7 +5549,7 @@ void windowssys_windows_win32_graphics_opengl_glRectfv(void* v1, void* v2) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRecti(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
+void windowssysWindowsWin32GraphicsOpenglGlRecti(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5573,7 +5573,7 @@ void windowssys_windows_win32_graphics_opengl_glRecti(int32_t x1, int32_t y1, in
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRectiv(void* v1, void* v2) {
+void windowssysWindowsWin32GraphicsOpenglGlRectiv(void* v1, void* v2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5595,7 +5595,7 @@ void windowssys_windows_win32_graphics_opengl_glRectiv(void* v1, void* v2) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRects(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
+void windowssysWindowsWin32GraphicsOpenglGlRects(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5619,7 +5619,7 @@ void windowssys_windows_win32_graphics_opengl_glRects(int16_t x1, int16_t y1, in
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRectsv(void* v1, void* v2) {
+void windowssysWindowsWin32GraphicsOpenglGlRectsv(void* v1, void* v2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5641,7 +5641,7 @@ void windowssys_windows_win32_graphics_opengl_glRectsv(void* v1, void* v2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_glRenderMode(uint32_t mode) {
+int32_t windowssysWindowsWin32GraphicsOpenglGlRenderMode(uint32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5663,7 +5663,7 @@ int32_t windowssys_windows_win32_graphics_opengl_glRenderMode(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRotated(double angle, double x, double y, double z) {
+void windowssysWindowsWin32GraphicsOpenglGlRotated(double angle, double x, double y, double z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5687,7 +5687,7 @@ void windowssys_windows_win32_graphics_opengl_glRotated(double angle, double x, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glRotatef(float angle, float x, float y, float z) {
+void windowssysWindowsWin32GraphicsOpenglGlRotatef(float angle, float x, float y, float z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -5711,7 +5711,7 @@ void windowssys_windows_win32_graphics_opengl_glRotatef(float angle, float x, fl
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glScaled(double x, double y, double z) {
+void windowssysWindowsWin32GraphicsOpenglGlScaled(double x, double y, double z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5734,7 +5734,7 @@ void windowssys_windows_win32_graphics_opengl_glScaled(double x, double y, doubl
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glScalef(float x, float y, float z) {
+void windowssysWindowsWin32GraphicsOpenglGlScalef(float x, float y, float z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -5757,7 +5757,7 @@ void windowssys_windows_win32_graphics_opengl_glScalef(float x, float y, float z
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glScissor(int32_t x, int32_t y, int32_t width, int32_t height) {
+void windowssysWindowsWin32GraphicsOpenglGlScissor(int32_t x, int32_t y, int32_t width, int32_t height) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5781,7 +5781,7 @@ void windowssys_windows_win32_graphics_opengl_glScissor(int32_t x, int32_t y, in
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glSelectBuffer(int32_t size, void* buffer) {
+void windowssysWindowsWin32GraphicsOpenglGlSelectBuffer(int32_t size, void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5803,7 +5803,7 @@ void windowssys_windows_win32_graphics_opengl_glSelectBuffer(int32_t size, void*
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glShadeModel(uint32_t mode) {
+void windowssysWindowsWin32GraphicsOpenglGlShadeModel(uint32_t mode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5824,7 +5824,7 @@ void windowssys_windows_win32_graphics_opengl_glShadeModel(uint32_t mode) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glStencilFunc(uint32_t func, int32_t ref, uint32_t mask) {
+void windowssysWindowsWin32GraphicsOpenglGlStencilFunc(uint32_t func, int32_t ref, uint32_t mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5847,7 +5847,7 @@ void windowssys_windows_win32_graphics_opengl_glStencilFunc(uint32_t func, int32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glStencilMask(uint32_t mask) {
+void windowssysWindowsWin32GraphicsOpenglGlStencilMask(uint32_t mask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5868,7 +5868,7 @@ void windowssys_windows_win32_graphics_opengl_glStencilMask(uint32_t mask) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glStencilOp(uint32_t fail, uint32_t zfail, uint32_t zpass) {
+void windowssysWindowsWin32GraphicsOpenglGlStencilOp(uint32_t fail, uint32_t zfail, uint32_t zpass) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5891,7 +5891,7 @@ void windowssys_windows_win32_graphics_opengl_glStencilOp(uint32_t fail, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1d(double s) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1d(double s) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5912,7 +5912,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1d(double s) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5933,7 +5933,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1f(float s) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1f(float s) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float);
     static km_fn_t km_fn_ptr = NULL;
@@ -5954,7 +5954,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1f(float s) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5975,7 +5975,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1i(int32_t s) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1i(int32_t s) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5996,7 +5996,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1i(int32_t s) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6017,7 +6017,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1s(int16_t s) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1s(int16_t s) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6038,7 +6038,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1s(int16_t s) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord1sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord1sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6059,7 +6059,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord1sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2d(double s, double t) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2d(double s, double t) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -6081,7 +6081,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2d(double s, double t) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6102,7 +6102,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2f(float s, float t) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2f(float s, float t) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -6124,7 +6124,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2f(float s, float t) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6145,7 +6145,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2i(int32_t s, int32_t t) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2i(int32_t s, int32_t t) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6167,7 +6167,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2i(int32_t s, int32_t t)
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6188,7 +6188,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2s(int16_t s, int16_t t) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2s(int16_t s, int16_t t) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6210,7 +6210,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2s(int16_t s, int16_t t)
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord2sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord2sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6231,7 +6231,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord2sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3d(double s, double t, double r) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3d(double s, double t, double r) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -6254,7 +6254,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3d(double s, double t, d
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6275,7 +6275,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3f(float s, float t, float r) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3f(float s, float t, float r) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -6298,7 +6298,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3f(float s, float t, flo
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6319,7 +6319,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3i(int32_t s, int32_t t, int32_t r) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3i(int32_t s, int32_t t, int32_t r) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6342,7 +6342,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3i(int32_t s, int32_t t,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6363,7 +6363,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3s(int16_t s, int16_t t, int16_t r) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3s(int16_t s, int16_t t, int16_t r) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6386,7 +6386,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3s(int16_t s, int16_t t,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord3sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord3sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6407,7 +6407,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord3sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4d(double s, double t, double r, double q) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4d(double s, double t, double r, double q) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -6431,7 +6431,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4d(double s, double t, d
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6452,7 +6452,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4f(float s, float t, float r, float q) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4f(float s, float t, float r, float q) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -6476,7 +6476,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4f(float s, float t, flo
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6497,7 +6497,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4i(int32_t s, int32_t t, int32_t r, int32_t q) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4i(int32_t s, int32_t t, int32_t r, int32_t q) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6521,7 +6521,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4i(int32_t s, int32_t t,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6542,7 +6542,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4s(int16_t s, int16_t t, int16_t r, int16_t q) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4s(int16_t s, int16_t t, int16_t r, int16_t q) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6566,7 +6566,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4s(int16_t s, int16_t t,
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoord4sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoord4sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6587,7 +6587,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoord4sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexCoordPointer(int32_t size, uint32_t type, int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlTexCoordPointer(int32_t size, uint32_t type, int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6611,7 +6611,7 @@ void windowssys_windows_win32_graphics_opengl_glTexCoordPointer(int32_t size, ui
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexEnvf(uint32_t target, uint32_t pname, float param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexEnvf(uint32_t target, uint32_t pname, float param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -6634,7 +6634,7 @@ void windowssys_windows_win32_graphics_opengl_glTexEnvf(uint32_t target, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexEnvfv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexEnvfv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6657,7 +6657,7 @@ void windowssys_windows_win32_graphics_opengl_glTexEnvfv(uint32_t target, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexEnvi(uint32_t target, uint32_t pname, int32_t param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexEnvi(uint32_t target, uint32_t pname, int32_t param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6680,7 +6680,7 @@ void windowssys_windows_win32_graphics_opengl_glTexEnvi(uint32_t target, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexEnviv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexEnviv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6703,7 +6703,7 @@ void windowssys_windows_win32_graphics_opengl_glTexEnviv(uint32_t target, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexGend(uint32_t coord, uint32_t pname, double param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexGend(uint32_t coord, uint32_t pname, double param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -6726,7 +6726,7 @@ void windowssys_windows_win32_graphics_opengl_glTexGend(uint32_t coord, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexGendv(uint32_t coord, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexGendv(uint32_t coord, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6749,7 +6749,7 @@ void windowssys_windows_win32_graphics_opengl_glTexGendv(uint32_t coord, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexGenf(uint32_t coord, uint32_t pname, float param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexGenf(uint32_t coord, uint32_t pname, float param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -6772,7 +6772,7 @@ void windowssys_windows_win32_graphics_opengl_glTexGenf(uint32_t coord, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexGenfv(uint32_t coord, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexGenfv(uint32_t coord, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6795,7 +6795,7 @@ void windowssys_windows_win32_graphics_opengl_glTexGenfv(uint32_t coord, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexGeni(uint32_t coord, uint32_t pname, int32_t param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexGeni(uint32_t coord, uint32_t pname, int32_t param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6818,7 +6818,7 @@ void windowssys_windows_win32_graphics_opengl_glTexGeni(uint32_t coord, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexGeniv(uint32_t coord, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexGeniv(uint32_t coord, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6841,7 +6841,7 @@ void windowssys_windows_win32_graphics_opengl_glTexGeniv(uint32_t coord, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexImage1D(uint32_t target, int32_t level, int32_t internalformat, int32_t width, int32_t border, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlTexImage1D(uint32_t target, int32_t level, int32_t internalformat, int32_t width, int32_t border, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6869,7 +6869,7 @@ void windowssys_windows_win32_graphics_opengl_glTexImage1D(uint32_t target, int3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexImage2D(uint32_t target, int32_t level, int32_t internalformat, int32_t width, int32_t height, int32_t border, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlTexImage2D(uint32_t target, int32_t level, int32_t internalformat, int32_t width, int32_t height, int32_t border, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6898,7 +6898,7 @@ void windowssys_windows_win32_graphics_opengl_glTexImage2D(uint32_t target, int3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexParameterf(uint32_t target, uint32_t pname, float param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexParameterf(uint32_t target, uint32_t pname, float param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -6921,7 +6921,7 @@ void windowssys_windows_win32_graphics_opengl_glTexParameterf(uint32_t target, u
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexParameterfv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexParameterfv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6944,7 +6944,7 @@ void windowssys_windows_win32_graphics_opengl_glTexParameterfv(uint32_t target, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexParameteri(uint32_t target, uint32_t pname, int32_t param2) {
+void windowssysWindowsWin32GraphicsOpenglGlTexParameteri(uint32_t target, uint32_t pname, int32_t param2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6967,7 +6967,7 @@ void windowssys_windows_win32_graphics_opengl_glTexParameteri(uint32_t target, u
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexParameteriv(uint32_t target, uint32_t pname, void* params) {
+void windowssysWindowsWin32GraphicsOpenglGlTexParameteriv(uint32_t target, uint32_t pname, void* params) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6990,7 +6990,7 @@ void windowssys_windows_win32_graphics_opengl_glTexParameteriv(uint32_t target, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexSubImage1D(uint32_t target, int32_t level, int32_t xoffset, int32_t width, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlTexSubImage1D(uint32_t target, int32_t level, int32_t xoffset, int32_t width, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7017,7 +7017,7 @@ void windowssys_windows_win32_graphics_opengl_glTexSubImage1D(uint32_t target, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTexSubImage2D(uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t width, int32_t height, uint32_t format, uint32_t type, void* pixels) {
+void windowssysWindowsWin32GraphicsOpenglGlTexSubImage2D(uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t width, int32_t height, uint32_t format, uint32_t type, void* pixels) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7046,7 +7046,7 @@ void windowssys_windows_win32_graphics_opengl_glTexSubImage2D(uint32_t target, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTranslated(double x, double y, double z) {
+void windowssysWindowsWin32GraphicsOpenglGlTranslated(double x, double y, double z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -7069,7 +7069,7 @@ void windowssys_windows_win32_graphics_opengl_glTranslated(double x, double y, d
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glTranslatef(float x, float y, float z) {
+void windowssysWindowsWin32GraphicsOpenglGlTranslatef(float x, float y, float z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -7092,7 +7092,7 @@ void windowssys_windows_win32_graphics_opengl_glTranslatef(float x, float y, flo
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2d(double x, double y) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2d(double x, double y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -7114,7 +7114,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2d(double x, double y) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7135,7 +7135,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2f(float x, float y) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2f(float x, float y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -7157,7 +7157,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2f(float x, float y) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7178,7 +7178,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2i(int32_t x, int32_t y) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2i(int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7200,7 +7200,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2i(int32_t x, int32_t y) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7221,7 +7221,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2s(int16_t x, int16_t y) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2s(int16_t x, int16_t y) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7243,7 +7243,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2s(int16_t x, int16_t y) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex2sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex2sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7264,7 +7264,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex2sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3d(double x, double y, double z) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3d(double x, double y, double z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -7287,7 +7287,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3d(double x, double y, dou
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7308,7 +7308,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3f(float x, float y, float z) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3f(float x, float y, float z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -7331,7 +7331,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3f(float x, float y, float
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7352,7 +7352,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3i(int32_t x, int32_t y, int32_t z) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3i(int32_t x, int32_t y, int32_t z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7375,7 +7375,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3i(int32_t x, int32_t y, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7396,7 +7396,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3s(int16_t x, int16_t y, int16_t z) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3s(int16_t x, int16_t y, int16_t z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7419,7 +7419,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3s(int16_t x, int16_t y, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex3sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex3sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7440,7 +7440,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex3sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4d(double x, double y, double z, double w) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4d(double x, double y, double z, double w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -7464,7 +7464,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4d(double x, double y, dou
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4dv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4dv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7485,7 +7485,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4dv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4f(float x, float y, float z, float w) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4f(float x, float y, float z, float w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(float, float, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -7509,7 +7509,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4f(float x, float y, float
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4fv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4fv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7530,7 +7530,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4fv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4i(int32_t x, int32_t y, int32_t z, int32_t w) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4i(int32_t x, int32_t y, int32_t z, int32_t w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7554,7 +7554,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4i(int32_t x, int32_t y, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4iv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4iv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7575,7 +7575,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4iv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4s(int16_t x, int16_t y, int16_t z, int16_t w) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4s(int16_t x, int16_t y, int16_t z, int16_t w) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int16_t, int16_t, int16_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7599,7 +7599,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4s(int16_t x, int16_t y, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertex4sv(void* v) {
+void windowssysWindowsWin32GraphicsOpenglGlVertex4sv(void* v) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7620,7 +7620,7 @@ void windowssys_windows_win32_graphics_opengl_glVertex4sv(void* v) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glVertexPointer(int32_t size, uint32_t type, int32_t stride, void* pointer) {
+void windowssysWindowsWin32GraphicsOpenglGlVertexPointer(int32_t size, uint32_t type, int32_t stride, void* pointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7644,7 +7644,7 @@ void windowssys_windows_win32_graphics_opengl_glVertexPointer(int32_t size, uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_glViewport(int32_t x, int32_t y, int32_t width, int32_t height) {
+void windowssysWindowsWin32GraphicsOpenglGlViewport(int32_t x, int32_t y, int32_t width, int32_t height) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7668,7 +7668,7 @@ void windowssys_windows_win32_graphics_opengl_glViewport(int32_t x, int32_t y, i
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluBeginCurve(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluBeginCurve(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7689,7 +7689,7 @@ void windowssys_windows_win32_graphics_opengl_gluBeginCurve(void* nobj) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluBeginPolygon(void* tess) {
+void windowssysWindowsWin32GraphicsOpenglGluBeginPolygon(void* tess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7710,7 +7710,7 @@ void windowssys_windows_win32_graphics_opengl_gluBeginPolygon(void* tess) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluBeginSurface(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluBeginSurface(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7731,7 +7731,7 @@ void windowssys_windows_win32_graphics_opengl_gluBeginSurface(void* nobj) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluBeginTrim(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluBeginTrim(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7752,7 +7752,7 @@ void windowssys_windows_win32_graphics_opengl_gluBeginTrim(void* nobj) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_gluBuild1DMipmaps(uint32_t target, int32_t components, int32_t width, uint32_t format, uint32_t type, void* data) {
+int32_t windowssysWindowsWin32GraphicsOpenglGluBuild1DMipmaps(uint32_t target, int32_t components, int32_t width, uint32_t format, uint32_t type, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7779,7 +7779,7 @@ int32_t windowssys_windows_win32_graphics_opengl_gluBuild1DMipmaps(uint32_t targ
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_gluBuild2DMipmaps(uint32_t target, int32_t components, int32_t width, int32_t height, uint32_t format, uint32_t type, void* data) {
+int32_t windowssysWindowsWin32GraphicsOpenglGluBuild2DMipmaps(uint32_t target, int32_t components, int32_t width, int32_t height, uint32_t format, uint32_t type, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7807,7 +7807,7 @@ int32_t windowssys_windows_win32_graphics_opengl_gluBuild2DMipmaps(uint32_t targ
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluCylinder(void* qobj, double baseradius, double topradius, double height, int32_t slices, int32_t stacks) {
+void windowssysWindowsWin32GraphicsOpenglGluCylinder(void* qobj, double baseradius, double topradius, double height, int32_t slices, int32_t stacks) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, double, double, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7833,7 +7833,7 @@ void windowssys_windows_win32_graphics_opengl_gluCylinder(void* qobj, double bas
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluDeleteNurbsRenderer(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluDeleteNurbsRenderer(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7854,7 +7854,7 @@ void windowssys_windows_win32_graphics_opengl_gluDeleteNurbsRenderer(void* nobj)
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluDeleteQuadric(void* state) {
+void windowssysWindowsWin32GraphicsOpenglGluDeleteQuadric(void* state) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7875,7 +7875,7 @@ void windowssys_windows_win32_graphics_opengl_gluDeleteQuadric(void* state) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluDeleteTess(void* tess) {
+void windowssysWindowsWin32GraphicsOpenglGluDeleteTess(void* tess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7896,7 +7896,7 @@ void windowssys_windows_win32_graphics_opengl_gluDeleteTess(void* tess) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluDisk(void* qobj, double innerradius, double outerradius, int32_t slices, int32_t loops) {
+void windowssysWindowsWin32GraphicsOpenglGluDisk(void* qobj, double innerradius, double outerradius, int32_t slices, int32_t loops) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, double, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7921,7 +7921,7 @@ void windowssys_windows_win32_graphics_opengl_gluDisk(void* qobj, double innerra
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluEndCurve(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluEndCurve(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7942,7 +7942,7 @@ void windowssys_windows_win32_graphics_opengl_gluEndCurve(void* nobj) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluEndPolygon(void* tess) {
+void windowssysWindowsWin32GraphicsOpenglGluEndPolygon(void* tess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7963,7 +7963,7 @@ void windowssys_windows_win32_graphics_opengl_gluEndPolygon(void* tess) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluEndSurface(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluEndSurface(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7984,7 +7984,7 @@ void windowssys_windows_win32_graphics_opengl_gluEndSurface(void* nobj) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluEndTrim(void* nobj) {
+void windowssysWindowsWin32GraphicsOpenglGluEndTrim(void* nobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8005,7 +8005,7 @@ void windowssys_windows_win32_graphics_opengl_gluEndTrim(void* nobj) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_gluErrorString(uint32_t errcode) {
+void* windowssysWindowsWin32GraphicsOpenglGluErrorString(uint32_t errcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8027,7 +8027,7 @@ void* windowssys_windows_win32_graphics_opengl_gluErrorString(uint32_t errcode) 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_gluErrorUnicodeStringEXT(uint32_t errcode) {
+void* windowssysWindowsWin32GraphicsOpenglGluErrorUnicodeStringEXT(uint32_t errcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8049,7 +8049,7 @@ void* windowssys_windows_win32_graphics_opengl_gluErrorUnicodeStringEXT(uint32_t
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluGetNurbsProperty(void* nobj, uint32_t property, void* value) {
+void windowssysWindowsWin32GraphicsOpenglGluGetNurbsProperty(void* nobj, uint32_t property, void* value) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8072,7 +8072,7 @@ void windowssys_windows_win32_graphics_opengl_gluGetNurbsProperty(void* nobj, ui
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_gluGetString(uint32_t name) {
+void* windowssysWindowsWin32GraphicsOpenglGluGetString(uint32_t name) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8094,7 +8094,7 @@ void* windowssys_windows_win32_graphics_opengl_gluGetString(uint32_t name) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluGetTessProperty(void* tess, uint32_t which, void* value) {
+void windowssysWindowsWin32GraphicsOpenglGluGetTessProperty(void* tess, uint32_t which, void* value) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8117,7 +8117,7 @@ void windowssys_windows_win32_graphics_opengl_gluGetTessProperty(void* tess, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluLoadSamplingMatrices(void* nobj, void* modelmatrix, void* projmatrix, void* viewport) {
+void windowssysWindowsWin32GraphicsOpenglGluLoadSamplingMatrices(void* nobj, void* modelmatrix, void* projmatrix, void* viewport) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8141,7 +8141,7 @@ void windowssys_windows_win32_graphics_opengl_gluLoadSamplingMatrices(void* nobj
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluLookAt(double eyex, double eyey, double eyez, double centerx, double centery, double centerz, double upx, double upy, double upz) {
+void windowssysWindowsWin32GraphicsOpenglGluLookAt(double eyex, double eyey, double eyez, double centerx, double centery, double centerz, double upx, double upy, double upz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double, double, double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8170,7 +8170,7 @@ void windowssys_windows_win32_graphics_opengl_gluLookAt(double eyex, double eyey
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_gluNewNurbsRenderer(void) {
+void* windowssysWindowsWin32GraphicsOpenglGluNewNurbsRenderer(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -8191,7 +8191,7 @@ void* windowssys_windows_win32_graphics_opengl_gluNewNurbsRenderer(void) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_gluNewQuadric(void) {
+void* windowssysWindowsWin32GraphicsOpenglGluNewQuadric(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -8212,7 +8212,7 @@ void* windowssys_windows_win32_graphics_opengl_gluNewQuadric(void) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_gluNewTess(void) {
+void* windowssysWindowsWin32GraphicsOpenglGluNewTess(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -8233,7 +8233,7 @@ void* windowssys_windows_win32_graphics_opengl_gluNewTess(void) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluNextContour(void* tess, uint32_t type) {
+void windowssysWindowsWin32GraphicsOpenglGluNextContour(void* tess, uint32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8255,7 +8255,7 @@ void windowssys_windows_win32_graphics_opengl_gluNextContour(void* tess, uint32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluNurbsCallback(void* nobj, uint32_t which, int64_t fn) {
+void windowssysWindowsWin32GraphicsOpenglGluNurbsCallback(void* nobj, uint32_t which, int64_t fn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8278,7 +8278,7 @@ void windowssys_windows_win32_graphics_opengl_gluNurbsCallback(void* nobj, uint3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluNurbsCurve(void* nobj, int32_t nknots, void* knot, int32_t stride, void* ctlarray, int32_t order, uint32_t type) {
+void windowssysWindowsWin32GraphicsOpenglGluNurbsCurve(void* nobj, int32_t nknots, void* knot, int32_t stride, void* ctlarray, int32_t order, uint32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8305,7 +8305,7 @@ void windowssys_windows_win32_graphics_opengl_gluNurbsCurve(void* nobj, int32_t 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluNurbsProperty(void* nobj, uint32_t property, float value) {
+void windowssysWindowsWin32GraphicsOpenglGluNurbsProperty(void* nobj, uint32_t property, float value) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -8328,7 +8328,7 @@ void windowssys_windows_win32_graphics_opengl_gluNurbsProperty(void* nobj, uint3
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluNurbsSurface(void* nobj, int32_t sknot_count, void* sknot, int32_t tknot_count, void* tknot, int32_t s_stride, int32_t t_stride, void* ctlarray, int32_t sorder, int32_t torder, uint32_t type) {
+void windowssysWindowsWin32GraphicsOpenglGluNurbsSurface(void* nobj, int32_t sknotCount, void* sknot, int32_t tknotCount, void* tknot, int32_t sStride, int32_t tStride, void* ctlarray, int32_t sorder, int32_t torder, uint32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t, int32_t, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8339,18 +8339,18 @@ void windowssys_windows_win32_graphics_opengl_gluNurbsSurface(void* nobj, int32_
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(nobj, sknot_count, sknot, tknot_count, tknot, s_stride, t_stride, ctlarray, sorder, torder, type);
+        km_fn_ptr(nobj, sknotCount, sknot, tknotCount, tknot, sStride, tStride, ctlarray, sorder, torder, type);
         return;
     }
     errno = ENOSYS;
 #else
     (void)nobj;
-    (void)sknot_count;
+    (void)sknotCount;
     (void)sknot;
-    (void)tknot_count;
+    (void)tknotCount;
     (void)tknot;
-    (void)s_stride;
-    (void)t_stride;
+    (void)sStride;
+    (void)tStride;
     (void)ctlarray;
     (void)sorder;
     (void)torder;
@@ -8359,7 +8359,7 @@ void windowssys_windows_win32_graphics_opengl_gluNurbsSurface(void* nobj, int32_
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluOrtho2D(double left, double right, double bottom, double top) {
+void windowssysWindowsWin32GraphicsOpenglGluOrtho2D(double left, double right, double bottom, double top) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8383,7 +8383,7 @@ void windowssys_windows_win32_graphics_opengl_gluOrtho2D(double left, double rig
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluPartialDisk(void* qobj, double innerradius, double outerradius, int32_t slices, int32_t loops, double startangle, double sweepangle) {
+void windowssysWindowsWin32GraphicsOpenglGluPartialDisk(void* qobj, double innerradius, double outerradius, int32_t slices, int32_t loops, double startangle, double sweepangle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, double, int32_t, int32_t, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8410,7 +8410,7 @@ void windowssys_windows_win32_graphics_opengl_gluPartialDisk(void* qobj, double 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluPerspective(double fovy, double aspect, double znear, double zfar) {
+void windowssysWindowsWin32GraphicsOpenglGluPerspective(double fovy, double aspect, double znear, double zfar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8434,7 +8434,7 @@ void windowssys_windows_win32_graphics_opengl_gluPerspective(double fovy, double
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluPickMatrix(double x, double y, double width, double height, void* viewport) {
+void windowssysWindowsWin32GraphicsOpenglGluPickMatrix(double x, double y, double width, double height, void* viewport) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(double, double, double, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8459,7 +8459,7 @@ void windowssys_windows_win32_graphics_opengl_gluPickMatrix(double x, double y, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_gluProject(double objx, double objy, double objz, void* modelmatrix, void* projmatrix, void* viewport, void* winx, void* winy, void* winz) {
+int32_t windowssysWindowsWin32GraphicsOpenglGluProject(double objx, double objy, double objz, void* modelmatrix, void* projmatrix, void* viewport, void* winx, void* winy, void* winz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, double, double, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8489,7 +8489,7 @@ int32_t windowssys_windows_win32_graphics_opengl_gluProject(double objx, double 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluPwlCurve(void* nobj, int32_t count, void* array, int32_t stride, uint32_t type) {
+void windowssysWindowsWin32GraphicsOpenglGluPwlCurve(void* nobj, int32_t count, void* array, int32_t stride, uint32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8514,7 +8514,7 @@ void windowssys_windows_win32_graphics_opengl_gluPwlCurve(void* nobj, int32_t co
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluQuadricCallback(void* qobj, uint32_t which, int64_t fn) {
+void windowssysWindowsWin32GraphicsOpenglGluQuadricCallback(void* qobj, uint32_t which, int64_t fn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8537,7 +8537,7 @@ void windowssys_windows_win32_graphics_opengl_gluQuadricCallback(void* qobj, uin
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluQuadricDrawStyle(void* quadobject, uint32_t drawstyle) {
+void windowssysWindowsWin32GraphicsOpenglGluQuadricDrawStyle(void* quadobject, uint32_t drawstyle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8559,7 +8559,7 @@ void windowssys_windows_win32_graphics_opengl_gluQuadricDrawStyle(void* quadobje
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluQuadricNormals(void* quadobject, uint32_t normals) {
+void windowssysWindowsWin32GraphicsOpenglGluQuadricNormals(void* quadobject, uint32_t normals) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8581,7 +8581,7 @@ void windowssys_windows_win32_graphics_opengl_gluQuadricNormals(void* quadobject
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluQuadricOrientation(void* quadobject, uint32_t orientation) {
+void windowssysWindowsWin32GraphicsOpenglGluQuadricOrientation(void* quadobject, uint32_t orientation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8603,7 +8603,7 @@ void windowssys_windows_win32_graphics_opengl_gluQuadricOrientation(void* quadob
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluQuadricTexture(void* quadobject, uint8_t texturecoords) {
+void windowssysWindowsWin32GraphicsOpenglGluQuadricTexture(void* quadobject, uint8_t texturecoords) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8625,7 +8625,7 @@ void windowssys_windows_win32_graphics_opengl_gluQuadricTexture(void* quadobject
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_gluScaleImage(uint32_t format, int32_t widthin, int32_t heightin, uint32_t typein, void* datain, int32_t widthout, int32_t heightout, uint32_t typeout, void* dataout) {
+int32_t windowssysWindowsWin32GraphicsOpenglGluScaleImage(uint32_t format, int32_t widthin, int32_t heightin, uint32_t typein, void* datain, int32_t widthout, int32_t heightout, uint32_t typeout, void* dataout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, uint32_t, void*, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8655,7 +8655,7 @@ int32_t windowssys_windows_win32_graphics_opengl_gluScaleImage(uint32_t format, 
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluSphere(void* qobj, double radius, int32_t slices, int32_t stacks) {
+void windowssysWindowsWin32GraphicsOpenglGluSphere(void* qobj, double radius, int32_t slices, int32_t stacks) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8679,7 +8679,7 @@ void windowssys_windows_win32_graphics_opengl_gluSphere(void* qobj, double radiu
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessBeginContour(void* tess) {
+void windowssysWindowsWin32GraphicsOpenglGluTessBeginContour(void* tess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8700,7 +8700,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessBeginContour(void* tess) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessBeginPolygon(void* tess, void* polygon_data) {
+void windowssysWindowsWin32GraphicsOpenglGluTessBeginPolygon(void* tess, void* polygonData) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8711,18 +8711,18 @@ void windowssys_windows_win32_graphics_opengl_gluTessBeginPolygon(void* tess, vo
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(tess, polygon_data);
+        km_fn_ptr(tess, polygonData);
         return;
     }
     errno = ENOSYS;
 #else
     (void)tess;
-    (void)polygon_data;
+    (void)polygonData;
     errno = ENOSYS;
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessCallback(void* tess, uint32_t which, int64_t fn) {
+void windowssysWindowsWin32GraphicsOpenglGluTessCallback(void* tess, uint32_t which, int64_t fn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8745,7 +8745,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessCallback(void* tess, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessEndContour(void* tess) {
+void windowssysWindowsWin32GraphicsOpenglGluTessEndContour(void* tess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8766,7 +8766,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessEndContour(void* tess) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessEndPolygon(void* tess) {
+void windowssysWindowsWin32GraphicsOpenglGluTessEndPolygon(void* tess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8787,7 +8787,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessEndPolygon(void* tess) {
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessNormal(void* tess, double x, double y, double z) {
+void windowssysWindowsWin32GraphicsOpenglGluTessNormal(void* tess, double x, double y, double z) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8811,7 +8811,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessNormal(void* tess, double x
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessProperty(void* tess, uint32_t which, double value) {
+void windowssysWindowsWin32GraphicsOpenglGluTessProperty(void* tess, uint32_t which, double value) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8834,7 +8834,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessProperty(void* tess, uint32
 #endif
 }
 
-void windowssys_windows_win32_graphics_opengl_gluTessVertex(void* tess, void* coords, void* data) {
+void windowssysWindowsWin32GraphicsOpenglGluTessVertex(void* tess, void* coords, void* data) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8857,7 +8857,7 @@ void windowssys_windows_win32_graphics_opengl_gluTessVertex(void* tess, void* co
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_gluUnProject(double winx, double winy, double winz, void* modelmatrix, void* projmatrix, void* viewport, void* objx, void* objy, void* objz) {
+int32_t windowssysWindowsWin32GraphicsOpenglGluUnProject(double winx, double winy, double winz, void* modelmatrix, void* projmatrix, void* viewport, void* objx, void* objy, void* objz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, double, double, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8887,7 +8887,7 @@ int32_t windowssys_windows_win32_graphics_opengl_gluUnProject(double winx, doubl
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglCopyContext(void* param0, void* param1, uint32_t param2) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglCopyContext(void* param0, void* param1, uint32_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8911,7 +8911,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglCopyContext(void* param0, vo
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_wglCreateContext(void* param0) {
+void* windowssysWindowsWin32GraphicsOpenglWglCreateContext(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8933,7 +8933,7 @@ void* windowssys_windows_win32_graphics_opengl_wglCreateContext(void* param0) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_wglCreateLayerContext(void* param0, int32_t param1) {
+void* windowssysWindowsWin32GraphicsOpenglWglCreateLayerContext(void* param0, int32_t param1) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8956,7 +8956,7 @@ void* windowssys_windows_win32_graphics_opengl_wglCreateLayerContext(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglDeleteContext(void* param0) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglDeleteContext(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8978,7 +8978,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglDeleteContext(void* param0) 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglDescribeLayerPlane(void* param0, int32_t param1, int32_t param2, uint32_t param3, void* param4) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglDescribeLayerPlane(void* param0, int32_t param1, int32_t param2, uint32_t param3, void* param4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9004,7 +9004,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglDescribeLayerPlane(void* par
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_wglGetCurrentContext(void) {
+void* windowssysWindowsWin32GraphicsOpenglWglGetCurrentContext(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9025,7 +9025,7 @@ void* windowssys_windows_win32_graphics_opengl_wglGetCurrentContext(void) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_wglGetCurrentDC(void) {
+void* windowssysWindowsWin32GraphicsOpenglWglGetCurrentDC(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9046,7 +9046,7 @@ void* windowssys_windows_win32_graphics_opengl_wglGetCurrentDC(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEntries(void* param0, int32_t param1, int32_t param2, int32_t param3, void* param4) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglGetLayerPaletteEntries(void* param0, int32_t param1, int32_t param2, int32_t param3, void* param4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9072,7 +9072,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEntries(void*
 #endif
 }
 
-void* windowssys_windows_win32_graphics_opengl_wglGetProcAddress(void* param0) {
+void* windowssysWindowsWin32GraphicsOpenglWglGetProcAddress(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9094,7 +9094,7 @@ void* windowssys_windows_win32_graphics_opengl_wglGetProcAddress(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglMakeCurrent(void* param0, void* param1) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglMakeCurrent(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9117,7 +9117,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglMakeCurrent(void* param0, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglRealizeLayerPalette(void* param0, int32_t param1, int32_t param2) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglRealizeLayerPalette(void* param0, int32_t param1, int32_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9141,7 +9141,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglRealizeLayerPalette(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglSetLayerPaletteEntries(void* param0, int32_t param1, int32_t param2, int32_t param3, void* param4) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglSetLayerPaletteEntries(void* param0, int32_t param1, int32_t param2, int32_t param3, void* param4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9167,7 +9167,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglSetLayerPaletteEntries(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglShareLists(void* param0, void* param1) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglShareLists(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9190,7 +9190,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglShareLists(void* param0, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglSwapLayerBuffers(void* param0, uint32_t param1) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglSwapLayerBuffers(void* param0, uint32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9213,7 +9213,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglSwapLayerBuffers(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglUseFontBitmapsA(void* param0, uint32_t param1, uint32_t param2, uint32_t param3) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglUseFontBitmapsA(void* param0, uint32_t param1, uint32_t param2, uint32_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9238,7 +9238,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglUseFontBitmapsA(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglUseFontBitmapsW(void* param0, uint32_t param1, uint32_t param2, uint32_t param3) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglUseFontBitmapsW(void* param0, uint32_t param1, uint32_t param2, uint32_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9263,7 +9263,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglUseFontBitmapsW(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglUseFontOutlinesA(void* param0, uint32_t param1, uint32_t param2, uint32_t param3, float param4, float param5, int32_t param6, void* param7) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglUseFontOutlinesA(void* param0, uint32_t param1, uint32_t param2, uint32_t param3, float param4, float param5, int32_t param6, void* param7) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, float, float, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9292,7 +9292,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglUseFontOutlinesA(void* param
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_opengl_wglUseFontOutlinesW(void* param0, uint32_t param1, uint32_t param2, uint32_t param3, float param4, float param5, int32_t param6, void* param7) {
+int32_t windowssysWindowsWin32GraphicsOpenglWglUseFontOutlinesW(void* param0, uint32_t param1, uint32_t param2, uint32_t param3, float param4, float param5, int32_t param6, void* param7) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, float, float, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -9,11 +9,11 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete(void* vhfoperationhandle, int32_t completionstatus);
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate(void* vhfconfig, void* vhfhandle);
-void windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete(void* vhfhandle, bool wait);
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit(void* vhfhandle, void* hidtransferpacket);
-int32_t windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart(void* vhfhandle);
+int32_t windowssysWindowsWdkDevicesHumaninterfacedeviceVhfAsyncOperationComplete(void* vhfoperationhandle, int32_t completionstatus);
+int32_t windowssysWindowsWdkDevicesHumaninterfacedeviceVhfCreate(void* vhfconfig, void* vhfhandle);
+void windowssysWindowsWdkDevicesHumaninterfacedeviceVhfDelete(void* vhfhandle, bool wait);
+int32_t windowssysWindowsWdkDevicesHumaninterfacedeviceVhfReadReportSubmit(void* vhfhandle, void* hidtransferpacket);
+int32_t windowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart(void* vhfhandle);
 
 #ifdef __cplusplus
 }

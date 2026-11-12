@@ -2,16 +2,50 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.nfc
 
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.windowssys.core.Guid
 
 public data class NfcrmRadioState(
     public var mediaRadioOn: Boolean = false,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcrmRadioState> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcrmRadioState> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): NfcrmRadioState =
+                    NfcrmRadioState(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: NfcrmRadioState) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.mediaRadioOn)
+                }
+            }
+    }
+}
 
 public data class NfcrmSetRadioState(
     public var systemStateUpdate: Boolean = false,
     public var mediaRadioOn: Boolean = false,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcrmSetRadioState> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcrmSetRadioState> {
+                override val sizeBytes: Long = 2L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): NfcrmSetRadioState =
+                    NfcrmSetRadioState(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 1L),
+                    )
+                override fun writeNative(addr: Long, value: NfcrmSetRadioState) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.systemStateUpdate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 1L, value.mediaRadioOn)
+                }
+            }
+    }
+}
 
 public data class NfcDataBuffer(
     public var cbBuffer: UShort = 0u,
@@ -30,6 +64,29 @@ public data class NfcDataBuffer(
         result = 31 * result + this.pbBuffer.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcDataBuffer> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcDataBuffer> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): NfcDataBuffer =
+                    NfcDataBuffer(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                        ).readNative(addr + 2L),
+                    )
+                override fun writeNative(addr: Long, value: NfcDataBuffer) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cbBuffer)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                    ).writeNative(addr + 2L, value.pbBuffer)
+                }
+            }
+    }
 }
 
 public data class NfcLlcpConfig(
@@ -38,13 +95,61 @@ public data class NfcLlcpConfig(
     public var bLTO: UByte = 0u,
     public var bOptions: UByte = 0u,
     public var fAutoActivate: Boolean = false,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpConfig> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpConfig> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): NfcLlcpConfig =
+                    NfcLlcpConfig(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 5L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 6L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpConfig) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.uMIU)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.uWKS)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 4L, value.bLTO)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 5L, value.bOptions)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 6L, value.fAutoActivate)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpServiceDiscoverRequest(
     public var hRemoteDev: Int = 0,
     public var numberOfEntries: UInt = 0u,
     public var serviceNameEntries: List<NfcLlcpServiceNameEntry> = List(1) { NfcLlcpServiceNameEntry() },
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpServiceDiscoverRequest> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpServiceDiscoverRequest> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcLlcpServiceDiscoverRequest =
+                    NfcLlcpServiceDiscoverRequest(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(NfcLlcpServiceNameEntry.typeLayout(), (1).toInt())
+                        ).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpServiceDiscoverRequest) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hRemoteDev)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.numberOfEntries)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(NfcLlcpServiceNameEntry.typeLayout(), (1).toInt())
+                    ).writeNative(addr + 12L, value.serviceNameEntries)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpServiceDiscoverSap(
     public var numberOfEntries: UInt = 0u,
@@ -62,6 +167,29 @@ public data class NfcLlcpServiceDiscoverSap(
         var result = this.numberOfEntries.hashCode()
         result = 31 * result + this.sAPEntries.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpServiceDiscoverSap> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpServiceDiscoverSap> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcLlcpServiceDiscoverSap =
+                    NfcLlcpServiceDiscoverSap(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpServiceDiscoverSap) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfEntries)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                    ).writeNative(addr + 4L, value.sAPEntries)
+                }
+            }
     }
 }
 
@@ -82,18 +210,77 @@ public data class NfcLlcpServiceNameEntry(
         result = 31 * result + this.pbServiceName.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpServiceNameEntry> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpServiceNameEntry> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcLlcpServiceNameEntry =
+                    NfcLlcpServiceNameEntry(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpServiceNameEntry) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbServiceName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                    ).writeNative(addr + 4L, value.pbServiceName)
+                }
+            }
+    }
 }
 
 public data class NfcLlcpSocketAcceptInfo(
     public var hSocket: Int = 0,
     public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketAcceptInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketAcceptInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcLlcpSocketAcceptInfo =
+                    NfcLlcpSocketAcceptInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (NfcLlcpSocketOption.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketAcceptInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSocket)
+                    (NfcLlcpSocketOption.typeLayout()).writeNative(addr + 8L, value.sSocketOption)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpSocketClPayload(
     public var hSocket: Int = 0,
     public var bSAP: UByte = 0u,
     public var sPayload: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketClPayload> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketClPayload> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcLlcpSocketClPayload =
+                    NfcLlcpSocketClPayload(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 10L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketClPayload) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSocket)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bSAP)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 10L, value.sPayload)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpSocketConnectInfo(
     public var hRemoteDev: Int = 0,
@@ -110,36 +297,146 @@ public data class NfcLlcpSocketConnectInfo0(
 public data class NfcLlcpSocketErrorInfo(
     public var hSocket: Int = 0,
     public var eSocketError: NfcLlcpSocketError = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketErrorInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketErrorInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcLlcpSocketErrorInfo =
+                    NfcLlcpSocketErrorInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketErrorInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSocket)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eSocketError)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpSocketInfo(
     public var eSocketType: NfcLlcpSocketType = 0,
     public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketInfo> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcLlcpSocketInfo =
+                    NfcLlcpSocketInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (NfcLlcpSocketOption.typeLayout()).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.eSocketType)
+                    (NfcLlcpSocketOption.typeLayout()).writeNative(addr + 4L, value.sSocketOption)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpSocketOption(
     public var uMIUX: UShort = 0u,
     public var bRW: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketOption> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketOption> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): NfcLlcpSocketOption =
+                    NfcLlcpSocketOption(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketOption) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.uMIUX)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.bRW)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpSocketPayload(
     public var hSocket: Int = 0,
     public var bSAP: UByte = 0u,
     public var sPayload: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketPayload> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketPayload> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcLlcpSocketPayload =
+                    NfcLlcpSocketPayload(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 10L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketPayload) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSocket)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bSAP)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 10L, value.sPayload)
+                }
+            }
+    }
+}
 
 public data class NfcLlcpSocketServiceInfo(
     public var hSocket: Int = 0,
     public var bSAP: UByte = 0u,
     public var sServiceName: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketServiceInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcLlcpSocketServiceInfo> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcLlcpSocketServiceInfo =
+                    NfcLlcpSocketServiceInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (NfcLlcpServiceNameEntry.typeLayout()).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: NfcLlcpSocketServiceInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSocket)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bSAP)
+                    (NfcLlcpServiceNameEntry.typeLayout()).writeNative(addr + 12L, value.sServiceName)
+                }
+            }
+    }
+}
 
 public data class NfcNdefInfo(
     public var fIsNdefFormatted: Boolean = false,
     public var fIsReadOnly: Boolean = false,
     public var dwActualMessageLength: UInt = 0u,
     public var dwMaxMessageLength: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcNdefInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcNdefInfo> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcNdefInfo =
+                    NfcNdefInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 1L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcNdefInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.fIsNdefFormatted)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 1L, value.fIsReadOnly)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwActualMessageLength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwMaxMessageLength)
+                }
+            }
+    }
+}
 
 public data class NfcP2pParamConfig(
     public var eP2pMode: NfcP2pMode = 0,
@@ -161,12 +458,54 @@ public data class NfcP2pParamConfig(
         result = 31 * result + this.pbGeneralBytes.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcP2pParamConfig> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcP2pParamConfig> {
+                override val sizeBytes: Long = 56L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcP2pParamConfig =
+                    NfcP2pParamConfig(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (48).toInt())
+                        ).readNative(addr + 5L),
+                    )
+                override fun writeNative(addr: Long, value: NfcP2pParamConfig) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.eP2pMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 4L, value.cbGeneralBytes)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (48).toInt())
+                    ).writeNative(addr + 5L, value.pbGeneralBytes)
+                }
+            }
+    }
 }
 
 public data class NfcRemoteDeviceDisconnet(
     public var hRemoteDev: Int = 0,
     public var eReleaseType: NfcReleaseType = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDeviceDisconnet> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDeviceDisconnet> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcRemoteDeviceDisconnet =
+                    NfcRemoteDeviceDisconnet(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcRemoteDeviceDisconnet) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hRemoteDev)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eReleaseType)
+                }
+            }
+    }
+}
 
 public data class NfcRemoteDevInfo(
     public var hRemoteDev: Int = 0,
@@ -197,18 +536,85 @@ public data class NfcRemoteDevInfo(
         result = 31 * result + this.pbUid.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDevInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDevInfo> {
+                override val sizeBytes: Long = 32L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcRemoteDevInfo =
+                    NfcRemoteDevInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 13L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 14L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                        ).readNative(addr + 15L),
+                    )
+                override fun writeNative(addr: Long, value: NfcRemoteDevInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hRemoteDev)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 12L, value.eRFTech)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 13L, value.eProtocol)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 14L, value.cbUid)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                    ).writeNative(addr + 15L, value.pbUid)
+                }
+            }
+    }
 }
 
 public data class NfcRemoteDevRecvInfo(
     public var hRemoteDev: Int = 0,
     public var sRecvBuffer: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDevRecvInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDevRecvInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcRemoteDevRecvInfo =
+                    NfcRemoteDevRecvInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcRemoteDevRecvInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hRemoteDev)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 8L, value.sRecvBuffer)
+                }
+            }
+    }
+}
 
 public data class NfcRemoteDevSendInfo(
     public var hRemoteDev: Int = 0,
     public var usTimeOut: UShort = 0u,
     public var sSendBuffer: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDevSendInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRemoteDevSendInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcRemoteDevSendInfo =
+                    NfcRemoteDevSendInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 10L),
+                    )
+                override fun writeNative(addr: Long, value: NfcRemoteDevSendInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hRemoteDev)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.usTimeOut)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 10L, value.sSendBuffer)
+                }
+            }
+    }
+}
 
 public data class NfcRfDiscoveryConfig(
     public var usTotalDuration: UShort = 0u,
@@ -257,6 +663,49 @@ public data class NfcRfDiscoveryConfig(
         result = 31 * result + this.eRfDiscoveryMode.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRfDiscoveryConfig> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcRfDiscoveryConfig> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcRfDiscoveryConfig =
+                    NfcRfDiscoveryConfig(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 10L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 11L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 13L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
+                        ).readNative(addr + 14L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 17L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: NfcRfDiscoveryConfig) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.usTotalDuration)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.ulPollConfig)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 8L, value.fDisableCardEmulation)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.ucNfcIPMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 10L, value.fNfcIPTgtModeDisable)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 11L, value.ucNfcIPTgtMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 12L, value.ucNfcCEMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 13L, value.ucBailoutConfig)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
+                    ).writeNative(addr + 14L, value.ucSystemCode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 16L, value.ucRequestCode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 17L, value.ucTimeSlotNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.eRfDiscoveryMode)
+                }
+            }
+    }
 }
 
 public data class NfcSeAidRoutingInfo(
@@ -282,12 +731,56 @@ public data class NfcSeAidRoutingInfo(
         result = 31 * result + this.pbAid.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeAidRoutingInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeAidRoutingInfo> {
+                override val sizeBytes: Long = 32L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeAidRoutingInfo =
+                    NfcSeAidRoutingInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeAidRoutingInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSecureElement)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bPowerState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.cbAid)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                    ).writeNative(addr + 16L, value.pbAid)
+                }
+            }
+    }
 }
 
 public data class NfcSeEmulationModeInfo(
     public var hSecureElement: Int = 0,
     public var eMode: NfcSeEmulationMode = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeEmulationModeInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeEmulationModeInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeEmulationModeInfo =
+                    NfcSeEmulationModeInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeEmulationModeInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSecureElement)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eMode)
+                }
+            }
+    }
+}
 
 public data class NfcSeEventInfo(
     public var hSecureElement: Int = 0,
@@ -312,23 +805,109 @@ public data class NfcSeEventInfo(
         result = 31 * result + this.pbEventData.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeEventInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeEventInfo> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeEventInfo =
+                    NfcSeEventInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeEventInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSecureElement)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eEventType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.cbEventData)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                    ).writeNative(addr + 16L, value.pbEventData)
+                }
+            }
+    }
 }
 
 public data class NfcSeInfo(
     public var hSecureElement: Int = 0,
     public var eSecureElementType: SecureElementType = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeInfo =
+                    NfcSeInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSecureElement)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eSecureElementType)
+                }
+            }
+    }
+}
 
 public data class NfcSeList(
     public var numberOfEndpoints: UInt = 0u,
     public var endpointList: List<NfcSeInfo> = List(1) { NfcSeInfo() },
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeList> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeList> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeList =
+                    NfcSeList(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(NfcSeInfo.typeLayout(), (1).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeList) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfEndpoints)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(NfcSeInfo.typeLayout(), (1).toInt())
+                    ).writeNative(addr + 8L, value.endpointList)
+                }
+            }
+    }
+}
 
 public data class NfcSeProtoRoutingInfo(
     public var hSecureElement: Int = 0,
     public var bPowerState: UByte = 0u,
     public var eRfProtocolType: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeProtoRoutingInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeProtoRoutingInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeProtoRoutingInfo =
+                    NfcSeProtoRoutingInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeProtoRoutingInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSecureElement)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bPowerState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.eRfProtocolType)
+                }
+            }
+    }
+}
 
 public data class NfcSeRoutingTable(
     public var numberOfEntries: UInt = 0u,
@@ -350,30 +929,123 @@ public data class NfcSeTechRoutingInfo(
     public var hSecureElement: Int = 0,
     public var bPowerState: UByte = 0u,
     public var eRfTechType: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeTechRoutingInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSeTechRoutingInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSeTechRoutingInfo =
+                    NfcSeTechRoutingInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSeTechRoutingInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSecureElement)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bPowerState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.eRfTechType)
+                }
+            }
+    }
+}
 
 public data class NfcSnepClientGetInfo(
     public var hSnepClient: Int = 0,
     public var sGetPayload: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepClientGetInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepClientGetInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSnepClientGetInfo =
+                    NfcSnepClientGetInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepClientGetInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSnepClient)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 8L, value.sGetPayload)
+                }
+            }
+    }
+}
 
 public data class NfcSnepClientInfo(
     public var hRemoteDev: Int = 0,
     public var eServerType: NfcSnepServerType = 0,
     public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
     public var sService: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepClientInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepClientInfo> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSnepClientInfo =
+                    NfcSnepClientInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (NfcLlcpSocketOption.typeLayout()).readNative(addr + 12L),
+                        (NfcLlcpServiceNameEntry.typeLayout()).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepClientInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hRemoteDev)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eServerType)
+                    (NfcLlcpSocketOption.typeLayout()).writeNative(addr + 12L, value.sSocketOption)
+                    (NfcLlcpServiceNameEntry.typeLayout()).writeNative(addr + 16L, value.sService)
+                }
+            }
+    }
+}
 
 public data class NfcSnepClientPutInfo(
     public var hSnepClient: Int = 0,
     public var sPutPayload: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepClientPutInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepClientPutInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSnepClientPutInfo =
+                    NfcSnepClientPutInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepClientPutInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSnepClient)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 8L, value.sPutPayload)
+                }
+            }
+    }
+}
 
 public data class NfcSnepServerAcceptInfo(
     public var hSnepServer: Int = 0,
     public var hConnection: Int = 0,
     public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerAcceptInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerAcceptInfo> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSnepServerAcceptInfo =
+                    NfcSnepServerAcceptInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
+                        (NfcLlcpSocketOption.typeLayout()).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepServerAcceptInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSnepServer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.hConnection)
+                    (NfcLlcpSocketOption.typeLayout()).writeNative(addr + 16L, value.sSocketOption)
+                }
+            }
+    }
+}
 
 public data class NfcSnepServerInfo(
     public var eServerType: NfcSnepServerType = 0,
@@ -381,21 +1053,86 @@ public data class NfcSnepServerInfo(
     public var usInboxSize: UShort = 0u,
     public var bSAP: UByte = 0u,
     public var sService: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerInfo> {
+                override val sizeBytes: Long = 20L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): NfcSnepServerInfo =
+                    NfcSnepServerInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (NfcLlcpSocketOption.typeLayout()).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 10L),
+                        (NfcLlcpServiceNameEntry.typeLayout()).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepServerInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.eServerType)
+                    (NfcLlcpSocketOption.typeLayout()).writeNative(addr + 4L, value.sSocketOption)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.usInboxSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 10L, value.bSAP)
+                    (NfcLlcpServiceNameEntry.typeLayout()).writeNative(addr + 12L, value.sService)
+                }
+            }
+    }
+}
 
 public data class NfcSnepServerRequest(
     public var hSnepServer: Int = 0,
     public var hConnection: Int = 0,
     public var eRequestType: NfcSnepRequestType = 0,
     public var sRequestPayload: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerRequest> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerRequest> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSnepServerRequest =
+                    NfcSnepServerRequest(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepServerRequest) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSnepServer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.hConnection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.eRequestType)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 20L, value.sRequestPayload)
+                }
+            }
+    }
+}
 
 public data class NfcSnepServerResponseInfo(
     public var hSnepServer: Int = 0,
     public var hConnection: Int = 0,
     public var dwResponseStatus: UInt = 0u,
     public var sResponsePayload: NfcDataBuffer = NfcDataBuffer(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerResponseInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NfcSnepServerResponseInfo> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): NfcSnepServerResponseInfo =
+                    NfcSnepServerResponseInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (NfcDataBuffer.typeLayout()).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: NfcSnepServerResponseInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.hSnepServer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.hConnection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwResponseStatus)
+                    (NfcDataBuffer.typeLayout()).writeNative(addr + 20L, value.sResponsePayload)
+                }
+            }
+    }
+}
 
 public data class SecureElementAidRoutingInfo(
     public var guidSecureElementId: Guid = Guid(),
@@ -463,7 +1200,26 @@ public data class SecureElementHceActivationPayload(
     public var bConnectionId: UShort = 0u,
     public var eRfTechType: UByte = 0u,
     public var eRfProtocolType: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecureElementHceActivationPayload> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecureElementHceActivationPayload> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): SecureElementHceActivationPayload =
+                    SecureElementHceActivationPayload(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
+                    )
+                override fun writeNative(addr: Long, value: SecureElementHceActivationPayload) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.bConnectionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.eRfTechType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.eRfProtocolType)
+                }
+            }
+    }
+}
 
 public data class SecureElementHceDataPacket(
     public var bConnectionId: UShort = 0u,
@@ -485,6 +1241,31 @@ public data class SecureElementHceDataPacket(
         result = 31 * result + this.pbPayload.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecureElementHceDataPacket> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecureElementHceDataPacket> {
+                override val sizeBytes: Long = 6L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): SecureElementHceDataPacket =
+                    SecureElementHceDataPacket(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: SecureElementHceDataPacket) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.bConnectionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.cbPayload)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                    ).writeNative(addr + 4L, value.pbPayload)
+                }
+            }
+    }
 }
 
 public data class SecureElementNfccCapabilities(
@@ -492,7 +1273,28 @@ public data class SecureElementNfccCapabilities(
     public var isAidRoutingSupported: Boolean = false,
     public var isProtocolRoutingSupported: Boolean = false,
     public var isTechRoutingSupported: Boolean = false,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecureElementNfccCapabilities> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecureElementNfccCapabilities> {
+                override val sizeBytes: Long = 6L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): SecureElementNfccCapabilities =
+                    SecureElementNfccCapabilities(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 3L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: SecureElementNfccCapabilities) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cbMaxRoutingTableSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 2L, value.isAidRoutingSupported)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 3L, value.isProtocolRoutingSupported)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 4L, value.isTechRoutingSupported)
+                }
+            }
+    }
+}
 
 public data class SecureElementProtoRoutingInfo(
     public var guidSecureElementId: Guid = Guid(),

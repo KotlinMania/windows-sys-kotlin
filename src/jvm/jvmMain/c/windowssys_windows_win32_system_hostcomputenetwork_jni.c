@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCloseEndpoint(JNIEnv* km_env, jclass km_clazz, jlong endpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCloseEndpoint(JNIEnv* km_env, jclass km_clazz, jlong endpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCloseGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCloseGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCloseLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong loadbalancer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCloseLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong loadbalancer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCloseNamespace(JNIEnv* km_env, jclass km_clazz, jlong arg_0_namespace) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCloseNamespace(JNIEnv* km_env, jclass km_clazz, jlong arg0Namespace) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -106,20 +106,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_namespace);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Namespace);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_namespace;
+    (void)arg0Namespace;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCloseNetwork(JNIEnv* km_env, jclass km_clazz, jlong network) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCloseNetwork(JNIEnv* km_env, jclass km_clazz, jlong network) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -144,7 +144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCreateEndpoint(JNIEnv* km_env, jclass km_clazz, jlong network, jlong id, jlong settings, jlong endpoint, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCreateEndpoint(JNIEnv* km_env, jclass km_clazz, jlong network, jlong id, jlong settings, jlong endpoint, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCreateGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong guestnetworkservice, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCreateGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong guestnetworkservice, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -201,7 +201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCreateLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong loadbalancer, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCreateLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong loadbalancer, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -229,7 +229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCreateNamespace(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong arg_2_namespace, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCreateNamespace(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong arg2Namespace, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -241,7 +241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)arg_2_namespace, (void*)(uintptr_t)errorrecord);
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)arg2Namespace, (void*)(uintptr_t)errorrecord);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -249,7 +249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #else
     (void)id;
     (void)settings;
-    (void)arg_2_namespace;
+    (void)arg2Namespace;
     (void)errorrecord;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -257,7 +257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnCreateNetwork(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong network, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnCreateNetwork(JNIEnv* km_env, jclass km_clazz, jlong id, jlong settings, jlong network, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -285,7 +285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnDeleteEndpoint(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteEndpoint(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnDeleteGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -337,7 +337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnDeleteLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -363,7 +363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnDeleteNamespace(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteNamespace(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnDeleteNetwork(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnDeleteNetwork(JNIEnv* km_env, jclass km_clazz, jlong id, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -415,7 +415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnEnumerateEndpoints(JNIEnv* km_env, jclass km_clazz, jlong query, jlong endpoints, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateEndpoints(JNIEnv* km_env, jclass km_clazz, jlong query, jlong endpoints, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -442,7 +442,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnEnumerateGuestNetworkPortReservations(JNIEnv* km_env, jclass km_clazz, jlong returncount, jlong portentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateGuestNetworkPortReservations(JNIEnv* km_env, jclass km_clazz, jlong returncount, jlong portentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -468,7 +468,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnEnumerateLoadBalancers(JNIEnv* km_env, jclass km_clazz, jlong query, jlong loadbalancer, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateLoadBalancers(JNIEnv* km_env, jclass km_clazz, jlong query, jlong loadbalancer, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -495,7 +495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnEnumerateNamespaces(JNIEnv* km_env, jclass km_clazz, jlong query, jlong namespaces, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateNamespaces(JNIEnv* km_env, jclass km_clazz, jlong query, jlong namespaces, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -522,7 +522,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnEnumerateNetworks(JNIEnv* km_env, jclass km_clazz, jlong query, jlong networks, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnEnumerateNetworks(JNIEnv* km_env, jclass km_clazz, jlong query, jlong networks, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -549,7 +549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnFreeGuestNetworkPortReservations(JNIEnv* km_env, jclass km_clazz, jlong portentries) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnFreeGuestNetworkPortReservations(JNIEnv* km_env, jclass km_clazz, jlong portentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -570,7 +570,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnModifyEndpoint(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong settings, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnModifyEndpoint(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong settings, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -597,7 +597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnModifyGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jlong settings, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnModifyGuestNetworkService(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jlong settings, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -624,7 +624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnModifyLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong loadbalancer, jlong settings, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnModifyLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong loadbalancer, jlong settings, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -651,7 +651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnModifyNamespace(JNIEnv* km_env, jclass km_clazz, jlong arg_0_namespace, jlong settings, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnModifyNamespace(JNIEnv* km_env, jclass km_clazz, jlong arg0Namespace, jlong settings, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -663,13 +663,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_namespace, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Namespace, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_namespace;
+    (void)arg0Namespace;
     (void)settings;
     (void)errorrecord;
     errno = ENOSYS;
@@ -678,7 +678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnModifyNetwork(JNIEnv* km_env, jclass km_clazz, jlong network, jlong settings, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnModifyNetwork(JNIEnv* km_env, jclass km_clazz, jlong network, jlong settings, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -705,7 +705,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnOpenEndpoint(JNIEnv* km_env, jclass km_clazz, jlong id, jlong endpoint, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnOpenEndpoint(JNIEnv* km_env, jclass km_clazz, jlong id, jlong endpoint, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -732,7 +732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnOpenLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong id, jlong loadbalancer, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnOpenLoadBalancer(JNIEnv* km_env, jclass km_clazz, jlong id, jlong loadbalancer, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -759,7 +759,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnOpenNamespace(JNIEnv* km_env, jclass km_clazz, jlong id, jlong arg_1_namespace, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnOpenNamespace(JNIEnv* km_env, jclass km_clazz, jlong id, jlong arg1Namespace, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -771,14 +771,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)arg_1_namespace, (void*)(uintptr_t)errorrecord);
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)arg1Namespace, (void*)(uintptr_t)errorrecord);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)id;
-    (void)arg_1_namespace;
+    (void)arg1Namespace;
     (void)errorrecord;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -786,7 +786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnOpenNetwork(JNIEnv* km_env, jclass km_clazz, jlong id, jlong network, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnOpenNetwork(JNIEnv* km_env, jclass km_clazz, jlong id, jlong network, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -813,7 +813,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnQueryEndpointAddresses(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong query, jlong addresses, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnQueryEndpointAddresses(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong query, jlong addresses, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -841,7 +841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnQueryEndpointProperties(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong query, jlong properties, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnQueryEndpointProperties(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong query, jlong properties, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -869,7 +869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnQueryEndpointStats(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong query, jlong stats, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnQueryEndpointStats(JNIEnv* km_env, jclass km_clazz, jlong endpoint, jlong query, jlong stats, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -897,7 +897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnQueryLoadBalancerProperties(JNIEnv* km_env, jclass km_clazz, jlong loadbalancer, jlong query, jlong properties, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnQueryLoadBalancerProperties(JNIEnv* km_env, jclass km_clazz, jlong loadbalancer, jlong query, jlong properties, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -925,7 +925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnQueryNamespaceProperties(JNIEnv* km_env, jclass km_clazz, jlong arg_0_namespace, jlong query, jlong properties, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnQueryNamespaceProperties(JNIEnv* km_env, jclass km_clazz, jlong arg0Namespace, jlong query, jlong properties, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -937,13 +937,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_namespace, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Namespace, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_namespace;
+    (void)arg0Namespace;
     (void)query;
     (void)properties;
     (void)errorrecord;
@@ -953,7 +953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnQueryNetworkProperties(JNIEnv* km_env, jclass km_clazz, jlong network, jlong query, jlong properties, jlong errorrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnQueryNetworkProperties(JNIEnv* km_env, jclass km_clazz, jlong network, jlong query, jlong properties, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -981,7 +981,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnRegisterGuestNetworkServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jlong callback, jlong context, jlong callbackhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnRegisterGuestNetworkServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jlong callback, jlong context, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1009,7 +1009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnRegisterServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context, jlong callbackhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnRegisterServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1036,7 +1036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnReleaseGuestNetworkServicePortReservationHandle(JNIEnv* km_env, jclass km_clazz, jlong portreservationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnReleaseGuestNetworkServicePortReservationHandle(JNIEnv* km_env, jclass km_clazz, jlong portreservationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1061,7 +1061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnReserveGuestNetworkServicePort(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jint protocol, jint access, jshort port, jlong portreservationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnReserveGuestNetworkServicePort(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jint protocol, jint access, jshort port, jlong portreservationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1090,7 +1090,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnReserveGuestNetworkServicePortRange(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jshort portcount, jlong portrangereservation, jlong portreservationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnReserveGuestNetworkServicePortRange(JNIEnv* km_env, jclass km_clazz, jlong guestnetworkservice, jshort portcount, jlong portrangereservation, jlong portreservationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1118,7 +1118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnUnregisterGuestNetworkServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnUnregisterGuestNetworkServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1143,7 +1143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssys_1windows_1win32_1system_1hostcomputenetwork_1hcnUnregisterServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_hostcomputenetwork_WindowsWin32SystemHostcomputenetworkJniBridge_windowssysWindowsWin32SystemHostcomputenetworkHcnUnregisterServiceCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

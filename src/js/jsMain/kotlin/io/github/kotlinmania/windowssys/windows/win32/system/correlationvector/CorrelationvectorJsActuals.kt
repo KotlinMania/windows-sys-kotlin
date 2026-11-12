@@ -2,19 +2,21 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 
-private val _windowsWin32SystemCorrelationvectorNapiAddon: dynamic =
+private val windowsWin32SystemCorrelationvectorNapiAddon: dynamic =
     js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt =
-    if (_windowsWin32SystemCorrelationvectorNapiAddon != null) (_windowsWin32SystemCorrelationvectorNapiAddon.windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector((correlationvector?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtlExtendCorrelationVector(correlationvector: MutPtr<CorrelationVector>): UInt =
+    if (windowsWin32SystemCorrelationvectorNapiAddon != null) (windowsWin32SystemCorrelationvectorNapiAddon.windowssysWindowsWin32SystemCorrelationvectorRtlExtendCorrelationVector(correlationvector.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt =
-    if (_windowsWin32SystemCorrelationvectorNapiAddon != null) (_windowsWin32SystemCorrelationvectorNapiAddon.windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector((correlationvector?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtlIncrementCorrelationVector(correlationvector: MutPtr<CorrelationVector>): UInt =
+    if (windowsWin32SystemCorrelationvectorNapiAddon != null) (windowsWin32SystemCorrelationvectorNapiAddon.windowssysWindowsWin32SystemCorrelationvectorRtlIncrementCorrelationVector(correlationvector.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt =
-    if (_windowsWin32SystemCorrelationvectorNapiAddon != null) (_windowsWin32SystemCorrelationvectorNapiAddon.windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector((correlationvector?.value ?: 0L).toString(), version, (guid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtlInitializeCorrelationVector(correlationvector: MutPtr<CorrelationVector>, version: Int, guid: ConstPtr<Guid>): UInt =
+    if (windowsWin32SystemCorrelationvectorNapiAddon != null) (windowsWin32SystemCorrelationvectorNapiAddon.windowssysWindowsWin32SystemCorrelationvectorRtlInitializeCorrelationVector(correlationvector.rawAddress.toString(), version, guid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt =
-    if (_windowsWin32SystemCorrelationvectorNapiAddon != null) (_windowsWin32SystemCorrelationvectorNapiAddon.windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector((vector?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtlValidateCorrelationVector(vector: ConstPtr<CorrelationVector>): UInt =
+    if (windowsWin32SystemCorrelationvectorNapiAddon != null) (windowsWin32SystemCorrelationvectorNapiAddon.windowssysWindowsWin32SystemCorrelationvectorRtlValidateCorrelationVector(vector.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

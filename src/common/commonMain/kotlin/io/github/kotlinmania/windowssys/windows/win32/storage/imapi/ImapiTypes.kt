@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias DiscRecorderStateFlags = UInt
 
@@ -59,7 +60,7 @@ public typealias MediaFlags = Int
 public typealias MediaTypes = Int
 
 public fun interface MsgcallreleaseFn {
-    public operator fun invoke(ulcallerdata: UInt, lpmessage: COpaquePointer?)
+    public operator fun invoke(ulcallerdata: UInt, lpmessage: MutPtr<CVoid>)
 }
 
 public typealias Msgcallrelease = MsgcallreleaseFn?

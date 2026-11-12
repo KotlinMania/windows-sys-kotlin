@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator(void* padscontainer, void* ppenumvariant) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsBuildEnumerator(void* padscontainer, void* ppenumvariant) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt(void* lpdwobjecttypes, uint32_t dwobjecttypes, void* pvar) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsBuildVarArrayInt(void* lpdwobjecttypes, uint32_t dwobjecttypes, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr(void* lpppathnames, uint32_t dwpathnames, void* pvar) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsBuildVarArrayStr(void* lpppathnames, uint32_t dwpathnames, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData(void* szsrcdata, void* ppbdestdata, void* pdwdestlen) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsDecodeBinaryData(void* szsrcdata, void* ppbdestdata, void* pdwdestlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData(void* pbsrcdata, uint32_t dwsrclen, void* ppszdestdata) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsEncodeBinaryData(void* pbsrcdata, uint32_t dwsrclen, void* ppszdestdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext(void* penumvariant, uint32_t celements, void* pvar, void* pcelementsfetched) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsEnumerateNext(void* penumvariant, uint32_t celements, void* pvar, void* pcelementsfetched) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator(void* penumvariant) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsFreeEnumerator(void* penumvariant) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -181,7 +181,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsGetLastError(void* lperror, void* lperrorbuf, uint32_t dwerrorbuflen, void* lpnamebuf, uint32_t dwnamebuflen) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsGetLastError(void* lperror, void* lperrorbuf, uint32_t dwerrorbuflen, void* lpnamebuf, uint32_t dwnamebuflen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsGetLastError(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsGetObject(void* lpszpathname, void* riid, void* ppobject) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsGetObject(void* lpszpathname, void* riid, void* ppobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -231,7 +231,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsGetObject(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsOpenObject(void* lpszpathname, void* lpszusername, void* lpszpassword, uint32_t dwreserved, void* riid, void* ppobject) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsOpenObject(void* lpszpathname, void* lpszusername, void* lpszpassword, uint32_t dwreserved, void* riid, void* ppobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -258,7 +258,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsOpenObject(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable(void* pwzattr, void* pwritableattrs) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropCheckIfWritable(void* pwzattr, void* pwritableattrs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -281,7 +281,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritab
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj(void* pappthddataobj, void* pwzadsobjname, void* phnotifyobj) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropCreateNotifyObj(void* pappthddataobj, void* pwzadsobjname, void* phnotifyobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -305,7 +305,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyO
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo(void* hnotifyobj, void* pinitparams) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropGetInitInfo(void* hnotifyobj, void* pinitparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -328,7 +328,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage(void* hnotifyobj, void* perror) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropSendErrorMessage(void* hnotifyobj, void* perror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMess
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd(void* hnotifyobj, void* hpage) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropSetHwnd(void* hnotifyobj, void* hpage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -374,7 +374,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle(void* hnotifyobj, void* hpage, void* ptztitle) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropSetHwndWithTitle(void* hnotifyobj, void* hpage, void* ptztitle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog(void* hnotifyobj, void* hpage) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryADsPropShowErrorDialog(void* hnotifyobj, void* hpage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -421,7 +421,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDial
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_aDsSetLastError(uint32_t dwerr, void* pszerror, void* pszprovider) {
+void windowssysWindowsWin32NetworkingActivedirectoryADsSetLastError(uint32_t dwerr, void* pszerror, void* pszprovider) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -444,7 +444,7 @@ void windowssys_windows_win32_networking_activedirectory_aDsSetLastError(uint32_
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues(void* padsvalues, uint32_t dwnumvalues) {
+void windowssysWindowsWin32NetworkingActivedirectoryAdsFreeAdsValues(void* padsvalues, uint32_t dwnumvalues) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -466,7 +466,7 @@ void windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant(void* padsvalues, uint32_t dwnumvalues, void* pvariant) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryAdsTypeToPropVariant(void* padsvalues, uint32_t dwnumvalues, void* pvariant) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -490,7 +490,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant
 #endif
 }
 
-void* windowssys_windows_win32_networking_activedirectory_allocADsMem(uint32_t cb) {
+void* windowssysWindowsWin32NetworkingActivedirectoryAllocADsMem(uint32_t cb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -512,7 +512,7 @@ void* windowssys_windows_win32_networking_activedirectory_allocADsMem(uint32_t c
 #endif
 }
 
-void* windowssys_windows_win32_networking_activedirectory_allocADsStr(void* pstr) {
+void* windowssysWindowsWin32NetworkingActivedirectoryAllocADsStr(void* pstr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ void* windowssys_windows_win32_networking_activedirectory_allocADsStr(void* pstr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor(void* psecuritydescriptor, void* pvarsec, void* pszservername, void* username, void* password, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryBinarySDToSecurityDescriptor(void* psecuritydescriptor, void* pvarsec, void* pszservername, void* username, void* password, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA(void* hds, uint32_t flags, void* srcdomain, void* srcprincipal, void* srcdomaincontroller, void* srcdomaincreds, void* dstdomain, void* dstprincipal) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsAddSidHistoryA(void* hds, uint32_t flags, void* srcdomain, void* srcprincipal, void* srcdomaincontroller, void* srcdomaincreds, void* dstdomain, void* dstprincipal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -590,7 +590,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW(void* hds, uint32_t flags, void* srcdomain, void* srcprincipal, void* srcdomaincontroller, void* srcdomaincreds, void* dstdomain, void* dstprincipal) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsAddSidHistoryW(void* hds, uint32_t flags, void* srcdomain, void* srcprincipal, void* srcdomaincontroller, void* srcdomaincreds, void* dstdomain, void* dstprincipal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesA(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -644,7 +644,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames, void* subnetnames) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesExA(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames, void* subnetnames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -670,7 +670,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames, void* subnetnames) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesExW(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames, void* subnetnames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -696,7 +696,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesW(void* computername, uint32_t entrycount, void* socketaddresses, void* sitenames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -721,7 +721,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsAddressToSiteName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindA(void* domaincontrollername, void* dnsdomainname, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindA(void* domaincontrollername, void* dnsdomainname, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -745,7 +745,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindA(void* domai
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA(void* servername, void* annotation, void* instanceguid, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindByInstanceA(void* servername, void* annotation, void* instanceguid, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW(void* servername, void* annotation, void* instanceguid, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindByInstanceW(void* servername, void* annotation, void* instanceguid, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -803,7 +803,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindToISTGA(void* sitename, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindToISTGA(void* sitename, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -826,7 +826,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindToISTGA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindToISTGW(void* sitename, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindToISTGW(void* sitename, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -849,7 +849,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindToISTGW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindW(void* domaincontrollername, void* dnsdomainname, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindW(void* domaincontrollername, void* dnsdomainname, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -873,7 +873,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindW(void* domai
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithCredA(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindWithCredA(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -898,7 +898,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithCredA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithCredW(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindWithCredW(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -923,7 +923,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithCredW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnA(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -949,7 +949,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnExA(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -976,7 +976,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnExW(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, uint32_t bindflags, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1003,7 +1003,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnW(void* domaincontrollername, void* dnsdomainname, void* authidentity, void* serviceprincipalname, void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1029,7 +1029,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout(void* hds, uint32_t ctimeoutsecs) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsBindingSetTimeout(void* hds, uint32_t ctimeoutsecs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1052,7 +1052,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA(void* pinfo) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsBrowseForContainerA(void* pinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1074,7 +1074,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsBrowseForContainer
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW(void* pinfo) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsBrowseForContainerW(void* pinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1096,7 +1096,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsBrowseForContainer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA(void* serviceclass, void* servicename, void* pcspnlength, void* pszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsClientMakeSpnForTargetServerA(void* serviceclass, void* servicename, void* pcspnlength, void* pszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1121,7 +1121,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW(void* serviceclass, void* servicename, void* pcspnlength, void* pszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsClientMakeSpnForTargetServerW(void* serviceclass, void* servicename, void* pcspnlength, void* pszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1146,7 +1146,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackNamesA(void* hds, int32_t flags, int32_t formatoffered, int32_t formatdesired, uint32_t cnames, void* rpnames, void* ppresult) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackNamesA(void* hds, int32_t flags, int32_t formatoffered, int32_t formatdesired, uint32_t cnames, void* rpnames, void* ppresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1174,7 +1174,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackNamesA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackNamesW(void* hds, int32_t flags, int32_t formatoffered, int32_t formatdesired, uint32_t cnames, void* rpnames, void* ppresult) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackNamesW(void* hds, int32_t flags, int32_t formatoffered, int32_t formatdesired, uint32_t cnames, void* rpnames, void* ppresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1202,7 +1202,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackNamesW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A(void* pszspn, uint32_t cspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn2A(void* pszspn, uint32_t cspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1232,7 +1232,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W(void* pszspn, uint32_t cspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn2W(void* pszspn, uint32_t cspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1262,7 +1262,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W(void* pszspn, uint32_t cspn, void* pchostname, void* hostname, void* pcinstancename, void* instancename, void* pportnumber, void* pcdomainname, void* domainname, void* pcrealmname, void* realmname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn3W(void* pszspn, uint32_t cspn, void* pchostname, void* hostname, void* pcinstancename, void* instancename, void* pportnumber, void* pcdomainname, void* domainname, void* pcrealmname, void* realmname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1294,7 +1294,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W(void* pszspn, uint32_t cspn, void* pchostname, void* hostname, void* pcinstancename, void* instancename, void* pcportname, void* portname, void* pcdomainname, void* domainname, void* pcrealmname, void* realmname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn4W(void* pszspn, uint32_t cspn, void* pchostname, void* hostname, void* pcinstancename, void* instancename, void* pcportname, void* portname, void* pcdomainname, void* domainname, void* pcrealmname, void* realmname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1327,7 +1327,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpnA(void* pszspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpnA(void* pszspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1356,7 +1356,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpnA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpnW(void* pszspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpnW(void* pszspn, void* pcserviceclass, void* serviceclass, void* pcservicename, void* servicename, void* pcinstancename, void* instancename, void* pinstanceport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1385,7 +1385,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsCrackSpnW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA(void* pszrdn, uint32_t cchrdn, void* pguid, void* pedsmanglefor) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackUnquotedMangledRdnA(void* pszrdn, uint32_t cchrdn, void* pguid, void* pedsmanglefor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1410,7 +1410,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangl
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW(void* pszrdn, uint32_t cchrdn, void* pguid, void* pedsmanglefor) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsCrackUnquotedMangledRdnW(void* pszrdn, uint32_t cchrdn, void* pguid, void* pedsmanglefor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA(void* servername, void* dnsdomainname, void* domainguid, void* dsaguid, void* dnshostname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsDeregisterDnsHostRecordsA(void* servername, void* dnsdomainname, void* domainguid, void* dsaguid, void* dnshostname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1461,7 +1461,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHost
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW(void* servername, void* dnsdomainname, void* domainguid, void* dsaguid, void* dnshostname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsDeregisterDnsHostRecordsW(void* servername, void* dnsdomainname, void* domainguid, void* dsaguid, void* dnshostname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1487,7 +1487,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHost
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA(void* servername, uint32_t flags, void* domains, void* domaincount) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsEnumerateDomainTrustsA(void* servername, uint32_t flags, void* domains, void* domaincount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1512,7 +1512,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW(void* servername, uint32_t flags, void* domains, void* domaincount) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsEnumerateDomainTrustsW(void* servername, uint32_t flags, void* domains, void* domaincount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1537,7 +1537,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTr
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA(uint32_t infolevel, uint32_t cinfo, void* pinfo) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeDomainControllerInfoA(uint32_t infolevel, uint32_t cinfo, void* pinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1560,7 +1560,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerI
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW(uint32_t infolevel, uint32_t cinfo, void* pinfo) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeDomainControllerInfoW(uint32_t infolevel, uint32_t cinfo, void* pinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1583,7 +1583,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerI
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA(void* presult) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeNameResultA(void* presult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1604,7 +1604,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW(void* presult) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeNameResultW(void* presult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1625,7 +1625,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials(void* authidentity) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreePasswordCredentials(void* authidentity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1646,7 +1646,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentia
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA(void* pguidmap) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeSchemaGuidMapA(void* pguidmap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1667,7 +1667,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA(vo
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW(void* pguidmap) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeSchemaGuidMapW(void* pguidmap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1688,7 +1688,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW(vo
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA(uint32_t cspn, void* rpszspn) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeSpnArrayA(uint32_t cspn, void* rpszspn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1710,7 +1710,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA(uint32_
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW(uint32_t cspn, void* rpszspn) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsFreeSpnArrayW(uint32_t cspn, void* rpszspn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1732,7 +1732,7 @@ void windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW(uint32_
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW(void* getdccontexthandle) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsGetDcCloseW(void* getdccontexthandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1753,7 +1753,7 @@ void windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW(void* get
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNameA(void* computername, void* domainname, void* domainguid, void* sitename, uint32_t flags, void* domaincontrollerinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNameA(void* computername, void* domainname, void* domainguid, void* sitename, uint32_t flags, void* domaincontrollerinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1780,7 +1780,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNameA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNameW(void* computername, void* domainname, void* domainguid, void* sitename, uint32_t flags, void* domaincontrollerinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNameW(void* computername, void* domainname, void* domainguid, void* sitename, uint32_t flags, void* domaincontrollerinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1807,7 +1807,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNameW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNextA(void* getdccontexthandle, void* sockaddresscount, void* sockaddresses, void* dnshostname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNextA(void* getdccontexthandle, void* sockaddresscount, void* sockaddresses, void* dnshostname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1832,7 +1832,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNextA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNextW(void* getdccontexthandle, void* sockaddresscount, void* sockaddresses, void* dnshostname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNextW(void* getdccontexthandle, void* sockaddresscount, void* sockaddresses, void* dnshostname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1857,7 +1857,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcNextW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA(void* dnsname, uint32_t optionflags, void* sitename, void* domainguid, void* dnsforestname, uint32_t dcflags, void* retgetdccontext) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcOpenA(void* dnsname, uint32_t optionflags, void* sitename, void* domainguid, void* dnsforestname, uint32_t dcflags, void* retgetdccontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1885,7 +1885,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW(void* dnsname, uint32_t optionflags, void* sitename, void* domainguid, void* dnsforestname, uint32_t dcflags, void* retgetdccontext) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcOpenW(void* dnsname, uint32_t optionflags, void* sitename, void* domainguid, void* dnsforestname, uint32_t dcflags, void* retgetdccontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1913,7 +1913,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA(void* servername, void* entrycount, void* sitenames) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcSiteCoverageA(void* servername, void* entrycount, void* sitenames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1937,7 +1937,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverage
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW(void* servername, void* entrycount, void* sitenames) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDcSiteCoverageW(void* servername, void* entrycount, void* sitenames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1961,7 +1961,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverage
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA(void* hds, void* domainname, uint32_t infolevel, void* pcout, void* ppinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDomainControllerInfoA(void* hds, void* domainname, uint32_t infolevel, void* pcout, void* ppinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1987,7 +1987,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDomainControll
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW(void* hds, void* domainname, uint32_t infolevel, void* pcout, void* ppinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetDomainControllerInfoW(void* hds, void* domainname, uint32_t infolevel, void* pcout, void* ppinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2013,7 +2013,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetDomainControll
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW(void* servername, void* trusteddomainname, uint32_t flags, void* foresttrustinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetForestTrustInformationW(void* servername, void* trusteddomainname, uint32_t flags, void* foresttrustinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2038,7 +2038,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInf
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName(void* pszobjectclass, void* pszbuffer, uint32_t cchbuffer) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetFriendlyClassName(void* pszobjectclass, void* pszbuffer, uint32_t cchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2062,7 +2062,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassNa
 #endif
 }
 
-void* windowssys_windows_win32_networking_activedirectory_dsGetIcon(uint32_t dwflags, void* pszobjectclass, int32_t cximage, int32_t cyimage) {
+void* windowssysWindowsWin32NetworkingActivedirectoryDsGetIcon(uint32_t dwflags, void* pszobjectclass, int32_t cximage, int32_t cyimage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2087,7 +2087,7 @@ void* windowssys_windows_win32_networking_activedirectory_dsGetIcon(uint32_t dwf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetRdnW(void* ppdn, void* pcdn, void* ppkey, void* pckey, void* ppval, void* pcval) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetRdnW(void* ppdn, void* pcdn, void* ppkey, void* pckey, void* ppval, void* pcval) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2114,7 +2114,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetRdnW(void* ppd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA(void* computername, void* sitename) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetSiteNameA(void* computername, void* sitename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2137,7 +2137,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW(void* computername, void* sitename) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetSiteNameW(void* computername, void* sitename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2160,7 +2160,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSpnA(int32_t servicetype, void* serviceclass, void* servicename, uint16_t instanceport, uint16_t cinstancenames, void* pinstancenames, void* pinstanceports, void* pcspn, void* prpszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetSpnA(int32_t servicetype, void* serviceclass, void* servicename, uint16_t instanceport, uint16_t cinstancenames, void* pinstancenames, void* pinstanceports, void* pcspn, void* prpszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint16_t, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2190,7 +2190,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSpnA(int32_t s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSpnW(int32_t servicetype, void* serviceclass, void* servicename, uint16_t instanceport, uint16_t cinstancenames, void* pinstancenames, void* pinstanceports, void* pcspn, void* prpszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsGetSpnW(int32_t servicetype, void* serviceclass, void* servicename, uint16_t instanceport, uint16_t cinstancenames, void* pinstancenames, void* pinstanceports, void* pcspn, void* prpszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint16_t, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2220,7 +2220,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsGetSpnW(int32_t s
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA(void* hds, uint32_t flags, void* srcprincipal, void* dstprincipal) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsInheritSecurityIdentityA(void* hds, uint32_t flags, void* srcprincipal, void* dstprincipal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2245,7 +2245,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsInheritSecurityId
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW(void* hds, uint32_t flags, void* srcprincipal, void* dstprincipal) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsInheritSecurityIdentityW(void* hds, uint32_t flags, void* srcprincipal, void* dstprincipal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2270,7 +2270,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsInheritSecurityId
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA(void* pszdn, int32_t edsmanglefor) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledDnA(void* pszdn, int32_t edsmanglefor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2293,7 +2293,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW(void* pszdn, int32_t edsmanglefor) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledDnW(void* pszdn, int32_t edsmanglefor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2316,7 +2316,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA(void* pszrdn, uint32_t crdn, int32_t edsmanglefordesired) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledRdnValueA(void* pszrdn, uint32_t crdn, int32_t edsmanglefordesired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2340,7 +2340,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW(void* pszrdn, uint32_t crdn, int32_t edsmanglefordesired) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledRdnValueW(void* pszrdn, uint32_t crdn, int32_t edsmanglefordesired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2364,7 +2364,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA(void* hds, void* site, void* ppdomains) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListDomainsInSiteA(void* hds, void* site, void* ppdomains) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2388,7 +2388,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListDomainsInSite
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW(void* hds, void* site, void* ppdomains) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListDomainsInSiteW(void* hds, void* site, void* ppdomains) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2412,7 +2412,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListDomainsInSite
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA(void* hds, void* server, void* ppinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListInfoForServerA(void* hds, void* server, void* ppinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2436,7 +2436,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListInfoForServer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW(void* hds, void* server, void* ppinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListInfoForServerW(void* hds, void* server, void* ppinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2460,7 +2460,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListInfoForServer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListRolesA(void* hds, void* pproles) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListRolesA(void* hds, void* pproles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2483,7 +2483,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListRolesA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListRolesW(void* hds, void* pproles) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListRolesW(void* hds, void* pproles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2506,7 +2506,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListRolesW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA(void* hds, void* domain, void* site, void* ppservers) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListServersForDomainInSiteA(void* hds, void* domain, void* site, void* ppservers) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2531,7 +2531,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersForDom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW(void* hds, void* domain, void* site, void* ppservers) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListServersForDomainInSiteW(void* hds, void* domain, void* site, void* ppservers) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2556,7 +2556,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersForDom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA(void* hds, void* site, void* ppservers) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListServersInSiteA(void* hds, void* site, void* ppservers) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2580,7 +2580,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersInSite
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW(void* hds, void* site, void* ppservers) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListServersInSiteW(void* hds, void* site, void* ppservers) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2604,7 +2604,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListServersInSite
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListSitesA(void* hds, void* ppsites) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListSitesA(void* hds, void* ppsites) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2627,7 +2627,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListSitesA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsListSitesW(void* hds, void* ppsites) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsListSitesW(void* hds, void* ppsites) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2650,7 +2650,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsListSitesW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA(void* user, void* domain, void* password, void* pauthidentity) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMakePasswordCredentialsA(void* user, void* domain, void* password, void* pauthidentity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2675,7 +2675,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMakePasswordCrede
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW(void* user, void* domain, void* password, void* pauthidentity) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMakePasswordCredentialsW(void* user, void* domain, void* password, void* pauthidentity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2700,7 +2700,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMakePasswordCrede
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMakeSpnA(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* pcspnlength, void* pszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMakeSpnA(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* pcspnlength, void* pszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2728,7 +2728,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMakeSpnA(void* se
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMakeSpnW(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* pcspnlength, void* pszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMakeSpnW(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* pcspnlength, void* pszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2756,7 +2756,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMakeSpnW(void* se
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA(void* hds, uint32_t cguids, void* rguids, void* ppguidmap) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMapSchemaGuidsA(void* hds, uint32_t cguids, void* rguids, void* ppguidmap) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2781,7 +2781,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW(void* hds, uint32_t cguids, void* rguids, void* ppguidmap) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMapSchemaGuidsW(void* hds, uint32_t cguids, void* rguids, void* ppguidmap) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2806,7 +2806,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW(void* domainname, void* newforesttrustinfo, void* oldforesttrustinfo, void* mergedforesttrustinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsMergeForestTrustInformationW(void* domainname, void* newforesttrustinfo, void* oldforesttrustinfo, void* mergedforesttrustinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2831,7 +2831,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustI
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA(void* hds, void* pszfromsite, void* rgsztosites, uint32_t ctosites, uint32_t dwflags, void* prgsiteinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesByCostA(void* hds, void* pszfromsite, void* rgsztosites, uint32_t ctosites, uint32_t dwflags, void* prgsiteinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2858,7 +2858,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW(void* hds, void* pwszfromsite, void* rgwsztosites, uint32_t ctosites, uint32_t dwflags, void* prgsiteinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesByCostW(void* hds, void* pwszfromsite, void* rgwsztosites, uint32_t ctosites, uint32_t dwflags, void* prgsiteinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2885,7 +2885,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree(void* rgsiteinfo) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesFree(void* rgsiteinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2906,7 +2906,7 @@ void windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA(uint32_t cunquotedrdnvaluelength, void* psunquotedrdnvalue, void* pcquotedrdnvaluelength, void* psquotedrdnvalue) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsQuoteRdnValueA(uint32_t cunquotedrdnvaluelength, void* psunquotedrdnvalue, void* pcquotedrdnvaluelength, void* psquotedrdnvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2931,7 +2931,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW(uint32_t cunquotedrdnvaluelength, void* psunquotedrdnvalue, void* pcquotedrdnvaluelength, void* psquotedrdnvalue) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsQuoteRdnValueW(uint32_t cunquotedrdnvaluelength, void* psunquotedrdnvalue, void* pcquotedrdnvaluelength, void* psquotedrdnvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2956,7 +2956,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA(void* hds, void* domaindn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsDomainA(void* hds, void* domaindn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2979,7 +2979,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW(void* hds, void* domaindn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsDomainW(void* hds, void* domaindn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3002,7 +3002,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA(void* hds, void* serverdn, void* domaindn, void* flastdcindomain, int32_t fcommit) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsServerA(void* hds, void* serverdn, void* domaindn, void* flastdcindomain, int32_t fcommit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3028,7 +3028,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW(void* hds, void* serverdn, void* domaindn, void* flastdcindomain, int32_t fcommit) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsServerW(void* hds, void* serverdn, void* domaindn, void* flastdcindomain, int32_t fcommit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3054,7 +3054,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaAddA(void* hds, void* namecontext, void* sourcedsadn, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaAddA(void* hds, void* namecontext, void* sourcedsadn, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3082,7 +3082,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaAddA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaAddW(void* hds, void* namecontext, void* sourcedsadn, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaAddW(void* hds, void* namecontext, void* sourcedsadn, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3110,7 +3110,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaAddW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck(void* hds, int32_t taskid, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaConsistencyCheck(void* hds, int32_t taskid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3134,7 +3134,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaConsistenc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaDelA(void* hds, void* namecontext, void* dsasrc, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaDelA(void* hds, void* namecontext, void* dsasrc, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3159,7 +3159,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaDelA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaDelW(void* hds, void* namecontext, void* dsasrc, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaDelW(void* hds, void* namecontext, void* dsasrc, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3184,7 +3184,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaDelW(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo(int32_t infotype, void* pinfo) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsReplicaFreeInfo(int32_t infotype, void* pinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3206,7 +3206,7 @@ void windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo(int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W(void* hds, int32_t infotype, void* pszobject, void* puuidforsourcedsaobjguid, void* pszattributename, void* pszvalue, uint32_t dwflags, uint32_t dwenumerationcontext, void* ppinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaGetInfo2W(void* hds, int32_t infotype, void* pszobject, void* puuidforsourcedsaobjguid, void* pszattributename, void* pszvalue, uint32_t dwflags, uint32_t dwenumerationcontext, void* ppinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3236,7 +3236,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW(void* hds, int32_t infotype, void* pszobject, void* puuidforsourcedsaobjguid, void* ppinfo) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaGetInfoW(void* hds, int32_t infotype, void* pszobject, void* puuidforsourcedsaobjguid, void* ppinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3262,7 +3262,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA(void* hds, void* namecontext, void* puuidsourcedsa, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t replicaflags, uint32_t modifyfields, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaModifyA(void* hds, void* namecontext, void* puuidsourcedsa, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t replicaflags, uint32_t modifyfields, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3292,7 +3292,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW(void* hds, void* namecontext, void* puuidsourcedsa, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t replicaflags, uint32_t modifyfields, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaModifyW(void* hds, void* namecontext, void* puuidsourcedsa, void* transportdn, void* sourcedsaaddress, void* pschedule, uint32_t replicaflags, uint32_t modifyfields, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3322,7 +3322,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA(void* hds, void* namecontext, void* puuiddsasrc, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncA(void* hds, void* namecontext, void* puuiddsasrc, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3347,7 +3347,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA(void* hds, void* psznamecontext, uint32_t ulflags, int64_t pfncallback, void* pcallbackdata, void* perrors) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncAllA(void* hds, void* psznamecontext, uint32_t ulflags, int64_t pfncallback, void* pcallbackdata, void* perrors) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3374,7 +3374,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW(void* hds, void* psznamecontext, uint32_t ulflags, int64_t pfncallback, void* pcallbackdata, void* perrors) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncAllW(void* hds, void* psznamecontext, uint32_t ulflags, int64_t pfncallback, void* pcallbackdata, void* perrors) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3401,7 +3401,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW(void* hds, void* namecontext, void* puuiddsasrc, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncW(void* hds, void* namecontext, void* puuiddsasrc, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3426,7 +3426,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA(void* hds, void* namecontext, void* dsadest, void* puuiddsadest, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaUpdateRefsA(void* hds, void* namecontext, void* dsadest, void* puuiddsadest, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3452,7 +3452,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW(void* hds, void* namecontext, void* dsadest, void* puuiddsadest, uint32_t options) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaUpdateRefsW(void* hds, void* namecontext, void* dsadest, void* puuiddsadest, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3478,7 +3478,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA(void* hds, void* namecontext, void* puuiddsasrc, uint32_t uloptions) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaVerifyObjectsA(void* hds, void* namecontext, void* puuiddsasrc, uint32_t uloptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3503,7 +3503,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObje
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW(void* hds, void* namecontext, void* puuiddsasrc, uint32_t uloptions) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsReplicaVerifyObjectsW(void* hds, void* namecontext, void* puuiddsasrc, uint32_t uloptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3528,7 +3528,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObje
 #endif
 }
 
-void windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory(void* buffer) {
+void windowssysWindowsWin32NetworkingActivedirectoryDsRoleFreeMemory(void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3549,7 +3549,7 @@ void windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation(void* lpserver, int32_t infolevel, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsRoleGetPrimaryDomainInformation(void* lpserver, int32_t infolevel, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3573,7 +3573,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA(int32_t operation, void* serviceclass, void* userobjectdn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsServerRegisterSpnA(int32_t operation, void* serviceclass, void* userobjectdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3597,7 +3597,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW(int32_t operation, void* serviceclass, void* userobjectdn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsServerRegisterSpnW(int32_t operation, void* serviceclass, void* userobjectdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3621,7 +3621,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsUnBindA(void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsUnBindA(void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3643,7 +3643,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsUnBindA(void* phd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsUnBindW(void* phds) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsUnBindW(void* phds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3665,7 +3665,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsUnBindW(void* phd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA(uint32_t cquotedrdnvaluelength, void* psquotedrdnvalue, void* pcunquotedrdnvaluelength, void* psunquotedrdnvalue) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsUnquoteRdnValueA(uint32_t cquotedrdnvaluelength, void* psquotedrdnvalue, void* pcunquotedrdnvaluelength, void* psunquotedrdnvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3690,7 +3690,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW(uint32_t cquotedrdnvaluelength, void* psquotedrdnvalue, void* pcunquotedrdnvaluelength, void* psunquotedrdnvalue) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsUnquoteRdnValueW(uint32_t cquotedrdnvaluelength, void* psquotedrdnvalue, void* pcunquotedrdnvaluelength, void* psunquotedrdnvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3715,7 +3715,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA(void* subnetname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsValidateSubnetNameA(void* subnetname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3737,7 +3737,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW(void* subnetname) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsValidateSubnetNameW(void* subnetname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3759,7 +3759,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA(void* hds, int32_t operation, void* pszaccount, uint32_t cspn, void* rpszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsWriteAccountSpnA(void* hds, int32_t operation, void* pszaccount, uint32_t cspn, void* rpszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3785,7 +3785,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW(void* hds, int32_t operation, void* pszaccount, uint32_t cspn, void* rpszspn) {
+uint32_t windowssysWindowsWin32NetworkingActivedirectoryDsWriteAccountSpnW(void* hds, int32_t operation, void* pszaccount, uint32_t cspn, void* rpszspn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3811,7 +3811,7 @@ uint32_t windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_freeADsMem(void* pmem) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryFreeADsMem(void* pmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3833,7 +3833,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_freeADsMem(void* pme
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_freeADsStr(void* pstr) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryFreeADsStr(void* pstr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3855,7 +3855,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_freeADsStr(void* pst
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_propVariantToAdsType(void* pvariant, uint32_t dwnumvariant, void* ppadsvalues, void* pdwnumvalues) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryPropVariantToAdsType(void* pvariant, uint32_t dwnumvariant, void* ppadsvalues, void* pdwnumvalues) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3880,7 +3880,7 @@ int32_t windowssys_windows_win32_networking_activedirectory_propVariantToAdsType
 #endif
 }
 
-void* windowssys_windows_win32_networking_activedirectory_reallocADsMem(void* poldmem, uint32_t cbold, uint32_t cbnew) {
+void* windowssysWindowsWin32NetworkingActivedirectoryReallocADsMem(void* poldmem, uint32_t cbold, uint32_t cbnew) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3904,7 +3904,7 @@ void* windowssys_windows_win32_networking_activedirectory_reallocADsMem(void* po
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_activedirectory_reallocADsStr(void* ppstr, void* pstr) {
+int32_t windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr(void* ppstr, void* pstr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

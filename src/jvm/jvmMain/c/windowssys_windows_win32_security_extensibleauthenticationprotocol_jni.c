@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerClearConnection(JNIEnv* km_env, jclass km_clazz, jlong pconnectionid, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerClearConnection(JNIEnv* km_env, jclass km_clazz, jlong pconnectionid, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerEndSession(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerEndSession(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerFreeEapError(JNIEnv* km_env, jclass km_clazz, jlong peaperror) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeEapError(JNIEnv* km_env, jclass km_clazz, jlong peaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -92,7 +92,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerFreeErrorMemory(JNIEnv* km_env, jclass km_clazz, jlong peaperror) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeErrorMemory(JNIEnv* km_env, jclass km_clazz, jlong peaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -113,7 +113,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -134,7 +134,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerFreeRuntimeMemory(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeRuntimeMemory(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetAuthStatus(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint authparam, jlong pcbauthdata, jlong ppauthdata, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetAuthStatus(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint authparam, jlong pcbauthdata, jlong ppauthdata, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -184,7 +184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetDataToUnplumbCredentials(JNIEnv* km_env, jclass km_clazz, jlong pconnectionidthatlastsavedcreds, jlong phcredentialimpersonationtoken, jint sessionhandle, jlong ppeaperror, jlong fsavetocredman) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetDataToUnplumbCredentials(JNIEnv* km_env, jclass km_clazz, jlong pconnectionidthatlastsavedcreds, jlong phcredentialimpersonationtoken, jint sessionhandle, jlong ppeaperror, jlong fsavetocredman) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -213,7 +213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetEncryptedPassword(JNIEnv* km_env, jclass km_clazz, jint dwsizeofpassword, jlong szpassword, jlong ppszencpassword) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetEncryptedPassword(JNIEnv* km_env, jclass km_clazz, jint dwsizeofpassword, jlong szpassword, jlong ppszencpassword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetMethods(JNIEnv* km_env, jclass km_clazz, jlong peapmethodinfoarray, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetMethods(JNIEnv* km_env, jclass km_clazz, jlong peapmethodinfoarray, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -266,7 +266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetResponseAttributes(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pattribs, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetResponseAttributes(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pattribs, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetResult(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint reason, jlong ppresult, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetResult(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint reason, jlong ppresult, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetSendPacket(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pcbsendpacket, jlong ppsendpacket, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetSendPacket(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pcbsendpacket, jlong ppsendpacket, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -349,7 +349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerGetUIContext(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pdwsizeofuicontextdata, jlong ppuicontextdata, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetUIContext(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pdwsizeofuicontextdata, jlong ppuicontextdata, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -377,7 +377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerInitialize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerInitialize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -401,7 +401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerInvokeInteractiveUI(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint dwsizeofuicontextdata, jlong puicontextdata, jlong pdwsizeofdatafrominteractiveui, jlong ppdatafrominteractiveui, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerInvokeInteractiveUI(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint dwsizeofuicontextdata, jlong puicontextdata, jlong pdwsizeofdatafrominteractiveui, jlong ppdatafrominteractiveui, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerProcessReceivedPacket(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint cbreceivepacket, jlong preceivepacket, jlong peapoutput, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerProcessReceivedPacket(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint cbreceivepacket, jlong preceivepacket, jlong peapoutput, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -460,7 +460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerQueryInteractiveUIInputFields(JNIEnv* km_env, jclass km_clazz, jint dwversion, jint dwflags, jint dwsizeofuicontextdata, jlong puicontextdata, jlong peapinteractiveuidata, jlong ppeaperror, jlong ppvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerQueryInteractiveUIInputFields(JNIEnv* km_env, jclass km_clazz, jint dwversion, jint dwflags, jint dwsizeofuicontextdata, jlong puicontextdata, jlong peapinteractiveuidata, jlong ppeaperror, jlong ppvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -491,7 +491,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerQueryUIBlobFromInteractiveUIInputFields(JNIEnv* km_env, jclass km_clazz, jint dwversion, jint dwflags, jint dwsizeofuicontextdata, jlong puicontextdata, jlong peapinteractiveuidata, jlong pdwsizeofdatafrominteractiveui, jlong ppdatafrominteractiveui, jlong ppeaperror, jlong ppvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerQueryUIBlobFromInteractiveUIInputFields(JNIEnv* km_env, jclass km_clazz, jint dwversion, jint dwflags, jint dwsizeofuicontextdata, jlong puicontextdata, jlong peapinteractiveuidata, jlong pdwsizeofdatafrominteractiveui, jlong ppdatafrominteractiveui, jlong ppeaperror, jlong ppvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -524,7 +524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerSetResponseAttributes(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pattribs, jlong peapoutput, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerSetResponseAttributes(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong pattribs, jlong peapoutput, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -552,7 +552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerSetUIContext(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint dwsizeofuicontextdata, jlong puicontextdata, jlong peapoutput, jlong ppeaperror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerSetUIContext(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint dwsizeofuicontextdata, jlong puicontextdata, jlong peapoutput, jlong ppeaperror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -581,7 +581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssys_1windows_1win32_1security_1extensibleauthenticationprotocol_1eapHostPeerUninitialize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_extensibleauthenticationprotocol_WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge_windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerUninitialize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

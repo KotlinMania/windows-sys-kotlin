@@ -2,274 +2,277 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_addPackageDependency
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_closePackageInfo
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_deletePackageDependency
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageInfo
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackageInfo2
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackagePath
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_removePackageDependency
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_verifyPackageId
-import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAddPackageDependency
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxClosePackageInfo
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageInfo
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackagePath
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxVerifyPackageId
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.cinterop.windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun activatePackageVirtualizationContext(context: PackageVirtualizationContextHandle, cookie: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext(context?.value?.toCPointer<ByteVar>(), cookie?.value?.toCPointer<ByteVar>())
+public actual fun activatePackageVirtualizationContext(context: PackageVirtualizationContextHandle, cookie: MutPtr<ULong>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext(context.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addPackageDependency(packagedependencyid: Pcwstr, rank: Int, options: AddPackageDependencyOptions, packagedependencycontext: COpaquePointer?, packagefullname: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_addPackageDependency(packagedependencyid?.value?.toCPointer<ByteVar>(), rank, options, packagedependencycontext?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>())
+public actual fun addPackageDependency(packagedependencyid: Pcwstr, rank: Int, options: AddPackageDependencyOptions, packagedependencycontext: MutPtr<PackagedependencyContext>, packagefullname: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxAddPackageDependency(packagedependencyid.rawAddress.toCPointer<ByteVar>(), rank, options, packagedependencycontext.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetClrCompat(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetClrCompat(processtoken: Handle, policy: MutPtr<AppPolicyClrCompat>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetCreateFileAccess(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetCreateFileAccess(processtoken: Handle, policy: MutPtr<AppPolicyCreateFileAccess>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetLifecycleManagement(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetLifecycleManagement(processtoken: Handle, policy: MutPtr<AppPolicyLifecycleManagement>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetMediaFoundationCodecLoading(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetMediaFoundationCodecLoading(processtoken: Handle, policy: MutPtr<AppPolicyMediaFoundationCodecLoading>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetProcessTerminationMethod(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetProcessTerminationMethod(processtoken: Handle, policy: MutPtr<AppPolicyProcessTerminationMethod>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetShowDeveloperDiagnostic(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetShowDeveloperDiagnostic(processtoken: Handle, policy: MutPtr<AppPolicyShowDeveloperDiagnostic>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetThreadInitializationType(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetThreadInitializationType(processtoken: Handle, policy: MutPtr<AppPolicyThreadInitializationType>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun appPolicyGetWindowingModel(processtoken: Handle, policy: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel(processtoken?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
+public actual fun appPolicyGetWindowingModel(processtoken: Handle, policy: MutPtr<AppPolicyWindowingModel>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel(processtoken.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun checkIsMSIXPackage(packagefullname: Pcwstr, ismsixpackage: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage(packagefullname?.value?.toCPointer<ByteVar>(), ismsixpackage?.value?.toCPointer<ByteVar>())
+public actual fun checkIsMSIXPackage(packagefullname: Pcwstr, ismsixpackage: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage(packagefullname.rawAddress.toCPointer<ByteVar>(), ismsixpackage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun closePackageInfo(packageinforeference: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_closePackageInfo(packageinforeference?.value?.toCPointer<ByteVar>())
+public actual fun closePackageInfo(packageinforeference: ConstPtr<PackageInfoReference>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxClosePackageInfo(packageinforeference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPackageVirtualizationContext(packagefamilyname: Pcwstr, context: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext(packagefamilyname?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
+public actual fun createPackageVirtualizationContext(packagefamilyname: Pcwstr, context: MutPtr<PackageVirtualizationContextHandle>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext(packagefamilyname.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deactivatePackageVirtualizationContext(cookie: ULong) {
-    windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext(cookie)
+    windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext(cookie)
 }
 
 public actual fun deletePackageDependency(packagedependencyid: Pcwstr): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_deletePackageDependency(packagedependencyid?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency(packagedependencyid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun duplicatePackageVirtualizationContext(sourcecontext: PackageVirtualizationContextHandle, destcontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext(sourcecontext?.value?.toCPointer<ByteVar>(), destcontext?.value?.toCPointer<ByteVar>())
+public actual fun duplicatePackageVirtualizationContext(sourcecontext: PackageVirtualizationContextHandle, destcontext: MutPtr<PackageVirtualizationContextHandle>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext(sourcecontext.rawAddress.toCPointer<ByteVar>(), destcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findPackagesByPackageFamily(packagefamilyname: Pcwstr, packagefilters: UInt, count: COpaquePointer?, packagefullnames: COpaquePointer?, bufferlength: COpaquePointer?, buffer: Pwstr, packageproperties: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily(packagefamilyname?.value?.toCPointer<ByteVar>(), packagefilters, count?.value?.toCPointer<ByteVar>(), packagefullnames?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), packageproperties?.value?.toCPointer<ByteVar>())
+public actual fun findPackagesByPackageFamily(packagefamilyname: Pcwstr, packagefilters: UInt, count: MutPtr<UInt>, packagefullnames: MutPtr<Pwstr>, bufferlength: MutPtr<UInt>, buffer: Pwstr, packageproperties: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily(packagefamilyname.rawAddress.toCPointer<ByteVar>(), packagefilters, count.rawAddress.toCPointer<ByteVar>(), packagefullnames.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), packageproperties.rawAddress.toCPointer<ByteVar>())
 
-public actual fun formatApplicationUserModelId(packagefamilyname: Pcwstr, packagerelativeapplicationid: Pcwstr, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId(packagefamilyname?.value?.toCPointer<ByteVar>(), packagerelativeapplicationid?.value?.toCPointer<ByteVar>(), applicationusermodelidlength?.value?.toCPointer<ByteVar>(), applicationusermodelid?.value?.toCPointer<ByteVar>())
+public actual fun formatApplicationUserModelId(packagefamilyname: Pcwstr, packagerelativeapplicationid: Pcwstr, applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId(packagefamilyname.rawAddress.toCPointer<ByteVar>(), packagerelativeapplicationid.rawAddress.toCPointer<ByteVar>(), applicationusermodelidlength.rawAddress.toCPointer<ByteVar>(), applicationusermodelid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getApplicationUserModelId(hprocess: Handle, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId(hprocess?.value?.toCPointer<ByteVar>(), applicationusermodelidlength?.value?.toCPointer<ByteVar>(), applicationusermodelid?.value?.toCPointer<ByteVar>())
+public actual fun getApplicationUserModelId(hprocess: Handle, applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId(hprocess.rawAddress.toCPointer<ByteVar>(), applicationusermodelidlength.rawAddress.toCPointer<ByteVar>(), applicationusermodelid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getApplicationUserModelIdFromToken(token: Handle, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken(token?.value?.toCPointer<ByteVar>(), applicationusermodelidlength?.value?.toCPointer<ByteVar>(), applicationusermodelid?.value?.toCPointer<ByteVar>())
+public actual fun getApplicationUserModelIdFromToken(token: Handle, applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken(token.rawAddress.toCPointer<ByteVar>(), applicationusermodelidlength.rawAddress.toCPointer<ByteVar>(), applicationusermodelid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentApplicationUserModelId(applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId(applicationusermodelidlength?.value?.toCPointer<ByteVar>(), applicationusermodelid?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentApplicationUserModelId(applicationusermodelidlength: MutPtr<UInt>, applicationusermodelid: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId(applicationusermodelidlength.rawAddress.toCPointer<ByteVar>(), applicationusermodelid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackageFamilyName(packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName(packagefamilynamelength?.value?.toCPointer<ByteVar>(), packagefamilyname?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackageFamilyName(packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName(packagefamilynamelength.rawAddress.toCPointer<ByteVar>(), packagefamilyname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackageFullName(packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName(packagefullnamelength?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackageFullName(packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName(packagefullnamelength.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackageId(bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId(bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackageId(bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId(bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackageInfo(flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo(flags, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackageInfo(flags: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo(flags, bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackageInfo2(flags: UInt, packagepathtype: PackagePathType, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2(flags, packagepathtype, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackageInfo2(flags: UInt, packagepathtype: PackagePathType, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2(flags, packagepathtype, bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackageInfo3(flags: UInt, packageinfotype: PackageInfo3Type, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3(flags, packageinfotype, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackageInfo3(flags: UInt, packageinfotype: PackageInfo3Type, bufferlength: MutPtr<UInt>, buffer: MutPtr<CVoid>, count: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3(flags, packageinfotype, bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackagePath(pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath(pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackagePath(pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath(pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2(packagepathtype, pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2(packagepathtype, pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getCurrentPackageVirtualizationContext(): PackageVirtualizationContextHandle =
-    windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext()?.toLong() ?: 0L)
 
-public actual fun getIdForPackageDependencyContext(packagedependencycontext: PackagedependencyContext, packagedependencyid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext(packagedependencycontext?.value?.toCPointer<ByteVar>(), packagedependencyid?.value?.toCPointer<ByteVar>())
+public actual fun getIdForPackageDependencyContext(packagedependencycontext: PackagedependencyContext, packagedependencyid: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext(packagedependencycontext.rawAddress.toCPointer<ByteVar>(), packagedependencyid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageApplicationIds(packageinforeference: COpaquePointer?, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds(packageinforeference?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getPackageApplicationIds(packageinforeference: ConstPtr<PackageInfoReference>, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds(packageinforeference.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageFamilyName(hprocess: Handle, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName(hprocess?.value?.toCPointer<ByteVar>(), packagefamilynamelength?.value?.toCPointer<ByteVar>(), packagefamilyname?.value?.toCPointer<ByteVar>())
+public actual fun getPackageFamilyName(hprocess: Handle, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName(hprocess.rawAddress.toCPointer<ByteVar>(), packagefamilynamelength.rawAddress.toCPointer<ByteVar>(), packagefamilyname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageFamilyNameFromToken(token: Handle, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken(token?.value?.toCPointer<ByteVar>(), packagefamilynamelength?.value?.toCPointer<ByteVar>(), packagefamilyname?.value?.toCPointer<ByteVar>())
+public actual fun getPackageFamilyNameFromToken(token: Handle, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken(token.rawAddress.toCPointer<ByteVar>(), packagefamilynamelength.rawAddress.toCPointer<ByteVar>(), packagefamilyname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageFullName(hprocess: Handle, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageFullName(hprocess?.value?.toCPointer<ByteVar>(), packagefullnamelength?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>())
+public actual fun getPackageFullName(hprocess: Handle, packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageFullName(hprocess.rawAddress.toCPointer<ByteVar>(), packagefullnamelength.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageFullNameFromToken(token: Handle, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken(token?.value?.toCPointer<ByteVar>(), packagefullnamelength?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>())
+public actual fun getPackageFullNameFromToken(token: Handle, packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken(token.rawAddress.toCPointer<ByteVar>(), packagefullnamelength.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getPackageGraphRevisionId(): UInt =
-    windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId()
+    windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId()
 
-public actual fun getPackageId(hprocess: Handle, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageId(hprocess?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun getPackageId(hprocess: Handle, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageId(hprocess.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageInfo(packageinforeference: COpaquePointer?, flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageInfo(packageinforeference?.value?.toCPointer<ByteVar>(), flags, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getPackageInfo(packageinforeference: ConstPtr<PackageInfoReference>, flags: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageInfo(packageinforeference.rawAddress.toCPointer<ByteVar>(), flags, bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackageInfo2(packageinforeference: COpaquePointer?, flags: UInt, packagepathtype: PackagePathType, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackageInfo2(packageinforeference?.value?.toCPointer<ByteVar>(), flags, packagepathtype, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getPackageInfo2(packageinforeference: ConstPtr<PackageInfoReference>, flags: UInt, packagepathtype: PackagePathType, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>, count: MutPtr<UInt>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2(packageinforeference.rawAddress.toCPointer<ByteVar>(), flags, packagepathtype, bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackagePath(packageid: COpaquePointer?, reserved: UInt, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackagePath(packageid?.value?.toCPointer<ByteVar>(), reserved, pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getPackagePath(packageid: ConstPtr<PackageId>, reserved: UInt, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackagePath(packageid.rawAddress.toCPointer<ByteVar>(), reserved, pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackagePathByFullName(packagefullname: Pcwstr, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName(packagefullname?.value?.toCPointer<ByteVar>(), pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getPackagePathByFullName(packagefullname: Pcwstr, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName(packagefullname.rawAddress.toCPointer<ByteVar>(), pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2(packagefullname?.value?.toCPointer<ByteVar>(), packagepathtype, pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2(packagefullname.rawAddress.toCPointer<ByteVar>(), packagepathtype, pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPackagesByPackageFamily(packagefamilyname: Pcwstr, count: COpaquePointer?, packagefullnames: COpaquePointer?, bufferlength: COpaquePointer?, buffer: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily(packagefamilyname?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>(), packagefullnames?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun getPackagesByPackageFamily(packagefamilyname: Pcwstr, count: MutPtr<UInt>, packagefullnames: MutPtr<Pwstr>, bufferlength: MutPtr<UInt>, buffer: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily(packagefamilyname.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>(), packagefullnames.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProcessesInVirtualizationContext(packagefamilyname: Pcwstr, count: COpaquePointer?, processes: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext(packagefamilyname?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>(), processes?.value?.toCPointer<ByteVar>())
+public actual fun getProcessesInVirtualizationContext(packagefamilyname: Pcwstr, count: MutPtr<UInt>, processes: MutPtr<MutPtr<Handle>>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext(packagefamilyname.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>(), processes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getResolvedPackageFullNameForPackageDependency(packagedependencyid: Pcwstr, packagefullname: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency(packagedependencyid?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>())
+public actual fun getResolvedPackageFullNameForPackageDependency(packagedependencyid: Pcwstr, packagefullname: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency(packagedependencyid.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStagedPackageOrigin(packagefullname: Pcwstr, origin: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin(packagefullname?.value?.toCPointer<ByteVar>(), origin?.value?.toCPointer<ByteVar>())
+public actual fun getStagedPackageOrigin(packagefullname: Pcwstr, origin: MutPtr<PackageOrigin>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin(packagefullname.rawAddress.toCPointer<ByteVar>(), origin.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStagedPackagePathByFullName(packagefullname: Pcwstr, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName(packagefullname?.value?.toCPointer<ByteVar>(), pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getStagedPackagePathByFullName(packagefullname: Pcwstr, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName(packagefullname.rawAddress.toCPointer<ByteVar>(), pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStagedPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2(packagefullname?.value?.toCPointer<ByteVar>(), packagepathtype, pathlength?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
+public actual fun getStagedPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: MutPtr<UInt>, path: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2(packagefullname.rawAddress.toCPointer<ByteVar>(), packagepathtype, pathlength.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openPackageInfoByFullName(packagefullname: Pcwstr, reserved: UInt, packageinforeference: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName(packagefullname?.value?.toCPointer<ByteVar>(), reserved, packageinforeference?.value?.toCPointer<ByteVar>())
+public actual fun openPackageInfoByFullName(packagefullname: Pcwstr, reserved: UInt, packageinforeference: MutPtr<MutPtr<PackageInfoReference>>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName(packagefullname.rawAddress.toCPointer<ByteVar>(), reserved, packageinforeference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openPackageInfoByFullNameForUser(usersid: Psid, packagefullname: Pcwstr, reserved: UInt, packageinforeference: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser(usersid?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>(), reserved, packageinforeference?.value?.toCPointer<ByteVar>())
+public actual fun openPackageInfoByFullNameForUser(usersid: Psid, packagefullname: Pcwstr, reserved: UInt, packageinforeference: MutPtr<MutPtr<PackageInfoReference>>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser(usersid.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>(), reserved, packageinforeference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun packageFamilyNameFromFullName(packagefullname: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName(packagefullname?.value?.toCPointer<ByteVar>(), packagefamilynamelength?.value?.toCPointer<ByteVar>(), packagefamilyname?.value?.toCPointer<ByteVar>())
+public actual fun packageFamilyNameFromFullName(packagefullname: Pcwstr, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName(packagefullname.rawAddress.toCPointer<ByteVar>(), packagefamilynamelength.rawAddress.toCPointer<ByteVar>(), packagefamilyname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun packageFamilyNameFromId(packageid: COpaquePointer?, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId(packageid?.value?.toCPointer<ByteVar>(), packagefamilynamelength?.value?.toCPointer<ByteVar>(), packagefamilyname?.value?.toCPointer<ByteVar>())
+public actual fun packageFamilyNameFromId(packageid: ConstPtr<PackageId>, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId(packageid.rawAddress.toCPointer<ByteVar>(), packagefamilynamelength.rawAddress.toCPointer<ByteVar>(), packagefamilyname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun packageFullNameFromId(packageid: COpaquePointer?, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId(packageid?.value?.toCPointer<ByteVar>(), packagefullnamelength?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>())
+public actual fun packageFullNameFromId(packageid: ConstPtr<PackageId>, packagefullnamelength: MutPtr<UInt>, packagefullname: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId(packageid.rawAddress.toCPointer<ByteVar>(), packagefullnamelength.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun packageIdFromFullName(packagefullname: Pcwstr, flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName(packagefullname?.value?.toCPointer<ByteVar>(), flags, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun packageIdFromFullName(packagefullname: Pcwstr, flags: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<UByte>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName(packagefullname.rawAddress.toCPointer<ByteVar>(), flags, bufferlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun packageNameAndPublisherIdFromFamilyName(packagefamilyname: Pcwstr, packagenamelength: COpaquePointer?, packagename: Pwstr, packagepublisheridlength: COpaquePointer?, packagepublisherid: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName(packagefamilyname?.value?.toCPointer<ByteVar>(), packagenamelength?.value?.toCPointer<ByteVar>(), packagename?.value?.toCPointer<ByteVar>(), packagepublisheridlength?.value?.toCPointer<ByteVar>(), packagepublisherid?.value?.toCPointer<ByteVar>())
+public actual fun packageNameAndPublisherIdFromFamilyName(packagefamilyname: Pcwstr, packagenamelength: MutPtr<UInt>, packagename: Pwstr, packagepublisheridlength: MutPtr<UInt>, packagepublisherid: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName(packagefamilyname.rawAddress.toCPointer<ByteVar>(), packagenamelength.rawAddress.toCPointer<ByteVar>(), packagename.rawAddress.toCPointer<ByteVar>(), packagepublisheridlength.rawAddress.toCPointer<ByteVar>(), packagepublisherid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun parseApplicationUserModelId(applicationusermodelid: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr, packagerelativeapplicationidlength: COpaquePointer?, packagerelativeapplicationid: Pwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId(applicationusermodelid?.value?.toCPointer<ByteVar>(), packagefamilynamelength?.value?.toCPointer<ByteVar>(), packagefamilyname?.value?.toCPointer<ByteVar>(), packagerelativeapplicationidlength?.value?.toCPointer<ByteVar>(), packagerelativeapplicationid?.value?.toCPointer<ByteVar>())
+public actual fun parseApplicationUserModelId(applicationusermodelid: Pcwstr, packagefamilynamelength: MutPtr<UInt>, packagefamilyname: Pwstr, packagerelativeapplicationidlength: MutPtr<UInt>, packagerelativeapplicationid: Pwstr): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId(applicationusermodelid.rawAddress.toCPointer<ByteVar>(), packagefamilynamelength.rawAddress.toCPointer<ByteVar>(), packagefamilyname.rawAddress.toCPointer<ByteVar>(), packagerelativeapplicationidlength.rawAddress.toCPointer<ByteVar>(), packagerelativeapplicationid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun releasePackageVirtualizationContext(context: PackageVirtualizationContextHandle) {
-    windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext(context?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext(context.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun removePackageDependency(packagedependencycontext: PackagedependencyContext): Hresult =
-    windowssys_windows_win32_storage_packaging_appx_removePackageDependency(packagedependencycontext?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency(packagedependencycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tryCreatePackageDependency(user: Psid, packagefamilyname: Pcwstr, minversion: PackageVersion, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: Pcwstr, options: CreatePackageDependencyOptions, packagedependencyid: COpaquePointer?): Hresult =
+public actual fun tryCreatePackageDependency(user: Psid, packagefamilyname: Pcwstr, minversion: PackageVersion, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: Pcwstr, options: CreatePackageDependencyOptions, packagedependencyid: MutPtr<Pwstr>): Hresult =
     0
 
 public actual fun verifyApplicationUserModelId(applicationusermodelid: Pcwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId(applicationusermodelid?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId(applicationusermodelid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun verifyPackageFamilyName(packagefamilyname: Pcwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName(packagefamilyname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName(packagefamilyname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun verifyPackageFullName(packagefullname: Pcwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName(packagefullname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName(packagefullname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verifyPackageId(packageid: COpaquePointer?): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_verifyPackageId(packageid?.value?.toCPointer<ByteVar>())
+public actual fun verifyPackageId(packageid: ConstPtr<PackageId>): Win32Error =
+    windowssysWindowsWin32StoragePackagingAppxVerifyPackageId(packageid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun verifyPackageRelativeApplicationId(packagerelativeapplicationid: Pcwstr): Win32Error =
-    windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId(packagerelativeapplicationid?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId(packagerelativeapplicationid.rawAddress.toCPointer<ByteVar>())

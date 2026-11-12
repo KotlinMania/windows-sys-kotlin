@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDirectoryservicesDSCreateSecurityPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszobjectpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszobjectclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -88,7 +88,7 @@ static Napi::Value windowssys_windows_win32_security_directoryservices_dSCreateS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_directoryservices_dSEditSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityDirectoryservicesDSEditSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszobjectpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -128,8 +128,8 @@ static Napi::Value windowssys_windows_win32_security_directoryservices_dSEditSec
 }
 
 static void register_windows_win32_security_directoryservices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage", Napi::Function::New(env, windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage_napi));
-    exports.Set("windowssys_windows_win32_security_directoryservices_dSEditSecurity", Napi::Function::New(env, windowssys_windows_win32_security_directoryservices_dSEditSecurity_napi));
+    exports.Set("windowssysWindowsWin32SecurityDirectoryservicesDSCreateSecurityPage", Napi::Function::New(env, windowssysWindowsWin32SecurityDirectoryservicesDSCreateSecurityPage_napi));
+    exports.Set("windowssysWindowsWin32SecurityDirectoryservicesDSEditSecurity", Napi::Function::New(env, windowssysWindowsWin32SecurityDirectoryservicesDSEditSecurity_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_directoryservices_napi, nullptr };

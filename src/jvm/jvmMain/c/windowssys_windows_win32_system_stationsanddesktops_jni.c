@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1broadcastSystemMessageA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1broadcastSystemMessageExA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam, jlong pbsminfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam, jlong pbsminfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1broadcastSystemMessageExW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam, jlong pbsminfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam, jlong pbsminfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1broadcastSystemMessageW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong lpinfo, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1closeDesktop(JNIEnv* km_env, jclass km_clazz, jlong hdesktop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCloseDesktop(JNIEnv* km_env, jclass km_clazz, jlong hdesktop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -162,7 +162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1closeWindowStation(JNIEnv* km_env, jclass km_clazz, jlong hwinsta) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation(JNIEnv* km_env, jclass km_clazz, jlong hwinsta) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1createDesktopA(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1createDesktopExA(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa, jint ulheapsize, jlong pvoid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa, jint ulheapsize, jlong pvoid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -249,7 +249,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1createDesktopExW(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa, jint ulheapsize, jlong pvoid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa, jint ulheapsize, jlong pvoid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -281,7 +281,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1createDesktopW(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jlong lpszdevice, jlong pdevmode, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1createWindowStationA(JNIEnv* km_env, jclass km_clazz, jlong lpwinsta, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA(JNIEnv* km_env, jclass km_clazz, jlong lpwinsta, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -339,7 +339,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1createWindowStationW(JNIEnv* km_env, jclass km_clazz, jlong lpwinsta, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW(JNIEnv* km_env, jclass km_clazz, jlong lpwinsta, jint dwflags, jint dwdesiredaccess, jlong lpsa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -367,7 +367,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1enumDesktopsA(JNIEnv* km_env, jclass km_clazz, jlong hwinsta, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsA(JNIEnv* km_env, jclass km_clazz, jlong hwinsta, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -394,7 +394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1enumDesktopsW(JNIEnv* km_env, jclass km_clazz, jlong hwinsta, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsW(JNIEnv* km_env, jclass km_clazz, jlong hwinsta, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -421,7 +421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1enumWindowStationsA(JNIEnv* km_env, jclass km_clazz, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsA(JNIEnv* km_env, jclass km_clazz, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -447,7 +447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1enumWindowStationsW(JNIEnv* km_env, jclass km_clazz, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsW(JNIEnv* km_env, jclass km_clazz, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -473,7 +473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1getProcessWindowStation(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsGetProcessWindowStation(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -497,7 +497,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1getThreadDesktop(JNIEnv* km_env, jclass km_clazz, jint dwthreadid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop(JNIEnv* km_env, jclass km_clazz, jint dwthreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -522,7 +522,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1getUserObjectInformationA(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength, jlong lpnlengthneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength, jlong lpnlengthneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -551,7 +551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1getUserObjectInformationW(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength, jlong lpnlengthneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength, jlong lpnlengthneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -580,7 +580,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1openDesktopA(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jint dwflags, jint finherit, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopA(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jint dwflags, jint finherit, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -608,7 +608,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1openDesktopW(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jint dwflags, jint finherit, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopW(JNIEnv* km_env, jclass km_clazz, jlong lpszdesktop, jint dwflags, jint finherit, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -636,7 +636,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1openInputDesktop(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint finherit, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsOpenInputDesktop(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint finherit, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -663,7 +663,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1openWindowStationA(JNIEnv* km_env, jclass km_clazz, jlong lpszwinsta, jint finherit, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationA(JNIEnv* km_env, jclass km_clazz, jlong lpszwinsta, jint finherit, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -690,7 +690,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1openWindowStationW(JNIEnv* km_env, jclass km_clazz, jlong lpszwinsta, jint finherit, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationW(JNIEnv* km_env, jclass km_clazz, jlong lpszwinsta, jint finherit, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -717,7 +717,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1setProcessWindowStation(JNIEnv* km_env, jclass km_clazz, jlong hwinsta) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsSetProcessWindowStation(JNIEnv* km_env, jclass km_clazz, jlong hwinsta) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1setThreadDesktop(JNIEnv* km_env, jclass km_clazz, jlong hdesktop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop(JNIEnv* km_env, jclass km_clazz, jlong hdesktop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -767,7 +767,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1setUserObjectInformationA(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -795,7 +795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1setUserObjectInformationW(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint nindex, jlong pvinfo, jint nlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -823,7 +823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssys_1windows_1win32_1system_1stationsanddesktops_1switchDesktop(JNIEnv* km_env, jclass km_clazz, jlong hdesktop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_stationsanddesktops_WindowsWin32SystemStationsanddesktopsJniBridge_windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop(JNIEnv* km_env, jclass km_clazz, jlong hdesktop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

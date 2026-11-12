@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGroupDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hprovidergroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hprovidergroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hprovidergroupset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -134,7 +134,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hprovidergroupset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hprovidergroupset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hprovidergroupset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -250,7 +250,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterNode
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterNode
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterResourceDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -310,7 +310,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterResourceNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterResourceNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -366,7 +366,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterResourceNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -395,7 +395,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addClusterStorageNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddClusterStorageNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterStor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddCrossClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpremoteclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addCrossCluste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringAddResourceToClusterSharedVolumes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -484,7 +484,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addResourceToC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_backupClusterDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringBackupClusterDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -511,7 +511,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_backupClusterD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_canResourceBeDependent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCanResourceBeDependent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hresourcedependent = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -538,10 +538,10 @@ static Napi::Value windowssys_windows_win32_networking_clustering_canResourceBeD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
-    uint32_t dwcancelflags_reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwcancelflagsReserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
@@ -551,21 +551,21 @@ static Napi::Value windowssys_windows_win32_networking_clustering_cancelClusterG
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hgroup, dwcancelflags_reserved);
+        km_res = km_fn_ptr(hgroup, dwcancelflagsReserved);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)hgroup;
-    (void)dwcancelflags_reserved;
+    (void)dwcancelflagsReserved;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterResourceGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -592,7 +592,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -621,7 +621,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -652,7 +652,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeCluster_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseCluster_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -677,7 +677,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeCluster_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterCryptProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluscryptprovider = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -727,7 +727,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterGr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -752,7 +752,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterGr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNetInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -777,7 +777,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -802,7 +802,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNotifyPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -852,7 +852,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCloseClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusAddClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* failure = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -906,7 +906,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusAddCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusGetClusterHealthFaults_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* objects = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -935,7 +935,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusGetCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusRemoveClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -964,7 +964,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusRemoveClus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusWorkerCheckTerminate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpworker = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -989,7 +989,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerChec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusWorkerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpworker = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstartaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1018,7 +1018,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerTerminate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusWorkerTerminate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpworker = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1040,7 +1040,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerTerm
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusWorkerTerminateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clusworker = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t timeoutinmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1069,7 +1069,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerTerm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkersTerminate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusWorkersTerminate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clusworkers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t clusworkerscount = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1100,7 +1100,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkersTer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusapiSetReasonHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1125,7 +1125,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusapiSetReas
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterAddGroupToAffinityRule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* rulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1154,7 +1154,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomains_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1212,7 +1212,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomainsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1245,7 +1245,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterAffinityRuleControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* affinityrulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1286,7 +1286,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAffinit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterClearBackupStateForSharedVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumepathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1311,7 +1311,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterClearBa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t henum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1336,7 +1336,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterCloseEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hclusterenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1361,7 +1361,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterCloseEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1400,7 +1400,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1441,7 +1441,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterCreateAffinityRule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* rulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1470,7 +1470,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterCreateA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterDecrypt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterDecrypt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluscryptprovider = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcryptinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1503,7 +1503,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterDecrypt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterEncrypt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterEncrypt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluscryptprovider = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1536,7 +1536,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterEncrypt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t henum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1569,7 +1569,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterEnum_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hclusterenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1600,7 +1600,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterEnumEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t henum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1625,7 +1625,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hclusterenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1650,7 +1650,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGetVolumeNameForVolumeMountPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1679,7 +1679,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetVolu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetVolumePathName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGetVolumePathName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumepathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1708,7 +1708,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetVolu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1733,7 +1733,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupenumex = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1758,7 +1758,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1797,7 +1797,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1838,7 +1838,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupenumex = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1902,7 +1902,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1927,7 +1927,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupenumex = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1952,7 +1952,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1979,7 +1979,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2014,7 +2014,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupsetenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2039,7 +2039,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSetControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupSetControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2078,7 +2078,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupSetControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2119,7 +2119,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSetEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupSetEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupsetenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2150,7 +2150,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupSetGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupsetenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2175,7 +2175,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2200,7 +2200,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterIsPathOnSharedVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2225,7 +2225,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterIsPathO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterfaceenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2250,7 +2250,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2289,7 +2289,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2330,7 +2330,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterfaceenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2361,7 +2361,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2390,7 +2390,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetworkenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2415,7 +2415,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetworkControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2454,7 +2454,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetworkControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2495,7 +2495,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetworkEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetworkenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2528,7 +2528,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetworkGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetworkenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2553,7 +2553,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2580,7 +2580,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnodeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2605,7 +2605,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeClo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnodeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2630,7 +2630,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeClo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2669,7 +2669,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2710,7 +2710,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnodeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2743,7 +2743,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnodeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2774,7 +2774,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnodeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2799,7 +2799,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnodeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2824,7 +2824,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2851,7 +2851,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeOpe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2880,7 +2880,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeOpe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeReplacement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterNodeReplacement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodenamecurrent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2909,7 +2909,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeRep
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2936,7 +2936,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterOpenEnu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2965,7 +2965,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterOpenEnu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterPrepareSharedVolumeForBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumepathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2998,7 +2998,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterPrepare
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegBatchAddCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregbatch = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t dwcommand = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3033,7 +3033,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbatchnotification = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3058,7 +3058,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegBatchReadCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbatchnotification = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pbatchcommand = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3085,7 +3085,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseBatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregbatch = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t bcommit = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3114,7 +3114,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregbatch = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3143,7 +3143,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbatchnotifyport = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3168,7 +3168,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3193,7 +3193,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregreadbatch = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* phregreadbatchreply = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3220,7 +3220,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregreadbatch = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3249,7 +3249,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregreadbatchreply = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3274,7 +3274,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCreateBatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phregbatch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3301,7 +3301,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatchNotifyPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phbatchnotifyport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3328,7 +3328,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCreateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCreateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3365,7 +3365,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCreateKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3404,7 +3404,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegCreateReadBatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phregreadbatch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3431,7 +3431,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDeleteKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3458,7 +3458,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3487,7 +3487,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDeleteValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3514,7 +3514,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValueEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3543,7 +3543,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnumKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegEnumKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3576,7 +3576,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnumValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegEnumValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3613,7 +3613,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegGetBatchNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hbatchnotify = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* phbatchnotification = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3640,7 +3640,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegGetB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegGetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t requestedinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3671,7 +3671,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegGetK
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegOpenKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegOpenKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3702,7 +3702,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegQueryInfoKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcsubkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3741,7 +3741,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQuer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQueryValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegQueryValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3774,7 +3774,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQuer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchAddCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregreadbatch = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* wzsubkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3803,7 +3803,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchReplyNextCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hregreadbatchreply = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pbatchcommand = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3830,7 +3830,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3859,7 +3859,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetK
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurityEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3890,7 +3890,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetK
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3923,7 +3923,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetValueEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegSetValueEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3958,7 +3958,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3985,7 +3985,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSync
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRemoveAffinityRule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* rulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4012,7 +4012,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromAffinityRule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* rulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4041,7 +4041,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4066,7 +4066,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSetEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4093,7 +4093,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4118,7 +4118,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresourceenumex = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4143,7 +4143,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4182,7 +4182,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4221,7 +4221,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUserEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4262,7 +4262,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hhostnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4303,7 +4303,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4336,7 +4336,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresourceenumex = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4367,7 +4367,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4392,7 +4392,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCountEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresourceenumex = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4417,7 +4417,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4444,7 +4444,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4479,7 +4479,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrestypeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4504,7 +4504,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4545,7 +4545,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4586,7 +4586,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUserEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4629,7 +4629,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4672,7 +4672,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrestypeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4705,7 +4705,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeGetEnumCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrestypeenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4730,7 +4730,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterResourceTypeOpenEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4759,7 +4759,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterSetAccountAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterSetAccountAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* szaccountsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4790,7 +4790,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterSetAcco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringClusterUpgradeFunctionalLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t perform = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4821,7 +4821,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterUpgrade
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createCluster_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateCluster_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnprogresscallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4850,7 +4850,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createCluster_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterAvailabilitySet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpavailabilitysetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4879,7 +4879,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4906,7 +4906,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterG
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4935,7 +4935,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterG
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* groupsetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4962,7 +4962,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterG
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterNameAccount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterNameAccount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4993,7 +4993,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterNotifyPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcluster = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5024,7 +5024,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterN
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPortV2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcluster = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5057,7 +5057,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterN
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5088,7 +5088,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5121,7 +5121,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterResourceType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterResourceType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5156,7 +5156,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringCreateClusterResourceTypeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5193,7 +5193,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5218,7 +5218,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5245,7 +5245,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5270,7 +5270,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSetEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5297,7 +5297,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5322,7 +5322,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5349,7 +5349,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterResourceType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5376,7 +5376,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceTypeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsztypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5405,7 +5405,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDestroyCluster_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfnprogresscallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5436,7 +5436,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_destroyClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDestroyClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5461,7 +5461,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_destroyClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDestroyClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5488,7 +5488,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromCluster_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcnorestype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5515,7 +5515,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineCNORe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromNodelist_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cnodes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppsznodenames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5544,7 +5544,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineCNORe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromCluster_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcloudtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5571,7 +5571,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineClust
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromNodelist_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cnodes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppsznodenames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5600,7 +5600,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineClust
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringEvictClusterNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5625,7 +5625,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5654,7 +5654,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNodeEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5685,7 +5685,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_failClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringFailClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5710,7 +5710,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_failClusterRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_failClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringFailClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5737,7 +5737,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_failClusterRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterCrypt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringFreeClusterCrypt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcryptinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5762,7 +5762,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterCry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clusterhealthfault = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5787,7 +5787,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterHea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFaultArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clusterhealthfaultarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5812,7 +5812,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterHea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFromGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterFromGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5837,7 +5837,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFromNetInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5862,7 +5862,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFromNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5887,7 +5887,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFromNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterFromNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5912,7 +5912,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFromResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterFromResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5937,7 +5937,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterGroupKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterGroupKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5964,7 +5964,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterGrou
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterGroupState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterGroupState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5993,7 +5993,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6024,7 +6024,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6051,7 +6051,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterKey_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNetInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6084,7 +6084,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6111,7 +6111,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetI
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetinterface = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6136,7 +6136,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetworkId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNetworkId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznetworkid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6165,7 +6165,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetworkKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNetworkKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6192,7 +6192,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetw
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetworkState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNetworkState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6217,7 +6217,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNodeId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNodeId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodeid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6246,7 +6246,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNodeKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNodeKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6273,7 +6273,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNode
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNodeState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNodeState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6298,7 +6298,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNotify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNotify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpdwnotifykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6333,7 +6333,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNoti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNotifyV2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterNotifyV2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpdwnotifykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6384,7 +6384,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNoti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterQuorumResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterQuorumResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6419,7 +6419,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterQuor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterResourceDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdependencyexpression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6448,7 +6448,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterResourceKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterResourceKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6475,7 +6475,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterResourceNetworkName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6504,7 +6504,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterResourceState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterResourceState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6537,7 +6537,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetClusterResourceTypeKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsztypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6566,7 +6566,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetNodeCloudTypeDW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodecloudtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6593,7 +6593,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getNodeCloudTy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getNodeClusterState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetNodeClusterState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwclusterstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6620,7 +6620,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getNodeCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_getNotifyEventHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringGetNotifyEventHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lphtargetevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6647,7 +6647,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getNotifyEvent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_initializeClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clusterhealthfault = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6672,7 +6672,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_initializeClus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFaultArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clusterhealthfaultarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6697,7 +6697,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_initializeClus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringIsFileOnClusterSharedVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbfileisonsharedvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6724,7 +6724,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_isFileOnCluste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringMoveClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6751,7 +6751,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6784,7 +6784,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGroupEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6819,7 +6819,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_offlineClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOfflineClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6844,7 +6844,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_offlineClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwofflineflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6875,7 +6875,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwofflineflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6908,7 +6908,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_offlineClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOfflineClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6933,7 +6933,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_offlineClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwofflineflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6964,7 +6964,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwofflineflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6997,7 +6997,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOnlineClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7024,7 +7024,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7057,7 +7057,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7092,7 +7092,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOnlineClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7117,7 +7117,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwonlineflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7148,7 +7148,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwonlineflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7181,7 +7181,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openCluster_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenCluster_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7206,7 +7206,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openCluster_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterCryptProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7237,7 +7237,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterCry
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProviderEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7270,7 +7270,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterCry
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7299,7 +7299,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterEx_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7326,7 +7326,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterGroupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7357,7 +7357,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterGroupSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupsetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7384,7 +7384,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNetInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7411,7 +7411,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterfaceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7442,7 +7442,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznetworkname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7469,7 +7469,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNetworkEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNetworkEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznetworkname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7500,7 +7500,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7527,7 +7527,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNod
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNodeById_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNodeById_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t nodeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7554,7 +7554,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNod
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7585,7 +7585,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNod
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7612,7 +7612,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterRes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_openClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringOpenClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7643,7 +7643,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterRes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringPauseClusterNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7668,7 +7668,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t bdrainnode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7699,7 +7699,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t bdrainnode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7732,7 +7732,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_queryAppInstanceVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringQueryAppInstanceVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instanceversionhigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7763,7 +7763,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_queryAppInstan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_registerAppInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRegisterAppInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* appinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7792,7 +7792,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerAppIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_registerAppInstanceVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRegisterAppInstanceVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t instanceversionhigh = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7821,7 +7821,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerAppIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_registerClusterNotify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRegisterClusterNotify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwfiltertype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7852,7 +7852,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerCluste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRegisterClusterResourceTypeNotifyV2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hchange = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcluster = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7885,7 +7885,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerCluste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterGroupDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7912,7 +7912,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7941,7 +7941,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7968,7 +7968,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7997,7 +7997,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8024,7 +8024,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8053,7 +8053,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterNameAccount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterNameAccount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t bdeletecomputerobjects = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8080,7 +8080,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterResourceDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8107,7 +8107,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdependson = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8136,7 +8136,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterResourceNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8163,7 +8163,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hnode = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8192,7 +8192,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterStorageNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveClusterStorageNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszclusterstorageenclosurename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8223,7 +8223,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveCrossClusterGroupSetDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdependentgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpremoteclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8252,7 +8252,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeCrossClu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8277,7 +8277,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeResource
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilAddUnknownProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8312,7 +8312,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilAddUnkn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilCreateDirectoryTree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8337,7 +8337,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilCreateD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilDupGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t group = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* copy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8364,7 +8364,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilDupParameterBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poutparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8393,7 +8393,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupPara
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilDupResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t group = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* copy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8420,7 +8420,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilDupString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszinstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8445,7 +8445,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupStri
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumGroups_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumGroups_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hself = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8476,7 +8476,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumGroupsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hself = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8509,7 +8509,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumPrivateProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszoutproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8542,7 +8542,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumPri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszoutproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8575,7 +8575,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumResources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumResources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hself = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszrestypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8606,7 +8606,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hself = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8639,7 +8639,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hself = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8674,7 +8674,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilExpandEnvironmentStrings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8699,7 +8699,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilExpandE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindBinaryProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8732,7 +8732,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindBin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindDependentDiskResourceDriveLetter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hresource = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8763,7 +8763,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindDep
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindDwordProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8794,7 +8794,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindDwo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindExpandSzProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8825,7 +8825,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindExp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindExpandedSzProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8856,7 +8856,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindExp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindFileTimeProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8887,7 +8887,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindLongProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindLongProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8918,7 +8918,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindLon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindMultiSzProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8951,7 +8951,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindMul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindSzProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindSzProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8982,7 +8982,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindSzP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFindULargeIntegerProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9013,7 +9013,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindULa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFreeEnvironment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9038,7 +9038,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFreeEnv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilFreeParameterBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poutparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9064,7 +9064,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFreePar
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetAllProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetAllProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9099,7 +9099,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetAllP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppboutvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcboutvaluesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9136,7 +9136,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBina
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9167,7 +9167,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBina
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetClusterGroupType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* grouptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9194,7 +9194,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClusterId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetClusterId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9221,7 +9221,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t eclusterrole = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9248,7 +9248,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* phclusternameresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9279,7 +9279,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCore
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResourcesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hclusterin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* phclusternameresourceout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9310,7 +9310,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCore
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9335,7 +9335,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCore
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetDwordProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwoutvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvaluestruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9372,7 +9372,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwordValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetDwordValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9403,7 +9403,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetEnvironmentWithNetName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9428,7 +9428,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetEnvi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetLongProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetLongProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ploutvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvaluestruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9465,7 +9465,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetLong
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetMultiSzProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppszoutvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcboutvaluesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9502,7 +9502,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetMult
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetPrivateProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poutpropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9535,7 +9535,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetPriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9570,7 +9570,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetPropertiesToParameterBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9603,7 +9603,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytableitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9634,7 +9634,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetPropertyFormats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poutpropertyformatlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9667,7 +9667,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetPropertySize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetPropertySize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytableitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9698,7 +9698,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetQwordValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetQwordValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9729,7 +9729,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetQwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hself = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszresourcetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9756,7 +9756,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hself = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9787,7 +9787,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClassEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hself = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9820,7 +9820,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hself = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9851,7 +9851,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByNameEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hself = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9884,7 +9884,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hself = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszresourcetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9913,7 +9913,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependentIPAddressProps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9950,7 +9950,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9979,7 +9979,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszresourcetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10006,7 +10006,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependencyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszresourcetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10035,7 +10035,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetSzProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetSzProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppszoutvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvaluestruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10068,7 +10068,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetSzPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetSzValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGetSzValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10095,7 +10095,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetSzVa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGroupsEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilGroupsEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hself = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hgroup = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10124,7 +10124,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGroupsE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilIsPathValid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilIsPathValid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10149,7 +10149,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilIsPathV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilIsResourceClassEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hresource = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10176,7 +10176,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilIsResou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilLeftPaxosIsLessThanRight_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* left = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* right = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10203,7 +10203,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilLeftPax
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilNodeEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilNodeEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pnodecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10232,7 +10232,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilNodeEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPaxosComparer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilPaxosComparer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* left = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* right = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10259,7 +10259,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPaxosCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilPropertyListFromParameterBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poutpropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10294,7 +10294,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPropert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilRemoveResourceServiceEnvironment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnlogevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10323,7 +10323,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilRemoveR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilResourceDepEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hself = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t enumtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10354,7 +10354,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilResourceTypesEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszresourcetypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hresource = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10381,7 +10381,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourcesEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hself = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hresource = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10408,7 +10408,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetBinaryValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10443,7 +10443,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetBina
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetDwordValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetDwordValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10474,7 +10474,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetDwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetExpandSzValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10505,7 +10505,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetExpa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetMultiSzValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10540,7 +10540,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetMult
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetPrivatePropertyList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinpropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10569,7 +10569,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10606,7 +10606,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlockEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10645,7 +10645,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10682,7 +10682,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTableEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10721,7 +10721,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetQwordValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetQwordValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10752,7 +10752,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetQwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceEnvironment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hresource = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -10783,7 +10783,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schscmhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10816,7 +10816,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParametersEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schscmhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10851,7 +10851,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetSzValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetSzValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10882,7 +10882,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetSzVa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetUnknownProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10913,7 +10913,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetUnkn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetValueEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilSetValueEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyclusterkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10948,7 +10948,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetValu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStartResourceService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilStartResourceService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phservicehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10975,7 +10975,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStartRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStopResourceService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilStopResourceService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11000,7 +11000,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStopRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStopService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilStopService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservicehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11025,7 +11025,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStopSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilTerminateServiceProcessFromResDll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwservicepid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t boffline = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11058,7 +11058,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilTermina
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilVerifyPrivatePropertyList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinpropertylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbinpropertylistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11085,7 +11085,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilVerifyPropertyTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppropertytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11120,7 +11120,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilVerifyResourceService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11145,7 +11145,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilVerifyService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservicehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11170,7 +11170,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilVerifyShutdownSafe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t reason = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11199,7 +11199,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResUtilsDeleteKeyTree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* keyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11228,7 +11228,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilsDelete
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResetAllAppInstanceVersions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -11251,7 +11251,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resetAllAppIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_restartClusterResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRestartClusterResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11278,7 +11278,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_restartCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_restartClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRestartClusterResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11307,7 +11307,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_restartCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_restoreClusterDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringRestoreClusterDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11336,7 +11336,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_restoreCluster
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResumeClusterNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -11361,7 +11361,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t eresumefailbacktype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11390,7 +11390,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnode = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t eresumefailbacktype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11421,7 +11421,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetAppInstanceCsvFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t mask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11450,7 +11450,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setAppInstance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGroupName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterGroupName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11477,7 +11477,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGroupNameEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterGroupNameEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11506,7 +11506,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGroupNodeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t nodecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11535,7 +11535,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeListEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t nodecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11566,7 +11566,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdependencyexprssion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11593,7 +11593,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpressionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroupset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdependencyexpression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11622,7 +11622,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznewclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11649,7 +11649,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNameEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterNameEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsznewclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11678,7 +11678,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetworkName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterNetworkName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11705,7 +11705,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterNetworkNameEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hnetwork = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11734,7 +11734,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterNetworkPriorityOrder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t networkcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11763,7 +11763,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterQuorumResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11792,7 +11792,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterQuor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11823,7 +11823,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterQuor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterResourceDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdependencyexpression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11850,7 +11850,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterResourceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterResourceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11877,7 +11877,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterResourceNameEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterResourceNameEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hresource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszresourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11906,7 +11906,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetClusterServiceAccountPassword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszclustername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsznewpassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11939,7 +11939,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setGroupDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdependencyexpression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11966,7 +11966,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setGroupDepend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpressionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hgroup = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpszdependencyexpression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11996,408 +11996,408 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setGroupDepend
 }
 
 static void register_windows_win32_networking_clustering_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterGroupDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterGroupDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterResourceDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterResourceDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterResourceNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterResourceNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addClusterStorageNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addClusterStorageNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_backupClusterDatabase", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_backupClusterDatabase_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_canResourceBeDependent", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_canResourceBeDependent_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_changeClusterResourceGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_changeClusterResourceGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeCluster", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeCluster_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterCryptProvider", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterCryptProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterGroupSet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterGroupSet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterNetInterface", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterNetInterface_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterNetwork", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterNetwork_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterNotifyPort", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterNotifyPort_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_closeClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_closeClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusWorkerCreate", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusWorkerCreate_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusWorkerTerminate", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusWorkerTerminate_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusWorkersTerminate", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusWorkersTerminate_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterCloseEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterCloseEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterDecrypt", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterDecrypt_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterEncrypt", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterEncrypt_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGetVolumePathName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGetVolumePathName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupSetControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupSetControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupSetEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupSetEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetworkControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetworkControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetworkControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetworkControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetworkEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetworkEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterNodeReplacement", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterNodeReplacement_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterOpenEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterOpenEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseBatch", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseBatch_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCreateBatch", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCreateBatch_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCreateKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCreateKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegDeleteKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegDeleteKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegDeleteValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegDeleteValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegEnumKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegEnumKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegEnumValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegEnumValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegOpenKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegOpenKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegQueryValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegQueryValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegSetValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegSetValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegSetValueEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegSetValueEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeControl", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeControl_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterSetAccountAccess", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterSetAccountAccess_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createCluster", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createCluster_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterGroupSet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterGroupSet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterNameAccount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterNameAccount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterNotifyPort", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterNotifyPort_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterResourceType", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterResourceType_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterGroupSet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterGroupSet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterResourceType", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterResourceType_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_destroyCluster", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_destroyCluster_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_destroyClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_destroyClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_destroyClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_destroyClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_evictClusterNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_evictClusterNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_evictClusterNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_evictClusterNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_evictClusterNodeEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_evictClusterNodeEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_failClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_failClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_failClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_failClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_freeClusterCrypt", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_freeClusterCrypt_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_freeClusterHealthFault", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_freeClusterHealthFault_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterFromGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterFromGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterFromNetInterface", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterFromNetInterface_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterFromNetwork", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterFromNetwork_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterFromNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterFromNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterFromResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterFromResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterGroupKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterGroupKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterGroupState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterGroupState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterInformation", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterInformation_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNetInterface", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNetInterface_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNetworkId", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNetworkId_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNetworkKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNetworkKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNetworkState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNetworkState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNodeId", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNodeId_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNodeKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNodeKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNodeState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNodeState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNotify", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNotify_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterNotifyV2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterNotifyV2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterQuorumResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterQuorumResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterResourceKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterResourceKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterResourceState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterResourceState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getNodeClusterState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getNodeClusterState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_getNotifyEventHandle", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_getNotifyEventHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_initializeClusterHealthFault", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_initializeClusterHealthFault_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_moveClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_moveClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_moveClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_moveClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_moveClusterGroupEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_moveClusterGroupEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_offlineClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_offlineClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_offlineClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_offlineClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_offlineClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_offlineClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_offlineClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_offlineClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_onlineClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_onlineClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_onlineClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_onlineClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_onlineClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_onlineClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_onlineClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_onlineClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openCluster", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openCluster_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterCryptProvider", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterCryptProvider_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterGroupEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterGroupEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterGroupSet", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterGroupSet_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNetInterface", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNetInterface_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNetwork", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNetwork_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNetworkEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNetworkEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNodeById", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNodeById_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_openClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_openClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_pauseClusterNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_pauseClusterNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_pauseClusterNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_pauseClusterNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_queryAppInstanceVersion", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_queryAppInstanceVersion_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_registerAppInstance", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_registerAppInstance_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_registerAppInstanceVersion", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_registerAppInstanceVersion_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_registerClusterNotify", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_registerClusterNotify_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterGroupDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterGroupDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterNameAccount", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterNameAccount_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterResourceDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterResourceDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterResourceNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterResourceNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeClusterStorageNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeClusterStorageNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilDupGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilDupGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilDupResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilDupResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilDupString", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilDupString_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumGroups", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumGroups_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumResources", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumResources_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindLongProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindLongProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindSzProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindSzProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetAllProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetAllProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetClusterId", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetClusterId_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetDwordValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetDwordValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetLongProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetLongProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetPropertySize", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetPropertySize_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetQwordValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetQwordValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetSzProperty", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetSzProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGetSzValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGetSzValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilGroupsEqual", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilGroupsEqual_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilIsPathValid", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilIsPathValid_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilNodeEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilNodeEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilPaxosComparer", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilPaxosComparer_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilResourcesEqual", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilResourcesEqual_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetDwordValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetDwordValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetQwordValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetQwordValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetSzValue", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetSzValue_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilSetValueEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilSetValueEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilStartResourceService", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilStartResourceService_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilStopResourceService", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilStopResourceService_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilStopService", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilStopService_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilVerifyService", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilVerifyService_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_restartClusterResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_restartClusterResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_restartClusterResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_restartClusterResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_restoreClusterDatabase", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_restoreClusterDatabase_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resumeClusterNode", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resumeClusterNode_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resumeClusterNodeEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resumeClusterNodeEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterGroupName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterGroupName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterGroupNameEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterGroupNameEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterGroupNodeList", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterGroupNodeList_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterNameEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterNameEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterNetworkName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterNetworkName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterQuorumResource", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterQuorumResource_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterResourceName", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterResourceName_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterResourceNameEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterResourceNameEx_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setGroupDependencyExpression", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setGroupDependencyExpression_napi));
-    exports.Set("windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx", Napi::Function::New(env, windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterResourceNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterResourceNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterResourceNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterResourceNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddClusterStorageNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddClusterStorageNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddCrossClusterGroupSetDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddCrossClusterGroupSetDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringAddResourceToClusterSharedVolumes", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringAddResourceToClusterSharedVolumes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringBackupClusterDatabase", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringBackupClusterDatabase_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCanResourceBeDependent", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCanResourceBeDependent_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseCluster", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseCluster_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterNetwork", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterNetwork_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCloseClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCloseClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusAddClusterHealthFault", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusAddClusterHealthFault_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusGetClusterHealthFaults", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusGetClusterHealthFaults_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusRemoveClusterHealthFault", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusRemoveClusterHealthFault_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusWorkerCheckTerminate", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusWorkerCheckTerminate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusWorkerCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusWorkerCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusWorkerTerminate", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusWorkerTerminate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusWorkerTerminateEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusWorkerTerminateEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusWorkersTerminate", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusWorkersTerminate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusapiSetReasonHandler", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusapiSetReasonHandler_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterAddGroupToAffinityRule", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterAddGroupToAffinityRule_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomains", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomains_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomainsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomainsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterAffinityRuleControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterAffinityRuleControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterClearBackupStateForSharedVolume", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterClearBackupStateForSharedVolume_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterCreateAffinityRule", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterCreateAffinityRule_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterDecrypt", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterDecrypt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterEncrypt", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterEncrypt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGetEnumCountEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGetEnumCountEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGetVolumeNameForVolumeMountPoint", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGetVolumeNameForVolumeMountPoint_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGetVolumePathName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGetVolumePathName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCountEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCountEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupSetControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupSetControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupSetControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupSetControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupSetEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupSetEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupSetGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupSetGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterIsPathOnSharedVolume", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterIsPathOnSharedVolume_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetworkControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetworkControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetworkControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetworkControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetworkEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetworkEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetworkGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetworkGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCountEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCountEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterNodeReplacement", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterNodeReplacement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterOpenEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterOpenEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterPrepareSharedVolumeForBackup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterPrepareSharedVolumeForBackup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegBatchAddCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegBatchAddCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegBatchReadCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegBatchReadCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatch", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatch_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatch", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatch_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatch", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatch_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatchNotifyPort", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatchNotifyPort_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCreateKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCreateKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCreateKeyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCreateKeyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegCreateReadBatch", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegCreateReadBatch_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKeyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKeyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValueEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValueEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegEnumKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegEnumKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegEnumValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegEnumValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegGetBatchNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegGetBatchNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegGetKeySecurity", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegGetKeySecurity_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegOpenKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegOpenKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegQueryInfoKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegQueryInfoKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegQueryValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegQueryValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchAddCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchAddCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchReplyNextCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchReplyNextCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurity", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurity_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurityEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurityEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegSetValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegSetValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegSetValueEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegSetValueEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRemoveAffinityRule", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRemoveAffinityRule_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromAffinityRule", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromAffinityRule_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSetEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSetEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUser", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUser_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUserEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUserEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCountEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCountEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUser", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUser_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUserEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUserEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeGetEnumCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeGetEnumCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterResourceTypeOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterResourceTypeOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterSetAccountAccess", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterSetAccountAccess_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringClusterUpgradeFunctionalLevel", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringClusterUpgradeFunctionalLevel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateCluster", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateCluster_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterAvailabilitySet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterAvailabilitySet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterGroupSet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterGroupSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterNameAccount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterNameAccount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPortV2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPortV2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterResourceType", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterResourceType_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringCreateClusterResourceTypeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringCreateClusterResourceTypeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSetEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSetEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceType", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceType_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceTypeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceTypeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDestroyCluster", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDestroyCluster_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDestroyClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDestroyClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDestroyClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDestroyClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromCluster", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromCluster_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromNodelist", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromNodelist_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromCluster", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromCluster_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromNodelist", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromNodelist_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringEvictClusterNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringEvictClusterNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringFailClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringFailClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringFailClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringFailClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringFreeClusterCrypt", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringFreeClusterCrypt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFault", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFault_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFaultArray", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFaultArray_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterFromGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterFromGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterFromNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterFromNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterFromResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterFromResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterGroupKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterGroupKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterGroupState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterGroupState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterInformation", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterInformation_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNetInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNetInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNetworkId", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNetworkId_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNetworkKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNetworkKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNetworkState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNetworkState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNodeId", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNodeId_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNodeKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNodeKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNodeState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNodeState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNotify", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNotify_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterNotifyV2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterNotifyV2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterQuorumResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterQuorumResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterResourceDependencyExpression", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterResourceDependencyExpression_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterResourceKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterResourceKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterResourceNetworkName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterResourceNetworkName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterResourceState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterResourceState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetClusterResourceTypeKey", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetClusterResourceTypeKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetNodeCloudTypeDW", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetNodeCloudTypeDW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetNodeClusterState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetNodeClusterState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringGetNotifyEventHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringGetNotifyEventHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFault", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFault_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFaultArray", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFaultArray_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringIsFileOnClusterSharedVolume", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringIsFileOnClusterSharedVolume_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringMoveClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringMoveClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOfflineClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOfflineClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOfflineClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOfflineClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOnlineClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOnlineClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOnlineClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOnlineClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenCluster", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenCluster_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProvider", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProvider_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProviderEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProviderEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterGroupEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterGroupEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterGroupSet", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterGroupSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterfaceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterfaceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNetwork", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNetwork_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNetworkEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNetworkEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNodeById", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNodeById_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringOpenClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringOpenClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringPauseClusterNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringPauseClusterNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringQueryAppInstanceVersion", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringQueryAppInstanceVersion_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRegisterAppInstance", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRegisterAppInstance_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRegisterAppInstanceVersion", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRegisterAppInstanceVersion_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRegisterClusterNotify", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRegisterClusterNotify_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRegisterClusterResourceTypeNotifyV2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRegisterClusterResourceTypeNotifyV2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterNameAccount", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterNameAccount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveClusterStorageNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveClusterStorageNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveCrossClusterGroupSetDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveCrossClusterGroupSetDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilAddUnknownProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilAddUnknownProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilCreateDirectoryTree", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilCreateDirectoryTree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilDupGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilDupGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilDupParameterBlock", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilDupParameterBlock_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilDupResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilDupResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilDupString", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilDupString_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumGroups", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumGroups_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumGroupsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumGroupsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumPrivateProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumPrivateProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumResources", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumResources_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilExpandEnvironmentStrings", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilExpandEnvironmentStrings_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindBinaryProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindBinaryProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindDependentDiskResourceDriveLetter", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindDependentDiskResourceDriveLetter_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindDwordProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindDwordProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindExpandSzProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindExpandSzProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindExpandedSzProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindExpandedSzProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindFileTimeProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindFileTimeProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindLongProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindLongProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindMultiSzProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindMultiSzProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindSzProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindSzProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFindULargeIntegerProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFindULargeIntegerProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFreeEnvironment", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFreeEnvironment_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilFreeParameterBlock", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilFreeParameterBlock_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetAllProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetAllProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetClusterGroupType", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetClusterGroupType_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetClusterId", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetClusterId_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResources", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResources_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResourcesEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResourcesEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetDwordProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetDwordProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetDwordValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetDwordValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetEnvironmentWithNetName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetEnvironmentWithNetName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetLongProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetLongProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetMultiSzProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetMultiSzProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetPrivateProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetPrivateProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetPropertiesToParameterBlock", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetPropertiesToParameterBlock_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetPropertyFormats", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetPropertyFormats_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetPropertySize", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetPropertySize_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetQwordValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetQwordValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClass", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClass_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClassEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClassEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByNameEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByNameEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependentIPAddressProps", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependentIPAddressProps_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependency", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependency_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependencyEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependencyEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetSzProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetSzProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGetSzValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGetSzValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilGroupsEqual", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilGroupsEqual_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilIsPathValid", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilIsPathValid_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilIsResourceClassEqual", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilIsResourceClassEqual_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilLeftPaxosIsLessThanRight", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilLeftPaxosIsLessThanRight_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilNodeEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilNodeEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilPaxosComparer", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilPaxosComparer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilPropertyListFromParameterBlock", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilPropertyListFromParameterBlock_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilRemoveResourceServiceEnvironment", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilRemoveResourceServiceEnvironment_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilResourceDepEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilResourceDepEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilResourceTypesEqual", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilResourceTypesEqual_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetBinaryValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetBinaryValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetDwordValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetDwordValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetExpandSzValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetExpandSzValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetMultiSzValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetMultiSzValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetPrivatePropertyList", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetPrivatePropertyList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlock", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlock_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlockEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlockEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTable", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTableEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTableEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetQwordValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetQwordValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceEnvironment", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceEnvironment_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParameters", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParameters_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParametersEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParametersEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetSzValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetSzValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetUnknownProperties", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetUnknownProperties_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilSetValueEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilSetValueEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilStartResourceService", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilStartResourceService_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilStopResourceService", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilStopResourceService_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilStopService", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilStopService_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilTerminateServiceProcessFromResDll", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilTerminateServiceProcessFromResDll_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilVerifyPrivatePropertyList", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilVerifyPrivatePropertyList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilVerifyPropertyTable", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilVerifyPropertyTable_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilVerifyResourceService", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilVerifyResourceService_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilVerifyService", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilVerifyService_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilVerifyShutdownSafe", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilVerifyShutdownSafe_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResUtilsDeleteKeyTree", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResUtilsDeleteKeyTree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResetAllAppInstanceVersions", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResetAllAppInstanceVersions_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRestartClusterResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRestartClusterResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRestartClusterResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRestartClusterResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringRestoreClusterDatabase", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringRestoreClusterDatabase_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResumeClusterNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResumeClusterNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetAppInstanceCsvFlags", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetAppInstanceCsvFlags_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterGroupName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterGroupName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterGroupNameEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterGroupNameEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeList", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeListEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeListEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpression", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpression_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpressionEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpressionEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterNameEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterNameEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterNetworkName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterNetworkName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterNetworkNameEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterNetworkNameEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterNetworkPriorityOrder", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterNetworkPriorityOrder_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResource", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResourceEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResourceEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterResourceDependencyExpression", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterResourceDependencyExpression_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterResourceName", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterResourceName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterResourceNameEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterResourceNameEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetClusterServiceAccountPassword", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetClusterServiceAccountPassword_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpression", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpression_napi));
+    exports.Set("windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpressionEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpressionEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_clustering_napi, nullptr };

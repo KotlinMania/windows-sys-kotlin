@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -1252,9 +1253,9 @@ public val IPROPVALUE_RBCOST_PROMPT: Pcwstr = w("P")
 
 public val IPROPVALUE_RBCOST_SILENT: Pcwstr = w("D")
 
-public val IPROPVALUE__CARRYINGNDP_URTREINSTALL: Pcwstr = w("URTREINSTALL")
+public val IPROPVALUE_CARRYINGNDP_URTREINSTALL: Pcwstr = w("URTREINSTALL")
 
-public val IPROPVALUE__CARRYINGNDP_URTUPGRADE: Pcwstr = w("URTUPGRADE")
+public val IPROPVALUE_CARRYINGNDP_URTUPGRADE: Pcwstr = w("URTUPGRADE")
 
 public val LOGALL: UInt = 15u
 
@@ -1386,17 +1387,17 @@ public val MSIDBERROR_STRINGOVERFLOW: Msidberror = 28
 
 public val MSIDBERROR_UNDERFLOW: Msidberror = 5
 
-public val MSIDBOPEN_CREATE: Pcwstr = COpaquePointer(3.toLong())
+public val MSIDBOPEN_CREATE: Pcwstr = MutPtr<CVoid>(3.toLong())
 
-public val MSIDBOPEN_CREATEDIRECT: Pcwstr = COpaquePointer(4.toLong())
+public val MSIDBOPEN_CREATEDIRECT: Pcwstr = MutPtr<CVoid>(4.toLong())
 
-public val MSIDBOPEN_DIRECT: Pcwstr = COpaquePointer(2.toLong())
+public val MSIDBOPEN_DIRECT: Pcwstr = MutPtr<CVoid>(2.toLong())
 
 public val MSIDBOPEN_PATCHFILE: Int = 16
 
-public val MSIDBOPEN_READONLY: Pcwstr = null
+public val MSIDBOPEN_READONLY: Pcwstr = MutPtr<CVoid>(0L)
 
-public val MSIDBOPEN_TRANSACT: Pcwstr = COpaquePointer(1.toLong())
+public val MSIDBOPEN_TRANSACT: Pcwstr = MutPtr<CVoid>(1.toLong())
 
 public val MSIDBSTATE_ERROR: Msidbstate = -1
 

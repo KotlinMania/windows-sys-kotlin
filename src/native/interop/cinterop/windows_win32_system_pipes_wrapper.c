@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_pipes_callNamedPipeA(void* lpnamedpipename, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesread, uint32_t ntimeout) {
+int32_t windowssysWindowsWin32SystemPipesCallNamedPipeA(void* lpnamedpipename, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesread, uint32_t ntimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -43,7 +43,7 @@ int32_t windowssys_windows_win32_system_pipes_callNamedPipeA(void* lpnamedpipena
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_callNamedPipeW(void* lpnamedpipename, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesread, uint32_t ntimeout) {
+int32_t windowssysWindowsWin32SystemPipesCallNamedPipeW(void* lpnamedpipename, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesread, uint32_t ntimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -71,7 +71,7 @@ int32_t windowssys_windows_win32_system_pipes_callNamedPipeW(void* lpnamedpipena
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_connectNamedPipe(void* hnamedpipe, void* lpoverlapped) {
+int32_t windowssysWindowsWin32SystemPipesConnectNamedPipe(void* hnamedpipe, void* lpoverlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -94,7 +94,7 @@ int32_t windowssys_windows_win32_system_pipes_connectNamedPipe(void* hnamedpipe,
 #endif
 }
 
-void* windowssys_windows_win32_system_pipes_createNamedPipeA(void* lpname, uint32_t dwopenmode, uint32_t dwpipemode, uint32_t nmaxinstances, uint32_t noutbuffersize, uint32_t ninbuffersize, uint32_t ndefaulttimeout, void* lpsecurityattributes) {
+void* windowssysWindowsWin32SystemPipesCreateNamedPipeA(void* lpname, uint32_t dwopenmode, uint32_t dwpipemode, uint32_t nmaxinstances, uint32_t noutbuffersize, uint32_t ninbuffersize, uint32_t ndefaulttimeout, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -123,7 +123,7 @@ void* windowssys_windows_win32_system_pipes_createNamedPipeA(void* lpname, uint3
 #endif
 }
 
-void* windowssys_windows_win32_system_pipes_createNamedPipeW(void* lpname, uint32_t dwopenmode, uint32_t dwpipemode, uint32_t nmaxinstances, uint32_t noutbuffersize, uint32_t ninbuffersize, uint32_t ndefaulttimeout, void* lpsecurityattributes) {
+void* windowssysWindowsWin32SystemPipesCreateNamedPipeW(void* lpname, uint32_t dwopenmode, uint32_t dwpipemode, uint32_t nmaxinstances, uint32_t noutbuffersize, uint32_t ninbuffersize, uint32_t ndefaulttimeout, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ void* windowssys_windows_win32_system_pipes_createNamedPipeW(void* lpname, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_createPipe(void* hreadpipe, void* hwritepipe, void* lppipeattributes, uint32_t nsize) {
+int32_t windowssysWindowsWin32SystemPipesCreatePipe(void* hreadpipe, void* hwritepipe, void* lppipeattributes, uint32_t nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_system_pipes_createPipe(void* hreadpipe, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_disconnectNamedPipe(void* hnamedpipe) {
+int32_t windowssysWindowsWin32SystemPipesDisconnectNamedPipe(void* hnamedpipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ int32_t windowssys_windows_win32_system_pipes_disconnectNamedPipe(void* hnamedpi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA(void* arg_0_pipe, void* clientcomputername, uint32_t clientcomputernamelength) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA(void* arg0Pipe, void* clientcomputername, uint32_t clientcomputernamelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -210,12 +210,12 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA(vo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength);
+        return km_fn_ptr(arg0Pipe, clientcomputername, clientcomputernamelength);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
     errno = ENOSYS;
@@ -223,7 +223,7 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW(void* arg_0_pipe, void* clientcomputername, uint32_t clientcomputernamelength) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW(void* arg0Pipe, void* clientcomputername, uint32_t clientcomputernamelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -234,12 +234,12 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW(vo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength);
+        return km_fn_ptr(arg0Pipe, clientcomputername, clientcomputernamelength);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
     errno = ENOSYS;
@@ -247,7 +247,7 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId(void* arg_0_pipe, void* clientprocessid) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId(void* arg0Pipe, void* clientprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -258,19 +258,19 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId(void* 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_pipe, clientprocessid);
+        return km_fn_ptr(arg0Pipe, clientprocessid);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientprocessid;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId(void* arg_0_pipe, void* clientsessionid) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId(void* arg0Pipe, void* clientsessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -281,19 +281,19 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId(void* 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_pipe, clientsessionid);
+        return km_fn_ptr(arg0Pipe, clientsessionid);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientsessionid;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA(void* hnamedpipe, void* lpstate, void* lpcurinstances, void* lpmaxcollectioncount, void* lpcollectdatatimeout, void* lpusername, uint32_t nmaxusernamesize) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA(void* hnamedpipe, void* lpstate, void* lpcurinstances, void* lpmaxcollectioncount, void* lpcollectdatatimeout, void* lpusername, uint32_t nmaxusernamesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -321,7 +321,7 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA(void* hna
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW(void* hnamedpipe, void* lpstate, void* lpcurinstances, void* lpmaxcollectioncount, void* lpcollectdatatimeout, void* lpusername, uint32_t nmaxusernamesize) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW(void* hnamedpipe, void* lpstate, void* lpcurinstances, void* lpmaxcollectioncount, void* lpcollectdatatimeout, void* lpusername, uint32_t nmaxusernamesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -349,7 +349,7 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW(void* hna
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeInfo(void* hnamedpipe, void* lpflags, void* lpoutbuffersize, void* lpinbuffersize, void* lpmaxinstances) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeInfo(void* hnamedpipe, void* lpflags, void* lpoutbuffersize, void* lpinbuffersize, void* lpmaxinstances) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -375,7 +375,7 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeInfo(void* hnamedpipe,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId(void* arg_0_pipe, void* serverprocessid) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId(void* arg0Pipe, void* serverprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,19 +386,19 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId(void* 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_pipe, serverprocessid);
+        return km_fn_ptr(arg0Pipe, serverprocessid);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)serverprocessid;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId(void* arg_0_pipe, void* serversessionid) {
+int32_t windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId(void* arg0Pipe, void* serversessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,19 +409,19 @@ int32_t windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId(void* 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_pipe, serversessionid);
+        return km_fn_ptr(arg0Pipe, serversessionid);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)serversessionid;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_impersonateNamedPipeClient(void* hnamedpipe) {
+int32_t windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient(void* hnamedpipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -443,7 +443,7 @@ int32_t windowssys_windows_win32_system_pipes_impersonateNamedPipeClient(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_peekNamedPipe(void* hnamedpipe, void* lpbuffer, uint32_t nbuffersize, void* lpbytesread, void* lptotalbytesavail, void* lpbytesleftthismessage) {
+int32_t windowssysWindowsWin32SystemPipesPeekNamedPipe(void* hnamedpipe, void* lpbuffer, uint32_t nbuffersize, void* lpbytesread, void* lptotalbytesavail, void* lpbytesleftthismessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -470,7 +470,7 @@ int32_t windowssys_windows_win32_system_pipes_peekNamedPipe(void* hnamedpipe, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_setNamedPipeHandleState(void* hnamedpipe, void* lpmode, void* lpmaxcollectioncount, void* lpcollectdatatimeout) {
+int32_t windowssysWindowsWin32SystemPipesSetNamedPipeHandleState(void* hnamedpipe, void* lpmode, void* lpmaxcollectioncount, void* lpcollectdatatimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -495,7 +495,7 @@ int32_t windowssys_windows_win32_system_pipes_setNamedPipeHandleState(void* hnam
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_transactNamedPipe(void* hnamedpipe, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesread, void* lpoverlapped) {
+int32_t windowssysWindowsWin32SystemPipesTransactNamedPipe(void* hnamedpipe, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesread, void* lpoverlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -523,7 +523,7 @@ int32_t windowssys_windows_win32_system_pipes_transactNamedPipe(void* hnamedpipe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_waitNamedPipeA(void* lpnamedpipename, uint32_t ntimeout) {
+int32_t windowssysWindowsWin32SystemPipesWaitNamedPipeA(void* lpnamedpipename, uint32_t ntimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -546,7 +546,7 @@ int32_t windowssys_windows_win32_system_pipes_waitNamedPipeA(void* lpnamedpipena
 #endif
 }
 
-int32_t windowssys_windows_win32_system_pipes_waitNamedPipeW(void* lpnamedpipename, uint32_t ntimeout) {
+int32_t windowssysWindowsWin32SystemPipesWaitNamedPipeW(void* lpnamedpipename, uint32_t ntimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

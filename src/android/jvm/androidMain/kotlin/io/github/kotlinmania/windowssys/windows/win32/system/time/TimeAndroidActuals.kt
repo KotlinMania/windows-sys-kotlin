@@ -2,8 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.time
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 private object WindowsWin32SystemTimeJniBridge {
     init {
@@ -11,92 +14,92 @@ private object WindowsWin32SystemTimeJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation(dwindex: Int, lptimezoneinformation: Long): Int
+    external fun windowssysWindowsWin32SystemTimeEnumDynamicTimeZoneInformation(dwindex: Int, lptimezoneinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_fileTimeToSystemTime(lpfiletime: Long, lpsystemtime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeFileTimeToSystemTime(lpfiletime: Long, lpsystemtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_getDynamicTimeZoneInformation(ptimezoneinformation: Long): Int
+    external fun windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformation(ptimezoneinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: Long, firstyear: Long, lastyear: Long): Int
+    external fun windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: Long, firstyear: Long, lastyear: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_getTimeZoneInformation(lptimezoneinformation: Long): Int
+    external fun windowssysWindowsWin32SystemTimeGetTimeZoneInformation(lptimezoneinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_getTimeZoneInformationForYear(wyear: Short, pdtzi: Long, ptzi: Long): Int
+    external fun windowssysWindowsWin32SystemTimeGetTimeZoneInformationForYear(wyear: Short, pdtzi: Long, ptzi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime(timezoneinformation: Long, localfiletime: Long, localsystemtime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeLocalFileTimeToLocalSystemTime(timezoneinformation: Long, localfiletime: Long, localsystemtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime(timezoneinformation: Long, localsystemtime: Long, localfiletime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeLocalSystemTimeToLocalFileTime(timezoneinformation: Long, localsystemtime: Long, localfiletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_setDynamicTimeZoneInformation(lptimezoneinformation: Long): Int
+    external fun windowssysWindowsWin32SystemTimeSetDynamicTimeZoneInformation(lptimezoneinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_setTimeZoneInformation(lptimezoneinformation: Long): Int
+    external fun windowssysWindowsWin32SystemTimeSetTimeZoneInformation(lptimezoneinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_systemTimeToFileTime(lpsystemtime: Long, lpfiletime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeSystemTimeToFileTime(lpsystemtime: Long, lpfiletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTime(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTime(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): Int
+    external fun windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): Int
 }
 
-public actual fun enumDynamicTimeZoneInformation(dwindex: UInt, lptimezoneinformation: COpaquePointer?): UInt =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation(dwindex.toInt(), (lptimezoneinformation?.value ?: 0L)).toUInt()
+public actual fun enumDynamicTimeZoneInformation(dwindex: UInt, lptimezoneinformation: MutPtr<DynamicTimeZoneInformation>): UInt =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeEnumDynamicTimeZoneInformation(dwindex.toInt(), lptimezoneinformation.rawAddress).toUInt()
 
-public actual fun fileTimeToSystemTime(lpfiletime: COpaquePointer?, lpsystemtime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_fileTimeToSystemTime((lpfiletime?.value ?: 0L), (lpsystemtime?.value ?: 0L))
+public actual fun fileTimeToSystemTime(lpfiletime: ConstPtr<Filetime>, lpsystemtime: MutPtr<Systemtime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeFileTimeToSystemTime(lpfiletime.rawAddress, lpsystemtime.rawAddress)
 
-public actual fun getDynamicTimeZoneInformation(ptimezoneinformation: COpaquePointer?): UInt =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_getDynamicTimeZoneInformation((ptimezoneinformation?.value ?: 0L)).toUInt()
+public actual fun getDynamicTimeZoneInformation(ptimezoneinformation: MutPtr<DynamicTimeZoneInformation>): UInt =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformation(ptimezoneinformation.rawAddress).toUInt()
 
-public actual fun getDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: COpaquePointer?, firstyear: COpaquePointer?, lastyear: COpaquePointer?): UInt =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears((lptimezoneinformation?.value ?: 0L), (firstyear?.value ?: 0L), (lastyear?.value ?: 0L)).toUInt()
+public actual fun getDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: ConstPtr<DynamicTimeZoneInformation>, firstyear: MutPtr<UInt>, lastyear: MutPtr<UInt>): UInt =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation.rawAddress, firstyear.rawAddress, lastyear.rawAddress).toUInt()
 
-public actual fun getTimeZoneInformation(lptimezoneinformation: COpaquePointer?): UInt =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_getTimeZoneInformation((lptimezoneinformation?.value ?: 0L)).toUInt()
+public actual fun getTimeZoneInformation(lptimezoneinformation: MutPtr<TimeZoneInformation>): UInt =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeGetTimeZoneInformation(lptimezoneinformation.rawAddress).toUInt()
 
-public actual fun getTimeZoneInformationForYear(wyear: UShort, pdtzi: COpaquePointer?, ptzi: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_getTimeZoneInformationForYear(wyear.toShort(), (pdtzi?.value ?: 0L), (ptzi?.value ?: 0L))
+public actual fun getTimeZoneInformationForYear(wyear: UShort, pdtzi: ConstPtr<DynamicTimeZoneInformation>, ptzi: MutPtr<TimeZoneInformation>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeGetTimeZoneInformationForYear(wyear.toShort(), pdtzi.rawAddress, ptzi.rawAddress)
 
-public actual fun localFileTimeToLocalSystemTime(timezoneinformation: COpaquePointer?, localfiletime: COpaquePointer?, localsystemtime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime((timezoneinformation?.value ?: 0L), (localfiletime?.value ?: 0L), (localsystemtime?.value ?: 0L))
+public actual fun localFileTimeToLocalSystemTime(timezoneinformation: ConstPtr<TimeZoneInformation>, localfiletime: ConstPtr<Filetime>, localsystemtime: MutPtr<Systemtime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeLocalFileTimeToLocalSystemTime(timezoneinformation.rawAddress, localfiletime.rawAddress, localsystemtime.rawAddress)
 
-public actual fun localSystemTimeToLocalFileTime(timezoneinformation: COpaquePointer?, localsystemtime: COpaquePointer?, localfiletime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime((timezoneinformation?.value ?: 0L), (localsystemtime?.value ?: 0L), (localfiletime?.value ?: 0L))
+public actual fun localSystemTimeToLocalFileTime(timezoneinformation: ConstPtr<TimeZoneInformation>, localsystemtime: ConstPtr<Systemtime>, localfiletime: MutPtr<Filetime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeLocalSystemTimeToLocalFileTime(timezoneinformation.rawAddress, localsystemtime.rawAddress, localfiletime.rawAddress)
 
-public actual fun setDynamicTimeZoneInformation(lptimezoneinformation: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_setDynamicTimeZoneInformation((lptimezoneinformation?.value ?: 0L))
+public actual fun setDynamicTimeZoneInformation(lptimezoneinformation: ConstPtr<DynamicTimeZoneInformation>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeSetDynamicTimeZoneInformation(lptimezoneinformation.rawAddress)
 
-public actual fun setTimeZoneInformation(lptimezoneinformation: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_setTimeZoneInformation((lptimezoneinformation?.value ?: 0L))
+public actual fun setTimeZoneInformation(lptimezoneinformation: ConstPtr<TimeZoneInformation>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeSetTimeZoneInformation(lptimezoneinformation.rawAddress)
 
-public actual fun systemTimeToFileTime(lpsystemtime: COpaquePointer?, lpfiletime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_systemTimeToFileTime((lpsystemtime?.value ?: 0L), (lpfiletime?.value ?: 0L))
+public actual fun systemTimeToFileTime(lpsystemtime: ConstPtr<Systemtime>, lpfiletime: MutPtr<Filetime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeSystemTimeToFileTime(lpsystemtime.rawAddress, lpfiletime.rawAddress)
 
-public actual fun systemTimeToTzSpecificLocalTime(lptimezoneinformation: COpaquePointer?, lpuniversaltime: COpaquePointer?, lplocaltime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime((lptimezoneinformation?.value ?: 0L), (lpuniversaltime?.value ?: 0L), (lplocaltime?.value ?: 0L))
+public actual fun systemTimeToTzSpecificLocalTime(lptimezoneinformation: ConstPtr<TimeZoneInformation>, lpuniversaltime: ConstPtr<Systemtime>, lplocaltime: MutPtr<Systemtime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTime(lptimezoneinformation.rawAddress, lpuniversaltime.rawAddress, lplocaltime.rawAddress)
 
-public actual fun systemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: COpaquePointer?, lpuniversaltime: COpaquePointer?, lplocaltime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx((lptimezoneinformation?.value ?: 0L), (lpuniversaltime?.value ?: 0L), (lplocaltime?.value ?: 0L))
+public actual fun systemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: ConstPtr<DynamicTimeZoneInformation>, lpuniversaltime: ConstPtr<Systemtime>, lplocaltime: MutPtr<Systemtime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation.rawAddress, lpuniversaltime.rawAddress, lplocaltime.rawAddress)
 
-public actual fun tzSpecificLocalTimeToSystemTime(lptimezoneinformation: COpaquePointer?, lplocaltime: COpaquePointer?, lpuniversaltime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime((lptimezoneinformation?.value ?: 0L), (lplocaltime?.value ?: 0L), (lpuniversaltime?.value ?: 0L))
+public actual fun tzSpecificLocalTimeToSystemTime(lptimezoneinformation: ConstPtr<TimeZoneInformation>, lplocaltime: ConstPtr<Systemtime>, lpuniversaltime: MutPtr<Systemtime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTime(lptimezoneinformation.rawAddress, lplocaltime.rawAddress, lpuniversaltime.rawAddress)
 
-public actual fun tzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: COpaquePointer?, lplocaltime: COpaquePointer?, lpuniversaltime: COpaquePointer?): Bool =
-    WindowsWin32SystemTimeJniBridge.windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx((lptimezoneinformation?.value ?: 0L), (lplocaltime?.value ?: 0L), (lpuniversaltime?.value ?: 0L))
+public actual fun tzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: ConstPtr<DynamicTimeZoneInformation>, lplocaltime: ConstPtr<Systemtime>, lpuniversaltime: MutPtr<Systemtime>): Bool =
+    WindowsWin32SystemTimeJniBridge.windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation.rawAddress, lplocaltime.rawAddress, lpuniversaltime.rawAddress)

@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
@@ -13,62 +15,62 @@ private object WindowsWin32UiInputJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_defRawInputProc(parawinput: Long, ninput: Int, cbsizeheader: Int): Long
+    external fun windowssysWindowsWin32UiInputDefRawInputProc(parawinput: Long, ninput: Int, cbsizeheader: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getCIMSSM(inputmessagesource: Long): Int
+    external fun windowssysWindowsWin32UiInputGetCIMSSM(inputmessagesource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getCurrentInputMessageSource(inputmessagesource: Long): Int
+    external fun windowssysWindowsWin32UiInputGetCurrentInputMessageSource(inputmessagesource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getRawInputBuffer(pdata: Long, pcbsize: Long, cbsizeheader: Int): Int
+    external fun windowssysWindowsWin32UiInputGetRawInputBuffer(pdata: Long, pcbsize: Long, cbsizeheader: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getRawInputData(hrawinput: Long, uicommand: Int, pdata: Long, pcbsize: Long, cbsizeheader: Int): Int
+    external fun windowssysWindowsWin32UiInputGetRawInputData(hrawinput: Long, uicommand: Int, pdata: Long, pcbsize: Long, cbsizeheader: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getRawInputDeviceInfoA(hdevice: Long, uicommand: Int, pdata: Long, pcbsize: Long): Int
+    external fun windowssysWindowsWin32UiInputGetRawInputDeviceInfoA(hdevice: Long, uicommand: Int, pdata: Long, pcbsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getRawInputDeviceInfoW(hdevice: Long, uicommand: Int, pdata: Long, pcbsize: Long): Int
+    external fun windowssysWindowsWin32UiInputGetRawInputDeviceInfoW(hdevice: Long, uicommand: Int, pdata: Long, pcbsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getRawInputDeviceList(prawinputdevicelist: Long, puinumdevices: Long, cbsize: Int): Int
+    external fun windowssysWindowsWin32UiInputGetRawInputDeviceList(prawinputdevicelist: Long, puinumdevices: Long, cbsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_getRegisteredRawInputDevices(prawinputdevices: Long, puinumdevices: Long, cbsize: Int): Int
+    external fun windowssysWindowsWin32UiInputGetRegisteredRawInputDevices(prawinputdevices: Long, puinumdevices: Long, cbsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_registerRawInputDevices(prawinputdevices: Long, uinumdevices: Int, cbsize: Int): Int
+    external fun windowssysWindowsWin32UiInputRegisterRawInputDevices(prawinputdevices: Long, uinumdevices: Int, cbsize: Int): Int
 }
 
-public actual fun defRawInputProc(parawinput: COpaquePointer?, ninput: Int, cbsizeheader: UInt): Lresult =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_defRawInputProc((parawinput?.value ?: 0L), ninput, cbsizeheader.toInt())
+public actual fun defRawInputProc(parawinput: ConstPtr<ConstPtr<Rawinput>>, ninput: Int, cbsizeheader: UInt): Lresult =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputDefRawInputProc(parawinput.rawAddress, ninput, cbsizeheader.toInt())
 
-public actual fun getCIMSSM(inputmessagesource: COpaquePointer?): Bool =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getCIMSSM((inputmessagesource?.value ?: 0L))
+public actual fun getCIMSSM(inputmessagesource: MutPtr<InputMessageSource>): Bool =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetCIMSSM(inputmessagesource.rawAddress)
 
-public actual fun getCurrentInputMessageSource(inputmessagesource: COpaquePointer?): Bool =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getCurrentInputMessageSource((inputmessagesource?.value ?: 0L))
+public actual fun getCurrentInputMessageSource(inputmessagesource: MutPtr<InputMessageSource>): Bool =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetCurrentInputMessageSource(inputmessagesource.rawAddress)
 
-public actual fun getRawInputBuffer(pdata: COpaquePointer?, pcbsize: COpaquePointer?, cbsizeheader: UInt): UInt =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getRawInputBuffer((pdata?.value ?: 0L), (pcbsize?.value ?: 0L), cbsizeheader.toInt()).toUInt()
+public actual fun getRawInputBuffer(pdata: MutPtr<Rawinput>, pcbsize: MutPtr<UInt>, cbsizeheader: UInt): UInt =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetRawInputBuffer(pdata.rawAddress, pcbsize.rawAddress, cbsizeheader.toInt()).toUInt()
 
-public actual fun getRawInputData(hrawinput: Hrawinput, uicommand: RawInputDataCommandFlags, pdata: COpaquePointer?, pcbsize: COpaquePointer?, cbsizeheader: UInt): UInt =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getRawInputData((hrawinput?.value ?: 0L), uicommand.toInt(), (pdata?.value ?: 0L), (pcbsize?.value ?: 0L), cbsizeheader.toInt()).toUInt()
+public actual fun getRawInputData(hrawinput: Hrawinput, uicommand: RawInputDataCommandFlags, pdata: MutPtr<CVoid>, pcbsize: MutPtr<UInt>, cbsizeheader: UInt): UInt =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetRawInputData(hrawinput.rawAddress, uicommand.toInt(), pdata.rawAddress, pcbsize.rawAddress, cbsizeheader.toInt()).toUInt()
 
-public actual fun getRawInputDeviceInfoA(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: COpaquePointer?, pcbsize: COpaquePointer?): UInt =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getRawInputDeviceInfoA((hdevice?.value ?: 0L), uicommand.toInt(), (pdata?.value ?: 0L), (pcbsize?.value ?: 0L)).toUInt()
+public actual fun getRawInputDeviceInfoA(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: MutPtr<CVoid>, pcbsize: MutPtr<UInt>): UInt =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetRawInputDeviceInfoA(hdevice.rawAddress, uicommand.toInt(), pdata.rawAddress, pcbsize.rawAddress).toUInt()
 
-public actual fun getRawInputDeviceInfoW(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: COpaquePointer?, pcbsize: COpaquePointer?): UInt =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getRawInputDeviceInfoW((hdevice?.value ?: 0L), uicommand.toInt(), (pdata?.value ?: 0L), (pcbsize?.value ?: 0L)).toUInt()
+public actual fun getRawInputDeviceInfoW(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: MutPtr<CVoid>, pcbsize: MutPtr<UInt>): UInt =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetRawInputDeviceInfoW(hdevice.rawAddress, uicommand.toInt(), pdata.rawAddress, pcbsize.rawAddress).toUInt()
 
-public actual fun getRawInputDeviceList(prawinputdevicelist: COpaquePointer?, puinumdevices: COpaquePointer?, cbsize: UInt): UInt =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getRawInputDeviceList((prawinputdevicelist?.value ?: 0L), (puinumdevices?.value ?: 0L), cbsize.toInt()).toUInt()
+public actual fun getRawInputDeviceList(prawinputdevicelist: MutPtr<Rawinputdevicelist>, puinumdevices: MutPtr<UInt>, cbsize: UInt): UInt =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetRawInputDeviceList(prawinputdevicelist.rawAddress, puinumdevices.rawAddress, cbsize.toInt()).toUInt()
 
-public actual fun getRegisteredRawInputDevices(prawinputdevices: COpaquePointer?, puinumdevices: COpaquePointer?, cbsize: UInt): UInt =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_getRegisteredRawInputDevices((prawinputdevices?.value ?: 0L), (puinumdevices?.value ?: 0L), cbsize.toInt()).toUInt()
+public actual fun getRegisteredRawInputDevices(prawinputdevices: MutPtr<Rawinputdevice>, puinumdevices: MutPtr<UInt>, cbsize: UInt): UInt =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputGetRegisteredRawInputDevices(prawinputdevices.rawAddress, puinumdevices.rawAddress, cbsize.toInt()).toUInt()
 
-public actual fun registerRawInputDevices(prawinputdevices: COpaquePointer?, uinumdevices: UInt, cbsize: UInt): Bool =
-    WindowsWin32UiInputJniBridge.windowssys_windows_win32_ui_input_registerRawInputDevices((prawinputdevices?.value ?: 0L), uinumdevices.toInt(), cbsize.toInt())
+public actual fun registerRawInputDevices(prawinputdevices: ConstPtr<Rawinputdevice>, uinumdevices: UInt, cbsize: UInt): Bool =
+    WindowsWin32UiInputJniBridge.windowssysWindowsWin32UiInputRegisterRawInputDevices(prawinputdevices.rawAddress, uinumdevices.toInt(), cbsize.toInt())

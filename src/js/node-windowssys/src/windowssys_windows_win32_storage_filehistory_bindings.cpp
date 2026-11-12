@@ -51,9 +51,9 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceBlockBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -63,22 +63,22 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceBlockBa
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe);
+        km_res = km_fn_ptr(arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceClosePipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -88,23 +88,23 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceClosePi
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe);
+        km_res = km_fn_ptr(arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t startserviceifstopped = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
-    void* arg_1_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* arg1Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -114,23 +114,23 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceOpenPip
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(startserviceifstopped, arg_1_pipe);
+        km_res = km_fn_ptr(startserviceifstopped, arg1Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)startserviceifstopped;
-    (void)arg_1_pipe;
+    (void)arg1Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceReloadConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -140,22 +140,22 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceReloadC
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe);
+        km_res = km_fn_ptr(arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStartBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceStartBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lowpriorityio = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
@@ -166,13 +166,13 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStartBa
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, lowpriorityio);
+        km_res = km_fn_ptr(arg0Pipe, lowpriorityio);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)lowpriorityio;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -180,9 +180,9 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStartBa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStopBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceStopBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t stoptracking = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
@@ -193,13 +193,13 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStopBac
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, stoptracking);
+        km_res = km_fn_ptr(arg0Pipe, stoptracking);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)stoptracking;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -207,9 +207,9 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStopBac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageFilehistoryFhServiceUnblockBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -219,13 +219,13 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceUnblock
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe);
+        km_res = km_fn_ptr(arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
@@ -233,13 +233,13 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceUnblock
 }
 
 static void register_windows_win32_storage_filehistory_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup_napi));
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceClosePipe", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceClosePipe_napi));
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe_napi));
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration_napi));
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceStartBackup", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceStartBackup_napi));
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceStopBackup", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceStopBackup_napi));
-    exports.Set("windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup", Napi::Function::New(env, windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceBlockBackup", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceBlockBackup_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceReloadConfiguration", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceReloadConfiguration_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceStartBackup", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceStartBackup_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceStopBackup", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceStopBackup_napi));
+    exports.Set("windowssysWindowsWin32StorageFilehistoryFhServiceUnblockBackup", Napi::Function::New(env, windowssysWindowsWin32StorageFilehistoryFhServiceUnblockBackup_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_filehistory_napi, nullptr };

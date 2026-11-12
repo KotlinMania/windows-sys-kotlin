@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_search_oDBCGetTryWaitValue(void) {
+uint32_t windowssysWindowsWin32SystemSearchODBCGetTryWaitValue(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ uint32_t windowssys_windows_win32_system_search_oDBCGetTryWaitValue(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_search_oDBCSetTryWaitValue(uint32_t dwvalue) {
+int32_t windowssysWindowsWin32SystemSearchODBCSetTryWaitValue(uint32_t dwvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ int32_t windowssys_windows_win32_system_search_oDBCSetTryWaitValue(uint32_t dwva
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLAllocConnect(void* environmenthandle, void* connectionhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLAllocConnect(void* environmenthandle, void* connectionhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int16_t windowssys_windows_win32_system_search_sQLAllocConnect(void* environment
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLAllocEnv(void* environmenthandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLAllocEnv(void* environmenthandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -103,7 +103,7 @@ int16_t windowssys_windows_win32_system_search_sQLAllocEnv(void* environmenthand
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLAllocHandle(int16_t handletype, void* inputhandle, void* outputhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLAllocHandle(int16_t handletype, void* inputhandle, void* outputhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int16_t windowssys_windows_win32_system_search_sQLAllocHandle(int16_t handletype
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLAllocHandleStd(int16_t fhandletype, void* hinput, void* phoutput) {
+int16_t windowssysWindowsWin32SystemSearchSQLAllocHandleStd(int16_t fhandletype, void* hinput, void* phoutput) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -151,7 +151,7 @@ int16_t windowssys_windows_win32_system_search_sQLAllocHandleStd(int16_t fhandle
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLAllocStmt(void* connectionhandle, void* statementhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLAllocStmt(void* connectionhandle, void* statementhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -174,7 +174,7 @@ int16_t windowssys_windows_win32_system_search_sQLAllocStmt(void* connectionhand
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBindCol(void* statementhandle, uint16_t columnnumber, int16_t targettype, void* targetvalue, int64_t bufferlength, void* strlen_or_ind) {
+int16_t windowssysWindowsWin32SystemSearchSQLBindCol(void* statementhandle, uint16_t columnnumber, int16_t targettype, void* targetvalue, int64_t bufferlength, void* strlenOrInd) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -185,7 +185,7 @@ int16_t windowssys_windows_win32_system_search_sQLBindCol(void* statementhandle,
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_ind);
+        return km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlenOrInd);
     }
     errno = ENOSYS;
     return -1;
@@ -195,13 +195,13 @@ int16_t windowssys_windows_win32_system_search_sQLBindCol(void* statementhandle,
     (void)targettype;
     (void)targetvalue;
     (void)bufferlength;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBindParam(void* statementhandle, uint16_t parameternumber, int16_t valuetype, int16_t parametertype, uint64_t lengthprecision, int16_t parameterscale, void* parametervalue, void* strlen_or_ind) {
+int16_t windowssysWindowsWin32SystemSearchSQLBindParam(void* statementhandle, uint16_t parameternumber, int16_t valuetype, int16_t parametertype, uint64_t lengthprecision, int16_t parameterscale, void* parametervalue, void* strlenOrInd) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, int16_t, uint64_t, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ int16_t windowssys_windows_win32_system_search_sQLBindParam(void* statementhandl
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind);
+        return km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlenOrInd);
     }
     errno = ENOSYS;
     return -1;
@@ -224,13 +224,13 @@ int16_t windowssys_windows_win32_system_search_sQLBindParam(void* statementhandl
     (void)lengthprecision;
     (void)parameterscale;
     (void)parametervalue;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBindParameter(void* hstmt, uint16_t ipar, int16_t fparamtype, int16_t fctype, int16_t fsqltype, uint64_t cbcoldef, int16_t ibscale, void* rgbvalue, int64_t cbvaluemax, void* pcbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLBindParameter(void* hstmt, uint16_t ipar, int16_t fparamtype, int16_t fctype, int16_t fsqltype, uint64_t cbcoldef, int16_t ibscale, void* rgbvalue, int64_t cbvaluemax, void* pcbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, int16_t, int16_t, uint64_t, int16_t, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -261,7 +261,7 @@ int16_t windowssys_windows_win32_system_search_sQLBindParameter(void* hstmt, uin
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBrowseConnect(void* hdbc, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout) {
+int16_t windowssysWindowsWin32SystemSearchSQLBrowseConnect(void* hdbc, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -288,7 +288,7 @@ int16_t windowssys_windows_win32_system_search_sQLBrowseConnect(void* hdbc, void
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBrowseConnectA(void* hdbc, void* szconnstrin, int16_t cbconnstrin, void* szconnstrout, int16_t cbconnstroutmax, void* pcbconnstrout) {
+int16_t windowssysWindowsWin32SystemSearchSQLBrowseConnectA(void* hdbc, void* szconnstrin, int16_t cbconnstrin, void* szconnstrout, int16_t cbconnstroutmax, void* pcbconnstrout) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -315,7 +315,7 @@ int16_t windowssys_windows_win32_system_search_sQLBrowseConnectA(void* hdbc, voi
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBrowseConnectW(void* hdbc, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout) {
+int16_t windowssysWindowsWin32SystemSearchSQLBrowseConnectW(void* hdbc, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -342,7 +342,7 @@ int16_t windowssys_windows_win32_system_search_sQLBrowseConnectW(void* hdbc, voi
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLBulkOperations(void* statementhandle, int16_t operation) {
+int16_t windowssysWindowsWin32SystemSearchSQLBulkOperations(void* statementhandle, int16_t operation) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -365,7 +365,7 @@ int16_t windowssys_windows_win32_system_search_sQLBulkOperations(void* statement
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLCancel(void* statementhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLCancel(void* statementhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -387,7 +387,7 @@ int16_t windowssys_windows_win32_system_search_sQLCancel(void* statementhandle) 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLCancelHandle(int16_t handletype, void* inputhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLCancelHandle(int16_t handletype, void* inputhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -410,7 +410,7 @@ int16_t windowssys_windows_win32_system_search_sQLCancelHandle(int16_t handletyp
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLCloseCursor(void* statementhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLCloseCursor(void* statementhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ int16_t windowssys_windows_win32_system_search_sQLCloseCursor(void* statementhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLCloseEnumServers(void* henumhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLCloseEnumServers(void* henumhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -454,7 +454,7 @@ int16_t windowssys_windows_win32_system_search_sQLCloseEnumServers(void* henumha
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColAttribute(void* statementhandle, uint16_t columnnumber, uint16_t fieldidentifier, void* characterattribute, int16_t bufferlength, void* stringlength, void* numericattribute) {
+int16_t windowssysWindowsWin32SystemSearchSQLColAttribute(void* statementhandle, uint16_t columnnumber, uint16_t fieldidentifier, void* characterattribute, int16_t bufferlength, void* stringlength, void* numericattribute) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, void*, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -482,7 +482,7 @@ int16_t windowssys_windows_win32_system_search_sQLColAttribute(void* statementha
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColAttributeA(void* hstmt, int16_t icol, int16_t ifield, void* pcharattr, int16_t cbcharattrmax, void* pcbcharattr, void* pnumattr) {
+int16_t windowssysWindowsWin32SystemSearchSQLColAttributeA(void* hstmt, int16_t icol, int16_t ifield, void* pcharattr, int16_t cbcharattrmax, void* pcbcharattr, void* pnumattr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, void*, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -510,7 +510,7 @@ int16_t windowssys_windows_win32_system_search_sQLColAttributeA(void* hstmt, int
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColAttributeW(void* hstmt, uint16_t icol, uint16_t ifield, void* pcharattr, int16_t cbdescmax, void* pcbcharattr, void* pnumattr) {
+int16_t windowssysWindowsWin32SystemSearchSQLColAttributeW(void* hstmt, uint16_t icol, uint16_t ifield, void* pcharattr, int16_t cbdescmax, void* pcbcharattr, void* pnumattr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, void*, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -538,7 +538,7 @@ int16_t windowssys_windows_win32_system_search_sQLColAttributeW(void* hstmt, uin
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColAttributes(void* hstmt, uint16_t icol, uint16_t fdesctype, void* rgbdesc, int16_t cbdescmax, void* pcbdesc, void* pfdesc) {
+int16_t windowssysWindowsWin32SystemSearchSQLColAttributes(void* hstmt, uint16_t icol, uint16_t fdesctype, void* rgbdesc, int16_t cbdescmax, void* pcbdesc, void* pfdesc) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, void*, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -566,7 +566,7 @@ int16_t windowssys_windows_win32_system_search_sQLColAttributes(void* hstmt, uin
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColAttributesA(void* hstmt, uint16_t icol, uint16_t fdesctype, void* rgbdesc, int16_t cbdescmax, void* pcbdesc, void* pfdesc) {
+int16_t windowssysWindowsWin32SystemSearchSQLColAttributesA(void* hstmt, uint16_t icol, uint16_t fdesctype, void* rgbdesc, int16_t cbdescmax, void* pcbdesc, void* pfdesc) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, void*, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -594,7 +594,7 @@ int16_t windowssys_windows_win32_system_search_sQLColAttributesA(void* hstmt, ui
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColAttributesW(void* hstmt, uint16_t icol, uint16_t fdesctype, void* rgbdesc, int16_t cbdescmax, void* pcbdesc, void* pfdesc) {
+int16_t windowssysWindowsWin32SystemSearchSQLColAttributesW(void* hstmt, uint16_t icol, uint16_t fdesctype, void* rgbdesc, int16_t cbdescmax, void* pcbdesc, void* pfdesc) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, void*, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ int16_t windowssys_windows_win32_system_search_sQLColAttributesW(void* hstmt, ui
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColumnPrivileges(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* szcolumnname, int16_t cchcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLColumnPrivileges(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* szcolumnname, int16_t cchcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ int16_t windowssys_windows_win32_system_search_sQLColumnPrivileges(void* hstmt, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColumnPrivilegesA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, void* szcolumnname, int16_t cbcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLColumnPrivilegesA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, void* szcolumnname, int16_t cbcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -682,7 +682,7 @@ int16_t windowssys_windows_win32_system_search_sQLColumnPrivilegesA(void* hstmt,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColumnPrivilegesW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* szcolumnname, int16_t cchcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLColumnPrivilegesW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* szcolumnname, int16_t cchcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -712,7 +712,7 @@ int16_t windowssys_windows_win32_system_search_sQLColumnPrivilegesW(void* hstmt,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColumns(void* statementhandle, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, void* columnname, int16_t namelength4) {
+int16_t windowssysWindowsWin32SystemSearchSQLColumns(void* statementhandle, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, void* columnname, int16_t namelength4) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -742,7 +742,7 @@ int16_t windowssys_windows_win32_system_search_sQLColumns(void* statementhandle,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColumnsA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, void* szcolumnname, int16_t cbcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLColumnsA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, void* szcolumnname, int16_t cbcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +772,7 @@ int16_t windowssys_windows_win32_system_search_sQLColumnsA(void* hstmt, void* sz
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLColumnsW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* szcolumnname, int16_t cchcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLColumnsW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* szcolumnname, int16_t cchcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -802,7 +802,7 @@ int16_t windowssys_windows_win32_system_search_sQLColumnsW(void* hstmt, void* sz
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLCompleteAsync(int16_t handletype, void* handle, void* asyncretcodeptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLCompleteAsync(int16_t handletype, void* handle, void* asyncretcodeptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -826,7 +826,7 @@ int16_t windowssys_windows_win32_system_search_sQLCompleteAsync(int16_t handlety
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLConnect(void* connectionhandle, void* servername, int16_t namelength1, void* username, int16_t namelength2, void* authentication, int16_t namelength3) {
+int16_t windowssysWindowsWin32SystemSearchSQLConnect(void* connectionhandle, void* servername, int16_t namelength1, void* username, int16_t namelength2, void* authentication, int16_t namelength3) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -854,7 +854,7 @@ int16_t windowssys_windows_win32_system_search_sQLConnect(void* connectionhandle
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLConnectA(void* hdbc, void* szdsn, int16_t cbdsn, void* szuid, int16_t cbuid, void* szauthstr, int16_t cbauthstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLConnectA(void* hdbc, void* szdsn, int16_t cbdsn, void* szuid, int16_t cbuid, void* szauthstr, int16_t cbauthstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -882,7 +882,7 @@ int16_t windowssys_windows_win32_system_search_sQLConnectA(void* hdbc, void* szd
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLConnectW(void* hdbc, void* szdsn, int16_t cchdsn, void* szuid, int16_t cchuid, void* szauthstr, int16_t cchauthstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLConnectW(void* hdbc, void* szdsn, int16_t cchdsn, void* szuid, int16_t cchuid, void* szauthstr, int16_t cchauthstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -910,7 +910,7 @@ int16_t windowssys_windows_win32_system_search_sQLConnectW(void* hdbc, void* szd
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLCopyDesc(void* sourcedeschandle, void* targetdeschandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLCopyDesc(void* sourcedeschandle, void* targetdeschandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -933,7 +933,7 @@ int16_t windowssys_windows_win32_system_search_sQLCopyDesc(void* sourcedeschandl
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDataSources(void* environmenthandle, uint16_t direction, void* servername, int16_t bufferlength1, void* namelength1ptr, void* description, int16_t bufferlength2, void* namelength2ptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLDataSources(void* environmenthandle, uint16_t direction, void* servername, int16_t bufferlength1, void* namelength1ptr, void* description, int16_t bufferlength2, void* namelength2ptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ int16_t windowssys_windows_win32_system_search_sQLDataSources(void* environmenth
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDataSourcesA(void* henv, uint16_t fdirection, void* szdsn, int16_t cbdsnmax, void* pcbdsn, void* szdescription, int16_t cbdescriptionmax, void* pcbdescription) {
+int16_t windowssysWindowsWin32SystemSearchSQLDataSourcesA(void* henv, uint16_t fdirection, void* szdsn, int16_t cbdsnmax, void* pcbdsn, void* szdescription, int16_t cbdescriptionmax, void* pcbdescription) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -991,7 +991,7 @@ int16_t windowssys_windows_win32_system_search_sQLDataSourcesA(void* henv, uint1
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDataSourcesW(void* henv, uint16_t fdirection, void* szdsn, int16_t cchdsnmax, void* pcchdsn, void* wszdescription, int16_t cchdescriptionmax, void* pcchdescription) {
+int16_t windowssysWindowsWin32SystemSearchSQLDataSourcesW(void* henv, uint16_t fdirection, void* szdsn, int16_t cchdsnmax, void* pcchdsn, void* wszdescription, int16_t cchdescriptionmax, void* pcchdescription) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1020,7 +1020,7 @@ int16_t windowssys_windows_win32_system_search_sQLDataSourcesW(void* henv, uint1
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDescribeCol(void* statementhandle, uint16_t columnnumber, void* columnname, int16_t bufferlength, void* namelength, void* datatype, void* columnsize, void* decimaldigits, void* nullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLDescribeCol(void* statementhandle, uint16_t columnnumber, void* columnname, int16_t bufferlength, void* namelength, void* datatype, void* columnsize, void* decimaldigits, void* nullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1050,7 +1050,7 @@ int16_t windowssys_windows_win32_system_search_sQLDescribeCol(void* statementhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDescribeColA(void* hstmt, uint16_t icol, void* szcolname, int16_t cbcolnamemax, void* pcbcolname, void* pfsqltype, void* pcbcoldef, void* pibscale, void* pfnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLDescribeColA(void* hstmt, uint16_t icol, void* szcolname, int16_t cbcolnamemax, void* pcbcolname, void* pfsqltype, void* pcbcoldef, void* pibscale, void* pfnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1080,7 +1080,7 @@ int16_t windowssys_windows_win32_system_search_sQLDescribeColA(void* hstmt, uint
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDescribeColW(void* hstmt, uint16_t icol, void* szcolname, int16_t cchcolnamemax, void* pcchcolname, void* pfsqltype, void* pcbcoldef, void* pibscale, void* pfnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLDescribeColW(void* hstmt, uint16_t icol, void* szcolname, int16_t cchcolnamemax, void* pcchcolname, void* pfsqltype, void* pcbcoldef, void* pibscale, void* pfnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1110,7 +1110,7 @@ int16_t windowssys_windows_win32_system_search_sQLDescribeColW(void* hstmt, uint
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDescribeParam(void* hstmt, uint16_t ipar, void* pfsqltype, void* pcbparamdef, void* pibscale, void* pfnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLDescribeParam(void* hstmt, uint16_t ipar, void* pfsqltype, void* pcbparamdef, void* pibscale, void* pfnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ int16_t windowssys_windows_win32_system_search_sQLDescribeParam(void* hstmt, uin
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDisconnect(void* connectionhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLDisconnect(void* connectionhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ int16_t windowssys_windows_win32_system_search_sQLDisconnect(void* connectionhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDriverConnect(void* hdbc, int64_t hwnd, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout, uint16_t fdrivercompletion) {
+int16_t windowssysWindowsWin32SystemSearchSQLDriverConnect(void* hdbc, int64_t hwnd, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout, uint16_t fdrivercompletion) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int64_t, void*, int16_t, void*, int16_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1188,7 +1188,7 @@ int16_t windowssys_windows_win32_system_search_sQLDriverConnect(void* hdbc, int6
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDriverConnectA(void* hdbc, int64_t hwnd, void* szconnstrin, int16_t cbconnstrin, void* szconnstrout, int16_t cbconnstroutmax, void* pcbconnstrout, uint16_t fdrivercompletion) {
+int16_t windowssysWindowsWin32SystemSearchSQLDriverConnectA(void* hdbc, int64_t hwnd, void* szconnstrin, int16_t cbconnstrin, void* szconnstrout, int16_t cbconnstroutmax, void* pcbconnstrout, uint16_t fdrivercompletion) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int64_t, void*, int16_t, void*, int16_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1217,7 +1217,7 @@ int16_t windowssys_windows_win32_system_search_sQLDriverConnectA(void* hdbc, int
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDriverConnectW(void* hdbc, int64_t hwnd, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout, uint16_t fdrivercompletion) {
+int16_t windowssysWindowsWin32SystemSearchSQLDriverConnectW(void* hdbc, int64_t hwnd, void* szconnstrin, int16_t cchconnstrin, void* szconnstrout, int16_t cchconnstroutmax, void* pcchconnstrout, uint16_t fdrivercompletion) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int64_t, void*, int16_t, void*, int16_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1246,7 +1246,7 @@ int16_t windowssys_windows_win32_system_search_sQLDriverConnectW(void* hdbc, int
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDrivers(void* henv, uint16_t fdirection, void* szdriverdesc, int16_t cchdriverdescmax, void* pcchdriverdesc, void* szdriverattributes, int16_t cchdrvrattrmax, void* pcchdrvrattr) {
+int16_t windowssysWindowsWin32SystemSearchSQLDrivers(void* henv, uint16_t fdirection, void* szdriverdesc, int16_t cchdriverdescmax, void* pcchdriverdesc, void* szdriverattributes, int16_t cchdrvrattrmax, void* pcchdrvrattr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1275,7 +1275,7 @@ int16_t windowssys_windows_win32_system_search_sQLDrivers(void* henv, uint16_t f
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDriversA(void* henv, uint16_t fdirection, void* szdriverdesc, int16_t cbdriverdescmax, void* pcbdriverdesc, void* szdriverattributes, int16_t cbdrvrattrmax, void* pcbdrvrattr) {
+int16_t windowssysWindowsWin32SystemSearchSQLDriversA(void* henv, uint16_t fdirection, void* szdriverdesc, int16_t cbdriverdescmax, void* pcbdriverdesc, void* szdriverattributes, int16_t cbdrvrattrmax, void* pcbdrvrattr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1304,7 +1304,7 @@ int16_t windowssys_windows_win32_system_search_sQLDriversA(void* henv, uint16_t 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLDriversW(void* henv, uint16_t fdirection, void* szdriverdesc, int16_t cchdriverdescmax, void* pcchdriverdesc, void* szdriverattributes, int16_t cchdrvrattrmax, void* pcchdrvrattr) {
+int16_t windowssysWindowsWin32SystemSearchSQLDriversW(void* henv, uint16_t fdirection, void* szdriverdesc, int16_t cchdriverdescmax, void* pcchdriverdesc, void* szdriverattributes, int16_t cchdrvrattrmax, void* pcchdrvrattr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1333,7 +1333,7 @@ int16_t windowssys_windows_win32_system_search_sQLDriversW(void* henv, uint16_t 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLEndTran(int16_t handletype, void* handle, int16_t completiontype) {
+int16_t windowssysWindowsWin32SystemSearchSQLEndTran(int16_t handletype, void* handle, int16_t completiontype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1357,7 +1357,7 @@ int16_t windowssys_windows_win32_system_search_sQLEndTran(int16_t handletype, vo
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLError(void* environmenthandle, void* connectionhandle, void* statementhandle, void* sqlstate, void* nativeerror, void* messagetext, int16_t bufferlength, void* textlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLError(void* environmenthandle, void* connectionhandle, void* statementhandle, void* sqlstate, void* nativeerror, void* messagetext, int16_t bufferlength, void* textlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ int16_t windowssys_windows_win32_system_search_sQLError(void* environmenthandle,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLErrorA(void* henv, void* hdbc, void* hstmt, void* szsqlstate, void* pfnativeerror, void* szerrormsg, int16_t cberrormsgmax, void* pcberrormsg) {
+int16_t windowssysWindowsWin32SystemSearchSQLErrorA(void* henv, void* hdbc, void* hstmt, void* szsqlstate, void* pfnativeerror, void* szerrormsg, int16_t cberrormsgmax, void* pcberrormsg) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1415,7 +1415,7 @@ int16_t windowssys_windows_win32_system_search_sQLErrorA(void* henv, void* hdbc,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLErrorW(void* henv, void* hdbc, void* hstmt, void* wszsqlstate, void* pfnativeerror, void* wszerrormsg, int16_t ccherrormsgmax, void* pccherrormsg) {
+int16_t windowssysWindowsWin32SystemSearchSQLErrorW(void* henv, void* hdbc, void* hstmt, void* wszsqlstate, void* pfnativeerror, void* wszerrormsg, int16_t ccherrormsgmax, void* pccherrormsg) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ int16_t windowssys_windows_win32_system_search_sQLErrorW(void* henv, void* hdbc,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLExecDirect(void* statementhandle, void* statementtext, int32_t textlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLExecDirect(void* statementhandle, void* statementtext, int32_t textlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1468,7 +1468,7 @@ int16_t windowssys_windows_win32_system_search_sQLExecDirect(void* statementhand
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLExecDirectA(void* hstmt, void* szsqlstr, int32_t cbsqlstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLExecDirectA(void* hstmt, void* szsqlstr, int32_t cbsqlstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1492,7 +1492,7 @@ int16_t windowssys_windows_win32_system_search_sQLExecDirectA(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLExecDirectW(void* hstmt, void* szsqlstr, int32_t textlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLExecDirectW(void* hstmt, void* szsqlstr, int32_t textlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1516,7 +1516,7 @@ int16_t windowssys_windows_win32_system_search_sQLExecDirectW(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLExecute(void* statementhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLExecute(void* statementhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1538,7 +1538,7 @@ int16_t windowssys_windows_win32_system_search_sQLExecute(void* statementhandle)
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLExtendedFetch(void* hstmt, uint16_t ffetchtype, int64_t irow, void* pcrow, void* rgfrowstatus) {
+int16_t windowssysWindowsWin32SystemSearchSQLExtendedFetch(void* hstmt, uint16_t ffetchtype, int64_t irow, void* pcrow, void* rgfrowstatus) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1564,7 +1564,7 @@ int16_t windowssys_windows_win32_system_search_sQLExtendedFetch(void* hstmt, uin
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLFetch(void* statementhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLFetch(void* statementhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1586,7 +1586,7 @@ int16_t windowssys_windows_win32_system_search_sQLFetch(void* statementhandle) {
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLFetchScroll(void* statementhandle, int16_t fetchorientation, int64_t fetchoffset) {
+int16_t windowssysWindowsWin32SystemSearchSQLFetchScroll(void* statementhandle, int16_t fetchorientation, int64_t fetchoffset) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1610,7 +1610,7 @@ int16_t windowssys_windows_win32_system_search_sQLFetchScroll(void* statementhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLForeignKeys(void* hstmt, void* szpkcatalogname, int16_t cchpkcatalogname, void* szpkschemaname, int16_t cchpkschemaname, void* szpktablename, int16_t cchpktablename, void* szfkcatalogname, int16_t cchfkcatalogname, void* szfkschemaname, int16_t cchfkschemaname, void* szfktablename, int16_t cchfktablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLForeignKeys(void* hstmt, void* szpkcatalogname, int16_t cchpkcatalogname, void* szpkschemaname, int16_t cchpkschemaname, void* szpktablename, int16_t cchpktablename, void* szfkcatalogname, int16_t cchfkcatalogname, void* szfkschemaname, int16_t cchfkschemaname, void* szfktablename, int16_t cchfktablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ int16_t windowssys_windows_win32_system_search_sQLForeignKeys(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLForeignKeysA(void* hstmt, void* szpkcatalogname, int16_t cbpkcatalogname, void* szpkschemaname, int16_t cbpkschemaname, void* szpktablename, int16_t cbpktablename, void* szfkcatalogname, int16_t cbfkcatalogname, void* szfkschemaname, int16_t cbfkschemaname, void* szfktablename, int16_t cbfktablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLForeignKeysA(void* hstmt, void* szpkcatalogname, int16_t cbpkcatalogname, void* szpkschemaname, int16_t cbpkschemaname, void* szpktablename, int16_t cbpktablename, void* szfkcatalogname, int16_t cbfkcatalogname, void* szfkschemaname, int16_t cbfkschemaname, void* szfktablename, int16_t cbfktablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1678,7 +1678,7 @@ int16_t windowssys_windows_win32_system_search_sQLForeignKeysA(void* hstmt, void
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLForeignKeysW(void* hstmt, void* szpkcatalogname, int16_t cchpkcatalogname, void* szpkschemaname, int16_t cchpkschemaname, void* szpktablename, int16_t cchpktablename, void* szfkcatalogname, int16_t cchfkcatalogname, void* szfkschemaname, int16_t cchfkschemaname, void* szfktablename, int16_t cchfktablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLForeignKeysW(void* hstmt, void* szpkcatalogname, int16_t cchpkcatalogname, void* szpkschemaname, int16_t cchpkschemaname, void* szpktablename, int16_t cchpktablename, void* szfkcatalogname, int16_t cchfkcatalogname, void* szfkschemaname, int16_t cchfkschemaname, void* szfktablename, int16_t cchfktablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1712,7 +1712,7 @@ int16_t windowssys_windows_win32_system_search_sQLForeignKeysW(void* hstmt, void
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLFreeConnect(void* connectionhandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLFreeConnect(void* connectionhandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1734,7 +1734,7 @@ int16_t windowssys_windows_win32_system_search_sQLFreeConnect(void* connectionha
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLFreeEnv(void* environmenthandle) {
+int16_t windowssysWindowsWin32SystemSearchSQLFreeEnv(void* environmenthandle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1756,7 +1756,7 @@ int16_t windowssys_windows_win32_system_search_sQLFreeEnv(void* environmenthandl
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLFreeHandle(int16_t handletype, void* handle) {
+int16_t windowssysWindowsWin32SystemSearchSQLFreeHandle(int16_t handletype, void* handle) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1779,7 +1779,7 @@ int16_t windowssys_windows_win32_system_search_sQLFreeHandle(int16_t handletype,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLFreeStmt(void* statementhandle, uint16_t option) {
+int16_t windowssysWindowsWin32SystemSearchSQLFreeStmt(void* statementhandle, uint16_t option) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1802,7 +1802,7 @@ int16_t windowssys_windows_win32_system_search_sQLFreeStmt(void* statementhandle
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetConnectAttr(void* connectionhandle, int32_t attribute, void* value, int32_t bufferlength, void* stringlengthptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetConnectAttr(void* connectionhandle, int32_t attribute, void* value, int32_t bufferlength, void* stringlengthptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1828,7 +1828,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetConnectAttr(void* connectio
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetConnectAttrA(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetConnectAttrA(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1854,7 +1854,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetConnectAttrA(void* hdbc, in
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetConnectAttrW(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetConnectAttrW(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1880,7 +1880,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetConnectAttrW(void* hdbc, in
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetConnectOption(void* connectionhandle, uint16_t option, void* value) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetConnectOption(void* connectionhandle, uint16_t option, void* value) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1904,7 +1904,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetConnectOption(void* connect
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetConnectOptionA(void* hdbc, uint16_t foption, void* pvparam) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetConnectOptionA(void* hdbc, uint16_t foption, void* pvparam) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1928,7 +1928,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetConnectOptionA(void* hdbc, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetConnectOptionW(void* hdbc, uint16_t foption, void* pvparam) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetConnectOptionW(void* hdbc, uint16_t foption, void* pvparam) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1952,7 +1952,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetConnectOptionW(void* hdbc, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetCursorName(void* statementhandle, void* cursorname, int16_t bufferlength, void* namelengthptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetCursorName(void* statementhandle, void* cursorname, int16_t bufferlength, void* namelengthptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1977,7 +1977,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetCursorName(void* statementh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetCursorNameA(void* hstmt, void* szcursor, int16_t cbcursormax, void* pcbcursor) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetCursorNameA(void* hstmt, void* szcursor, int16_t cbcursormax, void* pcbcursor) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2002,7 +2002,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetCursorNameA(void* hstmt, vo
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetCursorNameW(void* hstmt, void* szcursor, int16_t cchcursormax, void* pcchcursor) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetCursorNameW(void* hstmt, void* szcursor, int16_t cchcursormax, void* pcchcursor) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2027,7 +2027,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetCursorNameW(void* hstmt, vo
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetData(void* statementhandle, uint16_t columnnumber, int16_t targettype, void* targetvalue, int64_t bufferlength, void* strlen_or_indptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetData(void* statementhandle, uint16_t columnnumber, int16_t targettype, void* targetvalue, int64_t bufferlength, void* strlenOrIndptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2038,7 +2038,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetData(void* statementhandle,
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_indptr);
+        return km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlenOrIndptr);
     }
     errno = ENOSYS;
     return -1;
@@ -2048,13 +2048,13 @@ int16_t windowssys_windows_win32_system_search_sQLGetData(void* statementhandle,
     (void)targettype;
     (void)targetvalue;
     (void)bufferlength;
-    (void)strlen_or_indptr;
+    (void)strlenOrIndptr;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDescField(void* descriptorhandle, int16_t recnumber, int16_t fieldidentifier, void* value, int32_t bufferlength, void* stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDescField(void* descriptorhandle, int16_t recnumber, int16_t fieldidentifier, void* value, int32_t bufferlength, void* stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2081,7 +2081,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDescField(void* descriptorh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDescFieldA(void* hdesc, int16_t irecord, int16_t ifield, void* rgbvalue, int32_t cbbufferlength, void* stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDescFieldA(void* hdesc, int16_t irecord, int16_t ifield, void* rgbvalue, int32_t cbbufferlength, void* stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2108,7 +2108,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDescFieldA(void* hdesc, int
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDescFieldW(void* hdesc, int16_t irecord, int16_t ifield, void* rgbvalue, int32_t cbbufferlength, void* stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDescFieldW(void* hdesc, int16_t irecord, int16_t ifield, void* rgbvalue, int32_t cbbufferlength, void* stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2135,7 +2135,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDescFieldW(void* hdesc, int
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDescRec(void* descriptorhandle, int16_t recnumber, void* name, int16_t bufferlength, void* stringlengthptr, void* typeptr, void* subtypeptr, void* lengthptr, void* precisionptr, void* scaleptr, void* nullableptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDescRec(void* descriptorhandle, int16_t recnumber, void* name, int16_t bufferlength, void* stringlengthptr, void* typeptr, void* subtypeptr, void* lengthptr, void* precisionptr, void* scaleptr, void* nullableptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, void*, int16_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2167,7 +2167,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDescRec(void* descriptorhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDescRecA(void* hdesc, int16_t irecord, void* szname, int16_t cbnamemax, void* pcbname, void* pftype, void* pfsubtype, void* plength, void* pprecision, void* pscale, void* pnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDescRecA(void* hdesc, int16_t irecord, void* szname, int16_t cbnamemax, void* pcbname, void* pftype, void* pfsubtype, void* plength, void* pprecision, void* pscale, void* pnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, void*, int16_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2199,7 +2199,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDescRecA(void* hdesc, int16
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDescRecW(void* hdesc, int16_t irecord, void* szname, int16_t cchnamemax, void* pcchname, void* pftype, void* pfsubtype, void* plength, void* pprecision, void* pscale, void* pnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDescRecW(void* hdesc, int16_t irecord, void* szname, int16_t cchnamemax, void* pcchname, void* pftype, void* pfsubtype, void* plength, void* pprecision, void* pscale, void* pnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, void*, int16_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2231,7 +2231,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDescRecW(void* hdesc, int16
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDiagField(int16_t handletype, void* handle, int16_t recnumber, int16_t diagidentifier, void* diaginfo, int16_t bufferlength, void* stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDiagField(int16_t handletype, void* handle, int16_t recnumber, int16_t diagidentifier, void* diaginfo, int16_t bufferlength, void* stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t, int16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2259,7 +2259,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDiagField(int16_t handletyp
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDiagFieldA(int16_t fhandletype, void* handle, int16_t irecord, int16_t fdiagfield, void* rgbdiaginfo, int16_t cbdiaginfomax, void* pcbdiaginfo) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDiagFieldA(int16_t fhandletype, void* handle, int16_t irecord, int16_t fdiagfield, void* rgbdiaginfo, int16_t cbdiaginfomax, void* pcbdiaginfo) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t, int16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2287,7 +2287,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDiagFieldA(int16_t fhandlet
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDiagFieldW(int16_t fhandletype, void* handle, int16_t irecord, int16_t fdiagfield, void* rgbdiaginfo, int16_t cbbufferlength, void* pcbstringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDiagFieldW(int16_t fhandletype, void* handle, int16_t irecord, int16_t fdiagfield, void* rgbdiaginfo, int16_t cbbufferlength, void* pcbstringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t, int16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2315,7 +2315,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDiagFieldW(int16_t fhandlet
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDiagRec(int16_t handletype, void* handle, int16_t recnumber, void* sqlstate, void* nativeerror, void* messagetext, int16_t bufferlength, void* textlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDiagRec(int16_t handletype, void* handle, int16_t recnumber, void* sqlstate, void* nativeerror, void* messagetext, int16_t bufferlength, void* textlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t, void*, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2344,7 +2344,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDiagRec(int16_t handletype,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDiagRecA(int16_t fhandletype, void* handle, int16_t irecord, void* szsqlstate, void* pfnativeerror, void* szerrormsg, int16_t cberrormsgmax, void* pcberrormsg) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDiagRecA(int16_t fhandletype, void* handle, int16_t irecord, void* szsqlstate, void* pfnativeerror, void* szerrormsg, int16_t cberrormsgmax, void* pcberrormsg) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t, void*, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2373,7 +2373,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDiagRecA(int16_t fhandletyp
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetDiagRecW(int16_t fhandletype, void* handle, int16_t irecord, void* szsqlstate, void* pfnativeerror, void* szerrormsg, int16_t ccherrormsgmax, void* pccherrormsg) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetDiagRecW(int16_t fhandletype, void* handle, int16_t irecord, void* szsqlstate, void* pfnativeerror, void* szerrormsg, int16_t ccherrormsgmax, void* pccherrormsg) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int16_t, void*, int16_t, void*, void*, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2402,7 +2402,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetDiagRecW(int16_t fhandletyp
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetEnvAttr(void* environmenthandle, int32_t attribute, void* value, int32_t bufferlength, void* stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetEnvAttr(void* environmenthandle, int32_t attribute, void* value, int32_t bufferlength, void* stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2428,7 +2428,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetEnvAttr(void* environmentha
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetFunctions(void* connectionhandle, uint16_t functionid, void* supported) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetFunctions(void* connectionhandle, uint16_t functionid, void* supported) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2452,7 +2452,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetFunctions(void* connectionh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetInfo(void* connectionhandle, uint16_t infotype, void* infovalue, int16_t bufferlength, void* stringlengthptr) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetInfo(void* connectionhandle, uint16_t infotype, void* infovalue, int16_t bufferlength, void* stringlengthptr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2478,7 +2478,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetInfo(void* connectionhandle
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetInfoA(void* hdbc, uint16_t finfotype, void* rgbinfovalue, int16_t cbinfovaluemax, void* pcbinfovalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetInfoA(void* hdbc, uint16_t finfotype, void* rgbinfovalue, int16_t cbinfovaluemax, void* pcbinfovalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2504,7 +2504,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetInfoA(void* hdbc, uint16_t 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetInfoW(void* hdbc, uint16_t finfotype, void* rgbinfovalue, int16_t cbinfovaluemax, void* pcbinfovalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetInfoW(void* hdbc, uint16_t finfotype, void* rgbinfovalue, int16_t cbinfovaluemax, void* pcbinfovalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2530,7 +2530,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetInfoW(void* hdbc, uint16_t 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetNextEnumeration(void* henumhandle, void* prgenumdata, void* pienumlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetNextEnumeration(void* henumhandle, void* prgenumdata, void* pienumlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2554,7 +2554,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetNextEnumeration(void* henum
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetStmtAttr(void* statementhandle, int32_t attribute, void* value, int32_t bufferlength, void* stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetStmtAttr(void* statementhandle, int32_t attribute, void* value, int32_t bufferlength, void* stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2580,7 +2580,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetStmtAttr(void* statementhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetStmtAttrA(void* hstmt, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetStmtAttrA(void* hstmt, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2606,7 +2606,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetStmtAttrA(void* hstmt, int3
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetStmtAttrW(void* hstmt, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetStmtAttrW(void* hstmt, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax, void* pcbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2632,7 +2632,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetStmtAttrW(void* hstmt, int3
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetStmtOption(void* statementhandle, uint16_t option, void* value) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetStmtOption(void* statementhandle, uint16_t option, void* value) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2656,7 +2656,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetStmtOption(void* statementh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetTypeInfo(void* statementhandle, int16_t datatype) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetTypeInfo(void* statementhandle, int16_t datatype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2679,7 +2679,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetTypeInfo(void* statementhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetTypeInfoA(void* statementhandle, int16_t datatype) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetTypeInfoA(void* statementhandle, int16_t datatype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2702,7 +2702,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetTypeInfoA(void* statementha
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLGetTypeInfoW(void* statementhandle, int16_t datatype) {
+int16_t windowssysWindowsWin32SystemSearchSQLGetTypeInfoW(void* statementhandle, int16_t datatype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2725,7 +2725,7 @@ int16_t windowssys_windows_win32_system_search_sQLGetTypeInfoW(void* statementha
 #endif
 }
 
-void* windowssys_windows_win32_system_search_sQLInitEnumServers(void* pwchservername, void* pwchinstancename) {
+void* windowssysWindowsWin32SystemSearchSQLInitEnumServers(void* pwchservername, void* pwchinstancename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2748,7 +2748,7 @@ void* windowssys_windows_win32_system_search_sQLInitEnumServers(void* pwchserver
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLLinkedCatalogsA(void* param0, void* param1, int16_t param2) {
+int16_t windowssysWindowsWin32SystemSearchSQLLinkedCatalogsA(void* param0, void* param1, int16_t param2) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2772,7 +2772,7 @@ int16_t windowssys_windows_win32_system_search_sQLLinkedCatalogsA(void* param0, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLLinkedCatalogsW(void* param0, void* param1, int16_t param2) {
+int16_t windowssysWindowsWin32SystemSearchSQLLinkedCatalogsW(void* param0, void* param1, int16_t param2) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2796,7 +2796,7 @@ int16_t windowssys_windows_win32_system_search_sQLLinkedCatalogsW(void* param0, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLLinkedServers(void* param0) {
+int16_t windowssysWindowsWin32SystemSearchSQLLinkedServers(void* param0) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2818,7 +2818,7 @@ int16_t windowssys_windows_win32_system_search_sQLLinkedServers(void* param0) {
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLMoreResults(void* hstmt) {
+int16_t windowssysWindowsWin32SystemSearchSQLMoreResults(void* hstmt) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2840,7 +2840,7 @@ int16_t windowssys_windows_win32_system_search_sQLMoreResults(void* hstmt) {
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLNativeSql(void* hdbc, void* szsqlstrin, int32_t cchsqlstrin, void* szsqlstr, int32_t cchsqlstrmax, void* pcbsqlstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLNativeSql(void* hdbc, void* szsqlstrin, int32_t cchsqlstrin, void* szsqlstr, int32_t cchsqlstrmax, void* pcbsqlstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2867,7 +2867,7 @@ int16_t windowssys_windows_win32_system_search_sQLNativeSql(void* hdbc, void* sz
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLNativeSqlA(void* hdbc, void* szsqlstrin, int32_t cbsqlstrin, void* szsqlstr, int32_t cbsqlstrmax, void* pcbsqlstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLNativeSqlA(void* hdbc, void* szsqlstrin, int32_t cbsqlstrin, void* szsqlstr, int32_t cbsqlstrmax, void* pcbsqlstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2894,7 +2894,7 @@ int16_t windowssys_windows_win32_system_search_sQLNativeSqlA(void* hdbc, void* s
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLNativeSqlW(void* hdbc, void* szsqlstrin, int32_t cchsqlstrin, void* szsqlstr, int32_t cchsqlstrmax, void* pcchsqlstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLNativeSqlW(void* hdbc, void* szsqlstrin, int32_t cchsqlstrin, void* szsqlstr, int32_t cchsqlstrmax, void* pcchsqlstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2921,7 +2921,7 @@ int16_t windowssys_windows_win32_system_search_sQLNativeSqlW(void* hdbc, void* s
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLNumParams(void* hstmt, void* pcpar) {
+int16_t windowssysWindowsWin32SystemSearchSQLNumParams(void* hstmt, void* pcpar) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2944,7 +2944,7 @@ int16_t windowssys_windows_win32_system_search_sQLNumParams(void* hstmt, void* p
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLNumResultCols(void* statementhandle, void* columncount) {
+int16_t windowssysWindowsWin32SystemSearchSQLNumResultCols(void* statementhandle, void* columncount) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2967,7 +2967,7 @@ int16_t windowssys_windows_win32_system_search_sQLNumResultCols(void* statementh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLParamData(void* statementhandle, void* value) {
+int16_t windowssysWindowsWin32SystemSearchSQLParamData(void* statementhandle, void* value) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2990,7 +2990,7 @@ int16_t windowssys_windows_win32_system_search_sQLParamData(void* statementhandl
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLParamOptions(void* hstmt, uint64_t crow, void* pirow) {
+int16_t windowssysWindowsWin32SystemSearchSQLParamOptions(void* hstmt, uint64_t crow, void* pirow) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3014,7 +3014,7 @@ int16_t windowssys_windows_win32_system_search_sQLParamOptions(void* hstmt, uint
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPrepare(void* statementhandle, void* statementtext, int32_t textlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLPrepare(void* statementhandle, void* statementtext, int32_t textlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3038,7 +3038,7 @@ int16_t windowssys_windows_win32_system_search_sQLPrepare(void* statementhandle,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPrepareA(void* hstmt, void* szsqlstr, int32_t cbsqlstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLPrepareA(void* hstmt, void* szsqlstr, int32_t cbsqlstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3062,7 +3062,7 @@ int16_t windowssys_windows_win32_system_search_sQLPrepareA(void* hstmt, void* sz
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPrepareW(void* hstmt, void* szsqlstr, int32_t cchsqlstr) {
+int16_t windowssysWindowsWin32SystemSearchSQLPrepareW(void* hstmt, void* szsqlstr, int32_t cchsqlstr) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3086,7 +3086,7 @@ int16_t windowssys_windows_win32_system_search_sQLPrepareW(void* hstmt, void* sz
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPrimaryKeys(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLPrimaryKeys(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3114,7 +3114,7 @@ int16_t windowssys_windows_win32_system_search_sQLPrimaryKeys(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPrimaryKeysA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLPrimaryKeysA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3142,7 +3142,7 @@ int16_t windowssys_windows_win32_system_search_sQLPrimaryKeysA(void* hstmt, void
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPrimaryKeysW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLPrimaryKeysW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3170,7 +3170,7 @@ int16_t windowssys_windows_win32_system_search_sQLPrimaryKeysW(void* hstmt, void
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLProcedureColumns(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname, void* szcolumnname, int16_t cchcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLProcedureColumns(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname, void* szcolumnname, int16_t cchcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3200,7 +3200,7 @@ int16_t windowssys_windows_win32_system_search_sQLProcedureColumns(void* hstmt, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLProcedureColumnsA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* szprocname, int16_t cbprocname, void* szcolumnname, int16_t cbcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLProcedureColumnsA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* szprocname, int16_t cbprocname, void* szcolumnname, int16_t cbcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3230,7 +3230,7 @@ int16_t windowssys_windows_win32_system_search_sQLProcedureColumnsA(void* hstmt,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLProcedureColumnsW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname, void* szcolumnname, int16_t cchcolumnname) {
+int16_t windowssysWindowsWin32SystemSearchSQLProcedureColumnsW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname, void* szcolumnname, int16_t cchcolumnname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3260,7 +3260,7 @@ int16_t windowssys_windows_win32_system_search_sQLProcedureColumnsW(void* hstmt,
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLProcedures(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname) {
+int16_t windowssysWindowsWin32SystemSearchSQLProcedures(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3288,7 +3288,7 @@ int16_t windowssys_windows_win32_system_search_sQLProcedures(void* hstmt, void* 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLProceduresA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* szprocname, int16_t cbprocname) {
+int16_t windowssysWindowsWin32SystemSearchSQLProceduresA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* szprocname, int16_t cbprocname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3316,7 +3316,7 @@ int16_t windowssys_windows_win32_system_search_sQLProceduresA(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLProceduresW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname) {
+int16_t windowssysWindowsWin32SystemSearchSQLProceduresW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* szprocname, int16_t cchprocname) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3344,7 +3344,7 @@ int16_t windowssys_windows_win32_system_search_sQLProceduresW(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLPutData(void* statementhandle, void* data, int64_t strlen_or_ind) {
+int16_t windowssysWindowsWin32SystemSearchSQLPutData(void* statementhandle, void* data, int64_t strlenOrInd) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3355,20 +3355,20 @@ int16_t windowssys_windows_win32_system_search_sQLPutData(void* statementhandle,
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(statementhandle, data, strlen_or_ind);
+        return km_fn_ptr(statementhandle, data, strlenOrInd);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)statementhandle;
     (void)data;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLRowCount(void* statementhandle, void* rowcount) {
+int16_t windowssysWindowsWin32SystemSearchSQLRowCount(void* statementhandle, void* rowcount) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3391,7 +3391,7 @@ int16_t windowssys_windows_win32_system_search_sQLRowCount(void* statementhandle
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetConnectAttr(void* connectionhandle, int32_t attribute, void* value, int32_t stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetConnectAttr(void* connectionhandle, int32_t attribute, void* value, int32_t stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3416,7 +3416,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetConnectAttr(void* connectio
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetConnectAttrA(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetConnectAttrA(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3441,7 +3441,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetConnectAttrA(void* hdbc, in
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetConnectAttrW(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvalue) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetConnectAttrW(void* hdbc, int32_t fattribute, void* rgbvalue, int32_t cbvalue) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3466,7 +3466,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetConnectAttrW(void* hdbc, in
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetConnectOption(void* connectionhandle, uint16_t option, uint64_t value) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetConnectOption(void* connectionhandle, uint16_t option, uint64_t value) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3490,7 +3490,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetConnectOption(void* connect
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetConnectOptionA(void* hdbc, uint16_t foption, uint64_t vparam) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetConnectOptionA(void* hdbc, uint16_t foption, uint64_t vparam) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3514,7 +3514,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetConnectOptionA(void* hdbc, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetConnectOptionW(void* hdbc, uint16_t foption, uint64_t vparam) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetConnectOptionW(void* hdbc, uint16_t foption, uint64_t vparam) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3538,7 +3538,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetConnectOptionW(void* hdbc, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetCursorName(void* statementhandle, void* cursorname, int16_t namelength) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetCursorName(void* statementhandle, void* cursorname, int16_t namelength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3562,7 +3562,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetCursorName(void* statementh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetCursorNameA(void* hstmt, void* szcursor, int16_t cbcursor) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetCursorNameA(void* hstmt, void* szcursor, int16_t cbcursor) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3586,7 +3586,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetCursorNameA(void* hstmt, vo
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetCursorNameW(void* hstmt, void* szcursor, int16_t cchcursor) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetCursorNameW(void* hstmt, void* szcursor, int16_t cchcursor) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3610,7 +3610,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetCursorNameW(void* hstmt, vo
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetDescField(void* descriptorhandle, int16_t recnumber, int16_t fieldidentifier, void* value, int32_t bufferlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetDescField(void* descriptorhandle, int16_t recnumber, int16_t fieldidentifier, void* value, int32_t bufferlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3636,7 +3636,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetDescField(void* descriptorh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetDescFieldW(void* descriptorhandle, int16_t recnumber, int16_t fieldidentifier, void* value, int32_t bufferlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetDescFieldW(void* descriptorhandle, int16_t recnumber, int16_t fieldidentifier, void* value, int32_t bufferlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3662,7 +3662,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetDescFieldW(void* descriptor
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetDescRec(void* descriptorhandle, int16_t recnumber, int16_t type, int16_t subtype, int64_t length, int16_t precision, int16_t scale, void* data, void* stringlength, void* indicator) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetDescRec(void* descriptorhandle, int16_t recnumber, int16_t type, int16_t subtype, int64_t length, int16_t precision, int16_t scale, void* data, void* stringlength, void* indicator) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t, int16_t, int16_t, int64_t, int16_t, int16_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3693,7 +3693,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetDescRec(void* descriptorhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetEnvAttr(void* environmenthandle, int32_t attribute, void* value, int32_t stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetEnvAttr(void* environmenthandle, int32_t attribute, void* value, int32_t stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3718,7 +3718,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetEnvAttr(void* environmentha
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetParam(void* statementhandle, uint16_t parameternumber, int16_t valuetype, int16_t parametertype, uint64_t lengthprecision, int16_t parameterscale, void* parametervalue, void* strlen_or_ind) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetParam(void* statementhandle, uint16_t parameternumber, int16_t valuetype, int16_t parametertype, uint64_t lengthprecision, int16_t parameterscale, void* parametervalue, void* strlenOrInd) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, int16_t, uint64_t, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3729,7 +3729,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetParam(void* statementhandle
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind);
+        return km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlenOrInd);
     }
     errno = ENOSYS;
     return -1;
@@ -3741,13 +3741,13 @@ int16_t windowssys_windows_win32_system_search_sQLSetParam(void* statementhandle
     (void)lengthprecision;
     (void)parameterscale;
     (void)parametervalue;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetPos(void* hstmt, uint64_t irow, uint16_t foption, uint16_t flock) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetPos(void* hstmt, uint64_t irow, uint16_t foption, uint16_t flock) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint64_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3772,7 +3772,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetPos(void* hstmt, uint64_t i
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetScrollOptions(void* hstmt, uint16_t fconcurrency, int64_t crowkeyset, uint16_t crowrowset) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetScrollOptions(void* hstmt, uint16_t fconcurrency, int64_t crowkeyset, uint16_t crowrowset) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3797,7 +3797,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetScrollOptions(void* hstmt, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetStmtAttr(void* statementhandle, int32_t attribute, void* value, int32_t stringlength) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetStmtAttr(void* statementhandle, int32_t attribute, void* value, int32_t stringlength) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3822,7 +3822,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetStmtAttr(void* statementhan
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetStmtAttrW(void* hstmt, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetStmtAttrW(void* hstmt, int32_t fattribute, void* rgbvalue, int32_t cbvaluemax) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3847,7 +3847,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetStmtAttrW(void* hstmt, int3
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSetStmtOption(void* statementhandle, uint16_t option, uint64_t value) {
+int16_t windowssysWindowsWin32SystemSearchSQLSetStmtOption(void* statementhandle, uint16_t option, uint64_t value) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3871,7 +3871,7 @@ int16_t windowssys_windows_win32_system_search_sQLSetStmtOption(void* statementh
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSpecialColumns(void* statementhandle, uint16_t identifiertype, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, uint16_t scope, uint16_t nullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLSpecialColumns(void* statementhandle, uint16_t identifiertype, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, uint16_t scope, uint16_t nullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, int16_t, void*, int16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3902,7 +3902,7 @@ int16_t windowssys_windows_win32_system_search_sQLSpecialColumns(void* statement
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSpecialColumnsA(void* hstmt, uint16_t fcoltype, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, uint16_t fscope, uint16_t fnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLSpecialColumnsA(void* hstmt, uint16_t fcoltype, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, uint16_t fscope, uint16_t fnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, int16_t, void*, int16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3933,7 +3933,7 @@ int16_t windowssys_windows_win32_system_search_sQLSpecialColumnsA(void* hstmt, u
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLSpecialColumnsW(void* hstmt, uint16_t fcoltype, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, uint16_t fscope, uint16_t fnullable) {
+int16_t windowssysWindowsWin32SystemSearchSQLSpecialColumnsW(void* hstmt, uint16_t fcoltype, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, uint16_t fscope, uint16_t fnullable) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, void*, int16_t, void*, int16_t, void*, int16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3964,7 +3964,7 @@ int16_t windowssys_windows_win32_system_search_sQLSpecialColumnsW(void* hstmt, u
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLStatistics(void* statementhandle, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, uint16_t unique, uint16_t reserved) {
+int16_t windowssysWindowsWin32SystemSearchSQLStatistics(void* statementhandle, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, uint16_t unique, uint16_t reserved) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3994,7 +3994,7 @@ int16_t windowssys_windows_win32_system_search_sQLStatistics(void* statementhand
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLStatisticsA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, uint16_t funique, uint16_t faccuracy) {
+int16_t windowssysWindowsWin32SystemSearchSQLStatisticsA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, uint16_t funique, uint16_t faccuracy) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4024,7 +4024,7 @@ int16_t windowssys_windows_win32_system_search_sQLStatisticsA(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLStatisticsW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, uint16_t funique, uint16_t faccuracy) {
+int16_t windowssysWindowsWin32SystemSearchSQLStatisticsW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, uint16_t funique, uint16_t faccuracy) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4054,7 +4054,7 @@ int16_t windowssys_windows_win32_system_search_sQLStatisticsW(void* hstmt, void*
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTablePrivileges(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLTablePrivileges(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4082,7 +4082,7 @@ int16_t windowssys_windows_win32_system_search_sQLTablePrivileges(void* hstmt, v
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTablePrivilegesA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLTablePrivilegesA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ int16_t windowssys_windows_win32_system_search_sQLTablePrivilegesA(void* hstmt, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTablePrivilegesW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
+int16_t windowssysWindowsWin32SystemSearchSQLTablePrivilegesW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4138,7 +4138,7 @@ int16_t windowssys_windows_win32_system_search_sQLTablePrivilegesW(void* hstmt, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTables(void* statementhandle, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, void* tabletype, int16_t namelength4) {
+int16_t windowssysWindowsWin32SystemSearchSQLTables(void* statementhandle, void* catalogname, int16_t namelength1, void* schemaname, int16_t namelength2, void* tablename, int16_t namelength3, void* tabletype, int16_t namelength4) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4168,7 +4168,7 @@ int16_t windowssys_windows_win32_system_search_sQLTables(void* statementhandle, 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTablesA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, void* sztabletype, int16_t cbtabletype) {
+int16_t windowssysWindowsWin32SystemSearchSQLTablesA(void* hstmt, void* szcatalogname, int16_t cbcatalogname, void* szschemaname, int16_t cbschemaname, void* sztablename, int16_t cbtablename, void* sztabletype, int16_t cbtabletype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4198,7 +4198,7 @@ int16_t windowssys_windows_win32_system_search_sQLTablesA(void* hstmt, void* szc
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTablesW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* sztabletype, int16_t cchtabletype) {
+int16_t windowssysWindowsWin32SystemSearchSQLTablesW(void* hstmt, void* szcatalogname, int16_t cchcatalogname, void* szschemaname, int16_t cchschemaname, void* sztablename, int16_t cchtablename, void* sztabletype, int16_t cchtabletype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int16_t, void*, int16_t, void*, int16_t, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4228,7 +4228,7 @@ int16_t windowssys_windows_win32_system_search_sQLTablesW(void* hstmt, void* szc
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_sQLTransact(void* environmenthandle, void* connectionhandle, uint16_t completiontype) {
+int16_t windowssysWindowsWin32SystemSearchSQLTransact(void* environmenthandle, void* connectionhandle, uint16_t completiontype) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4252,7 +4252,7 @@ int16_t windowssys_windows_win32_system_search_sQLTransact(void* environmenthand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_search_bcpBatch(void* param0) {
+int32_t windowssysWindowsWin32SystemSearchBcpBatch(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4274,7 +4274,7 @@ int32_t windowssys_windows_win32_system_search_bcpBatch(void* param0) {
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpBind(void* param0, void* param1, int32_t param2, int32_t param3, void* param4, int32_t param5, int32_t param6, int32_t param7) {
+int16_t windowssysWindowsWin32SystemSearchBcpBind(void* param0, void* param1, int32_t param2, int32_t param3, void* param4, int32_t param5, int32_t param6, int32_t param7) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4303,7 +4303,7 @@ int16_t windowssys_windows_win32_system_search_bcpBind(void* param0, void* param
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpColfmt(void* param0, int32_t param1, uint8_t param2, int32_t param3, int32_t param4, void* param5, int32_t param6, int32_t param7) {
+int16_t windowssysWindowsWin32SystemSearchBcpColfmt(void* param0, int32_t param1, uint8_t param2, int32_t param3, int32_t param4, void* param5, int32_t param6, int32_t param7) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, uint8_t, int32_t, int32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4332,7 +4332,7 @@ int16_t windowssys_windows_win32_system_search_bcpColfmt(void* param0, int32_t p
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpCollen(void* param0, int32_t param1, int32_t param2) {
+int16_t windowssysWindowsWin32SystemSearchBcpCollen(void* param0, int32_t param1, int32_t param2) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4356,7 +4356,7 @@ int16_t windowssys_windows_win32_system_search_bcpCollen(void* param0, int32_t p
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpColptr(void* param0, void* param1, int32_t param2) {
+int16_t windowssysWindowsWin32SystemSearchBcpColptr(void* param0, void* param1, int32_t param2) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4380,7 +4380,7 @@ int16_t windowssys_windows_win32_system_search_bcpColptr(void* param0, void* par
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpColumns(void* param0, int32_t param1) {
+int16_t windowssysWindowsWin32SystemSearchBcpColumns(void* param0, int32_t param1) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4403,7 +4403,7 @@ int16_t windowssys_windows_win32_system_search_bcpColumns(void* param0, int32_t 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpControl(void* param0, int32_t param1, void* param2) {
+int16_t windowssysWindowsWin32SystemSearchBcpControl(void* param0, int32_t param1, void* param2) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4427,7 +4427,7 @@ int16_t windowssys_windows_win32_system_search_bcpControl(void* param0, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_search_bcpDone(void* param0) {
+int32_t windowssysWindowsWin32SystemSearchBcpDone(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4449,7 +4449,7 @@ int32_t windowssys_windows_win32_system_search_bcpDone(void* param0) {
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpExec(void* param0, void* param1) {
+int16_t windowssysWindowsWin32SystemSearchBcpExec(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4472,7 +4472,7 @@ int16_t windowssys_windows_win32_system_search_bcpExec(void* param0, void* param
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpGetcolfmt(void* param0, int32_t param1, int32_t param2, void* param3, int32_t param4, void* param5) {
+int16_t windowssysWindowsWin32SystemSearchBcpGetcolfmt(void* param0, int32_t param1, int32_t param2, void* param3, int32_t param4, void* param5) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4499,7 +4499,7 @@ int16_t windowssys_windows_win32_system_search_bcpGetcolfmt(void* param0, int32_
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpInitA(void* param0, void* param1, void* param2, void* param3, int32_t param4) {
+int16_t windowssysWindowsWin32SystemSearchBcpInitA(void* param0, void* param1, void* param2, void* param3, int32_t param4) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4525,7 +4525,7 @@ int16_t windowssys_windows_win32_system_search_bcpInitA(void* param0, void* para
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpInitW(void* param0, void* param1, void* param2, void* param3, int32_t param4) {
+int16_t windowssysWindowsWin32SystemSearchBcpInitW(void* param0, void* param1, void* param2, void* param3, int32_t param4) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4551,7 +4551,7 @@ int16_t windowssys_windows_win32_system_search_bcpInitW(void* param0, void* para
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpMoretext(void* param0, int32_t param1, void* param2) {
+int16_t windowssysWindowsWin32SystemSearchBcpMoretext(void* param0, int32_t param1, void* param2) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4575,7 +4575,7 @@ int16_t windowssys_windows_win32_system_search_bcpMoretext(void* param0, int32_t
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpReadfmtA(void* param0, void* param1) {
+int16_t windowssysWindowsWin32SystemSearchBcpReadfmtA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4598,7 +4598,7 @@ int16_t windowssys_windows_win32_system_search_bcpReadfmtA(void* param0, void* p
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpReadfmtW(void* param0, void* param1) {
+int16_t windowssysWindowsWin32SystemSearchBcpReadfmtW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4621,7 +4621,7 @@ int16_t windowssys_windows_win32_system_search_bcpReadfmtW(void* param0, void* p
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpSendrow(void* param0) {
+int16_t windowssysWindowsWin32SystemSearchBcpSendrow(void* param0) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4643,7 +4643,7 @@ int16_t windowssys_windows_win32_system_search_bcpSendrow(void* param0) {
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpSetcolfmt(void* param0, int32_t param1, int32_t param2, void* param3, int32_t param4) {
+int16_t windowssysWindowsWin32SystemSearchBcpSetcolfmt(void* param0, int32_t param1, int32_t param2, void* param3, int32_t param4) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4669,7 +4669,7 @@ int16_t windowssys_windows_win32_system_search_bcpSetcolfmt(void* param0, int32_
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpWritefmtA(void* param0, void* param1) {
+int16_t windowssysWindowsWin32SystemSearchBcpWritefmtA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4692,7 +4692,7 @@ int16_t windowssys_windows_win32_system_search_bcpWritefmtA(void* param0, void* 
 #endif
 }
 
-int16_t windowssys_windows_win32_system_search_bcpWritefmtW(void* param0, void* param1) {
+int16_t windowssysWindowsWin32SystemSearchBcpWritefmtW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4715,7 +4715,7 @@ int16_t windowssys_windows_win32_system_search_bcpWritefmtW(void* param0, void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_search_dbprtypeA(int32_t param0) {
+void* windowssysWindowsWin32SystemSearchDbprtypeA(int32_t param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4737,7 +4737,7 @@ void* windowssys_windows_win32_system_search_dbprtypeA(int32_t param0) {
 #endif
 }
 
-void* windowssys_windows_win32_system_search_dbprtypeW(int32_t param0) {
+void* windowssysWindowsWin32SystemSearchDbprtypeW(int32_t param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;

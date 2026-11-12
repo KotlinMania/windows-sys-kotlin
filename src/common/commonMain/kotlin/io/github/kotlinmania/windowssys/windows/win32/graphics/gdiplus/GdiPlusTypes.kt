@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 
@@ -71,7 +73,7 @@ public typealias EncoderParameterValueType = Int
 public typealias EncoderValue = Int
 
 public fun interface EnumerateMetafileProcFn {
-    public operator fun invoke(param0: EmfPlusRecordType, param1: UInt, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?): Bool
+    public operator fun invoke(param0: EmfPlusRecordType, param1: UInt, param2: UInt, param3: ConstPtr<UByte>, param4: MutPtr<CVoid>): Bool
 }
 
 public typealias EnumerateMetafileProc = EnumerateMetafileProcFn?
@@ -109,7 +111,7 @@ public typealias HotkeyPrefix = Int
 public typealias Image = Long
 
 public fun interface ImageAbortFn {
-    public operator fun invoke(param0: COpaquePointer?): Bool
+    public operator fun invoke(param0: MutPtr<CVoid>): Bool
 }
 
 public typealias ImageAbort = ImageAbortFn?
@@ -145,7 +147,7 @@ public typealias MetafileFrameUnit = Int
 public typealias MetafileType = Int
 
 public fun interface NotificationHookProcFn {
-    public operator fun invoke(token: COpaquePointer?): Status
+    public operator fun invoke(token: MutPtr<ULong>): Status
 }
 
 public typealias NotificationHookProc = NotificationHookProcFn?

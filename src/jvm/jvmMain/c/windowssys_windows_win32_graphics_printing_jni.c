@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addMonitorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddMonitorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addMonitorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddMonitorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pmonitorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pmonitorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pmonitorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pmonitorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrintProcessorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong ppathname, jlong pprintprocessorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrintProcessorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong ppathname, jlong pprintprocessorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrintProcessorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong ppathname, jlong pprintprocessorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrintProcessorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong ppathname, jlong pprintprocessorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrintProvidorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprovidorinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrintProvidorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprovidorinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -210,7 +210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrintProvidorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprovidorinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrintProvidorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprovidorinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -237,7 +237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprinter) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprinter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterConnection2A(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszname, jint dwlevel, jlong pconnectioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterConnection2A(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszname, jint dwlevel, jlong pconnectioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -292,7 +292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterConnection2W(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszname, jint dwlevel, jlong pconnectioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterConnection2W(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszname, jint dwlevel, jlong pconnectioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -320,7 +320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterConnectionA(JNIEnv* km_env, jclass km_clazz, jlong pname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterConnectionA(JNIEnv* km_env, jclass km_clazz, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -345,7 +345,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterConnectionW(JNIEnv* km_env, jclass km_clazz, jlong pname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterConnectionW(JNIEnv* km_env, jclass km_clazz, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -370,7 +370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterDriverA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pdriverinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterDriverA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pdriverinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -397,7 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterDriverExA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong lpbdriverinfo, jint dwfilecopyflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterDriverExA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong lpbdriverinfo, jint dwfilecopyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -425,7 +425,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterDriverExW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong lpbdriverinfo, jint dwfilecopyflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterDriverExW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong lpbdriverinfo, jint dwfilecopyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -453,7 +453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterDriverW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pdriverinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterDriverW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pdriverinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -480,7 +480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1addPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprinter) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAddPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pprinter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -507,7 +507,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1appendPrinterNotifyInfoData(JNIEnv* km_env, jclass km_clazz, jlong pinfodest, jlong pdatasrc, jint fdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingAppendPrinterNotifyInfoData(JNIEnv* km_env, jclass km_clazz, jlong pinfodest, jlong pdatasrc, jint fdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -534,7 +534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1callRouterFindFirstPrinterChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hprinterrpc, jint fdwfilterflags, jint fdwoptions, jlong hnotify, jlong pprinternotifyoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingCallRouterFindFirstPrinterChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hprinterrpc, jint fdwfilterflags, jint fdwoptions, jlong hnotify, jlong pprinternotifyoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -563,7 +563,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1commonPropertySheetUIA(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong pfnpropsheetui, jlong lparam, jlong presult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingCommonPropertySheetUIA(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong pfnpropsheetui, jlong lparam, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -591,7 +591,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1commonPropertySheetUIW(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong pfnpropsheetui, jlong lparam, jlong presult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingCommonPropertySheetUIW(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jlong pfnpropsheetui, jlong lparam, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -619,7 +619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1configurePortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingConfigurePortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -646,7 +646,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1configurePortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingConfigurePortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -673,7 +673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1connectToPrinterDlg(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingConnectToPrinterDlg(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -699,7 +699,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1createPrintAsyncNotifyChannel(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong pnotificationtype, jint euserfilter, jint econversationstyle, jlong pcallback, jlong ppiasynchnotification) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingCreatePrintAsyncNotifyChannel(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong pnotificationtype, jint euserfilter, jint econversationstyle, jlong pcallback, jlong ppiasynchnotification) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -729,7 +729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deleteMonitorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pmonitorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeleteMonitorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pmonitorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -756,7 +756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deleteMonitorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pmonitorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeleteMonitorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pmonitorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -783,7 +783,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -810,7 +810,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong hwnd, jlong pportname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -837,7 +837,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrintProcessorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprocessorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrintProcessorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprocessorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -864,7 +864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrintProcessorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprocessorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrintProcessorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprocessorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -891,7 +891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrintProvidorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprovidorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrintProvidorA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprovidorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -918,7 +918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrintProvidorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprovidorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrintProvidorW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pprintprovidorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -945,7 +945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterConnectionA(JNIEnv* km_env, jclass km_clazz, jlong pname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterConnectionA(JNIEnv* km_env, jclass km_clazz, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -970,7 +970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterConnectionW(JNIEnv* km_env, jclass km_clazz, jlong pname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterConnectionW(JNIEnv* km_env, jclass km_clazz, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -995,7 +995,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterDriverA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterDriverA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1022,7 +1022,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterDriverExA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername, jint dwdeleteflag, jint dwversionflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterDriverExA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername, jint dwdeleteflag, jint dwversionflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1051,7 +1051,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterDriverExW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername, jint dwdeleteflag, jint dwversionflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterDriverExW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername, jint dwdeleteflag, jint dwversionflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1080,7 +1080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterDriverPackageA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterDriverPackageA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1107,7 +1107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterDriverPackageW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterDriverPackageW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1134,7 +1134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterDriverW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterDriverW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jlong pdrivername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1161,7 +1161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1deletePrinterIC(JNIEnv* km_env, jclass km_clazz, jlong hprinteric) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDeletePrinterIC(JNIEnv* km_env, jclass km_clazz, jlong hprinteric) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1186,7 +1186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1devQueryPrintEx(JNIEnv* km_env, jclass km_clazz, jlong pdqpinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingDevQueryPrintEx(JNIEnv* km_env, jclass km_clazz, jlong pdqpinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1211,7 +1211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumMonitorsA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitor, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumMonitorsA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitor, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1241,7 +1241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumMonitorsW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitor, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumMonitorsW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pmonitor, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1271,7 +1271,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPortsA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pport, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPortsA(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pport, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1301,7 +1301,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPortsW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pport, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPortsW(JNIEnv* km_env, jclass km_clazz, jlong pname, jint level, jlong pport, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1331,7 +1331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrintProcessorDatatypesA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pprintprocessorname, jint level, jlong pdatatypes, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrintProcessorDatatypesA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pprintprocessorname, jint level, jlong pdatatypes, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1362,7 +1362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrintProcessorDatatypesW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pprintprocessorname, jint level, jlong pdatatypes, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrintProcessorDatatypesW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pprintprocessorname, jint level, jlong pdatatypes, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1393,7 +1393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrintProcessorsA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrintProcessorsA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1424,7 +1424,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrintProcessorsW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrintProcessorsW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1455,7 +1455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrinterDriversA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrinterDriversA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1486,7 +1486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrinterDriversW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrinterDriversW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverinfo, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1517,7 +1517,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrintersA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong name, jint level, jlong pprinterenum, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrintersA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong name, jint level, jlong pprinterenum, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1548,7 +1548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1enumPrintersW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong name, jint level, jlong pprinterenum, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingEnumPrintersW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong name, jint level, jlong pprinterenum, jint cbbuf, jlong pcbneeded, jlong pcreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1579,7 +1579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1extDeviceMode(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hinst, jlong pdevmodeoutput, jlong pdevicename, jlong pport, jlong pdevmodeinput, jlong pprofile, jint fmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingExtDeviceMode(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hinst, jlong pdevmodeoutput, jlong pdevicename, jlong pport, jlong pdevmodeinput, jlong pprofile, jint fmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1611,7 +1611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1findClosePrinterChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hchange) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingFindClosePrinterChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hchange) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1636,7 +1636,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1findNextPrinterChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong pdwchange, jlong pvreserved, jlong ppprinternotifyinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingFindNextPrinterChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hchange, jlong pdwchange, jlong pvreserved, jlong ppprinternotifyinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1664,7 +1664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1freePrintNamedPropertyArray(JNIEnv* km_env, jclass km_clazz, jint cproperties, jlong ppproperties) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingFreePrintNamedPropertyArray(JNIEnv* km_env, jclass km_clazz, jint cproperties, jlong ppproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1686,7 +1686,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1freePrintPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pvalue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingFreePrintPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1707,7 +1707,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1freePrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jlong pprinternotifyinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingFreePrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jlong pprinternotifyinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1732,7 +1732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiDeleteSpoolFileHandle(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiDeleteSpoolFileHandle(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1757,7 +1757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiEndDocEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiEndDocEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1782,7 +1782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiEndPageEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jint dwoptimization) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiEndPageEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jint dwoptimization) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1808,7 +1808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiGetDC(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiGetDC(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1833,7 +1833,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiGetDevmodeForPage(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jint dwpagenumber, jlong pcurrdm, jlong plastdm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiGetDevmodeForPage(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jint dwpagenumber, jlong pcurrdm, jlong plastdm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1861,7 +1861,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiGetPageCount(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiGetPageCount(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1886,7 +1886,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiGetPageHandle(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jint page, jlong pdwpagetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiGetPageHandle(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jint page, jlong pdwpagetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1913,7 +1913,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiGetSpoolFileHandle(JNIEnv* km_env, jclass km_clazz, jlong pwszprintername, jlong pdevmode, jlong pwszdocname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiGetSpoolFileHandle(JNIEnv* km_env, jclass km_clazz, jlong pwszprintername, jlong pdevmode, jlong pwszdocname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1940,7 +1940,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiPlayPageEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jlong hemf, jlong prectdocument, jlong prectborder, jlong prectclip) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiPlayPageEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jlong hemf, jlong prectdocument, jlong prectborder, jlong prectclip) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1969,7 +1969,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiResetDCEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jlong pcurrdm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiResetDCEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jlong pcurrdm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1995,7 +1995,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiStartDocEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jlong pdocinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiStartDocEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle, jlong pdocinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2021,7 +2021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1gdiStartPageEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGdiStartPageEMF(JNIEnv* km_env, jclass km_clazz, jlong spoolfilehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2046,7 +2046,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1generateCopyFilePaths(JNIEnv* km_env, jclass km_clazz, jlong pszprintername, jlong pszdirectory, jlong psplclientinfo, jint dwlevel, jlong pszsourcedir, jlong pcchsourcedirsize, jlong psztargetdir, jlong pcchtargetdirsize, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGenerateCopyFilePaths(JNIEnv* km_env, jclass km_clazz, jlong pszprintername, jlong pszdirectory, jlong psplclientinfo, jint dwlevel, jlong pszsourcedir, jlong pcchsourcedirsize, jlong psztargetdir, jlong pcchtargetdirsize, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2079,7 +2079,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getCPSUIUserData(JNIEnv* km_env, jclass km_clazz, jlong hdlg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetCPSUIUserData(JNIEnv* km_env, jclass km_clazz, jlong hdlg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2104,7 +2104,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getCorePrinterDriversA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszzcoredriverdependencies, jint ccoreprinterdrivers, jlong pcoreprinterdrivers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetCorePrinterDriversA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszzcoredriverdependencies, jint ccoreprinterdrivers, jlong pcoreprinterdrivers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2133,7 +2133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getCorePrinterDriversW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszzcoredriverdependencies, jint ccoreprinterdrivers, jlong pcoreprinterdrivers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetCorePrinterDriversW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszzcoredriverdependencies, jint ccoreprinterdrivers, jlong pcoreprinterdrivers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2162,7 +2162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getDefaultPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pszbuffer, jlong pcchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetDefaultPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pszbuffer, jlong pcchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2188,7 +2188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getDefaultPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pszbuffer, jlong pcchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetDefaultPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pszbuffer, jlong pcchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2214,7 +2214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getJobAttributes(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong pdevmode, jlong pattributeinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetJobAttributes(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong pdevmode, jlong pattributeinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2241,7 +2241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getJobAttributesEx(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong pdevmode, jint dwlevel, jlong pattributeinfo, jint nsize, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetJobAttributesEx(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong pdevmode, jint dwlevel, jlong pattributeinfo, jint nsize, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2271,7 +2271,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrintExecutionData(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrintExecutionData(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2296,7 +2296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrintOutputInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszprinter, jlong phfile, jlong ppszoutputfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrintOutputInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszprinter, jlong phfile, jlong ppszoutputfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2324,7 +2324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrintProcessorDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrintProcessorDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2354,7 +2354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrintProcessorDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrintProcessorDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pprintprocessorinfo, jint cbbuf, jlong pcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2384,7 +2384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrinterDriverDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverdirectory, jint cbbuf, jlong pcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrinterDriverDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverdirectory, jint cbbuf, jlong pcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2414,7 +2414,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrinterDriverDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverdirectory, jint cbbuf, jlong pcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrinterDriverDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong penvironment, jint level, jlong pdriverdirectory, jint cbbuf, jlong pcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2444,7 +2444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrinterDriverPackagePathA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszlanguage, jlong pszpackageid, jlong pszdriverpackagecab, jint cchdriverpackagecab, jlong pcchrequiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrinterDriverPackagePathA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszlanguage, jlong pszpackageid, jlong pszdriverpackagecab, jint cchdriverpackagecab, jlong pcchrequiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2475,7 +2475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1getPrinterDriverPackagePathW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszlanguage, jlong pszpackageid, jlong pszdriverpackagecab, jint cchdriverpackagecab, jlong pcchrequiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingGetPrinterDriverPackagePathW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszenvironment, jlong pszlanguage, jlong pszpackageid, jlong pszdriverpackagecab, jint cchdriverpackagecab, jlong pcchrequiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2506,7 +2506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1impersonatePrinterClient(JNIEnv* km_env, jclass km_clazz, jlong htoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingImpersonatePrinterClient(JNIEnv* km_env, jclass km_clazz, jlong htoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2531,7 +2531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1installPrinterDriverFromPackageA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszdrivername, jlong pszenvironment, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingInstallPrinterDriverFromPackageA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszdrivername, jlong pszenvironment, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2560,7 +2560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1installPrinterDriverFromPackageW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszdrivername, jlong pszenvironment, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingInstallPrinterDriverFromPackageW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszdrivername, jlong pszenvironment, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2589,7 +2589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1isValidDevmodeA(JNIEnv* km_env, jclass km_clazz, jlong pdevmode, jlong devmodesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingIsValidDevmodeA(JNIEnv* km_env, jclass km_clazz, jlong pdevmode, jlong devmodesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2615,7 +2615,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1isValidDevmodeW(JNIEnv* km_env, jclass km_clazz, jlong pdevmode, jlong devmodesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingIsValidDevmodeW(JNIEnv* km_env, jclass km_clazz, jlong pdevmode, jlong devmodesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2641,7 +2641,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1openPrinter2A(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault, jlong poptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingOpenPrinter2A(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault, jlong poptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2669,7 +2669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1openPrinter2W(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault, jlong poptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingOpenPrinter2W(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault, jlong poptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2697,7 +2697,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1openPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingOpenPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2724,7 +2724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1openPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingOpenPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pprintername, jlong phprinter, jlong pdefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2751,7 +2751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1playGdiScriptOnPrinterIC(JNIEnv* km_env, jclass km_clazz, jlong hprinteric, jlong pin, jint cin, jlong pout, jint cout, jint ul) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingPlayGdiScriptOnPrinterIC(JNIEnv* km_env, jclass km_clazz, jlong hprinteric, jlong pin, jint cin, jlong pout, jint cout, jint ul) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2781,7 +2781,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1registerForPrintAsyncNotifications(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong pnotificationtype, jint euserfilter, jint econversationstyle, jlong pcallback, jlong phnotify) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRegisterForPrintAsyncNotifications(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong pnotificationtype, jint euserfilter, jint econversationstyle, jlong pcallback, jlong phnotify) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2811,7 +2811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1removePrintDeviceObject(JNIEnv* km_env, jclass km_clazz, jlong hdeviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRemovePrintDeviceObject(JNIEnv* km_env, jclass km_clazz, jlong hdeviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2836,7 +2836,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1replyPrinterChangeNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hnotify, jint dwcolor, jint fdwflags, jlong pdwresult, jlong pprinternotifyinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingReplyPrinterChangeNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hnotify, jint dwcolor, jint fdwflags, jlong pdwresult, jlong pprinternotifyinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2865,7 +2865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1reportJobProcessingProgress(JNIEnv* km_env, jclass km_clazz, jlong printerhandle, jint jobid, jint joboperation, jint jobprogress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingReportJobProcessingProgress(JNIEnv* km_env, jclass km_clazz, jlong printerhandle, jint jobid, jint joboperation, jint jobprogress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2893,7 +2893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1revertToPrinterSelf(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRevertToPrinterSelf(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2917,7 +2917,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1routerAllocBidiMem(JNIEnv* km_env, jclass km_clazz, jlong numbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRouterAllocBidiMem(JNIEnv* km_env, jclass km_clazz, jlong numbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2942,7 +2942,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1routerAllocBidiResponseContainer(JNIEnv* km_env, jclass km_clazz, jint count) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRouterAllocBidiResponseContainer(JNIEnv* km_env, jclass km_clazz, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2967,7 +2967,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1routerAllocPrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jint cprinternotifyinfodata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRouterAllocPrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jint cprinternotifyinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2992,7 +2992,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1routerFreeBidiMem(JNIEnv* km_env, jclass km_clazz, jlong pmempointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRouterFreeBidiMem(JNIEnv* km_env, jclass km_clazz, jlong pmempointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3013,7 +3013,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1routerFreeBidiResponseContainer(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRouterFreeBidiResponseContainer(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3038,7 +3038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1routerFreePrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingRouterFreePrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3063,7 +3063,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1setCPSUIUserData(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong cpsuiuserdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSetCPSUIUserData(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong cpsuiuserdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3089,7 +3089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1setDefaultPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pszprinter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSetDefaultPrinterA(JNIEnv* km_env, jclass km_clazz, jlong pszprinter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3114,7 +3114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1setDefaultPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pszprinter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSetDefaultPrinterW(JNIEnv* km_env, jclass km_clazz, jlong pszprinter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3139,7 +3139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1setPortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pportname, jint dwlevel, jlong pportinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSetPortA(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pportname, jint dwlevel, jlong pportinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3167,7 +3167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1setPortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pportname, jint dwlevel, jlong pportinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSetPortW(JNIEnv* km_env, jclass km_clazz, jlong pname, jlong pportname, jint dwlevel, jlong pportinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3195,7 +3195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1spoolerCopyFileEvent(JNIEnv* km_env, jclass km_clazz, jlong pszprintername, jlong pszkey, jint dwcopyfileevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSpoolerCopyFileEvent(JNIEnv* km_env, jclass km_clazz, jlong pszprintername, jlong pszkey, jint dwcopyfileevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3222,7 +3222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1spoolerFreePrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingSpoolerFreePrinterNotifyInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3243,7 +3243,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1unRegisterForPrintAsyncNotifications(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingUnRegisterForPrintAsyncNotifications(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3268,7 +3268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1uploadPrinterDriverPackageA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment, jint dwflags, jlong hwnd, jlong pszdestinfpath, jlong pcchdestinfpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingUploadPrinterDriverPackageA(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment, jint dwflags, jlong hwnd, jlong pszdestinfpath, jlong pcchdestinfpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3299,7 +3299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1uploadPrinterDriverPackageW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment, jint dwflags, jlong hwnd, jlong pszdestinfpath, jlong pcchdestinfpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingUploadPrinterDriverPackageW(JNIEnv* km_env, jclass km_clazz, jlong pszserver, jlong pszinfpath, jlong pszenvironment, jint dwflags, jlong hwnd, jlong pszdestinfpath, jlong pcchdestinfpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3330,7 +3330,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssys_1windows_1win32_1graphics_1printing_1xcvDataW(JNIEnv* km_env, jclass km_clazz, jlong hxcv, jlong pszdataname, jlong pinputdata, jint cbinputdata, jlong poutputdata, jint cboutputdata, jlong pcboutputneeded, jlong pdwstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_printing_WindowsWin32GraphicsPrintingJniBridge_windowssysWindowsWin32GraphicsPrintingXcvDataW(JNIEnv* km_env, jclass km_clazz, jlong hxcv, jlong pszdataname, jlong pinputdata, jint cbinputdata, jlong poutputdata, jint cboutputdata, jlong pcboutputneeded, jlong pdwstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

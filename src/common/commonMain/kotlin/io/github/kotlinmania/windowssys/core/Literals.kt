@@ -1,7 +1,9 @@
 // port-lint: source core/literals.rs
 package io.github.kotlinmania.windowssys.core
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.intrinsics.kmInternCStr
+import io.github.kotlinmania.rustlang.core.intrinsics.kmInternWideStr
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public fun decodeUtf8Char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
     var pos1 = pos
@@ -90,10 +92,10 @@ public fun utf16Len(bytes: List<UByte>): Int {
  * A literal UTF-8 string with a trailing null terminator.
  */
 
-public fun s(s: String): COpaquePointer = COpaquePointer(((s.hashCode().toLong() and 0x7fff_ffffL) or 1L))
+public fun s(s: String): ConstPtr<UByte> = kmInternCStr(s)
 
 /**
  * A literal UTF-16 wide string with a trailing null terminator.
  */
 
-public fun w(s: String): COpaquePointer = COpaquePointer(((s.hashCode().toLong() and 0x7fff_ffffL) or 1L))
+public fun w(s: String): ConstPtr<UShort> = kmInternWideStr(s)

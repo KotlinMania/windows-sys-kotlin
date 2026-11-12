@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext(void* phcatadmin, void* pgsubsystem, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext(void* phcatadmin, void* pgsubsystem, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcqu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2(void* phcatadmin, void* pgsubsystem, void* pwszhashalgorithm, void* pstronghashpolicy, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext2(void* phcatadmin, void* pgsubsystem, void* pwszhashalgorithm, void* pstronghashpolicy, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcqu
 #endif
 }
 
-int64_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog(int64_t hcatadmin, void* pwszcatalogfile, void* pwszselectbasename, uint32_t dwflags) {
+int64_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAddCatalog(int64_t hcatadmin, void* pwszcatalogfile, void* pwszselectbasename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -90,7 +90,7 @@ int64_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddC
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle(void* hfile, void* pcbhash, void* pbhash, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle(void* hfile, void* pcbhash, void* pbhash, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2(int64_t hcatadmin, void* hfile, void* pcbhash, void* pbhash, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle2(int64_t hcatadmin, void* hfile, void* pcbhash, void* pbhash, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalc
 #endif
 }
 
-int64_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash(int64_t hcatadmin, void* pbhash, uint32_t cbhash, uint32_t dwflags, void* phprevcatinfo) {
+int64_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminEnumCatalogFromHash(int64_t hcatadmin, void* pbhash, uint32_t cbhash, uint32_t dwflags, void* phprevcatinfo) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -167,7 +167,7 @@ int64_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnum
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup(uint32_t dwflags, int32_t fresume) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup(uint32_t dwflags, int32_t fresume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -190,7 +190,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPaus
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext(int64_t hcatadmin, int64_t hcatinfo, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext(int64_t hcatadmin, int64_t hcatinfo, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRele
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext(int64_t hcatadmin, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext(int64_t hcatadmin, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -237,7 +237,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRele
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog(int64_t hcatadmin, void* pwszcatalogfile, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog(int64_t hcatadmin, void* pwszcatalogfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -261,7 +261,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath(int64_t hcatadmin, void* pwszcatalogfile, void* pscatinfo, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminResolveCatalogPath(int64_t hcatadmin, void* pwszcatalogfile, void* pscatinfo, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -286,7 +286,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReso
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo(void* hcatalog, void* pwszreferencetag) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAllocSortedMemberInfo(void* hcatalog, void* pwszreferencetag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSorted
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose(void* pcdf) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFClose(void* pcdf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -331,7 +331,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose(
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes(void* pcdf, void* pmember, void* pprevattr, void* pfnparseerror) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributes(void* pcdf, void* pmember, void* pprevattr, void* pfnparseerror) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -356,7 +356,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttr
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag(void* pcdf, void* pwszmembertag, void* pmember, void* pprevattr, void* pfnparseerror) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributesWithCDFTag(void* pcdf, void* pwszmembertag, void* pmember, void* pprevattr, void* pfnparseerror) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttr
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes(void* pcdf, void* pprevattr, void* pfnparseerror) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumCatAttributes(void* pcdf, void* pprevattr, void* pfnparseerror) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -406,7 +406,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatA
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers(void* pcdf, void* pprevmember, void* pfnparseerror) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembers(void* pcdf, void* pprevmember, void* pfnparseerror) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -430,7 +430,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMemb
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx(void* pcdf, void* pwszprevcdftag, void* pfnparseerror, void* ppmember, int32_t fcontinueonerror, void* pvreserved) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembersByCDFTagEx(void* pcdf, void* pwszprevcdftag, void* pfnparseerror, void* ppmember, int32_t fcontinueonerror, void* pvreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -457,7 +457,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMemb
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen(void* pwszfilepath, void* pfnparseerror) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFOpen(void* pwszfilepath, void* pfnparseerror) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext(int64_t hcatinfo, void* pscatinfo, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCatalogInfoFromContext(int64_t hcatinfo, void* pscatinfo, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -504,7 +504,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATClose(void* hcatalog) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATClose(void* hcatalog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATClose(voi
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr(void* hcatalog, void* pcatmember, void* pprevattr) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateAttr(void* hcatalog, void* pcatmember, void* pprevattr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -550,7 +550,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAt
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr(void* hcatalog, void* pprevattr) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateCatAttr(void* hcatalog, void* pprevattr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -573,7 +573,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCa
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember(void* hcatalog, void* pprevmember) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateMember(void* hcatalog, void* pprevmember) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMe
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo(void* hcatalog, void* pcatmember) {
+void windowssysWindowsWin32SecurityCryptographyCatalogCryptCATFreeSortedMemberInfo(void* hcatalog, void* pcatmember) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -618,7 +618,7 @@ void windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMe
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo(void* hcatalog, void* pcatmember, void* pwszreferencetag) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetAttrInfo(void* hcatalog, void* pcatmember, void* pwszreferencetag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -642,7 +642,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo(void* hcatalog, void* pwszreferencetag) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetCatAttrInfo(void* hcatalog, void* pwszreferencetag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +665,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrI
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo(void* hcatalog, void* pwszreferencetag) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetMemberInfo(void* hcatalog, void* pwszreferencetag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -688,7 +688,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberIn
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore(void* pcatstore) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATHandleFromStore(void* pcatstore) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -710,7 +710,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromS
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen(void* pwszfilename, uint32_t fdwopenflags, uint64_t hprov, uint32_t dwpublicversion, uint32_t dwencodingtype) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATOpen(void* pwszfilename, uint32_t fdwopenflags, uint64_t hprov, uint32_t dwpublicversion, uint32_t dwencodingtype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -736,7 +736,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore(void* hcatalog) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPersistStore(void* hcatalog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -758,7 +758,7 @@ int32_t windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistSt
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo(void* hcatalog, void* pcatmember, void* pwszreferencetag, uint32_t dwattrtypeandaction, uint32_t cbdata, void* pbdata) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutAttrInfo(void* hcatalog, void* pcatmember, void* pwszreferencetag, uint32_t dwattrtypeandaction, uint32_t cbdata, void* pbdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo(void* hcatalog, void* pwszreferencetag, uint32_t dwattrtypeandaction, uint32_t cbdata, void* pbdata) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutCatAttrInfo(void* hcatalog, void* pwszreferencetag, uint32_t dwattrtypeandaction, uint32_t cbdata, void* pbdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -811,7 +811,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrI
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo(void* hcatalog, void* pwszfilename, void* pwszreferencetag, void* pgsubjecttype, uint32_t dwcertversion, uint32_t cbsipindirectdata, void* pbsipindirectdata) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutMemberInfo(void* hcatalog, void* pwszfilename, void* pwszreferencetag, void* pgsubjecttype, uint32_t dwcertversion, uint32_t cbsipindirectdata, void* pbsipindirectdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -839,7 +839,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberIn
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle(void* hcatalog) {
+void* windowssysWindowsWin32SecurityCryptographyCatalogCryptCATStoreFromHandle(void* hcatalog) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -861,7 +861,7 @@ void* windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_catalog_isCatalogFile(void* hfile, void* pwszfilename) {
+int32_t windowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile(void* hfile, void* pwszfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

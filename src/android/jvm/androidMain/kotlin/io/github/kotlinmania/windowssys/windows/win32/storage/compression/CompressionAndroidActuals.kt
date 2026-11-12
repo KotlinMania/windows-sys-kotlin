@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.compression
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32StorageCompressionJniBridge {
@@ -11,74 +13,74 @@ private object WindowsWin32StorageCompressionJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_closeCompressor(compressorhandle: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionCloseCompressor(compressorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_closeDecompressor(decompressorhandle: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionCloseDecompressor(decompressorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_compress(compressorhandle: Long, uncompresseddata: Long, uncompresseddatasize: Long, compressedbuffer: Long, compressedbuffersize: Long, compresseddatasize: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionCompress(compressorhandle: Long, uncompresseddata: Long, uncompresseddatasize: Long, compressedbuffer: Long, compressedbuffersize: Long, compresseddatasize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_createCompressor(algorithm: Int, allocationroutines: Long, compressorhandle: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionCreateCompressor(algorithm: Int, allocationroutines: Long, compressorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_createDecompressor(algorithm: Int, allocationroutines: Long, decompressorhandle: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionCreateDecompressor(algorithm: Int, allocationroutines: Long, decompressorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_decompress(decompressorhandle: Long, compresseddata: Long, compresseddatasize: Long, uncompressedbuffer: Long, uncompressedbuffersize: Long, uncompresseddatasize: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionDecompress(decompressorhandle: Long, compresseddata: Long, compresseddatasize: Long, uncompressedbuffer: Long, uncompressedbuffersize: Long, uncompresseddatasize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_queryCompressorInformation(compressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionQueryCompressorInformation(compressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_queryDecompressorInformation(decompressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionQueryDecompressorInformation(decompressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_resetCompressor(compressorhandle: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionResetCompressor(compressorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_resetDecompressor(decompressorhandle: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionResetDecompressor(decompressorhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_setCompressorInformation(compressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionSetCompressorInformation(compressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_compression_setDecompressorInformation(decompressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
+    external fun windowssysWindowsWin32StorageCompressionSetDecompressorInformation(decompressorhandle: Long, compressinformationclass: Int, compressinformation: Long, compressinformationsize: Long): Int
 }
 
 public actual fun closeCompressor(compressorhandle: CompressorHandle): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_closeCompressor((compressorhandle?.value ?: 0L))
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionCloseCompressor(compressorhandle.rawAddress)
 
 public actual fun closeDecompressor(decompressorhandle: DecompressorHandle): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_closeDecompressor((decompressorhandle?.value ?: 0L))
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionCloseDecompressor(decompressorhandle.rawAddress)
 
-public actual fun compress(compressorhandle: CompressorHandle, uncompresseddata: COpaquePointer?, uncompresseddatasize: ULong, compressedbuffer: COpaquePointer?, compressedbuffersize: ULong, compresseddatasize: COpaquePointer?): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_compress((compressorhandle?.value ?: 0L), (uncompresseddata?.value ?: 0L), uncompresseddatasize.toLong(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toLong(), (compresseddatasize?.value ?: 0L))
+public actual fun compress(compressorhandle: CompressorHandle, uncompresseddata: ConstPtr<CVoid>, uncompresseddatasize: ULong, compressedbuffer: MutPtr<CVoid>, compressedbuffersize: ULong, compresseddatasize: MutPtr<ULong>): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionCompress(compressorhandle.rawAddress, uncompresseddata.rawAddress, uncompresseddatasize.toLong(), compressedbuffer.rawAddress, compressedbuffersize.toLong(), compresseddatasize.rawAddress)
 
-public actual fun createCompressor(algorithm: CompressAlgorithm, allocationroutines: COpaquePointer?, compressorhandle: COpaquePointer?): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_createCompressor(algorithm.toInt(), (allocationroutines?.value ?: 0L), (compressorhandle?.value ?: 0L))
+public actual fun createCompressor(algorithm: CompressAlgorithm, allocationroutines: ConstPtr<CompressAllocationRoutines>, compressorhandle: MutPtr<CompressorHandle>): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionCreateCompressor(algorithm.toInt(), allocationroutines.rawAddress, compressorhandle.rawAddress)
 
-public actual fun createDecompressor(algorithm: CompressAlgorithm, allocationroutines: COpaquePointer?, decompressorhandle: COpaquePointer?): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_createDecompressor(algorithm.toInt(), (allocationroutines?.value ?: 0L), (decompressorhandle?.value ?: 0L))
+public actual fun createDecompressor(algorithm: CompressAlgorithm, allocationroutines: ConstPtr<CompressAllocationRoutines>, decompressorhandle: MutPtr<DecompressorHandle>): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionCreateDecompressor(algorithm.toInt(), allocationroutines.rawAddress, decompressorhandle.rawAddress)
 
-public actual fun decompress(decompressorhandle: DecompressorHandle, compresseddata: COpaquePointer?, compresseddatasize: ULong, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: ULong, uncompresseddatasize: COpaquePointer?): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_decompress((decompressorhandle?.value ?: 0L), (compresseddata?.value ?: 0L), compresseddatasize.toLong(), (uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toLong(), (uncompresseddatasize?.value ?: 0L))
+public actual fun decompress(decompressorhandle: DecompressorHandle, compresseddata: ConstPtr<CVoid>, compresseddatasize: ULong, uncompressedbuffer: MutPtr<CVoid>, uncompressedbuffersize: ULong, uncompresseddatasize: MutPtr<ULong>): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionDecompress(decompressorhandle.rawAddress, compresseddata.rawAddress, compresseddatasize.toLong(), uncompressedbuffer.rawAddress, uncompressedbuffersize.toLong(), uncompresseddatasize.rawAddress)
 
-public actual fun queryCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_queryCompressorInformation((compressorhandle?.value ?: 0L), compressinformationclass, (compressinformation?.value ?: 0L), compressinformationsize.toLong())
+public actual fun queryCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: MutPtr<CVoid>, compressinformationsize: ULong): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionQueryCompressorInformation(compressorhandle.rawAddress, compressinformationclass, compressinformation.rawAddress, compressinformationsize.toLong())
 
-public actual fun queryDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_queryDecompressorInformation((decompressorhandle?.value ?: 0L), compressinformationclass, (compressinformation?.value ?: 0L), compressinformationsize.toLong())
+public actual fun queryDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: MutPtr<CVoid>, compressinformationsize: ULong): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionQueryDecompressorInformation(decompressorhandle.rawAddress, compressinformationclass, compressinformation.rawAddress, compressinformationsize.toLong())
 
 public actual fun resetCompressor(compressorhandle: CompressorHandle): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_resetCompressor((compressorhandle?.value ?: 0L))
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionResetCompressor(compressorhandle.rawAddress)
 
 public actual fun resetDecompressor(decompressorhandle: DecompressorHandle): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_resetDecompressor((decompressorhandle?.value ?: 0L))
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionResetDecompressor(decompressorhandle.rawAddress)
 
-public actual fun setCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_setCompressorInformation((compressorhandle?.value ?: 0L), compressinformationclass, (compressinformation?.value ?: 0L), compressinformationsize.toLong())
+public actual fun setCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: ConstPtr<CVoid>, compressinformationsize: ULong): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionSetCompressorInformation(compressorhandle.rawAddress, compressinformationclass, compressinformation.rawAddress, compressinformationsize.toLong())
 
-public actual fun setDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
-    WindowsWin32StorageCompressionJniBridge.windowssys_windows_win32_storage_compression_setDecompressorInformation((decompressorhandle?.value ?: 0L), compressinformationclass, (compressinformation?.value ?: 0L), compressinformationsize.toLong())
+public actual fun setDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: ConstPtr<CVoid>, compressinformationsize: ULong): Bool =
+    WindowsWin32StorageCompressionJniBridge.windowssysWindowsWin32StorageCompressionSetDecompressorInformation(decompressorhandle.rawAddress, compressinformationclass, compressinformation.rawAddress, compressinformationsize.toLong())

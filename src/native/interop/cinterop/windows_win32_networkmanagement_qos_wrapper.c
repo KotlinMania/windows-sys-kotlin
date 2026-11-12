@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow(void* qoshandle, uint64_t arg_1_socket, void* destaddr, int32_t traffictype, uint32_t flags, void* flowid) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSAddSocketToFlow(void* qoshandle, uint64_t arg1Socket, void* destaddr, int32_t traffictype, uint32_t flags, void* flowid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26,13 +26,13 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow(void* 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(qoshandle, arg_1_socket, destaddr, traffictype, flags, flowid);
+        return km_fn_ptr(qoshandle, arg1Socket, destaddr, traffictype, flags, flowid);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)qoshandle;
-    (void)arg_1_socket;
+    (void)arg1Socket;
     (void)destaddr;
     (void)traffictype;
     (void)flags;
@@ -42,7 +42,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSCancel(void* qoshandle, void* overlapped) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSCancel(void* qoshandle, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSCancel(void* qoshandle
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle(void* qoshandle) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSCloseHandle(void* qoshandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle(void* qosh
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle(void* version, void* qoshandle) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSCreateHandle(void* version, void* qoshandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle(void* ver
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows(void* qoshandle, void* size, void* buffer) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSEnumerateFlows(void* qoshandle, void* size, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows(void* q
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSNotifyFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow(void* qosha
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSQueryFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -190,7 +190,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow(void* qoshan
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow(void* qoshandle, uint64_t arg_1_socket, uint32_t flowid, uint32_t flags) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSRemoveSocketFromFlow(void* qoshandle, uint64_t arg1Socket, uint32_t flowid, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -201,13 +201,13 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow(v
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(qoshandle, arg_1_socket, flowid, flags);
+        return km_fn_ptr(qoshandle, arg1Socket, flowid, flags);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)qoshandle;
-    (void)arg_1_socket;
+    (void)arg1Socket;
     (void)flowid;
     (void)flags;
     errno = ENOSYS;
@@ -215,7 +215,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSSetFlow(void* qoshandle, uint32_t flowid, int32_t operation, uint32_t size, void* buffer, uint32_t flags, void* overlapped) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSSetFlow(void* qoshandle, uint32_t flowid, int32_t operation, uint32_t size, void* buffer, uint32_t flags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -243,7 +243,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSSetFlow(void* qoshandl
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient(void* qoshandle, void* destaddr, uint32_t flags) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSStartTrackingClient(void* qoshandle, void* destaddr, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -267,7 +267,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient(void* qoshandle, void* destaddr, uint32_t flags) {
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSStopTrackingClient(void* qoshandle, void* destaddr, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ int32_t windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcAddFilter(void* flowhandle, void* pgenericfilter, void* pfilterhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcAddFilter(void* flowhandle, void* pgenericfilter, void* pfilterhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -315,7 +315,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcAddFilter(void* flowha
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcAddFlow(void* ifchandle, void* clflowctx, uint32_t flags, void* pgenericflow, void* pflowhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcAddFlow(void* ifchandle, void* clflowctx, uint32_t flags, void* pgenericflow, void* pflowhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -341,7 +341,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcAddFlow(void* ifchandl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcCloseInterface(void* ifchandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcCloseInterface(void* ifchandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcCloseInterface(void* i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter(void* filterhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcDeleteFilter(void* filterhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -385,7 +385,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter(void* fil
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow(void* flowhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcDeleteFlow(void* flowhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow(void* flowh
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient(void* clienthandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcDeregisterClient(void* clienthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -429,7 +429,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows(void* ifchandle, void* penumhandle, void* pflowcount, void* pbufsize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcEnumerateFlows(void* ifchandle, void* penumhandle, void* pflowcount, void* pbufsize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -455,7 +455,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows(void* i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces(void* clienthandle, void* pbuffersize, void* interfacebuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcEnumerateInterfaces(void* clienthandle, void* pbuffersize, void* interfacebuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -479,7 +479,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA(void* flowhandle, uint32_t strsize, void* pflowname) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcGetFlowNameA(void* flowhandle, uint32_t strsize, void* pflowname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -503,7 +503,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA(void* flo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW(void* flowhandle, uint32_t strsize, void* pflowname) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcGetFlowNameW(void* flowhandle, uint32_t strsize, void* pflowname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -527,7 +527,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW(void* flo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcModifyFlow(void* flowhandle, void* pgenericflow) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcModifyFlow(void* flowhandle, void* pgenericflow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -550,7 +550,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcModifyFlow(void* flowh
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcOpenInterfaceA(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -575,7 +575,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcOpenInterfaceW(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcQueryFlowA(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -625,7 +625,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA(void* pflow
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcQueryFlowW(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -650,7 +650,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW(void* pflow
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryInterface(void* ifchandle, void* pguidparam, bool notifychange, void* pbuffersize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcQueryInterface(void* ifchandle, void* pguidparam, bool notifychange, void* pbuffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -676,7 +676,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryInterface(void* i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcRegisterClient(uint32_t tciversion, void* clregctx, void* clienthandlerlist, void* pclienthandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcRegisterClient(uint32_t tciversion, void* clregctx, void* clienthandlerlist, void* pclienthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -701,7 +701,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcRegisterClient(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetFlowA(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcSetFlowA(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -726,7 +726,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetFlowA(void* pflowna
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetFlowW(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcSetFlowW(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -751,7 +751,7 @@ uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetFlowW(void* pflowna
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetInterface(void* ifchandle, void* pguidparam, uint32_t buffersize, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcSetInterface(void* ifchandle, void* pguidparam, uint32_t buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_backupPerfRegistryToFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceBackupPerfRegistryToFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcommentstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_performance_backupPerfRegistr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_installPerfDllA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceInstallPerfDllA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinifile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_system_performance_installPerfDllA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_installPerfDllW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceInstallPerfDllW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinifile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_system_performance_installPerfDllW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_loadPerfCounterTextStringsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bquietmodearg = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_system_performance_loadPerfCounterTe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_loadPerfCounterTextStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bquietmodearg = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_win32_system_performance_loadPerfCounterTe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhAddCounterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhAddCounterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullcounterpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhAddCounterA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhAddCounterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhAddCounterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullcounterpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -252,7 +252,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhAddCounterW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhAddEnglishCounterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullcounterpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhAddEnglishCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhAddEnglishCounterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullcounterpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -314,7 +314,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhAddEnglishCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhBindInputDataSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logfilenamelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -341,7 +341,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhBindInputDataS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhBindInputDataSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logfilenamelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -368,7 +368,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhBindInputDataS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCountersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhBrowseCountersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbrowsedlgdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -393,7 +393,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCounters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCountersHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhBrowseCountersHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbrowsedlgdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCounters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCountersHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhBrowseCountersHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbrowsedlgdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -443,7 +443,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCounters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCountersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhBrowseCountersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbrowsedlgdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -468,7 +468,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhBrowseCounters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCalculateCounterFromRawValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCalculateCounterFromRawValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCalculateCount
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCloseLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCloseLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -528,7 +528,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCloseLog_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCloseQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCloseQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -553,7 +553,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCloseQuery_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCollectQueryData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCollectQueryData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -578,7 +578,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCollectQueryDa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCollectQueryDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCollectQueryDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwintervaltime = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCollectQueryDa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCollectQueryDataWithTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCollectQueryDataWithTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plltimestamp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -634,7 +634,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCollectQueryDa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhComputeCounterStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhComputeCounterStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -669,7 +669,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhComputeCounter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhConnectMachineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhConnectMachineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -694,7 +694,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhConnectMachine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhConnectMachineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhConnectMachineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -719,7 +719,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhConnectMachine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCreateSQLTablesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -744,7 +744,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCreateSQLTable
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhCreateSQLTablesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -769,7 +769,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhCreateSQLTable
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumLogSetNamesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszdatasetnamelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -798,7 +798,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumLogSetName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumLogSetNamesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszdatasetnamelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -827,7 +827,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumLogSetName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumMachinesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszmachinelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -856,7 +856,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumMachinesHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszmachinelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -885,7 +885,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesHA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumMachinesHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszmachinelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -914,7 +914,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesHW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumMachinesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszmachinelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -943,7 +943,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumMachinesW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItemsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -984,7 +984,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItemsHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1025,7 +1025,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItemsHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1066,7 +1066,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItemsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1107,7 +1107,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectItem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1142,7 +1142,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectsHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1177,7 +1177,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsHA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectsHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1212,7 +1212,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsHW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhEnumObjectsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1247,7 +1247,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhEnumObjectsW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhExpandCounterPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhExpandCounterPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szwildcardpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszexpandedpathlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1276,7 +1276,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhExpandCounterP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhExpandCounterPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhExpandCounterPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szwildcardpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mszexpandedpathlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhExpandCounterP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCardPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szwildcardpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1338,7 +1338,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCardPathHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szwildcardpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1371,7 +1371,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCardPathHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szwildcardpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1404,7 +1404,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCardPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szwildcardpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1437,7 +1437,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhExpandWildCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhFormatFromRawValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhFormatFromRawValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcountertype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1472,7 +1472,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhFormatFromRawV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetCounterInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetCounterInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool bretrieveexplaintext = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -1503,7 +1503,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetCounterInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetCounterInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetCounterInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool bretrieveexplaintext = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -1534,7 +1534,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetCounterInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetCounterTimeBase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetCounterTimeBase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptimebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1561,7 +1561,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetCounterTime
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwnumentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1592,7 +1592,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDataSourceT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeH_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeH_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwnumentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDataSourceT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwnumentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1654,7 +1654,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDataSourceT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1687,7 +1687,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1720,7 +1720,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1753,7 +1753,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1786,7 +1786,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1817,7 +1817,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1848,7 +1848,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1879,7 +1879,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1910,7 +1910,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDefaultPerf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetDllVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetDllVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1935,7 +1935,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetDllVersion_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1968,7 +1968,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetFormattedCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2001,7 +2001,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetFormattedCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetFormattedCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwformat = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2032,7 +2032,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetFormattedCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetLogFileSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetLogFileSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* llsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2059,7 +2059,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetLogFileSize
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetLogSetGUID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetLogSetGUID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2088,7 +2088,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetLogSetGUID_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetRawCounterArrayA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2119,7 +2119,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetRawCounterA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetRawCounterArrayW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2150,7 +2150,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetRawCounterA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhGetRawCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhGetRawCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2179,7 +2179,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhGetRawCounterV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhIsRealTimeQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhIsRealTimeQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2204,7 +2204,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhIsRealTimeQuer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sznamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2233,7 +2233,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sznamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2262,7 +2262,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnameindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2293,7 +2293,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnameindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2324,7 +2324,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhLookupPerfName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhMakeCounterPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhMakeCounterPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcounterpathelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2355,7 +2355,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhMakeCounterPat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhMakeCounterPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhMakeCounterPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcounterpathelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2386,7 +2386,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhMakeCounterPat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhOpenLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhOpenLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szlogfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaccessflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2423,7 +2423,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhOpenLogA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhOpenLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhOpenLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szlogfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaccessflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2460,7 +2460,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhOpenLogW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhOpenQueryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhOpenQueryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwuserdata = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2489,7 +2489,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhOpenQueryA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhOpenQueryH_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhOpenQueryH_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwuserdata = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2518,7 +2518,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhOpenQueryH_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhOpenQueryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhOpenQueryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwuserdata = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2547,7 +2547,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhOpenQueryW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhParseCounterPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhParseCounterPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcounterpathelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2578,7 +2578,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhParseCounterPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhParseCounterPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhParseCounterPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcounterpathelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhParseCounterPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhParseInstanceNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhParseInstanceNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szinstancestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2644,7 +2644,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhParseInstanceN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhParseInstanceNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhParseInstanceNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szinstancestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2679,7 +2679,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhParseInstanceN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhRemoveCounter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhRemoveCounter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2704,7 +2704,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhRemoveCounter_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhSelectDataSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhSelectDataSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2735,7 +2735,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhSelectDataSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhSelectDataSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhSelectDataSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2766,7 +2766,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhSelectDataSour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhSetCounterScaleFactor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhSetCounterScaleFactor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcounter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lfactor = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2793,7 +2793,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhSetCounterScal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhSetDefaultRealTimeDataSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhSetDefaultRealTimeDataSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdatasourceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2818,7 +2818,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhSetDefaultReal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhSetLogSetRunID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhSetLogSetRunID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t runid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2845,7 +2845,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhSetLogSetRunID
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhSetQueryTimeRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhSetQueryTimeRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2872,7 +2872,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhSetQueryTimeRa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhUpdateLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhUpdateLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szuserstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2899,7 +2899,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhUpdateLogA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhUpdateLogFileCatalog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhUpdateLogFileCatalog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2924,7 +2924,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhUpdateLogFileC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhUpdateLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhUpdateLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szuserstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2951,7 +2951,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhUpdateLogW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhValidatePathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2976,7 +2976,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhValidatePathExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3003,7 +3003,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhValidatePathExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3030,7 +3030,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhValidatePathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfullpathbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3055,7 +3055,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhValidatePathW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhVerifySQLDBA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhVerifySQLDBA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3080,7 +3080,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhVerifySQLDBA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_pdhVerifySQLDBW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePdhVerifySQLDBW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3105,7 +3105,7 @@ static Napi::Value windowssys_windows_win32_system_performance_pdhVerifySQLDBW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfAddCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfAddCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcounters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3134,7 +3134,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfAddCounters_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfCloseQueryHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfCloseQueryHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3159,7 +3159,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfCloseQueryHan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfCreateInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfCreateInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* countersetguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3190,7 +3190,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfCreateInstanc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfDecrementULongCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfDecrementULongCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3221,7 +3221,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfDecrementULon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfDecrementULongLongCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfDecrementULongLongCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3252,7 +3252,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfDecrementULon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfDeleteCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfDeleteCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcounters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3281,7 +3281,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfDeleteCounter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfDeleteInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfDeleteInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instanceblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3308,7 +3308,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfDeleteInstanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfEnumerateCounterSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcountersetids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3339,7 +3339,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfEnumerateCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfEnumerateCounterSetInstances_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSetInstances_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcountersetid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3372,7 +3372,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfEnumerateCoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfIncrementULongCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfIncrementULongCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3403,7 +3403,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfIncrementULon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfIncrementULongLongCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfIncrementULongLongCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3434,7 +3434,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfIncrementULon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfOpenQueryHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfOpenQueryHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3461,7 +3461,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfOpenQueryHand
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfQueryCounterData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfQueryCounterData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcounterblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3492,7 +3492,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfQueryCounterD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfQueryCounterInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfQueryCounterInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcounters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3523,7 +3523,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfQueryCounterI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfQueryCounterSetRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfQueryCounterSetRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcountersetid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3560,7 +3560,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfQueryCounterS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfQueryInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfQueryInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* countersetguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3591,7 +3591,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfQueryInstance
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfSetCounterRefValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfSetCounterRefValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3622,10 +3622,10 @@ static Napi::Value windowssys_windows_win32_system_performance_perfSetCounterRef
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfSetCounterSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfSetCounterSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    void* arg_1_template = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* arg1Template = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t templatesize = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
@@ -3636,14 +3636,14 @@ static Napi::Value windowssys_windows_win32_system_performance_perfSetCounterSet
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(providerhandle, arg_1_template, templatesize);
+        km_res = km_fn_ptr(providerhandle, arg1Template, templatesize);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)providerhandle;
-    (void)arg_1_template;
+    (void)arg1Template;
     (void)templatesize;
     errno = ENOSYS;
     uint32_t km_res = 0;
@@ -3651,7 +3651,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfSetCounterSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfSetULongCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfSetULongCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3682,7 +3682,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfSetULongCount
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfSetULongLongCounterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfSetULongLongCounterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3713,7 +3713,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfSetULongLongC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfStartProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfStartProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* controlcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3742,7 +3742,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfStartProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfStartProviderEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfStartProviderEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* providercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3771,7 +3771,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfStartProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_perfStopProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformancePerfStopProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3796,7 +3796,7 @@ static Napi::Value windowssys_windows_win32_system_performance_perfStopProvider_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_queryPerformanceCounter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceQueryPerformanceCounter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpperformancecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3821,7 +3821,7 @@ static Napi::Value windowssys_windows_win32_system_performance_queryPerformanceC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_queryPerformanceFrequency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceQueryPerformanceFrequency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfrequency = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3846,7 +3846,7 @@ static Napi::Value windowssys_windows_win32_system_performance_queryPerformanceF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_restorePerfRegistryFromFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceRestorePerfRegistryFromFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlangid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3873,7 +3873,7 @@ static Napi::Value windowssys_windows_win32_system_performance_restorePerfRegist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_setServiceAsTrustedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3900,7 +3900,7 @@ static Napi::Value windowssys_windows_win32_system_performance_setServiceAsTrust
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_setServiceAsTrustedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szservicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3927,7 +3927,7 @@ static Napi::Value windowssys_windows_win32_system_performance_setServiceAsTrust
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bquietmodearg = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3954,7 +3954,7 @@ static Napi::Value windowssys_windows_win32_system_performance_unloadPerfCounter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bquietmodearg = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3981,7 +3981,7 @@ static Napi::Value windowssys_windows_win32_system_performance_unloadPerfCounter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_updatePerfNameFilesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sznewctrfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sznewhlpfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4012,7 +4012,7 @@ static Napi::Value windowssys_windows_win32_system_performance_updatePerfNameFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_updatePerfNameFilesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sznewctrfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sznewhlpfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4044,140 +4044,140 @@ static Napi::Value windowssys_windows_win32_system_performance_updatePerfNameFil
 }
 
 static void register_windows_win32_system_performance_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_performance_backupPerfRegistryToFileW", Napi::Function::New(env, windowssys_windows_win32_system_performance_backupPerfRegistryToFileW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_installPerfDllA", Napi::Function::New(env, windowssys_windows_win32_system_performance_installPerfDllA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_installPerfDllW", Napi::Function::New(env, windowssys_windows_win32_system_performance_installPerfDllW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_loadPerfCounterTextStringsA", Napi::Function::New(env, windowssys_windows_win32_system_performance_loadPerfCounterTextStringsA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_loadPerfCounterTextStringsW", Napi::Function::New(env, windowssys_windows_win32_system_performance_loadPerfCounterTextStringsW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhAddCounterA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhAddCounterA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhAddCounterW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhAddCounterW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhAddEnglishCounterA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhAddEnglishCounterA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhAddEnglishCounterW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhAddEnglishCounterW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhBindInputDataSourceA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhBindInputDataSourceA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhBindInputDataSourceW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhBindInputDataSourceW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhBrowseCountersA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhBrowseCountersA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhBrowseCountersHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhBrowseCountersHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhBrowseCountersHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhBrowseCountersHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhBrowseCountersW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhBrowseCountersW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCalculateCounterFromRawValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCalculateCounterFromRawValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCloseLog", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCloseLog_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCloseQuery", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCloseQuery_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCollectQueryData", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCollectQueryData_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCollectQueryDataEx", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCollectQueryDataEx_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCollectQueryDataWithTime", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCollectQueryDataWithTime_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhComputeCounterStatistics", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhComputeCounterStatistics_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhConnectMachineA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhConnectMachineA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhConnectMachineW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhConnectMachineW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCreateSQLTablesA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCreateSQLTablesA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhCreateSQLTablesW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhCreateSQLTablesW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumLogSetNamesA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumLogSetNamesA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumLogSetNamesW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumLogSetNamesW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumMachinesA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumMachinesA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumMachinesHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumMachinesHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumMachinesHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumMachinesHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumMachinesW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumMachinesW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectItemsA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectItemsA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectItemsHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectItemsHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectItemsHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectItemsHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectItemsW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectItemsW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectsA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectsA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectsHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectsHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectsHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectsHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhEnumObjectsW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhEnumObjectsW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhExpandCounterPathA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhExpandCounterPathA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhExpandCounterPathW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhExpandCounterPathW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhExpandWildCardPathA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhExpandWildCardPathA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhExpandWildCardPathHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhExpandWildCardPathHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhExpandWildCardPathHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhExpandWildCardPathHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhExpandWildCardPathW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhExpandWildCardPathW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhFormatFromRawValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhFormatFromRawValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetCounterInfoA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetCounterInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetCounterInfoW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetCounterInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetCounterTimeBase", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetCounterTimeBase_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeH", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeH_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetDllVersion", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetDllVersion_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetFormattedCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetFormattedCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetLogFileSize", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetLogFileSize_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetLogSetGUID", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetLogSetGUID_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetRawCounterArrayA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetRawCounterArrayA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetRawCounterArrayW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetRawCounterArrayW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhGetRawCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhGetRawCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhIsRealTimeQuery", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhIsRealTimeQuery_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhMakeCounterPathA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhMakeCounterPathA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhMakeCounterPathW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhMakeCounterPathW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhOpenLogA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhOpenLogA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhOpenLogW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhOpenLogW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhOpenQueryA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhOpenQueryA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhOpenQueryH", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhOpenQueryH_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhOpenQueryW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhOpenQueryW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhParseCounterPathA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhParseCounterPathA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhParseCounterPathW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhParseCounterPathW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhParseInstanceNameA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhParseInstanceNameA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhParseInstanceNameW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhParseInstanceNameW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhRemoveCounter", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhRemoveCounter_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhSelectDataSourceA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhSelectDataSourceA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhSelectDataSourceW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhSelectDataSourceW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhSetCounterScaleFactor", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhSetCounterScaleFactor_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhSetDefaultRealTimeDataSource", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhSetDefaultRealTimeDataSource_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhSetLogSetRunID", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhSetLogSetRunID_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhSetQueryTimeRange", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhSetQueryTimeRange_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhUpdateLogA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhUpdateLogA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhUpdateLogFileCatalog", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhUpdateLogFileCatalog_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhUpdateLogW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhUpdateLogW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhValidatePathA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhValidatePathA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhValidatePathExA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhValidatePathExA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhValidatePathExW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhValidatePathExW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhValidatePathW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhValidatePathW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhVerifySQLDBA", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhVerifySQLDBA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_pdhVerifySQLDBW", Napi::Function::New(env, windowssys_windows_win32_system_performance_pdhVerifySQLDBW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfAddCounters", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfAddCounters_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfCloseQueryHandle", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfCloseQueryHandle_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfCreateInstance", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfCreateInstance_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfDecrementULongCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfDecrementULongCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfDecrementULongLongCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfDecrementULongLongCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfDeleteCounters", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfDeleteCounters_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfDeleteInstance", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfDeleteInstance_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfEnumerateCounterSet", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfEnumerateCounterSet_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfEnumerateCounterSetInstances", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfEnumerateCounterSetInstances_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfIncrementULongCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfIncrementULongCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfIncrementULongLongCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfIncrementULongLongCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfOpenQueryHandle", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfOpenQueryHandle_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfQueryCounterData", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfQueryCounterData_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfQueryCounterInfo", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfQueryCounterInfo_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfQueryCounterSetRegistrationInfo", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfQueryCounterSetRegistrationInfo_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfQueryInstance", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfQueryInstance_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfSetCounterRefValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfSetCounterRefValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfSetCounterSetInfo", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfSetCounterSetInfo_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfSetULongCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfSetULongCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfSetULongLongCounterValue", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfSetULongLongCounterValue_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfStartProvider", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfStartProvider_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfStartProviderEx", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfStartProviderEx_napi));
-    exports.Set("windowssys_windows_win32_system_performance_perfStopProvider", Napi::Function::New(env, windowssys_windows_win32_system_performance_perfStopProvider_napi));
-    exports.Set("windowssys_windows_win32_system_performance_queryPerformanceCounter", Napi::Function::New(env, windowssys_windows_win32_system_performance_queryPerformanceCounter_napi));
-    exports.Set("windowssys_windows_win32_system_performance_queryPerformanceFrequency", Napi::Function::New(env, windowssys_windows_win32_system_performance_queryPerformanceFrequency_napi));
-    exports.Set("windowssys_windows_win32_system_performance_restorePerfRegistryFromFileW", Napi::Function::New(env, windowssys_windows_win32_system_performance_restorePerfRegistryFromFileW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_setServiceAsTrustedA", Napi::Function::New(env, windowssys_windows_win32_system_performance_setServiceAsTrustedA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_setServiceAsTrustedW", Napi::Function::New(env, windowssys_windows_win32_system_performance_setServiceAsTrustedW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsA", Napi::Function::New(env, windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsW", Napi::Function::New(env, windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsW_napi));
-    exports.Set("windowssys_windows_win32_system_performance_updatePerfNameFilesA", Napi::Function::New(env, windowssys_windows_win32_system_performance_updatePerfNameFilesA_napi));
-    exports.Set("windowssys_windows_win32_system_performance_updatePerfNameFilesW", Napi::Function::New(env, windowssys_windows_win32_system_performance_updatePerfNameFilesW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceBackupPerfRegistryToFileW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceBackupPerfRegistryToFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceInstallPerfDllA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceInstallPerfDllA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceInstallPerfDllW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceInstallPerfDllW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhAddCounterA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhAddCounterA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhAddCounterW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhAddCounterW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhBrowseCountersA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhBrowseCountersA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhBrowseCountersHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhBrowseCountersHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhBrowseCountersHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhBrowseCountersHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhBrowseCountersW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhBrowseCountersW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCalculateCounterFromRawValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCalculateCounterFromRawValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCloseLog", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCloseLog_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCloseQuery", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCloseQuery_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCollectQueryData", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCollectQueryData_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCollectQueryDataEx", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCollectQueryDataEx_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCollectQueryDataWithTime", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCollectQueryDataWithTime_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhComputeCounterStatistics", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhComputeCounterStatistics_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhConnectMachineA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhConnectMachineA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhConnectMachineW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhConnectMachineW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumMachinesA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumMachinesA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumMachinesHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumMachinesHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumMachinesHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumMachinesHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumMachinesW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumMachinesW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectsA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectsA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectsHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectsHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectsHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectsHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhEnumObjectsW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhEnumObjectsW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhExpandCounterPathA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhExpandCounterPathA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhExpandCounterPathW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhExpandCounterPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhFormatFromRawValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhFormatFromRawValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetCounterInfoA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetCounterInfoA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetCounterInfoW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetCounterInfoW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetCounterTimeBase", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetCounterTimeBase_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeH", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeH_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetDllVersion", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetDllVersion_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetLogFileSize", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetLogFileSize_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetLogSetGUID", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetLogSetGUID_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhGetRawCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhGetRawCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhIsRealTimeQuery", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhIsRealTimeQuery_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhMakeCounterPathA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhMakeCounterPathA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhMakeCounterPathW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhMakeCounterPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhOpenLogA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhOpenLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhOpenLogW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhOpenLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhOpenQueryA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhOpenQueryA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhOpenQueryH", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhOpenQueryH_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhOpenQueryW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhOpenQueryW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhParseCounterPathA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhParseCounterPathA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhParseCounterPathW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhParseCounterPathW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhParseInstanceNameA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhParseInstanceNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhParseInstanceNameW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhParseInstanceNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhRemoveCounter", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhRemoveCounter_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhSelectDataSourceA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhSelectDataSourceA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhSelectDataSourceW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhSelectDataSourceW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhSetCounterScaleFactor", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhSetCounterScaleFactor_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhSetDefaultRealTimeDataSource", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhSetDefaultRealTimeDataSource_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhSetLogSetRunID", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhSetLogSetRunID_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhSetQueryTimeRange", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhSetQueryTimeRange_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhUpdateLogA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhUpdateLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhUpdateLogFileCatalog", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhUpdateLogFileCatalog_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhUpdateLogW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhUpdateLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhValidatePathA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhValidatePathA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhValidatePathExA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhValidatePathExA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhValidatePathExW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhValidatePathExW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhValidatePathW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhValidatePathW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhVerifySQLDBA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhVerifySQLDBA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePdhVerifySQLDBW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePdhVerifySQLDBW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfAddCounters", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfAddCounters_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfCloseQueryHandle", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfCloseQueryHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfCreateInstance", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfCreateInstance_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfDecrementULongCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfDecrementULongCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfDecrementULongLongCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfDecrementULongLongCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfDeleteCounters", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfDeleteCounters_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfDeleteInstance", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfDeleteInstance_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSet", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSet_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSetInstances", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSetInstances_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfIncrementULongCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfIncrementULongCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfIncrementULongLongCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfIncrementULongLongCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfOpenQueryHandle", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfOpenQueryHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfQueryCounterData", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfQueryCounterData_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfQueryCounterInfo", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfQueryCounterInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfQueryCounterSetRegistrationInfo", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfQueryCounterSetRegistrationInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfQueryInstance", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfQueryInstance_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfSetCounterRefValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfSetCounterRefValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfSetCounterSetInfo", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfSetCounterSetInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfSetULongCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfSetULongCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfSetULongLongCounterValue", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfSetULongLongCounterValue_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfStartProvider", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfStartProvider_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfStartProviderEx", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfStartProviderEx_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformancePerfStopProvider", Napi::Function::New(env, windowssysWindowsWin32SystemPerformancePerfStopProvider_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceQueryPerformanceCounter", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceQueryPerformanceCounter_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceQueryPerformanceFrequency", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceQueryPerformanceFrequency_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceRestorePerfRegistryFromFileW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceRestorePerfRegistryFromFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsW_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesA", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesA_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesW", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_performance_napi, nullptr };

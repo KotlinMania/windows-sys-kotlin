@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -119,7 +119,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -154,7 +154,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_closeDesktop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCloseDesktop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -212,7 +212,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_closeDesk
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_closeWindowStation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_closeWind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDesktopA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -272,7 +272,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDesktopExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -311,7 +311,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDesktopExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -350,7 +350,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDesktopW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createWindowStationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -416,7 +416,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createWin
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createWindowStationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createWin
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumDeskt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -505,7 +505,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumDeskt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lparam = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -532,7 +532,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lparam = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -559,7 +559,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsGetProcessWindowStation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -582,7 +582,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getProces
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getThread
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -640,7 +640,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getUserOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -673,7 +673,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getUserOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openDesktopA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -704,7 +704,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openDeskt
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openDesktopW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -735,7 +735,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openDeskt
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openInputDesktop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsOpenInputDesktop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t finherit = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -764,7 +764,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openInput
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openWindowStationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finherit = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -793,7 +793,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openWindo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openWindowStationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finherit = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -822,7 +822,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openWindo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsSetProcessWindowStation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwinsta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -847,7 +847,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setProces
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setThread
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setUserOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -934,7 +934,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setUserOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_stationsanddesktops_switchDesktop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesktop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -960,36 +960,36 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_switchDes
 }
 
 static void register_windows_win32_system_stationsanddesktops_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_closeDesktop", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_closeDesktop_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_closeWindowStation", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_closeWindowStation_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_createDesktopA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_createDesktopA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_createDesktopExA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_createDesktopExA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_createDesktopExW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_createDesktopExW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_createDesktopW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_createDesktopW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_createWindowStationA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_createWindowStationA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_createWindowStationW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_createWindowStationW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_openDesktopA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_openDesktopA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_openDesktopW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_openDesktopW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_openInputDesktop", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_openInputDesktop_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_openWindowStationA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_openWindowStationA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_openWindowStationW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_openWindowStationW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW_napi));
-    exports.Set("windowssys_windows_win32_system_stationsanddesktops_switchDesktop", Napi::Function::New(env, windowssys_windows_win32_system_stationsanddesktops_switchDesktop_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCloseDesktop", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCloseDesktop_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsGetProcessWindowStation", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsGetProcessWindowStation_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsOpenInputDesktop", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsOpenInputDesktop_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsSetProcessWindowStation", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsSetProcessWindowStation_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW_napi));
+    exports.Set("windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop", Napi::Function::New(env, windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_stationsanddesktops_napi, nullptr };

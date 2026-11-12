@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceBlockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceBlockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -31,20 +31,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceClosePipe(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,20 +56,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceOpenPipe(JNIEnv* km_env, jclass km_clazz, jint startserviceifstopped, jlong arg_1_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe(JNIEnv* km_env, jclass km_clazz, jint startserviceifstopped, jlong arg1Pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -81,21 +81,21 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((int32_t)startserviceifstopped, (void*)(uintptr_t)arg_1_pipe);
+        km_res = km_fn_ptr((int32_t)startserviceifstopped, (void*)(uintptr_t)arg1Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)startserviceifstopped;
-    (void)arg_1_pipe;
+    (void)arg1Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceReloadConfiguration(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceReloadConfiguration(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -107,20 +107,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceStartBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jint lowpriorityio) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceStartBackup(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jint lowpriorityio) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -132,13 +132,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (int32_t)lowpriorityio);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (int32_t)lowpriorityio);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)lowpriorityio;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -146,7 +146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceStopBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jint stoptracking) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceStopBackup(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jint stoptracking) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -158,13 +158,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (int32_t)stoptracking);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (int32_t)stoptracking);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)stoptracking;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssys_1windows_1win32_1storage_1filehistory_1fhServiceUnblockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_filehistory_WindowsWin32StorageFilehistoryJniBridge_windowssysWindowsWin32StorageFilehistoryFhServiceUnblockBackup(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -184,13 +184,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif

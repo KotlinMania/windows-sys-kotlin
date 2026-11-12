@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider(void* hprovider) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTCloseProvider(void* hprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket(void* hprovider, uint32_t cbdevmode, void* pdevmode, int32_t scope, void* pprintticket) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertDevModeToPrintTicket(void* hprovider, uint32_t cbdevmode, void* pdevmode, int32_t scope, void* pprintticket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeT
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode(void* hprovider, void* pprintticket, int32_t basedevmodetype, int32_t scope, void* pcbdevmode, void* ppdevmode, void* pbstrerrormessage) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertPrintTicketToDevMode(void* hprovider, void* pprintticket, int32_t basedevmodetype, int32_t scope, void* pcbdevmode, void* ppdevmode, void* pbstrerrormessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTic
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities(void* hprovider, void* pprintticket, void* pcapabilities, void* pbstrerrormessage) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintCapabilities(void* hprovider, void* pprintticket, void* pcapabilities, void* pbstrerrormessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -116,7 +116,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabil
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities(void* hprovider, void* pprintticket, void* pdevicecapabilities, void* pbstrerrormessage) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceCapabilities(void* hprovider, void* pprintticket, void* pdevicecapabilities, void* pbstrerrormessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceC
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources(void* hprovider, void* pszlocalename, void* pprintticket, void* pdeviceresources, void* pbstrerrormessage) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceResources(void* hprovider, void* pszlocalename, void* pprintticket, void* pdeviceresources, void* pbstrerrormessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -167,7 +167,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceR
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket(void* hprovider, void* pbaseticket, void* pdeltaticket, int32_t scope, void* presultticket, void* pbstrerrormessage) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTMergeAndValidatePrintTicket(void* hprovider, void* pbaseticket, void* pdeltaticket, int32_t scope, void* presultticket, void* pbstrerrormessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -194,7 +194,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidat
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider(void* pszprintername, uint32_t dwversion, void* phprovider) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProvider(void* pszprintername, uint32_t dwversion, void* phprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx(void* pszprintername, uint32_t dwmaxversion, uint32_t dwprefversion, void* phprovider, void* pusedversion) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProviderEx(void* pszprintername, uint32_t dwmaxversion, uint32_t dwprefversion, void* phprovider, void* pusedversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx(
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport(void* pszprintername, void* pmaxversion) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTQuerySchemaVersionSupport(void* pszprintername, void* pmaxversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -267,7 +267,7 @@ int32_t windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVers
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory(void* pbuffer) {
+int32_t windowssysWindowsWin32GraphicsPrintingPrintticketPTReleaseMemory(void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

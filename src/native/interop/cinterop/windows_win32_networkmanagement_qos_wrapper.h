@@ -9,37 +9,37 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow(void* qoshandle, uint64_t arg_1_socket, void* destaddr, int32_t traffictype, uint32_t flags, void* flowid);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSCancel(void* qoshandle, void* overlapped);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle(void* qoshandle);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle(void* version, void* qoshandle);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows(void* qoshandle, void* size, void* buffer);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow(void* qoshandle, uint64_t arg_1_socket, uint32_t flowid, uint32_t flags);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSSetFlow(void* qoshandle, uint32_t flowid, int32_t operation, uint32_t size, void* buffer, uint32_t flags, void* overlapped);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient(void* qoshandle, void* destaddr, uint32_t flags);
-int32_t windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient(void* qoshandle, void* destaddr, uint32_t flags);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcAddFilter(void* flowhandle, void* pgenericfilter, void* pfilterhandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcAddFlow(void* ifchandle, void* clflowctx, uint32_t flags, void* pgenericflow, void* pflowhandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcCloseInterface(void* ifchandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter(void* filterhandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow(void* flowhandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient(void* clienthandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows(void* ifchandle, void* penumhandle, void* pflowcount, void* pbufsize, void* buffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces(void* clienthandle, void* pbuffersize, void* interfacebuffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA(void* flowhandle, uint32_t strsize, void* pflowname);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW(void* flowhandle, uint32_t strsize, void* pflowname);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcModifyFlow(void* flowhandle, void* pgenericflow);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcQueryInterface(void* ifchandle, void* pguidparam, bool notifychange, void* pbuffersize, void* buffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcRegisterClient(uint32_t tciversion, void* clregctx, void* clienthandlerlist, void* pclienthandle);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetFlowA(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetFlowW(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer);
-uint32_t windowssys_windows_win32_networkmanagement_qos_tcSetInterface(void* ifchandle, void* pguidparam, uint32_t buffersize, void* buffer);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSAddSocketToFlow(void* qoshandle, uint64_t arg1Socket, void* destaddr, int32_t traffictype, uint32_t flags, void* flowid);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSCancel(void* qoshandle, void* overlapped);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSCloseHandle(void* qoshandle);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSCreateHandle(void* version, void* qoshandle);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSEnumerateFlows(void* qoshandle, void* size, void* buffer);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSNotifyFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSQueryFlow(void* qoshandle, uint32_t flowid, int32_t operation, void* size, void* buffer, uint32_t flags, void* overlapped);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSRemoveSocketFromFlow(void* qoshandle, uint64_t arg1Socket, uint32_t flowid, uint32_t flags);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSSetFlow(void* qoshandle, uint32_t flowid, int32_t operation, uint32_t size, void* buffer, uint32_t flags, void* overlapped);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSStartTrackingClient(void* qoshandle, void* destaddr, uint32_t flags);
+int32_t windowssysWindowsWin32NetworkmanagementQosQOSStopTrackingClient(void* qoshandle, void* destaddr, uint32_t flags);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcAddFilter(void* flowhandle, void* pgenericfilter, void* pfilterhandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcAddFlow(void* ifchandle, void* clflowctx, uint32_t flags, void* pgenericflow, void* pflowhandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcCloseInterface(void* ifchandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcDeleteFilter(void* filterhandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcDeleteFlow(void* flowhandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcDeregisterClient(void* clienthandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcEnumerateFlows(void* ifchandle, void* penumhandle, void* pflowcount, void* pbufsize, void* buffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcEnumerateInterfaces(void* clienthandle, void* pbuffersize, void* interfacebuffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcGetFlowNameA(void* flowhandle, uint32_t strsize, void* pflowname);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcGetFlowNameW(void* flowhandle, uint32_t strsize, void* pflowname);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcModifyFlow(void* flowhandle, void* pgenericflow);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcOpenInterfaceA(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcOpenInterfaceW(void* pinterfacename, void* clienthandle, void* clifcctx, void* pifchandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcQueryFlowA(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcQueryFlowW(void* pflowname, void* pguidparam, void* pbuffersize, void* buffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcQueryInterface(void* ifchandle, void* pguidparam, bool notifychange, void* pbuffersize, void* buffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcRegisterClient(uint32_t tciversion, void* clregctx, void* clienthandlerlist, void* pclienthandle);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcSetFlowA(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcSetFlowW(void* pflowname, void* pguidparam, uint32_t buffersize, void* buffer);
+uint32_t windowssysWindowsWin32NetworkmanagementQosTcSetInterface(void* ifchandle, void* pguidparam, uint32_t buffersize, void* buffer);
 
 #ifdef __cplusplus
 }

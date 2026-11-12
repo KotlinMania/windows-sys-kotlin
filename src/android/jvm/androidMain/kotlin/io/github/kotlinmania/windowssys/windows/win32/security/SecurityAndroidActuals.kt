@@ -2,14 +2,19 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
 private object WindowsWin32SecurityJniBridge {
     init {
@@ -17,803 +22,803 @@ private object WindowsWin32SecurityJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheck(psecuritydescriptor: Long, clienttoken: Long, desiredaccess: Int, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheck(psecuritydescriptor: Long, clienttoken: Long, desiredaccess: Int, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckAndAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckAndAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckAndAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckAndAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByType(psecuritydescriptor: Long, principalselfsid: Long, clienttoken: Long, desiredaccess: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByType(psecuritydescriptor: Long, principalselfsid: Long, clienttoken: Long, desiredaccess: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeAndAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeAndAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeResultList(psecuritydescriptor: Long, principalselfsid: Long, clienttoken: Long, desiredaccess: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccesslist: Long, accessstatuslist: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeResultList(psecuritydescriptor: Long, principalselfsid: Long, clienttoken: Long, desiredaccess: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccesslist: Long, accessstatuslist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Int, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAccessAllowedAce(pacl: Long, dwacerevision: Int, accessmask: Int, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddAccessAllowedAce(pacl: Long, dwacerevision: Int, accessmask: Int, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAccessAllowedAceEx(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddAccessAllowedAceEx(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAccessAllowedObjectAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddAccessAllowedObjectAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAccessDeniedAce(pacl: Long, dwacerevision: Int, accessmask: Int, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddAccessDeniedAce(pacl: Long, dwacerevision: Int, accessmask: Int, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAccessDeniedAceEx(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddAccessDeniedAceEx(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAccessDeniedObjectAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddAccessDeniedObjectAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAce(pacl: Long, dwacerevision: Int, dwstartingaceindex: Int, pacelist: Long, nacelistlength: Int): Int
+    external fun windowssysWindowsWin32SecurityAddAce(pacl: Long, dwacerevision: Int, dwstartingaceindex: Int, pacelist: Long, nacelistlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAuditAccessAce(pacl: Long, dwacerevision: Int, dwaccessmask: Int, psid: Long, bauditsuccess: Int, bauditfailure: Int): Int
+    external fun windowssysWindowsWin32SecurityAddAuditAccessAce(pacl: Long, dwacerevision: Int, dwaccessmask: Int, psid: Long, bauditsuccess: Int, bauditfailure: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAuditAccessAceEx(pacl: Long, dwacerevision: Int, aceflags: Int, dwaccessmask: Int, psid: Long, bauditsuccess: Int, bauditfailure: Int): Int
+    external fun windowssysWindowsWin32SecurityAddAuditAccessAceEx(pacl: Long, dwacerevision: Int, aceflags: Int, dwaccessmask: Int, psid: Long, bauditsuccess: Int, bauditfailure: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addAuditAccessObjectAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: Long, bauditsuccess: Int, bauditfailure: Int): Int
+    external fun windowssysWindowsWin32SecurityAddAuditAccessObjectAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: Long, bauditsuccess: Int, bauditfailure: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addConditionalAce(pacl: Long, dwacerevision: Int, aceflags: Int, acetype: Byte, accessmask: Int, psid: Long, conditionstr: Long, returnlength: Long): Int
+    external fun windowssysWindowsWin32SecurityAddConditionalAce(pacl: Long, dwacerevision: Int, aceflags: Int, acetype: Byte, accessmask: Int, psid: Long, conditionstr: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addMandatoryAce(pacl: Long, dwacerevision: Int, aceflags: Int, mandatorypolicy: Int, plabelsid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddMandatoryAce(pacl: Long, dwacerevision: Int, aceflags: Int, mandatorypolicy: Int, plabelsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addResourceAttributeAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long, pattributeinfo: Long, preturnlength: Long): Int
+    external fun windowssysWindowsWin32SecurityAddResourceAttributeAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long, pattributeinfo: Long, preturnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_addScopedPolicyIDAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAddScopedPolicyIDAce(pacl: Long, dwacerevision: Int, aceflags: Int, accessmask: Int, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_adjustTokenGroups(tokenhandle: Long, resettodefault: Int, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
+    external fun windowssysWindowsWin32SecurityAdjustTokenGroups(tokenhandle: Long, resettodefault: Int, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_adjustTokenPrivileges(tokenhandle: Long, disableallprivileges: Int, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
+    external fun windowssysWindowsWin32SecurityAdjustTokenPrivileges(tokenhandle: Long, disableallprivileges: Int, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_allocateAndInitializeSid(pidentifierauthority: Long, nsubauthoritycount: Byte, nsubauthority0: Int, nsubauthority1: Int, nsubauthority2: Int, nsubauthority3: Int, nsubauthority4: Int, nsubauthority5: Int, nsubauthority6: Int, nsubauthority7: Int, psid: Long): Int
+    external fun windowssysWindowsWin32SecurityAllocateAndInitializeSid(pidentifierauthority: Long, nsubauthoritycount: Byte, nsubauthority0: Int, nsubauthority1: Int, nsubauthority2: Int, nsubauthority3: Int, nsubauthority4: Int, nsubauthority5: Int, nsubauthority6: Int, nsubauthority7: Int, psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_allocateLocallyUniqueId(luid: Long): Int
+    external fun windowssysWindowsWin32SecurityAllocateLocallyUniqueId(luid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_areAllAccessesGranted(grantedaccess: Int, desiredaccess: Int): Int
+    external fun windowssysWindowsWin32SecurityAreAllAccessesGranted(grantedaccess: Int, desiredaccess: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_areAnyAccessesGranted(grantedaccess: Int, desiredaccess: Int): Int
+    external fun windowssysWindowsWin32SecurityAreAnyAccessesGranted(grantedaccess: Int, desiredaccess: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_checkTokenCapability(tokenhandle: Long, capabilitysidtocheck: Long, hascapability: Long): Int
+    external fun windowssysWindowsWin32SecurityCheckTokenCapability(tokenhandle: Long, capabilitysidtocheck: Long, hascapability: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_checkTokenMembership(tokenhandle: Long, sidtocheck: Long, ismember: Long): Int
+    external fun windowssysWindowsWin32SecurityCheckTokenMembership(tokenhandle: Long, sidtocheck: Long, ismember: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_checkTokenMembershipEx(tokenhandle: Long, sidtocheck: Long, flags: Int, ismember: Long): Int
+    external fun windowssysWindowsWin32SecurityCheckTokenMembershipEx(tokenhandle: Long, sidtocheck: Long, flags: Int, ismember: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_convertToAutoInheritPrivateObjectSecurity(parentdescriptor: Long, currentsecuritydescriptor: Long, newsecuritydescriptor: Long, objecttype: Long, isdirectoryobject: Boolean, genericmapping: Long): Int
+    external fun windowssysWindowsWin32SecurityConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: Long, currentsecuritydescriptor: Long, newsecuritydescriptor: Long, objecttype: Long, isdirectoryobject: Boolean, genericmapping: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_copySid(ndestinationsidlength: Int, pdestinationsid: Long, psourcesid: Long): Int
+    external fun windowssysWindowsWin32SecurityCopySid(ndestinationsidlength: Int, pdestinationsid: Long, psourcesid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_createPrivateObjectSecurity(parentdescriptor: Long, creatordescriptor: Long, newdescriptor: Long, isdirectoryobject: Int, token: Long, genericmapping: Long): Int
+    external fun windowssysWindowsWin32SecurityCreatePrivateObjectSecurity(parentdescriptor: Long, creatordescriptor: Long, newdescriptor: Long, isdirectoryobject: Int, token: Long, genericmapping: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_createPrivateObjectSecurityEx(parentdescriptor: Long, creatordescriptor: Long, newdescriptor: Long, objecttype: Long, iscontainerobject: Int, autoinheritflags: Int, token: Long, genericmapping: Long): Int
+    external fun windowssysWindowsWin32SecurityCreatePrivateObjectSecurityEx(parentdescriptor: Long, creatordescriptor: Long, newdescriptor: Long, objecttype: Long, iscontainerobject: Int, autoinheritflags: Int, token: Long, genericmapping: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_createPrivateObjectSecurityWithMultipleInheritance(parentdescriptor: Long, creatordescriptor: Long, newdescriptor: Long, objecttypes: Long, guidcount: Int, iscontainerobject: Int, autoinheritflags: Int, token: Long, genericmapping: Long): Int
+    external fun windowssysWindowsWin32SecurityCreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: Long, creatordescriptor: Long, newdescriptor: Long, objecttypes: Long, guidcount: Int, iscontainerobject: Int, autoinheritflags: Int, token: Long, genericmapping: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_createRestrictedToken(existingtokenhandle: Long, flags: Int, disablesidcount: Int, sidstodisable: Long, deleteprivilegecount: Int, privilegestodelete: Long, restrictedsidcount: Int, sidstorestrict: Long, newtokenhandle: Long): Int
+    external fun windowssysWindowsWin32SecurityCreateRestrictedToken(existingtokenhandle: Long, flags: Int, disablesidcount: Int, sidstodisable: Long, deleteprivilegecount: Int, privilegestodelete: Long, restrictedsidcount: Int, sidstorestrict: Long, newtokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_createWellKnownSid(wellknownsidtype: Int, domainsid: Long, psid: Long, cbsid: Long): Int
+    external fun windowssysWindowsWin32SecurityCreateWellKnownSid(wellknownsidtype: Int, domainsid: Long, psid: Long, cbsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_deleteAce(pacl: Long, dwaceindex: Int): Int
+    external fun windowssysWindowsWin32SecurityDeleteAce(pacl: Long, dwaceindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_deriveCapabilitySidsFromName(capname: Long, capabilitygroupsids: Long, capabilitygroupsidcount: Long, capabilitysids: Long, capabilitysidcount: Long): Int
+    external fun windowssysWindowsWin32SecurityDeriveCapabilitySidsFromName(capname: Long, capabilitygroupsids: Long, capabilitygroupsidcount: Long, capabilitysids: Long, capabilitysidcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_destroyPrivateObjectSecurity(objectdescriptor: Long): Int
+    external fun windowssysWindowsWin32SecurityDestroyPrivateObjectSecurity(objectdescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_duplicateToken(existingtokenhandle: Long, impersonationlevel: Int, duplicatetokenhandle: Long): Int
+    external fun windowssysWindowsWin32SecurityDuplicateToken(existingtokenhandle: Long, impersonationlevel: Int, duplicatetokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_duplicateTokenEx(hexistingtoken: Long, dwdesiredaccess: Int, lptokenattributes: Long, impersonationlevel: Int, tokentype: Int, phnewtoken: Long): Int
+    external fun windowssysWindowsWin32SecurityDuplicateTokenEx(hexistingtoken: Long, dwdesiredaccess: Int, lptokenattributes: Long, impersonationlevel: Int, tokentype: Int, phnewtoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_equalDomainSid(psid1: Long, psid2: Long, pfequal: Long): Int
+    external fun windowssysWindowsWin32SecurityEqualDomainSid(psid1: Long, psid2: Long, pfequal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_equalPrefixSid(psid1: Long, psid2: Long): Int
+    external fun windowssysWindowsWin32SecurityEqualPrefixSid(psid1: Long, psid2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_equalSid(psid1: Long, psid2: Long): Int
+    external fun windowssysWindowsWin32SecurityEqualSid(psid1: Long, psid2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_findFirstFreeAce(pacl: Long, pace: Long): Int
+    external fun windowssysWindowsWin32SecurityFindFirstFreeAce(pacl: Long, pace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_freeSid(psid: Long): Long
+    external fun windowssysWindowsWin32SecurityFreeSid(psid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getAce(pacl: Long, dwaceindex: Int, pace: Long): Int
+    external fun windowssysWindowsWin32SecurityGetAce(pacl: Long, dwaceindex: Int, pace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getAclInformation(pacl: Long, paclinformation: Long, naclinformationlength: Int, dwaclinformationclass: Int): Int
+    external fun windowssysWindowsWin32SecurityGetAclInformation(pacl: Long, paclinformation: Long, naclinformationlength: Int, dwaclinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getAppContainerAce(acl: Long, startingaceindex: Int, appcontainerace: Long, appcontaineraceindex: Long): Int
+    external fun windowssysWindowsWin32SecurityGetAppContainerAce(acl: Long, startingaceindex: Int, appcontainerace: Long, appcontaineraceindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getCachedSigningLevel(file: Long, flags: Long, signinglevel: Long, thumbprint: Long, thumbprintsize: Long, thumbprintalgorithm: Long): Int
+    external fun windowssysWindowsWin32SecurityGetCachedSigningLevel(file: Long, flags: Long, signinglevel: Long, thumbprint: Long, thumbprintsize: Long, thumbprintalgorithm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getFileSecurityA(lpfilename: Long, requestedinformation: Int, psecuritydescriptor: Long, nlength: Int, lpnlengthneeded: Long): Int
+    external fun windowssysWindowsWin32SecurityGetFileSecurityA(lpfilename: Long, requestedinformation: Int, psecuritydescriptor: Long, nlength: Int, lpnlengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getFileSecurityW(lpfilename: Long, requestedinformation: Int, psecuritydescriptor: Long, nlength: Int, lpnlengthneeded: Long): Int
+    external fun windowssysWindowsWin32SecurityGetFileSecurityW(lpfilename: Long, requestedinformation: Int, psecuritydescriptor: Long, nlength: Int, lpnlengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getKernelObjectSecurity(handle: Long, requestedinformation: Int, psecuritydescriptor: Long, nlength: Int, lpnlengthneeded: Long): Int
+    external fun windowssysWindowsWin32SecurityGetKernelObjectSecurity(handle: Long, requestedinformation: Int, psecuritydescriptor: Long, nlength: Int, lpnlengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getLengthSid(psid: Long): Int
+    external fun windowssysWindowsWin32SecurityGetLengthSid(psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getPrivateObjectSecurity(objectdescriptor: Long, securityinformation: Int, resultantdescriptor: Long, descriptorlength: Int, returnlength: Long): Int
+    external fun windowssysWindowsWin32SecurityGetPrivateObjectSecurity(objectdescriptor: Long, securityinformation: Int, resultantdescriptor: Long, descriptorlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorControl(psecuritydescriptor: Long, pcontrol: Long, lpdwrevision: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorControl(psecuritydescriptor: Long, pcontrol: Long, lpdwrevision: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorDacl(psecuritydescriptor: Long, lpbdaclpresent: Long, pdacl: Long, lpbdacldefaulted: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorDacl(psecuritydescriptor: Long, lpbdaclpresent: Long, pdacl: Long, lpbdacldefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorGroup(psecuritydescriptor: Long, pgroup: Long, lpbgroupdefaulted: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorGroup(psecuritydescriptor: Long, pgroup: Long, lpbgroupdefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorLength(psecuritydescriptor: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorLength(psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorOwner(psecuritydescriptor: Long, powner: Long, lpbownerdefaulted: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorOwner(psecuritydescriptor: Long, powner: Long, lpbownerdefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorRMControl(securitydescriptor: Long, rmcontrol: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorRMControl(securitydescriptor: Long, rmcontrol: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSecurityDescriptorSacl(psecuritydescriptor: Long, lpbsaclpresent: Long, psacl: Long, lpbsacldefaulted: Long): Int
+    external fun windowssysWindowsWin32SecurityGetSecurityDescriptorSacl(psecuritydescriptor: Long, lpbsaclpresent: Long, psacl: Long, lpbsacldefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSidIdentifierAuthority(psid: Long): Long
+    external fun windowssysWindowsWin32SecurityGetSidIdentifierAuthority(psid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSidLengthRequired(nsubauthoritycount: Byte): Int
+    external fun windowssysWindowsWin32SecurityGetSidLengthRequired(nsubauthoritycount: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSidSubAuthority(psid: Long, nsubauthority: Int): Long
+    external fun windowssysWindowsWin32SecurityGetSidSubAuthority(psid: Long, nsubauthority: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getSidSubAuthorityCount(psid: Long): Long
+    external fun windowssysWindowsWin32SecurityGetSidSubAuthorityCount(psid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getTokenInformation(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int, returnlength: Long): Int
+    external fun windowssysWindowsWin32SecurityGetTokenInformation(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getUserObjectSecurity(hobj: Long, psirequested: Long, psid: Long, nlength: Int, lpnlengthneeded: Long): Int
+    external fun windowssysWindowsWin32SecurityGetUserObjectSecurity(hobj: Long, psirequested: Long, psid: Long, nlength: Int, lpnlengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_getWindowsAccountDomainSid(psid: Long, pdomainsid: Long, cbdomainsid: Long): Int
+    external fun windowssysWindowsWin32SecurityGetWindowsAccountDomainSid(psid: Long, pdomainsid: Long, cbdomainsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_impersonateAnonymousToken(threadhandle: Long): Int
+    external fun windowssysWindowsWin32SecurityImpersonateAnonymousToken(threadhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_impersonateLoggedOnUser(htoken: Long): Int
+    external fun windowssysWindowsWin32SecurityImpersonateLoggedOnUser(htoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_impersonateSelf(impersonationlevel: Int): Int
+    external fun windowssysWindowsWin32SecurityImpersonateSelf(impersonationlevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_initializeAcl(pacl: Long, nacllength: Int, dwaclrevision: Int): Int
+    external fun windowssysWindowsWin32SecurityInitializeAcl(pacl: Long, nacllength: Int, dwaclrevision: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_initializeSecurityDescriptor(psecuritydescriptor: Long, dwrevision: Int): Int
+    external fun windowssysWindowsWin32SecurityInitializeSecurityDescriptor(psecuritydescriptor: Long, dwrevision: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_initializeSid(sid: Long, pidentifierauthority: Long, nsubauthoritycount: Byte): Int
+    external fun windowssysWindowsWin32SecurityInitializeSid(sid: Long, pidentifierauthority: Long, nsubauthoritycount: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isTokenRestricted(tokenhandle: Long): Int
+    external fun windowssysWindowsWin32SecurityIsTokenRestricted(tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isValidAcl(pacl: Long): Int
+    external fun windowssysWindowsWin32SecurityIsValidAcl(pacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isValidSecurityDescriptor(psecuritydescriptor: Long): Int
+    external fun windowssysWindowsWin32SecurityIsValidSecurityDescriptor(psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isValidSid(psid: Long): Int
+    external fun windowssysWindowsWin32SecurityIsValidSid(psid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_isWellKnownSid(psid: Long, wellknownsidtype: Int): Int
+    external fun windowssysWindowsWin32SecurityIsWellKnownSid(psid: Long, wellknownsidtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_logonUserA(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long): Int
+    external fun windowssysWindowsWin32SecurityLogonUserA(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_logonUserExA(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long, pplogonsid: Long, ppprofilebuffer: Long, pdwprofilelength: Long, pquotalimits: Long): Int
+    external fun windowssysWindowsWin32SecurityLogonUserExA(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long, pplogonsid: Long, ppprofilebuffer: Long, pdwprofilelength: Long, pquotalimits: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_logonUserExW(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long, pplogonsid: Long, ppprofilebuffer: Long, pdwprofilelength: Long, pquotalimits: Long): Int
+    external fun windowssysWindowsWin32SecurityLogonUserExW(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long, pplogonsid: Long, ppprofilebuffer: Long, pdwprofilelength: Long, pquotalimits: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_logonUserW(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long): Int
+    external fun windowssysWindowsWin32SecurityLogonUserW(lpszusername: Long, lpszdomain: Long, lpszpassword: Long, dwlogontype: Int, dwlogonprovider: Int, phtoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupAccountNameA(lpsystemname: Long, lpaccountname: Long, sid: Long, cbsid: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupAccountNameA(lpsystemname: Long, lpaccountname: Long, sid: Long, cbsid: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupAccountNameW(lpsystemname: Long, lpaccountname: Long, sid: Long, cbsid: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupAccountNameW(lpsystemname: Long, lpaccountname: Long, sid: Long, cbsid: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupAccountSidA(lpsystemname: Long, sid: Long, name: Long, cchname: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupAccountSidA(lpsystemname: Long, sid: Long, name: Long, cchname: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupAccountSidW(lpsystemname: Long, sid: Long, name: Long, cchname: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupAccountSidW(lpsystemname: Long, sid: Long, name: Long, cchname: Long, referenceddomainname: Long, cchreferenceddomainname: Long, peuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupPrivilegeDisplayNameA(lpsystemname: Long, lpname: Long, lpdisplayname: Long, cchdisplayname: Long, lplanguageid: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupPrivilegeDisplayNameA(lpsystemname: Long, lpname: Long, lpdisplayname: Long, cchdisplayname: Long, lplanguageid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupPrivilegeDisplayNameW(lpsystemname: Long, lpname: Long, lpdisplayname: Long, cchdisplayname: Long, lplanguageid: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupPrivilegeDisplayNameW(lpsystemname: Long, lpname: Long, lpdisplayname: Long, cchdisplayname: Long, lplanguageid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupPrivilegeNameA(lpsystemname: Long, lpluid: Long, lpname: Long, cchname: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupPrivilegeNameA(lpsystemname: Long, lpluid: Long, lpname: Long, cchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupPrivilegeNameW(lpsystemname: Long, lpluid: Long, lpname: Long, cchname: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupPrivilegeNameW(lpsystemname: Long, lpluid: Long, lpname: Long, cchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupPrivilegeValueA(lpsystemname: Long, lpname: Long, lpluid: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupPrivilegeValueA(lpsystemname: Long, lpname: Long, lpluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_lookupPrivilegeValueW(lpsystemname: Long, lpname: Long, lpluid: Long): Int
+    external fun windowssysWindowsWin32SecurityLookupPrivilegeValueW(lpsystemname: Long, lpname: Long, lpluid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_makeAbsoluteSD(pselfrelativesecuritydescriptor: Long, pabsolutesecuritydescriptor: Long, lpdwabsolutesecuritydescriptorsize: Long, pdacl: Long, lpdwdaclsize: Long, psacl: Long, lpdwsaclsize: Long, powner: Long, lpdwownersize: Long, pprimarygroup: Long, lpdwprimarygroupsize: Long): Int
+    external fun windowssysWindowsWin32SecurityMakeAbsoluteSD(pselfrelativesecuritydescriptor: Long, pabsolutesecuritydescriptor: Long, lpdwabsolutesecuritydescriptorsize: Long, pdacl: Long, lpdwdaclsize: Long, psacl: Long, lpdwsaclsize: Long, powner: Long, lpdwownersize: Long, pprimarygroup: Long, lpdwprimarygroupsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_makeSelfRelativeSD(pabsolutesecuritydescriptor: Long, pselfrelativesecuritydescriptor: Long, lpdwbufferlength: Long): Int
+    external fun windowssysWindowsWin32SecurityMakeSelfRelativeSD(pabsolutesecuritydescriptor: Long, pselfrelativesecuritydescriptor: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_mapGenericMask(accessmask: Long, genericmapping: Long)
+    external fun windowssysWindowsWin32SecurityMapGenericMask(accessmask: Long, genericmapping: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectCloseAuditAlarmA(subsystemname: Long, handleid: Long, generateonclose: Int): Int
+    external fun windowssysWindowsWin32SecurityObjectCloseAuditAlarmA(subsystemname: Long, handleid: Long, generateonclose: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectCloseAuditAlarmW(subsystemname: Long, handleid: Long, generateonclose: Int): Int
+    external fun windowssysWindowsWin32SecurityObjectCloseAuditAlarmW(subsystemname: Long, handleid: Long, generateonclose: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectDeleteAuditAlarmA(subsystemname: Long, handleid: Long, generateonclose: Int): Int
+    external fun windowssysWindowsWin32SecurityObjectDeleteAuditAlarmA(subsystemname: Long, handleid: Long, generateonclose: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectDeleteAuditAlarmW(subsystemname: Long, handleid: Long, generateonclose: Int): Int
+    external fun windowssysWindowsWin32SecurityObjectDeleteAuditAlarmW(subsystemname: Long, handleid: Long, generateonclose: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectOpenAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, psecuritydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Int, accessgranted: Int, generateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityObjectOpenAuditAlarmA(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, psecuritydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Int, accessgranted: Int, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectOpenAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, psecuritydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Int, accessgranted: Int, generateonclose: Long): Int
+    external fun windowssysWindowsWin32SecurityObjectOpenAuditAlarmW(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, psecuritydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Int, accessgranted: Int, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectPrivilegeAuditAlarmA(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Int): Int
+    external fun windowssysWindowsWin32SecurityObjectPrivilegeAuditAlarmA(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_objectPrivilegeAuditAlarmW(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Int): Int
+    external fun windowssysWindowsWin32SecurityObjectPrivilegeAuditAlarmW(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_privilegeCheck(clienttoken: Long, requiredprivileges: Long, pfresult: Long): Int
+    external fun windowssysWindowsWin32SecurityPrivilegeCheck(clienttoken: Long, requiredprivileges: Long, pfresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_privilegedServiceAuditAlarmA(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Int): Int
+    external fun windowssysWindowsWin32SecurityPrivilegedServiceAuditAlarmA(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_privilegedServiceAuditAlarmW(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Int): Int
+    external fun windowssysWindowsWin32SecurityPrivilegedServiceAuditAlarmW(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_querySecurityAccessMask(securityinformation: Int, desiredaccess: Long)
+    external fun windowssysWindowsWin32SecurityQuerySecurityAccessMask(securityinformation: Int, desiredaccess: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_revertToSelf(): Int
+    external fun windowssysWindowsWin32SecurityRevertToSelf(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_rtlConvertSidToUnicodeString(unicodestring: Long, sid: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWin32SecurityRtlConvertSidToUnicodeString(unicodestring: Long, sid: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_rtlNormalizeSecurityDescriptor(securitydescriptor: Long, securitydescriptorlength: Int, newsecuritydescriptor: Long, newsecuritydescriptorlength: Long, checkonly: Boolean): Boolean
+    external fun windowssysWindowsWin32SecurityRtlNormalizeSecurityDescriptor(securitydescriptor: Long, securitydescriptorlength: Int, newsecuritydescriptor: Long, newsecuritydescriptorlength: Long, checkonly: Boolean): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setAclInformation(pacl: Long, paclinformation: Long, naclinformationlength: Int, dwaclinformationclass: Int): Int
+    external fun windowssysWindowsWin32SecuritySetAclInformation(pacl: Long, paclinformation: Long, naclinformationlength: Int, dwaclinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setCachedSigningLevel(sourcefiles: Long, sourcefilecount: Int, flags: Int, targetfile: Long): Int
+    external fun windowssysWindowsWin32SecuritySetCachedSigningLevel(sourcefiles: Long, sourcefilecount: Int, flags: Int, targetfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setFileSecurityA(lpfilename: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+    external fun windowssysWindowsWin32SecuritySetFileSecurityA(lpfilename: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setFileSecurityW(lpfilename: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+    external fun windowssysWindowsWin32SecuritySetFileSecurityW(lpfilename: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setKernelObjectSecurity(handle: Long, securityinformation: Int, securitydescriptor: Long): Int
+    external fun windowssysWindowsWin32SecuritySetKernelObjectSecurity(handle: Long, securityinformation: Int, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setPrivateObjectSecurity(securityinformation: Int, modificationdescriptor: Long, objectssecuritydescriptor: Long, genericmapping: Long, token: Long): Int
+    external fun windowssysWindowsWin32SecuritySetPrivateObjectSecurity(securityinformation: Int, modificationdescriptor: Long, objectssecuritydescriptor: Long, genericmapping: Long, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setPrivateObjectSecurityEx(securityinformation: Int, modificationdescriptor: Long, objectssecuritydescriptor: Long, autoinheritflags: Int, genericmapping: Long, token: Long): Int
+    external fun windowssysWindowsWin32SecuritySetPrivateObjectSecurityEx(securityinformation: Int, modificationdescriptor: Long, objectssecuritydescriptor: Long, autoinheritflags: Int, genericmapping: Long, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityAccessMask(securityinformation: Int, desiredaccess: Long)
+    external fun windowssysWindowsWin32SecuritySetSecurityAccessMask(securityinformation: Int, desiredaccess: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityDescriptorControl(psecuritydescriptor: Long, controlbitsofinterest: Short, controlbitstoset: Short): Int
+    external fun windowssysWindowsWin32SecuritySetSecurityDescriptorControl(psecuritydescriptor: Long, controlbitsofinterest: Short, controlbitstoset: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityDescriptorDacl(psecuritydescriptor: Long, bdaclpresent: Int, pdacl: Long, bdacldefaulted: Int): Int
+    external fun windowssysWindowsWin32SecuritySetSecurityDescriptorDacl(psecuritydescriptor: Long, bdaclpresent: Int, pdacl: Long, bdacldefaulted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityDescriptorGroup(psecuritydescriptor: Long, pgroup: Long, bgroupdefaulted: Int): Int
+    external fun windowssysWindowsWin32SecuritySetSecurityDescriptorGroup(psecuritydescriptor: Long, pgroup: Long, bgroupdefaulted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityDescriptorOwner(psecuritydescriptor: Long, powner: Long, bownerdefaulted: Int): Int
+    external fun windowssysWindowsWin32SecuritySetSecurityDescriptorOwner(psecuritydescriptor: Long, powner: Long, bownerdefaulted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityDescriptorRMControl(securitydescriptor: Long, rmcontrol: Long): Int
+    external fun windowssysWindowsWin32SecuritySetSecurityDescriptorRMControl(securitydescriptor: Long, rmcontrol: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setSecurityDescriptorSacl(psecuritydescriptor: Long, bsaclpresent: Int, psacl: Long, bsacldefaulted: Int): Int
+    external fun windowssysWindowsWin32SecuritySetSecurityDescriptorSacl(psecuritydescriptor: Long, bsaclpresent: Int, psacl: Long, bsacldefaulted: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setTokenInformation(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int): Int
+    external fun windowssysWindowsWin32SecuritySetTokenInformation(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_setUserObjectSecurity(hobj: Long, psirequested: Long, psid: Long): Int
+    external fun windowssysWindowsWin32SecuritySetUserObjectSecurity(hobj: Long, psirequested: Long, psid: Long): Int
 }
 
-public actual fun accessCheck(psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheck((psecuritydescriptor?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (genericmapping?.value ?: 0L), (privilegeset?.value ?: 0L), (privilegesetlength?.value ?: 0L), (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L))
+public actual fun accessCheck(psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, privilegeset: MutPtr<PrivilegeSet>, privilegesetlength: MutPtr<UInt>, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheck(psecuritydescriptor.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), genericmapping.rawAddress, privilegeset.rawAddress, privilegesetlength.rawAddress, grantedaccess.rawAddress, accessstatus.rawAddress)
 
-public actual fun accessCheckAndAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckAndAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), desiredaccess.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckAndAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckAndAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, desiredaccess.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckAndAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckAndAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), desiredaccess.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckAndAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckAndAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, desiredaccess.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckByType(psecuritydescriptor: PsecurityDescriptor, principalselfsid: Psid, clienttoken: Handle, desiredaccess: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByType((psecuritydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), (privilegeset?.value ?: 0L), (privilegesetlength?.value ?: 0L), (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L))
+public actual fun accessCheckByType(psecuritydescriptor: PsecurityDescriptor, principalselfsid: Psid, clienttoken: Handle, desiredaccess: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, privilegeset: MutPtr<PrivilegeSet>, privilegesetlength: MutPtr<UInt>, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByType(psecuritydescriptor.rawAddress, principalselfsid.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, privilegeset.rawAddress, privilegesetlength.rawAddress, grantedaccess.rawAddress, accessstatus.rawAddress)
 
-public actual fun accessCheckByTypeAndAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckByTypeAndAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeAndAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckByTypeAndAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckByTypeAndAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeAndAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckByTypeResultList(psecuritydescriptor: PsecurityDescriptor, principalselfsid: Psid, clienttoken: Handle, desiredaccess: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccesslist: COpaquePointer?, accessstatuslist: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeResultList((psecuritydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), (privilegeset?.value ?: 0L), (privilegesetlength?.value ?: 0L), (grantedaccesslist?.value ?: 0L), (accessstatuslist?.value ?: 0L))
+public actual fun accessCheckByTypeResultList(psecuritydescriptor: PsecurityDescriptor, principalselfsid: Psid, clienttoken: Handle, desiredaccess: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, privilegeset: MutPtr<PrivilegeSet>, privilegesetlength: MutPtr<UInt>, grantedaccesslist: MutPtr<UInt>, accessstatuslist: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeResultList(psecuritydescriptor.rawAddress, principalselfsid.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, privilegeset.rawAddress, privilegesetlength.rawAddress, grantedaccesslist.rawAddress, accessstatuslist.rawAddress)
 
-public actual fun accessCheckByTypeResultListAndAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatuslist?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckByTypeResultListAndAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccess: MutPtr<UInt>, accessstatuslist: MutPtr<UInt>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatuslist.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: Pcstr, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatuslist?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, clienttoken: Handle, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccess: MutPtr<UInt>, accessstatuslist: MutPtr<UInt>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatuslist.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: Pcwstr, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccesslist: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccesslist?.value ?: 0L), (accessstatuslist?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, clienttoken: Handle, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccesslist: MutPtr<UInt>, accessstatuslist: MutPtr<UInt>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccesslist.rawAddress, accessstatuslist.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun accessCheckByTypeResultListAndAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccesslist: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccesslist?.value ?: 0L), (accessstatuslist?.value ?: 0L), (pfgenerateonclose?.value ?: 0L))
+public actual fun accessCheckByTypeResultListAndAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: MutPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Bool, grantedaccesslist: MutPtr<UInt>, accessstatuslist: MutPtr<UInt>, pfgenerateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAccessCheckByTypeResultListAndAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccesslist.rawAddress, accessstatuslist.rawAddress, pfgenerateonclose.rawAddress)
 
-public actual fun addAccessAllowedAce(pacl: COpaquePointer?, dwacerevision: AceRevision, accessmask: UInt, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAccessAllowedAce((pacl?.value ?: 0L), dwacerevision.toInt(), accessmask.toInt(), (psid?.value ?: 0L))
+public actual fun addAccessAllowedAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, accessmask: UInt, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAccessAllowedAce(pacl.rawAddress, dwacerevision.toInt(), accessmask.toInt(), psid.rawAddress)
 
-public actual fun addAccessAllowedAceEx(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAccessAllowedAceEx((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L))
+public actual fun addAccessAllowedAceEx(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAccessAllowedAceEx(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.rawAddress)
 
-public actual fun addAccessAllowedObjectAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: COpaquePointer?, inheritedobjecttypeguid: COpaquePointer?, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAccessAllowedObjectAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (objecttypeguid?.value ?: 0L), (inheritedobjecttypeguid?.value ?: 0L), (psid?.value ?: 0L))
+public actual fun addAccessAllowedObjectAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: ConstPtr<Guid>, inheritedobjecttypeguid: ConstPtr<Guid>, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAccessAllowedObjectAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), objecttypeguid.rawAddress, inheritedobjecttypeguid.rawAddress, psid.rawAddress)
 
-public actual fun addAccessDeniedAce(pacl: COpaquePointer?, dwacerevision: AceRevision, accessmask: UInt, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAccessDeniedAce((pacl?.value ?: 0L), dwacerevision.toInt(), accessmask.toInt(), (psid?.value ?: 0L))
+public actual fun addAccessDeniedAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, accessmask: UInt, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAccessDeniedAce(pacl.rawAddress, dwacerevision.toInt(), accessmask.toInt(), psid.rawAddress)
 
-public actual fun addAccessDeniedAceEx(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAccessDeniedAceEx((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L))
+public actual fun addAccessDeniedAceEx(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAccessDeniedAceEx(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.rawAddress)
 
-public actual fun addAccessDeniedObjectAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: COpaquePointer?, inheritedobjecttypeguid: COpaquePointer?, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAccessDeniedObjectAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (objecttypeguid?.value ?: 0L), (inheritedobjecttypeguid?.value ?: 0L), (psid?.value ?: 0L))
+public actual fun addAccessDeniedObjectAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: ConstPtr<Guid>, inheritedobjecttypeguid: ConstPtr<Guid>, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAccessDeniedObjectAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), objecttypeguid.rawAddress, inheritedobjecttypeguid.rawAddress, psid.rawAddress)
 
-public actual fun addAce(pacl: COpaquePointer?, dwacerevision: AceRevision, dwstartingaceindex: UInt, pacelist: COpaquePointer?, nacelistlength: UInt): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAce((pacl?.value ?: 0L), dwacerevision.toInt(), dwstartingaceindex.toInt(), (pacelist?.value ?: 0L), nacelistlength.toInt())
+public actual fun addAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, dwstartingaceindex: UInt, pacelist: ConstPtr<CVoid>, nacelistlength: UInt): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAce(pacl.rawAddress, dwacerevision.toInt(), dwstartingaceindex.toInt(), pacelist.rawAddress, nacelistlength.toInt())
 
-public actual fun addAuditAccessAce(pacl: COpaquePointer?, dwacerevision: AceRevision, dwaccessmask: UInt, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAuditAccessAce((pacl?.value ?: 0L), dwacerevision.toInt(), dwaccessmask.toInt(), (psid?.value ?: 0L), bauditsuccess, bauditfailure)
+public actual fun addAuditAccessAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, dwaccessmask: UInt, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAuditAccessAce(pacl.rawAddress, dwacerevision.toInt(), dwaccessmask.toInt(), psid.rawAddress, bauditsuccess, bauditfailure)
 
-public actual fun addAuditAccessAceEx(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, dwaccessmask: UInt, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAuditAccessAceEx((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), dwaccessmask.toInt(), (psid?.value ?: 0L), bauditsuccess, bauditfailure)
+public actual fun addAuditAccessAceEx(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, dwaccessmask: UInt, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAuditAccessAceEx(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), dwaccessmask.toInt(), psid.rawAddress, bauditsuccess, bauditfailure)
 
-public actual fun addAuditAccessObjectAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: COpaquePointer?, inheritedobjecttypeguid: COpaquePointer?, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addAuditAccessObjectAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (objecttypeguid?.value ?: 0L), (inheritedobjecttypeguid?.value ?: 0L), (psid?.value ?: 0L), bauditsuccess, bauditfailure)
+public actual fun addAuditAccessObjectAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: ConstPtr<Guid>, inheritedobjecttypeguid: ConstPtr<Guid>, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddAuditAccessObjectAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), objecttypeguid.rawAddress, inheritedobjecttypeguid.rawAddress, psid.rawAddress, bauditsuccess, bauditfailure)
 
-public actual fun addConditionalAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, acetype: UByte, accessmask: UInt, psid: Psid, conditionstr: Pcwstr, returnlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addConditionalAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), acetype.toByte(), accessmask.toInt(), (psid?.value ?: 0L), (conditionstr?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun addConditionalAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, acetype: UByte, accessmask: UInt, psid: Psid, conditionstr: Pcwstr, returnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddConditionalAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), acetype.toByte(), accessmask.toInt(), psid.rawAddress, conditionstr.rawAddress, returnlength.rawAddress)
 
-public actual fun addMandatoryAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, mandatorypolicy: UInt, plabelsid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addMandatoryAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), mandatorypolicy.toInt(), (plabelsid?.value ?: 0L))
+public actual fun addMandatoryAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, mandatorypolicy: UInt, plabelsid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddMandatoryAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), mandatorypolicy.toInt(), plabelsid.rawAddress)
 
-public actual fun addResourceAttributeAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid, pattributeinfo: COpaquePointer?, preturnlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addResourceAttributeAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L), (pattributeinfo?.value ?: 0L), (preturnlength?.value ?: 0L))
+public actual fun addResourceAttributeAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid, pattributeinfo: ConstPtr<ClaimSecurityAttributesInformation>, preturnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddResourceAttributeAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.rawAddress, pattributeinfo.rawAddress, preturnlength.rawAddress)
 
-public actual fun addScopedPolicyIDAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_addScopedPolicyIDAce((pacl?.value ?: 0L), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L))
+public actual fun addScopedPolicyIDAce(pacl: MutPtr<Acl>, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAddScopedPolicyIDAce(pacl.rawAddress, dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.rawAddress)
 
-public actual fun adjustTokenGroups(tokenhandle: Handle, resettodefault: Bool, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_adjustTokenGroups((tokenhandle?.value ?: 0L), resettodefault, (newstate?.value ?: 0L), bufferlength.toInt(), (previousstate?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun adjustTokenGroups(tokenhandle: Handle, resettodefault: Bool, newstate: ConstPtr<TokenGroups>, bufferlength: UInt, previousstate: MutPtr<TokenGroups>, returnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAdjustTokenGroups(tokenhandle.rawAddress, resettodefault, newstate.rawAddress, bufferlength.toInt(), previousstate.rawAddress, returnlength.rawAddress)
 
-public actual fun adjustTokenPrivileges(tokenhandle: Handle, disableallprivileges: Bool, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_adjustTokenPrivileges((tokenhandle?.value ?: 0L), disableallprivileges, (newstate?.value ?: 0L), bufferlength.toInt(), (previousstate?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun adjustTokenPrivileges(tokenhandle: Handle, disableallprivileges: Bool, newstate: ConstPtr<TokenPrivileges>, bufferlength: UInt, previousstate: MutPtr<TokenPrivileges>, returnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAdjustTokenPrivileges(tokenhandle.rawAddress, disableallprivileges, newstate.rawAddress, bufferlength.toInt(), previousstate.rawAddress, returnlength.rawAddress)
 
-public actual fun allocateAndInitializeSid(pidentifierauthority: COpaquePointer?, nsubauthoritycount: UByte, nsubauthority0: UInt, nsubauthority1: UInt, nsubauthority2: UInt, nsubauthority3: UInt, nsubauthority4: UInt, nsubauthority5: UInt, nsubauthority6: UInt, nsubauthority7: UInt, psid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_allocateAndInitializeSid((pidentifierauthority?.value ?: 0L), nsubauthoritycount.toByte(), nsubauthority0.toInt(), nsubauthority1.toInt(), nsubauthority2.toInt(), nsubauthority3.toInt(), nsubauthority4.toInt(), nsubauthority5.toInt(), nsubauthority6.toInt(), nsubauthority7.toInt(), (psid?.value ?: 0L))
+public actual fun allocateAndInitializeSid(pidentifierauthority: ConstPtr<SidIdentifierAuthority>, nsubauthoritycount: UByte, nsubauthority0: UInt, nsubauthority1: UInt, nsubauthority2: UInt, nsubauthority3: UInt, nsubauthority4: UInt, nsubauthority5: UInt, nsubauthority6: UInt, nsubauthority7: UInt, psid: MutPtr<Psid>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAllocateAndInitializeSid(pidentifierauthority.rawAddress, nsubauthoritycount.toByte(), nsubauthority0.toInt(), nsubauthority1.toInt(), nsubauthority2.toInt(), nsubauthority3.toInt(), nsubauthority4.toInt(), nsubauthority5.toInt(), nsubauthority6.toInt(), nsubauthority7.toInt(), psid.rawAddress)
 
-public actual fun allocateLocallyUniqueId(luid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_allocateLocallyUniqueId((luid?.value ?: 0L))
+public actual fun allocateLocallyUniqueId(luid: MutPtr<Luid>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAllocateLocallyUniqueId(luid.rawAddress)
 
 public actual fun areAllAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_areAllAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt())
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAreAllAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt())
 
 public actual fun areAnyAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_areAnyAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt())
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityAreAnyAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt())
 
-public actual fun checkTokenCapability(tokenhandle: Handle, capabilitysidtocheck: Psid, hascapability: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_checkTokenCapability((tokenhandle?.value ?: 0L), (capabilitysidtocheck?.value ?: 0L), (hascapability?.value ?: 0L))
+public actual fun checkTokenCapability(tokenhandle: Handle, capabilitysidtocheck: Psid, hascapability: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCheckTokenCapability(tokenhandle.rawAddress, capabilitysidtocheck.rawAddress, hascapability.rawAddress)
 
-public actual fun checkTokenMembership(tokenhandle: Handle, sidtocheck: Psid, ismember: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_checkTokenMembership((tokenhandle?.value ?: 0L), (sidtocheck?.value ?: 0L), (ismember?.value ?: 0L))
+public actual fun checkTokenMembership(tokenhandle: Handle, sidtocheck: Psid, ismember: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCheckTokenMembership(tokenhandle.rawAddress, sidtocheck.rawAddress, ismember.rawAddress)
 
-public actual fun checkTokenMembershipEx(tokenhandle: Handle, sidtocheck: Psid, flags: UInt, ismember: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_checkTokenMembershipEx((tokenhandle?.value ?: 0L), (sidtocheck?.value ?: 0L), flags.toInt(), (ismember?.value ?: 0L))
+public actual fun checkTokenMembershipEx(tokenhandle: Handle, sidtocheck: Psid, flags: UInt, ismember: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCheckTokenMembershipEx(tokenhandle.rawAddress, sidtocheck.rawAddress, flags.toInt(), ismember.rawAddress)
 
-public actual fun convertToAutoInheritPrivateObjectSecurity(parentdescriptor: PsecurityDescriptor, currentsecuritydescriptor: PsecurityDescriptor, newsecuritydescriptor: COpaquePointer?, objecttype: COpaquePointer?, isdirectoryobject: Boolean, genericmapping: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_convertToAutoInheritPrivateObjectSecurity((parentdescriptor?.value ?: 0L), (currentsecuritydescriptor?.value ?: 0L), (newsecuritydescriptor?.value ?: 0L), (objecttype?.value ?: 0L), isdirectoryobject, (genericmapping?.value ?: 0L))
+public actual fun convertToAutoInheritPrivateObjectSecurity(parentdescriptor: PsecurityDescriptor, currentsecuritydescriptor: PsecurityDescriptor, newsecuritydescriptor: MutPtr<PsecurityDescriptor>, objecttype: ConstPtr<Guid>, isdirectoryobject: Boolean, genericmapping: ConstPtr<GenericMapping>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityConvertToAutoInheritPrivateObjectSecurity(parentdescriptor.rawAddress, currentsecuritydescriptor.rawAddress, newsecuritydescriptor.rawAddress, objecttype.rawAddress, isdirectoryobject, genericmapping.rawAddress)
 
 public actual fun copySid(ndestinationsidlength: UInt, pdestinationsid: Psid, psourcesid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_copySid(ndestinationsidlength.toInt(), (pdestinationsid?.value ?: 0L), (psourcesid?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCopySid(ndestinationsidlength.toInt(), pdestinationsid.rawAddress, psourcesid.rawAddress)
 
-public actual fun createPrivateObjectSecurity(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, isdirectoryobject: Bool, token: Handle, genericmapping: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_createPrivateObjectSecurity((parentdescriptor?.value ?: 0L), (creatordescriptor?.value ?: 0L), (newdescriptor?.value ?: 0L), isdirectoryobject, (token?.value ?: 0L), (genericmapping?.value ?: 0L))
+public actual fun createPrivateObjectSecurity(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, isdirectoryobject: Bool, token: Handle, genericmapping: ConstPtr<GenericMapping>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCreatePrivateObjectSecurity(parentdescriptor.rawAddress, creatordescriptor.rawAddress, newdescriptor.rawAddress, isdirectoryobject, token.rawAddress, genericmapping.rawAddress)
 
-public actual fun createPrivateObjectSecurityEx(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, objecttype: COpaquePointer?, iscontainerobject: Bool, autoinheritflags: SecurityAutoInheritFlags, token: Handle, genericmapping: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_createPrivateObjectSecurityEx((parentdescriptor?.value ?: 0L), (creatordescriptor?.value ?: 0L), (newdescriptor?.value ?: 0L), (objecttype?.value ?: 0L), iscontainerobject, autoinheritflags.toInt(), (token?.value ?: 0L), (genericmapping?.value ?: 0L))
+public actual fun createPrivateObjectSecurityEx(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, objecttype: ConstPtr<Guid>, iscontainerobject: Bool, autoinheritflags: SecurityAutoInheritFlags, token: Handle, genericmapping: ConstPtr<GenericMapping>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCreatePrivateObjectSecurityEx(parentdescriptor.rawAddress, creatordescriptor.rawAddress, newdescriptor.rawAddress, objecttype.rawAddress, iscontainerobject, autoinheritflags.toInt(), token.rawAddress, genericmapping.rawAddress)
 
-public actual fun createPrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, objecttypes: COpaquePointer?, guidcount: UInt, iscontainerobject: Bool, autoinheritflags: SecurityAutoInheritFlags, token: Handle, genericmapping: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_createPrivateObjectSecurityWithMultipleInheritance((parentdescriptor?.value ?: 0L), (creatordescriptor?.value ?: 0L), (newdescriptor?.value ?: 0L), (objecttypes?.value ?: 0L), guidcount.toInt(), iscontainerobject, autoinheritflags.toInt(), (token?.value ?: 0L), (genericmapping?.value ?: 0L))
+public actual fun createPrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, objecttypes: ConstPtr<ConstPtr<Guid>>, guidcount: UInt, iscontainerobject: Bool, autoinheritflags: SecurityAutoInheritFlags, token: Handle, genericmapping: ConstPtr<GenericMapping>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.rawAddress, creatordescriptor.rawAddress, newdescriptor.rawAddress, objecttypes.rawAddress, guidcount.toInt(), iscontainerobject, autoinheritflags.toInt(), token.rawAddress, genericmapping.rawAddress)
 
-public actual fun createRestrictedToken(existingtokenhandle: Handle, flags: CreateRestrictedTokenFlags, disablesidcount: UInt, sidstodisable: COpaquePointer?, deleteprivilegecount: UInt, privilegestodelete: COpaquePointer?, restrictedsidcount: UInt, sidstorestrict: COpaquePointer?, newtokenhandle: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_createRestrictedToken((existingtokenhandle?.value ?: 0L), flags.toInt(), disablesidcount.toInt(), (sidstodisable?.value ?: 0L), deleteprivilegecount.toInt(), (privilegestodelete?.value ?: 0L), restrictedsidcount.toInt(), (sidstorestrict?.value ?: 0L), (newtokenhandle?.value ?: 0L))
+public actual fun createRestrictedToken(existingtokenhandle: Handle, flags: CreateRestrictedTokenFlags, disablesidcount: UInt, sidstodisable: ConstPtr<SidAndAttributes>, deleteprivilegecount: UInt, privilegestodelete: ConstPtr<LuidAndAttributes>, restrictedsidcount: UInt, sidstorestrict: ConstPtr<SidAndAttributes>, newtokenhandle: MutPtr<Handle>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCreateRestrictedToken(existingtokenhandle.rawAddress, flags.toInt(), disablesidcount.toInt(), sidstodisable.rawAddress, deleteprivilegecount.toInt(), privilegestodelete.rawAddress, restrictedsidcount.toInt(), sidstorestrict.rawAddress, newtokenhandle.rawAddress)
 
-public actual fun createWellKnownSid(wellknownsidtype: WellKnownSidType, domainsid: Psid, psid: Psid, cbsid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_createWellKnownSid(wellknownsidtype, (domainsid?.value ?: 0L), (psid?.value ?: 0L), (cbsid?.value ?: 0L))
+public actual fun createWellKnownSid(wellknownsidtype: WellKnownSidType, domainsid: Psid, psid: Psid, cbsid: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityCreateWellKnownSid(wellknownsidtype, domainsid.rawAddress, psid.rawAddress, cbsid.rawAddress)
 
-public actual fun deleteAce(pacl: COpaquePointer?, dwaceindex: UInt): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_deleteAce((pacl?.value ?: 0L), dwaceindex.toInt())
+public actual fun deleteAce(pacl: MutPtr<Acl>, dwaceindex: UInt): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityDeleteAce(pacl.rawAddress, dwaceindex.toInt())
 
-public actual fun deriveCapabilitySidsFromName(capname: Pcwstr, capabilitygroupsids: COpaquePointer?, capabilitygroupsidcount: COpaquePointer?, capabilitysids: COpaquePointer?, capabilitysidcount: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_deriveCapabilitySidsFromName((capname?.value ?: 0L), (capabilitygroupsids?.value ?: 0L), (capabilitygroupsidcount?.value ?: 0L), (capabilitysids?.value ?: 0L), (capabilitysidcount?.value ?: 0L))
+public actual fun deriveCapabilitySidsFromName(capname: Pcwstr, capabilitygroupsids: MutPtr<MutPtr<Psid>>, capabilitygroupsidcount: MutPtr<UInt>, capabilitysids: MutPtr<MutPtr<Psid>>, capabilitysidcount: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityDeriveCapabilitySidsFromName(capname.rawAddress, capabilitygroupsids.rawAddress, capabilitygroupsidcount.rawAddress, capabilitysids.rawAddress, capabilitysidcount.rawAddress)
 
-public actual fun destroyPrivateObjectSecurity(objectdescriptor: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_destroyPrivateObjectSecurity((objectdescriptor?.value ?: 0L))
+public actual fun destroyPrivateObjectSecurity(objectdescriptor: ConstPtr<PsecurityDescriptor>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityDestroyPrivateObjectSecurity(objectdescriptor.rawAddress)
 
-public actual fun duplicateToken(existingtokenhandle: Handle, impersonationlevel: SecurityImpersonationLevel, duplicatetokenhandle: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_duplicateToken((existingtokenhandle?.value ?: 0L), impersonationlevel, (duplicatetokenhandle?.value ?: 0L))
+public actual fun duplicateToken(existingtokenhandle: Handle, impersonationlevel: SecurityImpersonationLevel, duplicatetokenhandle: MutPtr<Handle>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityDuplicateToken(existingtokenhandle.rawAddress, impersonationlevel, duplicatetokenhandle.rawAddress)
 
-public actual fun duplicateTokenEx(hexistingtoken: Handle, dwdesiredaccess: TokenAccessMask, lptokenattributes: COpaquePointer?, impersonationlevel: SecurityImpersonationLevel, tokentype: TokenType, phnewtoken: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_duplicateTokenEx((hexistingtoken?.value ?: 0L), dwdesiredaccess.toInt(), (lptokenattributes?.value ?: 0L), impersonationlevel, tokentype, (phnewtoken?.value ?: 0L))
+public actual fun duplicateTokenEx(hexistingtoken: Handle, dwdesiredaccess: TokenAccessMask, lptokenattributes: ConstPtr<SecurityAttributes>, impersonationlevel: SecurityImpersonationLevel, tokentype: TokenType, phnewtoken: MutPtr<Handle>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityDuplicateTokenEx(hexistingtoken.rawAddress, dwdesiredaccess.toInt(), lptokenattributes.rawAddress, impersonationlevel, tokentype, phnewtoken.rawAddress)
 
-public actual fun equalDomainSid(psid1: Psid, psid2: Psid, pfequal: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_equalDomainSid((psid1?.value ?: 0L), (psid2?.value ?: 0L), (pfequal?.value ?: 0L))
+public actual fun equalDomainSid(psid1: Psid, psid2: Psid, pfequal: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityEqualDomainSid(psid1.rawAddress, psid2.rawAddress, pfequal.rawAddress)
 
 public actual fun equalPrefixSid(psid1: Psid, psid2: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_equalPrefixSid((psid1?.value ?: 0L), (psid2?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityEqualPrefixSid(psid1.rawAddress, psid2.rawAddress)
 
 public actual fun equalSid(psid1: Psid, psid2: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_equalSid((psid1?.value ?: 0L), (psid2?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityEqualSid(psid1.rawAddress, psid2.rawAddress)
 
-public actual fun findFirstFreeAce(pacl: COpaquePointer?, pace: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_findFirstFreeAce((pacl?.value ?: 0L), (pace?.value ?: 0L))
+public actual fun findFirstFreeAce(pacl: ConstPtr<Acl>, pace: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityFindFirstFreeAce(pacl.rawAddress, pace.rawAddress)
 
-public actual fun freeSid(psid: Psid): COpaquePointer? =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_freeSid((psid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun freeSid(psid: Psid): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityFreeSid(psid.rawAddress))
 
-public actual fun getAce(pacl: COpaquePointer?, dwaceindex: UInt, pace: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getAce((pacl?.value ?: 0L), dwaceindex.toInt(), (pace?.value ?: 0L))
+public actual fun getAce(pacl: ConstPtr<Acl>, dwaceindex: UInt, pace: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetAce(pacl.rawAddress, dwaceindex.toInt(), pace.rawAddress)
 
-public actual fun getAclInformation(pacl: COpaquePointer?, paclinformation: COpaquePointer?, naclinformationlength: UInt, dwaclinformationclass: AclInformationClass): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getAclInformation((pacl?.value ?: 0L), (paclinformation?.value ?: 0L), naclinformationlength.toInt(), dwaclinformationclass)
+public actual fun getAclInformation(pacl: ConstPtr<Acl>, paclinformation: MutPtr<CVoid>, naclinformationlength: UInt, dwaclinformationclass: AclInformationClass): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetAclInformation(pacl.rawAddress, paclinformation.rawAddress, naclinformationlength.toInt(), dwaclinformationclass)
 
-public actual fun getAppContainerAce(acl: COpaquePointer?, startingaceindex: UInt, appcontainerace: COpaquePointer?, appcontaineraceindex: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getAppContainerAce((acl?.value ?: 0L), startingaceindex.toInt(), (appcontainerace?.value ?: 0L), (appcontaineraceindex?.value ?: 0L))
+public actual fun getAppContainerAce(acl: ConstPtr<Acl>, startingaceindex: UInt, appcontainerace: MutPtr<MutPtr<CVoid>>, appcontaineraceindex: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetAppContainerAce(acl.rawAddress, startingaceindex.toInt(), appcontainerace.rawAddress, appcontaineraceindex.rawAddress)
 
-public actual fun getCachedSigningLevel(file: Handle, flags: COpaquePointer?, signinglevel: COpaquePointer?, thumbprint: COpaquePointer?, thumbprintsize: COpaquePointer?, thumbprintalgorithm: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getCachedSigningLevel((file?.value ?: 0L), (flags?.value ?: 0L), (signinglevel?.value ?: 0L), (thumbprint?.value ?: 0L), (thumbprintsize?.value ?: 0L), (thumbprintalgorithm?.value ?: 0L))
+public actual fun getCachedSigningLevel(file: Handle, flags: MutPtr<UInt>, signinglevel: MutPtr<UInt>, thumbprint: MutPtr<UByte>, thumbprintsize: MutPtr<UInt>, thumbprintalgorithm: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetCachedSigningLevel(file.rawAddress, flags.rawAddress, signinglevel.rawAddress, thumbprint.rawAddress, thumbprintsize.rawAddress, thumbprintalgorithm.rawAddress)
 
-public actual fun getFileSecurityA(lpfilename: Pcstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getFileSecurityA((lpfilename?.value ?: 0L), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L), nlength.toInt(), (lpnlengthneeded?.value ?: 0L))
+public actual fun getFileSecurityA(lpfilename: Pcstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetFileSecurityA(lpfilename.rawAddress, requestedinformation.toInt(), psecuritydescriptor.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun getFileSecurityW(lpfilename: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getFileSecurityW((lpfilename?.value ?: 0L), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L), nlength.toInt(), (lpnlengthneeded?.value ?: 0L))
+public actual fun getFileSecurityW(lpfilename: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetFileSecurityW(lpfilename.rawAddress, requestedinformation.toInt(), psecuritydescriptor.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun getKernelObjectSecurity(handle: Handle, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getKernelObjectSecurity((handle?.value ?: 0L), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L), nlength.toInt(), (lpnlengthneeded?.value ?: 0L))
+public actual fun getKernelObjectSecurity(handle: Handle, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetKernelObjectSecurity(handle.rawAddress, requestedinformation.toInt(), psecuritydescriptor.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
 public actual fun getLengthSid(psid: Psid): UInt =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getLengthSid((psid?.value ?: 0L)).toUInt()
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetLengthSid(psid.rawAddress).toUInt()
 
-public actual fun getPrivateObjectSecurity(objectdescriptor: PsecurityDescriptor, securityinformation: ObjectSecurityInformation, resultantdescriptor: PsecurityDescriptor, descriptorlength: UInt, returnlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getPrivateObjectSecurity((objectdescriptor?.value ?: 0L), securityinformation.toInt(), (resultantdescriptor?.value ?: 0L), descriptorlength.toInt(), (returnlength?.value ?: 0L))
+public actual fun getPrivateObjectSecurity(objectdescriptor: PsecurityDescriptor, securityinformation: ObjectSecurityInformation, resultantdescriptor: PsecurityDescriptor, descriptorlength: UInt, returnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetPrivateObjectSecurity(objectdescriptor.rawAddress, securityinformation.toInt(), resultantdescriptor.rawAddress, descriptorlength.toInt(), returnlength.rawAddress)
 
-public actual fun getSecurityDescriptorControl(psecuritydescriptor: PsecurityDescriptor, pcontrol: COpaquePointer?, lpdwrevision: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorControl((psecuritydescriptor?.value ?: 0L), (pcontrol?.value ?: 0L), (lpdwrevision?.value ?: 0L))
+public actual fun getSecurityDescriptorControl(psecuritydescriptor: PsecurityDescriptor, pcontrol: MutPtr<UShort>, lpdwrevision: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorControl(psecuritydescriptor.rawAddress, pcontrol.rawAddress, lpdwrevision.rawAddress)
 
-public actual fun getSecurityDescriptorDacl(psecuritydescriptor: PsecurityDescriptor, lpbdaclpresent: COpaquePointer?, pdacl: COpaquePointer?, lpbdacldefaulted: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorDacl((psecuritydescriptor?.value ?: 0L), (lpbdaclpresent?.value ?: 0L), (pdacl?.value ?: 0L), (lpbdacldefaulted?.value ?: 0L))
+public actual fun getSecurityDescriptorDacl(psecuritydescriptor: PsecurityDescriptor, lpbdaclpresent: MutPtr<Bool>, pdacl: MutPtr<MutPtr<Acl>>, lpbdacldefaulted: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorDacl(psecuritydescriptor.rawAddress, lpbdaclpresent.rawAddress, pdacl.rawAddress, lpbdacldefaulted.rawAddress)
 
-public actual fun getSecurityDescriptorGroup(psecuritydescriptor: PsecurityDescriptor, pgroup: COpaquePointer?, lpbgroupdefaulted: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorGroup((psecuritydescriptor?.value ?: 0L), (pgroup?.value ?: 0L), (lpbgroupdefaulted?.value ?: 0L))
+public actual fun getSecurityDescriptorGroup(psecuritydescriptor: PsecurityDescriptor, pgroup: MutPtr<Psid>, lpbgroupdefaulted: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorGroup(psecuritydescriptor.rawAddress, pgroup.rawAddress, lpbgroupdefaulted.rawAddress)
 
 public actual fun getSecurityDescriptorLength(psecuritydescriptor: PsecurityDescriptor): UInt =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorLength((psecuritydescriptor?.value ?: 0L)).toUInt()
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorLength(psecuritydescriptor.rawAddress).toUInt()
 
-public actual fun getSecurityDescriptorOwner(psecuritydescriptor: PsecurityDescriptor, powner: COpaquePointer?, lpbownerdefaulted: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorOwner((psecuritydescriptor?.value ?: 0L), (powner?.value ?: 0L), (lpbownerdefaulted?.value ?: 0L))
+public actual fun getSecurityDescriptorOwner(psecuritydescriptor: PsecurityDescriptor, powner: MutPtr<Psid>, lpbownerdefaulted: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorOwner(psecuritydescriptor.rawAddress, powner.rawAddress, lpbownerdefaulted.rawAddress)
 
-public actual fun getSecurityDescriptorRMControl(securitydescriptor: PsecurityDescriptor, rmcontrol: COpaquePointer?): UInt =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorRMControl((securitydescriptor?.value ?: 0L), (rmcontrol?.value ?: 0L)).toUInt()
+public actual fun getSecurityDescriptorRMControl(securitydescriptor: PsecurityDescriptor, rmcontrol: MutPtr<UByte>): UInt =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorRMControl(securitydescriptor.rawAddress, rmcontrol.rawAddress).toUInt()
 
-public actual fun getSecurityDescriptorSacl(psecuritydescriptor: PsecurityDescriptor, lpbsaclpresent: COpaquePointer?, psacl: COpaquePointer?, lpbsacldefaulted: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSecurityDescriptorSacl((psecuritydescriptor?.value ?: 0L), (lpbsaclpresent?.value ?: 0L), (psacl?.value ?: 0L), (lpbsacldefaulted?.value ?: 0L))
+public actual fun getSecurityDescriptorSacl(psecuritydescriptor: PsecurityDescriptor, lpbsaclpresent: MutPtr<Bool>, psacl: MutPtr<MutPtr<Acl>>, lpbsacldefaulted: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSecurityDescriptorSacl(psecuritydescriptor.rawAddress, lpbsaclpresent.rawAddress, psacl.rawAddress, lpbsacldefaulted.rawAddress)
 
-public actual fun getSidIdentifierAuthority(psid: Psid): COpaquePointer? =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSidIdentifierAuthority((psid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun getSidIdentifierAuthority(psid: Psid): MutPtr<SidIdentifierAuthority> =
+    MutPtr(WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSidIdentifierAuthority(psid.rawAddress))
 
 public actual fun getSidLengthRequired(nsubauthoritycount: UByte): UInt =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSidLengthRequired(nsubauthoritycount.toByte()).toUInt()
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSidLengthRequired(nsubauthoritycount.toByte()).toUInt()
 
-public actual fun getSidSubAuthority(psid: Psid, nsubauthority: UInt): COpaquePointer? =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSidSubAuthority((psid?.value ?: 0L), nsubauthority.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun getSidSubAuthority(psid: Psid, nsubauthority: UInt): MutPtr<UInt> =
+    MutPtr(WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSidSubAuthority(psid.rawAddress, nsubauthority.toInt()))
 
-public actual fun getSidSubAuthorityCount(psid: Psid): COpaquePointer? =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getSidSubAuthorityCount((psid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun getSidSubAuthorityCount(psid: Psid): MutPtr<UByte> =
+    MutPtr(WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetSidSubAuthorityCount(psid.rawAddress))
 
-public actual fun getTokenInformation(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getTokenInformation((tokenhandle?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L), tokeninformationlength.toInt(), (returnlength?.value ?: 0L))
+public actual fun getTokenInformation(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<CVoid>, tokeninformationlength: UInt, returnlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetTokenInformation(tokenhandle.rawAddress, tokeninformationclass, tokeninformation.rawAddress, tokeninformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun getUserObjectSecurity(hobj: Handle, psirequested: COpaquePointer?, psid: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getUserObjectSecurity((hobj?.value ?: 0L), (psirequested?.value ?: 0L), (psid?.value ?: 0L), nlength.toInt(), (lpnlengthneeded?.value ?: 0L))
+public actual fun getUserObjectSecurity(hobj: Handle, psirequested: ConstPtr<UInt>, psid: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetUserObjectSecurity(hobj.rawAddress, psirequested.rawAddress, psid.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun getWindowsAccountDomainSid(psid: Psid, pdomainsid: Psid, cbdomainsid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_getWindowsAccountDomainSid((psid?.value ?: 0L), (pdomainsid?.value ?: 0L), (cbdomainsid?.value ?: 0L))
+public actual fun getWindowsAccountDomainSid(psid: Psid, pdomainsid: Psid, cbdomainsid: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityGetWindowsAccountDomainSid(psid.rawAddress, pdomainsid.rawAddress, cbdomainsid.rawAddress)
 
 public actual fun impersonateAnonymousToken(threadhandle: Handle): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_impersonateAnonymousToken((threadhandle?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityImpersonateAnonymousToken(threadhandle.rawAddress)
 
 public actual fun impersonateLoggedOnUser(htoken: Handle): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_impersonateLoggedOnUser((htoken?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityImpersonateLoggedOnUser(htoken.rawAddress)
 
 public actual fun impersonateSelf(impersonationlevel: SecurityImpersonationLevel): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_impersonateSelf(impersonationlevel)
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityImpersonateSelf(impersonationlevel)
 
-public actual fun initializeAcl(pacl: COpaquePointer?, nacllength: UInt, dwaclrevision: AceRevision): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_initializeAcl((pacl?.value ?: 0L), nacllength.toInt(), dwaclrevision.toInt())
+public actual fun initializeAcl(pacl: MutPtr<Acl>, nacllength: UInt, dwaclrevision: AceRevision): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityInitializeAcl(pacl.rawAddress, nacllength.toInt(), dwaclrevision.toInt())
 
 public actual fun initializeSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, dwrevision: UInt): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_initializeSecurityDescriptor((psecuritydescriptor?.value ?: 0L), dwrevision.toInt())
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityInitializeSecurityDescriptor(psecuritydescriptor.rawAddress, dwrevision.toInt())
 
-public actual fun initializeSid(sid: Psid, pidentifierauthority: COpaquePointer?, nsubauthoritycount: UByte): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_initializeSid((sid?.value ?: 0L), (pidentifierauthority?.value ?: 0L), nsubauthoritycount.toByte())
+public actual fun initializeSid(sid: Psid, pidentifierauthority: ConstPtr<SidIdentifierAuthority>, nsubauthoritycount: UByte): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityInitializeSid(sid.rawAddress, pidentifierauthority.rawAddress, nsubauthoritycount.toByte())
 
 public actual fun isTokenRestricted(tokenhandle: Handle): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_isTokenRestricted((tokenhandle?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityIsTokenRestricted(tokenhandle.rawAddress)
 
-public actual fun isValidAcl(pacl: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_isValidAcl((pacl?.value ?: 0L))
+public actual fun isValidAcl(pacl: ConstPtr<Acl>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityIsValidAcl(pacl.rawAddress)
 
 public actual fun isValidSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_isValidSecurityDescriptor((psecuritydescriptor?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityIsValidSecurityDescriptor(psecuritydescriptor.rawAddress)
 
 public actual fun isValidSid(psid: Psid): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_isValidSid((psid?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityIsValidSid(psid.rawAddress)
 
 public actual fun isWellKnownSid(psid: Psid, wellknownsidtype: WellKnownSidType): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_isWellKnownSid((psid?.value ?: 0L), wellknownsidtype)
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityIsWellKnownSid(psid.rawAddress, wellknownsidtype)
 
-public actual fun logonUserA(lpszusername: Pcstr, lpszdomain: Pcstr, lpszpassword: Pcstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_logonUserA((lpszusername?.value ?: 0L), (lpszdomain?.value ?: 0L), (lpszpassword?.value ?: 0L), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L))
+public actual fun logonUserA(lpszusername: Pcstr, lpszdomain: Pcstr, lpszpassword: Pcstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: MutPtr<Handle>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLogonUserA(lpszusername.rawAddress, lpszdomain.rawAddress, lpszpassword.rawAddress, dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.rawAddress)
 
-public actual fun logonUserExA(lpszusername: Pcstr, lpszdomain: Pcstr, lpszpassword: Pcstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?, pplogonsid: COpaquePointer?, ppprofilebuffer: COpaquePointer?, pdwprofilelength: COpaquePointer?, pquotalimits: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_logonUserExA((lpszusername?.value ?: 0L), (lpszdomain?.value ?: 0L), (lpszpassword?.value ?: 0L), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L), (pplogonsid?.value ?: 0L), (ppprofilebuffer?.value ?: 0L), (pdwprofilelength?.value ?: 0L), (pquotalimits?.value ?: 0L))
+public actual fun logonUserExA(lpszusername: Pcstr, lpszdomain: Pcstr, lpszpassword: Pcstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: MutPtr<Handle>, pplogonsid: MutPtr<Psid>, ppprofilebuffer: MutPtr<MutPtr<CVoid>>, pdwprofilelength: MutPtr<UInt>, pquotalimits: MutPtr<QuotaLimits>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLogonUserExA(lpszusername.rawAddress, lpszdomain.rawAddress, lpszpassword.rawAddress, dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.rawAddress, pplogonsid.rawAddress, ppprofilebuffer.rawAddress, pdwprofilelength.rawAddress, pquotalimits.rawAddress)
 
-public actual fun logonUserExW(lpszusername: Pcwstr, lpszdomain: Pcwstr, lpszpassword: Pcwstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?, pplogonsid: COpaquePointer?, ppprofilebuffer: COpaquePointer?, pdwprofilelength: COpaquePointer?, pquotalimits: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_logonUserExW((lpszusername?.value ?: 0L), (lpszdomain?.value ?: 0L), (lpszpassword?.value ?: 0L), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L), (pplogonsid?.value ?: 0L), (ppprofilebuffer?.value ?: 0L), (pdwprofilelength?.value ?: 0L), (pquotalimits?.value ?: 0L))
+public actual fun logonUserExW(lpszusername: Pcwstr, lpszdomain: Pcwstr, lpszpassword: Pcwstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: MutPtr<Handle>, pplogonsid: MutPtr<Psid>, ppprofilebuffer: MutPtr<MutPtr<CVoid>>, pdwprofilelength: MutPtr<UInt>, pquotalimits: MutPtr<QuotaLimits>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLogonUserExW(lpszusername.rawAddress, lpszdomain.rawAddress, lpszpassword.rawAddress, dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.rawAddress, pplogonsid.rawAddress, ppprofilebuffer.rawAddress, pdwprofilelength.rawAddress, pquotalimits.rawAddress)
 
-public actual fun logonUserW(lpszusername: Pcwstr, lpszdomain: Pcwstr, lpszpassword: Pcwstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_logonUserW((lpszusername?.value ?: 0L), (lpszdomain?.value ?: 0L), (lpszpassword?.value ?: 0L), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L))
+public actual fun logonUserW(lpszusername: Pcwstr, lpszdomain: Pcwstr, lpszpassword: Pcwstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: MutPtr<Handle>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLogonUserW(lpszusername.rawAddress, lpszdomain.rawAddress, lpszpassword.rawAddress, dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.rawAddress)
 
-public actual fun lookupAccountNameA(lpsystemname: Pcstr, lpaccountname: Pcstr, sid: Psid, cbsid: COpaquePointer?, referenceddomainname: Pstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupAccountNameA((lpsystemname?.value ?: 0L), (lpaccountname?.value ?: 0L), (sid?.value ?: 0L), (cbsid?.value ?: 0L), (referenceddomainname?.value ?: 0L), (cchreferenceddomainname?.value ?: 0L), (peuse?.value ?: 0L))
+public actual fun lookupAccountNameA(lpsystemname: Pcstr, lpaccountname: Pcstr, sid: Psid, cbsid: MutPtr<UInt>, referenceddomainname: Pstr, cchreferenceddomainname: MutPtr<UInt>, peuse: MutPtr<SidNameUse>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupAccountNameA(lpsystemname.rawAddress, lpaccountname.rawAddress, sid.rawAddress, cbsid.rawAddress, referenceddomainname.rawAddress, cchreferenceddomainname.rawAddress, peuse.rawAddress)
 
-public actual fun lookupAccountNameW(lpsystemname: Pcwstr, lpaccountname: Pcwstr, sid: Psid, cbsid: COpaquePointer?, referenceddomainname: Pwstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupAccountNameW((lpsystemname?.value ?: 0L), (lpaccountname?.value ?: 0L), (sid?.value ?: 0L), (cbsid?.value ?: 0L), (referenceddomainname?.value ?: 0L), (cchreferenceddomainname?.value ?: 0L), (peuse?.value ?: 0L))
+public actual fun lookupAccountNameW(lpsystemname: Pcwstr, lpaccountname: Pcwstr, sid: Psid, cbsid: MutPtr<UInt>, referenceddomainname: Pwstr, cchreferenceddomainname: MutPtr<UInt>, peuse: MutPtr<SidNameUse>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupAccountNameW(lpsystemname.rawAddress, lpaccountname.rawAddress, sid.rawAddress, cbsid.rawAddress, referenceddomainname.rawAddress, cchreferenceddomainname.rawAddress, peuse.rawAddress)
 
-public actual fun lookupAccountSidA(lpsystemname: Pcstr, sid: Psid, name: Pstr, cchname: COpaquePointer?, referenceddomainname: Pstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupAccountSidA((lpsystemname?.value ?: 0L), (sid?.value ?: 0L), (name?.value ?: 0L), (cchname?.value ?: 0L), (referenceddomainname?.value ?: 0L), (cchreferenceddomainname?.value ?: 0L), (peuse?.value ?: 0L))
+public actual fun lookupAccountSidA(lpsystemname: Pcstr, sid: Psid, name: Pstr, cchname: MutPtr<UInt>, referenceddomainname: Pstr, cchreferenceddomainname: MutPtr<UInt>, peuse: MutPtr<SidNameUse>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupAccountSidA(lpsystemname.rawAddress, sid.rawAddress, name.rawAddress, cchname.rawAddress, referenceddomainname.rawAddress, cchreferenceddomainname.rawAddress, peuse.rawAddress)
 
-public actual fun lookupAccountSidW(lpsystemname: Pcwstr, sid: Psid, name: Pwstr, cchname: COpaquePointer?, referenceddomainname: Pwstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupAccountSidW((lpsystemname?.value ?: 0L), (sid?.value ?: 0L), (name?.value ?: 0L), (cchname?.value ?: 0L), (referenceddomainname?.value ?: 0L), (cchreferenceddomainname?.value ?: 0L), (peuse?.value ?: 0L))
+public actual fun lookupAccountSidW(lpsystemname: Pcwstr, sid: Psid, name: Pwstr, cchname: MutPtr<UInt>, referenceddomainname: Pwstr, cchreferenceddomainname: MutPtr<UInt>, peuse: MutPtr<SidNameUse>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupAccountSidW(lpsystemname.rawAddress, sid.rawAddress, name.rawAddress, cchname.rawAddress, referenceddomainname.rawAddress, cchreferenceddomainname.rawAddress, peuse.rawAddress)
 
-public actual fun lookupPrivilegeDisplayNameA(lpsystemname: Pcstr, lpname: Pcstr, lpdisplayname: Pstr, cchdisplayname: COpaquePointer?, lplanguageid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupPrivilegeDisplayNameA((lpsystemname?.value ?: 0L), (lpname?.value ?: 0L), (lpdisplayname?.value ?: 0L), (cchdisplayname?.value ?: 0L), (lplanguageid?.value ?: 0L))
+public actual fun lookupPrivilegeDisplayNameA(lpsystemname: Pcstr, lpname: Pcstr, lpdisplayname: Pstr, cchdisplayname: MutPtr<UInt>, lplanguageid: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupPrivilegeDisplayNameA(lpsystemname.rawAddress, lpname.rawAddress, lpdisplayname.rawAddress, cchdisplayname.rawAddress, lplanguageid.rawAddress)
 
-public actual fun lookupPrivilegeDisplayNameW(lpsystemname: Pcwstr, lpname: Pcwstr, lpdisplayname: Pwstr, cchdisplayname: COpaquePointer?, lplanguageid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupPrivilegeDisplayNameW((lpsystemname?.value ?: 0L), (lpname?.value ?: 0L), (lpdisplayname?.value ?: 0L), (cchdisplayname?.value ?: 0L), (lplanguageid?.value ?: 0L))
+public actual fun lookupPrivilegeDisplayNameW(lpsystemname: Pcwstr, lpname: Pcwstr, lpdisplayname: Pwstr, cchdisplayname: MutPtr<UInt>, lplanguageid: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupPrivilegeDisplayNameW(lpsystemname.rawAddress, lpname.rawAddress, lpdisplayname.rawAddress, cchdisplayname.rawAddress, lplanguageid.rawAddress)
 
-public actual fun lookupPrivilegeNameA(lpsystemname: Pcstr, lpluid: COpaquePointer?, lpname: Pstr, cchname: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupPrivilegeNameA((lpsystemname?.value ?: 0L), (lpluid?.value ?: 0L), (lpname?.value ?: 0L), (cchname?.value ?: 0L))
+public actual fun lookupPrivilegeNameA(lpsystemname: Pcstr, lpluid: ConstPtr<Luid>, lpname: Pstr, cchname: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupPrivilegeNameA(lpsystemname.rawAddress, lpluid.rawAddress, lpname.rawAddress, cchname.rawAddress)
 
-public actual fun lookupPrivilegeNameW(lpsystemname: Pcwstr, lpluid: COpaquePointer?, lpname: Pwstr, cchname: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupPrivilegeNameW((lpsystemname?.value ?: 0L), (lpluid?.value ?: 0L), (lpname?.value ?: 0L), (cchname?.value ?: 0L))
+public actual fun lookupPrivilegeNameW(lpsystemname: Pcwstr, lpluid: ConstPtr<Luid>, lpname: Pwstr, cchname: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupPrivilegeNameW(lpsystemname.rawAddress, lpluid.rawAddress, lpname.rawAddress, cchname.rawAddress)
 
-public actual fun lookupPrivilegeValueA(lpsystemname: Pcstr, lpname: Pcstr, lpluid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupPrivilegeValueA((lpsystemname?.value ?: 0L), (lpname?.value ?: 0L), (lpluid?.value ?: 0L))
+public actual fun lookupPrivilegeValueA(lpsystemname: Pcstr, lpname: Pcstr, lpluid: MutPtr<Luid>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupPrivilegeValueA(lpsystemname.rawAddress, lpname.rawAddress, lpluid.rawAddress)
 
-public actual fun lookupPrivilegeValueW(lpsystemname: Pcwstr, lpname: Pcwstr, lpluid: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_lookupPrivilegeValueW((lpsystemname?.value ?: 0L), (lpname?.value ?: 0L), (lpluid?.value ?: 0L))
+public actual fun lookupPrivilegeValueW(lpsystemname: Pcwstr, lpname: Pcwstr, lpluid: MutPtr<Luid>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityLookupPrivilegeValueW(lpsystemname.rawAddress, lpname.rawAddress, lpluid.rawAddress)
 
-public actual fun makeAbsoluteSD(pselfrelativesecuritydescriptor: PsecurityDescriptor, pabsolutesecuritydescriptor: PsecurityDescriptor, lpdwabsolutesecuritydescriptorsize: COpaquePointer?, pdacl: COpaquePointer?, lpdwdaclsize: COpaquePointer?, psacl: COpaquePointer?, lpdwsaclsize: COpaquePointer?, powner: Psid, lpdwownersize: COpaquePointer?, pprimarygroup: Psid, lpdwprimarygroupsize: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_makeAbsoluteSD((pselfrelativesecuritydescriptor?.value ?: 0L), (pabsolutesecuritydescriptor?.value ?: 0L), (lpdwabsolutesecuritydescriptorsize?.value ?: 0L), (pdacl?.value ?: 0L), (lpdwdaclsize?.value ?: 0L), (psacl?.value ?: 0L), (lpdwsaclsize?.value ?: 0L), (powner?.value ?: 0L), (lpdwownersize?.value ?: 0L), (pprimarygroup?.value ?: 0L), (lpdwprimarygroupsize?.value ?: 0L))
+public actual fun makeAbsoluteSD(pselfrelativesecuritydescriptor: PsecurityDescriptor, pabsolutesecuritydescriptor: PsecurityDescriptor, lpdwabsolutesecuritydescriptorsize: MutPtr<UInt>, pdacl: MutPtr<Acl>, lpdwdaclsize: MutPtr<UInt>, psacl: MutPtr<Acl>, lpdwsaclsize: MutPtr<UInt>, powner: Psid, lpdwownersize: MutPtr<UInt>, pprimarygroup: Psid, lpdwprimarygroupsize: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityMakeAbsoluteSD(pselfrelativesecuritydescriptor.rawAddress, pabsolutesecuritydescriptor.rawAddress, lpdwabsolutesecuritydescriptorsize.rawAddress, pdacl.rawAddress, lpdwdaclsize.rawAddress, psacl.rawAddress, lpdwsaclsize.rawAddress, powner.rawAddress, lpdwownersize.rawAddress, pprimarygroup.rawAddress, lpdwprimarygroupsize.rawAddress)
 
-public actual fun makeSelfRelativeSD(pabsolutesecuritydescriptor: PsecurityDescriptor, pselfrelativesecuritydescriptor: PsecurityDescriptor, lpdwbufferlength: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_makeSelfRelativeSD((pabsolutesecuritydescriptor?.value ?: 0L), (pselfrelativesecuritydescriptor?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
+public actual fun makeSelfRelativeSD(pabsolutesecuritydescriptor: PsecurityDescriptor, pselfrelativesecuritydescriptor: PsecurityDescriptor, lpdwbufferlength: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityMakeSelfRelativeSD(pabsolutesecuritydescriptor.rawAddress, pselfrelativesecuritydescriptor.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun mapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?) {
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_mapGenericMask((accessmask?.value ?: 0L), (genericmapping?.value ?: 0L))
+public actual fun mapGenericMask(accessmask: MutPtr<UInt>, genericmapping: ConstPtr<GenericMapping>) {
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityMapGenericMask(accessmask.rawAddress, genericmapping.rawAddress)
 }
 
-public actual fun objectCloseAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectCloseAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun objectCloseAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, generateonclose: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectCloseAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun objectCloseAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectCloseAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun objectCloseAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, generateonclose: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectCloseAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun objectDeleteAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectDeleteAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun objectDeleteAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, generateonclose: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectDeleteAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun objectDeleteAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectDeleteAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun objectDeleteAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, generateonclose: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectDeleteAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun objectOpenAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Bool, accessgranted: Bool, generateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectOpenAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (psecuritydescriptor?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L), objectcreation, accessgranted, (generateonclose?.value ?: 0L))
+public actual fun objectOpenAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, objecttypename: Pcstr, objectname: Pcstr, psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr<PrivilegeSet>, objectcreation: Bool, accessgranted: Bool, generateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectOpenAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, psecuritydescriptor.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), grantedaccess.toInt(), privileges.rawAddress, objectcreation, accessgranted, generateonclose.rawAddress)
 
-public actual fun objectOpenAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Bool, accessgranted: Bool, generateonclose: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectOpenAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (psecuritydescriptor?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L), objectcreation, accessgranted, (generateonclose?.value ?: 0L))
+public actual fun objectOpenAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, objecttypename: Pcwstr, objectname: Pcwstr, psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr<PrivilegeSet>, objectcreation: Bool, accessgranted: Bool, generateonclose: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectOpenAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, psecuritydescriptor.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), grantedaccess.toInt(), privileges.rawAddress, objectcreation, accessgranted, generateonclose.rawAddress)
 
-public actual fun objectPrivilegeAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectPrivilegeAuditAlarmA((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (privileges?.value ?: 0L), accessgranted)
+public actual fun objectPrivilegeAuditAlarmA(subsystemname: Pcstr, handleid: ConstPtr<CVoid>, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr<PrivilegeSet>, accessgranted: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectPrivilegeAuditAlarmA(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), privileges.rawAddress, accessgranted)
 
-public actual fun objectPrivilegeAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_objectPrivilegeAuditAlarmW((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (privileges?.value ?: 0L), accessgranted)
+public actual fun objectPrivilegeAuditAlarmW(subsystemname: Pcwstr, handleid: ConstPtr<CVoid>, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr<PrivilegeSet>, accessgranted: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityObjectPrivilegeAuditAlarmW(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), privileges.rawAddress, accessgranted)
 
-public actual fun privilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, pfresult: COpaquePointer?): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_privilegeCheck((clienttoken?.value ?: 0L), (requiredprivileges?.value ?: 0L), (pfresult?.value ?: 0L))
+public actual fun privilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr<PrivilegeSet>, pfresult: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityPrivilegeCheck(clienttoken.rawAddress, requiredprivileges.rawAddress, pfresult.rawAddress)
 
-public actual fun privilegedServiceAuditAlarmA(subsystemname: Pcstr, servicename: Pcstr, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_privilegedServiceAuditAlarmA((subsystemname?.value ?: 0L), (servicename?.value ?: 0L), (clienttoken?.value ?: 0L), (privileges?.value ?: 0L), accessgranted)
+public actual fun privilegedServiceAuditAlarmA(subsystemname: Pcstr, servicename: Pcstr, clienttoken: Handle, privileges: ConstPtr<PrivilegeSet>, accessgranted: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityPrivilegedServiceAuditAlarmA(subsystemname.rawAddress, servicename.rawAddress, clienttoken.rawAddress, privileges.rawAddress, accessgranted)
 
-public actual fun privilegedServiceAuditAlarmW(subsystemname: Pcwstr, servicename: Pcwstr, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_privilegedServiceAuditAlarmW((subsystemname?.value ?: 0L), (servicename?.value ?: 0L), (clienttoken?.value ?: 0L), (privileges?.value ?: 0L), accessgranted)
+public actual fun privilegedServiceAuditAlarmW(subsystemname: Pcwstr, servicename: Pcwstr, clienttoken: Handle, privileges: ConstPtr<PrivilegeSet>, accessgranted: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityPrivilegedServiceAuditAlarmW(subsystemname.rawAddress, servicename.rawAddress, clienttoken.rawAddress, privileges.rawAddress, accessgranted)
 
-public actual fun querySecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?) {
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_querySecurityAccessMask(securityinformation.toInt(), (desiredaccess?.value ?: 0L))
+public actual fun querySecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: MutPtr<UInt>) {
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityQuerySecurityAccessMask(securityinformation.toInt(), desiredaccess.rawAddress)
 }
 
 public actual fun revertToSelf(): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_revertToSelf()
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityRevertToSelf()
 
-public actual fun rtlConvertSidToUnicodeString(unicodestring: COpaquePointer?, sid: Psid, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_rtlConvertSidToUnicodeString((unicodestring?.value ?: 0L), (sid?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlConvertSidToUnicodeString(unicodestring: MutPtr<UnicodeString>, sid: Psid, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityRtlConvertSidToUnicodeString(unicodestring.rawAddress, sid.rawAddress, allocatedestinationstring)
 
-public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: COpaquePointer?, securitydescriptorlength: UInt, newsecuritydescriptor: COpaquePointer?, newsecuritydescriptorlength: COpaquePointer?, checkonly: Boolean): Boolean =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_rtlNormalizeSecurityDescriptor((securitydescriptor?.value ?: 0L), securitydescriptorlength.toInt(), (newsecuritydescriptor?.value ?: 0L), (newsecuritydescriptorlength?.value ?: 0L), checkonly)
+public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: MutPtr<PsecurityDescriptor>, securitydescriptorlength: UInt, newsecuritydescriptor: MutPtr<PsecurityDescriptor>, newsecuritydescriptorlength: MutPtr<UInt>, checkonly: Boolean): Boolean =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecurityRtlNormalizeSecurityDescriptor(securitydescriptor.rawAddress, securitydescriptorlength.toInt(), newsecuritydescriptor.rawAddress, newsecuritydescriptorlength.rawAddress, checkonly)
 
-public actual fun setAclInformation(pacl: COpaquePointer?, paclinformation: COpaquePointer?, naclinformationlength: UInt, dwaclinformationclass: AclInformationClass): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setAclInformation((pacl?.value ?: 0L), (paclinformation?.value ?: 0L), naclinformationlength.toInt(), dwaclinformationclass)
+public actual fun setAclInformation(pacl: MutPtr<Acl>, paclinformation: ConstPtr<CVoid>, naclinformationlength: UInt, dwaclinformationclass: AclInformationClass): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetAclInformation(pacl.rawAddress, paclinformation.rawAddress, naclinformationlength.toInt(), dwaclinformationclass)
 
-public actual fun setCachedSigningLevel(sourcefiles: COpaquePointer?, sourcefilecount: UInt, flags: UInt, targetfile: Handle): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setCachedSigningLevel((sourcefiles?.value ?: 0L), sourcefilecount.toInt(), flags.toInt(), (targetfile?.value ?: 0L))
+public actual fun setCachedSigningLevel(sourcefiles: ConstPtr<Handle>, sourcefilecount: UInt, flags: UInt, targetfile: Handle): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetCachedSigningLevel(sourcefiles.rawAddress, sourcefilecount.toInt(), flags.toInt(), targetfile.rawAddress)
 
 public actual fun setFileSecurityA(lpfilename: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setFileSecurityA((lpfilename?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetFileSecurityA(lpfilename.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress)
 
 public actual fun setFileSecurityW(lpfilename: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setFileSecurityW((lpfilename?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetFileSecurityW(lpfilename.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress)
 
 public actual fun setKernelObjectSecurity(handle: Handle, securityinformation: ObjectSecurityInformation, securitydescriptor: PsecurityDescriptor): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setKernelObjectSecurity((handle?.value ?: 0L), securityinformation.toInt(), (securitydescriptor?.value ?: 0L))
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetKernelObjectSecurity(handle.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress)
 
-public actual fun setPrivateObjectSecurity(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, genericmapping: COpaquePointer?, token: Handle): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setPrivateObjectSecurity(securityinformation.toInt(), (modificationdescriptor?.value ?: 0L), (objectssecuritydescriptor?.value ?: 0L), (genericmapping?.value ?: 0L), (token?.value ?: 0L))
+public actual fun setPrivateObjectSecurity(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>, genericmapping: ConstPtr<GenericMapping>, token: Handle): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetPrivateObjectSecurity(securityinformation.toInt(), modificationdescriptor.rawAddress, objectssecuritydescriptor.rawAddress, genericmapping.rawAddress, token.rawAddress)
 
-public actual fun setPrivateObjectSecurityEx(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, autoinheritflags: SecurityAutoInheritFlags, genericmapping: COpaquePointer?, token: Handle): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setPrivateObjectSecurityEx(securityinformation.toInt(), (modificationdescriptor?.value ?: 0L), (objectssecuritydescriptor?.value ?: 0L), autoinheritflags.toInt(), (genericmapping?.value ?: 0L), (token?.value ?: 0L))
+public actual fun setPrivateObjectSecurityEx(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>, autoinheritflags: SecurityAutoInheritFlags, genericmapping: ConstPtr<GenericMapping>, token: Handle): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetPrivateObjectSecurityEx(securityinformation.toInt(), modificationdescriptor.rawAddress, objectssecuritydescriptor.rawAddress, autoinheritflags.toInt(), genericmapping.rawAddress, token.rawAddress)
 
-public actual fun setSecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?) {
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityAccessMask(securityinformation.toInt(), (desiredaccess?.value ?: 0L))
+public actual fun setSecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: MutPtr<UInt>) {
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityAccessMask(securityinformation.toInt(), desiredaccess.rawAddress)
 }
 
 public actual fun setSecurityDescriptorControl(psecuritydescriptor: PsecurityDescriptor, controlbitsofinterest: SecurityDescriptorControl, controlbitstoset: SecurityDescriptorControl): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityDescriptorControl((psecuritydescriptor?.value ?: 0L), controlbitsofinterest.toShort(), controlbitstoset.toShort())
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityDescriptorControl(psecuritydescriptor.rawAddress, controlbitsofinterest.toShort(), controlbitstoset.toShort())
 
-public actual fun setSecurityDescriptorDacl(psecuritydescriptor: PsecurityDescriptor, bdaclpresent: Bool, pdacl: COpaquePointer?, bdacldefaulted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityDescriptorDacl((psecuritydescriptor?.value ?: 0L), bdaclpresent, (pdacl?.value ?: 0L), bdacldefaulted)
+public actual fun setSecurityDescriptorDacl(psecuritydescriptor: PsecurityDescriptor, bdaclpresent: Bool, pdacl: ConstPtr<Acl>, bdacldefaulted: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityDescriptorDacl(psecuritydescriptor.rawAddress, bdaclpresent, pdacl.rawAddress, bdacldefaulted)
 
 public actual fun setSecurityDescriptorGroup(psecuritydescriptor: PsecurityDescriptor, pgroup: Psid, bgroupdefaulted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityDescriptorGroup((psecuritydescriptor?.value ?: 0L), (pgroup?.value ?: 0L), bgroupdefaulted)
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityDescriptorGroup(psecuritydescriptor.rawAddress, pgroup.rawAddress, bgroupdefaulted)
 
 public actual fun setSecurityDescriptorOwner(psecuritydescriptor: PsecurityDescriptor, powner: Psid, bownerdefaulted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityDescriptorOwner((psecuritydescriptor?.value ?: 0L), (powner?.value ?: 0L), bownerdefaulted)
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityDescriptorOwner(psecuritydescriptor.rawAddress, powner.rawAddress, bownerdefaulted)
 
-public actual fun setSecurityDescriptorRMControl(securitydescriptor: PsecurityDescriptor, rmcontrol: COpaquePointer?): UInt =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityDescriptorRMControl((securitydescriptor?.value ?: 0L), (rmcontrol?.value ?: 0L)).toUInt()
+public actual fun setSecurityDescriptorRMControl(securitydescriptor: PsecurityDescriptor, rmcontrol: ConstPtr<UByte>): UInt =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityDescriptorRMControl(securitydescriptor.rawAddress, rmcontrol.rawAddress).toUInt()
 
-public actual fun setSecurityDescriptorSacl(psecuritydescriptor: PsecurityDescriptor, bsaclpresent: Bool, psacl: COpaquePointer?, bsacldefaulted: Bool): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setSecurityDescriptorSacl((psecuritydescriptor?.value ?: 0L), bsaclpresent, (psacl?.value ?: 0L), bsacldefaulted)
+public actual fun setSecurityDescriptorSacl(psecuritydescriptor: PsecurityDescriptor, bsaclpresent: Bool, psacl: ConstPtr<Acl>, bsacldefaulted: Bool): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetSecurityDescriptorSacl(psecuritydescriptor.rawAddress, bsaclpresent, psacl.rawAddress, bsacldefaulted)
 
-public actual fun setTokenInformation(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setTokenInformation((tokenhandle?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L), tokeninformationlength.toInt())
+public actual fun setTokenInformation(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr<CVoid>, tokeninformationlength: UInt): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetTokenInformation(tokenhandle.rawAddress, tokeninformationclass, tokeninformation.rawAddress, tokeninformationlength.toInt())
 
-public actual fun setUserObjectSecurity(hobj: Handle, psirequested: COpaquePointer?, psid: PsecurityDescriptor): Bool =
-    WindowsWin32SecurityJniBridge.windowssys_windows_win32_security_setUserObjectSecurity((hobj?.value ?: 0L), (psirequested?.value ?: 0L), (psid?.value ?: 0L))
+public actual fun setUserObjectSecurity(hobj: Handle, psirequested: ConstPtr<ObjectSecurityInformation>, psid: PsecurityDescriptor): Bool =
+    WindowsWin32SecurityJniBridge.windowssysWindowsWin32SecuritySetUserObjectSecurity(hobj.rawAddress, psirequested.rawAddress, psid.rawAddress)

@@ -9,18 +9,18 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_storage_xps_abortDoc(void* hdc);
-int32_t windowssys_windows_win32_storage_xps_deviceCapabilitiesA(void* pdevice, void* pport, uint16_t fwcapability, void* poutput, void* pdevmode);
-int32_t windowssys_windows_win32_storage_xps_deviceCapabilitiesW(void* pdevice, void* pport, uint16_t fwcapability, void* poutput, void* pdevmode);
-int32_t windowssys_windows_win32_storage_xps_endDoc(void* hdc);
-int32_t windowssys_windows_win32_storage_xps_endPage(void* hdc);
-int32_t windowssys_windows_win32_storage_xps_escape(void* hdc, int32_t iescape, int32_t cjin, void* pvin, void* pvout);
-int32_t windowssys_windows_win32_storage_xps_extEscape(void* hdc, int32_t iescape, int32_t cjinput, void* lpindata, int32_t cjoutput, void* lpoutdata);
-int32_t windowssys_windows_win32_storage_xps_printWindow(void* hwnd, void* hdcblt, uint32_t nflags);
-int32_t windowssys_windows_win32_storage_xps_setAbortProc(void* hdc, void* proc);
-int32_t windowssys_windows_win32_storage_xps_startDocA(void* hdc, void* lpdi);
-int32_t windowssys_windows_win32_storage_xps_startDocW(void* hdc, void* lpdi);
-int32_t windowssys_windows_win32_storage_xps_startPage(void* hdc);
+int32_t windowssysWindowsWin32StorageXpsAbortDoc(void* hdc);
+int32_t windowssysWindowsWin32StorageXpsDeviceCapabilitiesA(void* pdevice, void* pport, uint16_t fwcapability, void* poutput, void* pdevmode);
+int32_t windowssysWindowsWin32StorageXpsDeviceCapabilitiesW(void* pdevice, void* pport, uint16_t fwcapability, void* poutput, void* pdevmode);
+int32_t windowssysWindowsWin32StorageXpsEndDoc(void* hdc);
+int32_t windowssysWindowsWin32StorageXpsEndPage(void* hdc);
+int32_t windowssysWindowsWin32StorageXpsEscape(void* hdc, int32_t iescape, int32_t cjin, void* pvin, void* pvout);
+int32_t windowssysWindowsWin32StorageXpsExtEscape(void* hdc, int32_t iescape, int32_t cjinput, void* lpindata, int32_t cjoutput, void* lpoutdata);
+int32_t windowssysWindowsWin32StorageXpsPrintWindow(void* hwnd, void* hdcblt, uint32_t nflags);
+int32_t windowssysWindowsWin32StorageXpsSetAbortProc(void* hdc, void* proc);
+int32_t windowssysWindowsWin32StorageXpsStartDocA(void* hdc, void* lpdi);
+int32_t windowssysWindowsWin32StorageXpsStartDocW(void* hdc, void* lpdi);
+int32_t windowssysWindowsWin32StorageXpsStartPage(void* hdc);
 
 #ifdef __cplusplus
 }

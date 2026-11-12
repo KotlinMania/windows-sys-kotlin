@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense(void* hwndparent, void* pexpiration);
-int32_t windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense(void* pexpiration);
-int32_t windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense(void* hwndparent);
+int32_t windowssysWindowsWin32SystemDeveloperlicensingAcquireDeveloperLicense(void* hwndparent, void* pexpiration);
+int32_t windowssysWindowsWin32SystemDeveloperlicensingCheckDeveloperLicense(void* pexpiration);
+int32_t windowssysWindowsWin32SystemDeveloperlicensingRemoveDeveloperLicense(void* hwndparent);
 
 #ifdef __cplusplus
 }

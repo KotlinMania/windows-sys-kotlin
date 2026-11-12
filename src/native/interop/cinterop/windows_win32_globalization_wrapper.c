@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_globalization_adjustCalendarDate(void* lpcaldatetime, int32_t calunit, int32_t amount) {
+int32_t windowssysWindowsWin32GlobalizationAdjustCalendarDate(void* lpcaldatetime, int32_t calunit, int32_t amount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_globalization_adjustCalendarDate(void* lpcaldat
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_compareStringA(uint32_t locale, uint32_t dwcmpflags, void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2) {
+int32_t windowssysWindowsWin32GlobalizationCompareStringA(uint32_t locale, uint32_t dwcmpflags, void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_globalization_compareStringA(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_compareStringEx(void* lplocalename, uint32_t dwcmpflags, void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2, void* lpversioninformation, void* lpreserved, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationCompareStringEx(void* lplocalename, uint32_t dwcmpflags, void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2, void* lpversioninformation, void* lpreserved, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -96,7 +96,7 @@ int32_t windowssys_windows_win32_globalization_compareStringEx(void* lplocalenam
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_compareStringOrdinal(void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2, int32_t bignorecase) {
+int32_t windowssysWindowsWin32GlobalizationCompareStringOrdinal(void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2, int32_t bignorecase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -122,7 +122,7 @@ int32_t windowssys_windows_win32_globalization_compareStringOrdinal(void* lpstri
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_compareStringW(uint32_t locale, uint32_t dwcmpflags, void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2) {
+int32_t windowssysWindowsWin32GlobalizationCompareStringW(uint32_t locale, uint32_t dwcmpflags, void* lpstring1, int32_t cchcount1, void* lpstring2, int32_t cchcount2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -149,7 +149,7 @@ int32_t windowssys_windows_win32_globalization_compareStringW(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_convertCalDateTimeToSystemTime(void* lpcaldatetime, void* lpsystime) {
+int32_t windowssysWindowsWin32GlobalizationConvertCalDateTimeToSystemTime(void* lpcaldatetime, void* lpsystime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -172,7 +172,7 @@ int32_t windowssys_windows_win32_globalization_convertCalDateTimeToSystemTime(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_convertDefaultLocale(uint32_t locale) {
+uint32_t windowssysWindowsWin32GlobalizationConvertDefaultLocale(uint32_t locale) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -194,7 +194,7 @@ uint32_t windowssys_windows_win32_globalization_convertDefaultLocale(uint32_t lo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_convertSystemTimeToCalDateTime(void* lpsystime, uint32_t calid, void* lpcaldatetime) {
+int32_t windowssysWindowsWin32GlobalizationConvertSystemTimeToCalDateTime(void* lpsystime, uint32_t calid, void* lpcaldatetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ int32_t windowssys_windows_win32_globalization_convertSystemTimeToCalDateTime(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumCalendarInfoA(void* lpcalinfoenumproc, uint32_t locale, uint32_t calendar, uint32_t caltype) {
+int32_t windowssysWindowsWin32GlobalizationEnumCalendarInfoA(void* lpcalinfoenumproc, uint32_t locale, uint32_t calendar, uint32_t caltype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -243,7 +243,7 @@ int32_t windowssys_windows_win32_globalization_enumCalendarInfoA(void* lpcalinfo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumCalendarInfoExA(void* lpcalinfoenumprocex, uint32_t locale, uint32_t calendar, uint32_t caltype) {
+int32_t windowssysWindowsWin32GlobalizationEnumCalendarInfoExA(void* lpcalinfoenumprocex, uint32_t locale, uint32_t calendar, uint32_t caltype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_globalization_enumCalendarInfoExA(void* lpcalin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumCalendarInfoExEx(void* pcalinfoenumprocexex, void* lplocalename, uint32_t calendar, void* lpreserved, uint32_t caltype, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumCalendarInfoExEx(void* pcalinfoenumprocexex, void* lplocalename, uint32_t calendar, void* lpreserved, uint32_t caltype, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -295,7 +295,7 @@ int32_t windowssys_windows_win32_globalization_enumCalendarInfoExEx(void* pcalin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumCalendarInfoExW(void* lpcalinfoenumprocex, uint32_t locale, uint32_t calendar, uint32_t caltype) {
+int32_t windowssysWindowsWin32GlobalizationEnumCalendarInfoExW(void* lpcalinfoenumprocex, uint32_t locale, uint32_t calendar, uint32_t caltype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -320,7 +320,7 @@ int32_t windowssys_windows_win32_globalization_enumCalendarInfoExW(void* lpcalin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumCalendarInfoW(void* lpcalinfoenumproc, uint32_t locale, uint32_t calendar, uint32_t caltype) {
+int32_t windowssysWindowsWin32GlobalizationEnumCalendarInfoW(void* lpcalinfoenumproc, uint32_t locale, uint32_t calendar, uint32_t caltype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -345,7 +345,7 @@ int32_t windowssys_windows_win32_globalization_enumCalendarInfoW(void* lpcalinfo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumDateFormatsA(void* lpdatefmtenumproc, uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumDateFormatsA(void* lpdatefmtenumproc, uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -369,7 +369,7 @@ int32_t windowssys_windows_win32_globalization_enumDateFormatsA(void* lpdatefmte
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumDateFormatsExA(void* lpdatefmtenumprocex, uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumDateFormatsExA(void* lpdatefmtenumprocex, uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -393,7 +393,7 @@ int32_t windowssys_windows_win32_globalization_enumDateFormatsExA(void* lpdatefm
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumDateFormatsExEx(void* lpdatefmtenumprocexex, void* lplocalename, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumDateFormatsExEx(void* lpdatefmtenumprocexex, void* lplocalename, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -418,7 +418,7 @@ int32_t windowssys_windows_win32_globalization_enumDateFormatsExEx(void* lpdatef
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumDateFormatsExW(void* lpdatefmtenumprocex, uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumDateFormatsExW(void* lpdatefmtenumprocex, uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -442,7 +442,7 @@ int32_t windowssys_windows_win32_globalization_enumDateFormatsExW(void* lpdatefm
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumDateFormatsW(void* lpdatefmtenumproc, uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumDateFormatsW(void* lpdatefmtenumproc, uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -466,7 +466,7 @@ int32_t windowssys_windows_win32_globalization_enumDateFormatsW(void* lpdatefmte
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumLanguageGroupLocalesA(void* lplanggrouplocaleenumproc, uint32_t languagegroup, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumLanguageGroupLocalesA(void* lplanggrouplocaleenumproc, uint32_t languagegroup, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -491,7 +491,7 @@ int32_t windowssys_windows_win32_globalization_enumLanguageGroupLocalesA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumLanguageGroupLocalesW(void* lplanggrouplocaleenumproc, uint32_t languagegroup, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumLanguageGroupLocalesW(void* lplanggrouplocaleenumproc, uint32_t languagegroup, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -516,7 +516,7 @@ int32_t windowssys_windows_win32_globalization_enumLanguageGroupLocalesW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemCodePagesA(void* lpcodepageenumproc, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemCodePagesA(void* lpcodepageenumproc, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -539,7 +539,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemCodePagesA(void* lpcode
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemCodePagesW(void* lpcodepageenumproc, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemCodePagesW(void* lpcodepageenumproc, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -562,7 +562,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemCodePagesW(void* lpcode
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemGeoID(uint32_t geoclass, int32_t parentgeoid, void* lpgeoenumproc) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemGeoID(uint32_t geoclass, int32_t parentgeoid, void* lpgeoenumproc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -586,7 +586,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemGeoID(uint32_t geoclass
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemGeoNames(uint32_t geoclass, void* geoenumproc, int64_t data) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemGeoNames(uint32_t geoclass, void* geoenumproc, int64_t data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -610,7 +610,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemGeoNames(uint32_t geocl
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemLanguageGroupsA(void* lplanguagegroupenumproc, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemLanguageGroupsA(void* lplanguagegroupenumproc, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -634,7 +634,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemLanguageGroupsA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemLanguageGroupsW(void* lplanguagegroupenumproc, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemLanguageGroupsW(void* lplanguagegroupenumproc, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -658,7 +658,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemLanguageGroupsW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemLocalesA(void* lplocaleenumproc, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemLocalesA(void* lplocaleenumproc, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -681,7 +681,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemLocalesA(void* lplocale
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemLocalesEx(void* lplocaleenumprocex, uint32_t dwflags, int64_t lparam, void* lpreserved) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemLocalesEx(void* lplocaleenumprocex, uint32_t dwflags, int64_t lparam, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -706,7 +706,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemLocalesEx(void* lplocal
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumSystemLocalesW(void* lplocaleenumproc, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumSystemLocalesW(void* lplocaleenumproc, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -729,7 +729,7 @@ int32_t windowssys_windows_win32_globalization_enumSystemLocalesW(void* lplocale
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumTimeFormatsA(void* lptimefmtenumproc, uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumTimeFormatsA(void* lptimefmtenumproc, uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -753,7 +753,7 @@ int32_t windowssys_windows_win32_globalization_enumTimeFormatsA(void* lptimefmte
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumTimeFormatsEx(void* lptimefmtenumprocex, void* lplocalename, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumTimeFormatsEx(void* lptimefmtenumprocex, void* lplocalename, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -778,7 +778,7 @@ int32_t windowssys_windows_win32_globalization_enumTimeFormatsEx(void* lptimefmt
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumTimeFormatsW(void* lptimefmtenumproc, uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationEnumTimeFormatsW(void* lptimefmtenumproc, uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -802,7 +802,7 @@ int32_t windowssys_windows_win32_globalization_enumTimeFormatsW(void* lptimefmte
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumUILanguagesA(void* lpuilanguageenumproc, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumUILanguagesA(void* lpuilanguageenumproc, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -826,7 +826,7 @@ int32_t windowssys_windows_win32_globalization_enumUILanguagesA(void* lpuilangua
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_enumUILanguagesW(void* lpuilanguageenumproc, uint32_t dwflags, int64_t lparam) {
+int32_t windowssysWindowsWin32GlobalizationEnumUILanguagesW(void* lpuilanguageenumproc, uint32_t dwflags, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -850,7 +850,7 @@ int32_t windowssys_windows_win32_globalization_enumUILanguagesW(void* lpuilangua
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_findNLSString(uint32_t locale, uint32_t dwfindnlsstringflags, void* lpstringsource, int32_t cchsource, void* lpstringvalue, int32_t cchvalue, void* pcchfound) {
+int32_t windowssysWindowsWin32GlobalizationFindNLSString(uint32_t locale, uint32_t dwfindnlsstringflags, void* lpstringsource, int32_t cchsource, void* lpstringvalue, int32_t cchvalue, void* pcchfound) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -878,7 +878,7 @@ int32_t windowssys_windows_win32_globalization_findNLSString(uint32_t locale, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_findNLSStringEx(void* lplocalename, uint32_t dwfindnlsstringflags, void* lpstringsource, int32_t cchsource, void* lpstringvalue, int32_t cchvalue, void* pcchfound, void* lpversioninformation, void* lpreserved, int64_t sorthandle) {
+int32_t windowssysWindowsWin32GlobalizationFindNLSStringEx(void* lplocalename, uint32_t dwfindnlsstringflags, void* lpstringsource, int32_t cchsource, void* lpstringvalue, int32_t cchvalue, void* pcchfound, void* lpversioninformation, void* lpreserved, int64_t sorthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, int32_t, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -909,7 +909,7 @@ int32_t windowssys_windows_win32_globalization_findNLSStringEx(void* lplocalenam
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_findStringOrdinal(uint32_t dwfindstringordinalflags, void* lpstringsource, int32_t cchsource, void* lpstringvalue, int32_t cchvalue, int32_t bignorecase) {
+int32_t windowssysWindowsWin32GlobalizationFindStringOrdinal(uint32_t dwfindstringordinalflags, void* lpstringsource, int32_t cchsource, void* lpstringvalue, int32_t cchvalue, int32_t bignorecase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -936,7 +936,7 @@ int32_t windowssys_windows_win32_globalization_findStringOrdinal(uint32_t dwfind
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_foldStringA(uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
+int32_t windowssysWindowsWin32GlobalizationFoldStringA(uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ int32_t windowssys_windows_win32_globalization_foldStringA(uint32_t dwmapflags, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_foldStringW(uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
+int32_t windowssysWindowsWin32GlobalizationFoldStringW(uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -988,7 +988,7 @@ int32_t windowssys_windows_win32_globalization_foldStringW(uint32_t dwmapflags, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_getACP(void) {
+uint32_t windowssysWindowsWin32GlobalizationGetACP(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1009,7 +1009,7 @@ uint32_t windowssys_windows_win32_globalization_getACP(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCPInfo(uint32_t codepage, void* lpcpinfo) {
+int32_t windowssysWindowsWin32GlobalizationGetCPInfo(uint32_t codepage, void* lpcpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1032,7 +1032,7 @@ int32_t windowssys_windows_win32_globalization_getCPInfo(uint32_t codepage, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCPInfoExA(uint32_t codepage, uint32_t dwflags, void* lpcpinfoex) {
+int32_t windowssysWindowsWin32GlobalizationGetCPInfoExA(uint32_t codepage, uint32_t dwflags, void* lpcpinfoex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1056,7 +1056,7 @@ int32_t windowssys_windows_win32_globalization_getCPInfoExA(uint32_t codepage, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCPInfoExW(uint32_t codepage, uint32_t dwflags, void* lpcpinfoex) {
+int32_t windowssysWindowsWin32GlobalizationGetCPInfoExW(uint32_t codepage, uint32_t dwflags, void* lpcpinfoex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1080,7 +1080,7 @@ int32_t windowssys_windows_win32_globalization_getCPInfoExW(uint32_t codepage, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCalendarDateFormatEx(void* lpszlocale, uint32_t dwflags, void* lpcaldatetime, void* lpformat, void* lpdatestr, int32_t cchdate) {
+int32_t windowssysWindowsWin32GlobalizationGetCalendarDateFormatEx(void* lpszlocale, uint32_t dwflags, void* lpcaldatetime, void* lpformat, void* lpdatestr, int32_t cchdate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1107,7 +1107,7 @@ int32_t windowssys_windows_win32_globalization_getCalendarDateFormatEx(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCalendarInfoA(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata, int32_t cchdata, void* lpvalue) {
+int32_t windowssysWindowsWin32GlobalizationGetCalendarInfoA(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata, int32_t cchdata, void* lpvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1134,7 +1134,7 @@ int32_t windowssys_windows_win32_globalization_getCalendarInfoA(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCalendarInfoEx(void* lplocalename, uint32_t calendar, void* lpreserved, uint32_t caltype, void* lpcaldata, int32_t cchdata, void* lpvalue) {
+int32_t windowssysWindowsWin32GlobalizationGetCalendarInfoEx(void* lplocalename, uint32_t calendar, void* lpreserved, uint32_t caltype, void* lpcaldata, int32_t cchdata, void* lpvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1162,7 +1162,7 @@ int32_t windowssys_windows_win32_globalization_getCalendarInfoEx(void* lplocalen
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCalendarInfoW(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata, int32_t cchdata, void* lpvalue) {
+int32_t windowssysWindowsWin32GlobalizationGetCalendarInfoW(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata, int32_t cchdata, void* lpvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1189,7 +1189,7 @@ int32_t windowssys_windows_win32_globalization_getCalendarInfoW(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCalendarSupportedDateRange(uint32_t calendar, void* lpcalmindatetime, void* lpcalmaxdatetime) {
+int32_t windowssysWindowsWin32GlobalizationGetCalendarSupportedDateRange(uint32_t calendar, void* lpcalmindatetime, void* lpcalmaxdatetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1213,7 +1213,7 @@ int32_t windowssys_windows_win32_globalization_getCalendarSupportedDateRange(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCurrencyFormatA(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpcurrencystr, int32_t cchcurrency) {
+int32_t windowssysWindowsWin32GlobalizationGetCurrencyFormatA(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpcurrencystr, int32_t cchcurrency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1240,7 +1240,7 @@ int32_t windowssys_windows_win32_globalization_getCurrencyFormatA(uint32_t local
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCurrencyFormatEx(void* lplocalename, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpcurrencystr, int32_t cchcurrency) {
+int32_t windowssysWindowsWin32GlobalizationGetCurrencyFormatEx(void* lplocalename, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpcurrencystr, int32_t cchcurrency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1267,7 +1267,7 @@ int32_t windowssys_windows_win32_globalization_getCurrencyFormatEx(void* lplocal
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getCurrencyFormatW(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpcurrencystr, int32_t cchcurrency) {
+int32_t windowssysWindowsWin32GlobalizationGetCurrencyFormatW(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpcurrencystr, int32_t cchcurrency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1294,7 +1294,7 @@ int32_t windowssys_windows_win32_globalization_getCurrencyFormatW(uint32_t local
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getDateFormatA(uint32_t locale, uint32_t dwflags, void* lpdate, void* lpformat, void* lpdatestr, int32_t cchdate) {
+int32_t windowssysWindowsWin32GlobalizationGetDateFormatA(uint32_t locale, uint32_t dwflags, void* lpdate, void* lpformat, void* lpdatestr, int32_t cchdate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1321,7 +1321,7 @@ int32_t windowssys_windows_win32_globalization_getDateFormatA(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getDateFormatEx(void* lplocalename, uint32_t dwflags, void* lpdate, void* lpformat, void* lpdatestr, int32_t cchdate, void* lpcalendar) {
+int32_t windowssysWindowsWin32GlobalizationGetDateFormatEx(void* lplocalename, uint32_t dwflags, void* lpdate, void* lpformat, void* lpdatestr, int32_t cchdate, void* lpcalendar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1349,7 +1349,7 @@ int32_t windowssys_windows_win32_globalization_getDateFormatEx(void* lplocalenam
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getDateFormatW(uint32_t locale, uint32_t dwflags, void* lpdate, void* lpformat, void* lpdatestr, int32_t cchdate) {
+int32_t windowssysWindowsWin32GlobalizationGetDateFormatW(uint32_t locale, uint32_t dwflags, void* lpdate, void* lpformat, void* lpdatestr, int32_t cchdate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1376,7 +1376,7 @@ int32_t windowssys_windows_win32_globalization_getDateFormatW(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getDistanceOfClosestLanguageInList(void* pszlanguage, void* pszlanguageslist, uint16_t wchlistdelimiter, void* pclosestdistance) {
+int32_t windowssysWindowsWin32GlobalizationGetDistanceOfClosestLanguageInList(void* pszlanguage, void* pszlanguageslist, uint16_t wchlistdelimiter, void* pclosestdistance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1401,7 +1401,7 @@ int32_t windowssys_windows_win32_globalization_getDistanceOfClosestLanguageInLis
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getDurationFormat(uint32_t locale, uint32_t dwflags, void* lpduration, uint64_t ullduration, void* lpformat, void* lpdurationstr, int32_t cchduration) {
+int32_t windowssysWindowsWin32GlobalizationGetDurationFormat(uint32_t locale, uint32_t dwflags, void* lpduration, uint64_t ullduration, void* lpformat, void* lpdurationstr, int32_t cchduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1429,7 +1429,7 @@ int32_t windowssys_windows_win32_globalization_getDurationFormat(uint32_t locale
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getDurationFormatEx(void* lplocalename, uint32_t dwflags, void* lpduration, uint64_t ullduration, void* lpformat, void* lpdurationstr, int32_t cchduration) {
+int32_t windowssysWindowsWin32GlobalizationGetDurationFormatEx(void* lplocalename, uint32_t dwflags, void* lpduration, uint64_t ullduration, void* lpformat, void* lpdurationstr, int32_t cchduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1457,7 +1457,7 @@ int32_t windowssys_windows_win32_globalization_getDurationFormatEx(void* lplocal
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getFileMUIInfo(uint32_t dwflags, void* pcwszfilepath, void* pfilemuiinfo, void* pcbfilemuiinfo) {
+int32_t windowssysWindowsWin32GlobalizationGetFileMUIInfo(uint32_t dwflags, void* pcwszfilepath, void* pfilemuiinfo, void* pcbfilemuiinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1482,7 +1482,7 @@ int32_t windowssys_windows_win32_globalization_getFileMUIInfo(uint32_t dwflags, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getFileMUIPath(uint32_t dwflags, void* pcwszfilepath, void* pwszlanguage, void* pcchlanguage, void* pwszfilemuipath, void* pcchfilemuipath, void* pululenumerator) {
+int32_t windowssysWindowsWin32GlobalizationGetFileMUIPath(uint32_t dwflags, void* pcwszfilepath, void* pwszlanguage, void* pcchlanguage, void* pwszfilemuipath, void* pcchfilemuipath, void* pululenumerator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1510,7 +1510,7 @@ int32_t windowssys_windows_win32_globalization_getFileMUIPath(uint32_t dwflags, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getGeoInfoA(int32_t location, int32_t geotype, void* lpgeodata, int32_t cchdata, uint16_t langid) {
+int32_t windowssysWindowsWin32GlobalizationGetGeoInfoA(int32_t location, int32_t geotype, void* lpgeodata, int32_t cchdata, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1536,7 +1536,7 @@ int32_t windowssys_windows_win32_globalization_getGeoInfoA(int32_t location, int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getGeoInfoEx(void* location, int32_t geotype, void* geodata, int32_t geodatacount) {
+int32_t windowssysWindowsWin32GlobalizationGetGeoInfoEx(void* location, int32_t geotype, void* geodata, int32_t geodatacount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1561,7 +1561,7 @@ int32_t windowssys_windows_win32_globalization_getGeoInfoEx(void* location, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getGeoInfoW(int32_t location, int32_t geotype, void* lpgeodata, int32_t cchdata, uint16_t langid) {
+int32_t windowssysWindowsWin32GlobalizationGetGeoInfoW(int32_t location, int32_t geotype, void* lpgeodata, int32_t cchdata, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1587,7 +1587,7 @@ int32_t windowssys_windows_win32_globalization_getGeoInfoW(int32_t location, int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getLocaleInfoA(uint32_t locale, uint32_t lctype, void* lplcdata, int32_t cchdata) {
+int32_t windowssysWindowsWin32GlobalizationGetLocaleInfoA(uint32_t locale, uint32_t lctype, void* lplcdata, int32_t cchdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1612,7 +1612,7 @@ int32_t windowssys_windows_win32_globalization_getLocaleInfoA(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getLocaleInfoEx(void* lplocalename, uint32_t lctype, void* lplcdata, int32_t cchdata) {
+int32_t windowssysWindowsWin32GlobalizationGetLocaleInfoEx(void* lplocalename, uint32_t lctype, void* lplcdata, int32_t cchdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1637,7 +1637,7 @@ int32_t windowssys_windows_win32_globalization_getLocaleInfoEx(void* lplocalenam
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getLocaleInfoW(uint32_t locale, uint32_t lctype, void* lplcdata, int32_t cchdata) {
+int32_t windowssysWindowsWin32GlobalizationGetLocaleInfoW(uint32_t locale, uint32_t lctype, void* lplcdata, int32_t cchdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1662,7 +1662,7 @@ int32_t windowssys_windows_win32_globalization_getLocaleInfoW(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getNLSVersion(uint32_t function, uint32_t locale, void* lpversioninformation) {
+int32_t windowssysWindowsWin32GlobalizationGetNLSVersion(uint32_t function, uint32_t locale, void* lpversioninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ int32_t windowssys_windows_win32_globalization_getNLSVersion(uint32_t function, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getNLSVersionEx(uint32_t function, void* lplocalename, void* lpversioninformation) {
+int32_t windowssysWindowsWin32GlobalizationGetNLSVersionEx(uint32_t function, void* lplocalename, void* lpversioninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1710,7 +1710,7 @@ int32_t windowssys_windows_win32_globalization_getNLSVersionEx(uint32_t function
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getNumberFormatA(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpnumberstr, int32_t cchnumber) {
+int32_t windowssysWindowsWin32GlobalizationGetNumberFormatA(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpnumberstr, int32_t cchnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1737,7 +1737,7 @@ int32_t windowssys_windows_win32_globalization_getNumberFormatA(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getNumberFormatEx(void* lplocalename, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpnumberstr, int32_t cchnumber) {
+int32_t windowssysWindowsWin32GlobalizationGetNumberFormatEx(void* lplocalename, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpnumberstr, int32_t cchnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1764,7 +1764,7 @@ int32_t windowssys_windows_win32_globalization_getNumberFormatEx(void* lplocalen
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getNumberFormatW(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpnumberstr, int32_t cchnumber) {
+int32_t windowssysWindowsWin32GlobalizationGetNumberFormatW(uint32_t locale, uint32_t dwflags, void* lpvalue, void* lpformat, void* lpnumberstr, int32_t cchnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1791,7 +1791,7 @@ int32_t windowssys_windows_win32_globalization_getNumberFormatW(uint32_t locale,
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_getOEMCP(void) {
+uint32_t windowssysWindowsWin32GlobalizationGetOEMCP(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1812,7 +1812,7 @@ uint32_t windowssys_windows_win32_globalization_getOEMCP(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getProcessPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
+int32_t windowssysWindowsWin32GlobalizationGetProcessPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1837,7 +1837,7 @@ int32_t windowssys_windows_win32_globalization_getProcessPreferredUILanguages(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getStringScripts(uint32_t dwflags, void* lpstring, int32_t cchstring, void* lpscripts, int32_t cchscripts) {
+int32_t windowssysWindowsWin32GlobalizationGetStringScripts(uint32_t dwflags, void* lpstring, int32_t cchstring, void* lpscripts, int32_t cchscripts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1863,7 +1863,7 @@ int32_t windowssys_windows_win32_globalization_getStringScripts(uint32_t dwflags
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getStringTypeA(uint32_t locale, uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
+int32_t windowssysWindowsWin32GlobalizationGetStringTypeA(uint32_t locale, uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1889,7 +1889,7 @@ int32_t windowssys_windows_win32_globalization_getStringTypeA(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getStringTypeExA(uint32_t locale, uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
+int32_t windowssysWindowsWin32GlobalizationGetStringTypeExA(uint32_t locale, uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1915,7 +1915,7 @@ int32_t windowssys_windows_win32_globalization_getStringTypeExA(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getStringTypeExW(uint32_t locale, uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
+int32_t windowssysWindowsWin32GlobalizationGetStringTypeExW(uint32_t locale, uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1941,7 +1941,7 @@ int32_t windowssys_windows_win32_globalization_getStringTypeExW(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getStringTypeW(uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
+int32_t windowssysWindowsWin32GlobalizationGetStringTypeW(uint32_t dwinfotype, void* lpsrcstr, int32_t cchsrc, void* lpchartype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +1966,7 @@ int32_t windowssys_windows_win32_globalization_getStringTypeW(uint32_t dwinfotyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_getSystemDefaultLCID(void) {
+uint32_t windowssysWindowsWin32GlobalizationGetSystemDefaultLCID(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1987,7 +1987,7 @@ uint32_t windowssys_windows_win32_globalization_getSystemDefaultLCID(void) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_getSystemDefaultLangID(void) {
+uint16_t windowssysWindowsWin32GlobalizationGetSystemDefaultLangID(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2008,7 +2008,7 @@ uint16_t windowssys_windows_win32_globalization_getSystemDefaultLangID(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getSystemDefaultLocaleName(void* lplocalename, int32_t cchlocalename) {
+int32_t windowssysWindowsWin32GlobalizationGetSystemDefaultLocaleName(void* lplocalename, int32_t cchlocalename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2031,7 +2031,7 @@ int32_t windowssys_windows_win32_globalization_getSystemDefaultLocaleName(void* 
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_getSystemDefaultUILanguage(void) {
+uint16_t windowssysWindowsWin32GlobalizationGetSystemDefaultUILanguage(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2052,7 +2052,7 @@ uint16_t windowssys_windows_win32_globalization_getSystemDefaultUILanguage(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getSystemPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
+int32_t windowssysWindowsWin32GlobalizationGetSystemPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2077,7 +2077,7 @@ int32_t windowssys_windows_win32_globalization_getSystemPreferredUILanguages(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getTextCharset(void* hdc) {
+int32_t windowssysWindowsWin32GlobalizationGetTextCharset(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2099,7 +2099,7 @@ int32_t windowssys_windows_win32_globalization_getTextCharset(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getTextCharsetInfo(void* hdc, void* lpsig, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationGetTextCharsetInfo(void* hdc, void* lpsig, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2123,7 +2123,7 @@ int32_t windowssys_windows_win32_globalization_getTextCharsetInfo(void* hdc, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_getThreadLocale(void) {
+uint32_t windowssysWindowsWin32GlobalizationGetThreadLocale(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2144,7 +2144,7 @@ uint32_t windowssys_windows_win32_globalization_getThreadLocale(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getThreadPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
+int32_t windowssysWindowsWin32GlobalizationGetThreadPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2169,7 +2169,7 @@ int32_t windowssys_windows_win32_globalization_getThreadPreferredUILanguages(uin
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_getThreadUILanguage(void) {
+uint16_t windowssysWindowsWin32GlobalizationGetThreadUILanguage(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2190,7 +2190,7 @@ uint16_t windowssys_windows_win32_globalization_getThreadUILanguage(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getTimeFormatA(uint32_t locale, uint32_t dwflags, void* lptime, void* lpformat, void* lptimestr, int32_t cchtime) {
+int32_t windowssysWindowsWin32GlobalizationGetTimeFormatA(uint32_t locale, uint32_t dwflags, void* lptime, void* lpformat, void* lptimestr, int32_t cchtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2217,7 +2217,7 @@ int32_t windowssys_windows_win32_globalization_getTimeFormatA(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getTimeFormatEx(void* lplocalename, uint32_t dwflags, void* lptime, void* lpformat, void* lptimestr, int32_t cchtime) {
+int32_t windowssysWindowsWin32GlobalizationGetTimeFormatEx(void* lplocalename, uint32_t dwflags, void* lptime, void* lpformat, void* lptimestr, int32_t cchtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2244,7 +2244,7 @@ int32_t windowssys_windows_win32_globalization_getTimeFormatEx(void* lplocalenam
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getTimeFormatW(uint32_t locale, uint32_t dwflags, void* lptime, void* lpformat, void* lptimestr, int32_t cchtime) {
+int32_t windowssysWindowsWin32GlobalizationGetTimeFormatW(uint32_t locale, uint32_t dwflags, void* lptime, void* lpformat, void* lptimestr, int32_t cchtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2271,7 +2271,7 @@ int32_t windowssys_windows_win32_globalization_getTimeFormatW(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getUILanguageInfo(uint32_t dwflags, void* pwmszlanguage, void* pwszfallbacklanguages, void* pcchfallbacklanguages, void* pattributes) {
+int32_t windowssysWindowsWin32GlobalizationGetUILanguageInfo(uint32_t dwflags, void* pwmszlanguage, void* pwszfallbacklanguages, void* pcchfallbacklanguages, void* pattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2297,7 +2297,7 @@ int32_t windowssys_windows_win32_globalization_getUILanguageInfo(uint32_t dwflag
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getUserDefaultGeoName(void* geoname, int32_t geonamecount) {
+int32_t windowssysWindowsWin32GlobalizationGetUserDefaultGeoName(void* geoname, int32_t geonamecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2320,7 +2320,7 @@ int32_t windowssys_windows_win32_globalization_getUserDefaultGeoName(void* geona
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_getUserDefaultLCID(void) {
+uint32_t windowssysWindowsWin32GlobalizationGetUserDefaultLCID(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2341,7 +2341,7 @@ uint32_t windowssys_windows_win32_globalization_getUserDefaultLCID(void) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_getUserDefaultLangID(void) {
+uint16_t windowssysWindowsWin32GlobalizationGetUserDefaultLangID(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2362,7 +2362,7 @@ uint16_t windowssys_windows_win32_globalization_getUserDefaultLangID(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getUserDefaultLocaleName(void* lplocalename, int32_t cchlocalename) {
+int32_t windowssysWindowsWin32GlobalizationGetUserDefaultLocaleName(void* lplocalename, int32_t cchlocalename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2385,7 +2385,7 @@ int32_t windowssys_windows_win32_globalization_getUserDefaultLocaleName(void* lp
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_getUserDefaultUILanguage(void) {
+uint16_t windowssysWindowsWin32GlobalizationGetUserDefaultUILanguage(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2406,7 +2406,7 @@ uint16_t windowssys_windows_win32_globalization_getUserDefaultUILanguage(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getUserGeoID(int32_t geoclass) {
+int32_t windowssysWindowsWin32GlobalizationGetUserGeoID(int32_t geoclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2428,7 +2428,7 @@ int32_t windowssys_windows_win32_globalization_getUserGeoID(int32_t geoclass) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_getUserPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
+int32_t windowssysWindowsWin32GlobalizationGetUserPreferredUILanguages(uint32_t dwflags, void* pulnumlanguages, void* pwszlanguagesbuffer, void* pcchlanguagesbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2453,7 +2453,7 @@ int32_t windowssys_windows_win32_globalization_getUserPreferredUILanguages(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_idnToAscii(uint32_t dwflags, void* lpunicodecharstr, int32_t cchunicodechar, void* lpasciicharstr, int32_t cchasciichar) {
+int32_t windowssysWindowsWin32GlobalizationIdnToAscii(uint32_t dwflags, void* lpunicodecharstr, int32_t cchunicodechar, void* lpasciicharstr, int32_t cchasciichar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2479,7 +2479,7 @@ int32_t windowssys_windows_win32_globalization_idnToAscii(uint32_t dwflags, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_idnToNameprepUnicode(uint32_t dwflags, void* lpunicodecharstr, int32_t cchunicodechar, void* lpnameprepcharstr, int32_t cchnameprepchar) {
+int32_t windowssysWindowsWin32GlobalizationIdnToNameprepUnicode(uint32_t dwflags, void* lpunicodecharstr, int32_t cchunicodechar, void* lpnameprepcharstr, int32_t cchnameprepchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2505,7 +2505,7 @@ int32_t windowssys_windows_win32_globalization_idnToNameprepUnicode(uint32_t dwf
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_idnToUnicode(uint32_t dwflags, void* lpasciicharstr, int32_t cchasciichar, void* lpunicodecharstr, int32_t cchunicodechar) {
+int32_t windowssysWindowsWin32GlobalizationIdnToUnicode(uint32_t dwflags, void* lpasciicharstr, int32_t cchasciichar, void* lpunicodecharstr, int32_t cchunicodechar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2531,7 +2531,7 @@ int32_t windowssys_windows_win32_globalization_idnToUnicode(uint32_t dwflags, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isCalendarLeapYear(uint32_t calid, uint32_t year, uint32_t era) {
+int32_t windowssysWindowsWin32GlobalizationIsCalendarLeapYear(uint32_t calid, uint32_t year, uint32_t era) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2555,7 +2555,7 @@ int32_t windowssys_windows_win32_globalization_isCalendarLeapYear(uint32_t calid
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isDBCSLeadByte(uint8_t testchar) {
+int32_t windowssysWindowsWin32GlobalizationIsDBCSLeadByte(uint8_t testchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2577,7 +2577,7 @@ int32_t windowssys_windows_win32_globalization_isDBCSLeadByte(uint8_t testchar) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isDBCSLeadByteEx(uint32_t codepage, uint8_t testchar) {
+int32_t windowssysWindowsWin32GlobalizationIsDBCSLeadByteEx(uint32_t codepage, uint8_t testchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2600,7 +2600,7 @@ int32_t windowssys_windows_win32_globalization_isDBCSLeadByteEx(uint32_t codepag
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isNLSDefinedString(uint32_t function, uint32_t dwflags, void* lpversioninformation, void* lpstring, int32_t cchstr) {
+int32_t windowssysWindowsWin32GlobalizationIsNLSDefinedString(uint32_t function, uint32_t dwflags, void* lpversioninformation, void* lpstring, int32_t cchstr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2626,7 +2626,7 @@ int32_t windowssys_windows_win32_globalization_isNLSDefinedString(uint32_t funct
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isNormalizedString(int32_t normform, void* lpstring, int32_t cwlength) {
+int32_t windowssysWindowsWin32GlobalizationIsNormalizedString(int32_t normform, void* lpstring, int32_t cwlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2650,7 +2650,7 @@ int32_t windowssys_windows_win32_globalization_isNormalizedString(int32_t normfo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isTextUnicode(void* lpv, int32_t isize, void* lpiresult) {
+int32_t windowssysWindowsWin32GlobalizationIsTextUnicode(void* lpv, int32_t isize, void* lpiresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2674,7 +2674,7 @@ int32_t windowssys_windows_win32_globalization_isTextUnicode(void* lpv, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isValidCodePage(uint32_t codepage) {
+int32_t windowssysWindowsWin32GlobalizationIsValidCodePage(uint32_t codepage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2696,7 +2696,7 @@ int32_t windowssys_windows_win32_globalization_isValidCodePage(uint32_t codepage
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isValidLanguageGroup(uint32_t languagegroup, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationIsValidLanguageGroup(uint32_t languagegroup, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2719,7 +2719,7 @@ int32_t windowssys_windows_win32_globalization_isValidLanguageGroup(uint32_t lan
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isValidLocale(uint32_t locale, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationIsValidLocale(uint32_t locale, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2742,7 +2742,7 @@ int32_t windowssys_windows_win32_globalization_isValidLocale(uint32_t locale, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_isValidLocaleName(void* lplocalename) {
+int32_t windowssysWindowsWin32GlobalizationIsValidLocaleName(void* lplocalename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2764,7 +2764,7 @@ int32_t windowssys_windows_win32_globalization_isValidLocaleName(void* lplocalen
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_isValidNLSVersion(uint32_t function, void* lplocalename, void* lpversioninformation) {
+uint32_t windowssysWindowsWin32GlobalizationIsValidNLSVersion(uint32_t function, void* lplocalename, void* lpversioninformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2788,7 +2788,7 @@ uint32_t windowssys_windows_win32_globalization_isValidNLSVersion(uint32_t funct
 #endif
 }
 
-uint8_t windowssys_windows_win32_globalization_isWellFormedTag(void* psztag) {
+uint8_t windowssysWindowsWin32GlobalizationIsWellFormedTag(void* psztag) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2810,7 +2810,7 @@ uint8_t windowssys_windows_win32_globalization_isWellFormedTag(void* psztag) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lCIDToLocaleName(uint32_t locale, void* lpname, int32_t cchname, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationLCIDToLocaleName(uint32_t locale, void* lpname, int32_t cchname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2835,7 +2835,7 @@ int32_t windowssys_windows_win32_globalization_lCIDToLocaleName(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lCMapStringA(uint32_t locale, uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
+int32_t windowssysWindowsWin32GlobalizationLCMapStringA(uint32_t locale, uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2862,7 +2862,7 @@ int32_t windowssys_windows_win32_globalization_lCMapStringA(uint32_t locale, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lCMapStringEx(void* lplocalename, uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest, void* lpversioninformation, void* lpreserved, int64_t sorthandle) {
+int32_t windowssysWindowsWin32GlobalizationLCMapStringEx(void* lplocalename, uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest, void* lpversioninformation, void* lpreserved, int64_t sorthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2892,7 +2892,7 @@ int32_t windowssys_windows_win32_globalization_lCMapStringEx(void* lplocalename,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lCMapStringW(uint32_t locale, uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
+int32_t windowssysWindowsWin32GlobalizationLCMapStringW(uint32_t locale, uint32_t dwmapflags, void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2919,7 +2919,7 @@ int32_t windowssys_windows_win32_globalization_lCMapStringW(uint32_t locale, uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_localeNameToLCID(void* lpname, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32GlobalizationLocaleNameToLCID(void* lpname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2942,7 +2942,7 @@ uint32_t windowssys_windows_win32_globalization_localeNameToLCID(void* lpname, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_mappingDoAction(void* pbag, uint32_t dwrangeindex, void* pszactionid) {
+int32_t windowssysWindowsWin32GlobalizationMappingDoAction(void* pbag, uint32_t dwrangeindex, void* pszactionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2966,7 +2966,7 @@ int32_t windowssys_windows_win32_globalization_mappingDoAction(void* pbag, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_mappingFreePropertyBag(void* pbag) {
+int32_t windowssysWindowsWin32GlobalizationMappingFreePropertyBag(void* pbag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2988,7 +2988,7 @@ int32_t windowssys_windows_win32_globalization_mappingFreePropertyBag(void* pbag
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_mappingFreeServices(void* pserviceinfo) {
+int32_t windowssysWindowsWin32GlobalizationMappingFreeServices(void* pserviceinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3010,7 +3010,7 @@ int32_t windowssys_windows_win32_globalization_mappingFreeServices(void* pservic
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_mappingGetServices(void* poptions, void* prgservices, void* pdwservicescount) {
+int32_t windowssysWindowsWin32GlobalizationMappingGetServices(void* poptions, void* prgservices, void* pdwservicescount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3034,7 +3034,7 @@ int32_t windowssys_windows_win32_globalization_mappingGetServices(void* poptions
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_mappingRecognizeText(void* pserviceinfo, void* psztext, uint32_t dwlength, uint32_t dwindex, void* poptions, void* pbag) {
+int32_t windowssysWindowsWin32GlobalizationMappingRecognizeText(void* pserviceinfo, void* psztext, uint32_t dwlength, uint32_t dwindex, void* poptions, void* pbag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3061,7 +3061,7 @@ int32_t windowssys_windows_win32_globalization_mappingRecognizeText(void* pservi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_multiByteToWideChar(uint32_t codepage, uint32_t dwflags, void* lpmultibytestr, int32_t cbmultibyte, void* lpwidecharstr, int32_t cchwidechar) {
+int32_t windowssysWindowsWin32GlobalizationMultiByteToWideChar(uint32_t codepage, uint32_t dwflags, void* lpmultibytestr, int32_t cbmultibyte, void* lpwidecharstr, int32_t cchwidechar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3088,7 +3088,7 @@ int32_t windowssys_windows_win32_globalization_multiByteToWideChar(uint32_t code
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_normalizeString(int32_t normform, void* lpsrcstring, int32_t cwsrclength, void* lpdststring, int32_t cwdstlength) {
+int32_t windowssysWindowsWin32GlobalizationNormalizeString(int32_t normform, void* lpsrcstring, int32_t cwsrclength, void* lpdststring, int32_t cwdstlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3114,7 +3114,7 @@ int32_t windowssys_windows_win32_globalization_normalizeString(int32_t normform,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_notifyUILanguageChange(uint32_t dwflags, void* pcwstrnewlanguage, void* pcwstrpreviouslanguage, uint32_t dwreserved, void* pdwstatusrtrn) {
+int32_t windowssysWindowsWin32GlobalizationNotifyUILanguageChange(uint32_t dwflags, void* pcwstrnewlanguage, void* pcwstrpreviouslanguage, uint32_t dwreserved, void* pdwstatusrtrn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3140,7 +3140,7 @@ int32_t windowssys_windows_win32_globalization_notifyUILanguageChange(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_resolveLocaleName(void* lpnametoresolve, void* lplocalename, int32_t cchlocalename) {
+int32_t windowssysWindowsWin32GlobalizationResolveLocaleName(void* lpnametoresolve, void* lplocalename, int32_t cchlocalename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3164,7 +3164,7 @@ int32_t windowssys_windows_win32_globalization_resolveLocaleName(void* lpnametor
 #endif
 }
 
-void windowssys_windows_win32_globalization_restoreThreadPreferredUILanguages(void* snapshot) {
+void windowssysWindowsWin32GlobalizationRestoreThreadPreferredUILanguages(void* snapshot) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3185,7 +3185,7 @@ void windowssys_windows_win32_globalization_restoreThreadPreferredUILanguages(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptApplyDigitSubstitution(void* psds, void* psc, void* pss) {
+int32_t windowssysWindowsWin32GlobalizationScriptApplyDigitSubstitution(void* psds, void* psc, void* pss) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3209,7 +3209,7 @@ int32_t windowssys_windows_win32_globalization_scriptApplyDigitSubstitution(void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptApplyLogicalWidth(void* pidx, int32_t cchars, int32_t cglyphs, void* pwlogclust, void* psva, void* piadvance, void* psa, void* pabc, void* pijustify) {
+int32_t windowssysWindowsWin32GlobalizationScriptApplyLogicalWidth(void* pidx, int32_t cchars, int32_t cglyphs, void* pwlogclust, void* psva, void* piadvance, void* psa, void* pabc, void* pijustify) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3239,7 +3239,7 @@ int32_t windowssys_windows_win32_globalization_scriptApplyLogicalWidth(void* pid
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptBreak(void* pwcchars, int32_t cchars, void* psa, void* psla) {
+int32_t windowssysWindowsWin32GlobalizationScriptBreak(void* pwcchars, int32_t cchars, void* psa, void* psla) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3264,7 +3264,7 @@ int32_t windowssys_windows_win32_globalization_scriptBreak(void* pwcchars, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptCPtoX(int32_t icp, int32_t ftrailing, int32_t cchars, int32_t cglyphs, void* pwlogclust, void* psva, void* piadvance, void* psa, void* pix) {
+int32_t windowssysWindowsWin32GlobalizationScriptCPtoX(int32_t icp, int32_t ftrailing, int32_t cchars, int32_t cglyphs, void* pwlogclust, void* psva, void* piadvance, void* psa, void* pix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3294,7 +3294,7 @@ int32_t windowssys_windows_win32_globalization_scriptCPtoX(int32_t icp, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptCacheGetHeight(void* hdc, void* psc, void* tmheight) {
+int32_t windowssysWindowsWin32GlobalizationScriptCacheGetHeight(void* hdc, void* psc, void* tmheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3318,7 +3318,7 @@ int32_t windowssys_windows_win32_globalization_scriptCacheGetHeight(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptFreeCache(void* psc) {
+int32_t windowssysWindowsWin32GlobalizationScriptFreeCache(void* psc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3340,7 +3340,7 @@ int32_t windowssys_windows_win32_globalization_scriptFreeCache(void* psc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetCMap(void* hdc, void* psc, void* pwcinchars, int32_t cchars, uint32_t dwflags, void* pwoutglyphs) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetCMap(void* hdc, void* psc, void* pwcinchars, int32_t cchars, uint32_t dwflags, void* pwoutglyphs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3367,7 +3367,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetCMap(void* hdc, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetFontAlternateGlyphs(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, uint32_t tagfeature, uint16_t wglyphid, int32_t cmaxalternates, void* palternateglyphs, void* pcalternates) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetFontAlternateGlyphs(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, uint32_t tagfeature, uint16_t wglyphid, int32_t cmaxalternates, void* palternateglyphs, void* pcalternates) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, uint16_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3398,7 +3398,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetFontAlternateGlyphs(void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetFontFeatureTags(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, int32_t cmaxtags, void* pfeaturetags, void* pctags) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetFontFeatureTags(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, int32_t cmaxtags, void* pfeaturetags, void* pctags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3427,7 +3427,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetFontFeatureTags(void* hd
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetFontLanguageTags(void* hdc, void* psc, void* psa, uint32_t tagscript, int32_t cmaxtags, void* plangsystags, void* pctags) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetFontLanguageTags(void* hdc, void* psc, void* psa, uint32_t tagscript, int32_t cmaxtags, void* plangsystags, void* pctags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3455,7 +3455,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetFontLanguageTags(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetFontProperties(void* hdc, void* psc, void* sfp) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetFontProperties(void* hdc, void* psc, void* sfp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3479,7 +3479,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetFontProperties(void* hdc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetFontScriptTags(void* hdc, void* psc, void* psa, int32_t cmaxtags, void* pscripttags, void* pctags) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetFontScriptTags(void* hdc, void* psc, void* psa, int32_t cmaxtags, void* pscripttags, void* pctags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3506,7 +3506,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetFontScriptTags(void* hdc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetGlyphABCWidth(void* hdc, void* psc, uint16_t wglyph, void* pabc) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetGlyphABCWidth(void* hdc, void* psc, uint16_t wglyph, void* pabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3531,7 +3531,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetGlyphABCWidth(void* hdc,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetLogicalWidths(void* psa, int32_t cchars, int32_t cglyphs, void* piglyphwidth, void* pwlogclust, void* psva, void* pidx) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetLogicalWidths(void* psa, int32_t cchars, int32_t cglyphs, void* piglyphwidth, void* pwlogclust, void* psva, void* pidx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3559,7 +3559,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetLogicalWidths(void* psa,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptGetProperties(void* ppsp, void* pinumscripts) {
+int32_t windowssysWindowsWin32GlobalizationScriptGetProperties(void* ppsp, void* pinumscripts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3582,7 +3582,7 @@ int32_t windowssys_windows_win32_globalization_scriptGetProperties(void* ppsp, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptIsComplex(void* pwcinchars, int32_t cinchars, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationScriptIsComplex(void* pwcinchars, int32_t cinchars, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3606,7 +3606,7 @@ int32_t windowssys_windows_win32_globalization_scriptIsComplex(void* pwcinchars,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptItemize(void* pwcinchars, int32_t cinchars, int32_t cmaxitems, void* pscontrol, void* psstate, void* pitems, void* pcitems) {
+int32_t windowssysWindowsWin32GlobalizationScriptItemize(void* pwcinchars, int32_t cinchars, int32_t cmaxitems, void* pscontrol, void* psstate, void* pitems, void* pcitems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3634,7 +3634,7 @@ int32_t windowssys_windows_win32_globalization_scriptItemize(void* pwcinchars, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptItemizeOpenType(void* pwcinchars, int32_t cinchars, int32_t cmaxitems, void* pscontrol, void* psstate, void* pitems, void* pscripttags, void* pcitems) {
+int32_t windowssysWindowsWin32GlobalizationScriptItemizeOpenType(void* pwcinchars, int32_t cinchars, int32_t cmaxitems, void* pscontrol, void* psstate, void* pitems, void* pscripttags, void* pcitems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3663,7 +3663,7 @@ int32_t windowssys_windows_win32_globalization_scriptItemizeOpenType(void* pwcin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptJustify(void* psva, void* piadvance, int32_t cglyphs, int32_t idx, int32_t iminkashida, void* pijustify) {
+int32_t windowssysWindowsWin32GlobalizationScriptJustify(void* psva, void* piadvance, int32_t cglyphs, int32_t idx, int32_t iminkashida, void* pijustify) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3690,7 +3690,7 @@ int32_t windowssys_windows_win32_globalization_scriptJustify(void* psva, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptLayout(int32_t cruns, void* pblevel, void* pivisualtological, void* pilogicaltovisual) {
+int32_t windowssysWindowsWin32GlobalizationScriptLayout(int32_t cruns, void* pblevel, void* pivisualtological, void* pilogicaltovisual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3715,7 +3715,7 @@ int32_t windowssys_windows_win32_globalization_scriptLayout(int32_t cruns, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptPlace(void* hdc, void* psc, void* pwglyphs, int32_t cglyphs, void* psva, void* psa, void* piadvance, void* pgoffset, void* pabc) {
+int32_t windowssysWindowsWin32GlobalizationScriptPlace(void* hdc, void* psc, void* pwglyphs, int32_t cglyphs, void* psva, void* psa, void* piadvance, void* pgoffset, void* pabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3745,7 +3745,7 @@ int32_t windowssys_windows_win32_globalization_scriptPlace(void* hdc, void* psc,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptPlaceOpenType(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, void* rcrangechars, void* rprangeproperties, int32_t cranges, void* pwcchars, void* pwlogclust, void* pcharprops, int32_t cchars, void* pwglyphs, void* pglyphprops, int32_t cglyphs, void* piadvance, void* pgoffset, void* pabc) {
+int32_t windowssysWindowsWin32GlobalizationScriptPlaceOpenType(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, void* rcrangechars, void* rprangeproperties, int32_t cranges, void* pwcchars, void* pwlogclust, void* pcharprops, int32_t cchars, void* pwglyphs, void* pglyphprops, int32_t cglyphs, void* piadvance, void* pgoffset, void* pabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, int32_t, void*, void*, void*, int32_t, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3784,7 +3784,7 @@ int32_t windowssys_windows_win32_globalization_scriptPlaceOpenType(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptRecordDigitSubstitution(uint32_t locale, void* psds) {
+int32_t windowssysWindowsWin32GlobalizationScriptRecordDigitSubstitution(uint32_t locale, void* psds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3807,7 +3807,7 @@ int32_t windowssys_windows_win32_globalization_scriptRecordDigitSubstitution(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptShape(void* hdc, void* psc, void* pwcchars, int32_t cchars, int32_t cmaxglyphs, void* psa, void* pwoutglyphs, void* pwlogclust, void* psva, void* pcglyphs) {
+int32_t windowssysWindowsWin32GlobalizationScriptShape(void* hdc, void* psc, void* pwcchars, int32_t cchars, int32_t cmaxglyphs, void* psa, void* pwoutglyphs, void* pwlogclust, void* psva, void* pcglyphs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3838,7 +3838,7 @@ int32_t windowssys_windows_win32_globalization_scriptShape(void* hdc, void* psc,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptShapeOpenType(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, void* rcrangechars, void* rprangeproperties, int32_t cranges, void* pwcchars, int32_t cchars, int32_t cmaxglyphs, void* pwlogclust, void* pcharprops, void* pwoutglyphs, void* poutglyphprops, void* pcglyphs) {
+int32_t windowssysWindowsWin32GlobalizationScriptShapeOpenType(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, void* rcrangechars, void* rprangeproperties, int32_t cranges, void* pwcchars, int32_t cchars, int32_t cmaxglyphs, void* pwlogclust, void* pcharprops, void* pwoutglyphs, void* poutglyphprops, void* pcglyphs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, int32_t, void*, int32_t, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3875,7 +3875,7 @@ int32_t windowssys_windows_win32_globalization_scriptShapeOpenType(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringAnalyse(void* hdc, void* pstring, int32_t cstring, int32_t cglyphs, int32_t icharset, uint32_t dwflags, int32_t ireqwidth, void* pscontrol, void* psstate, void* pidx, void* ptabdef, void* pbinclass, void* pssa) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringAnalyse(void* hdc, void* pstring, int32_t cstring, int32_t cglyphs, int32_t icharset, uint32_t dwflags, int32_t ireqwidth, void* pscontrol, void* psstate, void* pidx, void* ptabdef, void* pbinclass, void* pssa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, uint32_t, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3909,7 +3909,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringAnalyse(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringCPtoX(void* ssa, int32_t icp, int32_t ftrailing, void* px) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringCPtoX(void* ssa, int32_t icp, int32_t ftrailing, void* px) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3934,7 +3934,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringCPtoX(void* ssa, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringFree(void* pssa) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringFree(void* pssa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3956,7 +3956,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringFree(void* pssa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringGetLogicalWidths(void* ssa, void* pidx) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringGetLogicalWidths(void* ssa, void* pidx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3979,7 +3979,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringGetLogicalWidths(void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringGetOrder(void* ssa, void* puorder) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringGetOrder(void* ssa, void* puorder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4002,7 +4002,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringGetOrder(void* ssa, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringOut(void* ssa, int32_t ix, int32_t iy, uint32_t uoptions, void* prc, int32_t iminsel, int32_t imaxsel, int32_t fdisabled) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringOut(void* ssa, int32_t ix, int32_t iy, uint32_t uoptions, void* prc, int32_t iminsel, int32_t imaxsel, int32_t fdisabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4031,7 +4031,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringOut(void* ssa, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringValidate(void* ssa) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringValidate(void* ssa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4053,7 +4053,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringValidate(void* ssa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptStringXtoCP(void* ssa, int32_t ix, void* pich, void* pitrailing) {
+int32_t windowssysWindowsWin32GlobalizationScriptStringXtoCP(void* ssa, int32_t ix, void* pich, void* pitrailing) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4078,7 +4078,7 @@ int32_t windowssys_windows_win32_globalization_scriptStringXtoCP(void* ssa, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_scriptStringPLogAttr(void* ssa) {
+void* windowssysWindowsWin32GlobalizationScriptStringPLogAttr(void* ssa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4100,7 +4100,7 @@ void* windowssys_windows_win32_globalization_scriptStringPLogAttr(void* ssa) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_scriptStringPSize(void* ssa) {
+void* windowssysWindowsWin32GlobalizationScriptStringPSize(void* ssa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4122,7 +4122,7 @@ void* windowssys_windows_win32_globalization_scriptStringPSize(void* ssa) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_scriptStringPcOutChars(void* ssa) {
+void* windowssysWindowsWin32GlobalizationScriptStringPcOutChars(void* ssa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4144,7 +4144,7 @@ void* windowssys_windows_win32_globalization_scriptStringPcOutChars(void* ssa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptSubstituteSingleGlyph(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, uint32_t tagfeature, int32_t lparameter, uint16_t wglyphid, void* pwoutglyphid) {
+int32_t windowssysWindowsWin32GlobalizationScriptSubstituteSingleGlyph(void* hdc, void* psc, void* psa, uint32_t tagscript, uint32_t taglangsys, uint32_t tagfeature, int32_t lparameter, uint16_t wglyphid, void* pwoutglyphid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, int32_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4174,7 +4174,7 @@ int32_t windowssys_windows_win32_globalization_scriptSubstituteSingleGlyph(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptTextOut(void* hdc, void* psc, int32_t x, int32_t y, uint32_t fuoptions, void* lprc, void* psa, void* pwcreserved, int32_t ireserved, void* pwglyphs, int32_t cglyphs, void* piadvance, void* pijustify, void* pgoffset) {
+int32_t windowssysWindowsWin32GlobalizationScriptTextOut(void* hdc, void* psc, int32_t x, int32_t y, uint32_t fuoptions, void* lprc, void* psa, void* pwcreserved, int32_t ireserved, void* pwglyphs, int32_t cglyphs, void* piadvance, void* pijustify, void* pgoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, void*, void*, void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4209,7 +4209,7 @@ int32_t windowssys_windows_win32_globalization_scriptTextOut(void* hdc, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_scriptXtoCP(int32_t ix, int32_t cchars, int32_t cglyphs, void* pwlogclust, void* psva, void* piadvance, void* psa, void* picp, void* pitrailing) {
+int32_t windowssysWindowsWin32GlobalizationScriptXtoCP(int32_t ix, int32_t cchars, int32_t cglyphs, void* pwlogclust, void* psva, void* piadvance, void* psa, void* picp, void* pitrailing) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4239,7 +4239,7 @@ int32_t windowssys_windows_win32_globalization_scriptXtoCP(int32_t ix, int32_t c
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setCalendarInfoA(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata) {
+int32_t windowssysWindowsWin32GlobalizationSetCalendarInfoA(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4264,7 +4264,7 @@ int32_t windowssys_windows_win32_globalization_setCalendarInfoA(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setCalendarInfoW(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata) {
+int32_t windowssysWindowsWin32GlobalizationSetCalendarInfoW(uint32_t locale, uint32_t calendar, uint32_t caltype, void* lpcaldata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4289,7 +4289,7 @@ int32_t windowssys_windows_win32_globalization_setCalendarInfoW(uint32_t locale,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setLocaleInfoA(uint32_t locale, uint32_t lctype, void* lplcdata) {
+int32_t windowssysWindowsWin32GlobalizationSetLocaleInfoA(uint32_t locale, uint32_t lctype, void* lplcdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4313,7 +4313,7 @@ int32_t windowssys_windows_win32_globalization_setLocaleInfoA(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setLocaleInfoW(uint32_t locale, uint32_t lctype, void* lplcdata) {
+int32_t windowssysWindowsWin32GlobalizationSetLocaleInfoW(uint32_t locale, uint32_t lctype, void* lplcdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4337,7 +4337,7 @@ int32_t windowssys_windows_win32_globalization_setLocaleInfoW(uint32_t locale, u
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setProcessPreferredUILanguages(uint32_t dwflags, void* pwszlanguagesbuffer, void* pulnumlanguages) {
+int32_t windowssysWindowsWin32GlobalizationSetProcessPreferredUILanguages(uint32_t dwflags, void* pwszlanguagesbuffer, void* pulnumlanguages) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4361,7 +4361,7 @@ int32_t windowssys_windows_win32_globalization_setProcessPreferredUILanguages(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setThreadLocale(uint32_t locale) {
+int32_t windowssysWindowsWin32GlobalizationSetThreadLocale(uint32_t locale) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4383,7 +4383,7 @@ int32_t windowssys_windows_win32_globalization_setThreadLocale(uint32_t locale) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setThreadPreferredUILanguages(uint32_t dwflags, void* pwszlanguagesbuffer, void* pulnumlanguages) {
+int32_t windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages(uint32_t dwflags, void* pwszlanguagesbuffer, void* pulnumlanguages) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4407,7 +4407,7 @@ int32_t windowssys_windows_win32_globalization_setThreadPreferredUILanguages(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setThreadPreferredUILanguages2(uint32_t flags, void* languages, void* numlanguagesset, void* snapshot) {
+int32_t windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages2(uint32_t flags, void* languages, void* numlanguagesset, void* snapshot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4432,7 +4432,7 @@ int32_t windowssys_windows_win32_globalization_setThreadPreferredUILanguages2(ui
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_setThreadUILanguage(uint16_t langid) {
+uint16_t windowssysWindowsWin32GlobalizationSetThreadUILanguage(uint16_t langid) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4454,7 +4454,7 @@ uint16_t windowssys_windows_win32_globalization_setThreadUILanguage(uint16_t lan
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setUserGeoID(int32_t geoid) {
+int32_t windowssysWindowsWin32GlobalizationSetUserGeoID(int32_t geoid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4476,7 +4476,7 @@ int32_t windowssys_windows_win32_globalization_setUserGeoID(int32_t geoid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_setUserGeoName(void* geoname) {
+int32_t windowssysWindowsWin32GlobalizationSetUserGeoName(void* geoname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4498,7 +4498,7 @@ int32_t windowssys_windows_win32_globalization_setUserGeoName(void* geoname) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_translateCharsetInfo(void* lpsrc, void* lpcs, uint32_t dwflags) {
+int32_t windowssysWindowsWin32GlobalizationTranslateCharsetInfo(void* lpsrc, void* lpcs, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4522,7 +4522,7 @@ int32_t windowssys_windows_win32_globalization_translateCharsetInfo(void* lpsrc,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvFromUCallbackEscape(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvFromUCallbackEscape(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4549,7 +4549,7 @@ void windowssys_windows_win32_globalization_ucnvFromUCallbackEscape(void* contex
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvFromUCallbackSkip(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvFromUCallbackSkip(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4576,7 +4576,7 @@ void windowssys_windows_win32_globalization_ucnvFromUCallbackSkip(void* context,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvFromUCallbackStop(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvFromUCallbackStop(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4603,7 +4603,7 @@ void windowssys_windows_win32_globalization_ucnvFromUCallbackStop(void* context,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvFromUCallbackSubstitute(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvFromUCallbackSubstitute(void* context, void* fromuargs, void* codeunits, int32_t length, int32_t codepoint, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4630,7 +4630,7 @@ void windowssys_windows_win32_globalization_ucnvFromUCallbackSubstitute(void* co
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvToUCallbackEscape(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvToUCallbackEscape(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4656,7 +4656,7 @@ void windowssys_windows_win32_globalization_ucnvToUCallbackEscape(void* context,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvToUCallbackSkip(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvToUCallbackSkip(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4682,7 +4682,7 @@ void windowssys_windows_win32_globalization_ucnvToUCallbackSkip(void* context, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvToUCallbackStop(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvToUCallbackStop(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4708,7 +4708,7 @@ void windowssys_windows_win32_globalization_ucnvToUCallbackStop(void* context, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvToUCallbackSubstitute(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvToUCallbackSubstitute(void* context, void* touargs, void* codeunits, int32_t length, int32_t reason, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4734,7 +4734,7 @@ void windowssys_windows_win32_globalization_ucnvToUCallbackSubstitute(void* cont
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_updateCalendarDayOfWeek(void* lpcaldatetime) {
+int32_t windowssysWindowsWin32GlobalizationUpdateCalendarDayOfWeek(void* lpcaldatetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4756,7 +4756,7 @@ int32_t windowssys_windows_win32_globalization_updateCalendarDayOfWeek(void* lpc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_verifyScripts(uint32_t dwflags, void* lplocalescripts, int32_t cchlocalescripts, void* lptestscripts, int32_t cchtestscripts) {
+int32_t windowssysWindowsWin32GlobalizationVerifyScripts(uint32_t dwflags, void* lplocalescripts, int32_t cchlocalescripts, void* lptestscripts, int32_t cchtestscripts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4782,7 +4782,7 @@ int32_t windowssys_windows_win32_globalization_verifyScripts(uint32_t dwflags, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_wideCharToMultiByte(uint32_t codepage, uint32_t dwflags, void* lpwidecharstr, int32_t cchwidechar, void* lpmultibytestr, int32_t cbmultibyte, void* lpdefaultchar, void* lpuseddefaultchar) {
+int32_t windowssysWindowsWin32GlobalizationWideCharToMultiByte(uint32_t codepage, uint32_t dwflags, void* lpwidecharstr, int32_t cchwidechar, void* lpmultibytestr, int32_t cbmultibyte, void* lpdefaultchar, void* lpuseddefaultchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4811,7 +4811,7 @@ int32_t windowssys_windows_win32_globalization_wideCharToMultiByte(uint32_t code
 #endif
 }
 
-void* windowssys_windows_win32_globalization_lstrcatA(void* lpstring1, void* lpstring2) {
+void* windowssysWindowsWin32GlobalizationLstrcatA(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4834,7 +4834,7 @@ void* windowssys_windows_win32_globalization_lstrcatA(void* lpstring1, void* lps
 #endif
 }
 
-void* windowssys_windows_win32_globalization_lstrcatW(void* lpstring1, void* lpstring2) {
+void* windowssysWindowsWin32GlobalizationLstrcatW(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4857,7 +4857,7 @@ void* windowssys_windows_win32_globalization_lstrcatW(void* lpstring1, void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lstrcmpA(void* lpstring1, void* lpstring2) {
+int32_t windowssysWindowsWin32GlobalizationLstrcmpA(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4880,7 +4880,7 @@ int32_t windowssys_windows_win32_globalization_lstrcmpA(void* lpstring1, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lstrcmpW(void* lpstring1, void* lpstring2) {
+int32_t windowssysWindowsWin32GlobalizationLstrcmpW(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4903,7 +4903,7 @@ int32_t windowssys_windows_win32_globalization_lstrcmpW(void* lpstring1, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lstrcmpiA(void* lpstring1, void* lpstring2) {
+int32_t windowssysWindowsWin32GlobalizationLstrcmpiA(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4926,7 +4926,7 @@ int32_t windowssys_windows_win32_globalization_lstrcmpiA(void* lpstring1, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lstrcmpiW(void* lpstring1, void* lpstring2) {
+int32_t windowssysWindowsWin32GlobalizationLstrcmpiW(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4949,7 +4949,7 @@ int32_t windowssys_windows_win32_globalization_lstrcmpiW(void* lpstring1, void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_lstrcpyA(void* lpstring1, void* lpstring2) {
+void* windowssysWindowsWin32GlobalizationLstrcpyA(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4972,7 +4972,7 @@ void* windowssys_windows_win32_globalization_lstrcpyA(void* lpstring1, void* lps
 #endif
 }
 
-void* windowssys_windows_win32_globalization_lstrcpyW(void* lpstring1, void* lpstring2) {
+void* windowssysWindowsWin32GlobalizationLstrcpyW(void* lpstring1, void* lpstring2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4995,7 +4995,7 @@ void* windowssys_windows_win32_globalization_lstrcpyW(void* lpstring1, void* lps
 #endif
 }
 
-void* windowssys_windows_win32_globalization_lstrcpynA(void* lpstring1, void* lpstring2, int32_t imaxlength) {
+void* windowssysWindowsWin32GlobalizationLstrcpynA(void* lpstring1, void* lpstring2, int32_t imaxlength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5019,7 +5019,7 @@ void* windowssys_windows_win32_globalization_lstrcpynA(void* lpstring1, void* lp
 #endif
 }
 
-void* windowssys_windows_win32_globalization_lstrcpynW(void* lpstring1, void* lpstring2, int32_t imaxlength) {
+void* windowssysWindowsWin32GlobalizationLstrcpynW(void* lpstring1, void* lpstring2, int32_t imaxlength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5043,7 +5043,7 @@ void* windowssys_windows_win32_globalization_lstrcpynW(void* lpstring1, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lstrlenA(void* lpstring) {
+int32_t windowssysWindowsWin32GlobalizationLstrlenA(void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5065,7 +5065,7 @@ int32_t windowssys_windows_win32_globalization_lstrlenA(void* lpstring) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_lstrlenW(void* lpstring) {
+int32_t windowssysWindowsWin32GlobalizationLstrlenW(void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5087,7 +5087,7 @@ int32_t windowssys_windows_win32_globalization_lstrlenW(void* lpstring) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_uUcharsToChars(void* us, void* cs, int32_t length) {
+void windowssysWindowsWin32GlobalizationUUcharsToChars(void* us, void* cs, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5110,7 +5110,7 @@ void windowssys_windows_win32_globalization_uUcharsToChars(void* us, void* cs, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uAustrcpy(void* dst, void* src) {
+void* windowssysWindowsWin32GlobalizationUAustrcpy(void* dst, void* src) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5133,7 +5133,7 @@ void* windowssys_windows_win32_globalization_uAustrcpy(void* dst, void* src) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uAustrncpy(void* dst, void* src, int32_t n) {
+void* windowssysWindowsWin32GlobalizationUAustrncpy(void* dst, void* src, int32_t n) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5157,7 +5157,7 @@ void* windowssys_windows_win32_globalization_uAustrncpy(void* dst, void* src, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_uCatclose(void* catd) {
+void windowssysWindowsWin32GlobalizationUCatclose(void* catd) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5178,7 +5178,7 @@ void windowssys_windows_win32_globalization_uCatclose(void* catd) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uCatgets(void* catd, int32_t set_num, int32_t msg_num, void* s, void* len, void* ec) {
+void* windowssysWindowsWin32GlobalizationUCatgets(void* catd, int32_t setNum, int32_t msgNum, void* s, void* len, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5189,14 +5189,14 @@ void* windowssys_windows_win32_globalization_uCatgets(void* catd, int32_t set_nu
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(catd, set_num, msg_num, s, len, ec);
+        return km_fn_ptr(catd, setNum, msgNum, s, len, ec);
     }
     errno = ENOSYS;
     return NULL;
 #else
     (void)catd;
-    (void)set_num;
-    (void)msg_num;
+    (void)setNum;
+    (void)msgNum;
     (void)s;
     (void)len;
     (void)ec;
@@ -5205,7 +5205,7 @@ void* windowssys_windows_win32_globalization_uCatgets(void* catd, int32_t set_nu
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uCatopen(void* name, void* locale, void* ec) {
+void* windowssysWindowsWin32GlobalizationUCatopen(void* name, void* locale, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5229,7 +5229,7 @@ void* windowssys_windows_win32_globalization_uCatopen(void* name, void* locale, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uCharAge(int32_t c, void* versionarray) {
+void windowssysWindowsWin32GlobalizationUCharAge(int32_t c, void* versionarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5251,7 +5251,7 @@ void windowssys_windows_win32_globalization_uCharAge(int32_t c, void* versionarr
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uCharDigitValue(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUCharDigitValue(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5273,7 +5273,7 @@ int32_t windowssys_windows_win32_globalization_uCharDigitValue(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uCharDirection(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUCharDirection(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5295,7 +5295,7 @@ int32_t windowssys_windows_win32_globalization_uCharDirection(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uCharFromName(int32_t namechoice, void* name, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUCharFromName(int32_t namechoice, void* name, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5319,7 +5319,7 @@ int32_t windowssys_windows_win32_globalization_uCharFromName(int32_t namechoice,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uCharMirror(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUCharMirror(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5341,7 +5341,7 @@ int32_t windowssys_windows_win32_globalization_uCharMirror(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uCharName(int32_t code, int32_t namechoice, void* buffer, int32_t bufferlength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUCharName(int32_t code, int32_t namechoice, void* buffer, int32_t bufferlength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5367,7 +5367,7 @@ int32_t windowssys_windows_win32_globalization_uCharName(int32_t code, int32_t n
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uCharType(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUCharType(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5389,7 +5389,7 @@ int8_t windowssys_windows_win32_globalization_uCharType(int32_t c) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_uCharsToUchars(void* cs, void* us, int32_t length) {
+void windowssysWindowsWin32GlobalizationUCharsToUchars(void* cs, void* us, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5412,7 +5412,7 @@ void windowssys_windows_win32_globalization_uCharsToUchars(void* cs, void* us, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_uCleanup(void) {
+void windowssysWindowsWin32GlobalizationUCleanup(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5432,7 +5432,7 @@ void windowssys_windows_win32_globalization_uCleanup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uCountChar32(void* s, int32_t length) {
+int32_t windowssysWindowsWin32GlobalizationUCountChar32(void* s, int32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5455,7 +5455,7 @@ int32_t windowssys_windows_win32_globalization_uCountChar32(void* s, int32_t len
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uDigit(int32_t ch, int8_t radix) {
+int32_t windowssysWindowsWin32GlobalizationUDigit(int32_t ch, int8_t radix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5478,7 +5478,7 @@ int32_t windowssys_windows_win32_globalization_uDigit(int32_t ch, int8_t radix) 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uEnumCharNames(int32_t start, int32_t limit, void* fn, void* context, int32_t namechoice, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUEnumCharNames(int32_t start, int32_t limit, void* fn, void* context, int32_t namechoice, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5504,7 +5504,7 @@ void windowssys_windows_win32_globalization_uEnumCharNames(int32_t start, int32_
 #endif
 }
 
-void windowssys_windows_win32_globalization_uEnumCharTypes(void* enumrange, void* context) {
+void windowssysWindowsWin32GlobalizationUEnumCharTypes(void* enumrange, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5526,7 +5526,7 @@ void windowssys_windows_win32_globalization_uEnumCharTypes(void* enumrange, void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uErrorName(int32_t code) {
+void* windowssysWindowsWin32GlobalizationUErrorName(int32_t code) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5548,7 +5548,7 @@ void* windowssys_windows_win32_globalization_uErrorName(int32_t code) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uFoldCase(int32_t c, uint32_t options) {
+int32_t windowssysWindowsWin32GlobalizationUFoldCase(int32_t c, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5571,7 +5571,7 @@ int32_t windowssys_windows_win32_globalization_uFoldCase(int32_t c, uint32_t opt
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uForDigit(int32_t digit, int8_t radix) {
+int32_t windowssysWindowsWin32GlobalizationUForDigit(int32_t digit, int8_t radix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5594,7 +5594,7 @@ int32_t windowssys_windows_win32_globalization_uForDigit(int32_t digit, int8_t r
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uFormatMessage(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32GlobalizationUFormatMessage(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -5632,7 +5632,7 @@ int32_t windowssys_windows_win32_globalization_uFormatMessage(void* locale, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uFormatMessageWithError(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* parseerror, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32GlobalizationUFormatMessageWithError(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* parseerror, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -5671,7 +5671,7 @@ int32_t windowssys_windows_win32_globalization_uFormatMessageWithError(void* loc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetBidiPairedBracket(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUGetBidiPairedBracket(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5693,7 +5693,7 @@ int32_t windowssys_windows_win32_globalization_uGetBidiPairedBracket(int32_t c) 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uGetBinaryPropertySet(int32_t property, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUGetBinaryPropertySet(int32_t property, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5716,7 +5716,7 @@ void* windowssys_windows_win32_globalization_uGetBinaryPropertySet(int32_t prope
 #endif
 }
 
-uint8_t windowssys_windows_win32_globalization_uGetCombiningClass(int32_t c) {
+uint8_t windowssysWindowsWin32GlobalizationUGetCombiningClass(int32_t c) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5738,7 +5738,7 @@ uint8_t windowssys_windows_win32_globalization_uGetCombiningClass(int32_t c) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_uGetDataVersion(void* dataversionfillin, void* status) {
+void windowssysWindowsWin32GlobalizationUGetDataVersion(void* dataversionfillin, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5760,7 +5760,7 @@ void windowssys_windows_win32_globalization_uGetDataVersion(void* dataversionfil
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetFcNfkcClosure(int32_t c, void* dest, int32_t destcapacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUGetFcNfkcClosure(int32_t c, void* dest, int32_t destcapacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5785,7 +5785,7 @@ int32_t windowssys_windows_win32_globalization_uGetFcNfkcClosure(int32_t c, void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uGetIntPropertyMap(int32_t property, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUGetIntPropertyMap(int32_t property, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5808,7 +5808,7 @@ void* windowssys_windows_win32_globalization_uGetIntPropertyMap(int32_t property
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetIntPropertyMaxValue(int32_t which) {
+int32_t windowssysWindowsWin32GlobalizationUGetIntPropertyMaxValue(int32_t which) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5830,7 +5830,7 @@ int32_t windowssys_windows_win32_globalization_uGetIntPropertyMaxValue(int32_t w
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetIntPropertyMinValue(int32_t which) {
+int32_t windowssysWindowsWin32GlobalizationUGetIntPropertyMinValue(int32_t which) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5852,7 +5852,7 @@ int32_t windowssys_windows_win32_globalization_uGetIntPropertyMinValue(int32_t w
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetIntPropertyValue(int32_t c, int32_t which) {
+int32_t windowssysWindowsWin32GlobalizationUGetIntPropertyValue(int32_t c, int32_t which) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5875,7 +5875,7 @@ int32_t windowssys_windows_win32_globalization_uGetIntPropertyValue(int32_t c, i
 #endif
 }
 
-double windowssys_windows_win32_globalization_uGetNumericValue(int32_t c) {
+double windowssysWindowsWin32GlobalizationUGetNumericValue(int32_t c) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5897,7 +5897,7 @@ double windowssys_windows_win32_globalization_uGetNumericValue(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetPropertyEnum(void* alias) {
+int32_t windowssysWindowsWin32GlobalizationUGetPropertyEnum(void* alias) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5919,7 +5919,7 @@ int32_t windowssys_windows_win32_globalization_uGetPropertyEnum(void* alias) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uGetPropertyName(int32_t property, int32_t namechoice) {
+void* windowssysWindowsWin32GlobalizationUGetPropertyName(int32_t property, int32_t namechoice) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5942,7 +5942,7 @@ void* windowssys_windows_win32_globalization_uGetPropertyName(int32_t property, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uGetPropertyValueEnum(int32_t property, void* alias) {
+int32_t windowssysWindowsWin32GlobalizationUGetPropertyValueEnum(int32_t property, void* alias) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5965,7 +5965,7 @@ int32_t windowssys_windows_win32_globalization_uGetPropertyValueEnum(int32_t pro
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uGetPropertyValueName(int32_t property, int32_t value, int32_t namechoice) {
+void* windowssysWindowsWin32GlobalizationUGetPropertyValueName(int32_t property, int32_t value, int32_t namechoice) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5989,7 +5989,7 @@ void* windowssys_windows_win32_globalization_uGetPropertyValueName(int32_t prope
 #endif
 }
 
-void windowssys_windows_win32_globalization_uGetUnicodeVersion(void* versionarray) {
+void windowssysWindowsWin32GlobalizationUGetUnicodeVersion(void* versionarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6010,7 +6010,7 @@ void windowssys_windows_win32_globalization_uGetUnicodeVersion(void* versionarra
 #endif
 }
 
-void windowssys_windows_win32_globalization_uGetVersion(void* versionarray) {
+void windowssysWindowsWin32GlobalizationUGetVersion(void* versionarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6031,7 +6031,7 @@ void windowssys_windows_win32_globalization_uGetVersion(void* versionarray) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uHasBinaryProperty(int32_t c, int32_t which) {
+int8_t windowssysWindowsWin32GlobalizationUHasBinaryProperty(int32_t c, int32_t which) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6054,7 +6054,7 @@ int8_t windowssys_windows_win32_globalization_uHasBinaryProperty(int32_t c, int3
 #endif
 }
 
-void windowssys_windows_win32_globalization_uInit(void* status) {
+void windowssysWindowsWin32GlobalizationUInit(void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6075,7 +6075,7 @@ void windowssys_windows_win32_globalization_uInit(void* status) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsIdignorable(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsIdignorable(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6097,7 +6097,7 @@ int8_t windowssys_windows_win32_globalization_uIsIdignorable(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsIdpart(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsIdpart(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6119,7 +6119,7 @@ int8_t windowssys_windows_win32_globalization_uIsIdpart(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsIdstart(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsIdstart(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6141,7 +6141,7 @@ int8_t windowssys_windows_win32_globalization_uIsIdstart(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsIsocontrol(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsIsocontrol(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6163,7 +6163,7 @@ int8_t windowssys_windows_win32_globalization_uIsIsocontrol(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsJavaIdpart(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsJavaIdpart(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6185,7 +6185,7 @@ int8_t windowssys_windows_win32_globalization_uIsJavaIdpart(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsJavaIdstart(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsJavaIdstart(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6207,7 +6207,7 @@ int8_t windowssys_windows_win32_globalization_uIsJavaIdstart(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsJavaSpaceChar(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsJavaSpaceChar(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6229,7 +6229,7 @@ int8_t windowssys_windows_win32_globalization_uIsJavaSpaceChar(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsMirrored(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsMirrored(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6251,7 +6251,7 @@ int8_t windowssys_windows_win32_globalization_uIsMirrored(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsUalphabetic(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsUalphabetic(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6273,7 +6273,7 @@ int8_t windowssys_windows_win32_globalization_uIsUalphabetic(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsUlowercase(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsUlowercase(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6295,7 +6295,7 @@ int8_t windowssys_windows_win32_globalization_uIsUlowercase(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsUuppercase(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsUuppercase(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6317,7 +6317,7 @@ int8_t windowssys_windows_win32_globalization_uIsUuppercase(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsUwhiteSpace(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsUwhiteSpace(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6339,7 +6339,7 @@ int8_t windowssys_windows_win32_globalization_uIsUwhiteSpace(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsWhitespace(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsWhitespace(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6361,7 +6361,7 @@ int8_t windowssys_windows_win32_globalization_uIsWhitespace(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsalnum(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsalnum(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6383,7 +6383,7 @@ int8_t windowssys_windows_win32_globalization_uIsalnum(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsalpha(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsalpha(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6405,7 +6405,7 @@ int8_t windowssys_windows_win32_globalization_uIsalpha(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsbase(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsbase(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6427,7 +6427,7 @@ int8_t windowssys_windows_win32_globalization_uIsbase(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsblank(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsblank(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6449,7 +6449,7 @@ int8_t windowssys_windows_win32_globalization_uIsblank(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIscntrl(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIscntrl(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6471,7 +6471,7 @@ int8_t windowssys_windows_win32_globalization_uIscntrl(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsdefined(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsdefined(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6493,7 +6493,7 @@ int8_t windowssys_windows_win32_globalization_uIsdefined(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsdigit(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsdigit(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6515,7 +6515,7 @@ int8_t windowssys_windows_win32_globalization_uIsdigit(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsgraph(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsgraph(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6537,7 +6537,7 @@ int8_t windowssys_windows_win32_globalization_uIsgraph(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIslower(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIslower(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6559,7 +6559,7 @@ int8_t windowssys_windows_win32_globalization_uIslower(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsprint(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsprint(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6581,7 +6581,7 @@ int8_t windowssys_windows_win32_globalization_uIsprint(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIspunct(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIspunct(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6603,7 +6603,7 @@ int8_t windowssys_windows_win32_globalization_uIspunct(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsspace(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsspace(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6625,7 +6625,7 @@ int8_t windowssys_windows_win32_globalization_uIsspace(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIstitle(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIstitle(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6647,7 +6647,7 @@ int8_t windowssys_windows_win32_globalization_uIstitle(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsupper(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsupper(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6669,7 +6669,7 @@ int8_t windowssys_windows_win32_globalization_uIsupper(int32_t c) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uIsxdigit(int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUIsxdigit(int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6691,7 +6691,7 @@ int8_t windowssys_windows_win32_globalization_uIsxdigit(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uMemcasecmp(void* s1, void* s2, int32_t length, uint32_t options) {
+int32_t windowssysWindowsWin32GlobalizationUMemcasecmp(void* s1, void* s2, int32_t length, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6716,7 +6716,7 @@ int32_t windowssys_windows_win32_globalization_uMemcasecmp(void* s1, void* s2, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemchr(void* s, uint16_t c, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemchr(void* s, uint16_t c, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6740,7 +6740,7 @@ void* windowssys_windows_win32_globalization_uMemchr(void* s, uint16_t c, int32_
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemchr32(void* s, int32_t c, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemchr32(void* s, int32_t c, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6764,7 +6764,7 @@ void* windowssys_windows_win32_globalization_uMemchr32(void* s, int32_t c, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uMemcmp(void* buf1, void* buf2, int32_t count) {
+int32_t windowssysWindowsWin32GlobalizationUMemcmp(void* buf1, void* buf2, int32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6788,7 +6788,7 @@ int32_t windowssys_windows_win32_globalization_uMemcmp(void* buf1, void* buf2, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uMemcmpCodePointOrder(void* s1, void* s2, int32_t count) {
+int32_t windowssysWindowsWin32GlobalizationUMemcmpCodePointOrder(void* s1, void* s2, int32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6812,7 +6812,7 @@ int32_t windowssys_windows_win32_globalization_uMemcmpCodePointOrder(void* s1, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemcpy(void* dest, void* src, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemcpy(void* dest, void* src, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6836,7 +6836,7 @@ void* windowssys_windows_win32_globalization_uMemcpy(void* dest, void* src, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemmove(void* dest, void* src, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemmove(void* dest, void* src, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6860,7 +6860,7 @@ void* windowssys_windows_win32_globalization_uMemmove(void* dest, void* src, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemrchr(void* s, uint16_t c, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemrchr(void* s, uint16_t c, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6884,7 +6884,7 @@ void* windowssys_windows_win32_globalization_uMemrchr(void* s, uint16_t c, int32
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemrchr32(void* s, int32_t c, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemrchr32(void* s, int32_t c, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6908,7 +6908,7 @@ void* windowssys_windows_win32_globalization_uMemrchr32(void* s, int32_t c, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uMemset(void* dest, uint16_t c, int32_t count) {
+void* windowssysWindowsWin32GlobalizationUMemset(void* dest, uint16_t c, int32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6932,7 +6932,7 @@ void* windowssys_windows_win32_globalization_uMemset(void* dest, uint16_t c, int
 #endif
 }
 
-void windowssys_windows_win32_globalization_uParseMessage(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWin32GlobalizationUParseMessage(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -6969,7 +6969,7 @@ void windowssys_windows_win32_globalization_uParseMessage(void* locale, void* pa
 #endif
 }
 
-void windowssys_windows_win32_globalization_uParseMessageWithError(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* parseerror, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWin32GlobalizationUParseMessageWithError(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* parseerror, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7007,7 +7007,7 @@ void windowssys_windows_win32_globalization_uParseMessageWithError(void* locale,
 #endif
 }
 
-void windowssys_windows_win32_globalization_uSetMemoryFunctions(void* context, void* a, void* r, void* f, void* status) {
+void windowssysWindowsWin32GlobalizationUSetMemoryFunctions(void* context, void* a, void* r, void* f, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7032,7 +7032,7 @@ void windowssys_windows_win32_globalization_uSetMemoryFunctions(void* context, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uShapeArabic(void* source, int32_t sourcelength, void* dest, int32_t destsize, uint32_t options, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUShapeArabic(void* source, int32_t sourcelength, void* dest, int32_t destsize, uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7059,7 +7059,7 @@ int32_t windowssys_windows_win32_globalization_uShapeArabic(void* source, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrCaseCompare(void* s1, int32_t length1, void* s2, int32_t length2, uint32_t options, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUStrCaseCompare(void* s1, int32_t length1, void* s2, int32_t length2, uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7086,7 +7086,7 @@ int32_t windowssys_windows_win32_globalization_uStrCaseCompare(void* s1, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrCompare(void* s1, int32_t length1, void* s2, int32_t length2, int8_t codepointorder) {
+int32_t windowssysWindowsWin32GlobalizationUStrCompare(void* s1, int32_t length1, void* s2, int32_t length2, int8_t codepointorder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7112,7 +7112,7 @@ int32_t windowssys_windows_win32_globalization_uStrCompare(void* s1, int32_t len
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrCompareIter(void* iter1, void* iter2, int8_t codepointorder) {
+int32_t windowssysWindowsWin32GlobalizationUStrCompareIter(void* iter1, void* iter2, int8_t codepointorder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7136,7 +7136,7 @@ int32_t windowssys_windows_win32_globalization_uStrCompareIter(void* iter1, void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFindFirst(void* s, int32_t length, void* substring, int32_t sublength) {
+void* windowssysWindowsWin32GlobalizationUStrFindFirst(void* s, int32_t length, void* substring, int32_t sublength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7161,7 +7161,7 @@ void* windowssys_windows_win32_globalization_uStrFindFirst(void* s, int32_t leng
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFindLast(void* s, int32_t length, void* substring, int32_t sublength) {
+void* windowssysWindowsWin32GlobalizationUStrFindLast(void* s, int32_t length, void* substring, int32_t sublength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7186,7 +7186,7 @@ void* windowssys_windows_win32_globalization_uStrFindLast(void* s, int32_t lengt
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrFoldCase(void* dest, int32_t destcapacity, void* src, int32_t srclength, uint32_t options, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUStrFoldCase(void* dest, int32_t destcapacity, void* src, int32_t srclength, uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7213,7 +7213,7 @@ int32_t windowssys_windows_win32_globalization_uStrFoldCase(void* dest, int32_t 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromJavaModifiedUtf8WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromJavaModifiedUtf8WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7242,7 +7242,7 @@ void* windowssys_windows_win32_globalization_uStrFromJavaModifiedUtf8WithSub(voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromUtf32(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromUtf32(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7269,7 +7269,7 @@ void* windowssys_windows_win32_globalization_uStrFromUtf32(void* dest, int32_t d
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromUtf32WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromUtf32WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7298,7 +7298,7 @@ void* windowssys_windows_win32_globalization_uStrFromUtf32WithSub(void* dest, in
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromUtf8(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromUtf8(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7325,7 +7325,7 @@ void* windowssys_windows_win32_globalization_uStrFromUtf8(void* dest, int32_t de
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromUtf8Lenient(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromUtf8Lenient(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7352,7 +7352,7 @@ void* windowssys_windows_win32_globalization_uStrFromUtf8Lenient(void* dest, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromUtf8WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromUtf8WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7381,7 +7381,7 @@ void* windowssys_windows_win32_globalization_uStrFromUtf8WithSub(void* dest, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrFromWcs(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrFromWcs(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7408,7 +7408,7 @@ void* windowssys_windows_win32_globalization_uStrFromWcs(void* dest, int32_t des
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uStrHasMoreChar32Than(void* s, int32_t length, int32_t number) {
+int8_t windowssysWindowsWin32GlobalizationUStrHasMoreChar32Than(void* s, int32_t length, int32_t number) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7432,7 +7432,7 @@ int8_t windowssys_windows_win32_globalization_uStrHasMoreChar32Than(void* s, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrToJavaModifiedUtf8(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrToJavaModifiedUtf8(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7459,7 +7459,7 @@ void* windowssys_windows_win32_globalization_uStrToJavaModifiedUtf8(void* dest, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrToLower(void* dest, int32_t destcapacity, void* src, int32_t srclength, void* locale, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUStrToLower(void* dest, int32_t destcapacity, void* src, int32_t srclength, void* locale, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7486,7 +7486,7 @@ int32_t windowssys_windows_win32_globalization_uStrToLower(void* dest, int32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrToTitle(void* dest, int32_t destcapacity, void* src, int32_t srclength, void* titleiter, void* locale, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUStrToTitle(void* dest, int32_t destcapacity, void* src, int32_t srclength, void* titleiter, void* locale, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7514,7 +7514,7 @@ int32_t windowssys_windows_win32_globalization_uStrToTitle(void* dest, int32_t d
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrToUtf32(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrToUtf32(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7541,7 +7541,7 @@ void* windowssys_windows_win32_globalization_uStrToUtf32(void* dest, int32_t des
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrToUtf32WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrToUtf32WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7570,7 +7570,7 @@ void* windowssys_windows_win32_globalization_uStrToUtf32WithSub(void* dest, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrToUtf8(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrToUtf8(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7597,7 +7597,7 @@ void* windowssys_windows_win32_globalization_uStrToUtf8(void* dest, int32_t dest
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrToUtf8WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrToUtf8WithSub(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, int32_t subchar, void* pnumsubstitutions, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7626,7 +7626,7 @@ void* windowssys_windows_win32_globalization_uStrToUtf8WithSub(void* dest, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrToUpper(void* dest, int32_t destcapacity, void* src, int32_t srclength, void* locale, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUStrToUpper(void* dest, int32_t destcapacity, void* src, int32_t srclength, void* locale, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7653,7 +7653,7 @@ int32_t windowssys_windows_win32_globalization_uStrToUpper(void* dest, int32_t d
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrToWcs(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUStrToWcs(void* dest, int32_t destcapacity, void* pdestlength, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7680,7 +7680,7 @@ void* windowssys_windows_win32_globalization_uStrToWcs(void* dest, int32_t destc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrcasecmp(void* s1, void* s2, uint32_t options) {
+int32_t windowssysWindowsWin32GlobalizationUStrcasecmp(void* s1, void* s2, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7704,7 +7704,7 @@ int32_t windowssys_windows_win32_globalization_uStrcasecmp(void* s1, void* s2, u
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrcat(void* dst, void* src) {
+void* windowssysWindowsWin32GlobalizationUStrcat(void* dst, void* src) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7727,7 +7727,7 @@ void* windowssys_windows_win32_globalization_uStrcat(void* dst, void* src) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrchr(void* s, uint16_t c) {
+void* windowssysWindowsWin32GlobalizationUStrchr(void* s, uint16_t c) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7750,7 +7750,7 @@ void* windowssys_windows_win32_globalization_uStrchr(void* s, uint16_t c) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrchr32(void* s, int32_t c) {
+void* windowssysWindowsWin32GlobalizationUStrchr32(void* s, int32_t c) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7773,7 +7773,7 @@ void* windowssys_windows_win32_globalization_uStrchr32(void* s, int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrcmp(void* s1, void* s2) {
+int32_t windowssysWindowsWin32GlobalizationUStrcmp(void* s1, void* s2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7796,7 +7796,7 @@ int32_t windowssys_windows_win32_globalization_uStrcmp(void* s1, void* s2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrcmpCodePointOrder(void* s1, void* s2) {
+int32_t windowssysWindowsWin32GlobalizationUStrcmpCodePointOrder(void* s1, void* s2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7819,7 +7819,7 @@ int32_t windowssys_windows_win32_globalization_uStrcmpCodePointOrder(void* s1, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrcpy(void* dst, void* src) {
+void* windowssysWindowsWin32GlobalizationUStrcpy(void* dst, void* src) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7842,7 +7842,7 @@ void* windowssys_windows_win32_globalization_uStrcpy(void* dst, void* src) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrcspn(void* string, void* matchset) {
+int32_t windowssysWindowsWin32GlobalizationUStrcspn(void* string, void* matchset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7865,7 +7865,7 @@ int32_t windowssys_windows_win32_globalization_uStrcspn(void* string, void* matc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrlen(void* s) {
+int32_t windowssysWindowsWin32GlobalizationUStrlen(void* s) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7887,7 +7887,7 @@ int32_t windowssys_windows_win32_globalization_uStrlen(void* s) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrncasecmp(void* s1, void* s2, int32_t n, uint32_t options) {
+int32_t windowssysWindowsWin32GlobalizationUStrncasecmp(void* s1, void* s2, int32_t n, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7912,7 +7912,7 @@ int32_t windowssys_windows_win32_globalization_uStrncasecmp(void* s1, void* s2, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrncat(void* dst, void* src, int32_t n) {
+void* windowssysWindowsWin32GlobalizationUStrncat(void* dst, void* src, int32_t n) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7936,7 +7936,7 @@ void* windowssys_windows_win32_globalization_uStrncat(void* dst, void* src, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrncmp(void* ucs1, void* ucs2, int32_t n) {
+int32_t windowssysWindowsWin32GlobalizationUStrncmp(void* ucs1, void* ucs2, int32_t n) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7960,7 +7960,7 @@ int32_t windowssys_windows_win32_globalization_uStrncmp(void* ucs1, void* ucs2, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrncmpCodePointOrder(void* s1, void* s2, int32_t n) {
+int32_t windowssysWindowsWin32GlobalizationUStrncmpCodePointOrder(void* s1, void* s2, int32_t n) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7984,7 +7984,7 @@ int32_t windowssys_windows_win32_globalization_uStrncmpCodePointOrder(void* s1, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrncpy(void* dst, void* src, int32_t n) {
+void* windowssysWindowsWin32GlobalizationUStrncpy(void* dst, void* src, int32_t n) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8008,7 +8008,7 @@ void* windowssys_windows_win32_globalization_uStrncpy(void* dst, void* src, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrpbrk(void* string, void* matchset) {
+void* windowssysWindowsWin32GlobalizationUStrpbrk(void* string, void* matchset) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8031,7 +8031,7 @@ void* windowssys_windows_win32_globalization_uStrpbrk(void* string, void* matchs
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrrchr(void* s, uint16_t c) {
+void* windowssysWindowsWin32GlobalizationUStrrchr(void* s, uint16_t c) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8054,7 +8054,7 @@ void* windowssys_windows_win32_globalization_uStrrchr(void* s, uint16_t c) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrrchr32(void* s, int32_t c) {
+void* windowssysWindowsWin32GlobalizationUStrrchr32(void* s, int32_t c) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8077,7 +8077,7 @@ void* windowssys_windows_win32_globalization_uStrrchr32(void* s, int32_t c) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrrstr(void* s, void* substring) {
+void* windowssysWindowsWin32GlobalizationUStrrstr(void* s, void* substring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8100,7 +8100,7 @@ void* windowssys_windows_win32_globalization_uStrrstr(void* s, void* substring) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uStrspn(void* string, void* matchset) {
+int32_t windowssysWindowsWin32GlobalizationUStrspn(void* string, void* matchset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8123,7 +8123,7 @@ int32_t windowssys_windows_win32_globalization_uStrspn(void* string, void* match
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrstr(void* s, void* substring) {
+void* windowssysWindowsWin32GlobalizationUStrstr(void* s, void* substring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8146,7 +8146,7 @@ void* windowssys_windows_win32_globalization_uStrstr(void* s, void* substring) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uStrtokR(void* src, void* delim, void* savestate) {
+void* windowssysWindowsWin32GlobalizationUStrtokR(void* src, void* delim, void* savestate) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8170,7 +8170,7 @@ void* windowssys_windows_win32_globalization_uStrtokR(void* src, void* delim, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uTolower(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUTolower(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8192,7 +8192,7 @@ int32_t windowssys_windows_win32_globalization_uTolower(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uTotitle(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUTotitle(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8214,7 +8214,7 @@ int32_t windowssys_windows_win32_globalization_uTotitle(int32_t c) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uToupper(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUToupper(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8236,7 +8236,7 @@ int32_t windowssys_windows_win32_globalization_uToupper(int32_t c) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uUastrcpy(void* dst, void* src) {
+void* windowssysWindowsWin32GlobalizationUUastrcpy(void* dst, void* src) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8259,7 +8259,7 @@ void* windowssys_windows_win32_globalization_uUastrcpy(void* dst, void* src) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uUastrncpy(void* dst, void* src, int32_t n) {
+void* windowssysWindowsWin32GlobalizationUUastrncpy(void* dst, void* src, int32_t n) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8283,7 +8283,7 @@ void* windowssys_windows_win32_globalization_uUastrncpy(void* dst, void* src, in
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uUnescape(void* src, void* dest, int32_t destcapacity) {
+int32_t windowssysWindowsWin32GlobalizationUUnescape(void* src, void* dest, int32_t destcapacity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8307,7 +8307,7 @@ int32_t windowssys_windows_win32_globalization_uUnescape(void* src, void* dest, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uUnescapeAt(void* charat, void* offset, int32_t length, void* context) {
+int32_t windowssysWindowsWin32GlobalizationUUnescapeAt(void* charat, void* offset, int32_t length, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8332,7 +8332,7 @@ int32_t windowssys_windows_win32_globalization_uUnescapeAt(void* charat, void* o
 #endif
 }
 
-void windowssys_windows_win32_globalization_uVersionFromString(void* versionarray, void* versionstring) {
+void windowssysWindowsWin32GlobalizationUVersionFromString(void* versionarray, void* versionstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8354,7 +8354,7 @@ void windowssys_windows_win32_globalization_uVersionFromString(void* versionarra
 #endif
 }
 
-void windowssys_windows_win32_globalization_uVersionFromUstring(void* versionarray, void* versionstring) {
+void windowssysWindowsWin32GlobalizationUVersionFromUstring(void* versionarray, void* versionstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8376,7 +8376,7 @@ void windowssys_windows_win32_globalization_uVersionFromUstring(void* versionarr
 #endif
 }
 
-void windowssys_windows_win32_globalization_uVersionToString(void* versionarray, void* versionstring) {
+void windowssysWindowsWin32GlobalizationUVersionToString(void* versionarray, void* versionstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8398,7 +8398,7 @@ void windowssys_windows_win32_globalization_uVersionToString(void* versionarray,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uVformatMessage(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* ap, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUVformatMessage(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* ap, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8426,7 +8426,7 @@ int32_t windowssys_windows_win32_globalization_uVformatMessage(void* locale, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uVformatMessageWithError(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* parseerror, void* ap, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUVformatMessageWithError(void* locale, void* pattern, int32_t patternlength, void* result, int32_t resultlength, void* parseerror, void* ap, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8455,7 +8455,7 @@ int32_t windowssys_windows_win32_globalization_uVformatMessageWithError(void* lo
 #endif
 }
 
-void windowssys_windows_win32_globalization_uVparseMessage(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* ap, void* status) {
+void windowssysWindowsWin32GlobalizationUVparseMessage(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* ap, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8482,7 +8482,7 @@ void windowssys_windows_win32_globalization_uVparseMessage(void* locale, void* p
 #endif
 }
 
-void windowssys_windows_win32_globalization_uVparseMessageWithError(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* ap, void* parseerror, void* status) {
+void windowssysWindowsWin32GlobalizationUVparseMessageWithError(void* locale, void* pattern, int32_t patternlength, void* source, int32_t sourcelength, void* ap, void* parseerror, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8510,7 +8510,7 @@ void windowssys_windows_win32_globalization_uVparseMessageWithError(void* locale
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiClose(void* pbidi) {
+void windowssysWindowsWin32GlobalizationUbidiClose(void* pbidi) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8531,7 +8531,7 @@ void windowssys_windows_win32_globalization_ubidiClose(void* pbidi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiCountParagraphs(void* pbidi) {
+int32_t windowssysWindowsWin32GlobalizationUbidiCountParagraphs(void* pbidi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8553,7 +8553,7 @@ int32_t windowssys_windows_win32_globalization_ubidiCountParagraphs(void* pbidi)
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiCountRuns(void* pbidi, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUbidiCountRuns(void* pbidi, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8576,7 +8576,7 @@ int32_t windowssys_windows_win32_globalization_ubidiCountRuns(void* pbidi, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetBaseDirection(void* text, int32_t length) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetBaseDirection(void* text, int32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8599,7 +8599,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetBaseDirection(void* text,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiGetClassCallback(void* pbidi, void* fn, void* context) {
+void windowssysWindowsWin32GlobalizationUbidiGetClassCallback(void* pbidi, void* fn, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8622,7 +8622,7 @@ void windowssys_windows_win32_globalization_ubidiGetClassCallback(void* pbidi, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetCustomizedClass(void* pbidi, int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetCustomizedClass(void* pbidi, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8645,7 +8645,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetCustomizedClass(void* pbi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetDirection(void* pbidi) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetDirection(void* pbidi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8667,7 +8667,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetDirection(void* pbidi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetLength(void* pbidi) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetLength(void* pbidi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8689,7 +8689,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetLength(void* pbidi) {
 #endif
 }
 
-uint8_t windowssys_windows_win32_globalization_ubidiGetLevelAt(void* pbidi, int32_t charindex) {
+uint8_t windowssysWindowsWin32GlobalizationUbidiGetLevelAt(void* pbidi, int32_t charindex) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8712,7 +8712,7 @@ uint8_t windowssys_windows_win32_globalization_ubidiGetLevelAt(void* pbidi, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubidiGetLevels(void* pbidi, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUbidiGetLevels(void* pbidi, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8735,7 +8735,7 @@ void* windowssys_windows_win32_globalization_ubidiGetLevels(void* pbidi, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetLogicalIndex(void* pbidi, int32_t visualindex, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetLogicalIndex(void* pbidi, int32_t visualindex, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8759,7 +8759,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetLogicalIndex(void* pbidi,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiGetLogicalMap(void* pbidi, void* indexmap, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiGetLogicalMap(void* pbidi, void* indexmap, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8782,7 +8782,7 @@ void windowssys_windows_win32_globalization_ubidiGetLogicalMap(void* pbidi, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiGetLogicalRun(void* pbidi, int32_t logicalposition, void* plogicallimit, void* plevel) {
+void windowssysWindowsWin32GlobalizationUbidiGetLogicalRun(void* pbidi, int32_t logicalposition, void* plogicallimit, void* plevel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8806,7 +8806,7 @@ void windowssys_windows_win32_globalization_ubidiGetLogicalRun(void* pbidi, int3
 #endif
 }
 
-uint8_t windowssys_windows_win32_globalization_ubidiGetParaLevel(void* pbidi) {
+uint8_t windowssysWindowsWin32GlobalizationUbidiGetParaLevel(void* pbidi) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8828,7 +8828,7 @@ uint8_t windowssys_windows_win32_globalization_ubidiGetParaLevel(void* pbidi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetParagraph(void* pbidi, int32_t charindex, void* pparastart, void* pparalimit, void* pparalevel, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetParagraph(void* pbidi, int32_t charindex, void* pparastart, void* pparalimit, void* pparalevel, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8855,7 +8855,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetParagraph(void* pbidi, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiGetParagraphByIndex(void* pbidi, int32_t paraindex, void* pparastart, void* pparalimit, void* pparalevel, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiGetParagraphByIndex(void* pbidi, int32_t paraindex, void* pparastart, void* pparalimit, void* pparalevel, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8881,7 +8881,7 @@ void windowssys_windows_win32_globalization_ubidiGetParagraphByIndex(void* pbidi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetProcessedLength(void* pbidi) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetProcessedLength(void* pbidi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8903,7 +8903,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetProcessedLength(void* pbi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetReorderingMode(void* pbidi) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetReorderingMode(void* pbidi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8925,7 +8925,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetReorderingMode(void* pbid
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ubidiGetReorderingOptions(void* pbidi) {
+uint32_t windowssysWindowsWin32GlobalizationUbidiGetReorderingOptions(void* pbidi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8947,7 +8947,7 @@ uint32_t windowssys_windows_win32_globalization_ubidiGetReorderingOptions(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetResultLength(void* pbidi) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetResultLength(void* pbidi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8969,7 +8969,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetResultLength(void* pbidi)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubidiGetText(void* pbidi) {
+void* windowssysWindowsWin32GlobalizationUbidiGetText(void* pbidi) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8991,7 +8991,7 @@ void* windowssys_windows_win32_globalization_ubidiGetText(void* pbidi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetVisualIndex(void* pbidi, int32_t logicalindex, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetVisualIndex(void* pbidi, int32_t logicalindex, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9015,7 +9015,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetVisualIndex(void* pbidi, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiGetVisualMap(void* pbidi, void* indexmap, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiGetVisualMap(void* pbidi, void* indexmap, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9038,7 +9038,7 @@ void windowssys_windows_win32_globalization_ubidiGetVisualMap(void* pbidi, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiGetVisualRun(void* pbidi, int32_t runindex, void* plogicalstart, void* plength) {
+int32_t windowssysWindowsWin32GlobalizationUbidiGetVisualRun(void* pbidi, int32_t runindex, void* plogicalstart, void* plength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9063,7 +9063,7 @@ int32_t windowssys_windows_win32_globalization_ubidiGetVisualRun(void* pbidi, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiInvertMap(void* srcmap, void* destmap, int32_t length) {
+void windowssysWindowsWin32GlobalizationUbidiInvertMap(void* srcmap, void* destmap, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9086,7 +9086,7 @@ void windowssys_windows_win32_globalization_ubidiInvertMap(void* srcmap, void* d
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ubidiIsInverse(void* pbidi) {
+int8_t windowssysWindowsWin32GlobalizationUbidiIsInverse(void* pbidi) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9108,7 +9108,7 @@ int8_t windowssys_windows_win32_globalization_ubidiIsInverse(void* pbidi) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ubidiIsOrderParagraphsLtr(void* pbidi) {
+int8_t windowssysWindowsWin32GlobalizationUbidiIsOrderParagraphsLtr(void* pbidi) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9130,7 +9130,7 @@ int8_t windowssys_windows_win32_globalization_ubidiIsOrderParagraphsLtr(void* pb
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubidiOpen(void) {
+void* windowssysWindowsWin32GlobalizationUbidiOpen(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9151,7 +9151,7 @@ void* windowssys_windows_win32_globalization_ubidiOpen(void) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubidiOpenSized(int32_t maxlength, int32_t maxruncount, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUbidiOpenSized(int32_t maxlength, int32_t maxruncount, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9175,7 +9175,7 @@ void* windowssys_windows_win32_globalization_ubidiOpenSized(int32_t maxlength, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiOrderParagraphsLtr(void* pbidi, int8_t orderparagraphsltr) {
+void windowssysWindowsWin32GlobalizationUbidiOrderParagraphsLtr(void* pbidi, int8_t orderparagraphsltr) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9197,7 +9197,7 @@ void windowssys_windows_win32_globalization_ubidiOrderParagraphsLtr(void* pbidi,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiReorderLogical(void* levels, int32_t length, void* indexmap) {
+void windowssysWindowsWin32GlobalizationUbidiReorderLogical(void* levels, int32_t length, void* indexmap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9220,7 +9220,7 @@ void windowssys_windows_win32_globalization_ubidiReorderLogical(void* levels, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiReorderVisual(void* levels, int32_t length, void* indexmap) {
+void windowssysWindowsWin32GlobalizationUbidiReorderVisual(void* levels, int32_t length, void* indexmap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9243,7 +9243,7 @@ void windowssys_windows_win32_globalization_ubidiReorderVisual(void* levels, int
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetClassCallback(void* pbidi, void* newfn, void* newcontext, void* oldfn, void* oldcontext, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiSetClassCallback(void* pbidi, void* newfn, void* newcontext, void* oldfn, void* oldcontext, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9269,7 +9269,7 @@ void windowssys_windows_win32_globalization_ubidiSetClassCallback(void* pbidi, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetContext(void* pbidi, void* prologue, int32_t prolength, void* epilogue, int32_t epilength, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiSetContext(void* pbidi, void* prologue, int32_t prolength, void* epilogue, int32_t epilength, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9295,7 +9295,7 @@ void windowssys_windows_win32_globalization_ubidiSetContext(void* pbidi, void* p
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetInverse(void* pbidi, int8_t isinverse) {
+void windowssysWindowsWin32GlobalizationUbidiSetInverse(void* pbidi, int8_t isinverse) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9317,7 +9317,7 @@ void windowssys_windows_win32_globalization_ubidiSetInverse(void* pbidi, int8_t 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetLine(void* pparabidi, int32_t start, int32_t limit, void* plinebidi, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiSetLine(void* pparabidi, int32_t start, int32_t limit, void* plinebidi, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9342,7 +9342,7 @@ void windowssys_windows_win32_globalization_ubidiSetLine(void* pparabidi, int32_
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetPara(void* pbidi, void* text, int32_t length, uint8_t paralevel, void* embeddinglevels, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUbidiSetPara(void* pbidi, void* text, int32_t length, uint8_t paralevel, void* embeddinglevels, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9368,7 +9368,7 @@ void windowssys_windows_win32_globalization_ubidiSetPara(void* pbidi, void* text
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetReorderingMode(void* pbidi, int32_t reorderingmode) {
+void windowssysWindowsWin32GlobalizationUbidiSetReorderingMode(void* pbidi, int32_t reorderingmode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9390,7 +9390,7 @@ void windowssys_windows_win32_globalization_ubidiSetReorderingMode(void* pbidi, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubidiSetReorderingOptions(void* pbidi, uint32_t reorderingoptions) {
+void windowssysWindowsWin32GlobalizationUbidiSetReorderingOptions(void* pbidi, uint32_t reorderingoptions) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9412,7 +9412,7 @@ void windowssys_windows_win32_globalization_ubidiSetReorderingOptions(void* pbid
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiWriteReordered(void* pbidi, void* dest, int32_t destsize, uint16_t options, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUbidiWriteReordered(void* pbidi, void* dest, int32_t destsize, uint16_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9438,7 +9438,7 @@ int32_t windowssys_windows_win32_globalization_ubidiWriteReordered(void* pbidi, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubidiWriteReverse(void* src, int32_t srclength, void* dest, int32_t destsize, uint16_t options, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUbidiWriteReverse(void* src, int32_t srclength, void* dest, int32_t destsize, uint16_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9465,7 +9465,7 @@ int32_t windowssys_windows_win32_globalization_ubidiWriteReverse(void* src, int3
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubiditransformClose(void* pbiditransform) {
+void windowssysWindowsWin32GlobalizationUbiditransformClose(void* pbiditransform) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9486,7 +9486,7 @@ void windowssys_windows_win32_globalization_ubiditransformClose(void* pbiditrans
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubiditransformOpen(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUbiditransformOpen(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9508,7 +9508,7 @@ void* windowssys_windows_win32_globalization_ubiditransformOpen(void* perrorcode
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ubiditransformTransform(void* pbiditransform, void* src, int32_t srclength, void* dest, int32_t destsize, uint8_t inparalevel, int32_t inorder, uint8_t outparalevel, int32_t outorder, int32_t domirroring, uint32_t shapingoptions, void* perrorcode) {
+uint32_t windowssysWindowsWin32GlobalizationUbiditransformTransform(void* pbiditransform, void* src, int32_t srclength, void* dest, int32_t destsize, uint8_t inparalevel, int32_t inorder, uint8_t outparalevel, int32_t outorder, int32_t domirroring, uint32_t shapingoptions, void* perrorcode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, uint8_t, int32_t, uint8_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9541,7 +9541,7 @@ uint32_t windowssys_windows_win32_globalization_ubiditransformTransform(void* pb
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ublockGetCode(int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUblockGetCode(int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9563,7 +9563,7 @@ int32_t windowssys_windows_win32_globalization_ublockGetCode(int32_t c) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubrkClose(void* bi) {
+void windowssysWindowsWin32GlobalizationUbrkClose(void* bi) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9584,7 +9584,7 @@ void windowssys_windows_win32_globalization_ubrkClose(void* bi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUbrkCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9605,7 +9605,7 @@ int32_t windowssys_windows_win32_globalization_ubrkCountAvailable(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkCurrent(void* bi) {
+int32_t windowssysWindowsWin32GlobalizationUbrkCurrent(void* bi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9627,7 +9627,7 @@ int32_t windowssys_windows_win32_globalization_ubrkCurrent(void* bi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkFirst(void* bi) {
+int32_t windowssysWindowsWin32GlobalizationUbrkFirst(void* bi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9649,7 +9649,7 @@ int32_t windowssys_windows_win32_globalization_ubrkFirst(void* bi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkFollowing(void* bi, int32_t offset) {
+int32_t windowssysWindowsWin32GlobalizationUbrkFollowing(void* bi, int32_t offset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9672,7 +9672,7 @@ int32_t windowssys_windows_win32_globalization_ubrkFollowing(void* bi, int32_t o
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubrkGetAvailable(int32_t arg_0_index) {
+void* windowssysWindowsWin32GlobalizationUbrkGetAvailable(int32_t arg0Index) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9683,18 +9683,18 @@ void* windowssys_windows_win32_globalization_ubrkGetAvailable(int32_t arg_0_inde
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_index);
+        return km_fn_ptr(arg0Index);
     }
     errno = ENOSYS;
     return NULL;
 #else
-    (void)arg_0_index;
+    (void)arg0Index;
     errno = ENOSYS;
     return NULL;
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkGetBinaryRules(void* bi, void* binaryrules, int32_t rulescapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUbrkGetBinaryRules(void* bi, void* binaryrules, int32_t rulescapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9719,7 +9719,7 @@ int32_t windowssys_windows_win32_globalization_ubrkGetBinaryRules(void* bi, void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubrkGetLocaleByType(void* bi, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUbrkGetLocaleByType(void* bi, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9743,7 +9743,7 @@ void* windowssys_windows_win32_globalization_ubrkGetLocaleByType(void* bi, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkGetRuleStatus(void* bi) {
+int32_t windowssysWindowsWin32GlobalizationUbrkGetRuleStatus(void* bi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9765,7 +9765,7 @@ int32_t windowssys_windows_win32_globalization_ubrkGetRuleStatus(void* bi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkGetRuleStatusVec(void* bi, void* fillinvec, int32_t capacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUbrkGetRuleStatusVec(void* bi, void* fillinvec, int32_t capacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9790,7 +9790,7 @@ int32_t windowssys_windows_win32_globalization_ubrkGetRuleStatusVec(void* bi, vo
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ubrkIsBoundary(void* bi, int32_t offset) {
+int8_t windowssysWindowsWin32GlobalizationUbrkIsBoundary(void* bi, int32_t offset) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9813,7 +9813,7 @@ int8_t windowssys_windows_win32_globalization_ubrkIsBoundary(void* bi, int32_t o
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkLast(void* bi) {
+int32_t windowssysWindowsWin32GlobalizationUbrkLast(void* bi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9835,7 +9835,7 @@ int32_t windowssys_windows_win32_globalization_ubrkLast(void* bi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkNext(void* bi) {
+int32_t windowssysWindowsWin32GlobalizationUbrkNext(void* bi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9857,7 +9857,7 @@ int32_t windowssys_windows_win32_globalization_ubrkNext(void* bi) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubrkOpen(int32_t type, void* locale, void* text, int32_t textlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUbrkOpen(int32_t type, void* locale, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9883,7 +9883,7 @@ void* windowssys_windows_win32_globalization_ubrkOpen(int32_t type, void* locale
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubrkOpenBinaryRules(void* binaryrules, int32_t ruleslength, void* text, int32_t textlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUbrkOpenBinaryRules(void* binaryrules, int32_t ruleslength, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9909,7 +9909,7 @@ void* windowssys_windows_win32_globalization_ubrkOpenBinaryRules(void* binaryrul
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubrkOpenRules(void* rules, int32_t ruleslength, void* text, int32_t textlength, void* parseerr, void* status) {
+void* windowssysWindowsWin32GlobalizationUbrkOpenRules(void* rules, int32_t ruleslength, void* text, int32_t textlength, void* parseerr, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9936,7 +9936,7 @@ void* windowssys_windows_win32_globalization_ubrkOpenRules(void* rules, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkPreceding(void* bi, int32_t offset) {
+int32_t windowssysWindowsWin32GlobalizationUbrkPreceding(void* bi, int32_t offset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9959,7 +9959,7 @@ int32_t windowssys_windows_win32_globalization_ubrkPreceding(void* bi, int32_t o
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ubrkPrevious(void* bi) {
+int32_t windowssysWindowsWin32GlobalizationUbrkPrevious(void* bi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9981,7 +9981,7 @@ int32_t windowssys_windows_win32_globalization_ubrkPrevious(void* bi) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubrkRefreshUtext(void* bi, void* text, void* status) {
+void windowssysWindowsWin32GlobalizationUbrkRefreshUtext(void* bi, void* text, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10004,7 +10004,7 @@ void windowssys_windows_win32_globalization_ubrkRefreshUtext(void* bi, void* tex
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ubrkSafeClone(void* bi, void* stackbuffer, void* pbuffersize, void* status) {
+void* windowssysWindowsWin32GlobalizationUbrkSafeClone(void* bi, void* stackbuffer, void* pbuffersize, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10029,7 +10029,7 @@ void* windowssys_windows_win32_globalization_ubrkSafeClone(void* bi, void* stack
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubrkSetText(void* bi, void* text, int32_t textlength, void* status) {
+void windowssysWindowsWin32GlobalizationUbrkSetText(void* bi, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10053,7 +10053,7 @@ void windowssys_windows_win32_globalization_ubrkSetText(void* bi, void* text, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_ubrkSetUtext(void* bi, void* text, void* status) {
+void windowssysWindowsWin32GlobalizationUbrkSetUtext(void* bi, void* text, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10076,7 +10076,7 @@ void windowssys_windows_win32_globalization_ubrkSetUtext(void* bi, void* text, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalAdd(void* cal, int32_t field, int32_t amount, void* status) {
+void windowssysWindowsWin32GlobalizationUcalAdd(void* cal, int32_t field, int32_t amount, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10100,7 +10100,7 @@ void windowssys_windows_win32_globalization_ucalAdd(void* cal, int32_t field, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalClear(void* calendar) {
+void windowssysWindowsWin32GlobalizationUcalClear(void* calendar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10121,7 +10121,7 @@ void windowssys_windows_win32_globalization_ucalClear(void* calendar) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalClearField(void* cal, int32_t field) {
+void windowssysWindowsWin32GlobalizationUcalClearField(void* cal, int32_t field) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10143,7 +10143,7 @@ void windowssys_windows_win32_globalization_ucalClearField(void* cal, int32_t fi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalClone(void* cal, void* status) {
+void* windowssysWindowsWin32GlobalizationUcalClone(void* cal, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10166,7 +10166,7 @@ void* windowssys_windows_win32_globalization_ucalClone(void* cal, void* status) 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalClose(void* cal) {
+void windowssysWindowsWin32GlobalizationUcalClose(void* cal) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10187,7 +10187,7 @@ void windowssys_windows_win32_globalization_ucalClose(void* cal) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUcalCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10208,7 +10208,7 @@ int32_t windowssys_windows_win32_globalization_ucalCountAvailable(void) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucalEquivalentTo(void* cal1, void* cal2) {
+int8_t windowssysWindowsWin32GlobalizationUcalEquivalentTo(void* cal1, void* cal2) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10231,7 +10231,7 @@ int8_t windowssys_windows_win32_globalization_ucalEquivalentTo(void* cal1, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGet(void* cal, int32_t field, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGet(void* cal, int32_t field, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10255,7 +10255,7 @@ int32_t windowssys_windows_win32_globalization_ucalGet(void* cal, int32_t field,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetAttribute(void* cal, int32_t attr) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetAttribute(void* cal, int32_t attr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10278,7 +10278,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetAttribute(void* cal, int32
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalGetAvailable(int32_t localeindex) {
+void* windowssysWindowsWin32GlobalizationUcalGetAvailable(int32_t localeindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10300,7 +10300,7 @@ void* windowssys_windows_win32_globalization_ucalGetAvailable(int32_t localeinde
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetCanonicalTimeZoneId(void* id, int32_t len, void* result, int32_t resultcapacity, void* issystemid, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetCanonicalTimeZoneId(void* id, int32_t len, void* result, int32_t resultcapacity, void* issystemid, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10327,7 +10327,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetCanonicalTimeZoneId(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetDstsavings(void* zoneid, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetDstsavings(void* zoneid, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10350,7 +10350,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetDstsavings(void* zoneid, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetDayOfWeekType(void* cal, int32_t dayofweek, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetDayOfWeekType(void* cal, int32_t dayofweek, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10374,7 +10374,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetDayOfWeekType(void* cal, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetDefaultTimeZone(void* result, int32_t resultcapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetDefaultTimeZone(void* result, int32_t resultcapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10398,7 +10398,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetDefaultTimeZone(void* resu
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetFieldDifference(void* cal, double target, int32_t field, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetFieldDifference(void* cal, double target, int32_t field, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10423,7 +10423,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetFieldDifference(void* cal,
 #endif
 }
 
-double windowssys_windows_win32_globalization_ucalGetGregorianChange(void* cal, void* perrorcode) {
+double windowssysWindowsWin32GlobalizationUcalGetGregorianChange(void* cal, void* perrorcode) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10446,7 +10446,7 @@ double windowssys_windows_win32_globalization_ucalGetGregorianChange(void* cal, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetHostTimeZone(void* result, int32_t resultcapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetHostTimeZone(void* result, int32_t resultcapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10470,7 +10470,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetHostTimeZone(void* result,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalGetKeywordValuesForLocale(void* key, void* locale, int8_t commonlyused, void* status) {
+void* windowssysWindowsWin32GlobalizationUcalGetKeywordValuesForLocale(void* key, void* locale, int8_t commonlyused, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10495,7 +10495,7 @@ void* windowssys_windows_win32_globalization_ucalGetKeywordValuesForLocale(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetLimit(void* cal, int32_t field, int32_t type, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetLimit(void* cal, int32_t field, int32_t type, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10520,7 +10520,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetLimit(void* cal, int32_t f
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalGetLocaleByType(void* cal, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUcalGetLocaleByType(void* cal, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10544,7 +10544,7 @@ void* windowssys_windows_win32_globalization_ucalGetLocaleByType(void* cal, int3
 #endif
 }
 
-double windowssys_windows_win32_globalization_ucalGetMillis(void* cal, void* status) {
+double windowssysWindowsWin32GlobalizationUcalGetMillis(void* cal, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10567,7 +10567,7 @@ double windowssys_windows_win32_globalization_ucalGetMillis(void* cal, void* sta
 #endif
 }
 
-double windowssys_windows_win32_globalization_ucalGetNow(void) {
+double windowssysWindowsWin32GlobalizationUcalGetNow(void) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10588,7 +10588,7 @@ double windowssys_windows_win32_globalization_ucalGetNow(void) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalGetTzdataVersion(void* status) {
+void* windowssysWindowsWin32GlobalizationUcalGetTzdataVersion(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10610,7 +10610,7 @@ void* windowssys_windows_win32_globalization_ucalGetTzdataVersion(void* status) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetTimeZoneDisplayName(void* cal, int32_t type, void* locale, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetTimeZoneDisplayName(void* cal, int32_t type, void* locale, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10637,7 +10637,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetTimeZoneDisplayName(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetTimeZoneId(void* cal, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetTimeZoneId(void* cal, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10662,7 +10662,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetTimeZoneId(void* cal, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetTimeZoneIdforWindowsId(void* winid, int32_t len, void* region, void* id, int32_t idcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetTimeZoneIdforWindowsId(void* winid, int32_t len, void* region, void* id, int32_t idcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10689,7 +10689,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetTimeZoneIdforWindowsId(voi
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucalGetTimeZoneTransitionDate(void* cal, int32_t type, void* transition, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUcalGetTimeZoneTransitionDate(void* cal, int32_t type, void* transition, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10714,7 +10714,7 @@ int8_t windowssys_windows_win32_globalization_ucalGetTimeZoneTransitionDate(void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalGetType(void* cal, void* status) {
+void* windowssysWindowsWin32GlobalizationUcalGetType(void* cal, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10737,7 +10737,7 @@ void* windowssys_windows_win32_globalization_ucalGetType(void* cal, void* status
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetWeekendTransition(void* cal, int32_t dayofweek, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetWeekendTransition(void* cal, int32_t dayofweek, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10761,7 +10761,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetWeekendTransition(void* ca
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucalGetWindowsTimeZoneId(void* id, int32_t len, void* winid, int32_t winidcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcalGetWindowsTimeZoneId(void* id, int32_t len, void* winid, int32_t winidcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10787,7 +10787,7 @@ int32_t windowssys_windows_win32_globalization_ucalGetWindowsTimeZoneId(void* id
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucalInDaylightTime(void* cal, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUcalInDaylightTime(void* cal, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10810,7 +10810,7 @@ int8_t windowssys_windows_win32_globalization_ucalInDaylightTime(void* cal, void
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucalIsSet(void* cal, int32_t field) {
+int8_t windowssysWindowsWin32GlobalizationUcalIsSet(void* cal, int32_t field) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10833,7 +10833,7 @@ int8_t windowssys_windows_win32_globalization_ucalIsSet(void* cal, int32_t field
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucalIsWeekend(void* cal, double date, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUcalIsWeekend(void* cal, double date, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10857,7 +10857,7 @@ int8_t windowssys_windows_win32_globalization_ucalIsWeekend(void* cal, double da
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalOpen(void* zoneid, int32_t len, void* locale, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUcalOpen(void* zoneid, int32_t len, void* locale, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10883,7 +10883,7 @@ void* windowssys_windows_win32_globalization_ucalOpen(void* zoneid, int32_t len,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalOpenCountryTimeZones(void* country, void* ec) {
+void* windowssysWindowsWin32GlobalizationUcalOpenCountryTimeZones(void* country, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10906,7 +10906,7 @@ void* windowssys_windows_win32_globalization_ucalOpenCountryTimeZones(void* coun
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalOpenTimeZoneIdenumeration(int32_t zonetype, void* region, void* rawoffset, void* ec) {
+void* windowssysWindowsWin32GlobalizationUcalOpenTimeZoneIdenumeration(int32_t zonetype, void* region, void* rawoffset, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10931,7 +10931,7 @@ void* windowssys_windows_win32_globalization_ucalOpenTimeZoneIdenumeration(int32
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucalOpenTimeZones(void* ec) {
+void* windowssysWindowsWin32GlobalizationUcalOpenTimeZones(void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10953,7 +10953,7 @@ void* windowssys_windows_win32_globalization_ucalOpenTimeZones(void* ec) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalRoll(void* cal, int32_t field, int32_t amount, void* status) {
+void windowssysWindowsWin32GlobalizationUcalRoll(void* cal, int32_t field, int32_t amount, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10977,7 +10977,7 @@ void windowssys_windows_win32_globalization_ucalRoll(void* cal, int32_t field, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSet(void* cal, int32_t field, int32_t value) {
+void windowssysWindowsWin32GlobalizationUcalSet(void* cal, int32_t field, int32_t value) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11000,7 +11000,7 @@ void windowssys_windows_win32_globalization_ucalSet(void* cal, int32_t field, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetAttribute(void* cal, int32_t attr, int32_t newvalue) {
+void windowssysWindowsWin32GlobalizationUcalSetAttribute(void* cal, int32_t attr, int32_t newvalue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11023,7 +11023,7 @@ void windowssys_windows_win32_globalization_ucalSetAttribute(void* cal, int32_t 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetDate(void* cal, int32_t year, int32_t month, int32_t date, void* status) {
+void windowssysWindowsWin32GlobalizationUcalSetDate(void* cal, int32_t year, int32_t month, int32_t date, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11048,7 +11048,7 @@ void windowssys_windows_win32_globalization_ucalSetDate(void* cal, int32_t year,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetDateTime(void* cal, int32_t year, int32_t month, int32_t date, int32_t hour, int32_t minute, int32_t second, void* status) {
+void windowssysWindowsWin32GlobalizationUcalSetDateTime(void* cal, int32_t year, int32_t month, int32_t date, int32_t hour, int32_t minute, int32_t second, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11076,7 +11076,7 @@ void windowssys_windows_win32_globalization_ucalSetDateTime(void* cal, int32_t y
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetDefaultTimeZone(void* zoneid, void* ec) {
+void windowssysWindowsWin32GlobalizationUcalSetDefaultTimeZone(void* zoneid, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11098,7 +11098,7 @@ void windowssys_windows_win32_globalization_ucalSetDefaultTimeZone(void* zoneid,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetGregorianChange(void* cal, double date, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcalSetGregorianChange(void* cal, double date, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11121,7 +11121,7 @@ void windowssys_windows_win32_globalization_ucalSetGregorianChange(void* cal, do
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetMillis(void* cal, double datetime, void* status) {
+void windowssysWindowsWin32GlobalizationUcalSetMillis(void* cal, double datetime, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11144,7 +11144,7 @@ void windowssys_windows_win32_globalization_ucalSetMillis(void* cal, double date
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucalSetTimeZone(void* cal, void* zoneid, int32_t len, void* status) {
+void windowssysWindowsWin32GlobalizationUcalSetTimeZone(void* cal, void* zoneid, int32_t len, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11168,7 +11168,7 @@ void windowssys_windows_win32_globalization_ucalSetTimeZone(void* cal, void* zon
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucasemapClose(void* csm) {
+void windowssysWindowsWin32GlobalizationUcasemapClose(void* csm) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11189,7 +11189,7 @@ void windowssys_windows_win32_globalization_ucasemapClose(void* csm) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucasemapGetBreakIterator(void* csm) {
+void* windowssysWindowsWin32GlobalizationUcasemapGetBreakIterator(void* csm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11211,7 +11211,7 @@ void* windowssys_windows_win32_globalization_ucasemapGetBreakIterator(void* csm)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucasemapGetLocale(void* csm) {
+void* windowssysWindowsWin32GlobalizationUcasemapGetLocale(void* csm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11233,7 +11233,7 @@ void* windowssys_windows_win32_globalization_ucasemapGetLocale(void* csm) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ucasemapGetOptions(void* csm) {
+uint32_t windowssysWindowsWin32GlobalizationUcasemapGetOptions(void* csm) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11255,7 +11255,7 @@ uint32_t windowssys_windows_win32_globalization_ucasemapGetOptions(void* csm) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucasemapOpen(void* locale, uint32_t options, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcasemapOpen(void* locale, uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11279,7 +11279,7 @@ void* windowssys_windows_win32_globalization_ucasemapOpen(void* locale, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucasemapSetBreakIterator(void* csm, void* itertoadopt, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcasemapSetBreakIterator(void* csm, void* itertoadopt, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11302,7 +11302,7 @@ void windowssys_windows_win32_globalization_ucasemapSetBreakIterator(void* csm, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucasemapSetLocale(void* csm, void* locale, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcasemapSetLocale(void* csm, void* locale, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11325,7 +11325,7 @@ void windowssys_windows_win32_globalization_ucasemapSetLocale(void* csm, void* l
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucasemapSetOptions(void* csm, uint32_t options, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcasemapSetOptions(void* csm, uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11348,7 +11348,7 @@ void windowssys_windows_win32_globalization_ucasemapSetOptions(void* csm, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucasemapToTitle(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcasemapToTitle(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11375,7 +11375,7 @@ int32_t windowssys_windows_win32_globalization_ucasemapToTitle(void* csm, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucasemapUtf8FoldCase(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcasemapUtf8FoldCase(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11402,7 +11402,7 @@ int32_t windowssys_windows_win32_globalization_ucasemapUtf8FoldCase(void* csm, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucasemapUtf8ToLower(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcasemapUtf8ToLower(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11429,7 +11429,7 @@ int32_t windowssys_windows_win32_globalization_ucasemapUtf8ToLower(void* csm, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucasemapUtf8ToTitle(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcasemapUtf8ToTitle(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11456,7 +11456,7 @@ int32_t windowssys_windows_win32_globalization_ucasemapUtf8ToTitle(void* csm, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucasemapUtf8ToUpper(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcasemapUtf8ToUpper(void* csm, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11483,7 +11483,7 @@ int32_t windowssys_windows_win32_globalization_ucasemapUtf8ToUpper(void* csm, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposClose(void* ucfpos) {
+void windowssysWindowsWin32GlobalizationUcfposClose(void* ucfpos) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11504,7 +11504,7 @@ void windowssys_windows_win32_globalization_ucfposClose(void* ucfpos) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposConstrainCategory(void* ucfpos, int32_t category, void* ec) {
+void windowssysWindowsWin32GlobalizationUcfposConstrainCategory(void* ucfpos, int32_t category, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11527,7 +11527,7 @@ void windowssys_windows_win32_globalization_ucfposConstrainCategory(void* ucfpos
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposConstrainField(void* ucfpos, int32_t category, int32_t field, void* ec) {
+void windowssysWindowsWin32GlobalizationUcfposConstrainField(void* ucfpos, int32_t category, int32_t field, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11551,7 +11551,7 @@ void windowssys_windows_win32_globalization_ucfposConstrainField(void* ucfpos, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucfposGetCategory(void* ucfpos, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcfposGetCategory(void* ucfpos, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11574,7 +11574,7 @@ int32_t windowssys_windows_win32_globalization_ucfposGetCategory(void* ucfpos, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucfposGetField(void* ucfpos, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcfposGetField(void* ucfpos, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11597,7 +11597,7 @@ int32_t windowssys_windows_win32_globalization_ucfposGetField(void* ucfpos, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposGetIndexes(void* ucfpos, void* pstart, void* plimit, void* ec) {
+void windowssysWindowsWin32GlobalizationUcfposGetIndexes(void* ucfpos, void* pstart, void* plimit, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11621,7 +11621,7 @@ void windowssys_windows_win32_globalization_ucfposGetIndexes(void* ucfpos, void*
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_ucfposGetInt64IterationContext(void* ucfpos, void* ec) {
+int64_t windowssysWindowsWin32GlobalizationUcfposGetInt64IterationContext(void* ucfpos, void* ec) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11644,7 +11644,7 @@ int64_t windowssys_windows_win32_globalization_ucfposGetInt64IterationContext(vo
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucfposMatchesField(void* ucfpos, int32_t category, int32_t field, void* ec) {
+int8_t windowssysWindowsWin32GlobalizationUcfposMatchesField(void* ucfpos, int32_t category, int32_t field, void* ec) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11669,7 +11669,7 @@ int8_t windowssys_windows_win32_globalization_ucfposMatchesField(void* ucfpos, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucfposOpen(void* ec) {
+void* windowssysWindowsWin32GlobalizationUcfposOpen(void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11691,7 +11691,7 @@ void* windowssys_windows_win32_globalization_ucfposOpen(void* ec) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposReset(void* ucfpos, void* ec) {
+void windowssysWindowsWin32GlobalizationUcfposReset(void* ucfpos, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11713,7 +11713,7 @@ void windowssys_windows_win32_globalization_ucfposReset(void* ucfpos, void* ec) 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposSetInt64IterationContext(void* ucfpos, int64_t context, void* ec) {
+void windowssysWindowsWin32GlobalizationUcfposSetInt64IterationContext(void* ucfpos, int64_t context, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11736,7 +11736,7 @@ void windowssys_windows_win32_globalization_ucfposSetInt64IterationContext(void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucfposSetState(void* ucfpos, int32_t category, int32_t field, int32_t start, int32_t limit, void* ec) {
+void windowssysWindowsWin32GlobalizationUcfposSetState(void* ucfpos, int32_t category, int32_t field, int32_t start, int32_t limit, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11762,7 +11762,7 @@ void windowssys_windows_win32_globalization_ucfposSetState(void* ucfpos, int32_t
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvCbFromUwriteBytes(void* args, void* source, int32_t length, int32_t offsetindex, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvCbFromUwriteBytes(void* args, void* source, int32_t length, int32_t offsetindex, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11787,7 +11787,7 @@ void windowssys_windows_win32_globalization_ucnvCbFromUwriteBytes(void* args, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvCbFromUwriteSub(void* args, int32_t offsetindex, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvCbFromUwriteSub(void* args, int32_t offsetindex, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11810,7 +11810,7 @@ void windowssys_windows_win32_globalization_ucnvCbFromUwriteSub(void* args, int3
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvCbFromUwriteUchars(void* args, void* source, void* sourcelimit, int32_t offsetindex, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvCbFromUwriteUchars(void* args, void* source, void* sourcelimit, int32_t offsetindex, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11835,7 +11835,7 @@ void windowssys_windows_win32_globalization_ucnvCbFromUwriteUchars(void* args, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvCbToUwriteSub(void* args, int32_t offsetindex, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvCbToUwriteSub(void* args, int32_t offsetindex, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11858,7 +11858,7 @@ void windowssys_windows_win32_globalization_ucnvCbToUwriteSub(void* args, int32_
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvCbToUwriteUchars(void* args, void* source, int32_t length, int32_t offsetindex, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvCbToUwriteUchars(void* args, void* source, int32_t length, int32_t offsetindex, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11883,7 +11883,7 @@ void windowssys_windows_win32_globalization_ucnvCbToUwriteUchars(void* args, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvClose(void* converter) {
+void windowssysWindowsWin32GlobalizationUcnvClose(void* converter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11904,7 +11904,7 @@ void windowssys_windows_win32_globalization_ucnvClose(void* converter) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvCompareNames(void* name1, void* name2) {
+int32_t windowssysWindowsWin32GlobalizationUcnvCompareNames(void* name1, void* name2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11927,7 +11927,7 @@ int32_t windowssys_windows_win32_globalization_ucnvCompareNames(void* name1, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvConvert(void* toconvertername, void* fromconvertername, void* target, int32_t targetcapacity, void* source, int32_t sourcelength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcnvConvert(void* toconvertername, void* fromconvertername, void* target, int32_t targetcapacity, void* source, int32_t sourcelength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11955,7 +11955,7 @@ int32_t windowssys_windows_win32_globalization_ucnvConvert(void* toconvertername
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvConvertEx(void* targetcnv, void* sourcecnv, void* target, void* targetlimit, void* source, void* sourcelimit, void* pivotstart, void* pivotsource, void* pivottarget, void* pivotlimit, int8_t reset, int8_t flush, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcnvConvertEx(void* targetcnv, void* sourcecnv, void* target, void* targetlimit, void* source, void* sourcelimit, void* pivotstart, void* pivotsource, void* pivottarget, void* pivotlimit, int8_t reset, int8_t flush, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, int8_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11988,7 +11988,7 @@ void windowssys_windows_win32_globalization_ucnvConvertEx(void* targetcnv, void*
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_ucnvCountAliases(void* alias, void* perrorcode) {
+uint16_t windowssysWindowsWin32GlobalizationUcnvCountAliases(void* alias, void* perrorcode) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12011,7 +12011,7 @@ uint16_t windowssys_windows_win32_globalization_ucnvCountAliases(void* alias, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUcnvCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12032,7 +12032,7 @@ int32_t windowssys_windows_win32_globalization_ucnvCountAvailable(void) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_globalization_ucnvCountStandards(void) {
+uint16_t windowssysWindowsWin32GlobalizationUcnvCountStandards(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12053,7 +12053,7 @@ uint16_t windowssys_windows_win32_globalization_ucnvCountStandards(void) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvDetectUnicodeSignature(void* source, int32_t sourcelength, void* signaturelength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvDetectUnicodeSignature(void* source, int32_t sourcelength, void* signaturelength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12078,7 +12078,7 @@ void* windowssys_windows_win32_globalization_ucnvDetectUnicodeSignature(void* so
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvFixFileSeparator(void* cnv, void* source, int32_t sourcelen) {
+void windowssysWindowsWin32GlobalizationUcnvFixFileSeparator(void* cnv, void* source, int32_t sourcelen) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12101,7 +12101,7 @@ void windowssys_windows_win32_globalization_ucnvFixFileSeparator(void* cnv, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvFlushCache(void) {
+int32_t windowssysWindowsWin32GlobalizationUcnvFlushCache(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12122,7 +12122,7 @@ int32_t windowssys_windows_win32_globalization_ucnvFlushCache(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvFromAlgorithmic(void* cnv, int32_t algorithmictype, void* target, int32_t targetcapacity, void* source, int32_t sourcelength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcnvFromAlgorithmic(void* cnv, int32_t algorithmictype, void* target, int32_t targetcapacity, void* source, int32_t sourcelength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12150,7 +12150,7 @@ int32_t windowssys_windows_win32_globalization_ucnvFromAlgorithmic(void* cnv, in
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvFromUchars(void* cnv, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcnvFromUchars(void* cnv, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12177,7 +12177,7 @@ int32_t windowssys_windows_win32_globalization_ucnvFromUchars(void* cnv, void* d
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvFromUcountPending(void* cnv, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcnvFromUcountPending(void* cnv, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12200,7 +12200,7 @@ int32_t windowssys_windows_win32_globalization_ucnvFromUcountPending(void* cnv, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvFromUnicode(void* converter, void* target, void* targetlimit, void* source, void* sourcelimit, void* offsets, int8_t flush, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvFromUnicode(void* converter, void* target, void* targetlimit, void* source, void* sourcelimit, void* offsets, int8_t flush, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12228,7 +12228,7 @@ void windowssys_windows_win32_globalization_ucnvFromUnicode(void* converter, voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetAlias(void* alias, uint16_t n, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvGetAlias(void* alias, uint16_t n, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12252,7 +12252,7 @@ void* windowssys_windows_win32_globalization_ucnvGetAlias(void* alias, uint16_t 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetAliases(void* alias, void* aliases, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcnvGetAliases(void* alias, void* aliases, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12275,7 +12275,7 @@ void windowssys_windows_win32_globalization_ucnvGetAliases(void* alias, void* al
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetAvailableName(int32_t n) {
+void* windowssysWindowsWin32GlobalizationUcnvGetAvailableName(int32_t n) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12297,7 +12297,7 @@ void* windowssys_windows_win32_globalization_ucnvGetAvailableName(int32_t n) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvGetCcsid(void* converter, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUcnvGetCcsid(void* converter, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12320,7 +12320,7 @@ int32_t windowssys_windows_win32_globalization_ucnvGetCcsid(void* converter, voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetCanonicalName(void* alias, void* standard, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvGetCanonicalName(void* alias, void* standard, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12344,7 +12344,7 @@ void* windowssys_windows_win32_globalization_ucnvGetCanonicalName(void* alias, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetDefaultName(void) {
+void* windowssysWindowsWin32GlobalizationUcnvGetDefaultName(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12365,7 +12365,7 @@ void* windowssys_windows_win32_globalization_ucnvGetDefaultName(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvGetDisplayName(void* converter, void* displaylocale, void* displayname, int32_t displaynamecapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUcnvGetDisplayName(void* converter, void* displaylocale, void* displayname, int32_t displaynamecapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12391,7 +12391,7 @@ int32_t windowssys_windows_win32_globalization_ucnvGetDisplayName(void* converte
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetFromUcallBack(void* converter, void* action, void* context) {
+void windowssysWindowsWin32GlobalizationUcnvGetFromUcallBack(void* converter, void* action, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12414,7 +12414,7 @@ void windowssys_windows_win32_globalization_ucnvGetFromUcallBack(void* converter
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetInvalidChars(void* converter, void* errbytes, void* len, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvGetInvalidChars(void* converter, void* errbytes, void* len, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12438,7 +12438,7 @@ void windowssys_windows_win32_globalization_ucnvGetInvalidChars(void* converter,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetInvalidUchars(void* converter, void* erruchars, void* len, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvGetInvalidUchars(void* converter, void* erruchars, void* len, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12462,7 +12462,7 @@ void windowssys_windows_win32_globalization_ucnvGetInvalidUchars(void* converter
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucnvGetMaxCharSize(void* converter) {
+int8_t windowssysWindowsWin32GlobalizationUcnvGetMaxCharSize(void* converter) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12484,7 +12484,7 @@ int8_t windowssys_windows_win32_globalization_ucnvGetMaxCharSize(void* converter
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucnvGetMinCharSize(void* converter) {
+int8_t windowssysWindowsWin32GlobalizationUcnvGetMinCharSize(void* converter) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12506,7 +12506,7 @@ int8_t windowssys_windows_win32_globalization_ucnvGetMinCharSize(void* converter
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetName(void* converter, void* err) {
+void* windowssysWindowsWin32GlobalizationUcnvGetName(void* converter, void* err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12529,7 +12529,7 @@ void* windowssys_windows_win32_globalization_ucnvGetName(void* converter, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvGetNextUchar(void* converter, void* source, void* sourcelimit, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUcnvGetNextUchar(void* converter, void* source, void* sourcelimit, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12554,7 +12554,7 @@ int32_t windowssys_windows_win32_globalization_ucnvGetNextUchar(void* converter,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvGetPlatform(void* converter, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUcnvGetPlatform(void* converter, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12577,7 +12577,7 @@ int32_t windowssys_windows_win32_globalization_ucnvGetPlatform(void* converter, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetStandard(uint16_t n, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvGetStandard(uint16_t n, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12600,7 +12600,7 @@ void* windowssys_windows_win32_globalization_ucnvGetStandard(uint16_t n, void* p
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvGetStandardName(void* name, void* standard, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvGetStandardName(void* name, void* standard, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12624,7 +12624,7 @@ void* windowssys_windows_win32_globalization_ucnvGetStandardName(void* name, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetStarters(void* converter, void* starters, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvGetStarters(void* converter, void* starters, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12647,7 +12647,7 @@ void windowssys_windows_win32_globalization_ucnvGetStarters(void* converter, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetSubstChars(void* converter, void* subchars, void* len, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvGetSubstChars(void* converter, void* subchars, void* len, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12671,7 +12671,7 @@ void windowssys_windows_win32_globalization_ucnvGetSubstChars(void* converter, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetToUcallBack(void* converter, void* action, void* context) {
+void windowssysWindowsWin32GlobalizationUcnvGetToUcallBack(void* converter, void* action, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12694,7 +12694,7 @@ void windowssys_windows_win32_globalization_ucnvGetToUcallBack(void* converter, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvGetType(void* converter) {
+int32_t windowssysWindowsWin32GlobalizationUcnvGetType(void* converter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12716,7 +12716,7 @@ int32_t windowssys_windows_win32_globalization_ucnvGetType(void* converter) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvGetUnicodeSet(void* cnv, void* setfillin, int32_t whichset, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcnvGetUnicodeSet(void* cnv, void* setfillin, int32_t whichset, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12740,7 +12740,7 @@ void windowssys_windows_win32_globalization_ucnvGetUnicodeSet(void* cnv, void* s
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucnvIsAmbiguous(void* cnv) {
+int8_t windowssysWindowsWin32GlobalizationUcnvIsAmbiguous(void* cnv) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12762,7 +12762,7 @@ int8_t windowssys_windows_win32_globalization_ucnvIsAmbiguous(void* cnv) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucnvIsFixedWidth(void* cnv, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUcnvIsFixedWidth(void* cnv, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12785,7 +12785,7 @@ int8_t windowssys_windows_win32_globalization_ucnvIsFixedWidth(void* cnv, void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvOpen(void* convertername, void* err) {
+void* windowssysWindowsWin32GlobalizationUcnvOpen(void* convertername, void* err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12808,7 +12808,7 @@ void* windowssys_windows_win32_globalization_ucnvOpen(void* convertername, void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvOpenAllNames(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvOpenAllNames(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12830,7 +12830,7 @@ void* windowssys_windows_win32_globalization_ucnvOpenAllNames(void* perrorcode) 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvOpenCcsid(int32_t codepage, int32_t platform, void* err) {
+void* windowssysWindowsWin32GlobalizationUcnvOpenCcsid(int32_t codepage, int32_t platform, void* err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12854,7 +12854,7 @@ void* windowssys_windows_win32_globalization_ucnvOpenCcsid(int32_t codepage, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvOpenPackage(void* packagename, void* convertername, void* err) {
+void* windowssysWindowsWin32GlobalizationUcnvOpenPackage(void* packagename, void* convertername, void* err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12878,7 +12878,7 @@ void* windowssys_windows_win32_globalization_ucnvOpenPackage(void* packagename, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvOpenStandardNames(void* convname, void* standard, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcnvOpenStandardNames(void* convname, void* standard, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12902,7 +12902,7 @@ void* windowssys_windows_win32_globalization_ucnvOpenStandardNames(void* convnam
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvOpenU(void* name, void* err) {
+void* windowssysWindowsWin32GlobalizationUcnvOpenU(void* name, void* err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12925,7 +12925,7 @@ void* windowssys_windows_win32_globalization_ucnvOpenU(void* name, void* err) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvReset(void* converter) {
+void windowssysWindowsWin32GlobalizationUcnvReset(void* converter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12946,7 +12946,7 @@ void windowssys_windows_win32_globalization_ucnvReset(void* converter) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvResetFromUnicode(void* converter) {
+void windowssysWindowsWin32GlobalizationUcnvResetFromUnicode(void* converter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12967,7 +12967,7 @@ void windowssys_windows_win32_globalization_ucnvResetFromUnicode(void* converter
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvResetToUnicode(void* converter) {
+void windowssysWindowsWin32GlobalizationUcnvResetToUnicode(void* converter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12988,7 +12988,7 @@ void windowssys_windows_win32_globalization_ucnvResetToUnicode(void* converter) 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvSafeClone(void* cnv, void* stackbuffer, void* pbuffersize, void* status) {
+void* windowssysWindowsWin32GlobalizationUcnvSafeClone(void* cnv, void* stackbuffer, void* pbuffersize, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13013,7 +13013,7 @@ void* windowssys_windows_win32_globalization_ucnvSafeClone(void* cnv, void* stac
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvSetDefaultName(void* name) {
+void windowssysWindowsWin32GlobalizationUcnvSetDefaultName(void* name) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13034,7 +13034,7 @@ void windowssys_windows_win32_globalization_ucnvSetDefaultName(void* name) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvSetFallback(void* cnv, int8_t usesfallback) {
+void windowssysWindowsWin32GlobalizationUcnvSetFallback(void* cnv, int8_t usesfallback) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13056,7 +13056,7 @@ void windowssys_windows_win32_globalization_ucnvSetFallback(void* cnv, int8_t us
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvSetFromUcallBack(void* converter, void* newaction, void* newcontext, void* oldaction, void* oldcontext, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvSetFromUcallBack(void* converter, void* newaction, void* newcontext, void* oldaction, void* oldcontext, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13082,7 +13082,7 @@ void windowssys_windows_win32_globalization_ucnvSetFromUcallBack(void* converter
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvSetSubstChars(void* converter, void* subchars, int8_t len, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvSetSubstChars(void* converter, void* subchars, int8_t len, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13106,7 +13106,7 @@ void windowssys_windows_win32_globalization_ucnvSetSubstChars(void* converter, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvSetSubstString(void* cnv, void* s, int32_t length, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvSetSubstString(void* cnv, void* s, int32_t length, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13130,7 +13130,7 @@ void windowssys_windows_win32_globalization_ucnvSetSubstString(void* cnv, void* 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvSetToUcallBack(void* converter, void* newaction, void* newcontext, void* oldaction, void* oldcontext, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvSetToUcallBack(void* converter, void* newaction, void* newcontext, void* oldaction, void* oldcontext, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13156,7 +13156,7 @@ void windowssys_windows_win32_globalization_ucnvSetToUcallBack(void* converter, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvToAlgorithmic(int32_t algorithmictype, void* cnv, void* target, int32_t targetcapacity, void* source, int32_t sourcelength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcnvToAlgorithmic(int32_t algorithmictype, void* cnv, void* target, int32_t targetcapacity, void* source, int32_t sourcelength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13184,7 +13184,7 @@ int32_t windowssys_windows_win32_globalization_ucnvToAlgorithmic(int32_t algorit
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvToUchars(void* cnv, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcnvToUchars(void* cnv, void* dest, int32_t destcapacity, void* src, int32_t srclength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13211,7 +13211,7 @@ int32_t windowssys_windows_win32_globalization_ucnvToUchars(void* cnv, void* des
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvToUcountPending(void* cnv, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcnvToUcountPending(void* cnv, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13234,7 +13234,7 @@ int32_t windowssys_windows_win32_globalization_ucnvToUcountPending(void* cnv, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvToUnicode(void* converter, void* target, void* targetlimit, void* source, void* sourcelimit, void* offsets, int8_t flush, void* err) {
+void windowssysWindowsWin32GlobalizationUcnvToUnicode(void* converter, void* target, void* targetlimit, void* source, void* sourcelimit, void* offsets, int8_t flush, void* err) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13262,7 +13262,7 @@ void windowssys_windows_win32_globalization_ucnvToUnicode(void* converter, void*
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucnvUsesFallback(void* cnv) {
+int8_t windowssysWindowsWin32GlobalizationUcnvUsesFallback(void* cnv) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13284,7 +13284,7 @@ int8_t windowssys_windows_win32_globalization_ucnvUsesFallback(void* cnv) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucnvselClose(void* sel) {
+void windowssysWindowsWin32GlobalizationUcnvselClose(void* sel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13305,7 +13305,7 @@ void windowssys_windows_win32_globalization_ucnvselClose(void* sel) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvselOpen(void* converterlist, int32_t converterlistsize, void* excludedcodepoints, int32_t whichset, void* status) {
+void* windowssysWindowsWin32GlobalizationUcnvselOpen(void* converterlist, int32_t converterlistsize, void* excludedcodepoints, int32_t whichset, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13331,7 +13331,7 @@ void* windowssys_windows_win32_globalization_ucnvselOpen(void* converterlist, in
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvselOpenFromSerialized(void* buffer, int32_t length, void* status) {
+void* windowssysWindowsWin32GlobalizationUcnvselOpenFromSerialized(void* buffer, int32_t length, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13355,7 +13355,7 @@ void* windowssys_windows_win32_globalization_ucnvselOpenFromSerialized(void* buf
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvselSelectForString(void* sel, void* s, int32_t length, void* status) {
+void* windowssysWindowsWin32GlobalizationUcnvselSelectForString(void* sel, void* s, int32_t length, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13380,7 +13380,7 @@ void* windowssys_windows_win32_globalization_ucnvselSelectForString(void* sel, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucnvselSelectForUtf8(void* sel, void* s, int32_t length, void* status) {
+void* windowssysWindowsWin32GlobalizationUcnvselSelectForUtf8(void* sel, void* s, int32_t length, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13405,7 +13405,7 @@ void* windowssys_windows_win32_globalization_ucnvselSelectForUtf8(void* sel, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucnvselSerialize(void* sel, void* buffer, int32_t buffercapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcnvselSerialize(void* sel, void* buffer, int32_t buffercapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13430,7 +13430,7 @@ int32_t windowssys_windows_win32_globalization_ucnvselSerialize(void* sel, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolCloneBinary(void* coll, void* buffer, int32_t capacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolCloneBinary(void* coll, void* buffer, int32_t capacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13455,7 +13455,7 @@ int32_t windowssys_windows_win32_globalization_ucolCloneBinary(void* coll, void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolClose(void* coll) {
+void windowssysWindowsWin32GlobalizationUcolClose(void* coll) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13476,7 +13476,7 @@ void windowssys_windows_win32_globalization_ucolClose(void* coll) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolCloseElements(void* elems) {
+void windowssysWindowsWin32GlobalizationUcolCloseElements(void* elems) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13497,7 +13497,7 @@ void windowssys_windows_win32_globalization_ucolCloseElements(void* elems) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUcolCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -13518,7 +13518,7 @@ int32_t windowssys_windows_win32_globalization_ucolCountAvailable(void) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucolEqual(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
+int8_t windowssysWindowsWin32GlobalizationUcolEqual(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13544,7 +13544,7 @@ int8_t windowssys_windows_win32_globalization_ucolEqual(void* coll, void* source
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetAttribute(void* coll, int32_t attr, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetAttribute(void* coll, int32_t attr, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13568,7 +13568,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetAttribute(void* coll, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetAvailable(int32_t localeindex) {
+void* windowssysWindowsWin32GlobalizationUcolGetAvailable(int32_t localeindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13590,7 +13590,7 @@ void* windowssys_windows_win32_globalization_ucolGetAvailable(int32_t localeinde
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetBound(void* source, int32_t sourcelength, int32_t boundtype, uint32_t nooflevels, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetBound(void* source, int32_t sourcelength, int32_t boundtype, uint32_t nooflevels, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13618,7 +13618,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetBound(void* source, int32_
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolGetContractionsAndExpansions(void* coll, void* contractions, void* expansions, int8_t addprefixes, void* status) {
+void windowssysWindowsWin32GlobalizationUcolGetContractionsAndExpansions(void* coll, void* contractions, void* expansions, int8_t addprefixes, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13643,7 +13643,7 @@ void windowssys_windows_win32_globalization_ucolGetContractionsAndExpansions(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetDisplayName(void* objloc, void* disploc, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetDisplayName(void* objloc, void* disploc, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13669,7 +13669,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetDisplayName(void* objloc, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetEquivalentReorderCodes(int32_t reordercode, void* dest, int32_t destcapacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetEquivalentReorderCodes(int32_t reordercode, void* dest, int32_t destcapacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13694,7 +13694,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetEquivalentReorderCodes(int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetFunctionalEquivalent(void* result, int32_t resultcapacity, void* keyword, void* locale, void* isavailable, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetFunctionalEquivalent(void* result, int32_t resultcapacity, void* keyword, void* locale, void* isavailable, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13721,7 +13721,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetFunctionalEquivalent(void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetKeywordValues(void* keyword, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolGetKeywordValues(void* keyword, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13744,7 +13744,7 @@ void* windowssys_windows_win32_globalization_ucolGetKeywordValues(void* keyword,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetKeywordValuesForLocale(void* key, void* locale, int8_t commonlyused, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolGetKeywordValuesForLocale(void* key, void* locale, int8_t commonlyused, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13769,7 +13769,7 @@ void* windowssys_windows_win32_globalization_ucolGetKeywordValuesForLocale(void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetKeywords(void* status) {
+void* windowssysWindowsWin32GlobalizationUcolGetKeywords(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13791,7 +13791,7 @@ void* windowssys_windows_win32_globalization_ucolGetKeywords(void* status) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetLocaleByType(void* coll, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolGetLocaleByType(void* coll, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13815,7 +13815,7 @@ void* windowssys_windows_win32_globalization_ucolGetLocaleByType(void* coll, int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetMaxExpansion(void* elems, int32_t order) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetMaxExpansion(void* elems, int32_t order) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13838,7 +13838,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetMaxExpansion(void* elems, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetMaxVariable(void* coll) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetMaxVariable(void* coll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13860,7 +13860,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetMaxVariable(void* coll) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetOffset(void* elems) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetOffset(void* elems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13882,7 +13882,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetOffset(void* elems) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetReorderCodes(void* coll, void* dest, int32_t destcapacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetReorderCodes(void* coll, void* dest, int32_t destcapacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13907,7 +13907,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetReorderCodes(void* coll, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetRules(void* coll, void* length) {
+void* windowssysWindowsWin32GlobalizationUcolGetRules(void* coll, void* length) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13930,7 +13930,7 @@ void* windowssys_windows_win32_globalization_ucolGetRules(void* coll, void* leng
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetRulesEx(void* coll, int32_t delta, void* buffer, int32_t bufferlen) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetRulesEx(void* coll, int32_t delta, void* buffer, int32_t bufferlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13955,7 +13955,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetRulesEx(void* coll, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetSortKey(void* coll, void* source, int32_t sourcelength, void* result, int32_t resultlength) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetSortKey(void* coll, void* source, int32_t sourcelength, void* result, int32_t resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13981,7 +13981,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetSortKey(void* coll, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolGetStrength(void* coll) {
+int32_t windowssysWindowsWin32GlobalizationUcolGetStrength(void* coll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14003,7 +14003,7 @@ int32_t windowssys_windows_win32_globalization_ucolGetStrength(void* coll) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolGetTailoredSet(void* coll, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolGetTailoredSet(void* coll, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14026,7 +14026,7 @@ void* windowssys_windows_win32_globalization_ucolGetTailoredSet(void* coll, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolGetUcaversion(void* coll, void* info) {
+void windowssysWindowsWin32GlobalizationUcolGetUcaversion(void* coll, void* info) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14048,7 +14048,7 @@ void windowssys_windows_win32_globalization_ucolGetUcaversion(void* coll, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ucolGetVariableTop(void* coll, void* status) {
+uint32_t windowssysWindowsWin32GlobalizationUcolGetVariableTop(void* coll, void* status) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14071,7 +14071,7 @@ uint32_t windowssys_windows_win32_globalization_ucolGetVariableTop(void* coll, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolGetVersion(void* coll, void* info) {
+void windowssysWindowsWin32GlobalizationUcolGetVersion(void* coll, void* info) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14093,7 +14093,7 @@ void windowssys_windows_win32_globalization_ucolGetVersion(void* coll, void* inf
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucolGreater(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
+int8_t windowssysWindowsWin32GlobalizationUcolGreater(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14119,7 +14119,7 @@ int8_t windowssys_windows_win32_globalization_ucolGreater(void* coll, void* sour
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucolGreaterOrEqual(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
+int8_t windowssysWindowsWin32GlobalizationUcolGreaterOrEqual(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14145,7 +14145,7 @@ int8_t windowssys_windows_win32_globalization_ucolGreaterOrEqual(void* coll, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolKeyHashCode(void* key, int32_t length) {
+int32_t windowssysWindowsWin32GlobalizationUcolKeyHashCode(void* key, int32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14168,7 +14168,7 @@ int32_t windowssys_windows_win32_globalization_ucolKeyHashCode(void* key, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolMergeSortkeys(void* src1, int32_t src1length, void* src2, int32_t src2length, void* dest, int32_t destcapacity) {
+int32_t windowssysWindowsWin32GlobalizationUcolMergeSortkeys(void* src1, int32_t src1length, void* src2, int32_t src2length, void* dest, int32_t destcapacity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14195,7 +14195,7 @@ int32_t windowssys_windows_win32_globalization_ucolMergeSortkeys(void* src1, int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolNext(void* elems, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolNext(void* elems, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14218,7 +14218,7 @@ int32_t windowssys_windows_win32_globalization_ucolNext(void* elems, void* statu
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolNextSortKeyPart(void* coll, void* iter, void* state, void* dest, int32_t count, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolNextSortKeyPart(void* coll, void* iter, void* state, void* dest, int32_t count, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14245,7 +14245,7 @@ int32_t windowssys_windows_win32_globalization_ucolNextSortKeyPart(void* coll, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolOpen(void* loc, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolOpen(void* loc, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14268,7 +14268,7 @@ void* windowssys_windows_win32_globalization_ucolOpen(void* loc, void* status) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolOpenAvailableLocales(void* status) {
+void* windowssysWindowsWin32GlobalizationUcolOpenAvailableLocales(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14290,7 +14290,7 @@ void* windowssys_windows_win32_globalization_ucolOpenAvailableLocales(void* stat
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolOpenBinary(void* bin, int32_t length, void* base, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolOpenBinary(void* bin, int32_t length, void* base, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14315,7 +14315,7 @@ void* windowssys_windows_win32_globalization_ucolOpenBinary(void* bin, int32_t l
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolOpenElements(void* coll, void* text, int32_t textlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolOpenElements(void* coll, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14340,7 +14340,7 @@ void* windowssys_windows_win32_globalization_ucolOpenElements(void* coll, void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolOpenRules(void* rules, int32_t ruleslength, int32_t normalizationmode, int32_t strength, void* parseerror, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolOpenRules(void* rules, int32_t ruleslength, int32_t normalizationmode, int32_t strength, void* parseerror, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14367,7 +14367,7 @@ void* windowssys_windows_win32_globalization_ucolOpenRules(void* rules, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolPrevious(void* elems, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolPrevious(void* elems, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14390,7 +14390,7 @@ int32_t windowssys_windows_win32_globalization_ucolPrevious(void* elems, void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolPrimaryOrder(int32_t order) {
+int32_t windowssysWindowsWin32GlobalizationUcolPrimaryOrder(int32_t order) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14412,7 +14412,7 @@ int32_t windowssys_windows_win32_globalization_ucolPrimaryOrder(int32_t order) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolReset(void* elems) {
+void windowssysWindowsWin32GlobalizationUcolReset(void* elems) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14433,7 +14433,7 @@ void windowssys_windows_win32_globalization_ucolReset(void* elems) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucolSafeClone(void* coll, void* stackbuffer, void* pbuffersize, void* status) {
+void* windowssysWindowsWin32GlobalizationUcolSafeClone(void* coll, void* stackbuffer, void* pbuffersize, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14458,7 +14458,7 @@ void* windowssys_windows_win32_globalization_ucolSafeClone(void* coll, void* sta
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolSecondaryOrder(int32_t order) {
+int32_t windowssysWindowsWin32GlobalizationUcolSecondaryOrder(int32_t order) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14480,7 +14480,7 @@ int32_t windowssys_windows_win32_globalization_ucolSecondaryOrder(int32_t order)
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolSetAttribute(void* coll, int32_t attr, int32_t value, void* status) {
+void windowssysWindowsWin32GlobalizationUcolSetAttribute(void* coll, int32_t attr, int32_t value, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14504,7 +14504,7 @@ void windowssys_windows_win32_globalization_ucolSetAttribute(void* coll, int32_t
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolSetMaxVariable(void* coll, int32_t group, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcolSetMaxVariable(void* coll, int32_t group, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14527,7 +14527,7 @@ void windowssys_windows_win32_globalization_ucolSetMaxVariable(void* coll, int32
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolSetOffset(void* elems, int32_t offset, void* status) {
+void windowssysWindowsWin32GlobalizationUcolSetOffset(void* elems, int32_t offset, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14550,7 +14550,7 @@ void windowssys_windows_win32_globalization_ucolSetOffset(void* elems, int32_t o
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolSetReorderCodes(void* coll, void* reordercodes, int32_t reordercodeslength, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUcolSetReorderCodes(void* coll, void* reordercodes, int32_t reordercodeslength, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14574,7 +14574,7 @@ void windowssys_windows_win32_globalization_ucolSetReorderCodes(void* coll, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolSetStrength(void* coll, int32_t strength) {
+void windowssysWindowsWin32GlobalizationUcolSetStrength(void* coll, int32_t strength) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14596,7 +14596,7 @@ void windowssys_windows_win32_globalization_ucolSetStrength(void* coll, int32_t 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucolSetText(void* elems, void* text, int32_t textlength, void* status) {
+void windowssysWindowsWin32GlobalizationUcolSetText(void* elems, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14620,7 +14620,7 @@ void windowssys_windows_win32_globalization_ucolSetText(void* elems, void* text,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolStrcoll(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
+int32_t windowssysWindowsWin32GlobalizationUcolStrcoll(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14646,7 +14646,7 @@ int32_t windowssys_windows_win32_globalization_ucolStrcoll(void* coll, void* sou
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolStrcollIter(void* coll, void* siter, void* titer, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolStrcollIter(void* coll, void* siter, void* titer, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14671,7 +14671,7 @@ int32_t windowssys_windows_win32_globalization_ucolStrcollIter(void* coll, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolStrcollUtf8(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcolStrcollUtf8(void* coll, void* source, int32_t sourcelength, void* target, int32_t targetlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14698,7 +14698,7 @@ int32_t windowssys_windows_win32_globalization_ucolStrcollUtf8(void* coll, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucolTertiaryOrder(int32_t order) {
+int32_t windowssysWindowsWin32GlobalizationUcolTertiaryOrder(int32_t order) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14720,7 +14720,7 @@ int32_t windowssys_windows_win32_globalization_ucolTertiaryOrder(int32_t order) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ucpmapGet(void* map, int32_t c) {
+uint32_t windowssysWindowsWin32GlobalizationUcpmapGet(void* map, int32_t c) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14743,7 +14743,7 @@ uint32_t windowssys_windows_win32_globalization_ucpmapGet(void* map, int32_t c) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucpmapGetRange(void* map, int32_t start, int32_t option, uint32_t surrogatevalue, void* filter, void* context, void* pvalue) {
+int32_t windowssysWindowsWin32GlobalizationUcpmapGetRange(void* map, int32_t start, int32_t option, uint32_t surrogatevalue, void* filter, void* context, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14771,7 +14771,7 @@ int32_t windowssys_windows_win32_globalization_ucpmapGetRange(void* map, int32_t
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucptrieClose(void* trie) {
+void windowssysWindowsWin32GlobalizationUcptrieClose(void* trie) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14792,7 +14792,7 @@ void windowssys_windows_win32_globalization_ucptrieClose(void* trie) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ucptrieGet(void* trie, int32_t c) {
+uint32_t windowssysWindowsWin32GlobalizationUcptrieGet(void* trie, int32_t c) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14815,7 +14815,7 @@ uint32_t windowssys_windows_win32_globalization_ucptrieGet(void* trie, int32_t c
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieGetRange(void* trie, int32_t start, int32_t option, uint32_t surrogatevalue, void* filter, void* context, void* pvalue) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieGetRange(void* trie, int32_t start, int32_t option, uint32_t surrogatevalue, void* filter, void* context, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14843,7 +14843,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieGetRange(void* trie, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieGetType(void* trie) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieGetType(void* trie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14865,7 +14865,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieGetType(void* trie) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieGetValueWidth(void* trie) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieGetValueWidth(void* trie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14887,7 +14887,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieGetValueWidth(void* trie) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieInternalSmallIndex(void* trie, int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieInternalSmallIndex(void* trie, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14910,7 +14910,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieInternalSmallIndex(void* t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieInternalSmallU8Index(void* trie, int32_t lt1, uint8_t t2, uint8_t t3) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieInternalSmallU8Index(void* trie, int32_t lt1, uint8_t t2, uint8_t t3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint8_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14935,7 +14935,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieInternalSmallU8Index(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieInternalU8PrevIndex(void* trie, int32_t c, void* start, void* src) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieInternalU8PrevIndex(void* trie, int32_t c, void* start, void* src) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14960,7 +14960,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieInternalU8PrevIndex(void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucptrieOpenFromBinary(int32_t type, int32_t valuewidth, void* data, int32_t length, void* pactuallength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcptrieOpenFromBinary(int32_t type, int32_t valuewidth, void* data, int32_t length, void* pactuallength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14987,7 +14987,7 @@ void* windowssys_windows_win32_globalization_ucptrieOpenFromBinary(int32_t type,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucptrieToBinary(void* trie, void* data, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUcptrieToBinary(void* trie, void* data, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15012,7 +15012,7 @@ int32_t windowssys_windows_win32_globalization_ucptrieToBinary(void* trie, void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucsdetClose(void* ucsd) {
+void windowssysWindowsWin32GlobalizationUcsdetClose(void* ucsd) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15033,7 +15033,7 @@ void windowssys_windows_win32_globalization_ucsdetClose(void* ucsd) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucsdetDetect(void* ucsd, void* status) {
+void* windowssysWindowsWin32GlobalizationUcsdetDetect(void* ucsd, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15056,7 +15056,7 @@ void* windowssys_windows_win32_globalization_ucsdetDetect(void* ucsd, void* stat
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucsdetDetectAll(void* ucsd, void* matchesfound, void* status) {
+void* windowssysWindowsWin32GlobalizationUcsdetDetectAll(void* ucsd, void* matchesfound, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15080,7 +15080,7 @@ void* windowssys_windows_win32_globalization_ucsdetDetectAll(void* ucsd, void* m
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucsdetEnableInputFilter(void* ucsd, int8_t filter) {
+int8_t windowssysWindowsWin32GlobalizationUcsdetEnableInputFilter(void* ucsd, int8_t filter) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15103,7 +15103,7 @@ int8_t windowssys_windows_win32_globalization_ucsdetEnableInputFilter(void* ucsd
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucsdetGetAllDetectableCharsets(void* ucsd, void* status) {
+void* windowssysWindowsWin32GlobalizationUcsdetGetAllDetectableCharsets(void* ucsd, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15126,7 +15126,7 @@ void* windowssys_windows_win32_globalization_ucsdetGetAllDetectableCharsets(void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucsdetGetConfidence(void* ucsm, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcsdetGetConfidence(void* ucsm, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15149,7 +15149,7 @@ int32_t windowssys_windows_win32_globalization_ucsdetGetConfidence(void* ucsm, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucsdetGetLanguage(void* ucsm, void* status) {
+void* windowssysWindowsWin32GlobalizationUcsdetGetLanguage(void* ucsm, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15172,7 +15172,7 @@ void* windowssys_windows_win32_globalization_ucsdetGetLanguage(void* ucsm, void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucsdetGetName(void* ucsm, void* status) {
+void* windowssysWindowsWin32GlobalizationUcsdetGetName(void* ucsm, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15195,7 +15195,7 @@ void* windowssys_windows_win32_globalization_ucsdetGetName(void* ucsm, void* sta
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucsdetGetUchars(void* ucsm, void* buf, int32_t cap, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUcsdetGetUchars(void* ucsm, void* buf, int32_t cap, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15220,7 +15220,7 @@ int32_t windowssys_windows_win32_globalization_ucsdetGetUchars(void* ucsm, void*
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucsdetIsInputFilterEnabled(void* ucsd) {
+int8_t windowssysWindowsWin32GlobalizationUcsdetIsInputFilterEnabled(void* ucsd) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15242,7 +15242,7 @@ int8_t windowssys_windows_win32_globalization_ucsdetIsInputFilterEnabled(void* u
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucsdetOpen(void* status) {
+void* windowssysWindowsWin32GlobalizationUcsdetOpen(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15264,7 +15264,7 @@ void* windowssys_windows_win32_globalization_ucsdetOpen(void* status) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucsdetSetDeclaredEncoding(void* ucsd, void* encoding, int32_t length, void* status) {
+void windowssysWindowsWin32GlobalizationUcsdetSetDeclaredEncoding(void* ucsd, void* encoding, int32_t length, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15288,7 +15288,7 @@ void windowssys_windows_win32_globalization_ucsdetSetDeclaredEncoding(void* ucsd
 #endif
 }
 
-void windowssys_windows_win32_globalization_ucsdetSetText(void* ucsd, void* textin, int32_t len, void* status) {
+void windowssysWindowsWin32GlobalizationUcsdetSetText(void* ucsd, void* textin, int32_t len, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15312,7 +15312,7 @@ void windowssys_windows_win32_globalization_ucsdetSetText(void* ucsd, void* text
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucurrCountCurrencies(void* locale, double date, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcurrCountCurrencies(void* locale, double date, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15336,7 +15336,7 @@ int32_t windowssys_windows_win32_globalization_ucurrCountCurrencies(void* locale
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucurrForLocale(void* locale, void* buff, int32_t buffcapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcurrForLocale(void* locale, void* buff, int32_t buffcapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15361,7 +15361,7 @@ int32_t windowssys_windows_win32_globalization_ucurrForLocale(void* locale, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucurrForLocaleAndDate(void* locale, double date, int32_t arg_2_index, void* buff, int32_t buffcapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcurrForLocaleAndDate(void* locale, double date, int32_t arg2Index, void* buff, int32_t buffcapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15372,14 +15372,14 @@ int32_t windowssys_windows_win32_globalization_ucurrForLocaleAndDate(void* local
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(locale, date, arg_2_index, buff, buffcapacity, ec);
+        return km_fn_ptr(locale, date, arg2Index, buff, buffcapacity, ec);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)locale;
     (void)date;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)buff;
     (void)buffcapacity;
     (void)ec;
@@ -15388,7 +15388,7 @@ int32_t windowssys_windows_win32_globalization_ucurrForLocaleAndDate(void* local
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigits(void* currency, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcurrGetDefaultFractionDigits(void* currency, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15411,7 +15411,7 @@ int32_t windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigits(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigitsForUsage(void* currency, int32_t usage, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUcurrGetDefaultFractionDigitsForUsage(void* currency, int32_t usage, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15435,7 +15435,7 @@ int32_t windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigitsForU
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucurrGetKeywordValuesForLocale(void* key, void* locale, int8_t commonlyused, void* status) {
+void* windowssysWindowsWin32GlobalizationUcurrGetKeywordValuesForLocale(void* key, void* locale, int8_t commonlyused, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15460,7 +15460,7 @@ void* windowssys_windows_win32_globalization_ucurrGetKeywordValuesForLocale(void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucurrGetName(void* currency, void* locale, int32_t namestyle, void* ischoiceformat, void* len, void* ec) {
+void* windowssysWindowsWin32GlobalizationUcurrGetName(void* currency, void* locale, int32_t namestyle, void* ischoiceformat, void* len, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15487,7 +15487,7 @@ void* windowssys_windows_win32_globalization_ucurrGetName(void* currency, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ucurrGetNumericCode(void* currency) {
+int32_t windowssysWindowsWin32GlobalizationUcurrGetNumericCode(void* currency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15509,7 +15509,7 @@ int32_t windowssys_windows_win32_globalization_ucurrGetNumericCode(void* currenc
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucurrGetPluralName(void* currency, void* locale, void* ischoiceformat, void* pluralcount, void* len, void* ec) {
+void* windowssysWindowsWin32GlobalizationUcurrGetPluralName(void* currency, void* locale, void* ischoiceformat, void* pluralcount, void* len, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15536,7 +15536,7 @@ void* windowssys_windows_win32_globalization_ucurrGetPluralName(void* currency, 
 #endif
 }
 
-double windowssys_windows_win32_globalization_ucurrGetRoundingIncrement(void* currency, void* ec) {
+double windowssysWindowsWin32GlobalizationUcurrGetRoundingIncrement(void* currency, void* ec) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15559,7 +15559,7 @@ double windowssys_windows_win32_globalization_ucurrGetRoundingIncrement(void* cu
 #endif
 }
 
-double windowssys_windows_win32_globalization_ucurrGetRoundingIncrementForUsage(void* currency, int32_t usage, void* ec) {
+double windowssysWindowsWin32GlobalizationUcurrGetRoundingIncrementForUsage(void* currency, int32_t usage, void* ec) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15583,7 +15583,7 @@ double windowssys_windows_win32_globalization_ucurrGetRoundingIncrementForUsage(
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucurrIsAvailable(void* isocode, double from, double to, void* errorcode) {
+int8_t windowssysWindowsWin32GlobalizationUcurrIsAvailable(void* isocode, double from, double to, void* errorcode) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, double, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15608,7 +15608,7 @@ int8_t windowssys_windows_win32_globalization_ucurrIsAvailable(void* isocode, do
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucurrOpenIsocurrencies(uint32_t currtype, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUcurrOpenIsocurrencies(uint32_t currtype, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15631,7 +15631,7 @@ void* windowssys_windows_win32_globalization_ucurrOpenIsocurrencies(uint32_t cur
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ucurrRegister(void* isocode, void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUcurrRegister(void* isocode, void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15655,7 +15655,7 @@ void* windowssys_windows_win32_globalization_ucurrRegister(void* isocode, void* 
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ucurrUnregister(void* key, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUcurrUnregister(void* key, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15678,7 +15678,7 @@ int8_t windowssys_windows_win32_globalization_ucurrUnregister(void* key, void* s
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatAdoptNumberFormat(void* fmt, void* numberformattoadopt) {
+void windowssysWindowsWin32GlobalizationUdatAdoptNumberFormat(void* fmt, void* numberformattoadopt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15700,7 +15700,7 @@ void windowssys_windows_win32_globalization_udatAdoptNumberFormat(void* fmt, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatAdoptNumberFormatForFields(void* fmt, void* fields, void* numberformattoset, void* status) {
+void windowssysWindowsWin32GlobalizationUdatAdoptNumberFormatForFields(void* fmt, void* fields, void* numberformattoset, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15724,7 +15724,7 @@ void windowssys_windows_win32_globalization_udatAdoptNumberFormatForFields(void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatApplyPattern(void* format, int8_t localized, void* pattern, int32_t patternlength) {
+void windowssysWindowsWin32GlobalizationUdatApplyPattern(void* format, int8_t localized, void* pattern, int32_t patternlength) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15748,7 +15748,7 @@ void windowssys_windows_win32_globalization_udatApplyPattern(void* format, int8_
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatClone(void* fmt, void* status) {
+void* windowssysWindowsWin32GlobalizationUdatClone(void* fmt, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15771,7 +15771,7 @@ void* windowssys_windows_win32_globalization_udatClone(void* fmt, void* status) 
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatClose(void* format) {
+void windowssysWindowsWin32GlobalizationUdatClose(void* format) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15792,7 +15792,7 @@ void windowssys_windows_win32_globalization_udatClose(void* format) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUdatCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -15813,7 +15813,7 @@ int32_t windowssys_windows_win32_globalization_udatCountAvailable(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatCountSymbols(void* fmt, int32_t type) {
+int32_t windowssysWindowsWin32GlobalizationUdatCountSymbols(void* fmt, int32_t type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15836,7 +15836,7 @@ int32_t windowssys_windows_win32_globalization_udatCountSymbols(void* fmt, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatFormat(void* format, double datetoformat, void* result, int32_t resultlength, void* position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatFormat(void* format, double datetoformat, void* result, int32_t resultlength, void* position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15863,7 +15863,7 @@ int32_t windowssys_windows_win32_globalization_udatFormat(void* format, double d
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatFormatCalendar(void* format, void* calendar, void* result, int32_t capacity, void* position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatFormatCalendar(void* format, void* calendar, void* result, int32_t capacity, void* position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15890,7 +15890,7 @@ int32_t windowssys_windows_win32_globalization_udatFormatCalendar(void* format, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatFormatCalendarForFields(void* format, void* calendar, void* result, int32_t capacity, void* fpositer, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatFormatCalendarForFields(void* format, void* calendar, void* result, int32_t capacity, void* fpositer, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15917,7 +15917,7 @@ int32_t windowssys_windows_win32_globalization_udatFormatCalendarForFields(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatFormatForFields(void* format, double datetoformat, void* result, int32_t resultlength, void* fpositer, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatFormatForFields(void* format, double datetoformat, void* result, int32_t resultlength, void* fpositer, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15944,7 +15944,7 @@ int32_t windowssys_windows_win32_globalization_udatFormatForFields(void* format,
 #endif
 }
 
-double windowssys_windows_win32_globalization_udatGet2DigitYearStart(void* fmt, void* status) {
+double windowssysWindowsWin32GlobalizationUdatGet2DigitYearStart(void* fmt, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15967,7 +15967,7 @@ double windowssys_windows_win32_globalization_udatGet2DigitYearStart(void* fmt, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatGetAvailable(int32_t localeindex) {
+void* windowssysWindowsWin32GlobalizationUdatGetAvailable(int32_t localeindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15989,7 +15989,7 @@ void* windowssys_windows_win32_globalization_udatGetAvailable(int32_t localeinde
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_udatGetBooleanAttribute(void* fmt, int32_t attr, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUdatGetBooleanAttribute(void* fmt, int32_t attr, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16013,7 +16013,7 @@ int8_t windowssys_windows_win32_globalization_udatGetBooleanAttribute(void* fmt,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatGetCalendar(void* fmt) {
+void* windowssysWindowsWin32GlobalizationUdatGetCalendar(void* fmt) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16035,7 +16035,7 @@ void* windowssys_windows_win32_globalization_udatGetCalendar(void* fmt) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatGetContext(void* fmt, int32_t type, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatGetContext(void* fmt, int32_t type, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16059,7 +16059,7 @@ int32_t windowssys_windows_win32_globalization_udatGetContext(void* fmt, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatGetLocaleByType(void* fmt, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUdatGetLocaleByType(void* fmt, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16083,7 +16083,7 @@ void* windowssys_windows_win32_globalization_udatGetLocaleByType(void* fmt, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatGetNumberFormat(void* fmt) {
+void* windowssysWindowsWin32GlobalizationUdatGetNumberFormat(void* fmt) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16105,7 +16105,7 @@ void* windowssys_windows_win32_globalization_udatGetNumberFormat(void* fmt) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatGetNumberFormatForField(void* fmt, uint16_t field) {
+void* windowssysWindowsWin32GlobalizationUdatGetNumberFormatForField(void* fmt, uint16_t field) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16128,7 +16128,7 @@ void* windowssys_windows_win32_globalization_udatGetNumberFormatForField(void* f
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatGetSymbols(void* fmt, int32_t type, int32_t symbolindex, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatGetSymbols(void* fmt, int32_t type, int32_t symbolindex, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16155,7 +16155,7 @@ int32_t windowssys_windows_win32_globalization_udatGetSymbols(void* fmt, int32_t
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_udatIsLenient(void* fmt) {
+int8_t windowssysWindowsWin32GlobalizationUdatIsLenient(void* fmt) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16177,7 +16177,7 @@ int8_t windowssys_windows_win32_globalization_udatIsLenient(void* fmt) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatOpen(int32_t timestyle, int32_t datestyle, void* locale, void* tzid, int32_t tzidlength, void* pattern, int32_t patternlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUdatOpen(int32_t timestyle, int32_t datestyle, void* locale, void* tzid, int32_t tzidlength, void* pattern, int32_t patternlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16206,7 +16206,7 @@ void* windowssys_windows_win32_globalization_udatOpen(int32_t timestyle, int32_t
 #endif
 }
 
-double windowssys_windows_win32_globalization_udatParse(void* format, void* text, int32_t textlength, void* parsepos, void* status) {
+double windowssysWindowsWin32GlobalizationUdatParse(void* format, void* text, int32_t textlength, void* parsepos, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16232,7 +16232,7 @@ double windowssys_windows_win32_globalization_udatParse(void* format, void* text
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatParseCalendar(void* format, void* calendar, void* text, int32_t textlength, void* parsepos, void* status) {
+void windowssysWindowsWin32GlobalizationUdatParseCalendar(void* format, void* calendar, void* text, int32_t textlength, void* parsepos, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16258,7 +16258,7 @@ void windowssys_windows_win32_globalization_udatParseCalendar(void* format, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSet2DigitYearStart(void* fmt, double d, void* status) {
+void windowssysWindowsWin32GlobalizationUdatSet2DigitYearStart(void* fmt, double d, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16281,7 +16281,7 @@ void windowssys_windows_win32_globalization_udatSet2DigitYearStart(void* fmt, do
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSetBooleanAttribute(void* fmt, int32_t attr, int8_t newvalue, void* status) {
+void windowssysWindowsWin32GlobalizationUdatSetBooleanAttribute(void* fmt, int32_t attr, int8_t newvalue, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16305,7 +16305,7 @@ void windowssys_windows_win32_globalization_udatSetBooleanAttribute(void* fmt, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSetCalendar(void* fmt, void* calendartoset) {
+void windowssysWindowsWin32GlobalizationUdatSetCalendar(void* fmt, void* calendartoset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16327,7 +16327,7 @@ void windowssys_windows_win32_globalization_udatSetCalendar(void* fmt, void* cal
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSetContext(void* fmt, int32_t value, void* status) {
+void windowssysWindowsWin32GlobalizationUdatSetContext(void* fmt, int32_t value, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16350,7 +16350,7 @@ void windowssys_windows_win32_globalization_udatSetContext(void* fmt, int32_t va
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSetLenient(void* fmt, int8_t islenient) {
+void windowssysWindowsWin32GlobalizationUdatSetLenient(void* fmt, int8_t islenient) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16372,7 +16372,7 @@ void windowssys_windows_win32_globalization_udatSetLenient(void* fmt, int8_t isl
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSetNumberFormat(void* fmt, void* numberformattoset) {
+void windowssysWindowsWin32GlobalizationUdatSetNumberFormat(void* fmt, void* numberformattoset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16394,7 +16394,7 @@ void windowssys_windows_win32_globalization_udatSetNumberFormat(void* fmt, void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatSetSymbols(void* format, int32_t type, int32_t symbolindex, void* value, int32_t valuelength, void* status) {
+void windowssysWindowsWin32GlobalizationUdatSetSymbols(void* format, int32_t type, int32_t symbolindex, void* value, int32_t valuelength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16420,7 +16420,7 @@ void windowssys_windows_win32_globalization_udatSetSymbols(void* format, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatToCalendarDateField(int32_t field) {
+int32_t windowssysWindowsWin32GlobalizationUdatToCalendarDateField(int32_t field) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16442,7 +16442,7 @@ int32_t windowssys_windows_win32_globalization_udatToCalendarDateField(int32_t f
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatToPattern(void* fmt, int8_t localized, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdatToPattern(void* fmt, int8_t localized, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int8_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16468,7 +16468,7 @@ int32_t windowssys_windows_win32_globalization_udatToPattern(void* fmt, int8_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgAddPattern(void* dtpg, void* pattern, int32_t patternlength, int8_t override, void* conflictingpattern, int32_t capacity, void* plength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgAddPattern(void* dtpg, void* pattern, int32_t patternlength, int8_t override, void* conflictingpattern, int32_t capacity, void* plength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int8_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16497,7 +16497,7 @@ int32_t windowssys_windows_win32_globalization_udatpgAddPattern(void* dtpg, void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgClone(void* dtpg, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUdatpgClone(void* dtpg, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16520,7 +16520,7 @@ void* windowssys_windows_win32_globalization_udatpgClone(void* dtpg, void* perro
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatpgClose(void* dtpg) {
+void windowssysWindowsWin32GlobalizationUdatpgClose(void* dtpg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16541,7 +16541,7 @@ void windowssys_windows_win32_globalization_udatpgClose(void* dtpg) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgGetAppendItemFormat(void* dtpg, int32_t field, void* plength) {
+void* windowssysWindowsWin32GlobalizationUdatpgGetAppendItemFormat(void* dtpg, int32_t field, void* plength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16565,7 +16565,7 @@ void* windowssys_windows_win32_globalization_udatpgGetAppendItemFormat(void* dtp
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgGetAppendItemName(void* dtpg, int32_t field, void* plength) {
+void* windowssysWindowsWin32GlobalizationUdatpgGetAppendItemName(void* dtpg, int32_t field, void* plength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16589,7 +16589,7 @@ void* windowssys_windows_win32_globalization_udatpgGetAppendItemName(void* dtpg,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgGetBaseSkeleton(void* unuseddtpg, void* pattern, int32_t length, void* baseskeleton, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgGetBaseSkeleton(void* unuseddtpg, void* pattern, int32_t length, void* baseskeleton, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16616,7 +16616,7 @@ int32_t windowssys_windows_win32_globalization_udatpgGetBaseSkeleton(void* unuse
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgGetBestPattern(void* dtpg, void* skeleton, int32_t length, void* bestpattern, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgGetBestPattern(void* dtpg, void* skeleton, int32_t length, void* bestpattern, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16643,7 +16643,7 @@ int32_t windowssys_windows_win32_globalization_udatpgGetBestPattern(void* dtpg, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgGetBestPatternWithOptions(void* dtpg, void* skeleton, int32_t length, int32_t options, void* bestpattern, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgGetBestPatternWithOptions(void* dtpg, void* skeleton, int32_t length, int32_t options, void* bestpattern, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16671,7 +16671,7 @@ int32_t windowssys_windows_win32_globalization_udatpgGetBestPatternWithOptions(v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgGetDateTimeFormat(void* dtpg, void* plength) {
+void* windowssysWindowsWin32GlobalizationUdatpgGetDateTimeFormat(void* dtpg, void* plength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16694,7 +16694,7 @@ void* windowssys_windows_win32_globalization_udatpgGetDateTimeFormat(void* dtpg,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgGetDecimal(void* dtpg, void* plength) {
+void* windowssysWindowsWin32GlobalizationUdatpgGetDecimal(void* dtpg, void* plength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16717,7 +16717,7 @@ void* windowssys_windows_win32_globalization_udatpgGetDecimal(void* dtpg, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgGetFieldDisplayName(void* dtpg, int32_t field, int32_t width, void* fieldname, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgGetFieldDisplayName(void* dtpg, int32_t field, int32_t width, void* fieldname, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16744,7 +16744,7 @@ int32_t windowssys_windows_win32_globalization_udatpgGetFieldDisplayName(void* d
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgGetPatternForSkeleton(void* dtpg, void* skeleton, int32_t skeletonlength, void* plength) {
+void* windowssysWindowsWin32GlobalizationUdatpgGetPatternForSkeleton(void* dtpg, void* skeleton, int32_t skeletonlength, void* plength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16769,7 +16769,7 @@ void* windowssys_windows_win32_globalization_udatpgGetPatternForSkeleton(void* d
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgGetSkeleton(void* unuseddtpg, void* pattern, int32_t length, void* skeleton, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgGetSkeleton(void* unuseddtpg, void* pattern, int32_t length, void* skeleton, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16796,7 +16796,7 @@ int32_t windowssys_windows_win32_globalization_udatpgGetSkeleton(void* unuseddtp
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgOpen(void* locale, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUdatpgOpen(void* locale, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16819,7 +16819,7 @@ void* windowssys_windows_win32_globalization_udatpgOpen(void* locale, void* perr
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgOpenBaseSkeletons(void* dtpg, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUdatpgOpenBaseSkeletons(void* dtpg, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16842,7 +16842,7 @@ void* windowssys_windows_win32_globalization_udatpgOpenBaseSkeletons(void* dtpg,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgOpenEmpty(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUdatpgOpenEmpty(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16864,7 +16864,7 @@ void* windowssys_windows_win32_globalization_udatpgOpenEmpty(void* perrorcode) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udatpgOpenSkeletons(void* dtpg, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUdatpgOpenSkeletons(void* dtpg, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16887,7 +16887,7 @@ void* windowssys_windows_win32_globalization_udatpgOpenSkeletons(void* dtpg, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgReplaceFieldTypes(void* dtpg, void* pattern, int32_t patternlength, void* skeleton, int32_t skeletonlength, void* dest, int32_t destcapacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgReplaceFieldTypes(void* dtpg, void* pattern, int32_t patternlength, void* skeleton, int32_t skeletonlength, void* dest, int32_t destcapacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16916,7 +16916,7 @@ int32_t windowssys_windows_win32_globalization_udatpgReplaceFieldTypes(void* dtp
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udatpgReplaceFieldTypesWithOptions(void* dtpg, void* pattern, int32_t patternlength, void* skeleton, int32_t skeletonlength, int32_t options, void* dest, int32_t destcapacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUdatpgReplaceFieldTypesWithOptions(void* dtpg, void* pattern, int32_t patternlength, void* skeleton, int32_t skeletonlength, int32_t options, void* dest, int32_t destcapacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16946,7 +16946,7 @@ int32_t windowssys_windows_win32_globalization_udatpgReplaceFieldTypesWithOption
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatpgSetAppendItemFormat(void* dtpg, int32_t field, void* value, int32_t length) {
+void windowssysWindowsWin32GlobalizationUdatpgSetAppendItemFormat(void* dtpg, int32_t field, void* value, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16970,7 +16970,7 @@ void windowssys_windows_win32_globalization_udatpgSetAppendItemFormat(void* dtpg
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatpgSetAppendItemName(void* dtpg, int32_t field, void* value, int32_t length) {
+void windowssysWindowsWin32GlobalizationUdatpgSetAppendItemName(void* dtpg, int32_t field, void* value, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16994,7 +16994,7 @@ void windowssys_windows_win32_globalization_udatpgSetAppendItemName(void* dtpg, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatpgSetDateTimeFormat(void* dtpg, void* dtformat, int32_t length) {
+void windowssysWindowsWin32GlobalizationUdatpgSetDateTimeFormat(void* dtpg, void* dtformat, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17017,7 +17017,7 @@ void windowssys_windows_win32_globalization_udatpgSetDateTimeFormat(void* dtpg, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_udatpgSetDecimal(void* dtpg, void* decimal, int32_t length) {
+void windowssysWindowsWin32GlobalizationUdatpgSetDecimal(void* dtpg, void* decimal, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17040,7 +17040,7 @@ void windowssys_windows_win32_globalization_udatpgSetDecimal(void* dtpg, void* d
 #endif
 }
 
-void windowssys_windows_win32_globalization_udtitvfmtClose(void* formatter) {
+void windowssysWindowsWin32GlobalizationUdtitvfmtClose(void* formatter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17061,7 +17061,7 @@ void windowssys_windows_win32_globalization_udtitvfmtClose(void* formatter) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_udtitvfmtCloseResult(void* uresult) {
+void windowssysWindowsWin32GlobalizationUdtitvfmtCloseResult(void* uresult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17082,7 +17082,7 @@ void windowssys_windows_win32_globalization_udtitvfmtCloseResult(void* uresult) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_udtitvfmtFormat(void* formatter, double fromdate, double todate, void* result, int32_t resultcapacity, void* position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUdtitvfmtFormat(void* formatter, double fromdate, double todate, void* result, int32_t resultcapacity, void* position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, double, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17110,7 +17110,7 @@ int32_t windowssys_windows_win32_globalization_udtitvfmtFormat(void* formatter, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udtitvfmtOpen(void* locale, void* skeleton, int32_t skeletonlength, void* tzid, int32_t tzidlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUdtitvfmtOpen(void* locale, void* skeleton, int32_t skeletonlength, void* tzid, int32_t tzidlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17137,7 +17137,7 @@ void* windowssys_windows_win32_globalization_udtitvfmtOpen(void* locale, void* s
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udtitvfmtOpenResult(void* ec) {
+void* windowssysWindowsWin32GlobalizationUdtitvfmtOpenResult(void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17159,7 +17159,7 @@ void* windowssys_windows_win32_globalization_udtitvfmtOpenResult(void* ec) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_udtitvfmtResultAsValue(void* uresult, void* ec) {
+void* windowssysWindowsWin32GlobalizationUdtitvfmtResultAsValue(void* uresult, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17182,7 +17182,7 @@ void* windowssys_windows_win32_globalization_udtitvfmtResultAsValue(void* uresul
 #endif
 }
 
-void windowssys_windows_win32_globalization_uenumClose(void* en) {
+void windowssysWindowsWin32GlobalizationUenumClose(void* en) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17203,7 +17203,7 @@ void windowssys_windows_win32_globalization_uenumClose(void* en) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uenumCount(void* en, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUenumCount(void* en, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17226,7 +17226,7 @@ int32_t windowssys_windows_win32_globalization_uenumCount(void* en, void* status
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uenumNext(void* en, void* resultlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUenumNext(void* en, void* resultlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17250,7 +17250,7 @@ void* windowssys_windows_win32_globalization_uenumNext(void* en, void* resultlen
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uenumOpenCharStringsEnumeration(void* strings, int32_t count, void* ec) {
+void* windowssysWindowsWin32GlobalizationUenumOpenCharStringsEnumeration(void* strings, int32_t count, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17274,7 +17274,7 @@ void* windowssys_windows_win32_globalization_uenumOpenCharStringsEnumeration(voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uenumOpenUcharStringsEnumeration(void* strings, int32_t count, void* ec) {
+void* windowssysWindowsWin32GlobalizationUenumOpenUcharStringsEnumeration(void* strings, int32_t count, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17298,7 +17298,7 @@ void* windowssys_windows_win32_globalization_uenumOpenUcharStringsEnumeration(vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_uenumReset(void* en, void* status) {
+void windowssysWindowsWin32GlobalizationUenumReset(void* en, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17320,7 +17320,7 @@ void windowssys_windows_win32_globalization_uenumReset(void* en, void* status) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uenumUnext(void* en, void* resultlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUenumUnext(void* en, void* resultlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17344,7 +17344,7 @@ void* windowssys_windows_win32_globalization_uenumUnext(void* en, void* resultle
 #endif
 }
 
-void windowssys_windows_win32_globalization_ufieldpositerClose(void* fpositer) {
+void windowssysWindowsWin32GlobalizationUfieldpositerClose(void* fpositer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17365,7 +17365,7 @@ void windowssys_windows_win32_globalization_ufieldpositerClose(void* fpositer) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ufieldpositerNext(void* fpositer, void* beginindex, void* endindex) {
+int32_t windowssysWindowsWin32GlobalizationUfieldpositerNext(void* fpositer, void* beginindex, void* endindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17389,7 +17389,7 @@ int32_t windowssys_windows_win32_globalization_ufieldpositerNext(void* fpositer,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufieldpositerOpen(void* status) {
+void* windowssysWindowsWin32GlobalizationUfieldpositerOpen(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17411,7 +17411,7 @@ void* windowssys_windows_win32_globalization_ufieldpositerOpen(void* status) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ufmtClose(void* fmt) {
+void windowssysWindowsWin32GlobalizationUfmtClose(void* fmt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17432,7 +17432,7 @@ void windowssys_windows_win32_globalization_ufmtClose(void* fmt) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufmtGetArrayItemByIndex(void* fmt, int32_t n, void* status) {
+void* windowssysWindowsWin32GlobalizationUfmtGetArrayItemByIndex(void* fmt, int32_t n, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17456,7 +17456,7 @@ void* windowssys_windows_win32_globalization_ufmtGetArrayItemByIndex(void* fmt, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ufmtGetArrayLength(void* fmt, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUfmtGetArrayLength(void* fmt, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17479,7 +17479,7 @@ int32_t windowssys_windows_win32_globalization_ufmtGetArrayLength(void* fmt, voi
 #endif
 }
 
-double windowssys_windows_win32_globalization_ufmtGetDate(void* fmt, void* status) {
+double windowssysWindowsWin32GlobalizationUfmtGetDate(void* fmt, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17502,7 +17502,7 @@ double windowssys_windows_win32_globalization_ufmtGetDate(void* fmt, void* statu
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufmtGetDecNumChars(void* fmt, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUfmtGetDecNumChars(void* fmt, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17526,7 +17526,7 @@ void* windowssys_windows_win32_globalization_ufmtGetDecNumChars(void* fmt, void*
 #endif
 }
 
-double windowssys_windows_win32_globalization_ufmtGetDouble(void* fmt, void* status) {
+double windowssysWindowsWin32GlobalizationUfmtGetDouble(void* fmt, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17549,7 +17549,7 @@ double windowssys_windows_win32_globalization_ufmtGetDouble(void* fmt, void* sta
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_ufmtGetInt64(void* fmt, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUfmtGetInt64(void* fmt, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17572,7 +17572,7 @@ int64_t windowssys_windows_win32_globalization_ufmtGetInt64(void* fmt, void* sta
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ufmtGetLong(void* fmt, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUfmtGetLong(void* fmt, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17595,7 +17595,7 @@ int32_t windowssys_windows_win32_globalization_ufmtGetLong(void* fmt, void* stat
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufmtGetObject(void* fmt, void* status) {
+void* windowssysWindowsWin32GlobalizationUfmtGetObject(void* fmt, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17618,7 +17618,7 @@ void* windowssys_windows_win32_globalization_ufmtGetObject(void* fmt, void* stat
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ufmtGetType(void* fmt, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUfmtGetType(void* fmt, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17641,7 +17641,7 @@ int32_t windowssys_windows_win32_globalization_ufmtGetType(void* fmt, void* stat
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufmtGetUchars(void* fmt, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUfmtGetUchars(void* fmt, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17665,7 +17665,7 @@ void* windowssys_windows_win32_globalization_ufmtGetUchars(void* fmt, void* len,
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ufmtIsNumeric(void* fmt) {
+int8_t windowssysWindowsWin32GlobalizationUfmtIsNumeric(void* fmt) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17687,7 +17687,7 @@ int8_t windowssys_windows_win32_globalization_ufmtIsNumeric(void* fmt) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufmtOpen(void* status) {
+void* windowssysWindowsWin32GlobalizationUfmtOpen(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17709,7 +17709,7 @@ void* windowssys_windows_win32_globalization_ufmtOpen(void* status) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ufmtvalGetString(void* ufmtval, void* plength, void* ec) {
+void* windowssysWindowsWin32GlobalizationUfmtvalGetString(void* ufmtval, void* plength, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17733,7 +17733,7 @@ void* windowssys_windows_win32_globalization_ufmtvalGetString(void* ufmtval, voi
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ufmtvalNextPosition(void* ufmtval, void* ucfpos, void* ec) {
+int8_t windowssysWindowsWin32GlobalizationUfmtvalNextPosition(void* ufmtval, void* ucfpos, void* ec) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17757,7 +17757,7 @@ int8_t windowssys_windows_win32_globalization_ufmtvalNextPosition(void* ufmtval,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ugenderGetInstance(void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUgenderGetInstance(void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17780,7 +17780,7 @@ void* windowssys_windows_win32_globalization_ugenderGetInstance(void* locale, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ugenderGetListGender(void* genderinfo, void* genders, int32_t size, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUgenderGetListGender(void* genderinfo, void* genders, int32_t size, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17805,7 +17805,7 @@ int32_t windowssys_windows_win32_globalization_ugenderGetListGender(void* gender
 #endif
 }
 
-void windowssys_windows_win32_globalization_uidnaClose(void* idna) {
+void windowssysWindowsWin32GlobalizationUidnaClose(void* idna) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17826,7 +17826,7 @@ void windowssys_windows_win32_globalization_uidnaClose(void* idna) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaLabelToAscii(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaLabelToAscii(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17854,7 +17854,7 @@ int32_t windowssys_windows_win32_globalization_uidnaLabelToAscii(void* idna, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaLabelToAsciiUtf8(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaLabelToAsciiUtf8(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17882,7 +17882,7 @@ int32_t windowssys_windows_win32_globalization_uidnaLabelToAsciiUtf8(void* idna,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaLabelToUnicode(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaLabelToUnicode(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17910,7 +17910,7 @@ int32_t windowssys_windows_win32_globalization_uidnaLabelToUnicode(void* idna, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaLabelToUnicodeUtf8(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaLabelToUnicodeUtf8(void* idna, void* label, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17938,7 +17938,7 @@ int32_t windowssys_windows_win32_globalization_uidnaLabelToUnicodeUtf8(void* idn
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaNameToAscii(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaNameToAscii(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17966,7 +17966,7 @@ int32_t windowssys_windows_win32_globalization_uidnaNameToAscii(void* idna, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaNameToAsciiUtf8(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaNameToAsciiUtf8(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17994,7 +17994,7 @@ int32_t windowssys_windows_win32_globalization_uidnaNameToAsciiUtf8(void* idna, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaNameToUnicode(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaNameToUnicode(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18022,7 +18022,7 @@ int32_t windowssys_windows_win32_globalization_uidnaNameToUnicode(void* idna, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uidnaNameToUnicodeUtf8(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUidnaNameToUnicodeUtf8(void* idna, void* name, int32_t length, void* dest, int32_t capacity, void* pinfo, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18050,7 +18050,7 @@ int32_t windowssys_windows_win32_globalization_uidnaNameToUnicodeUtf8(void* idna
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uidnaOpenUts46(uint32_t options, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUidnaOpenUts46(uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18073,7 +18073,7 @@ void* windowssys_windows_win32_globalization_uidnaOpenUts46(uint32_t options, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uiterCurrent32(void* iter) {
+int32_t windowssysWindowsWin32GlobalizationUiterCurrent32(void* iter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18095,7 +18095,7 @@ int32_t windowssys_windows_win32_globalization_uiterCurrent32(void* iter) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_uiterGetState(void* iter) {
+uint32_t windowssysWindowsWin32GlobalizationUiterGetState(void* iter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18117,7 +18117,7 @@ uint32_t windowssys_windows_win32_globalization_uiterGetState(void* iter) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uiterNext32(void* iter) {
+int32_t windowssysWindowsWin32GlobalizationUiterNext32(void* iter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18139,7 +18139,7 @@ int32_t windowssys_windows_win32_globalization_uiterNext32(void* iter) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uiterPrevious32(void* iter) {
+int32_t windowssysWindowsWin32GlobalizationUiterPrevious32(void* iter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18161,7 +18161,7 @@ int32_t windowssys_windows_win32_globalization_uiterPrevious32(void* iter) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_uiterSetState(void* iter, uint32_t state, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUiterSetState(void* iter, uint32_t state, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18184,7 +18184,7 @@ void windowssys_windows_win32_globalization_uiterSetState(void* iter, uint32_t s
 #endif
 }
 
-void windowssys_windows_win32_globalization_uiterSetString(void* iter, void* s, int32_t length) {
+void windowssysWindowsWin32GlobalizationUiterSetString(void* iter, void* s, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18207,7 +18207,7 @@ void windowssys_windows_win32_globalization_uiterSetString(void* iter, void* s, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uiterSetUtf16Be(void* iter, void* s, int32_t length) {
+void windowssysWindowsWin32GlobalizationUiterSetUtf16Be(void* iter, void* s, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18230,7 +18230,7 @@ void windowssys_windows_win32_globalization_uiterSetUtf16Be(void* iter, void* s,
 #endif
 }
 
-void windowssys_windows_win32_globalization_uiterSetUtf8(void* iter, void* s, int32_t length) {
+void windowssysWindowsWin32GlobalizationUiterSetUtf8(void* iter, void* s, int32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18253,7 +18253,7 @@ void windowssys_windows_win32_globalization_uiterSetUtf8(void* iter, void* s, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_uldnClose(void* ldn) {
+void windowssysWindowsWin32GlobalizationUldnClose(void* ldn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18274,7 +18274,7 @@ void windowssys_windows_win32_globalization_uldnClose(void* ldn) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnGetContext(void* ldn, int32_t type, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnGetContext(void* ldn, int32_t type, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18298,7 +18298,7 @@ int32_t windowssys_windows_win32_globalization_uldnGetContext(void* ldn, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnGetDialectHandling(void* ldn) {
+int32_t windowssysWindowsWin32GlobalizationUldnGetDialectHandling(void* ldn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18320,7 +18320,7 @@ int32_t windowssys_windows_win32_globalization_uldnGetDialectHandling(void* ldn)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uldnGetLocale(void* ldn) {
+void* windowssysWindowsWin32GlobalizationUldnGetLocale(void* ldn) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18342,7 +18342,7 @@ void* windowssys_windows_win32_globalization_uldnGetLocale(void* ldn) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnKeyDisplayName(void* ldn, void* key, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnKeyDisplayName(void* ldn, void* key, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18368,7 +18368,7 @@ int32_t windowssys_windows_win32_globalization_uldnKeyDisplayName(void* ldn, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnKeyValueDisplayName(void* ldn, void* key, void* value, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnKeyValueDisplayName(void* ldn, void* key, void* value, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18395,7 +18395,7 @@ int32_t windowssys_windows_win32_globalization_uldnKeyValueDisplayName(void* ldn
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnLanguageDisplayName(void* ldn, void* lang, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnLanguageDisplayName(void* ldn, void* lang, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18421,7 +18421,7 @@ int32_t windowssys_windows_win32_globalization_uldnLanguageDisplayName(void* ldn
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnLocaleDisplayName(void* ldn, void* locale, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnLocaleDisplayName(void* ldn, void* locale, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18447,7 +18447,7 @@ int32_t windowssys_windows_win32_globalization_uldnLocaleDisplayName(void* ldn, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uldnOpen(void* locale, int32_t dialecthandling, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUldnOpen(void* locale, int32_t dialecthandling, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18471,7 +18471,7 @@ void* windowssys_windows_win32_globalization_uldnOpen(void* locale, int32_t dial
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uldnOpenForContext(void* locale, void* contexts, int32_t length, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUldnOpenForContext(void* locale, void* contexts, int32_t length, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18496,7 +18496,7 @@ void* windowssys_windows_win32_globalization_uldnOpenForContext(void* locale, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnRegionDisplayName(void* ldn, void* region, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnRegionDisplayName(void* ldn, void* region, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18522,7 +18522,7 @@ int32_t windowssys_windows_win32_globalization_uldnRegionDisplayName(void* ldn, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnScriptCodeDisplayName(void* ldn, int32_t scriptcode, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnScriptCodeDisplayName(void* ldn, int32_t scriptcode, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18548,7 +18548,7 @@ int32_t windowssys_windows_win32_globalization_uldnScriptCodeDisplayName(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnScriptDisplayName(void* ldn, void* script, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnScriptDisplayName(void* ldn, void* script, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18574,7 +18574,7 @@ int32_t windowssys_windows_win32_globalization_uldnScriptDisplayName(void* ldn, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uldnVariantDisplayName(void* ldn, void* variant, void* result, int32_t maxresultsize, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUldnVariantDisplayName(void* ldn, void* variant, void* result, int32_t maxresultsize, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18600,7 +18600,7 @@ int32_t windowssys_windows_win32_globalization_uldnVariantDisplayName(void* ldn,
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulistfmtClose(void* listfmt) {
+void windowssysWindowsWin32GlobalizationUlistfmtClose(void* listfmt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18621,7 +18621,7 @@ void windowssys_windows_win32_globalization_ulistfmtClose(void* listfmt) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulistfmtCloseResult(void* uresult) {
+void windowssysWindowsWin32GlobalizationUlistfmtCloseResult(void* uresult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18642,7 +18642,7 @@ void windowssys_windows_win32_globalization_ulistfmtCloseResult(void* uresult) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulistfmtFormat(void* listfmt, void* strings, void* stringlengths, int32_t stringcount, void* result, int32_t resultcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlistfmtFormat(void* listfmt, void* strings, void* stringlengths, int32_t stringcount, void* result, int32_t resultcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18670,7 +18670,7 @@ int32_t windowssys_windows_win32_globalization_ulistfmtFormat(void* listfmt, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulistfmtFormatStringsToResult(void* listfmt, void* strings, void* stringlengths, int32_t stringcount, void* uresult, void* status) {
+void windowssysWindowsWin32GlobalizationUlistfmtFormatStringsToResult(void* listfmt, void* strings, void* stringlengths, int32_t stringcount, void* uresult, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18696,7 +18696,7 @@ void windowssys_windows_win32_globalization_ulistfmtFormatStringsToResult(void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulistfmtOpen(void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUlistfmtOpen(void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18719,7 +18719,7 @@ void* windowssys_windows_win32_globalization_ulistfmtOpen(void* locale, void* st
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulistfmtOpenForType(void* locale, int32_t type, int32_t width, void* status) {
+void* windowssysWindowsWin32GlobalizationUlistfmtOpenForType(void* locale, int32_t type, int32_t width, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18744,7 +18744,7 @@ void* windowssys_windows_win32_globalization_ulistfmtOpenForType(void* locale, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulistfmtOpenResult(void* ec) {
+void* windowssysWindowsWin32GlobalizationUlistfmtOpenResult(void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18766,7 +18766,7 @@ void* windowssys_windows_win32_globalization_ulistfmtOpenResult(void* ec) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulistfmtResultAsValue(void* uresult, void* ec) {
+void* windowssysWindowsWin32GlobalizationUlistfmtResultAsValue(void* uresult, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18789,7 +18789,7 @@ void* windowssys_windows_win32_globalization_ulistfmtResultAsValue(void* uresult
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocAcceptLanguage(void* result, int32_t resultavailable, void* outresult, void* acceptlist, int32_t acceptlistcount, void* availablelocales, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocAcceptLanguage(void* result, int32_t resultavailable, void* outresult, void* acceptlist, int32_t acceptlistcount, void* availablelocales, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18817,7 +18817,7 @@ int32_t windowssys_windows_win32_globalization_ulocAcceptLanguage(void* result, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocAcceptLanguageFromHttp(void* result, int32_t resultavailable, void* outresult, void* httpacceptlanguage, void* availablelocales, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocAcceptLanguageFromHttp(void* result, int32_t resultavailable, void* outresult, void* httpacceptlanguage, void* availablelocales, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18844,7 +18844,7 @@ int32_t windowssys_windows_win32_globalization_ulocAcceptLanguageFromHttp(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocAddLikelySubtags(void* localeid, void* maximizedlocaleid, int32_t maximizedlocaleidcapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocAddLikelySubtags(void* localeid, void* maximizedlocaleid, int32_t maximizedlocaleidcapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18869,7 +18869,7 @@ int32_t windowssys_windows_win32_globalization_ulocAddLikelySubtags(void* locale
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocCanonicalize(void* localeid, void* name, int32_t namecapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocCanonicalize(void* localeid, void* name, int32_t namecapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18894,7 +18894,7 @@ int32_t windowssys_windows_win32_globalization_ulocCanonicalize(void* localeid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUlocCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18915,7 +18915,7 @@ int32_t windowssys_windows_win32_globalization_ulocCountAvailable(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocForLanguageTag(void* langtag, void* localeid, int32_t localeidcapacity, void* parsedlength, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocForLanguageTag(void* langtag, void* localeid, int32_t localeidcapacity, void* parsedlength, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18941,7 +18941,7 @@ int32_t windowssys_windows_win32_globalization_ulocForLanguageTag(void* langtag,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocGetAvailable(int32_t n) {
+void* windowssysWindowsWin32GlobalizationUlocGetAvailable(int32_t n) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18963,7 +18963,7 @@ void* windowssys_windows_win32_globalization_ulocGetAvailable(int32_t n) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetBaseName(void* localeid, void* name, int32_t namecapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetBaseName(void* localeid, void* name, int32_t namecapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18988,7 +18988,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetBaseName(void* localeid, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetCharacterOrientation(void* localeid, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetCharacterOrientation(void* localeid, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19011,7 +19011,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetCharacterOrientation(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetCountry(void* localeid, void* country, int32_t countrycapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetCountry(void* localeid, void* country, int32_t countrycapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19036,7 +19036,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetCountry(void* localeid, vo
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocGetDefault(void) {
+void* windowssysWindowsWin32GlobalizationUlocGetDefault(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -19057,7 +19057,7 @@ void* windowssys_windows_win32_globalization_ulocGetDefault(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayCountry(void* locale, void* displaylocale, void* country, int32_t countrycapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayCountry(void* locale, void* displaylocale, void* country, int32_t countrycapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19083,7 +19083,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayCountry(void* local
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayKeyword(void* keyword, void* displaylocale, void* dest, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayKeyword(void* keyword, void* displaylocale, void* dest, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19109,7 +19109,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayKeyword(void* keywo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayKeywordValue(void* locale, void* keyword, void* displaylocale, void* dest, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayKeywordValue(void* locale, void* keyword, void* displaylocale, void* dest, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19136,7 +19136,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayKeywordValue(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayLanguage(void* locale, void* displaylocale, void* language, int32_t languagecapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayLanguage(void* locale, void* displaylocale, void* language, int32_t languagecapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19162,7 +19162,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayLanguage(void* loca
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayName(void* localeid, void* inlocaleid, void* result, int32_t maxresultsize, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayName(void* localeid, void* inlocaleid, void* result, int32_t maxresultsize, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19188,7 +19188,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayName(void* localeid
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayScript(void* locale, void* displaylocale, void* script, int32_t scriptcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayScript(void* locale, void* displaylocale, void* script, int32_t scriptcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19214,7 +19214,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayScript(void* locale
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetDisplayVariant(void* locale, void* displaylocale, void* variant, int32_t variantcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetDisplayVariant(void* locale, void* displaylocale, void* variant, int32_t variantcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19240,7 +19240,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetDisplayVariant(void* local
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocGetIso3Country(void* localeid) {
+void* windowssysWindowsWin32GlobalizationUlocGetIso3Country(void* localeid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19262,7 +19262,7 @@ void* windowssys_windows_win32_globalization_ulocGetIso3Country(void* localeid) 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocGetIso3Language(void* localeid) {
+void* windowssysWindowsWin32GlobalizationUlocGetIso3Language(void* localeid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19284,7 +19284,7 @@ void* windowssys_windows_win32_globalization_ulocGetIso3Language(void* localeid)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocGetIsocountries(void) {
+void* windowssysWindowsWin32GlobalizationUlocGetIsocountries(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -19305,7 +19305,7 @@ void* windowssys_windows_win32_globalization_ulocGetIsocountries(void) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocGetIsolanguages(void) {
+void* windowssysWindowsWin32GlobalizationUlocGetIsolanguages(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -19326,7 +19326,7 @@ void* windowssys_windows_win32_globalization_ulocGetIsolanguages(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetKeywordValue(void* localeid, void* keywordname, void* buffer, int32_t buffercapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetKeywordValue(void* localeid, void* keywordname, void* buffer, int32_t buffercapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19352,7 +19352,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetKeywordValue(void* localei
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_ulocGetLcid(void* localeid) {
+uint32_t windowssysWindowsWin32GlobalizationUlocGetLcid(void* localeid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19374,7 +19374,7 @@ uint32_t windowssys_windows_win32_globalization_ulocGetLcid(void* localeid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetLanguage(void* localeid, void* language, int32_t languagecapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetLanguage(void* localeid, void* language, int32_t languagecapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19399,7 +19399,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetLanguage(void* localeid, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetLineOrientation(void* localeid, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetLineOrientation(void* localeid, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19422,7 +19422,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetLineOrientation(void* loca
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetLocaleForLcid(uint32_t hostid, void* locale, int32_t localecapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetLocaleForLcid(uint32_t hostid, void* locale, int32_t localecapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19447,7 +19447,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetLocaleForLcid(uint32_t hos
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetName(void* localeid, void* name, int32_t namecapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetName(void* localeid, void* name, int32_t namecapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19472,7 +19472,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetName(void* localeid, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetParent(void* localeid, void* parent, int32_t parentcapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetParent(void* localeid, void* parent, int32_t parentcapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19497,7 +19497,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetParent(void* localeid, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetScript(void* localeid, void* script, int32_t scriptcapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetScript(void* localeid, void* script, int32_t scriptcapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19522,7 +19522,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetScript(void* localeid, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocGetVariant(void* localeid, void* variant, int32_t variantcapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocGetVariant(void* localeid, void* variant, int32_t variantcapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19547,7 +19547,7 @@ int32_t windowssys_windows_win32_globalization_ulocGetVariant(void* localeid, vo
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ulocIsRightToLeft(void* locale) {
+int8_t windowssysWindowsWin32GlobalizationUlocIsRightToLeft(void* locale) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19569,7 +19569,7 @@ int8_t windowssys_windows_win32_globalization_ulocIsRightToLeft(void* locale) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocMinimizeSubtags(void* localeid, void* minimizedlocaleid, int32_t minimizedlocaleidcapacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocMinimizeSubtags(void* localeid, void* minimizedlocaleid, int32_t minimizedlocaleidcapacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19594,7 +19594,7 @@ int32_t windowssys_windows_win32_globalization_ulocMinimizeSubtags(void* localei
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocOpenAvailableByType(int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUlocOpenAvailableByType(int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19617,7 +19617,7 @@ void* windowssys_windows_win32_globalization_ulocOpenAvailableByType(int32_t typ
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocOpenKeywords(void* localeid, void* status) {
+void* windowssysWindowsWin32GlobalizationUlocOpenKeywords(void* localeid, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19640,7 +19640,7 @@ void* windowssys_windows_win32_globalization_ulocOpenKeywords(void* localeid, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulocSetDefault(void* localeid, void* status) {
+void windowssysWindowsWin32GlobalizationUlocSetDefault(void* localeid, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19662,7 +19662,7 @@ void windowssys_windows_win32_globalization_ulocSetDefault(void* localeid, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocSetKeywordValue(void* keywordname, void* keywordvalue, void* buffer, int32_t buffercapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocSetKeywordValue(void* keywordname, void* keywordvalue, void* buffer, int32_t buffercapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19688,7 +19688,7 @@ int32_t windowssys_windows_win32_globalization_ulocSetKeywordValue(void* keyword
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocToLanguageTag(void* localeid, void* langtag, int32_t langtagcapacity, int8_t strict, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUlocToLanguageTag(void* localeid, void* langtag, int32_t langtagcapacity, int8_t strict, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19714,7 +19714,7 @@ int32_t windowssys_windows_win32_globalization_ulocToLanguageTag(void* localeid,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocToLegacyKey(void* keyword) {
+void* windowssysWindowsWin32GlobalizationUlocToLegacyKey(void* keyword) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19736,7 +19736,7 @@ void* windowssys_windows_win32_globalization_ulocToLegacyKey(void* keyword) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocToLegacyType(void* keyword, void* value) {
+void* windowssysWindowsWin32GlobalizationUlocToLegacyType(void* keyword, void* value) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19759,7 +19759,7 @@ void* windowssys_windows_win32_globalization_ulocToLegacyType(void* keyword, voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocToUnicodeLocaleKey(void* keyword) {
+void* windowssysWindowsWin32GlobalizationUlocToUnicodeLocaleKey(void* keyword) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19781,7 +19781,7 @@ void* windowssys_windows_win32_globalization_ulocToUnicodeLocaleKey(void* keywor
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocToUnicodeLocaleType(void* keyword, void* value) {
+void* windowssysWindowsWin32GlobalizationUlocToUnicodeLocaleType(void* keyword, void* value) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19804,7 +19804,7 @@ void* windowssys_windows_win32_globalization_ulocToUnicodeLocaleType(void* keywo
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulocdataClose(void* uld) {
+void windowssysWindowsWin32GlobalizationUlocdataClose(void* uld) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19825,7 +19825,7 @@ void windowssys_windows_win32_globalization_ulocdataClose(void* uld) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulocdataGetCldrversion(void* versionarray, void* status) {
+void windowssysWindowsWin32GlobalizationUlocdataGetCldrversion(void* versionarray, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19847,7 +19847,7 @@ void windowssys_windows_win32_globalization_ulocdataGetCldrversion(void* version
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocdataGetDelimiter(void* uld, int32_t type, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocdataGetDelimiter(void* uld, int32_t type, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19873,7 +19873,7 @@ int32_t windowssys_windows_win32_globalization_ulocdataGetDelimiter(void* uld, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocdataGetExemplarSet(void* uld, void* fillin, uint32_t options, int32_t extype, void* status) {
+void* windowssysWindowsWin32GlobalizationUlocdataGetExemplarSet(void* uld, void* fillin, uint32_t options, int32_t extype, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19899,7 +19899,7 @@ void* windowssys_windows_win32_globalization_ulocdataGetExemplarSet(void* uld, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocdataGetLocaleDisplayPattern(void* uld, void* pattern, int32_t patterncapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocdataGetLocaleDisplayPattern(void* uld, void* pattern, int32_t patterncapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19924,7 +19924,7 @@ int32_t windowssys_windows_win32_globalization_ulocdataGetLocaleDisplayPattern(v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocdataGetLocaleSeparator(void* uld, void* separator, int32_t separatorcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocdataGetLocaleSeparator(void* uld, void* separator, int32_t separatorcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19949,7 +19949,7 @@ int32_t windowssys_windows_win32_globalization_ulocdataGetLocaleSeparator(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ulocdataGetMeasurementSystem(void* localeid, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUlocdataGetMeasurementSystem(void* localeid, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19972,7 +19972,7 @@ int32_t windowssys_windows_win32_globalization_ulocdataGetMeasurementSystem(void
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_ulocdataGetNoSubstitute(void* uld) {
+int8_t windowssysWindowsWin32GlobalizationUlocdataGetNoSubstitute(void* uld) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19994,7 +19994,7 @@ int8_t windowssys_windows_win32_globalization_ulocdataGetNoSubstitute(void* uld)
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulocdataGetPaperSize(void* localeid, void* height, void* width, void* status) {
+void windowssysWindowsWin32GlobalizationUlocdataGetPaperSize(void* localeid, void* height, void* width, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20018,7 +20018,7 @@ void windowssys_windows_win32_globalization_ulocdataGetPaperSize(void* localeid,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ulocdataOpen(void* localeid, void* status) {
+void* windowssysWindowsWin32GlobalizationUlocdataOpen(void* localeid, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20041,7 +20041,7 @@ void* windowssys_windows_win32_globalization_ulocdataOpen(void* localeid, void* 
 #endif
 }
 
-void windowssys_windows_win32_globalization_ulocdataSetNoSubstitute(void* uld, int8_t setting) {
+void windowssysWindowsWin32GlobalizationUlocdataSetNoSubstitute(void* uld, int8_t setting) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20063,7 +20063,7 @@ void windowssys_windows_win32_globalization_ulocdataSetNoSubstitute(void* uld, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_umsgApplyPattern(void* fmt, void* pattern, int32_t patternlength, void* parseerror, void* status) {
+void windowssysWindowsWin32GlobalizationUmsgApplyPattern(void* fmt, void* pattern, int32_t patternlength, void* parseerror, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20088,7 +20088,7 @@ void windowssys_windows_win32_globalization_umsgApplyPattern(void* fmt, void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_umsgAutoQuoteApostrophe(void* pattern, int32_t patternlength, void* dest, int32_t destcapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUmsgAutoQuoteApostrophe(void* pattern, int32_t patternlength, void* dest, int32_t destcapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20114,7 +20114,7 @@ int32_t windowssys_windows_win32_globalization_umsgAutoQuoteApostrophe(void* pat
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umsgClone(void* fmt, void* status) {
+void* windowssysWindowsWin32GlobalizationUmsgClone(void* fmt, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20137,7 +20137,7 @@ void* windowssys_windows_win32_globalization_umsgClone(void* fmt, void* status) 
 #endif
 }
 
-void windowssys_windows_win32_globalization_umsgClose(void* format) {
+void windowssysWindowsWin32GlobalizationUmsgClose(void* format) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20158,7 +20158,7 @@ void windowssys_windows_win32_globalization_umsgClose(void* format) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_umsgFormat(void* fmt, void* result, int32_t resultlength, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32GlobalizationUmsgFormat(void* fmt, void* result, int32_t resultlength, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(void*, void*, int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -20194,7 +20194,7 @@ int32_t windowssys_windows_win32_globalization_umsgFormat(void* fmt, void* resul
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umsgGetLocale(void* fmt) {
+void* windowssysWindowsWin32GlobalizationUmsgGetLocale(void* fmt) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20216,7 +20216,7 @@ void* windowssys_windows_win32_globalization_umsgGetLocale(void* fmt) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umsgOpen(void* pattern, int32_t patternlength, void* locale, void* parseerror, void* status) {
+void* windowssysWindowsWin32GlobalizationUmsgOpen(void* pattern, int32_t patternlength, void* locale, void* parseerror, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20242,7 +20242,7 @@ void* windowssys_windows_win32_globalization_umsgOpen(void* pattern, int32_t pat
 #endif
 }
 
-void windowssys_windows_win32_globalization_umsgParse(void* fmt, void* source, int32_t sourcelength, void* count, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWin32GlobalizationUmsgParse(void* fmt, void* source, int32_t sourcelength, void* count, void* status, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(void*, void*, int32_t, void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -20278,7 +20278,7 @@ void windowssys_windows_win32_globalization_umsgParse(void* fmt, void* source, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_umsgSetLocale(void* fmt, void* locale) {
+void windowssysWindowsWin32GlobalizationUmsgSetLocale(void* fmt, void* locale) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20300,7 +20300,7 @@ void windowssys_windows_win32_globalization_umsgSetLocale(void* fmt, void* local
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_umsgToPattern(void* fmt, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUmsgToPattern(void* fmt, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20325,7 +20325,7 @@ int32_t windowssys_windows_win32_globalization_umsgToPattern(void* fmt, void* re
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_umsgVformat(void* fmt, void* result, int32_t resultlength, void* ap, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUmsgVformat(void* fmt, void* result, int32_t resultlength, void* ap, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20351,7 +20351,7 @@ int32_t windowssys_windows_win32_globalization_umsgVformat(void* fmt, void* resu
 #endif
 }
 
-void windowssys_windows_win32_globalization_umsgVparse(void* fmt, void* source, int32_t sourcelength, void* count, void* ap, void* status) {
+void windowssysWindowsWin32GlobalizationUmsgVparse(void* fmt, void* source, int32_t sourcelength, void* count, void* ap, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20377,7 +20377,7 @@ void windowssys_windows_win32_globalization_umsgVparse(void* fmt, void* source, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umutablecptrieBuildImmutable(void* trie, int32_t type, int32_t valuewidth, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUmutablecptrieBuildImmutable(void* trie, int32_t type, int32_t valuewidth, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20402,7 +20402,7 @@ void* windowssys_windows_win32_globalization_umutablecptrieBuildImmutable(void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umutablecptrieClone(void* other, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUmutablecptrieClone(void* other, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20425,7 +20425,7 @@ void* windowssys_windows_win32_globalization_umutablecptrieClone(void* other, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_umutablecptrieClose(void* trie) {
+void windowssysWindowsWin32GlobalizationUmutablecptrieClose(void* trie) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20446,7 +20446,7 @@ void windowssys_windows_win32_globalization_umutablecptrieClose(void* trie) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umutablecptrieFromUcpmap(void* map, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUmutablecptrieFromUcpmap(void* map, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20469,7 +20469,7 @@ void* windowssys_windows_win32_globalization_umutablecptrieFromUcpmap(void* map,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umutablecptrieFromUcptrie(void* trie, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUmutablecptrieFromUcptrie(void* trie, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20492,7 +20492,7 @@ void* windowssys_windows_win32_globalization_umutablecptrieFromUcptrie(void* tri
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_umutablecptrieGet(void* trie, int32_t c) {
+uint32_t windowssysWindowsWin32GlobalizationUmutablecptrieGet(void* trie, int32_t c) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20515,7 +20515,7 @@ uint32_t windowssys_windows_win32_globalization_umutablecptrieGet(void* trie, in
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_umutablecptrieGetRange(void* trie, int32_t start, int32_t option, uint32_t surrogatevalue, void* filter, void* context, void* pvalue) {
+int32_t windowssysWindowsWin32GlobalizationUmutablecptrieGetRange(void* trie, int32_t start, int32_t option, uint32_t surrogatevalue, void* filter, void* context, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20543,7 +20543,7 @@ int32_t windowssys_windows_win32_globalization_umutablecptrieGetRange(void* trie
 #endif
 }
 
-void* windowssys_windows_win32_globalization_umutablecptrieOpen(uint32_t initialvalue, uint32_t errorvalue, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUmutablecptrieOpen(uint32_t initialvalue, uint32_t errorvalue, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20567,7 +20567,7 @@ void* windowssys_windows_win32_globalization_umutablecptrieOpen(uint32_t initial
 #endif
 }
 
-void windowssys_windows_win32_globalization_umutablecptrieSet(void* trie, int32_t c, uint32_t value, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUmutablecptrieSet(void* trie, int32_t c, uint32_t value, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20591,7 +20591,7 @@ void windowssys_windows_win32_globalization_umutablecptrieSet(void* trie, int32_
 #endif
 }
 
-void windowssys_windows_win32_globalization_umutablecptrieSetRange(void* trie, int32_t start, int32_t end, uint32_t value, void* perrorcode) {
+void windowssysWindowsWin32GlobalizationUmutablecptrieSetRange(void* trie, int32_t start, int32_t end, uint32_t value, void* perrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20616,7 +20616,7 @@ void windowssys_windows_win32_globalization_umutablecptrieSetRange(void* trie, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2Append(void* norm2, void* first, int32_t firstlength, int32_t firstcapacity, void* second, int32_t secondlength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2Append(void* norm2, void* first, int32_t firstlength, int32_t firstcapacity, void* second, int32_t secondlength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20644,7 +20644,7 @@ int32_t windowssys_windows_win32_globalization_unorm2Append(void* norm2, void* f
 #endif
 }
 
-void windowssys_windows_win32_globalization_unorm2Close(void* norm2) {
+void windowssysWindowsWin32GlobalizationUnorm2Close(void* norm2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20665,7 +20665,7 @@ void windowssys_windows_win32_globalization_unorm2Close(void* norm2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2ComposePair(void* norm2, int32_t a, int32_t b) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2ComposePair(void* norm2, int32_t a, int32_t b) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20689,7 +20689,7 @@ int32_t windowssys_windows_win32_globalization_unorm2ComposePair(void* norm2, in
 #endif
 }
 
-uint8_t windowssys_windows_win32_globalization_unorm2GetCombiningClass(void* norm2, int32_t c) {
+uint8_t windowssysWindowsWin32GlobalizationUnorm2GetCombiningClass(void* norm2, int32_t c) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20712,7 +20712,7 @@ uint8_t windowssys_windows_win32_globalization_unorm2GetCombiningClass(void* nor
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2GetDecomposition(void* norm2, int32_t c, void* decomposition, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2GetDecomposition(void* norm2, int32_t c, void* decomposition, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20738,7 +20738,7 @@ int32_t windowssys_windows_win32_globalization_unorm2GetDecomposition(void* norm
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2GetInstance(void* packagename, void* name, int32_t mode, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2GetInstance(void* packagename, void* name, int32_t mode, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20763,7 +20763,7 @@ void* windowssys_windows_win32_globalization_unorm2GetInstance(void* packagename
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2GetNfcinstance(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2GetNfcinstance(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20785,7 +20785,7 @@ void* windowssys_windows_win32_globalization_unorm2GetNfcinstance(void* perrorco
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2GetNfdinstance(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2GetNfdinstance(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20807,7 +20807,7 @@ void* windowssys_windows_win32_globalization_unorm2GetNfdinstance(void* perrorco
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2GetNfkccasefoldInstance(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2GetNfkccasefoldInstance(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20829,7 +20829,7 @@ void* windowssys_windows_win32_globalization_unorm2GetNfkccasefoldInstance(void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2GetNfkcinstance(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2GetNfkcinstance(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20851,7 +20851,7 @@ void* windowssys_windows_win32_globalization_unorm2GetNfkcinstance(void* perrorc
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2GetNfkdinstance(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2GetNfkdinstance(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20873,7 +20873,7 @@ void* windowssys_windows_win32_globalization_unorm2GetNfkdinstance(void* perrorc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2GetRawDecomposition(void* norm2, int32_t c, void* decomposition, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2GetRawDecomposition(void* norm2, int32_t c, void* decomposition, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20899,7 +20899,7 @@ int32_t windowssys_windows_win32_globalization_unorm2GetRawDecomposition(void* n
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_unorm2HasBoundaryAfter(void* norm2, int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUnorm2HasBoundaryAfter(void* norm2, int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20922,7 +20922,7 @@ int8_t windowssys_windows_win32_globalization_unorm2HasBoundaryAfter(void* norm2
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_unorm2HasBoundaryBefore(void* norm2, int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUnorm2HasBoundaryBefore(void* norm2, int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20945,7 +20945,7 @@ int8_t windowssys_windows_win32_globalization_unorm2HasBoundaryBefore(void* norm
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_unorm2IsInert(void* norm2, int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUnorm2IsInert(void* norm2, int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20968,7 +20968,7 @@ int8_t windowssys_windows_win32_globalization_unorm2IsInert(void* norm2, int32_t
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_unorm2IsNormalized(void* norm2, void* s, int32_t length, void* perrorcode) {
+int8_t windowssysWindowsWin32GlobalizationUnorm2IsNormalized(void* norm2, void* s, int32_t length, void* perrorcode) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20993,7 +20993,7 @@ int8_t windowssys_windows_win32_globalization_unorm2IsNormalized(void* norm2, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2Normalize(void* norm2, void* src, int32_t length, void* dest, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2Normalize(void* norm2, void* src, int32_t length, void* dest, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21020,7 +21020,7 @@ int32_t windowssys_windows_win32_globalization_unorm2Normalize(void* norm2, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2NormalizeSecondAndAppend(void* norm2, void* first, int32_t firstlength, int32_t firstcapacity, void* second, int32_t secondlength, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2NormalizeSecondAndAppend(void* norm2, void* first, int32_t firstlength, int32_t firstcapacity, void* second, int32_t secondlength, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21048,7 +21048,7 @@ int32_t windowssys_windows_win32_globalization_unorm2NormalizeSecondAndAppend(vo
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unorm2OpenFiltered(void* norm2, void* filterset, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUnorm2OpenFiltered(void* norm2, void* filterset, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21072,7 +21072,7 @@ void* windowssys_windows_win32_globalization_unorm2OpenFiltered(void* norm2, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2QuickCheck(void* norm2, void* s, int32_t length, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2QuickCheck(void* norm2, void* s, int32_t length, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21097,7 +21097,7 @@ int32_t windowssys_windows_win32_globalization_unorm2QuickCheck(void* norm2, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unorm2SpanQuickCheckYes(void* norm2, void* s, int32_t length, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnorm2SpanQuickCheckYes(void* norm2, void* s, int32_t length, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21122,7 +21122,7 @@ int32_t windowssys_windows_win32_globalization_unorm2SpanQuickCheckYes(void* nor
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unormCompare(void* s1, int32_t length1, void* s2, int32_t length2, uint32_t options, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUnormCompare(void* s1, int32_t length1, void* s2, int32_t length2, uint32_t options, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21149,7 +21149,7 @@ int32_t windowssys_windows_win32_globalization_unormCompare(void* s1, int32_t le
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumApplyPattern(void* format, int8_t localized, void* pattern, int32_t patternlength, void* parseerror, void* status) {
+void windowssysWindowsWin32GlobalizationUnumApplyPattern(void* format, int8_t localized, void* pattern, int32_t patternlength, void* parseerror, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21175,7 +21175,7 @@ void windowssys_windows_win32_globalization_unumApplyPattern(void* format, int8_
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumClone(void* fmt, void* status) {
+void* windowssysWindowsWin32GlobalizationUnumClone(void* fmt, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21198,7 +21198,7 @@ void* windowssys_windows_win32_globalization_unumClone(void* fmt, void* status) 
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumClose(void* fmt) {
+void windowssysWindowsWin32GlobalizationUnumClose(void* fmt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21219,7 +21219,7 @@ void windowssys_windows_win32_globalization_unumClose(void* fmt) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumCountAvailable(void) {
+int32_t windowssysWindowsWin32GlobalizationUnumCountAvailable(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -21240,7 +21240,7 @@ int32_t windowssys_windows_win32_globalization_unumCountAvailable(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormat(void* fmt, int32_t number, void* result, int32_t resultlength, void* pos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormat(void* fmt, int32_t number, void* result, int32_t resultlength, void* pos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21267,7 +21267,7 @@ int32_t windowssys_windows_win32_globalization_unumFormat(void* fmt, int32_t num
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormatDecimal(void* fmt, void* number, int32_t length, void* result, int32_t resultlength, void* pos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormatDecimal(void* fmt, void* number, int32_t length, void* result, int32_t resultlength, void* pos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21295,7 +21295,7 @@ int32_t windowssys_windows_win32_globalization_unumFormatDecimal(void* fmt, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormatDouble(void* fmt, double number, void* result, int32_t resultlength, void* pos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormatDouble(void* fmt, double number, void* result, int32_t resultlength, void* pos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21322,7 +21322,7 @@ int32_t windowssys_windows_win32_globalization_unumFormatDouble(void* fmt, doubl
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormatDoubleCurrency(void* fmt, double number, void* currency, void* result, int32_t resultlength, void* pos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormatDoubleCurrency(void* fmt, double number, void* currency, void* result, int32_t resultlength, void* pos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21350,7 +21350,7 @@ int32_t windowssys_windows_win32_globalization_unumFormatDoubleCurrency(void* fm
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormatDoubleForFields(void* format, double number, void* result, int32_t resultlength, void* fpositer, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormatDoubleForFields(void* format, double number, void* result, int32_t resultlength, void* fpositer, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21377,7 +21377,7 @@ int32_t windowssys_windows_win32_globalization_unumFormatDoubleForFields(void* f
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormatInt64(void* fmt, int64_t number, void* result, int32_t resultlength, void* pos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormatInt64(void* fmt, int64_t number, void* result, int32_t resultlength, void* pos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21404,7 +21404,7 @@ int32_t windowssys_windows_win32_globalization_unumFormatInt64(void* fmt, int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumFormatUformattable(void* fmt, void* number, void* result, int32_t resultlength, void* pos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumFormatUformattable(void* fmt, void* number, void* result, int32_t resultlength, void* pos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21431,7 +21431,7 @@ int32_t windowssys_windows_win32_globalization_unumFormatUformattable(void* fmt,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumGetAttribute(void* fmt, int32_t attr) {
+int32_t windowssysWindowsWin32GlobalizationUnumGetAttribute(void* fmt, int32_t attr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21454,7 +21454,7 @@ int32_t windowssys_windows_win32_globalization_unumGetAttribute(void* fmt, int32
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumGetAvailable(int32_t localeindex) {
+void* windowssysWindowsWin32GlobalizationUnumGetAvailable(int32_t localeindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21476,7 +21476,7 @@ void* windowssys_windows_win32_globalization_unumGetAvailable(int32_t localeinde
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumGetContext(void* fmt, int32_t type, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumGetContext(void* fmt, int32_t type, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21500,7 +21500,7 @@ int32_t windowssys_windows_win32_globalization_unumGetContext(void* fmt, int32_t
 #endif
 }
 
-double windowssys_windows_win32_globalization_unumGetDoubleAttribute(void* fmt, int32_t attr) {
+double windowssysWindowsWin32GlobalizationUnumGetDoubleAttribute(void* fmt, int32_t attr) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21523,7 +21523,7 @@ double windowssys_windows_win32_globalization_unumGetDoubleAttribute(void* fmt, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumGetLocaleByType(void* fmt, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUnumGetLocaleByType(void* fmt, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21547,7 +21547,7 @@ void* windowssys_windows_win32_globalization_unumGetLocaleByType(void* fmt, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumGetSymbol(void* fmt, int32_t symbol, void* buffer, int32_t size, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumGetSymbol(void* fmt, int32_t symbol, void* buffer, int32_t size, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21573,7 +21573,7 @@ int32_t windowssys_windows_win32_globalization_unumGetSymbol(void* fmt, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumGetTextAttribute(void* fmt, int32_t tag, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumGetTextAttribute(void* fmt, int32_t tag, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21599,7 +21599,7 @@ int32_t windowssys_windows_win32_globalization_unumGetTextAttribute(void* fmt, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumOpen(int32_t style, void* pattern, int32_t patternlength, void* locale, void* parseerr, void* status) {
+void* windowssysWindowsWin32GlobalizationUnumOpen(int32_t style, void* pattern, int32_t patternlength, void* locale, void* parseerr, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21626,7 +21626,7 @@ void* windowssys_windows_win32_globalization_unumOpen(int32_t style, void* patte
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumParse(void* fmt, void* text, int32_t textlength, void* parsepos, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumParse(void* fmt, void* text, int32_t textlength, void* parsepos, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21652,7 +21652,7 @@ int32_t windowssys_windows_win32_globalization_unumParse(void* fmt, void* text, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumParseDecimal(void* fmt, void* text, int32_t textlength, void* parsepos, void* outbuf, int32_t outbuflength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumParseDecimal(void* fmt, void* text, int32_t textlength, void* parsepos, void* outbuf, int32_t outbuflength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21680,7 +21680,7 @@ int32_t windowssys_windows_win32_globalization_unumParseDecimal(void* fmt, void*
 #endif
 }
 
-double windowssys_windows_win32_globalization_unumParseDouble(void* fmt, void* text, int32_t textlength, void* parsepos, void* status) {
+double windowssysWindowsWin32GlobalizationUnumParseDouble(void* fmt, void* text, int32_t textlength, void* parsepos, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21706,7 +21706,7 @@ double windowssys_windows_win32_globalization_unumParseDouble(void* fmt, void* t
 #endif
 }
 
-double windowssys_windows_win32_globalization_unumParseDoubleCurrency(void* fmt, void* text, int32_t textlength, void* parsepos, void* currency, void* status) {
+double windowssysWindowsWin32GlobalizationUnumParseDoubleCurrency(void* fmt, void* text, int32_t textlength, void* parsepos, void* currency, void* status) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21733,7 +21733,7 @@ double windowssys_windows_win32_globalization_unumParseDoubleCurrency(void* fmt,
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_unumParseInt64(void* fmt, void* text, int32_t textlength, void* parsepos, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUnumParseInt64(void* fmt, void* text, int32_t textlength, void* parsepos, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21759,7 +21759,7 @@ int64_t windowssys_windows_win32_globalization_unumParseInt64(void* fmt, void* t
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumParseToUformattable(void* fmt, void* result, void* text, int32_t textlength, void* parsepos, void* status) {
+void* windowssysWindowsWin32GlobalizationUnumParseToUformattable(void* fmt, void* result, void* text, int32_t textlength, void* parsepos, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21786,7 +21786,7 @@ void* windowssys_windows_win32_globalization_unumParseToUformattable(void* fmt, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumSetAttribute(void* fmt, int32_t attr, int32_t newvalue) {
+void windowssysWindowsWin32GlobalizationUnumSetAttribute(void* fmt, int32_t attr, int32_t newvalue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21809,7 +21809,7 @@ void windowssys_windows_win32_globalization_unumSetAttribute(void* fmt, int32_t 
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumSetContext(void* fmt, int32_t value, void* status) {
+void windowssysWindowsWin32GlobalizationUnumSetContext(void* fmt, int32_t value, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21832,7 +21832,7 @@ void windowssys_windows_win32_globalization_unumSetContext(void* fmt, int32_t va
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumSetDoubleAttribute(void* fmt, int32_t attr, double newvalue) {
+void windowssysWindowsWin32GlobalizationUnumSetDoubleAttribute(void* fmt, int32_t attr, double newvalue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -21855,7 +21855,7 @@ void windowssys_windows_win32_globalization_unumSetDoubleAttribute(void* fmt, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumSetSymbol(void* fmt, int32_t symbol, void* value, int32_t length, void* status) {
+void windowssysWindowsWin32GlobalizationUnumSetSymbol(void* fmt, int32_t symbol, void* value, int32_t length, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21880,7 +21880,7 @@ void windowssys_windows_win32_globalization_unumSetSymbol(void* fmt, int32_t sym
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumSetTextAttribute(void* fmt, int32_t tag, void* newvalue, int32_t newvaluelength, void* status) {
+void windowssysWindowsWin32GlobalizationUnumSetTextAttribute(void* fmt, int32_t tag, void* newvalue, int32_t newvaluelength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21905,7 +21905,7 @@ void windowssys_windows_win32_globalization_unumSetTextAttribute(void* fmt, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumToPattern(void* fmt, int8_t ispatternlocalized, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumToPattern(void* fmt, int8_t ispatternlocalized, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int8_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21931,7 +21931,7 @@ int32_t windowssys_windows_win32_globalization_unumToPattern(void* fmt, int8_t i
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumfClose(void* uformatter) {
+void windowssysWindowsWin32GlobalizationUnumfClose(void* uformatter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21952,7 +21952,7 @@ void windowssys_windows_win32_globalization_unumfClose(void* uformatter) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumfCloseResult(void* uresult) {
+void windowssysWindowsWin32GlobalizationUnumfCloseResult(void* uresult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21973,7 +21973,7 @@ void windowssys_windows_win32_globalization_unumfCloseResult(void* uresult) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumfFormatDecimal(void* uformatter, void* value, int32_t valuelen, void* uresult, void* ec) {
+void windowssysWindowsWin32GlobalizationUnumfFormatDecimal(void* uformatter, void* value, int32_t valuelen, void* uresult, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21998,7 +21998,7 @@ void windowssys_windows_win32_globalization_unumfFormatDecimal(void* uformatter,
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumfFormatDouble(void* uformatter, double value, void* uresult, void* ec) {
+void windowssysWindowsWin32GlobalizationUnumfFormatDouble(void* uformatter, double value, void* uresult, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22022,7 +22022,7 @@ void windowssys_windows_win32_globalization_unumfFormatDouble(void* uformatter, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumfFormatInt(void* uformatter, int64_t value, void* uresult, void* ec) {
+void windowssysWindowsWin32GlobalizationUnumfFormatInt(void* uformatter, int64_t value, void* uresult, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22046,7 +22046,7 @@ void windowssys_windows_win32_globalization_unumfFormatInt(void* uformatter, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocale(void* skeleton, int32_t skeletonlen, void* locale, void* ec) {
+void* windowssysWindowsWin32GlobalizationUnumfOpenForSkeletonAndLocale(void* skeleton, int32_t skeletonlen, void* locale, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22071,7 +22071,7 @@ void* windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocale(void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocaleWithError(void* skeleton, int32_t skeletonlen, void* locale, void* perror, void* ec) {
+void* windowssysWindowsWin32GlobalizationUnumfOpenForSkeletonAndLocaleWithError(void* skeleton, int32_t skeletonlen, void* locale, void* perror, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22097,7 +22097,7 @@ void* windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocaleWithEr
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumfOpenResult(void* ec) {
+void* windowssysWindowsWin32GlobalizationUnumfOpenResult(void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22119,7 +22119,7 @@ void* windowssys_windows_win32_globalization_unumfOpenResult(void* ec) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumfResultAsValue(void* uresult, void* ec) {
+void* windowssysWindowsWin32GlobalizationUnumfResultAsValue(void* uresult, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22142,7 +22142,7 @@ void* windowssys_windows_win32_globalization_unumfResultAsValue(void* uresult, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumfResultGetAllFieldPositions(void* uresult, void* ufpositer, void* ec) {
+void windowssysWindowsWin32GlobalizationUnumfResultGetAllFieldPositions(void* uresult, void* ufpositer, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22165,7 +22165,7 @@ void windowssys_windows_win32_globalization_unumfResultGetAllFieldPositions(void
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_unumfResultNextFieldPosition(void* uresult, void* ufpos, void* ec) {
+int8_t windowssysWindowsWin32GlobalizationUnumfResultNextFieldPosition(void* uresult, void* ufpos, void* ec) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22189,7 +22189,7 @@ int8_t windowssys_windows_win32_globalization_unumfResultNextFieldPosition(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumfResultToString(void* uresult, void* buffer, int32_t buffercapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUnumfResultToString(void* uresult, void* buffer, int32_t buffercapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22214,7 +22214,7 @@ int32_t windowssys_windows_win32_globalization_unumfResultToString(void* uresult
 #endif
 }
 
-void windowssys_windows_win32_globalization_unumsysClose(void* unumsys) {
+void windowssysWindowsWin32GlobalizationUnumsysClose(void* unumsys) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22235,7 +22235,7 @@ void windowssys_windows_win32_globalization_unumsysClose(void* unumsys) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumsysGetDescription(void* unumsys, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUnumsysGetDescription(void* unumsys, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22260,7 +22260,7 @@ int32_t windowssys_windows_win32_globalization_unumsysGetDescription(void* unums
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumsysGetName(void* unumsys) {
+void* windowssysWindowsWin32GlobalizationUnumsysGetName(void* unumsys) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22282,7 +22282,7 @@ void* windowssys_windows_win32_globalization_unumsysGetName(void* unumsys) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_unumsysGetRadix(void* unumsys) {
+int32_t windowssysWindowsWin32GlobalizationUnumsysGetRadix(void* unumsys) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22304,7 +22304,7 @@ int32_t windowssys_windows_win32_globalization_unumsysGetRadix(void* unumsys) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_unumsysIsAlgorithmic(void* unumsys) {
+int8_t windowssysWindowsWin32GlobalizationUnumsysIsAlgorithmic(void* unumsys) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22326,7 +22326,7 @@ int8_t windowssys_windows_win32_globalization_unumsysIsAlgorithmic(void* unumsys
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumsysOpen(void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUnumsysOpen(void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22349,7 +22349,7 @@ void* windowssys_windows_win32_globalization_unumsysOpen(void* locale, void* sta
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumsysOpenAvailableNames(void* status) {
+void* windowssysWindowsWin32GlobalizationUnumsysOpenAvailableNames(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22371,7 +22371,7 @@ void* windowssys_windows_win32_globalization_unumsysOpenAvailableNames(void* sta
 #endif
 }
 
-void* windowssys_windows_win32_globalization_unumsysOpenByName(void* name, void* status) {
+void* windowssysWindowsWin32GlobalizationUnumsysOpenByName(void* name, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22394,7 +22394,7 @@ void* windowssys_windows_win32_globalization_unumsysOpenByName(void* name, void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_uplrulesClose(void* uplrules) {
+void windowssysWindowsWin32GlobalizationUplrulesClose(void* uplrules) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22415,7 +22415,7 @@ void windowssys_windows_win32_globalization_uplrulesClose(void* uplrules) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uplrulesGetKeywords(void* uplrules, void* status) {
+void* windowssysWindowsWin32GlobalizationUplrulesGetKeywords(void* uplrules, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22438,7 +22438,7 @@ void* windowssys_windows_win32_globalization_uplrulesGetKeywords(void* uplrules,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uplrulesOpen(void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUplrulesOpen(void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22461,7 +22461,7 @@ void* windowssys_windows_win32_globalization_uplrulesOpen(void* locale, void* st
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uplrulesOpenForType(void* locale, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUplrulesOpenForType(void* locale, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22485,7 +22485,7 @@ void* windowssys_windows_win32_globalization_uplrulesOpenForType(void* locale, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uplrulesSelect(void* uplrules, double number, void* keyword, int32_t capacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUplrulesSelect(void* uplrules, double number, void* keyword, int32_t capacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22511,7 +22511,7 @@ int32_t windowssys_windows_win32_globalization_uplrulesSelect(void* uplrules, do
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uplrulesSelectFormatted(void* uplrules, void* number, void* keyword, int32_t capacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUplrulesSelectFormatted(void* uplrules, void* number, void* keyword, int32_t capacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22537,7 +22537,7 @@ int32_t windowssys_windows_win32_globalization_uplrulesSelectFormatted(void* upl
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexAppendReplacement(void* regexp, void* replacementtext, int32_t replacementlength, void* destbuf, void* destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexAppendReplacement(void* regexp, void* replacementtext, int32_t replacementlength, void* destbuf, void* destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22564,7 +22564,7 @@ int32_t windowssys_windows_win32_globalization_uregexAppendReplacement(void* reg
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexAppendReplacementUtext(void* regexp, void* replacementtext, void* dest, void* status) {
+void windowssysWindowsWin32GlobalizationUregexAppendReplacementUtext(void* regexp, void* replacementtext, void* dest, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22588,7 +22588,7 @@ void windowssys_windows_win32_globalization_uregexAppendReplacementUtext(void* r
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexAppendTail(void* regexp, void* destbuf, void* destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexAppendTail(void* regexp, void* destbuf, void* destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22613,7 +22613,7 @@ int32_t windowssys_windows_win32_globalization_uregexAppendTail(void* regexp, vo
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexAppendTailUtext(void* regexp, void* dest, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexAppendTailUtext(void* regexp, void* dest, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22637,7 +22637,7 @@ void* windowssys_windows_win32_globalization_uregexAppendTailUtext(void* regexp,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexClone(void* regexp, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexClone(void* regexp, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22660,7 +22660,7 @@ void* windowssys_windows_win32_globalization_uregexClone(void* regexp, void* sta
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexClose(void* regexp) {
+void windowssysWindowsWin32GlobalizationUregexClose(void* regexp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22681,7 +22681,7 @@ void windowssys_windows_win32_globalization_uregexClose(void* regexp) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexEnd(void* regexp, int32_t groupnum, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexEnd(void* regexp, int32_t groupnum, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22705,7 +22705,7 @@ int32_t windowssys_windows_win32_globalization_uregexEnd(void* regexp, int32_t g
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_uregexEnd64(void* regexp, int32_t groupnum, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUregexEnd64(void* regexp, int32_t groupnum, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22729,7 +22729,7 @@ int64_t windowssys_windows_win32_globalization_uregexEnd64(void* regexp, int32_t
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexFind(void* regexp, int32_t startindex, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexFind(void* regexp, int32_t startindex, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22753,7 +22753,7 @@ int8_t windowssys_windows_win32_globalization_uregexFind(void* regexp, int32_t s
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexFind64(void* regexp, int64_t startindex, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexFind64(void* regexp, int64_t startindex, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22777,7 +22777,7 @@ int8_t windowssys_windows_win32_globalization_uregexFind64(void* regexp, int64_t
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexFindNext(void* regexp, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexFindNext(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22800,7 +22800,7 @@ int8_t windowssys_windows_win32_globalization_uregexFindNext(void* regexp, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexFlags(void* regexp, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexFlags(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22823,7 +22823,7 @@ int32_t windowssys_windows_win32_globalization_uregexFlags(void* regexp, void* s
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexGetFindProgressCallback(void* regexp, void* callback, void* context, void* status) {
+void windowssysWindowsWin32GlobalizationUregexGetFindProgressCallback(void* regexp, void* callback, void* context, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22847,7 +22847,7 @@ void windowssys_windows_win32_globalization_uregexGetFindProgressCallback(void* 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexGetMatchCallback(void* regexp, void* callback, void* context, void* status) {
+void windowssysWindowsWin32GlobalizationUregexGetMatchCallback(void* regexp, void* callback, void* context, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22871,7 +22871,7 @@ void windowssys_windows_win32_globalization_uregexGetMatchCallback(void* regexp,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexGetStackLimit(void* regexp, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexGetStackLimit(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22894,7 +22894,7 @@ int32_t windowssys_windows_win32_globalization_uregexGetStackLimit(void* regexp,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexGetText(void* regexp, void* textlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexGetText(void* regexp, void* textlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22918,7 +22918,7 @@ void* windowssys_windows_win32_globalization_uregexGetText(void* regexp, void* t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexGetTimeLimit(void* regexp, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexGetTimeLimit(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22941,7 +22941,7 @@ int32_t windowssys_windows_win32_globalization_uregexGetTimeLimit(void* regexp, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexGetUtext(void* regexp, void* dest, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexGetUtext(void* regexp, void* dest, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22965,7 +22965,7 @@ void* windowssys_windows_win32_globalization_uregexGetUtext(void* regexp, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexGroup(void* regexp, int32_t groupnum, void* dest, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexGroup(void* regexp, int32_t groupnum, void* dest, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22991,7 +22991,7 @@ int32_t windowssys_windows_win32_globalization_uregexGroup(void* regexp, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexGroupCount(void* regexp, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexGroupCount(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23014,7 +23014,7 @@ int32_t windowssys_windows_win32_globalization_uregexGroupCount(void* regexp, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexGroupNumberFromCname(void* regexp, void* groupname, int32_t namelength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexGroupNumberFromCname(void* regexp, void* groupname, int32_t namelength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23039,7 +23039,7 @@ int32_t windowssys_windows_win32_globalization_uregexGroupNumberFromCname(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexGroupNumberFromName(void* regexp, void* groupname, int32_t namelength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexGroupNumberFromName(void* regexp, void* groupname, int32_t namelength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23064,7 +23064,7 @@ int32_t windowssys_windows_win32_globalization_uregexGroupNumberFromName(void* r
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexGroupUtext(void* regexp, int32_t groupnum, void* dest, void* grouplength, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexGroupUtext(void* regexp, int32_t groupnum, void* dest, void* grouplength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23090,7 +23090,7 @@ void* windowssys_windows_win32_globalization_uregexGroupUtext(void* regexp, int3
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexHasAnchoringBounds(void* regexp, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexHasAnchoringBounds(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23113,7 +23113,7 @@ int8_t windowssys_windows_win32_globalization_uregexHasAnchoringBounds(void* reg
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexHasTransparentBounds(void* regexp, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexHasTransparentBounds(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23136,7 +23136,7 @@ int8_t windowssys_windows_win32_globalization_uregexHasTransparentBounds(void* r
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexHitEnd(void* regexp, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexHitEnd(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23159,7 +23159,7 @@ int8_t windowssys_windows_win32_globalization_uregexHitEnd(void* regexp, void* s
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexLookingAt(void* regexp, int32_t startindex, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexLookingAt(void* regexp, int32_t startindex, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23183,7 +23183,7 @@ int8_t windowssys_windows_win32_globalization_uregexLookingAt(void* regexp, int3
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexLookingAt64(void* regexp, int64_t startindex, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexLookingAt64(void* regexp, int64_t startindex, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23207,7 +23207,7 @@ int8_t windowssys_windows_win32_globalization_uregexLookingAt64(void* regexp, in
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexMatches(void* regexp, int32_t startindex, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexMatches(void* regexp, int32_t startindex, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23231,7 +23231,7 @@ int8_t windowssys_windows_win32_globalization_uregexMatches(void* regexp, int32_
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexMatches64(void* regexp, int64_t startindex, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexMatches64(void* regexp, int64_t startindex, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23255,7 +23255,7 @@ int8_t windowssys_windows_win32_globalization_uregexMatches64(void* regexp, int6
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexOpen(void* pattern, int32_t patternlength, uint32_t flags, void* pe, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexOpen(void* pattern, int32_t patternlength, uint32_t flags, void* pe, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23281,7 +23281,7 @@ void* windowssys_windows_win32_globalization_uregexOpen(void* pattern, int32_t p
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexOpenC(void* pattern, uint32_t flags, void* pe, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexOpenC(void* pattern, uint32_t flags, void* pe, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23306,7 +23306,7 @@ void* windowssys_windows_win32_globalization_uregexOpenC(void* pattern, uint32_t
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexOpenUtext(void* pattern, uint32_t flags, void* pe, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexOpenUtext(void* pattern, uint32_t flags, void* pe, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23331,7 +23331,7 @@ void* windowssys_windows_win32_globalization_uregexOpenUtext(void* pattern, uint
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexPattern(void* regexp, void* patlength, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexPattern(void* regexp, void* patlength, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23355,7 +23355,7 @@ void* windowssys_windows_win32_globalization_uregexPattern(void* regexp, void* p
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexPatternUtext(void* regexp, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexPatternUtext(void* regexp, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23378,7 +23378,7 @@ void* windowssys_windows_win32_globalization_uregexPatternUtext(void* regexp, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexRefreshUtext(void* regexp, void* text, void* status) {
+void windowssysWindowsWin32GlobalizationUregexRefreshUtext(void* regexp, void* text, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23401,7 +23401,7 @@ void windowssys_windows_win32_globalization_uregexRefreshUtext(void* regexp, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexRegionEnd(void* regexp, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexRegionEnd(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23424,7 +23424,7 @@ int32_t windowssys_windows_win32_globalization_uregexRegionEnd(void* regexp, voi
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_uregexRegionEnd64(void* regexp, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUregexRegionEnd64(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23447,7 +23447,7 @@ int64_t windowssys_windows_win32_globalization_uregexRegionEnd64(void* regexp, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexRegionStart(void* regexp, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexRegionStart(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23470,7 +23470,7 @@ int32_t windowssys_windows_win32_globalization_uregexRegionStart(void* regexp, v
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_uregexRegionStart64(void* regexp, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUregexRegionStart64(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23493,7 +23493,7 @@ int64_t windowssys_windows_win32_globalization_uregexRegionStart64(void* regexp,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexReplaceAll(void* regexp, void* replacementtext, int32_t replacementlength, void* destbuf, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexReplaceAll(void* regexp, void* replacementtext, int32_t replacementlength, void* destbuf, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23520,7 +23520,7 @@ int32_t windowssys_windows_win32_globalization_uregexReplaceAll(void* regexp, vo
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexReplaceAllUtext(void* regexp, void* replacement, void* dest, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexReplaceAllUtext(void* regexp, void* replacement, void* dest, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23545,7 +23545,7 @@ void* windowssys_windows_win32_globalization_uregexReplaceAllUtext(void* regexp,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexReplaceFirst(void* regexp, void* replacementtext, int32_t replacementlength, void* destbuf, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexReplaceFirst(void* regexp, void* replacementtext, int32_t replacementlength, void* destbuf, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23572,7 +23572,7 @@ int32_t windowssys_windows_win32_globalization_uregexReplaceFirst(void* regexp, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregexReplaceFirstUtext(void* regexp, void* replacement, void* dest, void* status) {
+void* windowssysWindowsWin32GlobalizationUregexReplaceFirstUtext(void* regexp, void* replacement, void* dest, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23597,7 +23597,7 @@ void* windowssys_windows_win32_globalization_uregexReplaceFirstUtext(void* regex
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregexRequireEnd(void* regexp, void* status) {
+int8_t windowssysWindowsWin32GlobalizationUregexRequireEnd(void* regexp, void* status) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23620,7 +23620,7 @@ int8_t windowssys_windows_win32_globalization_uregexRequireEnd(void* regexp, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexReset(void* regexp, int32_t arg_1_index, void* status) {
+void windowssysWindowsWin32GlobalizationUregexReset(void* regexp, int32_t arg1Index, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23631,19 +23631,19 @@ void windowssys_windows_win32_globalization_uregexReset(void* regexp, int32_t ar
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(regexp, arg_1_index, status);
+        km_fn_ptr(regexp, arg1Index, status);
         return;
     }
     errno = ENOSYS;
 #else
     (void)regexp;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)status;
     errno = ENOSYS;
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexReset64(void* regexp, int64_t arg_1_index, void* status) {
+void windowssysWindowsWin32GlobalizationUregexReset64(void* regexp, int64_t arg1Index, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23654,19 +23654,19 @@ void windowssys_windows_win32_globalization_uregexReset64(void* regexp, int64_t 
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(regexp, arg_1_index, status);
+        km_fn_ptr(regexp, arg1Index, status);
         return;
     }
     errno = ENOSYS;
 #else
     (void)regexp;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)status;
     errno = ENOSYS;
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetFindProgressCallback(void* regexp, void* callback, void* context, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetFindProgressCallback(void* regexp, void* callback, void* context, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23690,7 +23690,7 @@ void windowssys_windows_win32_globalization_uregexSetFindProgressCallback(void* 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetMatchCallback(void* regexp, void* callback, void* context, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetMatchCallback(void* regexp, void* callback, void* context, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23714,7 +23714,7 @@ void windowssys_windows_win32_globalization_uregexSetMatchCallback(void* regexp,
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetRegion(void* regexp, int32_t regionstart, int32_t regionlimit, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetRegion(void* regexp, int32_t regionstart, int32_t regionlimit, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23738,7 +23738,7 @@ void windowssys_windows_win32_globalization_uregexSetRegion(void* regexp, int32_
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetRegion64(void* regexp, int64_t regionstart, int64_t regionlimit, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetRegion64(void* regexp, int64_t regionstart, int64_t regionlimit, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23762,7 +23762,7 @@ void windowssys_windows_win32_globalization_uregexSetRegion64(void* regexp, int6
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetRegionAndStart(void* regexp, int64_t regionstart, int64_t regionlimit, int64_t startindex, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetRegionAndStart(void* regexp, int64_t regionstart, int64_t regionlimit, int64_t startindex, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23787,7 +23787,7 @@ void windowssys_windows_win32_globalization_uregexSetRegionAndStart(void* regexp
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetStackLimit(void* regexp, int32_t limit, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetStackLimit(void* regexp, int32_t limit, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23810,7 +23810,7 @@ void windowssys_windows_win32_globalization_uregexSetStackLimit(void* regexp, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetText(void* regexp, void* text, int32_t textlength, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetText(void* regexp, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23834,7 +23834,7 @@ void windowssys_windows_win32_globalization_uregexSetText(void* regexp, void* te
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetTimeLimit(void* regexp, int32_t limit, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetTimeLimit(void* regexp, int32_t limit, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23857,7 +23857,7 @@ void windowssys_windows_win32_globalization_uregexSetTimeLimit(void* regexp, int
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexSetUtext(void* regexp, void* text, void* status) {
+void windowssysWindowsWin32GlobalizationUregexSetUtext(void* regexp, void* text, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23880,7 +23880,7 @@ void windowssys_windows_win32_globalization_uregexSetUtext(void* regexp, void* t
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexSplit(void* regexp, void* destbuf, int32_t destcapacity, void* requiredcapacity, void* destfields, int32_t destfieldscapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexSplit(void* regexp, void* destbuf, int32_t destcapacity, void* requiredcapacity, void* destfields, int32_t destfieldscapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23908,7 +23908,7 @@ int32_t windowssys_windows_win32_globalization_uregexSplit(void* regexp, void* d
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexSplitUtext(void* regexp, void* destfields, int32_t destfieldscapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexSplitUtext(void* regexp, void* destfields, int32_t destfieldscapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23933,7 +23933,7 @@ int32_t windowssys_windows_win32_globalization_uregexSplitUtext(void* regexp, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregexStart(void* regexp, int32_t groupnum, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUregexStart(void* regexp, int32_t groupnum, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23957,7 +23957,7 @@ int32_t windowssys_windows_win32_globalization_uregexStart(void* regexp, int32_t
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_uregexStart64(void* regexp, int32_t groupnum, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUregexStart64(void* regexp, int32_t groupnum, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23981,7 +23981,7 @@ int64_t windowssys_windows_win32_globalization_uregexStart64(void* regexp, int32
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexUseAnchoringBounds(void* regexp, int8_t b, void* status) {
+void windowssysWindowsWin32GlobalizationUregexUseAnchoringBounds(void* regexp, int8_t b, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24004,7 +24004,7 @@ void windowssys_windows_win32_globalization_uregexUseAnchoringBounds(void* regex
 #endif
 }
 
-void windowssys_windows_win32_globalization_uregexUseTransparentBounds(void* regexp, int8_t b, void* status) {
+void windowssysWindowsWin32GlobalizationUregexUseTransparentBounds(void* regexp, int8_t b, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24027,7 +24027,7 @@ void windowssys_windows_win32_globalization_uregexUseTransparentBounds(void* reg
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregionAreEqual(void* uregion, void* otherregion) {
+int8_t windowssysWindowsWin32GlobalizationUregionAreEqual(void* uregion, void* otherregion) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24050,7 +24050,7 @@ int8_t windowssys_windows_win32_globalization_uregionAreEqual(void* uregion, voi
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uregionContains(void* uregion, void* otherregion) {
+int8_t windowssysWindowsWin32GlobalizationUregionContains(void* uregion, void* otherregion) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24073,7 +24073,7 @@ int8_t windowssys_windows_win32_globalization_uregionContains(void* uregion, voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetAvailable(int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUregionGetAvailable(int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24096,7 +24096,7 @@ void* windowssys_windows_win32_globalization_uregionGetAvailable(int32_t type, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetContainedRegions(void* uregion, void* status) {
+void* windowssysWindowsWin32GlobalizationUregionGetContainedRegions(void* uregion, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24119,7 +24119,7 @@ void* windowssys_windows_win32_globalization_uregionGetContainedRegions(void* ur
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetContainedRegionsOfType(void* uregion, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUregionGetContainedRegionsOfType(void* uregion, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24143,7 +24143,7 @@ void* windowssys_windows_win32_globalization_uregionGetContainedRegionsOfType(vo
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetContainingRegion(void* uregion) {
+void* windowssysWindowsWin32GlobalizationUregionGetContainingRegion(void* uregion) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24165,7 +24165,7 @@ void* windowssys_windows_win32_globalization_uregionGetContainingRegion(void* ur
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetContainingRegionOfType(void* uregion, int32_t type) {
+void* windowssysWindowsWin32GlobalizationUregionGetContainingRegionOfType(void* uregion, int32_t type) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24188,7 +24188,7 @@ void* windowssys_windows_win32_globalization_uregionGetContainingRegionOfType(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregionGetNumericCode(void* uregion) {
+int32_t windowssysWindowsWin32GlobalizationUregionGetNumericCode(void* uregion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24210,7 +24210,7 @@ int32_t windowssys_windows_win32_globalization_uregionGetNumericCode(void* uregi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetPreferredValues(void* uregion, void* status) {
+void* windowssysWindowsWin32GlobalizationUregionGetPreferredValues(void* uregion, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24233,7 +24233,7 @@ void* windowssys_windows_win32_globalization_uregionGetPreferredValues(void* ure
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetRegionCode(void* uregion) {
+void* windowssysWindowsWin32GlobalizationUregionGetRegionCode(void* uregion) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24255,7 +24255,7 @@ void* windowssys_windows_win32_globalization_uregionGetRegionCode(void* uregion)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetRegionFromCode(void* regioncode, void* status) {
+void* windowssysWindowsWin32GlobalizationUregionGetRegionFromCode(void* regioncode, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24278,7 +24278,7 @@ void* windowssys_windows_win32_globalization_uregionGetRegionFromCode(void* regi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uregionGetRegionFromNumericCode(int32_t code, void* status) {
+void* windowssysWindowsWin32GlobalizationUregionGetRegionFromNumericCode(int32_t code, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24301,7 +24301,7 @@ void* windowssys_windows_win32_globalization_uregionGetRegionFromNumericCode(int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uregionGetType(void* uregion) {
+int32_t windowssysWindowsWin32GlobalizationUregionGetType(void* uregion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24323,7 +24323,7 @@ int32_t windowssys_windows_win32_globalization_uregionGetType(void* uregion) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ureldatefmtClose(void* reldatefmt) {
+void windowssysWindowsWin32GlobalizationUreldatefmtClose(void* reldatefmt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24344,7 +24344,7 @@ void windowssys_windows_win32_globalization_ureldatefmtClose(void* reldatefmt) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_ureldatefmtCloseResult(void* ufrdt) {
+void windowssysWindowsWin32GlobalizationUreldatefmtCloseResult(void* ufrdt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24365,7 +24365,7 @@ void windowssys_windows_win32_globalization_ureldatefmtCloseResult(void* ufrdt) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ureldatefmtCombineDateAndTime(void* reldatefmt, void* relativedatestring, int32_t relativedatestringlen, void* timestring, int32_t timestringlen, void* result, int32_t resultcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUreldatefmtCombineDateAndTime(void* reldatefmt, void* relativedatestring, int32_t relativedatestringlen, void* timestring, int32_t timestringlen, void* result, int32_t resultcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24394,7 +24394,7 @@ int32_t windowssys_windows_win32_globalization_ureldatefmtCombineDateAndTime(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ureldatefmtFormat(void* reldatefmt, double offset, int32_t unit, void* result, int32_t resultcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUreldatefmtFormat(void* reldatefmt, double offset, int32_t unit, void* result, int32_t resultcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24421,7 +24421,7 @@ int32_t windowssys_windows_win32_globalization_ureldatefmtFormat(void* reldatefm
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_ureldatefmtFormatNumeric(void* reldatefmt, double offset, int32_t unit, void* result, int32_t resultcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUreldatefmtFormatNumeric(void* reldatefmt, double offset, int32_t unit, void* result, int32_t resultcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24448,7 +24448,7 @@ int32_t windowssys_windows_win32_globalization_ureldatefmtFormatNumeric(void* re
 #endif
 }
 
-void windowssys_windows_win32_globalization_ureldatefmtFormatNumericToResult(void* reldatefmt, double offset, int32_t unit, void* result, void* status) {
+void windowssysWindowsWin32GlobalizationUreldatefmtFormatNumericToResult(void* reldatefmt, double offset, int32_t unit, void* result, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24473,7 +24473,7 @@ void windowssys_windows_win32_globalization_ureldatefmtFormatNumericToResult(voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_ureldatefmtFormatToResult(void* reldatefmt, double offset, int32_t unit, void* result, void* status) {
+void windowssysWindowsWin32GlobalizationUreldatefmtFormatToResult(void* reldatefmt, double offset, int32_t unit, void* result, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, double, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24498,7 +24498,7 @@ void windowssys_windows_win32_globalization_ureldatefmtFormatToResult(void* reld
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ureldatefmtOpen(void* locale, void* nftoadopt, int32_t width, int32_t capitalizationcontext, void* status) {
+void* windowssysWindowsWin32GlobalizationUreldatefmtOpen(void* locale, void* nftoadopt, int32_t width, int32_t capitalizationcontext, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24524,7 +24524,7 @@ void* windowssys_windows_win32_globalization_ureldatefmtOpen(void* locale, void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ureldatefmtOpenResult(void* ec) {
+void* windowssysWindowsWin32GlobalizationUreldatefmtOpenResult(void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24546,7 +24546,7 @@ void* windowssys_windows_win32_globalization_ureldatefmtOpenResult(void* ec) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_ureldatefmtResultAsValue(void* ufrdt, void* ec) {
+void* windowssysWindowsWin32GlobalizationUreldatefmtResultAsValue(void* ufrdt, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24569,7 +24569,7 @@ void* windowssys_windows_win32_globalization_ureldatefmtResultAsValue(void* ufrd
 #endif
 }
 
-void windowssys_windows_win32_globalization_uresClose(void* resourcebundle) {
+void windowssysWindowsWin32GlobalizationUresClose(void* resourcebundle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24590,7 +24590,7 @@ void windowssys_windows_win32_globalization_uresClose(void* resourcebundle) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetBinary(void* resourcebundle, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetBinary(void* resourcebundle, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24614,7 +24614,7 @@ void* windowssys_windows_win32_globalization_uresGetBinary(void* resourcebundle,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetByIndex(void* resourcebundle, int32_t indexr, void* fillin, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetByIndex(void* resourcebundle, int32_t indexr, void* fillin, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24639,7 +24639,7 @@ void* windowssys_windows_win32_globalization_uresGetByIndex(void* resourcebundle
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetByKey(void* resourcebundle, void* key, void* fillin, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetByKey(void* resourcebundle, void* key, void* fillin, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24664,7 +24664,7 @@ void* windowssys_windows_win32_globalization_uresGetByKey(void* resourcebundle, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uresGetInt(void* resourcebundle, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUresGetInt(void* resourcebundle, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24687,7 +24687,7 @@ int32_t windowssys_windows_win32_globalization_uresGetInt(void* resourcebundle, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetIntVector(void* resourcebundle, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetIntVector(void* resourcebundle, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24711,7 +24711,7 @@ void* windowssys_windows_win32_globalization_uresGetIntVector(void* resourcebund
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetKey(void* resourcebundle) {
+void* windowssysWindowsWin32GlobalizationUresGetKey(void* resourcebundle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24733,7 +24733,7 @@ void* windowssys_windows_win32_globalization_uresGetKey(void* resourcebundle) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetLocaleByType(void* resourcebundle, int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetLocaleByType(void* resourcebundle, int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24757,7 +24757,7 @@ void* windowssys_windows_win32_globalization_uresGetLocaleByType(void* resourceb
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetNextResource(void* resourcebundle, void* fillin, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetNextResource(void* resourcebundle, void* fillin, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24781,7 +24781,7 @@ void* windowssys_windows_win32_globalization_uresGetNextResource(void* resourceb
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetNextString(void* resourcebundle, void* len, void* key, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetNextString(void* resourcebundle, void* len, void* key, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24806,7 +24806,7 @@ void* windowssys_windows_win32_globalization_uresGetNextString(void* resourcebun
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uresGetSize(void* resourcebundle) {
+int32_t windowssysWindowsWin32GlobalizationUresGetSize(void* resourcebundle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24828,7 +24828,7 @@ int32_t windowssys_windows_win32_globalization_uresGetSize(void* resourcebundle)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetString(void* resourcebundle, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetString(void* resourcebundle, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24852,7 +24852,7 @@ void* windowssys_windows_win32_globalization_uresGetString(void* resourcebundle,
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetStringByIndex(void* resourcebundle, int32_t indexs, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetStringByIndex(void* resourcebundle, int32_t indexs, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24877,7 +24877,7 @@ void* windowssys_windows_win32_globalization_uresGetStringByIndex(void* resource
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetStringByKey(void* resb, void* key, void* len, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetStringByKey(void* resb, void* key, void* len, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24902,7 +24902,7 @@ void* windowssys_windows_win32_globalization_uresGetStringByKey(void* resb, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uresGetType(void* resourcebundle) {
+int32_t windowssysWindowsWin32GlobalizationUresGetType(void* resourcebundle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24924,7 +24924,7 @@ int32_t windowssys_windows_win32_globalization_uresGetType(void* resourcebundle)
 #endif
 }
 
-uint32_t windowssys_windows_win32_globalization_uresGetUint(void* resourcebundle, void* status) {
+uint32_t windowssysWindowsWin32GlobalizationUresGetUint(void* resourcebundle, void* status) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24947,7 +24947,7 @@ uint32_t windowssys_windows_win32_globalization_uresGetUint(void* resourcebundle
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetUtf8String(void* resb, void* dest, void* length, int8_t forcecopy, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetUtf8String(void* resb, void* dest, void* length, int8_t forcecopy, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24973,7 +24973,7 @@ void* windowssys_windows_win32_globalization_uresGetUtf8String(void* resb, void*
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetUtf8StringByIndex(void* resb, int32_t stringindex, void* dest, void* plength, int8_t forcecopy, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetUtf8StringByIndex(void* resb, int32_t stringindex, void* dest, void* plength, int8_t forcecopy, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25000,7 +25000,7 @@ void* windowssys_windows_win32_globalization_uresGetUtf8StringByIndex(void* resb
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresGetUtf8StringByKey(void* resb, void* key, void* dest, void* plength, int8_t forcecopy, void* status) {
+void* windowssysWindowsWin32GlobalizationUresGetUtf8StringByKey(void* resb, void* key, void* dest, void* plength, int8_t forcecopy, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25027,7 +25027,7 @@ void* windowssys_windows_win32_globalization_uresGetUtf8StringByKey(void* resb, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uresGetVersion(void* resb, void* versioninfo) {
+void windowssysWindowsWin32GlobalizationUresGetVersion(void* resb, void* versioninfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25049,7 +25049,7 @@ void windowssys_windows_win32_globalization_uresGetVersion(void* resb, void* ver
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uresHasNext(void* resourcebundle) {
+int8_t windowssysWindowsWin32GlobalizationUresHasNext(void* resourcebundle) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25071,7 +25071,7 @@ int8_t windowssys_windows_win32_globalization_uresHasNext(void* resourcebundle) 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresOpen(void* packagename, void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUresOpen(void* packagename, void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25095,7 +25095,7 @@ void* windowssys_windows_win32_globalization_uresOpen(void* packagename, void* l
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresOpenAvailableLocales(void* packagename, void* status) {
+void* windowssysWindowsWin32GlobalizationUresOpenAvailableLocales(void* packagename, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25118,7 +25118,7 @@ void* windowssys_windows_win32_globalization_uresOpenAvailableLocales(void* pack
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresOpenDirect(void* packagename, void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUresOpenDirect(void* packagename, void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25142,7 +25142,7 @@ void* windowssys_windows_win32_globalization_uresOpenDirect(void* packagename, v
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uresOpenU(void* packagename, void* locale, void* status) {
+void* windowssysWindowsWin32GlobalizationUresOpenU(void* packagename, void* locale, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25166,7 +25166,7 @@ void* windowssys_windows_win32_globalization_uresOpenU(void* packagename, void* 
 #endif
 }
 
-void windowssys_windows_win32_globalization_uresResetIterator(void* resourcebundle) {
+void windowssysWindowsWin32GlobalizationUresResetIterator(void* resourcebundle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25187,7 +25187,7 @@ void windowssys_windows_win32_globalization_uresResetIterator(void* resourcebund
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uscriptBreaksBetweenLetters(int32_t script) {
+int8_t windowssysWindowsWin32GlobalizationUscriptBreaksBetweenLetters(int32_t script) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25209,7 +25209,7 @@ int8_t windowssys_windows_win32_globalization_uscriptBreaksBetweenLetters(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uscriptGetCode(void* nameorabbrorlocale, void* fillin, int32_t capacity, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUscriptGetCode(void* nameorabbrorlocale, void* fillin, int32_t capacity, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25234,7 +25234,7 @@ int32_t windowssys_windows_win32_globalization_uscriptGetCode(void* nameorabbror
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uscriptGetName(int32_t scriptcode) {
+void* windowssysWindowsWin32GlobalizationUscriptGetName(int32_t scriptcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25256,7 +25256,7 @@ void* windowssys_windows_win32_globalization_uscriptGetName(int32_t scriptcode) 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uscriptGetSampleString(int32_t script, void* dest, int32_t capacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUscriptGetSampleString(int32_t script, void* dest, int32_t capacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25281,7 +25281,7 @@ int32_t windowssys_windows_win32_globalization_uscriptGetSampleString(int32_t sc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uscriptGetScript(int32_t codepoint, void* err) {
+int32_t windowssysWindowsWin32GlobalizationUscriptGetScript(int32_t codepoint, void* err) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25304,7 +25304,7 @@ int32_t windowssys_windows_win32_globalization_uscriptGetScript(int32_t codepoin
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uscriptGetScriptExtensions(int32_t c, void* scripts, int32_t capacity, void* errorcode) {
+int32_t windowssysWindowsWin32GlobalizationUscriptGetScriptExtensions(int32_t c, void* scripts, int32_t capacity, void* errorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25329,7 +25329,7 @@ int32_t windowssys_windows_win32_globalization_uscriptGetScriptExtensions(int32_
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uscriptGetShortName(int32_t scriptcode) {
+void* windowssysWindowsWin32GlobalizationUscriptGetShortName(int32_t scriptcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25351,7 +25351,7 @@ void* windowssys_windows_win32_globalization_uscriptGetShortName(int32_t scriptc
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uscriptGetUsage(int32_t script) {
+int32_t windowssysWindowsWin32GlobalizationUscriptGetUsage(int32_t script) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25373,7 +25373,7 @@ int32_t windowssys_windows_win32_globalization_uscriptGetUsage(int32_t script) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uscriptHasScript(int32_t c, int32_t sc) {
+int8_t windowssysWindowsWin32GlobalizationUscriptHasScript(int32_t c, int32_t sc) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25396,7 +25396,7 @@ int8_t windowssys_windows_win32_globalization_uscriptHasScript(int32_t c, int32_
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uscriptIsCased(int32_t script) {
+int8_t windowssysWindowsWin32GlobalizationUscriptIsCased(int32_t script) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25418,7 +25418,7 @@ int8_t windowssys_windows_win32_globalization_uscriptIsCased(int32_t script) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_uscriptIsRightToLeft(int32_t script) {
+int8_t windowssysWindowsWin32GlobalizationUscriptIsRightToLeft(int32_t script) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25440,7 +25440,7 @@ int8_t windowssys_windows_win32_globalization_uscriptIsRightToLeft(int32_t scrip
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchClose(void* searchiter) {
+void windowssysWindowsWin32GlobalizationUsearchClose(void* searchiter) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25461,7 +25461,7 @@ void windowssys_windows_win32_globalization_usearchClose(void* searchiter) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchFirst(void* strsrch, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchFirst(void* strsrch, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25484,7 +25484,7 @@ int32_t windowssys_windows_win32_globalization_usearchFirst(void* strsrch, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchFollowing(void* strsrch, int32_t position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchFollowing(void* strsrch, int32_t position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25508,7 +25508,7 @@ int32_t windowssys_windows_win32_globalization_usearchFollowing(void* strsrch, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchGetAttribute(void* strsrch, int32_t attribute) {
+int32_t windowssysWindowsWin32GlobalizationUsearchGetAttribute(void* strsrch, int32_t attribute) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25531,7 +25531,7 @@ int32_t windowssys_windows_win32_globalization_usearchGetAttribute(void* strsrch
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usearchGetBreakIterator(void* strsrch) {
+void* windowssysWindowsWin32GlobalizationUsearchGetBreakIterator(void* strsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25553,7 +25553,7 @@ void* windowssys_windows_win32_globalization_usearchGetBreakIterator(void* strsr
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usearchGetCollator(void* strsrch) {
+void* windowssysWindowsWin32GlobalizationUsearchGetCollator(void* strsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25575,7 +25575,7 @@ void* windowssys_windows_win32_globalization_usearchGetCollator(void* strsrch) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchGetMatchedLength(void* strsrch) {
+int32_t windowssysWindowsWin32GlobalizationUsearchGetMatchedLength(void* strsrch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25597,7 +25597,7 @@ int32_t windowssys_windows_win32_globalization_usearchGetMatchedLength(void* str
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchGetMatchedStart(void* strsrch) {
+int32_t windowssysWindowsWin32GlobalizationUsearchGetMatchedStart(void* strsrch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25619,7 +25619,7 @@ int32_t windowssys_windows_win32_globalization_usearchGetMatchedStart(void* strs
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchGetMatchedText(void* strsrch, void* result, int32_t resultcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchGetMatchedText(void* strsrch, void* result, int32_t resultcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25644,7 +25644,7 @@ int32_t windowssys_windows_win32_globalization_usearchGetMatchedText(void* strsr
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchGetOffset(void* strsrch) {
+int32_t windowssysWindowsWin32GlobalizationUsearchGetOffset(void* strsrch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25666,7 +25666,7 @@ int32_t windowssys_windows_win32_globalization_usearchGetOffset(void* strsrch) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usearchGetPattern(void* strsrch, void* length) {
+void* windowssysWindowsWin32GlobalizationUsearchGetPattern(void* strsrch, void* length) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25689,7 +25689,7 @@ void* windowssys_windows_win32_globalization_usearchGetPattern(void* strsrch, vo
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usearchGetText(void* strsrch, void* length) {
+void* windowssysWindowsWin32GlobalizationUsearchGetText(void* strsrch, void* length) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25712,7 +25712,7 @@ void* windowssys_windows_win32_globalization_usearchGetText(void* strsrch, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchLast(void* strsrch, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchLast(void* strsrch, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25735,7 +25735,7 @@ int32_t windowssys_windows_win32_globalization_usearchLast(void* strsrch, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchNext(void* strsrch, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchNext(void* strsrch, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25758,7 +25758,7 @@ int32_t windowssys_windows_win32_globalization_usearchNext(void* strsrch, void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usearchOpen(void* pattern, int32_t patternlength, void* text, int32_t textlength, void* locale, void* breakiter, void* status) {
+void* windowssysWindowsWin32GlobalizationUsearchOpen(void* pattern, int32_t patternlength, void* text, int32_t textlength, void* locale, void* breakiter, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25786,7 +25786,7 @@ void* windowssys_windows_win32_globalization_usearchOpen(void* pattern, int32_t 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usearchOpenFromCollator(void* pattern, int32_t patternlength, void* text, int32_t textlength, void* collator, void* breakiter, void* status) {
+void* windowssysWindowsWin32GlobalizationUsearchOpenFromCollator(void* pattern, int32_t patternlength, void* text, int32_t textlength, void* collator, void* breakiter, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25814,7 +25814,7 @@ void* windowssys_windows_win32_globalization_usearchOpenFromCollator(void* patte
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchPreceding(void* strsrch, int32_t position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchPreceding(void* strsrch, int32_t position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25838,7 +25838,7 @@ int32_t windowssys_windows_win32_globalization_usearchPreceding(void* strsrch, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usearchPrevious(void* strsrch, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsearchPrevious(void* strsrch, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25861,7 +25861,7 @@ int32_t windowssys_windows_win32_globalization_usearchPrevious(void* strsrch, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchReset(void* strsrch) {
+void windowssysWindowsWin32GlobalizationUsearchReset(void* strsrch) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25882,7 +25882,7 @@ void windowssys_windows_win32_globalization_usearchReset(void* strsrch) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchSetAttribute(void* strsrch, int32_t attribute, int32_t value, void* status) {
+void windowssysWindowsWin32GlobalizationUsearchSetAttribute(void* strsrch, int32_t attribute, int32_t value, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25906,7 +25906,7 @@ void windowssys_windows_win32_globalization_usearchSetAttribute(void* strsrch, i
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchSetBreakIterator(void* strsrch, void* breakiter, void* status) {
+void windowssysWindowsWin32GlobalizationUsearchSetBreakIterator(void* strsrch, void* breakiter, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25929,7 +25929,7 @@ void windowssys_windows_win32_globalization_usearchSetBreakIterator(void* strsrc
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchSetCollator(void* strsrch, void* collator, void* status) {
+void windowssysWindowsWin32GlobalizationUsearchSetCollator(void* strsrch, void* collator, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25952,7 +25952,7 @@ void windowssys_windows_win32_globalization_usearchSetCollator(void* strsrch, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchSetOffset(void* strsrch, int32_t position, void* status) {
+void windowssysWindowsWin32GlobalizationUsearchSetOffset(void* strsrch, int32_t position, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25975,7 +25975,7 @@ void windowssys_windows_win32_globalization_usearchSetOffset(void* strsrch, int3
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchSetPattern(void* strsrch, void* pattern, int32_t patternlength, void* status) {
+void windowssysWindowsWin32GlobalizationUsearchSetPattern(void* strsrch, void* pattern, int32_t patternlength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25999,7 +25999,7 @@ void windowssys_windows_win32_globalization_usearchSetPattern(void* strsrch, voi
 #endif
 }
 
-void windowssys_windows_win32_globalization_usearchSetText(void* strsrch, void* text, int32_t textlength, void* status) {
+void windowssysWindowsWin32GlobalizationUsearchSetText(void* strsrch, void* text, int32_t textlength, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26023,7 +26023,7 @@ void windowssys_windows_win32_globalization_usearchSetText(void* strsrch, void* 
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetAdd(void* set, int32_t c) {
+void windowssysWindowsWin32GlobalizationUsetAdd(void* set, int32_t c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26045,7 +26045,7 @@ void windowssys_windows_win32_globalization_usetAdd(void* set, int32_t c) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetAddAll(void* set, void* additionalset) {
+void windowssysWindowsWin32GlobalizationUsetAddAll(void* set, void* additionalset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26067,7 +26067,7 @@ void windowssys_windows_win32_globalization_usetAddAll(void* set, void* addition
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetAddAllCodePoints(void* set, void* str, int32_t strlen) {
+void windowssysWindowsWin32GlobalizationUsetAddAllCodePoints(void* set, void* str, int32_t strlen) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26090,7 +26090,7 @@ void windowssys_windows_win32_globalization_usetAddAllCodePoints(void* set, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetAddRange(void* set, int32_t start, int32_t end) {
+void windowssysWindowsWin32GlobalizationUsetAddRange(void* set, int32_t start, int32_t end) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26113,7 +26113,7 @@ void windowssys_windows_win32_globalization_usetAddRange(void* set, int32_t star
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetAddString(void* set, void* str, int32_t strlen) {
+void windowssysWindowsWin32GlobalizationUsetAddString(void* set, void* str, int32_t strlen) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26136,7 +26136,7 @@ void windowssys_windows_win32_globalization_usetAddString(void* set, void* str, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetApplyIntPropertyValue(void* set, int32_t prop, int32_t value, void* ec) {
+void windowssysWindowsWin32GlobalizationUsetApplyIntPropertyValue(void* set, int32_t prop, int32_t value, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26160,7 +26160,7 @@ void windowssys_windows_win32_globalization_usetApplyIntPropertyValue(void* set,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetApplyPattern(void* set, void* pattern, int32_t patternlength, uint32_t options, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsetApplyPattern(void* set, void* pattern, int32_t patternlength, uint32_t options, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26186,7 +26186,7 @@ int32_t windowssys_windows_win32_globalization_usetApplyPattern(void* set, void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetApplyPropertyAlias(void* set, void* prop, int32_t proplength, void* value, int32_t valuelength, void* ec) {
+void windowssysWindowsWin32GlobalizationUsetApplyPropertyAlias(void* set, void* prop, int32_t proplength, void* value, int32_t valuelength, void* ec) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26212,7 +26212,7 @@ void windowssys_windows_win32_globalization_usetApplyPropertyAlias(void* set, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetCharAt(void* set, int32_t charindex) {
+int32_t windowssysWindowsWin32GlobalizationUsetCharAt(void* set, int32_t charindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26235,7 +26235,7 @@ int32_t windowssys_windows_win32_globalization_usetCharAt(void* set, int32_t cha
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetClear(void* set) {
+void windowssysWindowsWin32GlobalizationUsetClear(void* set) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26256,7 +26256,7 @@ void windowssys_windows_win32_globalization_usetClear(void* set) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usetClone(void* set) {
+void* windowssysWindowsWin32GlobalizationUsetClone(void* set) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26278,7 +26278,7 @@ void* windowssys_windows_win32_globalization_usetClone(void* set) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usetCloneAsThawed(void* set) {
+void* windowssysWindowsWin32GlobalizationUsetCloneAsThawed(void* set) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26300,7 +26300,7 @@ void* windowssys_windows_win32_globalization_usetCloneAsThawed(void* set) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetClose(void* set) {
+void windowssysWindowsWin32GlobalizationUsetClose(void* set) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26321,7 +26321,7 @@ void windowssys_windows_win32_globalization_usetClose(void* set) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetCloseOver(void* set, int32_t attributes) {
+void windowssysWindowsWin32GlobalizationUsetCloseOver(void* set, int32_t attributes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26343,7 +26343,7 @@ void windowssys_windows_win32_globalization_usetCloseOver(void* set, int32_t att
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetCompact(void* set) {
+void windowssysWindowsWin32GlobalizationUsetCompact(void* set) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26364,7 +26364,7 @@ void windowssys_windows_win32_globalization_usetCompact(void* set) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetComplement(void* set) {
+void windowssysWindowsWin32GlobalizationUsetComplement(void* set) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26385,7 +26385,7 @@ void windowssys_windows_win32_globalization_usetComplement(void* set) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetComplementAll(void* set, void* complement) {
+void windowssysWindowsWin32GlobalizationUsetComplementAll(void* set, void* complement) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26407,7 +26407,7 @@ void windowssys_windows_win32_globalization_usetComplementAll(void* set, void* c
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContains(void* set, int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUsetContains(void* set, int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26430,7 +26430,7 @@ int8_t windowssys_windows_win32_globalization_usetContains(void* set, int32_t c)
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContainsAll(void* set1, void* set2) {
+int8_t windowssysWindowsWin32GlobalizationUsetContainsAll(void* set1, void* set2) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26453,7 +26453,7 @@ int8_t windowssys_windows_win32_globalization_usetContainsAll(void* set1, void* 
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContainsAllCodePoints(void* set, void* str, int32_t strlen) {
+int8_t windowssysWindowsWin32GlobalizationUsetContainsAllCodePoints(void* set, void* str, int32_t strlen) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26477,7 +26477,7 @@ int8_t windowssys_windows_win32_globalization_usetContainsAllCodePoints(void* se
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContainsNone(void* set1, void* set2) {
+int8_t windowssysWindowsWin32GlobalizationUsetContainsNone(void* set1, void* set2) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26500,7 +26500,7 @@ int8_t windowssys_windows_win32_globalization_usetContainsNone(void* set1, void*
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContainsRange(void* set, int32_t start, int32_t end) {
+int8_t windowssysWindowsWin32GlobalizationUsetContainsRange(void* set, int32_t start, int32_t end) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26524,7 +26524,7 @@ int8_t windowssys_windows_win32_globalization_usetContainsRange(void* set, int32
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContainsSome(void* set1, void* set2) {
+int8_t windowssysWindowsWin32GlobalizationUsetContainsSome(void* set1, void* set2) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26547,7 +26547,7 @@ int8_t windowssys_windows_win32_globalization_usetContainsSome(void* set1, void*
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetContainsString(void* set, void* str, int32_t strlen) {
+int8_t windowssysWindowsWin32GlobalizationUsetContainsString(void* set, void* str, int32_t strlen) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26571,7 +26571,7 @@ int8_t windowssys_windows_win32_globalization_usetContainsString(void* set, void
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetEquals(void* set1, void* set2) {
+int8_t windowssysWindowsWin32GlobalizationUsetEquals(void* set1, void* set2) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26594,7 +26594,7 @@ int8_t windowssys_windows_win32_globalization_usetEquals(void* set1, void* set2)
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetFreeze(void* set) {
+void windowssysWindowsWin32GlobalizationUsetFreeze(void* set) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26615,7 +26615,7 @@ void windowssys_windows_win32_globalization_usetFreeze(void* set) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetGetItem(void* set, int32_t itemindex, void* start, void* end, void* str, int32_t strcapacity, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUsetGetItem(void* set, int32_t itemindex, void* start, void* end, void* str, int32_t strcapacity, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26643,7 +26643,7 @@ int32_t windowssys_windows_win32_globalization_usetGetItem(void* set, int32_t it
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetGetItemCount(void* set) {
+int32_t windowssysWindowsWin32GlobalizationUsetGetItemCount(void* set) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26665,7 +26665,7 @@ int32_t windowssys_windows_win32_globalization_usetGetItemCount(void* set) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetGetSerializedRange(void* set, int32_t rangeindex, void* pstart, void* pend) {
+int8_t windowssysWindowsWin32GlobalizationUsetGetSerializedRange(void* set, int32_t rangeindex, void* pstart, void* pend) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26690,7 +26690,7 @@ int8_t windowssys_windows_win32_globalization_usetGetSerializedRange(void* set, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetGetSerializedRangeCount(void* set) {
+int32_t windowssysWindowsWin32GlobalizationUsetGetSerializedRangeCount(void* set) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26712,7 +26712,7 @@ int32_t windowssys_windows_win32_globalization_usetGetSerializedRangeCount(void*
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetGetSerializedSet(void* fillset, void* src, int32_t srclength) {
+int8_t windowssysWindowsWin32GlobalizationUsetGetSerializedSet(void* fillset, void* src, int32_t srclength) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26736,7 +26736,7 @@ int8_t windowssys_windows_win32_globalization_usetGetSerializedSet(void* fillset
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetIndexOf(void* set, int32_t c) {
+int32_t windowssysWindowsWin32GlobalizationUsetIndexOf(void* set, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26759,7 +26759,7 @@ int32_t windowssys_windows_win32_globalization_usetIndexOf(void* set, int32_t c)
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetIsEmpty(void* set) {
+int8_t windowssysWindowsWin32GlobalizationUsetIsEmpty(void* set) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26781,7 +26781,7 @@ int8_t windowssys_windows_win32_globalization_usetIsEmpty(void* set) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetIsFrozen(void* set) {
+int8_t windowssysWindowsWin32GlobalizationUsetIsFrozen(void* set) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26803,7 +26803,7 @@ int8_t windowssys_windows_win32_globalization_usetIsFrozen(void* set) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usetOpen(int32_t start, int32_t end) {
+void* windowssysWindowsWin32GlobalizationUsetOpen(int32_t start, int32_t end) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26826,7 +26826,7 @@ void* windowssys_windows_win32_globalization_usetOpen(int32_t start, int32_t end
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usetOpenEmpty(void) {
+void* windowssysWindowsWin32GlobalizationUsetOpenEmpty(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -26847,7 +26847,7 @@ void* windowssys_windows_win32_globalization_usetOpenEmpty(void) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usetOpenPattern(void* pattern, int32_t patternlength, void* ec) {
+void* windowssysWindowsWin32GlobalizationUsetOpenPattern(void* pattern, int32_t patternlength, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26871,7 +26871,7 @@ void* windowssys_windows_win32_globalization_usetOpenPattern(void* pattern, int3
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usetOpenPatternOptions(void* pattern, int32_t patternlength, uint32_t options, void* ec) {
+void* windowssysWindowsWin32GlobalizationUsetOpenPatternOptions(void* pattern, int32_t patternlength, uint32_t options, void* ec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26896,7 +26896,7 @@ void* windowssys_windows_win32_globalization_usetOpenPatternOptions(void* patter
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRemove(void* set, int32_t c) {
+void windowssysWindowsWin32GlobalizationUsetRemove(void* set, int32_t c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26918,7 +26918,7 @@ void windowssys_windows_win32_globalization_usetRemove(void* set, int32_t c) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRemoveAll(void* set, void* removeset) {
+void windowssysWindowsWin32GlobalizationUsetRemoveAll(void* set, void* removeset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26940,7 +26940,7 @@ void windowssys_windows_win32_globalization_usetRemoveAll(void* set, void* remov
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRemoveAllStrings(void* set) {
+void windowssysWindowsWin32GlobalizationUsetRemoveAllStrings(void* set) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26961,7 +26961,7 @@ void windowssys_windows_win32_globalization_usetRemoveAllStrings(void* set) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRemoveRange(void* set, int32_t start, int32_t end) {
+void windowssysWindowsWin32GlobalizationUsetRemoveRange(void* set, int32_t start, int32_t end) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26984,7 +26984,7 @@ void windowssys_windows_win32_globalization_usetRemoveRange(void* set, int32_t s
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRemoveString(void* set, void* str, int32_t strlen) {
+void windowssysWindowsWin32GlobalizationUsetRemoveString(void* set, void* str, int32_t strlen) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27007,7 +27007,7 @@ void windowssys_windows_win32_globalization_usetRemoveString(void* set, void* st
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetResemblesPattern(void* pattern, int32_t patternlength, int32_t pos) {
+int8_t windowssysWindowsWin32GlobalizationUsetResemblesPattern(void* pattern, int32_t patternlength, int32_t pos) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27031,7 +27031,7 @@ int8_t windowssys_windows_win32_globalization_usetResemblesPattern(void* pattern
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRetain(void* set, int32_t start, int32_t end) {
+void windowssysWindowsWin32GlobalizationUsetRetain(void* set, int32_t start, int32_t end) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27054,7 +27054,7 @@ void windowssys_windows_win32_globalization_usetRetain(void* set, int32_t start,
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetRetainAll(void* set, void* retain) {
+void windowssysWindowsWin32GlobalizationUsetRetainAll(void* set, void* retain) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27076,7 +27076,7 @@ void windowssys_windows_win32_globalization_usetRetainAll(void* set, void* retai
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetSerialize(void* set, void* dest, int32_t destcapacity, void* perrorcode) {
+int32_t windowssysWindowsWin32GlobalizationUsetSerialize(void* set, void* dest, int32_t destcapacity, void* perrorcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27101,7 +27101,7 @@ int32_t windowssys_windows_win32_globalization_usetSerialize(void* set, void* de
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_usetSerializedContains(void* set, int32_t c) {
+int8_t windowssysWindowsWin32GlobalizationUsetSerializedContains(void* set, int32_t c) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27124,7 +27124,7 @@ int8_t windowssys_windows_win32_globalization_usetSerializedContains(void* set, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetSet(void* set, int32_t start, int32_t end) {
+void windowssysWindowsWin32GlobalizationUsetSet(void* set, int32_t start, int32_t end) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27147,7 +27147,7 @@ void windowssys_windows_win32_globalization_usetSet(void* set, int32_t start, in
 #endif
 }
 
-void windowssys_windows_win32_globalization_usetSetSerializedToOne(void* fillset, int32_t c) {
+void windowssysWindowsWin32GlobalizationUsetSetSerializedToOne(void* fillset, int32_t c) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27169,7 +27169,7 @@ void windowssys_windows_win32_globalization_usetSetSerializedToOne(void* fillset
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetSize(void* set) {
+int32_t windowssysWindowsWin32GlobalizationUsetSize(void* set) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27191,7 +27191,7 @@ int32_t windowssys_windows_win32_globalization_usetSize(void* set) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetSpan(void* set, void* s, int32_t length, int32_t spancondition) {
+int32_t windowssysWindowsWin32GlobalizationUsetSpan(void* set, void* s, int32_t length, int32_t spancondition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27216,7 +27216,7 @@ int32_t windowssys_windows_win32_globalization_usetSpan(void* set, void* s, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetSpanBack(void* set, void* s, int32_t length, int32_t spancondition) {
+int32_t windowssysWindowsWin32GlobalizationUsetSpanBack(void* set, void* s, int32_t length, int32_t spancondition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27241,7 +27241,7 @@ int32_t windowssys_windows_win32_globalization_usetSpanBack(void* set, void* s, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetSpanBackUtf8(void* set, void* s, int32_t length, int32_t spancondition) {
+int32_t windowssysWindowsWin32GlobalizationUsetSpanBackUtf8(void* set, void* s, int32_t length, int32_t spancondition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27266,7 +27266,7 @@ int32_t windowssys_windows_win32_globalization_usetSpanBackUtf8(void* set, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetSpanUtf8(void* set, void* s, int32_t length, int32_t spancondition) {
+int32_t windowssysWindowsWin32GlobalizationUsetSpanUtf8(void* set, void* s, int32_t length, int32_t spancondition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -27291,7 +27291,7 @@ int32_t windowssys_windows_win32_globalization_usetSpanUtf8(void* set, void* s, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usetToPattern(void* set, void* result, int32_t resultcapacity, int8_t escapeunprintable, void* ec) {
+int32_t windowssysWindowsWin32GlobalizationUsetToPattern(void* set, void* result, int32_t resultcapacity, int8_t escapeunprintable, void* ec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27317,7 +27317,7 @@ int32_t windowssys_windows_win32_globalization_usetToPattern(void* set, void* re
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofAreConfusable(void* sc, void* id1, int32_t length1, void* id2, int32_t length2, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofAreConfusable(void* sc, void* id1, int32_t length1, void* id2, int32_t length2, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27344,7 +27344,7 @@ int32_t windowssys_windows_win32_globalization_uspoofAreConfusable(void* sc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofAreConfusableUtf8(void* sc, void* id1, int32_t length1, void* id2, int32_t length2, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofAreConfusableUtf8(void* sc, void* id1, int32_t length1, void* id2, int32_t length2, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27371,7 +27371,7 @@ int32_t windowssys_windows_win32_globalization_uspoofAreConfusableUtf8(void* sc,
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofCheck(void* sc, void* id, int32_t length, void* position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofCheck(void* sc, void* id, int32_t length, void* position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27397,7 +27397,7 @@ int32_t windowssys_windows_win32_globalization_uspoofCheck(void* sc, void* id, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofCheck2(void* sc, void* id, int32_t length, void* checkresult, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofCheck2(void* sc, void* id, int32_t length, void* checkresult, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27423,7 +27423,7 @@ int32_t windowssys_windows_win32_globalization_uspoofCheck2(void* sc, void* id, 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofCheck2Utf8(void* sc, void* id, int32_t length, void* checkresult, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofCheck2Utf8(void* sc, void* id, int32_t length, void* checkresult, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27449,7 +27449,7 @@ int32_t windowssys_windows_win32_globalization_uspoofCheck2Utf8(void* sc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofCheckUtf8(void* sc, void* id, int32_t length, void* position, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofCheckUtf8(void* sc, void* id, int32_t length, void* position, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27475,7 +27475,7 @@ int32_t windowssys_windows_win32_globalization_uspoofCheckUtf8(void* sc, void* i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofClone(void* sc, void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofClone(void* sc, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27498,7 +27498,7 @@ void* windowssys_windows_win32_globalization_uspoofClone(void* sc, void* status)
 #endif
 }
 
-void windowssys_windows_win32_globalization_uspoofClose(void* sc) {
+void windowssysWindowsWin32GlobalizationUspoofClose(void* sc) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27519,7 +27519,7 @@ void windowssys_windows_win32_globalization_uspoofClose(void* sc) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_uspoofCloseCheckResult(void* checkresult) {
+void windowssysWindowsWin32GlobalizationUspoofCloseCheckResult(void* checkresult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27540,7 +27540,7 @@ void windowssys_windows_win32_globalization_uspoofCloseCheckResult(void* checkre
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofGetAllowedChars(void* sc, void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofGetAllowedChars(void* sc, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27563,7 +27563,7 @@ void* windowssys_windows_win32_globalization_uspoofGetAllowedChars(void* sc, voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofGetAllowedLocales(void* sc, void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofGetAllowedLocales(void* sc, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27586,7 +27586,7 @@ void* windowssys_windows_win32_globalization_uspoofGetAllowedLocales(void* sc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofGetCheckResultChecks(void* checkresult, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofGetCheckResultChecks(void* checkresult, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27609,7 +27609,7 @@ int32_t windowssys_windows_win32_globalization_uspoofGetCheckResultChecks(void* 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofGetCheckResultNumerics(void* checkresult, void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofGetCheckResultNumerics(void* checkresult, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27632,7 +27632,7 @@ void* windowssys_windows_win32_globalization_uspoofGetCheckResultNumerics(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofGetCheckResultRestrictionLevel(void* checkresult, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofGetCheckResultRestrictionLevel(void* checkresult, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27655,7 +27655,7 @@ int32_t windowssys_windows_win32_globalization_uspoofGetCheckResultRestrictionLe
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofGetChecks(void* sc, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofGetChecks(void* sc, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27678,7 +27678,7 @@ int32_t windowssys_windows_win32_globalization_uspoofGetChecks(void* sc, void* s
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofGetInclusionSet(void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofGetInclusionSet(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27700,7 +27700,7 @@ void* windowssys_windows_win32_globalization_uspoofGetInclusionSet(void* status)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofGetRecommendedSet(void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofGetRecommendedSet(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27722,7 +27722,7 @@ void* windowssys_windows_win32_globalization_uspoofGetRecommendedSet(void* statu
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofGetRestrictionLevel(void* sc) {
+int32_t windowssysWindowsWin32GlobalizationUspoofGetRestrictionLevel(void* sc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27744,7 +27744,7 @@ int32_t windowssys_windows_win32_globalization_uspoofGetRestrictionLevel(void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofGetSkeleton(void* sc, uint32_t type, void* id, int32_t length, void* dest, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofGetSkeleton(void* sc, uint32_t type, void* id, int32_t length, void* dest, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27772,7 +27772,7 @@ int32_t windowssys_windows_win32_globalization_uspoofGetSkeleton(void* sc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofGetSkeletonUtf8(void* sc, uint32_t type, void* id, int32_t length, void* dest, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofGetSkeletonUtf8(void* sc, uint32_t type, void* id, int32_t length, void* dest, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27800,7 +27800,7 @@ int32_t windowssys_windows_win32_globalization_uspoofGetSkeletonUtf8(void* sc, u
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofOpen(void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofOpen(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27822,7 +27822,7 @@ void* windowssys_windows_win32_globalization_uspoofOpen(void* status) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofOpenCheckResult(void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofOpenCheckResult(void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27844,7 +27844,7 @@ void* windowssys_windows_win32_globalization_uspoofOpenCheckResult(void* status)
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofOpenFromSerialized(void* data, int32_t length, void* pactuallength, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUspoofOpenFromSerialized(void* data, int32_t length, void* pactuallength, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27869,7 +27869,7 @@ void* windowssys_windows_win32_globalization_uspoofOpenFromSerialized(void* data
 #endif
 }
 
-void* windowssys_windows_win32_globalization_uspoofOpenFromSource(void* confusables, int32_t confusableslen, void* confusableswholescript, int32_t confusableswholescriptlen, void* errtype, void* pe, void* status) {
+void* windowssysWindowsWin32GlobalizationUspoofOpenFromSource(void* confusables, int32_t confusableslen, void* confusableswholescript, int32_t confusableswholescriptlen, void* errtype, void* pe, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27897,7 +27897,7 @@ void* windowssys_windows_win32_globalization_uspoofOpenFromSource(void* confusab
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_uspoofSerialize(void* sc, void* data, int32_t capacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUspoofSerialize(void* sc, void* data, int32_t capacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27922,7 +27922,7 @@ int32_t windowssys_windows_win32_globalization_uspoofSerialize(void* sc, void* d
 #endif
 }
 
-void windowssys_windows_win32_globalization_uspoofSetAllowedChars(void* sc, void* chars, void* status) {
+void windowssysWindowsWin32GlobalizationUspoofSetAllowedChars(void* sc, void* chars, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27945,7 +27945,7 @@ void windowssys_windows_win32_globalization_uspoofSetAllowedChars(void* sc, void
 #endif
 }
 
-void windowssys_windows_win32_globalization_uspoofSetAllowedLocales(void* sc, void* localeslist, void* status) {
+void windowssysWindowsWin32GlobalizationUspoofSetAllowedLocales(void* sc, void* localeslist, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27968,7 +27968,7 @@ void windowssys_windows_win32_globalization_uspoofSetAllowedLocales(void* sc, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_uspoofSetChecks(void* sc, int32_t checks, void* status) {
+void windowssysWindowsWin32GlobalizationUspoofSetChecks(void* sc, int32_t checks, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -27991,7 +27991,7 @@ void windowssys_windows_win32_globalization_uspoofSetChecks(void* sc, int32_t ch
 #endif
 }
 
-void windowssys_windows_win32_globalization_uspoofSetRestrictionLevel(void* sc, int32_t restrictionlevel) {
+void windowssysWindowsWin32GlobalizationUspoofSetRestrictionLevel(void* sc, int32_t restrictionlevel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28013,7 +28013,7 @@ void windowssys_windows_win32_globalization_uspoofSetRestrictionLevel(void* sc, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_usprepClose(void* profile) {
+void windowssysWindowsWin32GlobalizationUsprepClose(void* profile) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28034,7 +28034,7 @@ void windowssys_windows_win32_globalization_usprepClose(void* profile) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usprepOpen(void* path, void* filename, void* status) {
+void* windowssysWindowsWin32GlobalizationUsprepOpen(void* path, void* filename, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28058,7 +28058,7 @@ void* windowssys_windows_win32_globalization_usprepOpen(void* path, void* filena
 #endif
 }
 
-void* windowssys_windows_win32_globalization_usprepOpenByType(int32_t type, void* status) {
+void* windowssysWindowsWin32GlobalizationUsprepOpenByType(int32_t type, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28081,7 +28081,7 @@ void* windowssys_windows_win32_globalization_usprepOpenByType(int32_t type, void
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_usprepPrepare(void* prep, void* src, int32_t srclength, void* dest, int32_t destcapacity, int32_t options, void* parseerror, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUsprepPrepare(void* prep, void* src, int32_t srclength, void* dest, int32_t destcapacity, int32_t options, void* parseerror, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28110,7 +28110,7 @@ int32_t windowssys_windows_win32_globalization_usprepPrepare(void* prep, void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextChar32At(void* ut, int64_t nativeindex) {
+int32_t windowssysWindowsWin32GlobalizationUtextChar32At(void* ut, int64_t nativeindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28133,7 +28133,7 @@ int32_t windowssys_windows_win32_globalization_utextChar32At(void* ut, int64_t n
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utextClone(void* dest, void* src, int8_t deep, int8_t readonly, void* status) {
+void* windowssysWindowsWin32GlobalizationUtextClone(void* dest, void* src, int8_t deep, int8_t readonly, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int8_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28159,7 +28159,7 @@ void* windowssys_windows_win32_globalization_utextClone(void* dest, void* src, i
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utextClose(void* ut) {
+void* windowssysWindowsWin32GlobalizationUtextClose(void* ut) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28181,7 +28181,7 @@ void* windowssys_windows_win32_globalization_utextClose(void* ut) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_utextCopy(void* ut, int64_t nativestart, int64_t nativelimit, int64_t destindex, int8_t move, void* status) {
+void windowssysWindowsWin32GlobalizationUtextCopy(void* ut, int64_t nativestart, int64_t nativelimit, int64_t destindex, int8_t move, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, int64_t, int64_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28207,7 +28207,7 @@ void windowssys_windows_win32_globalization_utextCopy(void* ut, int64_t nativest
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextCurrent32(void* ut) {
+int32_t windowssysWindowsWin32GlobalizationUtextCurrent32(void* ut) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28229,7 +28229,7 @@ int32_t windowssys_windows_win32_globalization_utextCurrent32(void* ut) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_utextEquals(void* a, void* b) {
+int8_t windowssysWindowsWin32GlobalizationUtextEquals(void* a, void* b) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28252,7 +28252,7 @@ int8_t windowssys_windows_win32_globalization_utextEquals(void* a, void* b) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextExtract(void* ut, int64_t nativestart, int64_t nativelimit, void* dest, int32_t destcapacity, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUtextExtract(void* ut, int64_t nativestart, int64_t nativelimit, void* dest, int32_t destcapacity, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28279,7 +28279,7 @@ int32_t windowssys_windows_win32_globalization_utextExtract(void* ut, int64_t na
 #endif
 }
 
-void windowssys_windows_win32_globalization_utextFreeze(void* ut) {
+void windowssysWindowsWin32GlobalizationUtextFreeze(void* ut) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28300,7 +28300,7 @@ void windowssys_windows_win32_globalization_utextFreeze(void* ut) {
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_utextGetNativeIndex(void* ut) {
+int64_t windowssysWindowsWin32GlobalizationUtextGetNativeIndex(void* ut) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28322,7 +28322,7 @@ int64_t windowssys_windows_win32_globalization_utextGetNativeIndex(void* ut) {
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_utextGetPreviousNativeIndex(void* ut) {
+int64_t windowssysWindowsWin32GlobalizationUtextGetPreviousNativeIndex(void* ut) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28344,7 +28344,7 @@ int64_t windowssys_windows_win32_globalization_utextGetPreviousNativeIndex(void*
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_utextHasMetaData(void* ut) {
+int8_t windowssysWindowsWin32GlobalizationUtextHasMetaData(void* ut) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28366,7 +28366,7 @@ int8_t windowssys_windows_win32_globalization_utextHasMetaData(void* ut) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_utextIsLengthExpensive(void* ut) {
+int8_t windowssysWindowsWin32GlobalizationUtextIsLengthExpensive(void* ut) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28388,7 +28388,7 @@ int8_t windowssys_windows_win32_globalization_utextIsLengthExpensive(void* ut) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_utextIsWritable(void* ut) {
+int8_t windowssysWindowsWin32GlobalizationUtextIsWritable(void* ut) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28410,7 +28410,7 @@ int8_t windowssys_windows_win32_globalization_utextIsWritable(void* ut) {
 #endif
 }
 
-int8_t windowssys_windows_win32_globalization_utextMoveIndex32(void* ut, int32_t delta) {
+int8_t windowssysWindowsWin32GlobalizationUtextMoveIndex32(void* ut, int32_t delta) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28433,7 +28433,7 @@ int8_t windowssys_windows_win32_globalization_utextMoveIndex32(void* ut, int32_t
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_utextNativeLength(void* ut) {
+int64_t windowssysWindowsWin32GlobalizationUtextNativeLength(void* ut) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28455,7 +28455,7 @@ int64_t windowssys_windows_win32_globalization_utextNativeLength(void* ut) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextNext32(void* ut) {
+int32_t windowssysWindowsWin32GlobalizationUtextNext32(void* ut) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28477,7 +28477,7 @@ int32_t windowssys_windows_win32_globalization_utextNext32(void* ut) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextNext32From(void* ut, int64_t nativeindex) {
+int32_t windowssysWindowsWin32GlobalizationUtextNext32From(void* ut, int64_t nativeindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28500,7 +28500,7 @@ int32_t windowssys_windows_win32_globalization_utextNext32From(void* ut, int64_t
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utextOpenUchars(void* ut, void* s, int64_t length, void* status) {
+void* windowssysWindowsWin32GlobalizationUtextOpenUchars(void* ut, void* s, int64_t length, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28525,7 +28525,7 @@ void* windowssys_windows_win32_globalization_utextOpenUchars(void* ut, void* s, 
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utextOpenUtf8(void* ut, void* s, int64_t length, void* status) {
+void* windowssysWindowsWin32GlobalizationUtextOpenUtf8(void* ut, void* s, int64_t length, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28550,7 +28550,7 @@ void* windowssys_windows_win32_globalization_utextOpenUtf8(void* ut, void* s, in
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextPrevious32(void* ut) {
+int32_t windowssysWindowsWin32GlobalizationUtextPrevious32(void* ut) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28572,7 +28572,7 @@ int32_t windowssys_windows_win32_globalization_utextPrevious32(void* ut) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextPrevious32From(void* ut, int64_t nativeindex) {
+int32_t windowssysWindowsWin32GlobalizationUtextPrevious32From(void* ut, int64_t nativeindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28595,7 +28595,7 @@ int32_t windowssys_windows_win32_globalization_utextPrevious32From(void* ut, int
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utextReplace(void* ut, int64_t nativestart, int64_t nativelimit, void* replacementtext, int32_t replacementlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUtextReplace(void* ut, int64_t nativestart, int64_t nativelimit, void* replacementtext, int32_t replacementlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28622,7 +28622,7 @@ int32_t windowssys_windows_win32_globalization_utextReplace(void* ut, int64_t na
 #endif
 }
 
-void windowssys_windows_win32_globalization_utextSetNativeIndex(void* ut, int64_t nativeindex) {
+void windowssysWindowsWin32GlobalizationUtextSetNativeIndex(void* ut, int64_t nativeindex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28644,7 +28644,7 @@ void windowssys_windows_win32_globalization_utextSetNativeIndex(void* ut, int64_
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utextSetup(void* ut, int32_t extraspace, void* status) {
+void* windowssysWindowsWin32GlobalizationUtextSetup(void* ut, int32_t extraspace, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28668,7 +28668,7 @@ void* windowssys_windows_win32_globalization_utextSetup(void* ut, int32_t extras
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utf8AppendCharSafeBody(void* s, int32_t i, int32_t length, int32_t c, void* piserror) {
+int32_t windowssysWindowsWin32GlobalizationUtf8AppendCharSafeBody(void* s, int32_t i, int32_t length, int32_t c, void* piserror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28694,7 +28694,7 @@ int32_t windowssys_windows_win32_globalization_utf8AppendCharSafeBody(void* s, i
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utf8Back1SafeBody(void* s, int32_t start, int32_t i) {
+int32_t windowssysWindowsWin32GlobalizationUtf8Back1SafeBody(void* s, int32_t start, int32_t i) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28718,7 +28718,7 @@ int32_t windowssys_windows_win32_globalization_utf8Back1SafeBody(void* s, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utf8NextCharSafeBody(void* s, void* pi, int32_t length, int32_t c, int8_t strict) {
+int32_t windowssysWindowsWin32GlobalizationUtf8NextCharSafeBody(void* s, void* pi, int32_t length, int32_t c, int8_t strict) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28744,7 +28744,7 @@ int32_t windowssys_windows_win32_globalization_utf8NextCharSafeBody(void* s, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utf8PrevCharSafeBody(void* s, int32_t start, void* pi, int32_t c, int8_t strict) {
+int32_t windowssysWindowsWin32GlobalizationUtf8PrevCharSafeBody(void* s, int32_t start, void* pi, int32_t c, int8_t strict) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28770,7 +28770,7 @@ int32_t windowssys_windows_win32_globalization_utf8PrevCharSafeBody(void* s, int
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_utmscaleFromInt64(int64_t othertime, int32_t timescale, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUtmscaleFromInt64(int64_t othertime, int32_t timescale, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28794,7 +28794,7 @@ int64_t windowssys_windows_win32_globalization_utmscaleFromInt64(int64_t otherti
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_utmscaleGetTimeScaleValue(int32_t timescale, int32_t value, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUtmscaleGetTimeScaleValue(int32_t timescale, int32_t value, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28818,7 +28818,7 @@ int64_t windowssys_windows_win32_globalization_utmscaleGetTimeScaleValue(int32_t
 #endif
 }
 
-int64_t windowssys_windows_win32_globalization_utmscaleToInt64(int64_t universaltime, int32_t timescale, void* status) {
+int64_t windowssysWindowsWin32GlobalizationUtmscaleToInt64(int64_t universaltime, int32_t timescale, void* status) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28842,7 +28842,7 @@ int64_t windowssys_windows_win32_globalization_utmscaleToInt64(int64_t universal
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utraceFormat(void* outbuf, int32_t capacity, int32_t indent, void* fmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32GlobalizationUtraceFormat(void* outbuf, int32_t capacity, int32_t indent, void* fmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(void*, int32_t, int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -28878,7 +28878,7 @@ int32_t windowssys_windows_win32_globalization_utraceFormat(void* outbuf, int32_
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utraceFunctionName(int32_t fnnumber) {
+void* windowssysWindowsWin32GlobalizationUtraceFunctionName(int32_t fnnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28900,7 +28900,7 @@ void* windowssys_windows_win32_globalization_utraceFunctionName(int32_t fnnumber
 #endif
 }
 
-void windowssys_windows_win32_globalization_utraceGetFunctions(void* context, void* e, void* x, void* d) {
+void windowssysWindowsWin32GlobalizationUtraceGetFunctions(void* context, void* e, void* x, void* d) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28924,7 +28924,7 @@ void windowssys_windows_win32_globalization_utraceGetFunctions(void* context, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utraceGetLevel(void) {
+int32_t windowssysWindowsWin32GlobalizationUtraceGetLevel(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -28945,7 +28945,7 @@ int32_t windowssys_windows_win32_globalization_utraceGetLevel(void) {
 #endif
 }
 
-void windowssys_windows_win32_globalization_utraceSetFunctions(void* context, void* e, void* x, void* d) {
+void windowssysWindowsWin32GlobalizationUtraceSetFunctions(void* context, void* e, void* x, void* d) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -28969,7 +28969,7 @@ void windowssys_windows_win32_globalization_utraceSetFunctions(void* context, vo
 #endif
 }
 
-void windowssys_windows_win32_globalization_utraceSetLevel(int32_t tracelevel) {
+void windowssysWindowsWin32GlobalizationUtraceSetLevel(int32_t tracelevel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -28990,7 +28990,7 @@ void windowssys_windows_win32_globalization_utraceSetLevel(int32_t tracelevel) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utraceVformat(void* outbuf, int32_t capacity, int32_t indent, void* fmt, void* args) {
+int32_t windowssysWindowsWin32GlobalizationUtraceVformat(void* outbuf, int32_t capacity, int32_t indent, void* fmt, void* args) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29016,7 +29016,7 @@ int32_t windowssys_windows_win32_globalization_utraceVformat(void* outbuf, int32
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utransClone(void* trans, void* status) {
+void* windowssysWindowsWin32GlobalizationUtransClone(void* trans, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29039,7 +29039,7 @@ void* windowssys_windows_win32_globalization_utransClone(void* trans, void* stat
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransClose(void* trans) {
+void windowssysWindowsWin32GlobalizationUtransClose(void* trans) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29060,7 +29060,7 @@ void windowssys_windows_win32_globalization_utransClose(void* trans) {
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utransCountAvailableIds(void) {
+int32_t windowssysWindowsWin32GlobalizationUtransCountAvailableIds(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -29081,7 +29081,7 @@ int32_t windowssys_windows_win32_globalization_utransCountAvailableIds(void) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utransGetSourceSet(void* trans, int8_t ignorefilter, void* fillin, void* status) {
+void* windowssysWindowsWin32GlobalizationUtransGetSourceSet(void* trans, int8_t ignorefilter, void* fillin, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29106,7 +29106,7 @@ void* windowssys_windows_win32_globalization_utransGetSourceSet(void* trans, int
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utransGetUnicodeId(void* trans, void* resultlength) {
+void* windowssysWindowsWin32GlobalizationUtransGetUnicodeId(void* trans, void* resultlength) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29129,7 +29129,7 @@ void* windowssys_windows_win32_globalization_utransGetUnicodeId(void* trans, voi
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utransOpenIds(void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUtransOpenIds(void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29151,7 +29151,7 @@ void* windowssys_windows_win32_globalization_utransOpenIds(void* perrorcode) {
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utransOpenInverse(void* trans, void* status) {
+void* windowssysWindowsWin32GlobalizationUtransOpenInverse(void* trans, void* status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29174,7 +29174,7 @@ void* windowssys_windows_win32_globalization_utransOpenInverse(void* trans, void
 #endif
 }
 
-void* windowssys_windows_win32_globalization_utransOpenU(void* id, int32_t idlength, int32_t dir, void* rules, int32_t ruleslength, void* parseerror, void* perrorcode) {
+void* windowssysWindowsWin32GlobalizationUtransOpenU(void* id, int32_t idlength, int32_t dir, void* rules, int32_t ruleslength, void* parseerror, void* perrorcode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29202,7 +29202,7 @@ void* windowssys_windows_win32_globalization_utransOpenU(void* id, int32_t idlen
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransRegister(void* adoptedtrans, void* status) {
+void windowssysWindowsWin32GlobalizationUtransRegister(void* adoptedtrans, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29224,7 +29224,7 @@ void windowssys_windows_win32_globalization_utransRegister(void* adoptedtrans, v
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransSetFilter(void* trans, void* filterpattern, int32_t filterpatternlen, void* status) {
+void windowssysWindowsWin32GlobalizationUtransSetFilter(void* trans, void* filterpattern, int32_t filterpatternlen, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29248,7 +29248,7 @@ void windowssys_windows_win32_globalization_utransSetFilter(void* trans, void* f
 #endif
 }
 
-int32_t windowssys_windows_win32_globalization_utransToRules(void* trans, int8_t escapeunprintable, void* result, int32_t resultlength, void* status) {
+int32_t windowssysWindowsWin32GlobalizationUtransToRules(void* trans, int8_t escapeunprintable, void* result, int32_t resultlength, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int8_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29274,7 +29274,7 @@ int32_t windowssys_windows_win32_globalization_utransToRules(void* trans, int8_t
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransTrans(void* trans, void* rep, void* repfunc, int32_t start, void* limit, void* status) {
+void windowssysWindowsWin32GlobalizationUtransTrans(void* trans, void* rep, void* repfunc, int32_t start, void* limit, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29300,7 +29300,7 @@ void windowssys_windows_win32_globalization_utransTrans(void* trans, void* rep, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransTransIncremental(void* trans, void* rep, void* repfunc, void* pos, void* status) {
+void windowssysWindowsWin32GlobalizationUtransTransIncremental(void* trans, void* rep, void* repfunc, void* pos, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29325,7 +29325,7 @@ void windowssys_windows_win32_globalization_utransTransIncremental(void* trans, 
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransTransIncrementalUchars(void* trans, void* text, void* textlength, int32_t textcapacity, void* pos, void* status) {
+void windowssysWindowsWin32GlobalizationUtransTransIncrementalUchars(void* trans, void* text, void* textlength, int32_t textcapacity, void* pos, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29351,7 +29351,7 @@ void windowssys_windows_win32_globalization_utransTransIncrementalUchars(void* t
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransTransUchars(void* trans, void* text, void* textlength, int32_t textcapacity, int32_t start, void* limit, void* status) {
+void windowssysWindowsWin32GlobalizationUtransTransUchars(void* trans, void* text, void* textlength, int32_t textcapacity, int32_t start, void* limit, void* status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -29378,7 +29378,7 @@ void windowssys_windows_win32_globalization_utransTransUchars(void* trans, void*
 #endif
 }
 
-void windowssys_windows_win32_globalization_utransUnregisterId(void* id, int32_t idlength) {
+void windowssysWindowsWin32GlobalizationUtransUnregisterId(void* id, int32_t idlength) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;

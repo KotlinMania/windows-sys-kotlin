@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_shutdown_abortSystemShutdownA(void* lpmachinename) {
+int32_t windowssysWindowsWin32SystemShutdownAbortSystemShutdownA(void* lpmachinename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_shutdown_abortSystemShutdownA(void* lpma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_abortSystemShutdownW(void* lpmachinename) {
+int32_t windowssysWindowsWin32SystemShutdownAbortSystemShutdownW(void* lpmachinename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_system_shutdown_abortSystemShutdownW(void* lpma
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_shutdown_checkForHiberboot(void* phiberboot, bool bclearflag) {
+uint32_t windowssysWindowsWin32SystemShutdownCheckForHiberboot(void* phiberboot, bool bclearflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ uint32_t windowssys_windows_win32_system_shutdown_checkForHiberboot(void* phiber
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_exitWindowsEx(uint32_t uflags, uint32_t dwreason) {
+int32_t windowssysWindowsWin32SystemShutdownExitWindowsEx(uint32_t uflags, uint32_t dwreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_system_shutdown_exitWindowsEx(uint32_t uflags, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_shutdown_initiateShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason) {
+uint32_t windowssysWindowsWin32SystemShutdownInitiateShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ uint32_t windowssys_windows_win32_system_shutdown_initiateShutdownA(void* lpmach
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_shutdown_initiateShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason) {
+uint32_t windowssysWindowsWin32SystemShutdownInitiateShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwgraceperiod, uint32_t dwshutdownflags, uint32_t dwreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -157,7 +157,7 @@ uint32_t windowssys_windows_win32_system_shutdown_initiateShutdownW(void* lpmach
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown) {
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason) {
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExA(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -210,7 +210,7 @@ int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason) {
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown, uint32_t dwreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -237,7 +237,7 @@ int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown) {
+int32_t windowssysWindowsWin32SystemShutdownInitiateSystemShutdownW(void* lpmachinename, void* lpmessage, uint32_t dwtimeout, int32_t bforceappsclosed, int32_t brebootaftershutdown) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -263,7 +263,7 @@ int32_t windowssys_windows_win32_system_shutdown_initiateSystemShutdownW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_lockWorkStation(void) {
+int32_t windowssysWindowsWin32SystemShutdownLockWorkStation(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -284,7 +284,7 @@ int32_t windowssys_windows_win32_system_shutdown_lockWorkStation(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate(void* hwnd, void* pwszreason) {
+int32_t windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate(void* hwnd, void* pwszreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -307,7 +307,7 @@ int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy(void* hwnd) {
+int32_t windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -329,7 +329,7 @@ int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery(void* hwnd, void* pwszbuff, void* pcchbuff) {
+int32_t windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery(void* hwnd, void* pwszbuff, void* pcchbuff) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

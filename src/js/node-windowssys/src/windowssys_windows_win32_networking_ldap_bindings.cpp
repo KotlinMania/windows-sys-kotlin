@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -74,7 +74,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetLastError_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapMapErrorToWin32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ldaperror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -99,7 +99,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUTF8ToUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsrcstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cchsrc = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsrcstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cchsrc = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berAllocT_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerAllocT_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t options = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berAllocT_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berBvdup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerBvdup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berBvdup_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berBvecfree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerBvecfree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -233,7 +233,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berBvecfree_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berBvfree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerBvfree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -255,7 +255,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berBvfree_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berFirstElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerFirstElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -284,7 +284,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berFirstElement_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berFlatten_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerFlatten_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pberval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -311,7 +311,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berFlatten_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fbuf = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -335,7 +335,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berFree_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -360,7 +360,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berInit_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berNextElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerNextElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berNextElement_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berPeekTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerPeekTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -416,7 +416,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berPeekTag_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berPrintf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerPrintf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -454,7 +454,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berPrintf_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berScanf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerScanf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -492,7 +492,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berScanf_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_berSkipTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapBerSkipTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pberelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -519,7 +519,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berSkipTag_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapCldapOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -546,7 +546,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpen_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapCldapOpenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -573,7 +573,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpenA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapCldapOpenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -600,7 +600,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpenW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAbandon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAbandon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msgid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -627,7 +627,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAbandon_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -656,7 +656,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAdd_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -685,7 +685,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -714,7 +714,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -749,7 +749,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExt_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddExtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -784,7 +784,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -819,7 +819,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddExtS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -852,7 +852,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddExtSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -885,7 +885,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtSA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddExtSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -918,7 +918,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtSW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddS_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -976,7 +976,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddSA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapAddSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1005,7 +1005,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddSW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapBind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapBind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1036,7 +1036,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBind_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapBindA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1067,7 +1067,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapBindW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1098,7 +1098,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapBindS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1129,7 +1129,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindS_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapBindSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1160,7 +1160,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindSA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapBindSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1191,7 +1191,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindSW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCheckFilterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCheckFilterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1218,7 +1218,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCheckFilterA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCheckFilterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCheckFilterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* searchfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1245,7 +1245,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCheckFilterW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1270,7 +1270,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCleanup_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t messagenumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1297,7 +1297,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1328,7 +1328,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompare_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1359,7 +1359,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1390,7 +1390,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1429,7 +1429,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExt_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareExtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1468,7 +1468,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1507,7 +1507,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareExtS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1544,7 +1544,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtS_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareExtSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1581,7 +1581,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareExtSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1618,7 +1618,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1649,7 +1649,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareS_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1680,7 +1680,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareSA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCompareSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1711,7 +1711,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareSW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapConnFromMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapConnFromMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* primaryconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1738,7 +1738,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapConnFromMsg_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timeout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1765,7 +1765,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapConnect_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapControlFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1790,7 +1790,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFree_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapControlFreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1815,7 +1815,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFreeA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapControlFreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1840,7 +1840,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFreeW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapControlsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1865,7 +1865,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFree_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapControlsFreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1890,7 +1890,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFreeA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapControlsFreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1915,7 +1915,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFreeW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCountEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1942,7 +1942,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountEntries_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountReferences_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCountReferences_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1969,7 +1969,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountReferences_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCountValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1994,7 +1994,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValues_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCountValuesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2019,7 +2019,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCountValuesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2044,7 +2044,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCountValuesLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2069,7 +2069,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesLen_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreatePageControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pagesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2102,7 +2102,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pagesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2135,7 +2135,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pagesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2168,7 +2168,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreateSortControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2199,7 +2199,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2230,7 +2230,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2261,7 +2261,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vlvinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2292,7 +2292,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateVlvControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vlvinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2323,7 +2323,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateVlvControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2350,7 +2350,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDelete_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2377,7 +2377,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2404,7 +2404,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2437,7 +2437,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExt_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteExtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2470,7 +2470,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2503,7 +2503,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteExtS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2534,7 +2534,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtS_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2565,7 +2565,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtSA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2596,7 +2596,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtSW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2623,7 +2623,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2650,7 +2650,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteSA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDeleteSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2677,7 +2677,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteSW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDn2ufn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2702,7 +2702,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufn_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDn2ufnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2727,7 +2727,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufnA_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapDn2ufnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2752,7 +2752,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufnW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2783,7 +2783,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEncodeSortContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2814,7 +2814,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEncodeSortContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2string_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapErr2string_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t err = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2839,7 +2839,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2string_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2stringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapErr2stringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t err = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2864,7 +2864,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2stringA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2stringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapErr2stringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t err = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2889,7 +2889,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2stringW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilterelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sourcelength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2920,7 +2920,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilterelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sourcelength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2951,7 +2951,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilterelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sourcelength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2982,7 +2982,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExplodeDn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t notypes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3009,7 +3009,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDn_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExplodeDnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t notypes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3036,7 +3036,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDnA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExplodeDnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t notypes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3063,7 +3063,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDnW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExtendedOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3098,7 +3098,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3133,7 +3133,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3168,7 +3168,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3205,7 +3205,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3242,7 +3242,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFirstAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3271,7 +3271,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttribute_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttributeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3300,7 +3300,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttributeA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttributeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3329,7 +3329,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttributeW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFirstEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3356,7 +3356,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstEntry_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFirstReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3383,7 +3383,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstReference_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControls_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFreeControls_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3408,7 +3408,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControls_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControlsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFreeControlsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3433,7 +3433,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControlsA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControlsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapFreeControlsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* controls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3458,7 +3458,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControlsW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetDn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3485,7 +3485,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDn_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetDnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3512,7 +3512,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDnA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetDnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3539,7 +3539,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDnW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetNextPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t searchhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3570,7 +3570,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPage_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPageS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetNextPageS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t searchhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3605,7 +3605,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPageS_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3634,7 +3634,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetOption_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetOptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetOptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3663,7 +3663,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetOptionW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetPagedCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetPagedCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t searchblock = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3694,7 +3694,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetPagedCount_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3723,7 +3723,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValues_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetValuesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3752,7 +3752,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetValuesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3781,7 +3781,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetValuesLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3810,7 +3810,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLen_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3839,7 +3839,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLenA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3868,7 +3868,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLenW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3895,7 +3895,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapInit_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapInitA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapInitA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3922,7 +3922,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapInitA_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapInitW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapInitW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3949,7 +3949,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapInitW_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapMemfree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* block = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3971,7 +3971,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfree_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapMemfreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* block = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3993,7 +3993,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfreeA_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapMemfreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* block = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4015,7 +4015,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfreeW_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4044,7 +4044,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModify_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4073,7 +4073,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4102,7 +4102,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4137,7 +4137,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExt_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyExtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4172,7 +4172,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4207,7 +4207,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyExtS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4240,7 +4240,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtS_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyExtSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4273,7 +4273,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtSA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyExtSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4306,7 +4306,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtSW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifyS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4335,7 +4335,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifySA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifySA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4364,7 +4364,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifySA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifySW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModifySW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4393,7 +4393,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifySW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4422,7 +4422,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4453,7 +4453,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4484,7 +4484,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2A_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4515,7 +4515,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2W_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2S_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn2S_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4546,7 +4546,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2S_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2SA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn2SA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4577,7 +4577,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2SA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2SW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdn2SW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4608,7 +4608,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2SW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4637,7 +4637,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4666,7 +4666,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdnS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4695,7 +4695,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdnSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4724,7 +4724,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnSA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapModrdnSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4753,7 +4753,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnSW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapMsgfree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapMsgfree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4778,7 +4778,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMsgfree_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapNextAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4807,7 +4807,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttribute_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttributeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapNextAttributeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4836,7 +4836,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttributeA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttributeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapNextAttributeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4865,7 +4865,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttributeW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapNextEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4892,7 +4892,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextEntry_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapNextReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4919,7 +4919,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextReference_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4946,7 +4946,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpen_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapOpenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4973,7 +4973,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpenA_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapOpenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5000,7 +5000,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpenW_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5033,7 +5033,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseExtendedRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5066,7 +5066,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseExtendedRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParsePageControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servercontrols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5097,7 +5097,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParsePageControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servercontrols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5128,7 +5128,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParsePageControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servercontrols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5159,7 +5159,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5188,7 +5188,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReference_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReferenceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseReferenceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5217,7 +5217,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReferenceA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReferenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseReferenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5246,7 +5246,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReferenceW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5285,7 +5285,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResult_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseResultA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5324,7 +5324,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseResultW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5363,7 +5363,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseSortControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5394,7 +5394,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseSortControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5425,7 +5425,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseSortControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5456,7 +5456,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5491,7 +5491,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* control = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5526,7 +5526,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapPerror_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapPerror_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* msg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5550,7 +5550,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapPerror_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapRenameExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5589,7 +5589,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExt_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapRenameExtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5628,7 +5628,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapRenameExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5667,7 +5667,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapRenameExtS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5704,7 +5704,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtS_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapRenameExtSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5741,7 +5741,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapRenameExtSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5778,7 +5778,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msgid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5811,7 +5811,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapResult_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapResult2error_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapResult2error_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* res = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5840,7 +5840,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapResult2error_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSaslBindA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5877,7 +5877,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSaslBindW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5914,7 +5914,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSaslBindSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5951,7 +5951,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSaslBindSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5988,7 +5988,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6023,7 +6023,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearch_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6058,7 +6058,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6093,7 +6093,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t searchblock = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6120,7 +6120,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchAbandonPag
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6165,7 +6165,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExt_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchExtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6210,7 +6210,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6255,7 +6255,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchExtS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6300,7 +6300,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtS_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchExtSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6345,7 +6345,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchExtSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6390,7 +6390,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchInitPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6435,7 +6435,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPage_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6480,7 +6480,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* distinguishedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6525,7 +6525,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6562,7 +6562,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6599,7 +6599,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6636,7 +6636,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchSt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6675,7 +6675,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSt_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchStA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6714,7 +6714,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSearchStW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* base = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6753,7 +6753,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetDbgFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSetDbgFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t newflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6778,7 +6778,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetDbgFlags_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* debugprintroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6800,7 +6800,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSetOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6829,7 +6829,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetOption_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetOptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSetOptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6858,7 +6858,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetOptionW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSimpleBind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6887,7 +6887,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBind_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSimpleBindA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6916,7 +6916,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSimpleBindW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6945,7 +6945,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSimpleBindS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6974,7 +6974,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindS_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7003,7 +7003,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindSA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7032,7 +7032,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindSW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSslinit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7061,7 +7061,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinit_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinitA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSslinitA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7090,7 +7090,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinitA_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinitW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapSslinitW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t portnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7119,7 +7119,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinitW_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartTlsSA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapStartTlsSA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serverreturnvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7152,7 +7152,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartTlsSA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartTlsSW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapStartTlsSW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serverreturnvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7185,7 +7185,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartTlsSW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* instance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7212,7 +7212,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartup_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapStopTlsS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapStopTlsS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* externalhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7237,7 +7237,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStopTlsS_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUfn2dn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ufn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7264,7 +7264,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dn_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUfn2dnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ufn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7291,7 +7291,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dnA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUfn2dnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ufn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7318,7 +7318,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dnW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnbind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUnbind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7343,7 +7343,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnbind_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnbindS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapUnbindS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ld = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7368,7 +7368,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnbindS_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapValueFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7393,7 +7393,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFree_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapValueFreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7418,7 +7418,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapValueFreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7443,7 +7443,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingLdapLdapValueFreeLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vals = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7469,249 +7469,249 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeLen_nap
 }
 
 static void register_windows_win32_networking_ldap_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetLastError_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berAllocT", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berAllocT_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berBvdup", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berBvdup_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berBvecfree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berBvecfree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berBvfree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berBvfree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berFirstElement", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berFirstElement_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berFlatten", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berFlatten_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berFree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berFree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berInit", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berInit_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berNextElement", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berNextElement_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berPeekTag", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berPeekTag_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berPrintf", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berPrintf_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berScanf", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berScanf_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_berSkipTag", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_berSkipTag_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_cldapOpen", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_cldapOpen_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_cldapOpenA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_cldapOpenA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_cldapOpenW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_cldapOpenW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAbandon", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAbandon_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAdd", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAdd_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddExt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddExt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddExtA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddExtA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddExtW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddExtW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddExtS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddExtS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddExtSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddExtSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddExtSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddExtSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapAddSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapAddSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapBind", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapBind_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapBindA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapBindA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapBindW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapBindW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapBindS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapBindS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapBindSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapBindSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapBindSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapBindSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCheckFilterA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCheckFilterA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCheckFilterW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCheckFilterW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCleanup", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCleanup_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompare", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompare_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareExt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareExt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareExtA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareExtA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareExtW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareExtW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareExtS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareExtS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareExtSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareExtSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareExtSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareExtSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCompareSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCompareSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapConnFromMsg", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapConnFromMsg_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapConnect", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapConnect_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapControlFree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapControlFree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapControlFreeA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapControlFreeA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapControlFreeW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapControlFreeW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapControlsFree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapControlsFree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapControlsFreeA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapControlsFreeA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapControlsFreeW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapControlsFreeW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCountEntries", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCountEntries_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCountReferences", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCountReferences_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCountValues", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCountValues_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCountValuesA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCountValuesA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCountValuesW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCountValuesW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCountValuesLen", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCountValuesLen_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreatePageControl", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreatePageControl_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreatePageControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreatePageControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreatePageControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreatePageControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreateSortControl", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreateSortControl_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreateSortControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreateSortControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreateSortControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreateSortControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDelete", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDelete_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteExt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteExt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteExtA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteExtA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteExtW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteExtW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteExtS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteExtS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteExtSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteExtSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteExtSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteExtSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDeleteSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDeleteSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDn2ufn", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDn2ufn_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDn2ufnA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDn2ufnA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapDn2ufnW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapDn2ufnW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapErr2string", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapErr2string_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapErr2stringA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapErr2stringA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapErr2stringW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapErr2stringW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExplodeDn", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExplodeDn_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExplodeDnA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExplodeDnA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExplodeDnW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExplodeDnW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExtendedOperation", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExtendedOperation_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExtendedOperationA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExtendedOperationA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExtendedOperationW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExtendedOperationW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFirstAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFirstAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFirstAttributeA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFirstAttributeA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFirstAttributeW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFirstAttributeW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFirstEntry", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFirstEntry_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFirstReference", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFirstReference_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFreeControls", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFreeControls_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFreeControlsA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFreeControlsA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapFreeControlsW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapFreeControlsW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetDn", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetDn_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetDnA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetDnA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetDnW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetDnW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetNextPage", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetNextPage_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetNextPageS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetNextPageS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetOption", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetOption_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetOptionW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetOptionW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetPagedCount", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetPagedCount_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetValues", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetValues_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetValuesA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetValuesA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetValuesW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetValuesW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetValuesLen", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetValuesLen_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetValuesLenA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetValuesLenA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapGetValuesLenW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapGetValuesLenW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapInit", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapInit_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapInitA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapInitA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapInitW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapInitW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapMemfree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapMemfree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapMemfreeA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapMemfreeA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapMemfreeW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapMemfreeW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModify", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModify_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyExt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyExt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyExtA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyExtA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyExtW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyExtW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyExtS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyExtS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyExtSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyExtSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyExtSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyExtSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifyS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifyS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifySA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifySA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModifySW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModifySW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn2", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn2_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn2A", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn2A_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn2W", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn2W_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn2S", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn2S_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn2SA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn2SA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdn2SW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdn2SW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdnA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdnA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdnW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdnW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdnS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdnS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdnSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdnSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapModrdnSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapModrdnSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapMsgfree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapMsgfree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapNextAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapNextAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapNextAttributeA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapNextAttributeA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapNextAttributeW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapNextAttributeW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapNextEntry", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapNextEntry_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapNextReference", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapNextReference_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapOpen", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapOpen_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapOpenA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapOpenA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapOpenW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapOpenW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParsePageControl", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParsePageControl_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParsePageControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParsePageControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParsePageControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParsePageControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseReference", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseReference_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseReferenceA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseReferenceA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseReferenceW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseReferenceW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseResult", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseResult_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseResultA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseResultA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseResultW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseResultW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseSortControl", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseSortControl_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseSortControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseSortControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseSortControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseSortControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseVlvControlA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseVlvControlA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapParseVlvControlW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapParseVlvControlW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapPerror", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapPerror_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapRenameExt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapRenameExt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapRenameExtA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapRenameExtA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapRenameExtW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapRenameExtW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapRenameExtS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapRenameExtS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapRenameExtSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapRenameExtSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapRenameExtSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapRenameExtSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapResult", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapResult_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapResult2error", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapResult2error_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSaslBindA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSaslBindA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSaslBindW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSaslBindW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSaslBindSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSaslBindSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSaslBindSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSaslBindSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearch", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearch_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchExt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchExt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchExtA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchExtA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchExtW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchExtW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchExtS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchExtS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchExtSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchExtSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchExtSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchExtSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchInitPage", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchInitPage_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchInitPageA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchInitPageW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchSt", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchSt_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchStA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchStA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSearchStW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSearchStW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSetDbgFlags", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSetDbgFlags_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSetOption", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSetOption_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSetOptionW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSetOptionW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSimpleBind", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSimpleBind_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSimpleBindA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSimpleBindA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSimpleBindW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSimpleBindW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSimpleBindS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSimpleBindS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSimpleBindSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSimpleBindSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSimpleBindSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSimpleBindSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSslinit", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSslinit_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSslinitA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSslinitA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapSslinitW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapSslinitW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapStartTlsSA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapStartTlsSA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapStartTlsSW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapStartTlsSW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapStartup", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapStartup_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapStopTlsS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapStopTlsS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUfn2dn", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUfn2dn_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUfn2dnA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUfn2dnA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUfn2dnW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUfn2dnW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUnbind", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUnbind_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapUnbindS", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapUnbindS_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapValueFree", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapValueFree_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapValueFreeA", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapValueFreeA_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapValueFreeW", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapValueFreeW_napi));
-    exports.Set("windowssys_windows_win32_networking_ldap_ldapValueFreeLen", Napi::Function::New(env, windowssys_windows_win32_networking_ldap_ldapValueFreeLen_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetLastError", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetLastError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapMapErrorToWin32", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapMapErrorToWin32_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUTF8ToUnicode", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUTF8ToUnicode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerAllocT", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerAllocT_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerBvdup", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerBvdup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerBvecfree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerBvecfree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerBvfree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerBvfree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerFirstElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerFirstElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerFlatten", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerFlatten_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerFree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerInit", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerInit_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerNextElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerNextElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerPeekTag", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerPeekTag_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerPrintf", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerPrintf_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerScanf", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerScanf_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapBerSkipTag", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapBerSkipTag_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapCldapOpen", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapCldapOpen_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapCldapOpenA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapCldapOpenA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapCldapOpenW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapCldapOpenW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAbandon", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAbandon_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAdd", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAdd_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddExt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddExt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddExtA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddExtA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddExtW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddExtW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddExtS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddExtS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddExtSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddExtSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddExtSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddExtSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapAddSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapAddSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapBind", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapBind_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapBindA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapBindA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapBindW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapBindW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapBindS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapBindS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapBindSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapBindSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapBindSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapBindSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCheckFilterA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCheckFilterA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCheckFilterW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCheckFilterW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCleanup", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCleanup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompare", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompare_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareExt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareExt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareExtA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareExtA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareExtW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareExtW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareExtS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareExtS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareExtSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareExtSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareExtSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareExtSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCompareSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCompareSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapConnFromMsg", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapConnFromMsg_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapControlFree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapControlFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapControlFreeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapControlFreeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapControlFreeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapControlFreeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapControlsFree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapControlsFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapControlsFreeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapControlsFreeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapControlsFreeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapControlsFreeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCountEntries", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCountEntries_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCountReferences", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCountReferences_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCountValues", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCountValues_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCountValuesA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCountValuesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCountValuesW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCountValuesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCountValuesLen", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCountValuesLen_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreatePageControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreatePageControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreateSortControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreateSortControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDelete", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDelete_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteExt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteExt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteExtA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteExtA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteExtW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteExtW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteExtS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteExtS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDeleteSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDeleteSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDn2ufn", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDn2ufn_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDn2ufnA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDn2ufnA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapDn2ufnW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapDn2ufnW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapErr2string", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapErr2string_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapErr2stringA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapErr2stringA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapErr2stringW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapErr2stringW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExplodeDn", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExplodeDn_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExplodeDnA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExplodeDnA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExplodeDnW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExplodeDnW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExtendedOperation", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExtendedOperation_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFirstAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFirstAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFirstEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFirstEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFirstReference", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFirstReference_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFreeControls", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFreeControls_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFreeControlsA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFreeControlsA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapFreeControlsW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapFreeControlsW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetDn", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetDn_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetDnA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetDnA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetDnW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetDnW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetNextPage", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetNextPage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetNextPageS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetNextPageS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetOption", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetOption_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetOptionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetOptionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetPagedCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetPagedCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetValues", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetValues_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetValuesA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetValuesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetValuesW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetValuesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetValuesLen", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetValuesLen_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapInit", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapInit_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapInitA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapInitA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapInitW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapInitW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapMemfree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapMemfree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapMemfreeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapMemfreeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapMemfreeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapMemfreeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModify", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModify_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyExt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyExt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyExtA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyExtA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyExtW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyExtW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyExtS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyExtS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyExtSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyExtSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyExtSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyExtSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifyS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifyS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifySA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifySA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModifySW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModifySW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn2", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn2A", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn2A_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn2W", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn2W_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn2S", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn2S_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn2SA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn2SA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdn2SW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdn2SW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdnA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdnA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdnW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdnW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdnS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdnS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdnSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdnSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapModrdnSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapModrdnSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapMsgfree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapMsgfree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapNextAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapNextAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapNextAttributeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapNextAttributeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapNextAttributeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapNextAttributeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapNextEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapNextEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapNextReference", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapNextReference_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapOpen", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapOpen_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapOpenA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapOpenA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapOpenW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapOpenW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParsePageControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParsePageControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParsePageControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParsePageControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParsePageControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParsePageControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseReference", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseReference_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseReferenceA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseReferenceA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseReferenceW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseReferenceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseResult", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseResult_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseResultA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseResultA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseResultW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseResultW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseSortControl", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseSortControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseSortControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseSortControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseSortControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseSortControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapPerror", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapPerror_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapRenameExt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapRenameExt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapRenameExtA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapRenameExtA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapRenameExtW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapRenameExtW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapRenameExtS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapRenameExtS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapRenameExtSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapRenameExtSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapRenameExtSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapRenameExtSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapResult", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapResult_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapResult2error", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapResult2error_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSaslBindA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSaslBindA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSaslBindW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSaslBindW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSaslBindSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSaslBindSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSaslBindSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSaslBindSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearch", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearch_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchExt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchExt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchExtA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchExtA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchExtW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchExtW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchExtS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchExtS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchExtSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchExtSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchExtSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchExtSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchInitPage", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchInitPage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchSt", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchSt_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchStA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchStA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSearchStW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSearchStW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSetDbgFlags", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSetDbgFlags_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSetOption", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSetOption_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSetOptionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSetOptionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSimpleBind", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSimpleBind_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSimpleBindA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSimpleBindA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSimpleBindW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSimpleBindW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSimpleBindS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSimpleBindS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSslinit", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSslinit_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSslinitA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSslinitA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapSslinitW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapSslinitW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapStartTlsSA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapStartTlsSA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapStartTlsSW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapStartTlsSW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapStartup", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapStartup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapStopTlsS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapStopTlsS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUfn2dn", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUfn2dn_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUfn2dnA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUfn2dnA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUfn2dnW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUfn2dnW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUnbind", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUnbind_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapUnbindS", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapUnbindS_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapValueFree", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapValueFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapValueFreeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapValueFreeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapValueFreeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapValueFreeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingLdapLdapValueFreeLen", Napi::Function::New(env, windowssysWindowsWin32NetworkingLdapLdapValueFreeLen_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_ldap_napi, nullptr };

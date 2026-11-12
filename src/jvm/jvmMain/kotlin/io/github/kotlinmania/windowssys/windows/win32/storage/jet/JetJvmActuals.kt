@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetApiPtr
@@ -11,1380 +13,1431 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.
 
 private object WindowsWin32StorageJetJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32StorageJetJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetAddColumnA(sesid: Long, tableid: Long, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: Int, pcolumnid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetAddColumnA(sesid: Long, tableid: Long, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: Int, pcolumnid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetAddColumnW(sesid: Long, tableid: Long, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: Int, pcolumnid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetAddColumnW(sesid: Long, tableid: Long, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: Int, pcolumnid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetAttachDatabase2A(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetAttachDatabase2A(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetAttachDatabase2W(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetAttachDatabase2W(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetAttachDatabaseA(sesid: Long, szfilename: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetAttachDatabaseA(sesid: Long, szfilename: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetAttachDatabaseW(sesid: Long, szfilename: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetAttachDatabaseW(sesid: Long, szfilename: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBackupA(szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBackupA(szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBackupInstanceA(instance: Long, szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBackupInstanceA(instance: Long, szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBackupInstanceW(instance: Long, szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBackupInstanceW(instance: Long, szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBackupW(szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBackupW(szbackuppath: Long, grbit: Int, pfnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginExternalBackup(grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginExternalBackup(grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(instance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginSessionA(instance: Long, psesid: Long, szusername: Long, szpassword: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginSessionA(instance: Long, psesid: Long, szusername: Long, szpassword: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginSessionW(instance: Long, psesid: Long, szusername: Long, szpassword: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginSessionW(instance: Long, psesid: Long, szusername: Long, szpassword: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginTransaction(sesid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginTransaction(sesid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginTransaction2(sesid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginTransaction2(sesid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetBeginTransaction3(sesid: Long, trxid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetBeginTransaction3(sesid: Long, trxid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCloseDatabase(sesid: Long, dbid: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCloseDatabase(sesid: Long, dbid: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCloseFile(hffile: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCloseFile(hffile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCloseFileInstance(instance: Long, hffile: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCloseFileInstance(instance: Long, hffile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCloseTable(sesid: Long, tableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCloseTable(sesid: Long, tableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCommitTransaction(sesid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCommitTransaction(sesid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCommitTransaction2(sesid: Long, grbit: Int, cmsecdurablecommit: Int, pcommitid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCommitTransaction2(sesid: Long, grbit: Int, cmsecdurablecommit: Int, pcommitid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCompactA(sesid: Long, szdatabasesrc: Long, szdatabasedest: Long, pfnstatus: Long, pconvert: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCompactA(sesid: Long, szdatabasesrc: Long, szdatabasedest: Long, pfnstatus: Long, pconvert: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCompactW(sesid: Long, szdatabasesrc: Long, szdatabasedest: Long, pfnstatus: Long, pconvert: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCompactW(sesid: Long, szdatabasesrc: Long, szdatabasedest: Long, pfnstatus: Long, pconvert: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetComputeStats(sesid: Long, tableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetComputeStats(sesid: Long, tableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateDatabase2A(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, pdbid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateDatabase2A(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, pdbid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateDatabase2W(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, pdbid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateDatabase2W(sesid: Long, szfilename: Long, cpgdatabasesizemax: Int, pdbid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateDatabaseA(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateDatabaseA(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateDatabaseW(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateDatabaseW(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndex2A(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndex2A(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndex2W(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndex2W(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndex3A(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndex3A(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndex3W(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndex3W(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndex4A(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndex4A(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndex4W(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndex4W(sesid: Long, tableid: Long, pindexcreate: Long, cindexcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndexA(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, szkey: Long, cbkey: Int, ldensity: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndexA(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, szkey: Long, cbkey: Int, ldensity: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateIndexW(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, szkey: Long, cbkey: Int, ldensity: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateIndexW(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, szkey: Long, cbkey: Int, ldensity: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateInstance2A(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateInstance2A(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateInstance2W(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateInstance2W(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateInstanceA(pinstance: Long, szinstancename: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateInstanceA(pinstance: Long, szinstancename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateInstanceW(pinstance: Long, szinstancename: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateInstanceW(pinstance: Long, szinstancename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableA(sesid: Long, dbid: Int, sztablename: Long, lpages: Int, ldensity: Int, ptableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableA(sesid: Long, dbid: Int, sztablename: Long, lpages: Int, ldensity: Int, ptableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2A(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2W(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3A(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3W(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4A(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4W(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndexA(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(sesid: Long, dbid: Int, ptablecreate: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableColumnIndexW(sesid: Long, dbid: Int, ptablecreate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetCreateTableW(sesid: Long, dbid: Int, sztablename: Long, lpages: Int, ldensity: Int, ptableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetCreateTableW(sesid: Long, dbid: Int, sztablename: Long, lpages: Int, ldensity: Int, ptableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDefragment2A(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDefragment2A(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDefragment2W(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDefragment2W(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDefragment3A(sesid: Long, szdatabasename: Long, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, pvcontext: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDefragment3A(sesid: Long, szdatabasename: Long, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, pvcontext: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDefragment3W(sesid: Long, szdatabasename: Long, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, pvcontext: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDefragment3W(sesid: Long, szdatabasename: Long, sztablename: Long, pcpasses: Long, pcseconds: Long, callback: Long, pvcontext: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDefragmentA(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDefragmentA(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDefragmentW(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDefragmentW(sesid: Long, dbid: Int, sztablename: Long, pcpasses: Long, pcseconds: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDelete(sesid: Long, tableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDelete(sesid: Long, tableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteColumn2A(sesid: Long, tableid: Long, szcolumnname: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteColumn2A(sesid: Long, tableid: Long, szcolumnname: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteColumn2W(sesid: Long, tableid: Long, szcolumnname: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteColumn2W(sesid: Long, tableid: Long, szcolumnname: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteColumnA(sesid: Long, tableid: Long, szcolumnname: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteColumnA(sesid: Long, tableid: Long, szcolumnname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteColumnW(sesid: Long, tableid: Long, szcolumnname: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteColumnW(sesid: Long, tableid: Long, szcolumnname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteIndexA(sesid: Long, tableid: Long, szindexname: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteIndexA(sesid: Long, tableid: Long, szindexname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteIndexW(sesid: Long, tableid: Long, szindexname: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteIndexW(sesid: Long, tableid: Long, szindexname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteTableA(sesid: Long, dbid: Int, sztablename: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteTableA(sesid: Long, dbid: Int, sztablename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDeleteTableW(sesid: Long, dbid: Int, sztablename: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDeleteTableW(sesid: Long, dbid: Int, sztablename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDetachDatabase2A(sesid: Long, szfilename: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDetachDatabase2A(sesid: Long, szfilename: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDetachDatabase2W(sesid: Long, szfilename: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDetachDatabase2W(sesid: Long, szfilename: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDetachDatabaseA(sesid: Long, szfilename: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDetachDatabaseA(sesid: Long, szfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDetachDatabaseW(sesid: Long, szfilename: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDetachDatabaseW(sesid: Long, szfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDupCursor(sesid: Long, tableid: Long, ptableid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetDupCursor(sesid: Long, tableid: Long, ptableid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetDupSession(sesid: Long, psesid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetDupSession(sesid: Long, psesid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA(psetsysparam: Long, csetsysparam: Int, pcsetsucceed: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetEnableMultiInstanceA(psetsysparam: Long, csetsysparam: Int, pcsetsucceed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW(psetsysparam: Long, csetsysparam: Int, pcsetsucceed: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetEnableMultiInstanceW(psetsysparam: Long, csetsysparam: Int, pcsetsucceed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEndExternalBackup(): Int
+    external fun windowssysWindowsWin32StorageJetJetEndExternalBackup(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(instance: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetEndExternalBackupInstance(instance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(instance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(instance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEndSession(sesid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetEndSession(sesid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEnumerateColumns(sesid: Long, tableid: Long, cenumcolumnid: Int, rgenumcolumnid: Long, pcenumcolumn: Long, prgenumcolumn: Long, pfnrealloc: Long, pvrealloccontext: Long, cbdatamost: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetEnumerateColumns(sesid: Long, tableid: Long, cenumcolumnid: Int, rgenumcolumnid: Long, pcenumcolumn: Long, prgenumcolumn: Long, pfnrealloc: Long, pvrealloccontext: Long, cbdatamost: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetEscrowUpdate(sesid: Long, tableid: Long, columnid: Int, pv: Long, cbmax: Int, pvold: Long, cboldmax: Int, pcboldactual: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetEscrowUpdate(sesid: Long, tableid: Long, columnid: Int, pv: Long, cbmax: Int, pvold: Long, cboldmax: Int, pcboldactual: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetExternalRestore2A(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetExternalRestore2A(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetExternalRestore2W(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetExternalRestore2W(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetExternalRestoreA(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, genlow: Int, genhigh: Int, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetExternalRestoreA(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, genlow: Int, genhigh: Int, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetExternalRestoreW(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, genlow: Int, genhigh: Int, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetExternalRestoreW(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, genlow: Int, genhigh: Int, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetFreeBuffer(pbbuf: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetFreeBuffer(pbbuf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetAttachInfoA(szzdatabases: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetAttachInfoA(szzdatabases: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(instance: Long, szzdatabases: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceA(instance: Long, szzdatabases: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(instance: Long, szzdatabases: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceW(instance: Long, szzdatabases: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetAttachInfoW(wszzdatabases: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetAttachInfoW(wszzdatabases: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetBookmark(sesid: Long, tableid: Long, pvbookmark: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetBookmark(sesid: Long, tableid: Long, pvbookmark: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetColumnInfoA(sesid: Long, dbid: Int, sztablename: Long, pcolumnnameorid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetColumnInfoA(sesid: Long, dbid: Int, sztablename: Long, pcolumnnameorid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetColumnInfoW(sesid: Long, dbid: Int, sztablename: Long, pwcolumnnameorid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetColumnInfoW(sesid: Long, dbid: Int, sztablename: Long, pwcolumnnameorid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(sesid: Long, tableid: Long, szindexname: Long, cbindexname: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetCurrentIndexA(sesid: Long, tableid: Long, szindexname: Long, cbindexname: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(sesid: Long, tableid: Long, szindexname: Long, cbindexname: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetCurrentIndexW(sesid: Long, tableid: Long, szindexname: Long, cbindexname: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetCursorInfo(sesid: Long, tableid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetCursorInfo(sesid: Long, tableid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA(szdatabasename: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoA(szdatabasename: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW(szdatabasename: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoW(szdatabasename: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(sesid: Long, dbid: Int, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetDatabaseInfoA(sesid: Long, dbid: Int, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(sesid: Long, dbid: Int, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetDatabaseInfoW(sesid: Long, dbid: Int, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetErrorInfoW(pvcontext: Long, pvresult: Long, cbmax: Int, infolevel: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetErrorInfoW(pvcontext: Long, pvresult: Long, cbmax: Int, infolevel: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetIndexInfoA(sesid: Long, dbid: Int, sztablename: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetIndexInfoA(sesid: Long, dbid: Int, sztablename: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetIndexInfoW(sesid: Long, dbid: Int, sztablename: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetIndexInfoW(sesid: Long, dbid: Int, sztablename: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetInstanceInfoA(pcinstanceinfo: Long, painstanceinfo: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetInstanceInfoA(pcinstanceinfo: Long, painstanceinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetInstanceInfoW(pcinstanceinfo: Long, painstanceinfo: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetInstanceInfoW(pcinstanceinfo: Long, painstanceinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(instance: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetInstanceMiscInfo(instance: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLS(sesid: Long, tableid: Long, pls: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLS(sesid: Long, tableid: Long, pls: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLock(sesid: Long, tableid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLock(sesid: Long, tableid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLogInfoA(szzlogs: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLogInfoA(szzlogs: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(instance: Long, szzlogs: Long, cbmax: Int, pcbactual: Long, ploginfo: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLogInfoInstance2A(instance: Long, szzlogs: Long, cbmax: Int, pcbactual: Long, ploginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(instance: Long, wszzlogs: Long, cbmax: Int, pcbactual: Long, ploginfo: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLogInfoInstance2W(instance: Long, wszzlogs: Long, cbmax: Int, pcbactual: Long, ploginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(instance: Long, szzlogs: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLogInfoInstanceA(instance: Long, szzlogs: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(instance: Long, wszzlogs: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLogInfoInstanceW(instance: Long, wszzlogs: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetLogInfoW(szzlogs: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetLogInfoW(szzlogs: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetObjectInfoA(sesid: Long, dbid: Int, objtyp: Int, szcontainername: Long, szobjectname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetObjectInfoA(sesid: Long, dbid: Int, objtyp: Int, szcontainername: Long, szobjectname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetObjectInfoW(sesid: Long, dbid: Int, objtyp: Int, szcontainername: Long, szobjectname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetObjectInfoW(sesid: Long, dbid: Int, objtyp: Int, szcontainername: Long, szobjectname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetRecordPosition(sesid: Long, tableid: Long, precpos: Long, cbrecpos: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetRecordPosition(sesid: Long, tableid: Long, precpos: Long, cbrecpos: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetRecordSize(sesid: Long, tableid: Long, precsize: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetRecordSize(sesid: Long, tableid: Long, precsize: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetRecordSize2(sesid: Long, tableid: Long, precsize: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetRecordSize2(sesid: Long, tableid: Long, precsize: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(sesid: Long, tableid: Long, pvsecondarykey: Long, cbsecondarykeymax: Int, pcbsecondarykeyactual: Long, pvprimarybookmark: Long, cbprimarybookmarkmax: Int, pcbprimarybookmarkactual: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetSecondaryIndexBookmark(sesid: Long, tableid: Long, pvsecondarykey: Long, cbsecondarykeymax: Int, pcbsecondarykeyactual: Long, pvprimarybookmark: Long, cbprimarybookmarkmax: Int, pcbprimarybookmarkactual: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetSessionParameter(sesid: Long, sesparamid: Int, pvparam: Long, cbparammax: Int, pcbparamactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetSessionParameter(sesid: Long, sesparamid: Int, pvparam: Long, cbparammax: Int, pcbparamactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetSystemParameterA(instance: Long, sesid: Long, paramid: Int, plparam: Long, szparam: Long, cbmax: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetSystemParameterA(instance: Long, sesid: Long, paramid: Int, plparam: Long, szparam: Long, cbmax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetSystemParameterW(instance: Long, sesid: Long, paramid: Int, plparam: Long, szparam: Long, cbmax: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetSystemParameterW(instance: Long, sesid: Long, paramid: Int, plparam: Long, szparam: Long, cbmax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(sesid: Long, tableid: Long, szcolumnname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTableColumnInfoA(sesid: Long, tableid: Long, szcolumnname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(sesid: Long, tableid: Long, szcolumnname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTableColumnInfoW(sesid: Long, tableid: Long, szcolumnname: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(sesid: Long, tableid: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTableIndexInfoA(sesid: Long, tableid: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(sesid: Long, tableid: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTableIndexInfoW(sesid: Long, tableid: Long, szindexname: Long, pvresult: Long, cbresult: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTableInfoA(sesid: Long, tableid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTableInfoA(sesid: Long, tableid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTableInfoW(sesid: Long, tableid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTableInfoW(sesid: Long, tableid: Long, pvresult: Long, cbmax: Int, infolevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetThreadStats(pvresult: Long, cbmax: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGetThreadStats(pvresult: Long, cbmax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(instance: Long, szzlogs: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceA(instance: Long, szzlogs: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(instance: Long, wszzlogs: Long, cbmax: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceW(instance: Long, wszzlogs: Long, cbmax: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGetVersion(sesid: Long, pwversion: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGetVersion(sesid: Long, pwversion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGotoBookmark(sesid: Long, tableid: Long, pvbookmark: Long, cbbookmark: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGotoBookmark(sesid: Long, tableid: Long, pvbookmark: Long, cbbookmark: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGotoPosition(sesid: Long, tableid: Long, precpos: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGotoPosition(sesid: Long, tableid: Long, precpos: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(sesid: Long, tableid: Long, pvsecondarykey: Long, cbsecondarykey: Int, pvprimarybookmark: Long, cbprimarybookmark: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetGotoSecondaryIndexBookmark(sesid: Long, tableid: Long, pvsecondarykey: Long, cbsecondarykey: Int, pvprimarybookmark: Long, cbprimarybookmark: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetGrowDatabase(sesid: Long, dbid: Int, cpg: Int, pcpgreal: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetGrowDatabase(sesid: Long, dbid: Int, cpg: Int, pcpgreal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetIdle(sesid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetIdle(sesid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetIndexRecordCount(sesid: Long, tableid: Long, pcrec: Long, crecmax: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetIndexRecordCount(sesid: Long, tableid: Long, pcrec: Long, crecmax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetInit(pinstance: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetInit(pinstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetInit2(pinstance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetInit2(pinstance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetInit3A(pinstance: Long, prstinfo: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetInit3A(pinstance: Long, prstinfo: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetInit3W(pinstance: Long, prstinfo: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetInit3W(pinstance: Long, prstinfo: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetIntersectIndexes(sesid: Long, rgindexrange: Long, cindexrange: Int, precordlist: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetIntersectIndexes(sesid: Long, rgindexrange: Long, cindexrange: Int, precordlist: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetMakeKey(sesid: Long, tableid: Long, pvdata: Long, cbdata: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetMakeKey(sesid: Long, tableid: Long, pvdata: Long, cbdata: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetMove(sesid: Long, tableid: Long, crow: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetMove(sesid: Long, tableid: Long, crow: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(snapid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotAbort(snapid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(snapid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotFreezeA(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotFreezeW(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoA(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoW(snapid: Long, pcinstanceinfo: Long, painstanceinfo: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare(psnapid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotPrepare(psnapid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(snapid: Long, instance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(snapid: Long, instance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(snapid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotThaw(snapid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(snapid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(snapid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(snapid: Long, instance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid: Long, instance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenDatabaseA(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenDatabaseA(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenDatabaseW(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenDatabaseW(sesid: Long, szfilename: Long, szconnect: Long, pdbid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenFileA(szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenFileA(szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(instance: Long, szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenFileInstanceA(instance: Long, szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(instance: Long, szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenFileInstanceW(instance: Long, szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenFileW(szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenFileW(szfilename: Long, phffile: Long, pulfilesizelow: Long, pulfilesizehigh: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTableA(sesid: Long, dbid: Int, sztablename: Long, pvparameters: Long, cbparameters: Int, grbit: Int, ptableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTableA(sesid: Long, dbid: Int, sztablename: Long, pvparameters: Long, cbparameters: Int, grbit: Int, ptableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTableW(sesid: Long, dbid: Int, sztablename: Long, pvparameters: Long, cbparameters: Int, grbit: Int, ptableid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTableW(sesid: Long, dbid: Int, sztablename: Long, pvparameters: Long, cbparameters: Int, grbit: Int, ptableid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTempTable(sesid: Long, prgcolumndef: Long, ccolumn: Int, grbit: Int, ptableid: Long, prgcolumnid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTempTable(sesid: Long, prgcolumndef: Long, ccolumn: Int, grbit: Int, ptableid: Long, prgcolumnid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTempTable2(sesid: Long, prgcolumndef: Long, ccolumn: Int, lcid: Int, grbit: Int, ptableid: Long, prgcolumnid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTempTable2(sesid: Long, prgcolumndef: Long, ccolumn: Int, lcid: Int, grbit: Int, ptableid: Long, prgcolumnid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTempTable3(sesid: Long, prgcolumndef: Long, ccolumn: Int, pidxunicode: Long, grbit: Int, ptableid: Long, prgcolumnid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTempTable3(sesid: Long, prgcolumndef: Long, ccolumn: Int, pidxunicode: Long, grbit: Int, ptableid: Long, prgcolumnid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(sesid: Long, popentemporarytable: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTemporaryTable(sesid: Long, popentemporarytable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(sesid: Long, popentemporarytable: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetOpenTemporaryTable2(sesid: Long, popentemporarytable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetPrepareUpdate(sesid: Long, tableid: Long, prep: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetPrepareUpdate(sesid: Long, tableid: Long, prep: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(sesid: Long, tableid: Long, rgindexranges: Long, cindexranges: Int, pcrangespreread: Long, rgcolumnidpreread: Long, ccolumnidpreread: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetPrereadIndexRanges(sesid: Long, tableid: Long, rgindexranges: Long, cindexranges: Int, pcrangespreread: Long, rgcolumnidpreread: Long, ccolumnidpreread: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetPrereadKeys(sesid: Long, tableid: Long, rgpvkeys: Long, rgcbkeys: Long, ckeys: Int, pckeyspreread: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetPrereadKeys(sesid: Long, tableid: Long, rgpvkeys: Long, rgcbkeys: Long, ckeys: Int, pckeyspreread: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetReadFile(hffile: Long, pv: Long, cb: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetReadFile(hffile: Long, pv: Long, cb: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetReadFileInstance(instance: Long, hffile: Long, pv: Long, cb: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetReadFileInstance(instance: Long, hffile: Long, pv: Long, cb: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRegisterCallback(sesid: Long, tableid: Long, cbtyp: Int, pcallback: Long, pvcontext: Long, phcallbackid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRegisterCallback(sesid: Long, tableid: Long, cbtyp: Int, pcallback: Long, pvcontext: Long, phcallbackid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRenameColumnA(sesid: Long, tableid: Long, szname: Long, sznamenew: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetRenameColumnA(sesid: Long, tableid: Long, szname: Long, sznamenew: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRenameColumnW(sesid: Long, tableid: Long, szname: Long, sznamenew: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetRenameColumnW(sesid: Long, tableid: Long, szname: Long, sznamenew: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRenameTableA(sesid: Long, dbid: Int, szname: Long, sznamenew: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRenameTableA(sesid: Long, dbid: Int, szname: Long, sznamenew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRenameTableW(sesid: Long, dbid: Int, szname: Long, sznamenew: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRenameTableW(sesid: Long, dbid: Int, szname: Long, sznamenew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetResetSessionContext(sesid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetResetSessionContext(sesid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetResetTableSequential(sesid: Long, tableid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetResetTableSequential(sesid: Long, tableid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetResizeDatabase(sesid: Long, dbid: Int, cpgtarget: Int, pcpgactual: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetResizeDatabase(sesid: Long, dbid: Int, cpgtarget: Int, pcpgactual: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRestore2A(sz: Long, szdest: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRestore2A(sz: Long, szdest: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRestore2W(sz: Long, szdest: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRestore2W(sz: Long, szdest: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRestoreA(szsource: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRestoreA(szsource: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRestoreInstanceA(instance: Long, sz: Long, szdest: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRestoreInstanceA(instance: Long, sz: Long, szdest: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRestoreInstanceW(instance: Long, sz: Long, szdest: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRestoreInstanceW(instance: Long, sz: Long, szdest: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRestoreW(szsource: Long, pfn: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRestoreW(szsource: Long, pfn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRetrieveColumn(sesid: Long, tableid: Long, columnid: Int, pvdata: Long, cbdata: Int, pcbactual: Long, grbit: Int, pretinfo: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetRetrieveColumn(sesid: Long, tableid: Long, columnid: Int, pvdata: Long, cbdata: Int, pcbactual: Long, grbit: Int, pretinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRetrieveColumns(sesid: Long, tableid: Long, pretrievecolumn: Long, cretrievecolumn: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetRetrieveColumns(sesid: Long, tableid: Long, pretrievecolumn: Long, cretrievecolumn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRetrieveKey(sesid: Long, tableid: Long, pvkey: Long, cbmax: Int, pcbactual: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetRetrieveKey(sesid: Long, tableid: Long, pvkey: Long, cbmax: Int, pcbactual: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetRollback(sesid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetRollback(sesid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSeek(sesid: Long, tableid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSeek(sesid: Long, tableid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetColumn(sesid: Long, tableid: Long, columnid: Int, pvdata: Long, cbdata: Int, grbit: Int, psetinfo: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetColumn(sesid: Long, tableid: Long, columnid: Int, pvdata: Long, cbdata: Int, grbit: Int, psetinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(sesid: Long, dbid: Int, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetColumnDefaultValueA(sesid: Long, dbid: Int, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(sesid: Long, dbid: Int, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetColumnDefaultValueW(sesid: Long, dbid: Int, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetColumns(sesid: Long, tableid: Long, psetcolumn: Long, csetcolumn: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetColumns(sesid: Long, tableid: Long, psetcolumn: Long, csetcolumn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(sesid: Long, tableid: Long, szindexname: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndex2A(sesid: Long, tableid: Long, szindexname: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(sesid: Long, tableid: Long, szindexname: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndex2W(sesid: Long, tableid: Long, szindexname: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, itagsequence: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndex3A(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, itagsequence: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, itagsequence: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndex3W(sesid: Long, tableid: Long, szindexname: Long, grbit: Int, itagsequence: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(sesid: Long, tableid: Long, szindexname: Long, pindexid: Long, grbit: Int, itagsequence: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndex4A(sesid: Long, tableid: Long, szindexname: Long, pindexid: Long, grbit: Int, itagsequence: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(sesid: Long, tableid: Long, szindexname: Long, pindexid: Long, grbit: Int, itagsequence: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndex4W(sesid: Long, tableid: Long, szindexname: Long, pindexid: Long, grbit: Int, itagsequence: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(sesid: Long, tableid: Long, szindexname: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndexA(sesid: Long, tableid: Long, szindexname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(sesid: Long, tableid: Long, szindexname: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCurrentIndexW(sesid: Long, tableid: Long, szindexname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetCursorFilter(sesid: Long, tableid: Long, rgcolumnfilters: Long, ccolumnfilters: Int, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetCursorFilter(sesid: Long, tableid: Long, rgcolumnfilters: Long, ccolumnfilters: Int, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(sesid: Long, szdatabasename: Long, cpg: Int, pcpgreal: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetDatabaseSizeA(sesid: Long, szdatabasename: Long, cpg: Int, pcpgreal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(sesid: Long, szdatabasename: Long, cpg: Int, pcpgreal: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetDatabaseSizeW(sesid: Long, szdatabasename: Long, cpg: Int, pcpgreal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetIndexRange(sesid: Long, tableidsrc: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetIndexRange(sesid: Long, tableidsrc: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetLS(sesid: Long, tableid: Long, ls: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetLS(sesid: Long, tableid: Long, ls: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetSessionContext(sesid: Long, ulcontext: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetSessionContext(sesid: Long, ulcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetSessionParameter(sesid: Long, sesparamid: Int, pvparam: Long, cbparam: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetSessionParameter(sesid: Long, sesparamid: Int, pvparam: Long, cbparam: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetSystemParameterA(pinstance: Long, sesid: Long, paramid: Int, lparam: Long, szparam: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetSystemParameterA(pinstance: Long, sesid: Long, paramid: Int, lparam: Long, szparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetSystemParameterW(pinstance: Long, sesid: Long, paramid: Int, lparam: Long, szparam: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetSetSystemParameterW(pinstance: Long, sesid: Long, paramid: Int, lparam: Long, szparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetSetTableSequential(sesid: Long, tableid: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetSetTableSequential(sesid: Long, tableid: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetStopBackup(): Int
+    external fun windowssysWindowsWin32StorageJetJetStopBackup(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetStopBackupInstance(instance: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetStopBackupInstance(instance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetStopService(): Int
+    external fun windowssysWindowsWin32StorageJetJetStopService(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetStopServiceInstance(instance: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetStopServiceInstance(instance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetStopServiceInstance2(instance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetStopServiceInstance2(instance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetTerm(instance: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetTerm(instance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetTerm2(instance: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetTerm2(instance: Long, grbit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetTruncateLog(): Int
+    external fun windowssysWindowsWin32StorageJetJetTruncateLog(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetTruncateLogInstance(instance: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetTruncateLogInstance(instance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetUnregisterCallback(sesid: Long, tableid: Long, cbtyp: Int, hcallbackid: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetUnregisterCallback(sesid: Long, tableid: Long, cbtyp: Int, hcallbackid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetUpdate(sesid: Long, tableid: Long, pvbookmark: Long, cbbookmark: Int, pcbactual: Long): Int
+    external fun windowssysWindowsWin32StorageJetJetUpdate(sesid: Long, tableid: Long, pvbookmark: Long, cbbookmark: Int, pcbactual: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_jet_jetUpdate2(sesid: Long, tableid: Long, pvbookmark: Long, cbbookmark: Int, pcbactual: Long, grbit: Int): Int
+    external fun windowssysWindowsWin32StorageJetJetUpdate2(sesid: Long, tableid: Long, pvbookmark: Long, cbbookmark: Int, pcbactual: Long, grbit: Int): Int
 }
 
-public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pcolumndef: COpaquePointer?, pvdefault: COpaquePointer?, cbdefault: UInt, pcolumnid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetAddColumnA(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L), (pcolumndef?.value ?: 0L), (pvdefault?.value ?: 0L), cbdefault.toInt(), (pcolumnid?.value ?: 0L))
+public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, pcolumndef: ConstPtr<JetColumndef>, pvdefault: ConstPtr<CVoid>, cbdefault: UInt, pcolumnid: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetAddColumnA(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress, pcolumndef.rawAddress, pvdefault.rawAddress, cbdefault.toInt(), pcolumnid.rawAddress)
 
-public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pcolumndef: COpaquePointer?, pvdefault: COpaquePointer?, cbdefault: UInt, pcolumnid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetAddColumnW(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L), (pcolumndef?.value ?: 0L), (pvdefault?.value ?: 0L), cbdefault.toInt(), (pcolumnid?.value ?: 0L))
+public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, pcolumndef: ConstPtr<JetColumndef>, pvdefault: ConstPtr<CVoid>, cbdefault: UInt, pcolumnid: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetAddColumnW(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress, pcolumndef.rawAddress, pvdefault.rawAddress, cbdefault.toInt(), pcolumnid.rawAddress)
 
-public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetAttachDatabase2A(sesid.toLong(), (szfilename?.value ?: 0L), cpgdatabasesizemax.toInt(), grbit.toInt())
+public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetAttachDatabase2A(sesid.toLong(), szfilename.rawAddress, cpgdatabasesizemax.toInt(), grbit.toInt())
 
-public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetAttachDatabase2W(sesid.toLong(), (szfilename?.value ?: 0L), cpgdatabasesizemax.toInt(), grbit.toInt())
+public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetAttachDatabase2W(sesid.toLong(), szfilename.rawAddress, cpgdatabasesizemax.toInt(), grbit.toInt())
 
-public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetAttachDatabaseA(sesid.toLong(), (szfilename?.value ?: 0L), grbit.toInt())
+public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetAttachDatabaseA(sesid.toLong(), szfilename.rawAddress, grbit.toInt())
 
-public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetAttachDatabaseW(sesid.toLong(), (szfilename?.value ?: 0L), grbit.toInt())
+public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetAttachDatabaseW(sesid.toLong(), szfilename.rawAddress, grbit.toInt())
 
-public actual fun jetBackupA(szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBackupA((szbackuppath?.value ?: 0L), grbit.toInt(), 0L)
+public actual fun jetBackupA(szbackuppath: ConstPtr<Byte>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBackupA(szbackuppath.rawAddress, grbit.toInt(), 0L)
 
-public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBackupInstanceA(instance.toLong(), (szbackuppath?.value ?: 0L), grbit.toInt(), 0L)
+public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: ConstPtr<Byte>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBackupInstanceA(instance.toLong(), szbackuppath.rawAddress, grbit.toInt(), 0L)
 
-public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBackupInstanceW(instance.toLong(), (szbackuppath?.value ?: 0L), grbit.toInt(), 0L)
+public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBackupInstanceW(instance.toLong(), szbackuppath.rawAddress, grbit.toInt(), 0L)
 
-public actual fun jetBackupW(szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBackupW((szbackuppath?.value ?: 0L), grbit.toInt(), 0L)
+public actual fun jetBackupW(szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBackupW(szbackuppath.rawAddress, grbit.toInt(), 0L)
 
 public actual fun jetBeginExternalBackup(grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginExternalBackup(grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginExternalBackup(grbit.toInt())
 
 public actual fun jetBeginExternalBackupInstance(instance: JetInstance, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(instance.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance.toLong(), grbit.toInt())
 
-public actual fun jetBeginSessionA(instance: JetInstance, psesid: COpaquePointer?, szusername: COpaquePointer?, szpassword: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginSessionA(instance.toLong(), (psesid?.value ?: 0L), (szusername?.value ?: 0L), (szpassword?.value ?: 0L))
+public actual fun jetBeginSessionA(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<Byte>, szpassword: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginSessionA(instance.toLong(), psesid.rawAddress, szusername.rawAddress, szpassword.rawAddress)
 
-public actual fun jetBeginSessionW(instance: JetInstance, psesid: COpaquePointer?, szusername: COpaquePointer?, szpassword: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginSessionW(instance.toLong(), (psesid?.value ?: 0L), (szusername?.value ?: 0L), (szpassword?.value ?: 0L))
+public actual fun jetBeginSessionW(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<UShort>, szpassword: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginSessionW(instance.toLong(), psesid.rawAddress, szusername.rawAddress, szpassword.rawAddress)
 
 public actual fun jetBeginTransaction(sesid: JetSesid): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginTransaction(sesid.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginTransaction(sesid.toLong())
 
 public actual fun jetBeginTransaction2(sesid: JetSesid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginTransaction2(sesid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginTransaction2(sesid.toLong(), grbit.toInt())
 
 public actual fun jetBeginTransaction3(sesid: JetSesid, trxid: Long, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetBeginTransaction3(sesid.toLong(), trxid, grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetBeginTransaction3(sesid.toLong(), trxid, grbit.toInt())
 
 public actual fun jetCloseDatabase(sesid: JetSesid, dbid: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCloseDatabase(sesid.toLong(), dbid.toInt(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCloseDatabase(sesid.toLong(), dbid.toInt(), grbit.toInt())
 
 public actual fun jetCloseFile(hffile: JetHandle): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCloseFile(hffile.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCloseFile(hffile.toLong())
 
 public actual fun jetCloseFileInstance(instance: JetInstance, hffile: JetHandle): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCloseFileInstance(instance.toLong(), hffile.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCloseFileInstance(instance.toLong(), hffile.toLong())
 
 public actual fun jetCloseTable(sesid: JetSesid, tableid: JetTableid): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCloseTable(sesid.toLong(), tableid.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCloseTable(sesid.toLong(), tableid.toLong())
 
 public actual fun jetCommitTransaction(sesid: JetSesid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCommitTransaction(sesid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCommitTransaction(sesid.toLong(), grbit.toInt())
 
-public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCommitTransaction2(sesid.toLong(), grbit.toInt(), cmsecdurablecommit.toInt(), (pcommitid?.value ?: 0L))
+public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: MutPtr<JetCommitId>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCommitTransaction2(sesid.toLong(), grbit.toInt(), cmsecdurablecommit.toInt(), pcommitid.rawAddress)
 
-public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: COpaquePointer?, szdatabasedest: COpaquePointer?, pfnstatus: JetPfnstatus, pconvert: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCompactA(sesid.toLong(), (szdatabasesrc?.value ?: 0L), (szdatabasedest?.value ?: 0L), 0L, (pconvert?.value ?: 0L), grbit.toInt())
+public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: ConstPtr<Byte>, szdatabasedest: ConstPtr<Byte>, pfnstatus: JetPfnstatus, pconvert: ConstPtr<JetConvertA>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCompactA(sesid.toLong(), szdatabasesrc.rawAddress, szdatabasedest.rawAddress, 0L, pconvert.rawAddress, grbit.toInt())
 
-public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: COpaquePointer?, szdatabasedest: COpaquePointer?, pfnstatus: JetPfnstatus, pconvert: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCompactW(sesid.toLong(), (szdatabasesrc?.value ?: 0L), (szdatabasedest?.value ?: 0L), 0L, (pconvert?.value ?: 0L), grbit.toInt())
+public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: ConstPtr<UShort>, szdatabasedest: ConstPtr<UShort>, pfnstatus: JetPfnstatus, pconvert: ConstPtr<JetConvertW>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCompactW(sesid.toLong(), szdatabasesrc.rawAddress, szdatabasedest.rawAddress, 0L, pconvert.rawAddress, grbit.toInt())
 
 public actual fun jetComputeStats(sesid: JetSesid, tableid: JetTableid): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetComputeStats(sesid.toLong(), tableid.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetComputeStats(sesid.toLong(), tableid.toLong())
 
 public actual fun jetConfigureProcessForCrashDump(grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit.toInt())
 
-public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, pdbid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateDatabase2A(sesid.toLong(), (szfilename?.value ?: 0L), cpgdatabasesizemax.toInt(), (pdbid?.value ?: 0L), grbit.toInt())
+public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateDatabase2A(sesid.toLong(), szfilename.rawAddress, cpgdatabasesizemax.toInt(), pdbid.rawAddress, grbit.toInt())
 
-public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, pdbid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateDatabase2W(sesid.toLong(), (szfilename?.value ?: 0L), cpgdatabasesizemax.toInt(), (pdbid?.value ?: 0L), grbit.toInt())
+public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateDatabase2W(sesid.toLong(), szfilename.rawAddress, cpgdatabasesizemax.toInt(), pdbid.rawAddress, grbit.toInt())
 
-public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateDatabaseA(sesid.toLong(), (szfilename?.value ?: 0L), (szconnect?.value ?: 0L), (pdbid?.value ?: 0L), grbit.toInt())
+public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateDatabaseA(sesid.toLong(), szfilename.rawAddress, szconnect.rawAddress, pdbid.rawAddress, grbit.toInt())
 
-public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateDatabaseW(sesid.toLong(), (szfilename?.value ?: 0L), (szconnect?.value ?: 0L), (pdbid?.value ?: 0L), grbit.toInt())
+public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, szconnect: ConstPtr<UShort>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateDatabaseW(sesid.toLong(), szfilename.rawAddress, szconnect.rawAddress, pdbid.rawAddress, grbit.toInt())
 
-public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndex2A(sesid.toLong(), tableid.toLong(), (pindexcreate?.value ?: 0L), cindexcreate.toInt())
+public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreateA>, cindexcreate: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndex2A(sesid.toLong(), tableid.toLong(), pindexcreate.rawAddress, cindexcreate.toInt())
 
-public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndex2W(sesid.toLong(), tableid.toLong(), (pindexcreate?.value ?: 0L), cindexcreate.toInt())
+public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreateW>, cindexcreate: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndex2W(sesid.toLong(), tableid.toLong(), pindexcreate.rawAddress, cindexcreate.toInt())
 
-public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndex3A(sesid.toLong(), tableid.toLong(), (pindexcreate?.value ?: 0L), cindexcreate.toInt())
+public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate2A>, cindexcreate: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndex3A(sesid.toLong(), tableid.toLong(), pindexcreate.rawAddress, cindexcreate.toInt())
 
-public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndex3W(sesid.toLong(), tableid.toLong(), (pindexcreate?.value ?: 0L), cindexcreate.toInt())
+public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate2W>, cindexcreate: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndex3W(sesid.toLong(), tableid.toLong(), pindexcreate.rawAddress, cindexcreate.toInt())
 
-public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndex4A(sesid.toLong(), tableid.toLong(), (pindexcreate?.value ?: 0L), cindexcreate.toInt())
+public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate3A>, cindexcreate: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndex4A(sesid.toLong(), tableid.toLong(), pindexcreate.rawAddress, cindexcreate.toInt())
 
-public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndex4W(sesid.toLong(), tableid.toLong(), (pindexcreate?.value ?: 0L), cindexcreate.toInt())
+public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate3W>, cindexcreate: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndex4W(sesid.toLong(), tableid.toLong(), pindexcreate.rawAddress, cindexcreate.toInt())
 
-public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndexA(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), grbit.toInt(), (szkey?.value ?: 0L), cbkey.toInt(), ldensity.toInt())
+public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndexA(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, grbit.toInt(), szkey.rawAddress, cbkey.toInt(), ldensity.toInt())
 
-public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateIndexW(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), grbit.toInt(), (szkey?.value ?: 0L), cbkey.toInt(), ldensity.toInt())
+public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateIndexW(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, grbit.toInt(), szkey.rawAddress, cbkey.toInt(), ldensity.toInt())
 
-public actual fun jetCreateInstance2A(pinstance: COpaquePointer?, szinstancename: COpaquePointer?, szdisplayname: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateInstance2A((pinstance?.value ?: 0L), (szinstancename?.value ?: 0L), (szdisplayname?.value ?: 0L), grbit.toInt())
+public actual fun jetCreateInstance2A(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<Byte>, szdisplayname: ConstPtr<Byte>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateInstance2A(pinstance.rawAddress, szinstancename.rawAddress, szdisplayname.rawAddress, grbit.toInt())
 
-public actual fun jetCreateInstance2W(pinstance: COpaquePointer?, szinstancename: COpaquePointer?, szdisplayname: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateInstance2W((pinstance?.value ?: 0L), (szinstancename?.value ?: 0L), (szdisplayname?.value ?: 0L), grbit.toInt())
+public actual fun jetCreateInstance2W(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<UShort>, szdisplayname: ConstPtr<UShort>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateInstance2W(pinstance.rawAddress, szinstancename.rawAddress, szdisplayname.rawAddress, grbit.toInt())
 
-public actual fun jetCreateInstanceA(pinstance: COpaquePointer?, szinstancename: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateInstanceA((pinstance?.value ?: 0L), (szinstancename?.value ?: 0L))
+public actual fun jetCreateInstanceA(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateInstanceA(pinstance.rawAddress, szinstancename.rawAddress)
 
-public actual fun jetCreateInstanceW(pinstance: COpaquePointer?, szinstancename: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateInstanceW((pinstance?.value ?: 0L), (szinstancename?.value ?: 0L))
+public actual fun jetCreateInstanceW(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateInstanceW(pinstance.rawAddress, szinstancename.rawAddress)
 
-public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, lpages: UInt, ldensity: UInt, ptableid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), lpages.toInt(), ldensity.toInt(), (ptableid?.value ?: 0L))
+public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, lpages: UInt, ldensity: UInt, ptableid: MutPtr<JetTableid>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, lpages.toInt(), ldensity.toInt(), ptableid.rawAddress)
 
-public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate2A>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2A(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate2W>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2W(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate3A>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3A(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate3W>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3W(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate4A>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4A(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate4W>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4W(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreateA>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndexA(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(sesid.toLong(), dbid.toInt(), (ptablecreate?.value ?: 0L))
+public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreateW>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableColumnIndexW(sesid.toLong(), dbid.toInt(), ptablecreate.rawAddress)
 
-public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, lpages: UInt, ldensity: UInt, ptableid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetCreateTableW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), lpages.toInt(), ldensity.toInt(), (ptableid?.value ?: 0L))
+public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, lpages: UInt, ldensity: UInt, ptableid: MutPtr<JetTableid>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetCreateTableW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, lpages.toInt(), ldensity.toInt(), ptableid.rawAddress)
 
-public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDefragment2A(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pcpasses?.value ?: 0L), (pcseconds?.value ?: 0L), 0L, grbit.toInt())
+public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDefragment2A(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pcpasses.rawAddress, pcseconds.rawAddress, 0L, grbit.toInt())
 
-public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDefragment2W(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pcpasses?.value ?: 0L), (pcseconds?.value ?: 0L), 0L, grbit.toInt())
+public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDefragment2W(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pcpasses.rawAddress, pcseconds.rawAddress, 0L, grbit.toInt())
 
-public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: COpaquePointer?, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, pvcontext: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDefragment3A(sesid.toLong(), (szdatabasename?.value ?: 0L), (sztablename?.value ?: 0L), (pcpasses?.value ?: 0L), (pcseconds?.value ?: 0L), 0L, (pvcontext?.value ?: 0L), grbit.toInt())
+public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: ConstPtr<Byte>, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, pvcontext: ConstPtr<CVoid>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDefragment3A(sesid.toLong(), szdatabasename.rawAddress, sztablename.rawAddress, pcpasses.rawAddress, pcseconds.rawAddress, 0L, pvcontext.rawAddress, grbit.toInt())
 
-public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: COpaquePointer?, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, pvcontext: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDefragment3W(sesid.toLong(), (szdatabasename?.value ?: 0L), (sztablename?.value ?: 0L), (pcpasses?.value ?: 0L), (pcseconds?.value ?: 0L), 0L, (pvcontext?.value ?: 0L), grbit.toInt())
+public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: ConstPtr<UShort>, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, pvcontext: ConstPtr<CVoid>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDefragment3W(sesid.toLong(), szdatabasename.rawAddress, sztablename.rawAddress, pcpasses.rawAddress, pcseconds.rawAddress, 0L, pvcontext.rawAddress, grbit.toInt())
 
-public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDefragmentA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pcpasses?.value ?: 0L), (pcseconds?.value ?: 0L), grbit.toInt())
+public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDefragmentA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pcpasses.rawAddress, pcseconds.rawAddress, grbit.toInt())
 
-public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDefragmentW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pcpasses?.value ?: 0L), (pcseconds?.value ?: 0L), grbit.toInt())
+public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDefragmentW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pcpasses.rawAddress, pcseconds.rawAddress, grbit.toInt())
 
 public actual fun jetDelete(sesid: JetSesid, tableid: JetTableid): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDelete(sesid.toLong(), tableid.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDelete(sesid.toLong(), tableid.toLong())
 
-public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteColumn2A(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L), grbit.toInt())
+public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteColumn2A(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress, grbit.toInt())
 
-public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteColumn2W(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L), grbit.toInt())
+public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteColumn2W(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress, grbit.toInt())
 
-public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteColumnA(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L))
+public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteColumnA(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress)
 
-public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteColumnW(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L))
+public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteColumnW(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress)
 
-public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteIndexA(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L))
+public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteIndexA(sesid.toLong(), tableid.toLong(), szindexname.rawAddress)
 
-public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteIndexW(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L))
+public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteIndexW(sesid.toLong(), tableid.toLong(), szindexname.rawAddress)
 
-public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteTableA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L))
+public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteTableA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress)
 
-public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDeleteTableW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L))
+public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDeleteTableW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress)
 
-public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDetachDatabase2A(sesid.toLong(), (szfilename?.value ?: 0L), grbit.toInt())
+public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDetachDatabase2A(sesid.toLong(), szfilename.rawAddress, grbit.toInt())
 
-public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDetachDatabase2W(sesid.toLong(), (szfilename?.value ?: 0L), grbit.toInt())
+public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDetachDatabase2W(sesid.toLong(), szfilename.rawAddress, grbit.toInt())
 
-public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDetachDatabaseA(sesid.toLong(), (szfilename?.value ?: 0L))
+public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDetachDatabaseA(sesid.toLong(), szfilename.rawAddress)
 
-public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDetachDatabaseW(sesid.toLong(), (szfilename?.value ?: 0L))
+public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDetachDatabaseW(sesid.toLong(), szfilename.rawAddress)
 
-public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDupCursor(sesid.toLong(), tableid.toLong(), (ptableid?.value ?: 0L), grbit.toInt())
+public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: MutPtr<JetTableid>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDupCursor(sesid.toLong(), tableid.toLong(), ptableid.rawAddress, grbit.toInt())
 
-public actual fun jetDupSession(sesid: JetSesid, psesid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetDupSession(sesid.toLong(), (psesid?.value ?: 0L))
+public actual fun jetDupSession(sesid: JetSesid, psesid: MutPtr<JetSesid>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetDupSession(sesid.toLong(), psesid.rawAddress)
 
-public actual fun jetEnableMultiInstanceA(psetsysparam: COpaquePointer?, csetsysparam: UInt, pcsetsucceed: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA((psetsysparam?.value ?: 0L), csetsysparam.toInt(), (pcsetsucceed?.value ?: 0L))
+public actual fun jetEnableMultiInstanceA(psetsysparam: ConstPtr<JetSetsysparamA>, csetsysparam: UInt, pcsetsucceed: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEnableMultiInstanceA(psetsysparam.rawAddress, csetsysparam.toInt(), pcsetsucceed.rawAddress)
 
-public actual fun jetEnableMultiInstanceW(psetsysparam: COpaquePointer?, csetsysparam: UInt, pcsetsucceed: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW((psetsysparam?.value ?: 0L), csetsysparam.toInt(), (pcsetsucceed?.value ?: 0L))
+public actual fun jetEnableMultiInstanceW(psetsysparam: ConstPtr<JetSetsysparamW>, csetsysparam: UInt, pcsetsucceed: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEnableMultiInstanceW(psetsysparam.rawAddress, csetsysparam.toInt(), pcsetsucceed.rawAddress)
 
 public actual fun jetEndExternalBackup(): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEndExternalBackup()
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEndExternalBackup()
 
 public actual fun jetEndExternalBackupInstance(instance: JetInstance): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(instance.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEndExternalBackupInstance(instance.toLong())
 
 public actual fun jetEndExternalBackupInstance2(instance: JetInstance, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(instance.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(instance.toLong(), grbit.toInt())
 
 public actual fun jetEndSession(sesid: JetSesid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEndSession(sesid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEndSession(sesid.toLong(), grbit.toInt())
 
-public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: COpaquePointer?, pcenumcolumn: COpaquePointer?, prgenumcolumn: COpaquePointer?, pfnrealloc: JetPfnrealloc, pvrealloccontext: COpaquePointer?, cbdatamost: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEnumerateColumns(sesid.toLong(), tableid.toLong(), cenumcolumnid.toInt(), (rgenumcolumnid?.value ?: 0L), (pcenumcolumn?.value ?: 0L), (prgenumcolumn?.value ?: 0L), 0L, (pvrealloccontext?.value ?: 0L), cbdatamost.toInt(), grbit.toInt())
+public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: ConstPtr<JetEnumcolumnid>, pcenumcolumn: MutPtr<UInt>, prgenumcolumn: MutPtr<MutPtr<JetEnumcolumn>>, pfnrealloc: JetPfnrealloc, pvrealloccontext: ConstPtr<CVoid>, cbdatamost: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEnumerateColumns(sesid.toLong(), tableid.toLong(), cenumcolumnid.toInt(), rgenumcolumnid.rawAddress, pcenumcolumn.rawAddress, prgenumcolumn.rawAddress, 0L, pvrealloccontext.rawAddress, cbdatamost.toInt(), grbit.toInt())
 
-public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: COpaquePointer?, cbmax: UInt, pvold: COpaquePointer?, cboldmax: UInt, pcboldactual: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetEscrowUpdate(sesid.toLong(), tableid.toLong(), columnid.toInt(), (pv?.value ?: 0L), cbmax.toInt(), (pvold?.value ?: 0L), cboldmax.toInt(), (pcboldactual?.value ?: 0L), grbit.toInt())
+public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: ConstPtr<CVoid>, cbmax: UInt, pvold: MutPtr<CVoid>, cboldmax: UInt, pcboldactual: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetEscrowUpdate(sesid.toLong(), tableid.toLong(), columnid.toInt(), pv.rawAddress, cbmax.toInt(), pvold.rawAddress, cboldmax.toInt(), pcboldactual.rawAddress, grbit.toInt())
 
-public actual fun jetExternalRestore2A(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, ploginfo: COpaquePointer?, sztargetinstancename: COpaquePointer?, sztargetinstancelogpath: COpaquePointer?, sztargetinstancecheckpointpath: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetExternalRestore2A((szcheckpointfilepath?.value ?: 0L), (szlogpath?.value ?: 0L), (rgrstmap?.value ?: 0L), crstfilemap, (szbackuplogpath?.value ?: 0L), (ploginfo?.value ?: 0L), (sztargetinstancename?.value ?: 0L), (sztargetinstancelogpath?.value ?: 0L), (sztargetinstancecheckpointpath?.value ?: 0L), 0L)
+public actual fun jetExternalRestore2A(szcheckpointfilepath: ConstPtr<Byte>, szlogpath: ConstPtr<Byte>, rgrstmap: ConstPtr<JetRstmapA>, crstfilemap: Int, szbackuplogpath: ConstPtr<Byte>, ploginfo: MutPtr<JetLoginfoA>, sztargetinstancename: ConstPtr<Byte>, sztargetinstancelogpath: ConstPtr<Byte>, sztargetinstancecheckpointpath: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetExternalRestore2A(szcheckpointfilepath.rawAddress, szlogpath.rawAddress, rgrstmap.rawAddress, crstfilemap, szbackuplogpath.rawAddress, ploginfo.rawAddress, sztargetinstancename.rawAddress, sztargetinstancelogpath.rawAddress, sztargetinstancecheckpointpath.rawAddress, 0L)
 
-public actual fun jetExternalRestore2W(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, ploginfo: COpaquePointer?, sztargetinstancename: COpaquePointer?, sztargetinstancelogpath: COpaquePointer?, sztargetinstancecheckpointpath: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetExternalRestore2W((szcheckpointfilepath?.value ?: 0L), (szlogpath?.value ?: 0L), (rgrstmap?.value ?: 0L), crstfilemap, (szbackuplogpath?.value ?: 0L), (ploginfo?.value ?: 0L), (sztargetinstancename?.value ?: 0L), (sztargetinstancelogpath?.value ?: 0L), (sztargetinstancecheckpointpath?.value ?: 0L), 0L)
+public actual fun jetExternalRestore2W(szcheckpointfilepath: ConstPtr<UShort>, szlogpath: ConstPtr<UShort>, rgrstmap: ConstPtr<JetRstmapW>, crstfilemap: Int, szbackuplogpath: ConstPtr<UShort>, ploginfo: MutPtr<JetLoginfoW>, sztargetinstancename: ConstPtr<UShort>, sztargetinstancelogpath: ConstPtr<UShort>, sztargetinstancecheckpointpath: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetExternalRestore2W(szcheckpointfilepath.rawAddress, szlogpath.rawAddress, rgrstmap.rawAddress, crstfilemap, szbackuplogpath.rawAddress, ploginfo.rawAddress, sztargetinstancename.rawAddress, sztargetinstancelogpath.rawAddress, sztargetinstancecheckpointpath.rawAddress, 0L)
 
-public actual fun jetExternalRestoreA(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetExternalRestoreA((szcheckpointfilepath?.value ?: 0L), (szlogpath?.value ?: 0L), (rgrstmap?.value ?: 0L), crstfilemap, (szbackuplogpath?.value ?: 0L), genlow, genhigh, 0L)
+public actual fun jetExternalRestoreA(szcheckpointfilepath: ConstPtr<Byte>, szlogpath: ConstPtr<Byte>, rgrstmap: ConstPtr<JetRstmapA>, crstfilemap: Int, szbackuplogpath: ConstPtr<Byte>, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetExternalRestoreA(szcheckpointfilepath.rawAddress, szlogpath.rawAddress, rgrstmap.rawAddress, crstfilemap, szbackuplogpath.rawAddress, genlow, genhigh, 0L)
 
-public actual fun jetExternalRestoreW(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetExternalRestoreW((szcheckpointfilepath?.value ?: 0L), (szlogpath?.value ?: 0L), (rgrstmap?.value ?: 0L), crstfilemap, (szbackuplogpath?.value ?: 0L), genlow, genhigh, 0L)
+public actual fun jetExternalRestoreW(szcheckpointfilepath: ConstPtr<UShort>, szlogpath: ConstPtr<UShort>, rgrstmap: ConstPtr<JetRstmapW>, crstfilemap: Int, szbackuplogpath: ConstPtr<UShort>, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetExternalRestoreW(szcheckpointfilepath.rawAddress, szlogpath.rawAddress, rgrstmap.rawAddress, crstfilemap, szbackuplogpath.rawAddress, genlow, genhigh, 0L)
 
 public actual fun jetFreeBuffer(pbbuf: Pcstr): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetFreeBuffer((pbbuf?.value ?: 0L))
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetFreeBuffer(pbbuf.rawAddress)
 
-public actual fun jetGetAttachInfoA(szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetAttachInfoA((szzdatabases?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetAttachInfoA(szzdatabases: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetAttachInfoA(szzdatabases.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(instance.toLong(), (szzdatabases?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceA(instance.toLong(), szzdatabases.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(instance.toLong(), (szzdatabases?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceW(instance.toLong(), szzdatabases.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetAttachInfoW(wszzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetAttachInfoW((wszzdatabases?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetAttachInfoW(wszzdatabases: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetAttachInfoW(wszzdatabases.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetBookmark(sesid.toLong(), tableid.toLong(), (pvbookmark?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetBookmark(sesid.toLong(), tableid.toLong(), pvbookmark.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcolumnnameorid: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetColumnInfoA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pcolumnnameorid?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcolumnnameorid: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetColumnInfoA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pcolumnnameorid.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pwcolumnnameorid: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetColumnInfoW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pwcolumnnameorid?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pwcolumnnameorid: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetColumnInfoW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pwcolumnnameorid.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, cbindexname: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), cbindexname.toInt())
+public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr<Byte>, cbindexname: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetCurrentIndexA(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, cbindexname.toInt())
 
-public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, cbindexname: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), cbindexname.toInt())
+public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr<UShort>, cbindexname: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetCurrentIndexW(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, cbindexname.toInt())
 
-public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetCursorInfo(sesid.toLong(), tableid.toLong(), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetCursorInfo(sesid.toLong(), tableid.toLong(), pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetDatabaseFileInfoA(szdatabasename: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA((szdatabasename?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetDatabaseFileInfoA(szdatabasename: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoA(szdatabasename.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetDatabaseFileInfoW(szdatabasename: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW((szdatabasename?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetDatabaseFileInfoW(szdatabasename: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoW(szdatabasename.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(sesid.toLong(), dbid.toInt(), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetDatabaseInfoA(sesid.toLong(), dbid.toInt(), pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(sesid.toLong(), dbid.toInt(), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetDatabaseInfoW(sesid.toLong(), dbid.toInt(), pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetErrorInfoW(pvcontext: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetErrorInfoW((pvcontext?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt(), grbit.toInt())
+public actual fun jetGetErrorInfoW(pvcontext: ConstPtr<CVoid>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetErrorInfoW(pvcontext.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt(), grbit.toInt())
 
-public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetIndexInfoA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (szindexname?.value ?: 0L), (pvresult?.value ?: 0L), cbresult.toInt(), infolevel.toInt())
+public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, szindexname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetIndexInfoA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, szindexname.rawAddress, pvresult.rawAddress, cbresult.toInt(), infolevel.toInt())
 
-public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetIndexInfoW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (szindexname?.value ?: 0L), (pvresult?.value ?: 0L), cbresult.toInt(), infolevel.toInt())
+public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, szindexname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetIndexInfoW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, szindexname.rawAddress, pvresult.rawAddress, cbresult.toInt(), infolevel.toInt())
 
-public actual fun jetGetInstanceInfoA(pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetInstanceInfoA((pcinstanceinfo?.value ?: 0L), (painstanceinfo?.value ?: 0L))
+public actual fun jetGetInstanceInfoA(pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetInstanceInfoA(pcinstanceinfo.rawAddress, painstanceinfo.rawAddress)
 
-public actual fun jetGetInstanceInfoW(pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetInstanceInfoW((pcinstanceinfo?.value ?: 0L), (painstanceinfo?.value ?: 0L))
+public actual fun jetGetInstanceInfoW(pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetInstanceInfoW(pcinstanceinfo.rawAddress, painstanceinfo.rawAddress)
 
-public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(instance.toLong(), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetInstanceMiscInfo(instance.toLong(), pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLS(sesid.toLong(), tableid.toLong(), (pls?.value ?: 0L), grbit.toInt())
+public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: MutPtr<JetLs>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLS(sesid.toLong(), tableid.toLong(), pls.rawAddress, grbit.toInt())
 
 public actual fun jetGetLock(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLock(sesid.toLong(), tableid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLock(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
-public actual fun jetGetLogInfoA(szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLogInfoA((szzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetLogInfoA(szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLogInfoA(szzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, ploginfo: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(instance.toLong(), (szzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L), (ploginfo?.value ?: 0L))
+public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>, ploginfo: MutPtr<JetLoginfoA>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLogInfoInstance2A(instance.toLong(), szzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress, ploginfo.rawAddress)
 
-public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, ploginfo: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(instance.toLong(), (wszzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L), (ploginfo?.value ?: 0L))
+public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>, ploginfo: MutPtr<JetLoginfoW>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLogInfoInstance2W(instance.toLong(), wszzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress, ploginfo.rawAddress)
 
-public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(instance.toLong(), (szzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLogInfoInstanceA(instance.toLong(), szzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(instance.toLong(), (wszzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLogInfoInstanceW(instance.toLong(), wszzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetLogInfoW(szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetLogInfoW((szzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetLogInfoW(szzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetLogInfoW(szzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: COpaquePointer?, szobjectname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetObjectInfoA(sesid.toLong(), dbid.toInt(), objtyp.toInt(), (szcontainername?.value ?: 0L), (szobjectname?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr<Byte>, szobjectname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetObjectInfoA(sesid.toLong(), dbid.toInt(), objtyp.toInt(), szcontainername.rawAddress, szobjectname.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: COpaquePointer?, szobjectname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetObjectInfoW(sesid.toLong(), dbid.toInt(), objtyp.toInt(), (szcontainername?.value ?: 0L), (szobjectname?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr<UShort>, szobjectname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetObjectInfoW(sesid.toLong(), dbid.toInt(), objtyp.toInt(), szcontainername.rawAddress, szobjectname.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: COpaquePointer?, cbrecpos: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetRecordPosition(sesid.toLong(), tableid.toLong(), (precpos?.value ?: 0L), cbrecpos.toInt())
+public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: MutPtr<JetRecpos>, cbrecpos: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetRecordPosition(sesid.toLong(), tableid.toLong(), precpos.rawAddress, cbrecpos.toInt())
 
-public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetRecordSize(sesid.toLong(), tableid.toLong(), (precsize?.value ?: 0L), grbit.toInt())
+public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr<JetRecsize>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetRecordSize(sesid.toLong(), tableid.toLong(), precsize.rawAddress, grbit.toInt())
 
-public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetRecordSize2(sesid.toLong(), tableid.toLong(), (precsize?.value ?: 0L), grbit.toInt())
+public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr<JetRecsize2>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetRecordSize2(sesid.toLong(), tableid.toLong(), precsize.rawAddress, grbit.toInt())
 
-public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: COpaquePointer?, cbsecondarykeymax: UInt, pcbsecondarykeyactual: COpaquePointer?, pvprimarybookmark: COpaquePointer?, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(sesid.toLong(), tableid.toLong(), (pvsecondarykey?.value ?: 0L), cbsecondarykeymax.toInt(), (pcbsecondarykeyactual?.value ?: 0L), (pvprimarybookmark?.value ?: 0L), cbprimarybookmarkmax.toInt(), (pcbprimarybookmarkactual?.value ?: 0L), grbit.toInt())
+public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: MutPtr<CVoid>, cbsecondarykeymax: UInt, pcbsecondarykeyactual: MutPtr<UInt>, pvprimarybookmark: MutPtr<CVoid>, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetSecondaryIndexBookmark(sesid.toLong(), tableid.toLong(), pvsecondarykey.rawAddress, cbsecondarykeymax.toInt(), pcbsecondarykeyactual.rawAddress, pvprimarybookmark.rawAddress, cbprimarybookmarkmax.toInt(), pcbprimarybookmarkactual.rawAddress, grbit.toInt())
 
-public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: COpaquePointer?, cbparammax: UInt, pcbparamactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetSessionParameter(sesid.toLong(), sesparamid.toInt(), (pvparam?.value ?: 0L), cbparammax.toInt(), (pcbparamactual?.value ?: 0L))
+public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: MutPtr<CVoid>, cbparammax: UInt, pcbparamactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetSessionParameter(sesid.toLong(), sesparamid.toInt(), pvparam.rawAddress, cbparammax.toInt(), pcbparamactual.rawAddress)
 
-public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: COpaquePointer?, szparam: COpaquePointer?, cbmax: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetSystemParameterA(instance.toLong(), sesid.toLong(), paramid.toInt(), (plparam?.value ?: 0L), (szparam?.value ?: 0L), cbmax.toInt())
+public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr<JetApiPtr>, szparam: MutPtr<Byte>, cbmax: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetSystemParameterA(instance.toLong(), sesid.toLong(), paramid.toInt(), plparam.rawAddress, szparam.rawAddress, cbmax.toInt())
 
-public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: COpaquePointer?, szparam: COpaquePointer?, cbmax: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetSystemParameterW(instance.toLong(), sesid.toLong(), paramid.toInt(), (plparam?.value ?: 0L), (szparam?.value ?: 0L), cbmax.toInt())
+public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr<JetApiPtr>, szparam: MutPtr<UShort>, cbmax: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetSystemParameterW(instance.toLong(), sesid.toLong(), paramid.toInt(), plparam.rawAddress, szparam.rawAddress, cbmax.toInt())
 
-public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTableColumnInfoA(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(sesid.toLong(), tableid.toLong(), (szcolumnname?.value ?: 0L), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTableColumnInfoW(sesid.toLong(), tableid.toLong(), szcolumnname.rawAddress, pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), (pvresult?.value ?: 0L), cbresult.toInt(), infolevel.toInt())
+public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTableIndexInfoA(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, pvresult.rawAddress, cbresult.toInt(), infolevel.toInt())
 
-public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), (pvresult?.value ?: 0L), cbresult.toInt(), infolevel.toInt())
+public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTableIndexInfoW(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, pvresult.rawAddress, cbresult.toInt(), infolevel.toInt())
 
-public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTableInfoA(sesid.toLong(), tableid.toLong(), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTableInfoA(sesid.toLong(), tableid.toLong(), pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTableInfoW(sesid.toLong(), tableid.toLong(), (pvresult?.value ?: 0L), cbmax.toInt(), infolevel.toInt())
+public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTableInfoW(sesid.toLong(), tableid.toLong(), pvresult.rawAddress, cbmax.toInt(), infolevel.toInt())
 
-public actual fun jetGetThreadStats(pvresult: COpaquePointer?, cbmax: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetThreadStats((pvresult?.value ?: 0L), cbmax.toInt())
+public actual fun jetGetThreadStats(pvresult: MutPtr<CVoid>, cbmax: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetThreadStats(pvresult.rawAddress, cbmax.toInt())
 
-public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(instance.toLong(), (szzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceA(instance.toLong(), szzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(instance.toLong(), (wszzlogs?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceW(instance.toLong(), wszzlogs.rawAddress, cbmax.toInt(), pcbactual.rawAddress)
 
-public actual fun jetGetVersion(sesid: JetSesid, pwversion: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGetVersion(sesid.toLong(), (pwversion?.value ?: 0L))
+public actual fun jetGetVersion(sesid: JetSesid, pwversion: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGetVersion(sesid.toLong(), pwversion.rawAddress)
 
-public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGotoBookmark(sesid.toLong(), tableid.toLong(), (pvbookmark?.value ?: 0L), cbbookmark.toInt())
+public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: ConstPtr<CVoid>, cbbookmark: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGotoBookmark(sesid.toLong(), tableid.toLong(), pvbookmark.rawAddress, cbbookmark.toInt())
 
-public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGotoPosition(sesid.toLong(), tableid.toLong(), (precpos?.value ?: 0L))
+public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: ConstPtr<JetRecpos>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGotoPosition(sesid.toLong(), tableid.toLong(), precpos.rawAddress)
 
-public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: COpaquePointer?, cbsecondarykey: UInt, pvprimarybookmark: COpaquePointer?, cbprimarybookmark: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(sesid.toLong(), tableid.toLong(), (pvsecondarykey?.value ?: 0L), cbsecondarykey.toInt(), (pvprimarybookmark?.value ?: 0L), cbprimarybookmark.toInt(), grbit.toInt())
+public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: ConstPtr<CVoid>, cbsecondarykey: UInt, pvprimarybookmark: ConstPtr<CVoid>, cbprimarybookmark: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGotoSecondaryIndexBookmark(sesid.toLong(), tableid.toLong(), pvsecondarykey.rawAddress, cbsecondarykey.toInt(), pvprimarybookmark.rawAddress, cbprimarybookmark.toInt(), grbit.toInt())
 
-public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetGrowDatabase(sesid.toLong(), dbid.toInt(), cpg.toInt(), (pcpgreal?.value ?: 0L))
+public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: ConstPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetGrowDatabase(sesid.toLong(), dbid.toInt(), cpg.toInt(), pcpgreal.rawAddress)
 
 public actual fun jetIdle(sesid: JetSesid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetIdle(sesid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetIdle(sesid.toLong(), grbit.toInt())
 
-public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: COpaquePointer?, crecmax: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetIndexRecordCount(sesid.toLong(), tableid.toLong(), (pcrec?.value ?: 0L), crecmax.toInt())
+public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: MutPtr<UInt>, crecmax: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetIndexRecordCount(sesid.toLong(), tableid.toLong(), pcrec.rawAddress, crecmax.toInt())
 
-public actual fun jetInit(pinstance: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetInit((pinstance?.value ?: 0L))
+public actual fun jetInit(pinstance: MutPtr<JetInstance>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetInit(pinstance.rawAddress)
 
-public actual fun jetInit2(pinstance: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetInit2((pinstance?.value ?: 0L), grbit.toInt())
+public actual fun jetInit2(pinstance: MutPtr<JetInstance>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetInit2(pinstance.rawAddress, grbit.toInt())
 
-public actual fun jetInit3A(pinstance: COpaquePointer?, prstinfo: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetInit3A((pinstance?.value ?: 0L), (prstinfo?.value ?: 0L), grbit.toInt())
+public actual fun jetInit3A(pinstance: MutPtr<JetInstance>, prstinfo: ConstPtr<JetRstinfoA>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetInit3A(pinstance.rawAddress, prstinfo.rawAddress, grbit.toInt())
 
-public actual fun jetInit3W(pinstance: COpaquePointer?, prstinfo: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetInit3W((pinstance?.value ?: 0L), (prstinfo?.value ?: 0L), grbit.toInt())
+public actual fun jetInit3W(pinstance: MutPtr<JetInstance>, prstinfo: ConstPtr<JetRstinfoW>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetInit3W(pinstance.rawAddress, prstinfo.rawAddress, grbit.toInt())
 
-public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: COpaquePointer?, cindexrange: UInt, precordlist: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetIntersectIndexes(sesid.toLong(), (rgindexrange?.value ?: 0L), cindexrange.toInt(), (precordlist?.value ?: 0L), grbit.toInt())
+public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: ConstPtr<JetIndexrange>, cindexrange: UInt, precordlist: MutPtr<JetRecordlist>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetIntersectIndexes(sesid.toLong(), rgindexrange.rawAddress, cindexrange.toInt(), precordlist.rawAddress, grbit.toInt())
 
-public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetMakeKey(sesid.toLong(), tableid.toLong(), (pvdata?.value ?: 0L), cbdata.toInt(), grbit.toInt())
+public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetMakeKey(sesid.toLong(), tableid.toLong(), pvdata.rawAddress, cbdata.toInt(), grbit.toInt())
 
 public actual fun jetMove(sesid: JetSesid, tableid: JetTableid, crow: Int, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetMove(sesid.toLong(), tableid.toLong(), crow, grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetMove(sesid.toLong(), tableid.toLong(), crow, grbit.toInt())
 
 public actual fun jetOSSnapshotAbort(snapid: JetOssnapid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(snapid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotAbort(snapid.toLong(), grbit.toInt())
 
 public actual fun jetOSSnapshotEnd(snapid: JetOssnapid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(snapid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid.toLong(), grbit.toInt())
 
-public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(snapid.toLong(), (pcinstanceinfo?.value ?: 0L), (painstanceinfo?.value ?: 0L), grbit.toInt())
+public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotFreezeA(snapid.toLong(), pcinstanceinfo.rawAddress, painstanceinfo.rawAddress, grbit.toInt())
 
-public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(snapid.toLong(), (pcinstanceinfo?.value ?: 0L), (painstanceinfo?.value ?: 0L), grbit.toInt())
+public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotFreezeW(snapid.toLong(), pcinstanceinfo.rawAddress, painstanceinfo.rawAddress, grbit.toInt())
 
-public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(snapid.toLong(), (pcinstanceinfo?.value ?: 0L), (painstanceinfo?.value ?: 0L), grbit.toInt())
+public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoA(snapid.toLong(), pcinstanceinfo.rawAddress, painstanceinfo.rawAddress, grbit.toInt())
 
-public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(snapid.toLong(), (pcinstanceinfo?.value ?: 0L), (painstanceinfo?.value ?: 0L), grbit.toInt())
+public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoW(snapid.toLong(), pcinstanceinfo.rawAddress, painstanceinfo.rawAddress, grbit.toInt())
 
-public actual fun jetOSSnapshotPrepare(psnapid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare((psnapid?.value ?: 0L), grbit.toInt())
+public actual fun jetOSSnapshotPrepare(psnapid: MutPtr<JetOssnapid>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotPrepare(psnapid.rawAddress, grbit.toInt())
 
 public actual fun jetOSSnapshotPrepareInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(snapid.toLong(), instance.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(snapid.toLong(), instance.toLong(), grbit.toInt())
 
 public actual fun jetOSSnapshotThaw(snapid: JetOssnapid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(snapid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotThaw(snapid.toLong(), grbit.toInt())
 
 public actual fun jetOSSnapshotTruncateLog(snapid: JetOssnapid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(snapid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(snapid.toLong(), grbit.toInt())
 
 public actual fun jetOSSnapshotTruncateLogInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(snapid.toLong(), instance.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid.toLong(), instance.toLong(), grbit.toInt())
 
-public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenDatabaseA(sesid.toLong(), (szfilename?.value ?: 0L), (szconnect?.value ?: 0L), (pdbid?.value ?: 0L), grbit.toInt())
+public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenDatabaseA(sesid.toLong(), szfilename.rawAddress, szconnect.rawAddress, pdbid.rawAddress, grbit.toInt())
 
-public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenDatabaseW(sesid.toLong(), (szfilename?.value ?: 0L), (szconnect?.value ?: 0L), (pdbid?.value ?: 0L), grbit.toInt())
+public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, szconnect: ConstPtr<UShort>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenDatabaseW(sesid.toLong(), szfilename.rawAddress, szconnect.rawAddress, pdbid.rawAddress, grbit.toInt())
 
-public actual fun jetOpenFileA(szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenFileA((szfilename?.value ?: 0L), (phffile?.value ?: 0L), (pulfilesizelow?.value ?: 0L), (pulfilesizehigh?.value ?: 0L))
+public actual fun jetOpenFileA(szfilename: ConstPtr<Byte>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenFileA(szfilename.rawAddress, phffile.rawAddress, pulfilesizelow.rawAddress, pulfilesizehigh.rawAddress)
 
-public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(instance.toLong(), (szfilename?.value ?: 0L), (phffile?.value ?: 0L), (pulfilesizelow?.value ?: 0L), (pulfilesizehigh?.value ?: 0L))
+public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: ConstPtr<Byte>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenFileInstanceA(instance.toLong(), szfilename.rawAddress, phffile.rawAddress, pulfilesizelow.rawAddress, pulfilesizehigh.rawAddress)
 
-public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(instance.toLong(), (szfilename?.value ?: 0L), (phffile?.value ?: 0L), (pulfilesizelow?.value ?: 0L), (pulfilesizehigh?.value ?: 0L))
+public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: ConstPtr<UShort>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenFileInstanceW(instance.toLong(), szfilename.rawAddress, phffile.rawAddress, pulfilesizelow.rawAddress, pulfilesizehigh.rawAddress)
 
-public actual fun jetOpenFileW(szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenFileW((szfilename?.value ?: 0L), (phffile?.value ?: 0L), (pulfilesizelow?.value ?: 0L), (pulfilesizehigh?.value ?: 0L))
+public actual fun jetOpenFileW(szfilename: ConstPtr<UShort>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenFileW(szfilename.rawAddress, phffile.rawAddress, pulfilesizelow.rawAddress, pulfilesizehigh.rawAddress)
 
-public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pvparameters: COpaquePointer?, cbparameters: UInt, grbit: UInt, ptableid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTableA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pvparameters?.value ?: 0L), cbparameters.toInt(), grbit.toInt(), (ptableid?.value ?: 0L))
+public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pvparameters: ConstPtr<CVoid>, cbparameters: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTableA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pvparameters.rawAddress, cbparameters.toInt(), grbit.toInt(), ptableid.rawAddress)
 
-public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pvparameters: COpaquePointer?, cbparameters: UInt, grbit: UInt, ptableid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTableW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (pvparameters?.value ?: 0L), cbparameters.toInt(), grbit.toInt(), (ptableid?.value ?: 0L))
+public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pvparameters: ConstPtr<CVoid>, cbparameters: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTableW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, pvparameters.rawAddress, cbparameters.toInt(), grbit.toInt(), ptableid.rawAddress)
 
-public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTempTable(sesid.toLong(), (prgcolumndef?.value ?: 0L), ccolumn.toInt(), grbit.toInt(), (ptableid?.value ?: 0L), (prgcolumnid?.value ?: 0L))
+public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTempTable(sesid.toLong(), prgcolumndef.rawAddress, ccolumn.toInt(), grbit.toInt(), ptableid.rawAddress, prgcolumnid.rawAddress)
 
-public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTempTable2(sesid.toLong(), (prgcolumndef?.value ?: 0L), ccolumn.toInt(), lcid.toInt(), grbit.toInt(), (ptableid?.value ?: 0L), (prgcolumnid?.value ?: 0L))
+public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTempTable2(sesid.toLong(), prgcolumndef.rawAddress, ccolumn.toInt(), lcid.toInt(), grbit.toInt(), ptableid.rawAddress, prgcolumnid.rawAddress)
 
-public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, pidxunicode: COpaquePointer?, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTempTable3(sesid.toLong(), (prgcolumndef?.value ?: 0L), ccolumn.toInt(), (pidxunicode?.value ?: 0L), grbit.toInt(), (ptableid?.value ?: 0L), (prgcolumnid?.value ?: 0L))
+public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, pidxunicode: ConstPtr<JetUnicodeindex>, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTempTable3(sesid.toLong(), prgcolumndef.rawAddress, ccolumn.toInt(), pidxunicode.rawAddress, grbit.toInt(), ptableid.rawAddress, prgcolumnid.rawAddress)
 
-public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(sesid.toLong(), (popentemporarytable?.value ?: 0L))
+public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: ConstPtr<JetOpentemporarytable>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTemporaryTable(sesid.toLong(), popentemporarytable.rawAddress)
 
-public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(sesid.toLong(), (popentemporarytable?.value ?: 0L))
+public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: ConstPtr<JetOpentemporarytable2>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetOpenTemporaryTable2(sesid.toLong(), popentemporarytable.rawAddress)
 
 public actual fun jetPrepareUpdate(sesid: JetSesid, tableid: JetTableid, prep: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetPrepareUpdate(sesid.toLong(), tableid.toLong(), prep.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetPrepareUpdate(sesid.toLong(), tableid.toLong(), prep.toInt())
 
-public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: COpaquePointer?, cindexranges: UInt, pcrangespreread: COpaquePointer?, rgcolumnidpreread: COpaquePointer?, ccolumnidpreread: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(sesid.toLong(), tableid.toLong(), (rgindexranges?.value ?: 0L), cindexranges.toInt(), (pcrangespreread?.value ?: 0L), (rgcolumnidpreread?.value ?: 0L), ccolumnidpreread.toInt(), grbit.toInt())
+public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: ConstPtr<JetIndexRange>, cindexranges: UInt, pcrangespreread: MutPtr<UInt>, rgcolumnidpreread: ConstPtr<UInt>, ccolumnidpreread: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetPrereadIndexRanges(sesid.toLong(), tableid.toLong(), rgindexranges.rawAddress, cindexranges.toInt(), pcrangespreread.rawAddress, rgcolumnidpreread.rawAddress, ccolumnidpreread.toInt(), grbit.toInt())
 
-public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: COpaquePointer?, rgcbkeys: COpaquePointer?, ckeys: Int, pckeyspreread: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetPrereadKeys(sesid.toLong(), tableid.toLong(), (rgpvkeys?.value ?: 0L), (rgcbkeys?.value ?: 0L), ckeys, (pckeyspreread?.value ?: 0L), grbit.toInt())
+public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: ConstPtr<ConstPtr<CVoid>>, rgcbkeys: ConstPtr<UInt>, ckeys: Int, pckeyspreread: MutPtr<Int>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetPrereadKeys(sesid.toLong(), tableid.toLong(), rgpvkeys.rawAddress, rgcbkeys.rawAddress, ckeys, pckeyspreread.rawAddress, grbit.toInt())
 
-public actual fun jetReadFile(hffile: JetHandle, pv: COpaquePointer?, cb: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetReadFile(hffile.toLong(), (pv?.value ?: 0L), cb.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetReadFile(hffile: JetHandle, pv: MutPtr<CVoid>, cb: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetReadFile(hffile.toLong(), pv.rawAddress, cb.toInt(), pcbactual.rawAddress)
 
-public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: COpaquePointer?, cb: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetReadFileInstance(instance.toLong(), hffile.toLong(), (pv?.value ?: 0L), cb.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: MutPtr<CVoid>, cb: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetReadFileInstance(instance.toLong(), hffile.toLong(), pv.rawAddress, cb.toInt(), pcbactual.rawAddress)
 
-public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: COpaquePointer?, phcallbackid: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRegisterCallback(sesid.toLong(), tableid.toLong(), cbtyp.toInt(), 0L, (pvcontext?.value ?: 0L), (phcallbackid?.value ?: 0L))
+public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: ConstPtr<CVoid>, phcallbackid: ConstPtr<JetHandle>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRegisterCallback(sesid.toLong(), tableid.toLong(), cbtyp.toInt(), 0L, pvcontext.rawAddress, phcallbackid.rawAddress)
 
-public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: COpaquePointer?, sznamenew: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRenameColumnA(sesid.toLong(), tableid.toLong(), (szname?.value ?: 0L), (sznamenew?.value ?: 0L), grbit.toInt())
+public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr<Byte>, sznamenew: ConstPtr<Byte>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRenameColumnA(sesid.toLong(), tableid.toLong(), szname.rawAddress, sznamenew.rawAddress, grbit.toInt())
 
-public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: COpaquePointer?, sznamenew: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRenameColumnW(sesid.toLong(), tableid.toLong(), (szname?.value ?: 0L), (sznamenew?.value ?: 0L), grbit.toInt())
+public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr<UShort>, sznamenew: ConstPtr<UShort>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRenameColumnW(sesid.toLong(), tableid.toLong(), szname.rawAddress, sznamenew.rawAddress, grbit.toInt())
 
-public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: COpaquePointer?, sznamenew: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRenameTableA(sesid.toLong(), dbid.toInt(), (szname?.value ?: 0L), (sznamenew?.value ?: 0L))
+public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: ConstPtr<Byte>, sznamenew: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRenameTableA(sesid.toLong(), dbid.toInt(), szname.rawAddress, sznamenew.rawAddress)
 
-public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: COpaquePointer?, sznamenew: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRenameTableW(sesid.toLong(), dbid.toInt(), (szname?.value ?: 0L), (sznamenew?.value ?: 0L))
+public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: ConstPtr<UShort>, sznamenew: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRenameTableW(sesid.toLong(), dbid.toInt(), szname.rawAddress, sznamenew.rawAddress)
 
 public actual fun jetResetSessionContext(sesid: JetSesid): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetResetSessionContext(sesid.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetResetSessionContext(sesid.toLong())
 
 public actual fun jetResetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetResetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetResetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
-public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetResizeDatabase(sesid.toLong(), dbid.toInt(), cpgtarget.toInt(), (pcpgactual?.value ?: 0L), grbit.toInt())
+public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetResizeDatabase(sesid.toLong(), dbid.toInt(), cpgtarget.toInt(), pcpgactual.rawAddress, grbit.toInt())
 
-public actual fun jetRestore2A(sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRestore2A((sz?.value ?: 0L), (szdest?.value ?: 0L), 0L)
+public actual fun jetRestore2A(sz: ConstPtr<Byte>, szdest: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRestore2A(sz.rawAddress, szdest.rawAddress, 0L)
 
-public actual fun jetRestore2W(sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRestore2W((sz?.value ?: 0L), (szdest?.value ?: 0L), 0L)
+public actual fun jetRestore2W(sz: ConstPtr<UShort>, szdest: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRestore2W(sz.rawAddress, szdest.rawAddress, 0L)
 
-public actual fun jetRestoreA(szsource: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRestoreA((szsource?.value ?: 0L), 0L)
+public actual fun jetRestoreA(szsource: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRestoreA(szsource.rawAddress, 0L)
 
-public actual fun jetRestoreInstanceA(instance: JetInstance, sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRestoreInstanceA(instance.toLong(), (sz?.value ?: 0L), (szdest?.value ?: 0L), 0L)
+public actual fun jetRestoreInstanceA(instance: JetInstance, sz: ConstPtr<Byte>, szdest: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRestoreInstanceA(instance.toLong(), sz.rawAddress, szdest.rawAddress, 0L)
 
-public actual fun jetRestoreInstanceW(instance: JetInstance, sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRestoreInstanceW(instance.toLong(), (sz?.value ?: 0L), (szdest?.value ?: 0L), 0L)
+public actual fun jetRestoreInstanceW(instance: JetInstance, sz: ConstPtr<UShort>, szdest: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRestoreInstanceW(instance.toLong(), sz.rawAddress, szdest.rawAddress, 0L)
 
-public actual fun jetRestoreW(szsource: COpaquePointer?, pfn: JetPfnstatus): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRestoreW((szsource?.value ?: 0L), 0L)
+public actual fun jetRestoreW(szsource: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRestoreW(szsource.rawAddress, 0L)
 
-public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: COpaquePointer?, cbdata: UInt, pcbactual: COpaquePointer?, grbit: UInt, pretinfo: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRetrieveColumn(sesid.toLong(), tableid.toLong(), columnid.toInt(), (pvdata?.value ?: 0L), cbdata.toInt(), (pcbactual?.value ?: 0L), grbit.toInt(), (pretinfo?.value ?: 0L))
+public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: MutPtr<CVoid>, cbdata: UInt, pcbactual: MutPtr<UInt>, grbit: UInt, pretinfo: MutPtr<JetRetinfo>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRetrieveColumn(sesid.toLong(), tableid.toLong(), columnid.toInt(), pvdata.rawAddress, cbdata.toInt(), pcbactual.rawAddress, grbit.toInt(), pretinfo.rawAddress)
 
-public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: COpaquePointer?, cretrievecolumn: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRetrieveColumns(sesid.toLong(), tableid.toLong(), (pretrievecolumn?.value ?: 0L), cretrievecolumn.toInt())
+public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: MutPtr<JetRetrievecolumn>, cretrievecolumn: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRetrieveColumns(sesid.toLong(), tableid.toLong(), pretrievecolumn.rawAddress, cretrievecolumn.toInt())
 
-public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRetrieveKey(sesid.toLong(), tableid.toLong(), (pvkey?.value ?: 0L), cbmax.toInt(), (pcbactual?.value ?: 0L), grbit.toInt())
+public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: MutPtr<CVoid>, cbmax: UInt, pcbactual: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRetrieveKey(sesid.toLong(), tableid.toLong(), pvkey.rawAddress, cbmax.toInt(), pcbactual.rawAddress, grbit.toInt())
 
 public actual fun jetRollback(sesid: JetSesid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetRollback(sesid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetRollback(sesid.toLong(), grbit.toInt())
 
 public actual fun jetSeek(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSeek(sesid.toLong(), tableid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSeek(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
-public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt, psetinfo: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetColumn(sesid.toLong(), tableid.toLong(), columnid.toInt(), (pvdata?.value ?: 0L), cbdata.toInt(), grbit.toInt(), (psetinfo?.value ?: 0L))
+public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt, psetinfo: ConstPtr<JetSetinfo>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetColumn(sesid.toLong(), tableid.toLong(), columnid.toInt(), pvdata.rawAddress, cbdata.toInt(), grbit.toInt(), psetinfo.rawAddress)
 
-public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szcolumnname: COpaquePointer?, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (szcolumnname?.value ?: 0L), (pvdata?.value ?: 0L), cbdata.toInt(), grbit.toInt())
+public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, szcolumnname: ConstPtr<Byte>, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetColumnDefaultValueA(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, szcolumnname.rawAddress, pvdata.rawAddress, cbdata.toInt(), grbit.toInt())
 
-public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szcolumnname: COpaquePointer?, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(sesid.toLong(), dbid.toInt(), (sztablename?.value ?: 0L), (szcolumnname?.value ?: 0L), (pvdata?.value ?: 0L), cbdata.toInt(), grbit.toInt())
+public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, szcolumnname: ConstPtr<UShort>, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetColumnDefaultValueW(sesid.toLong(), dbid.toInt(), sztablename.rawAddress, szcolumnname.rawAddress, pvdata.rawAddress, cbdata.toInt(), grbit.toInt())
 
-public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: COpaquePointer?, csetcolumn: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetColumns(sesid.toLong(), tableid.toLong(), (psetcolumn?.value ?: 0L), csetcolumn.toInt())
+public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: ConstPtr<JetSetcolumn>, csetcolumn: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetColumns(sesid.toLong(), tableid.toLong(), psetcolumn.rawAddress, csetcolumn.toInt())
 
-public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), grbit.toInt())
+public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndex2A(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, grbit.toInt())
 
-public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), grbit.toInt())
+public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndex2W(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, grbit.toInt())
 
-public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), grbit.toInt(), itagsequence.toInt())
+public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt, itagsequence: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndex3A(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, grbit.toInt(), itagsequence.toInt())
 
-public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), grbit.toInt(), itagsequence.toInt())
+public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt, itagsequence: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndex3W(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, grbit.toInt(), itagsequence.toInt())
 
-public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pindexid: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), (pindexid?.value ?: 0L), grbit.toInt(), itagsequence.toInt())
+public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, pindexid: ConstPtr<JetIndexid>, grbit: UInt, itagsequence: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndex4A(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, pindexid.rawAddress, grbit.toInt(), itagsequence.toInt())
 
-public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pindexid: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L), (pindexid?.value ?: 0L), grbit.toInt(), itagsequence.toInt())
+public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, pindexid: ConstPtr<JetIndexid>, grbit: UInt, itagsequence: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndex4W(sesid.toLong(), tableid.toLong(), szindexname.rawAddress, pindexid.rawAddress, grbit.toInt(), itagsequence.toInt())
 
-public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L))
+public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndexA(sesid.toLong(), tableid.toLong(), szindexname.rawAddress)
 
-public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(sesid.toLong(), tableid.toLong(), (szindexname?.value ?: 0L))
+public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCurrentIndexW(sesid.toLong(), tableid.toLong(), szindexname.rawAddress)
 
-public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: COpaquePointer?, ccolumnfilters: UInt, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetCursorFilter(sesid.toLong(), tableid.toLong(), (rgcolumnfilters?.value ?: 0L), ccolumnfilters.toInt(), grbit.toInt())
+public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: ConstPtr<JetIndexColumn>, ccolumnfilters: UInt, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetCursorFilter(sesid.toLong(), tableid.toLong(), rgcolumnfilters.rawAddress, ccolumnfilters.toInt(), grbit.toInt())
 
-public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: COpaquePointer?, cpg: UInt, pcpgreal: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(sesid.toLong(), (szdatabasename?.value ?: 0L), cpg.toInt(), (pcpgreal?.value ?: 0L))
+public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: ConstPtr<Byte>, cpg: UInt, pcpgreal: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetDatabaseSizeA(sesid.toLong(), szdatabasename.rawAddress, cpg.toInt(), pcpgreal.rawAddress)
 
-public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: COpaquePointer?, cpg: UInt, pcpgreal: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(sesid.toLong(), (szdatabasename?.value ?: 0L), cpg.toInt(), (pcpgreal?.value ?: 0L))
+public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: ConstPtr<UShort>, cpg: UInt, pcpgreal: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetDatabaseSizeW(sesid.toLong(), szdatabasename.rawAddress, cpg.toInt(), pcpgreal.rawAddress)
 
 public actual fun jetSetIndexRange(sesid: JetSesid, tableidsrc: JetTableid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetIndexRange(sesid.toLong(), tableidsrc.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetIndexRange(sesid.toLong(), tableidsrc.toLong(), grbit.toInt())
 
 public actual fun jetSetLS(sesid: JetSesid, tableid: JetTableid, ls: JetLs, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetLS(sesid.toLong(), tableid.toLong(), ls.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetLS(sesid.toLong(), tableid.toLong(), ls.toLong(), grbit.toInt())
 
 public actual fun jetSetSessionContext(sesid: JetSesid, ulcontext: JetApiPtr): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetSessionContext(sesid.toLong(), ulcontext.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetSessionContext(sesid.toLong(), ulcontext.toLong())
 
-public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: COpaquePointer?, cbparam: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetSessionParameter(sesid.toLong(), sesparamid.toInt(), (pvparam?.value ?: 0L), cbparam.toInt())
+public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: ConstPtr<CVoid>, cbparam: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetSessionParameter(sesid.toLong(), sesparamid.toInt(), pvparam.rawAddress, cbparam.toInt())
 
-public actual fun jetSetSystemParameterA(pinstance: COpaquePointer?, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetSystemParameterA((pinstance?.value ?: 0L), sesid.toLong(), paramid.toInt(), lparam.toLong(), (szparam?.value ?: 0L))
+public actual fun jetSetSystemParameterA(pinstance: MutPtr<JetInstance>, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr<Byte>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetSystemParameterA(pinstance.rawAddress, sesid.toLong(), paramid.toInt(), lparam.toLong(), szparam.rawAddress)
 
-public actual fun jetSetSystemParameterW(pinstance: COpaquePointer?, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetSystemParameterW((pinstance?.value ?: 0L), sesid.toLong(), paramid.toInt(), lparam.toLong(), (szparam?.value ?: 0L))
+public actual fun jetSetSystemParameterW(pinstance: MutPtr<JetInstance>, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr<UShort>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetSystemParameterW(pinstance.rawAddress, sesid.toLong(), paramid.toInt(), lparam.toLong(), szparam.rawAddress)
 
 public actual fun jetSetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetSetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetSetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
 public actual fun jetStopBackup(): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetStopBackup()
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetStopBackup()
 
 public actual fun jetStopBackupInstance(instance: JetInstance): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetStopBackupInstance(instance.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetStopBackupInstance(instance.toLong())
 
 public actual fun jetStopService(): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetStopService()
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetStopService()
 
 public actual fun jetStopServiceInstance(instance: JetInstance): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetStopServiceInstance(instance.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetStopServiceInstance(instance.toLong())
 
 public actual fun jetStopServiceInstance2(instance: JetInstance, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetStopServiceInstance2(instance.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetStopServiceInstance2(instance.toLong(), grbit.toInt())
 
 public actual fun jetTerm(instance: JetInstance): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetTerm(instance.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetTerm(instance.toLong())
 
 public actual fun jetTerm2(instance: JetInstance, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetTerm2(instance.toLong(), grbit.toInt())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetTerm2(instance.toLong(), grbit.toInt())
 
 public actual fun jetTruncateLog(): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetTruncateLog()
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetTruncateLog()
 
 public actual fun jetTruncateLogInstance(instance: JetInstance): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetTruncateLogInstance(instance.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetTruncateLogInstance(instance.toLong())
 
 public actual fun jetUnregisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, hcallbackid: JetHandle): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetUnregisterCallback(sesid.toLong(), tableid.toLong(), cbtyp.toInt(), hcallbackid.toLong())
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetUnregisterCallback(sesid.toLong(), tableid.toLong(), cbtyp.toInt(), hcallbackid.toLong())
 
-public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt, pcbactual: COpaquePointer?): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetUpdate(sesid.toLong(), tableid.toLong(), (pvbookmark?.value ?: 0L), cbbookmark.toInt(), (pcbactual?.value ?: 0L))
+public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetUpdate(sesid.toLong(), tableid.toLong(), pvbookmark.rawAddress, cbbookmark.toInt(), pcbactual.rawAddress)
 
-public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt, pcbactual: COpaquePointer?, grbit: UInt): Int =
-    WindowsWin32StorageJetJniBridge.windowssys_windows_win32_storage_jet_jetUpdate2(sesid.toLong(), tableid.toLong(), (pvbookmark?.value ?: 0L), cbbookmark.toInt(), (pcbactual?.value ?: 0L), grbit.toInt())
+public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>, grbit: UInt): Int =
+    WindowsWin32StorageJetJniBridge.windowssysWindowsWin32StorageJetJetUpdate2(sesid.toLong(), tableid.toLong(), pvbookmark.rawAddress, cbbookmark.toInt(), pcbactual.rawAddress, grbit.toInt())

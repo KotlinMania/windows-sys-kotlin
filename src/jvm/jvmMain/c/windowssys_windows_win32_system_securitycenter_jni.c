@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssys_1windows_1win32_1system_1securitycenter_1wscGetAntiMalwareUri(JNIEnv* km_env, jclass km_clazz, jlong ppszuri) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssysWindowsWin32SystemSecuritycenterWscGetAntiMalwareUri(JNIEnv* km_env, jclass km_clazz, jlong ppszuri) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssys_1windows_1win32_1system_1securitycenter_1wscGetSecurityProviderHealth(JNIEnv* km_env, jclass km_clazz, jint providers, jlong phealth) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssysWindowsWin32SystemSecuritycenterWscGetSecurityProviderHealth(JNIEnv* km_env, jclass km_clazz, jint providers, jlong phealth) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssys_1windows_1win32_1system_1securitycenter_1wscQueryAntiMalwareUri(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssysWindowsWin32SystemSecuritycenterWscQueryAntiMalwareUri(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssys_1windows_1win32_1system_1securitycenter_1wscRegisterForChanges(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong phcallbackregistration, jlong lpcallbackaddress, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssysWindowsWin32SystemSecuritycenterWscRegisterForChanges(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong phcallbackregistration, jlong lpcallbackaddress, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssys_1windows_1win32_1system_1securitycenter_1wscRegisterForUserNotifications(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssysWindowsWin32SystemSecuritycenterWscRegisterForUserNotifications(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssys_1windows_1win32_1system_1securitycenter_1wscUnRegisterChanges(JNIEnv* km_env, jclass km_clazz, jlong hregistrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_securitycenter_WindowsWin32SystemSecuritycenterJniBridge_windowssysWindowsWin32SystemSecuritycenterWscUnRegisterChanges(JNIEnv* km_env, jclass km_clazz, jlong hregistrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

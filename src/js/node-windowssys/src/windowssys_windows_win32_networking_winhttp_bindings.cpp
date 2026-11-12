@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeaders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequest
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeadersEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmodifiers = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequest
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -140,7 +140,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCheckPlatf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCloseHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pswzservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -196,7 +196,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpConnect_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCrackUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpCrackUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwurllength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCrackUrl_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpCreateProxyResolver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCreateProx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCreateUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpCreateUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpurlcomponents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCreateUrl_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpDetectAutoProxyConfigUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwautodetectflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppwstrautoconfigurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -312,7 +312,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpDetectAuto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -334,7 +334,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyR
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResultEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyresultex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -356,7 +356,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyR
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwinhttpproxysettings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -378,7 +378,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettingsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t proxysettingstype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pproxysettingsex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -405,7 +405,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpFreeQueryConnectionGroupResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeQueryC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetDefaultProxyConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -452,7 +452,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetDefault
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetIEProxyConfigForCurrentUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -477,7 +477,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetIEProxy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -508,7 +508,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -539,7 +539,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -574,7 +574,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproxyresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -601,7 +601,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResultEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproxyresultex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -628,7 +628,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t proxysettingstype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -659,7 +659,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsResultEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproxysettingsex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -686,7 +686,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwproxysettingsversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszagentw = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaccesstype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -746,7 +746,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpen_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpenRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpOpenRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszverb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -783,7 +783,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpenReques
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpQueryAuthSchemes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwsupportedschemes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -814,7 +814,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryAuthS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpQueryConnectionGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidconnection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -845,7 +845,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpQueryDataAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwnumberofbytesavailable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryDataA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeaders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -907,7 +907,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeade
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeadersEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -950,7 +950,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeade
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpQueryOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -981,7 +981,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryOptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpReadData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpReadDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1049,7 +1049,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadDataEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpReadProxySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1086,7 +1086,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadProxyS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpReceiveResponse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1113,7 +1113,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReceiveRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpRegisterProxyChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ullflags = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1144,7 +1144,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpRegisterPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpResetAutoProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1171,7 +1171,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpResetAutoP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSendRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSendRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1208,7 +1208,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSendReques
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSetCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t authtargets = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1243,7 +1243,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetCredent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSetDefaultProxyConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1268,7 +1268,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetDefault
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSetOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1299,7 +1299,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetOption_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSetProxySettingsPerUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fproxysettingsperuser = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1324,7 +1324,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetProxySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetStatusCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSetStatusCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfninternetcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1355,7 +1355,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetStatusC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpSetTimeouts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nresolvetimeout = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1388,7 +1388,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetTimeout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpTimeFromSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwsztime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1415,7 +1415,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpTimeFromSy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwsztime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1442,7 +1442,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpTimeToSyst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpUnregisterProxyChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1467,7 +1467,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpUnregister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t usstatus = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1498,7 +1498,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketCompleteUpgrade_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t pcontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1525,7 +1525,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketQueryCloseStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1558,7 +1558,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketReceive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1591,7 +1591,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketSend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ebuffertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1622,7 +1622,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t usstatus = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1653,7 +1653,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWriteData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWriteData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1684,7 +1684,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWriteData_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWinhttpWinHttpWriteProxySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fforceupdate = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1714,62 +1714,62 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWriteProxy
 }
 
 static void register_windows_win32_networking_winhttp_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpConnect", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpConnect_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpCrackUrl", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpCrackUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpCreateUrl", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpCreateUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpOpen", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpOpen_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpOpenRequest", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpOpenRequest_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpQueryOption", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpQueryOption_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpReadData", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpReadData_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpReadDataEx", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpReadDataEx_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSendRequest", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSendRequest_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSetCredentials", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSetCredentials_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSetOption", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSetOption_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSetStatusCallback", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSetStatusCallback_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWriteData", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWriteData_napi));
-    exports.Set("windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings", Napi::Function::New(env, windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeaders", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeaders_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeadersEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpAddRequestHeadersEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpCloseHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpCrackUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpCrackUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpCreateProxyResolver", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpCreateProxyResolver_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpCreateUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpCreateUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpDetectAutoProxyConfigUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpDetectAutoProxyConfigUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResult", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResult_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResultEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxyResultEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettings", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettingsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpFreeProxySettingsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpFreeQueryConnectionGroupResult", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpFreeQueryConnectionGroupResult_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetDefaultProxyConfiguration", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetDefaultProxyConfiguration_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetIEProxyConfigForCurrentUser", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetIEProxyConfigForCurrentUser_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyForUrlEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResult", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResult_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResultEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxyResultEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsResultEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsResultEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsVersion", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpGetProxySettingsVersion_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpOpen", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpOpen_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpOpenRequest", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpOpenRequest_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpQueryAuthSchemes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpQueryAuthSchemes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpQueryConnectionGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpQueryConnectionGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpQueryDataAvailable", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpQueryDataAvailable_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeaders", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeaders_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeadersEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpQueryHeadersEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpQueryOption", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpQueryOption_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpReadData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpReadData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpReadDataEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpReadDataEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpReadProxySettings", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpReadProxySettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpReceiveResponse", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpReceiveResponse_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpRegisterProxyChangeNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpRegisterProxyChangeNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpResetAutoProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpResetAutoProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSendRequest", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSendRequest_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSetCredentials", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSetCredentials_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSetDefaultProxyConfiguration", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSetDefaultProxyConfiguration_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSetOption", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSetOption_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSetProxySettingsPerUser", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSetProxySettingsPerUser_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSetStatusCallback", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSetStatusCallback_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpSetTimeouts", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpSetTimeouts_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpTimeFromSystemTime", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpTimeFromSystemTime_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpTimeToSystemTime", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpTimeToSystemTime_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpUnregisterProxyChangeNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpUnregisterProxyChangeNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketClose", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketClose_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketCompleteUpgrade", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketCompleteUpgrade_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketQueryCloseStatus", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketQueryCloseStatus_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketReceive", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketReceive_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketSend", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketSend_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketShutdown", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWebSocketShutdown_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWriteData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWriteData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWinhttpWinHttpWriteProxySettings", Napi::Function::New(env, windowssysWindowsWin32NetworkingWinhttpWinHttpWriteProxySettings_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_winhttp_napi, nullptr };

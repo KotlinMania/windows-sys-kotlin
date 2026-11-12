@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_devices_portabledevices_dMProcessConfigXMLFiltered(void* pszxmlin, void* rgszallowedcspnodes, uint32_t dwnumallowedcspnodes, void* pbstrxmlout);
+int32_t windowssysWindowsWin32DevicesPortabledevicesDMProcessConfigXMLFiltered(void* pszxmlin, void* rgszallowedcspnodes, uint32_t dwnumallowedcspnodes, void* pbstrxmlout);
 
 #ifdef __cplusplus
 }

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_multinetGetConnectionPerformanceA(void* lpnetresource, void* lpnetconnectinfostruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceA(void* lpnetresource, void* lpnetconnectinfostruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_multinetGetConnectionPe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_multinetGetConnectionPerformanceW(void* lpnetresource, void* lpnetconnectinfostruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceW(void* lpnetresource, void* lpnetconnectinfostruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_multinetGetConnectionPe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPAddConnection(void* lpnetresource, void* lppassword, void* lpusername) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPAddConnection(void* lpnetresource, void* lppassword, void* lpusername) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPAddConnection(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPAddConnection3(void* hwndowner, void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPAddConnection3(void* hwndowner, void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPAddConnection3(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPAddConnection4(void* hwndowner, void* lpnetresource, void* lpauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPAddConnection4(void* hwndowner, void* lpnetresource, void* lpauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -139,7 +139,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPAddConnection4(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPCancelConnection(void* lpname, int32_t fforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection(void* lpname, int32_t fforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPCancelConnection(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPCancelConnection2(void* lpname, int32_t fforce, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection2(void* lpname, int32_t fforce, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPCancelConnection2(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPCloseEnum(void* henum) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPCloseEnum(void* henum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -208,7 +208,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPCloseEnum(void* henum
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPEnumResource(void* henum, void* lpccount, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPEnumResource(void* henum, void* lpccount, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -233,7 +233,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPEnumResource(void* he
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPFormatNetworkName(void* lpremotename, void* lpformattedname, void* lpnlength, uint32_t dwflags, uint32_t dwavecharperline) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPFormatNetworkName(void* lpremotename, void* lpformattedname, void* lpnlength, uint32_t dwflags, uint32_t dwavecharperline) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -259,7 +259,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPFormatNetworkName(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetCaps(uint32_t ndex) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetCaps(uint32_t ndex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -281,7 +281,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetCaps(uint32_t ndex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetConnection(void* lplocalname, void* lpremotename, void* lpnbufferlen) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetConnection(void* lplocalname, void* lpremotename, void* lpnbufferlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -305,7 +305,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetConnection(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetConnection3(void* lplocalname, uint32_t dwlevel, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetConnection3(void* lplocalname, uint32_t dwlevel, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -330,7 +330,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetConnection3(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetConnectionPerformance(void* lpremotename, void* lpnetconnectinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetConnectionPerformance(void* lpremotename, void* lpnetconnectinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -353,7 +353,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetConnectionPerforma
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetPersistentUseOptionsForConnection(void* lpremotepath, void* lpreaduseoptions, uint32_t cbreaduseoptions, void* lpwriteuseoptions, void* lpsizewriteuseoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetPersistentUseOptionsForConnection(void* lpremotepath, void* lpreaduseoptions, uint32_t cbreaduseoptions, void* lpwriteuseoptions, void* lpsizewriteuseoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -379,7 +379,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetPersistentUseOptio
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetResourceInformation(void* lpnetresource, void* lpbuffer, void* lpbuffersize, void* lplpsystem) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetResourceInformation(void* lpnetresource, void* lpbuffer, void* lpbuffersize, void* lplpsystem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -404,7 +404,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetResourceInformatio
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetResourceParent(void* lpnetresource, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetResourceParent(void* lpnetresource, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetResourceParent(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetUniversalName(void* lplocalpath, uint32_t dwinfolevel, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetUniversalName(void* lplocalpath, uint32_t dwinfolevel, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -453,7 +453,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetUniversalName(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetUser(void* lpname, void* lpusername, void* lpnbufferlen) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPGetUser(void* lpname, void* lpusername, void* lpnbufferlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -477,7 +477,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPGetUser(void* lpname,
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_nPOpenEnum(uint32_t dwscope, uint32_t dwtype, uint32_t dwusage, void* lpnetresource, void* lphenum) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetNPOpenEnum(uint32_t dwscope, uint32_t dwtype, uint32_t dwusage, void* lpnetresource, void* lphenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -503,7 +503,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_nPOpenEnum(uint32_t dws
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection2A(void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2A(void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -528,7 +528,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection2A(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection2W(void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2W(void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -553,7 +553,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection2W(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection3A(void* hwndowner, void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3A(void* hwndowner, void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -579,7 +579,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection3A(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection3W(void* hwndowner, void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3W(void* hwndowner, void* lpnetresource, void* lppassword, void* lpusername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -605,7 +605,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection3W(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection4A(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4A(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection4A(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection4W(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4W(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -661,7 +661,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnection4W(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnectionA(void* lpremotename, void* lppassword, void* lplocalname) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionA(void* lpremotename, void* lppassword, void* lplocalname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -685,7 +685,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnectionA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnectionW(void* lpremotename, void* lppassword, void* lplocalname) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionW(void* lpremotename, void* lppassword, void* lplocalname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -709,7 +709,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetAddConnectionW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnection2A(void* lpname, uint32_t dwflags, int32_t fforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2A(void* lpname, uint32_t dwflags, int32_t fforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -733,7 +733,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnection2A(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnection2W(void* lpname, uint32_t dwflags, int32_t fforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2W(void* lpname, uint32_t dwflags, int32_t fforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -757,7 +757,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnection2W(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnectionA(void* lpname, int32_t fforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionA(void* lpname, int32_t fforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -780,7 +780,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnectionA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnectionW(void* lpname, int32_t fforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionW(void* lpname, int32_t fforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -803,7 +803,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCancelConnectionW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCloseEnum(void* henum) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetCloseEnum(void* henum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetCloseEnum(void* hen
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetConnectionDialog(void* hwnd, uint32_t dwtype) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog(void* hwnd, uint32_t dwtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -848,7 +848,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetConnectionDialog(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetConnectionDialog1A(void* lpconndlgstruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1A(void* lpconndlgstruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetConnectionDialog1A(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetConnectionDialog1W(void* lpconndlgstruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1W(void* lpconndlgstruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetConnectionDialog1W(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetDisconnectDialog(void* hwnd, uint32_t dwtype) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog(void* hwnd, uint32_t dwtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -915,7 +915,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetDisconnectDialog(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetDisconnectDialog1A(void* lpconndlgstruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1A(void* lpconndlgstruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -937,7 +937,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetDisconnectDialog1A(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetDisconnectDialog1W(void* lpconndlgstruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1W(void* lpconndlgstruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -959,7 +959,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetDisconnectDialog1W(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetEnumResourceA(void* henum, void* lpccount, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceA(void* henum, void* lpccount, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -984,7 +984,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetEnumResourceA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetEnumResourceW(void* henum, void* lpccount, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceW(void* henum, void* lpccount, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1009,7 +1009,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetEnumResourceW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetConnectionA(void* lplocalname, void* lpremotename, void* lpnlength) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionA(void* lplocalname, void* lpremotename, void* lpnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1033,7 +1033,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetConnectionA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetConnectionW(void* lplocalname, void* lpremotename, void* lpnlength) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionW(void* lplocalname, void* lpremotename, void* lpnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1057,7 +1057,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetConnectionW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetLastErrorA(void* lperror, void* lperrorbuf, uint32_t nerrorbufsize, void* lpnamebuf, uint32_t nnamebufsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorA(void* lperror, void* lperrorbuf, uint32_t nerrorbufsize, void* lpnamebuf, uint32_t nnamebufsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetLastErrorA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetLastErrorW(void* lperror, void* lperrorbuf, uint32_t nerrorbufsize, void* lpnamebuf, uint32_t nnamebufsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorW(void* lperror, void* lperrorbuf, uint32_t nerrorbufsize, void* lpnamebuf, uint32_t nnamebufsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetLastErrorW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetNetworkInformationA(void* lpprovider, void* lpnetinfostruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationA(void* lpprovider, void* lpnetinfostruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1132,7 +1132,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetNetworkInformati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetNetworkInformationW(void* lpprovider, void* lpnetinfostruct) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationW(void* lpprovider, void* lpnetinfostruct) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1155,7 +1155,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetNetworkInformati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetProviderNameA(uint32_t dwnettype, void* lpprovidername, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameA(uint32_t dwnettype, void* lpprovidername, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1179,7 +1179,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetProviderNameA(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetProviderNameW(uint32_t dwnettype, void* lpprovidername, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameW(uint32_t dwnettype, void* lpprovidername, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1203,7 +1203,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetProviderNameW(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceInformationA(void* lpnetresource, void* lpbuffer, void* lpcbbuffer, void* lplpsystem) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationA(void* lpnetresource, void* lpbuffer, void* lpcbbuffer, void* lplpsystem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1228,7 +1228,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceInformat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceInformationW(void* lpnetresource, void* lpbuffer, void* lpcbbuffer, void* lplpsystem) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationW(void* lpnetresource, void* lpbuffer, void* lpcbbuffer, void* lplpsystem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1253,7 +1253,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceInformat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceParentA(void* lpnetresource, void* lpbuffer, void* lpcbbuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentA(void* lpnetresource, void* lpbuffer, void* lpcbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceParentA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceParentW(void* lpnetresource, void* lpbuffer, void* lpcbbuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentW(void* lpnetresource, void* lpbuffer, void* lpcbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1301,7 +1301,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetResourceParentW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUniversalNameA(void* lplocalpath, uint32_t dwinfolevel, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameA(void* lplocalpath, uint32_t dwinfolevel, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1326,7 +1326,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUniversalNameA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUniversalNameW(void* lplocalpath, uint32_t dwinfolevel, void* lpbuffer, void* lpbuffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameW(void* lplocalpath, uint32_t dwinfolevel, void* lpbuffer, void* lpbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1351,7 +1351,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUniversalNameW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUserA(void* lpname, void* lpusername, void* lpnlength) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetUserA(void* lpname, void* lpusername, void* lpnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1375,7 +1375,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUserA(void* lpna
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUserW(void* lpname, void* lpusername, void* lpnlength) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetGetUserW(void* lpname, void* lpusername, void* lpnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1399,7 +1399,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetGetUserW(void* lpna
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetOpenEnumA(uint32_t dwscope, uint32_t dwtype, uint32_t dwusage, void* lpnetresource, void* lphenum) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumA(uint32_t dwscope, uint32_t dwtype, uint32_t dwusage, void* lpnetresource, void* lphenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1425,7 +1425,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetOpenEnumA(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetOpenEnumW(uint32_t dwscope, uint32_t dwtype, uint32_t dwusage, void* lpnetresource, void* lphenum) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumW(uint32_t dwscope, uint32_t dwtype, uint32_t dwusage, void* lpnetresource, void* lphenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1451,7 +1451,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetOpenEnumW(uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_wnet_wNetSetLastErrorA(uint32_t err, void* lperror, void* lpproviders) {
+void windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorA(uint32_t err, void* lperror, void* lpproviders) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1474,7 +1474,7 @@ void windowssys_windows_win32_networkmanagement_wnet_wNetSetLastErrorA(uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_wnet_wNetSetLastErrorW(uint32_t err, void* lperror, void* lpproviders) {
+void windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorW(uint32_t err, void* lperror, void* lpproviders) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1497,7 +1497,7 @@ void windowssys_windows_win32_networkmanagement_wnet_wNetSetLastErrorW(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnection4A(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions, void* lpaccessname, void* lpbuffersize, void* lpresult) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4A(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions, void* lpaccessname, void* lpbuffersize, void* lpresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1528,7 +1528,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnection4A(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnection4W(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions, void* lpaccessname, void* lpbuffersize, void* lpresult) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4W(void* hwndowner, void* lpnetresource, void* pauthbuffer, uint32_t cbauthbuffer, uint32_t dwflags, void* lpuseoptions, uint32_t cbuseoptions, void* lpaccessname, void* lpbuffersize, void* lpresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1559,7 +1559,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnection4W(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnectionA(void* hwndowner, void* lpnetresource, void* lppassword, void* lpuserid, uint32_t dwflags, void* lpaccessname, void* lpbuffersize, void* lpresult) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionA(void* hwndowner, void* lpnetresource, void* lppassword, void* lpuserid, uint32_t dwflags, void* lpaccessname, void* lpbuffersize, void* lpresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1588,7 +1588,7 @@ uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnectionA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_wnet_wNetUseConnectionW(void* hwndowner, void* lpnetresource, void* lppassword, void* lpuserid, uint32_t dwflags, void* lpaccessname, void* lpbuffersize, void* lpresult) {
+uint32_t windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionW(void* hwndowner, void* lpnetresource, void* lppassword, void* lpuserid, uint32_t dwflags, void* lpaccessname, void* lpbuffersize, void* lpresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation(void* hsession) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCancelDiagnosticRecordOperation(void* hsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosti
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession(void* hsession) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCloseSession(void* hsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(int32_t accesslevel, void* hsession) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCreateSession(int32_t accesslevel, void* hsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(i
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport(void* hsession, uint32_t reportstoretype, void* reportkey, void* destinationpath) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqExtractDiagnosticReport(void* hsession, uint32_t reportstoretype, void* reportkey, void* destinationpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnost
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags(void* htagdescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordLocaleTags(void* htagdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticR
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage(void* hrecord) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordPage(void* hrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -151,7 +151,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticR
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories(void* hcategorydescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducerCategories(void* hcategorydescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -173,7 +173,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticR
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers(void* hproducerdescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducers(void* hproducerdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -195,7 +195,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticR
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport(void* hreport) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticReport(void* hreport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -217,7 +217,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticR
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed(void* accesslevel) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticDataAccessLevelAllowed(void* accesslevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -239,7 +239,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex(void* hrecord, uint32_t arg_1_index, void* record) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordAtIndex(void* hrecord, uint32_t arg1Index, void* record) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,20 +250,20 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(hrecord, arg_1_index, record);
+        return km_fn_ptr(hrecord, arg1Index, record);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)hrecord;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)record;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution(void* hsession, void* producernames, uint32_t producernamecount, uint32_t topnbinaries, void* binarystats, void* statcount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordBinaryDistribution(void* hsession, void* producernames, uint32_t producernamecount, uint32_t topnbinaries, void* binarystats, void* statcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -290,7 +290,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex(void* hcategorydescription, uint32_t arg_1_index, void* categorydescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryAtIndex(void* hcategorydescription, uint32_t arg1Index, void* categorydescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -301,20 +301,20 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(hcategorydescription, arg_1_index, categorydescription);
+        return km_fn_ptr(hcategorydescription, arg1Index, categorydescription);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)hcategorydescription;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)categorydescription;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount(void* hcategorydescription, void* categorydescriptioncount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryCount(void* hcategorydescription, void* categorydescriptioncount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount(void* hrecord, void* recordcount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCount(void* hrecord, void* recordcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex(void* htagdescription, uint32_t arg_1_index, void* tagdescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagAtIndex(void* htagdescription, uint32_t arg1Index, void* tagdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -371,20 +371,20 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(htagdescription, arg_1_index, tagdescription);
+        return km_fn_ptr(htagdescription, arg1Index, tagdescription);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)htagdescription;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)tagdescription;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount(void* htagdescription, void* tagdescriptioncount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagCount(void* htagdescription, void* tagdescriptioncount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags(void* hsession, void* locale, void* htagdescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTags(void* hsession, void* locale, void* htagdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -431,7 +431,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage(void* hsession, void* searchcriteria, uint32_t offset, uint32_t pagerecordcount, int64_t baserowid, void* hrecord) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPage(void* hsession, void* searchcriteria, uint32_t offset, uint32_t pagerecordcount, int64_t baserowid, void* hrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload(void* hsession, int64_t rowid, void* payload) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPayload(void* hsession, int64_t rowid, void* payload) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -482,7 +482,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex(void* hproducerdescription, uint32_t arg_1_index, void* producerdescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerAtIndex(void* hproducerdescription, uint32_t arg1Index, void* producerdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -493,20 +493,20 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(hproducerdescription, arg_1_index, producerdescription);
+        return km_fn_ptr(hproducerdescription, arg1Index, producerdescription);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)hproducerdescription;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)producerdescription;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories(void* hsession, void* producername, void* hcategorydescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCategories(void* hsession, void* producername, void* hcategorydescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount(void* hproducerdescription, void* producerdescriptioncount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCount(void* hproducerdescription, void* producerdescriptioncount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -553,7 +553,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers(void* hsession, void* hproducerdescription) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducers(void* hsession, void* hproducerdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -576,7 +576,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats(void* hsession, void* searchcriteria, void* recordcount, void* minrowid, void* maxrowid) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordStats(void* hsession, void* searchcriteria, void* recordcount, void* minrowid, void* maxrowid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -602,7 +602,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary(void* hsession, void* producernames, uint32_t producernamecount, void* generalstats) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordSummary(void* hsession, void* producernames, uint32_t producernamecount, void* generalstats) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -627,7 +627,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution(void* hsession, void* producernames, uint32_t producernamecount, void* tagstats, void* statcount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordTagDistribution(void* hsession, void* producernames, uint32_t producernamecount, void* tagstats, void* statcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -653,7 +653,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport(void* hsession, uint32_t reportstoretype, void* hreport) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReport(void* hsession, uint32_t reportstoretype, void* hreport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex(void* hreport, uint32_t arg_1_index, void* report) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportAtIndex(void* hreport, uint32_t arg1Index, void* report) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -688,20 +688,20 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(hreport, arg_1_index, report);
+        return km_fn_ptr(hreport, arg1Index, report);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)hreport;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)report;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount(void* hreport, void* reportcount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportCount(void* hreport, void* reportcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -724,7 +724,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount(void* hsession, uint32_t reportstoretype, void* reportcount) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportStoreReportCount(void* hsession, uint32_t reportstoretype, void* reportcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel(void* hsession, void* accesslevel) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetSessionAccessLevel(void* hsession, void* accesslevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -771,7 +771,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAcces
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration(void* hsession, void* currentconfig) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetTranscriptConfiguration(void* hsession, void* currentconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -794,7 +794,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptCo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn(void* hsession, void* providergroup, void* providerid, void* providername, void* eventid, void* eventname, void* eventversion, void* eventkeywords, void* issampledin) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqIsDiagnosticRecordSampledIn(void* hsession, void* providergroup, void* providerid, void* providername, void* eventid, void* eventname, void* eventversion, void* eventkeywords, void* issampledin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -824,7 +824,7 @@ int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRec
 #endif
 }
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration(void* hsession, void* desiredconfig) {
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqSetTranscriptConfiguration(void* hsession, void* desiredconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

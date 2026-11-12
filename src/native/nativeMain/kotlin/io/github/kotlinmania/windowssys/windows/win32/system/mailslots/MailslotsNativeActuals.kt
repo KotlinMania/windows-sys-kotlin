@@ -2,27 +2,29 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.mailslots
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssys_windows_win32_system_mailslots_createMailslotA
-import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssys_windows_win32_system_mailslots_createMailslotW
-import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssys_windows_win32_system_mailslots_getMailslotInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssys_windows_win32_system_mailslots_setMailslotInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
+import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssysWindowsWin32SystemMailslotsCreateMailslotA
+import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssysWindowsWin32SystemMailslotsCreateMailslotW
+import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssysWindowsWin32SystemMailslotsGetMailslotInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.mailslots.cinterop.windowssysWindowsWin32SystemMailslotsSetMailslotInfo
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun createMailslotA(lpname: Pcstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
-    windowssys_windows_win32_system_mailslots_createMailslotA(lpname?.value?.toCPointer<ByteVar>(), nmaxmessagesize, lreadtimeout, lpsecurityattributes?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createMailslotA(lpname: Pcstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+    MutPtr(windowssysWindowsWin32SystemMailslotsCreateMailslotA(lpname.rawAddress.toCPointer<ByteVar>(), nmaxmessagesize, lreadtimeout, lpsecurityattributes.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createMailslotW(lpname: Pcwstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
-    windowssys_windows_win32_system_mailslots_createMailslotW(lpname?.value?.toCPointer<ByteVar>(), nmaxmessagesize, lreadtimeout, lpsecurityattributes?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createMailslotW(lpname: Pcwstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+    MutPtr(windowssysWindowsWin32SystemMailslotsCreateMailslotW(lpname.rawAddress.toCPointer<ByteVar>(), nmaxmessagesize, lreadtimeout, lpsecurityattributes.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getMailslotInfo(hmailslot: Handle, lpmaxmessagesize: COpaquePointer?, lpnextsize: COpaquePointer?, lpmessagecount: COpaquePointer?, lpreadtimeout: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_mailslots_getMailslotInfo(hmailslot?.value?.toCPointer<ByteVar>(), lpmaxmessagesize?.value?.toCPointer<ByteVar>(), lpnextsize?.value?.toCPointer<ByteVar>(), lpmessagecount?.value?.toCPointer<ByteVar>(), lpreadtimeout?.value?.toCPointer<ByteVar>())
+public actual fun getMailslotInfo(hmailslot: Handle, lpmaxmessagesize: MutPtr<UInt>, lpnextsize: MutPtr<UInt>, lpmessagecount: MutPtr<UInt>, lpreadtimeout: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemMailslotsGetMailslotInfo(hmailslot.rawAddress.toCPointer<ByteVar>(), lpmaxmessagesize.rawAddress.toCPointer<ByteVar>(), lpnextsize.rawAddress.toCPointer<ByteVar>(), lpmessagecount.rawAddress.toCPointer<ByteVar>(), lpreadtimeout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setMailslotInfo(hmailslot: Handle, lreadtimeout: UInt): Bool =
-    windowssys_windows_win32_system_mailslots_setMailslotInfo(hmailslot?.value?.toCPointer<ByteVar>(), lreadtimeout)
+    windowssysWindowsWin32SystemMailslotsSetMailslotInfo(hmailslot.rawAddress.toCPointer<ByteVar>(), lreadtimeout)

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys
 
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.system.time.DynamicTimeZoneInformation
 import io.github.kotlinmania.windowssys.windows.win32.system.time.TIME_ZONE_ID_INVALID
@@ -16,8 +17,8 @@ import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_RE
 import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
-import kotlin.test.assertNotNull
 
 class TimeTest {
     @Test
@@ -28,18 +29,18 @@ class TimeTest {
         assertEquals(4u, TSF_I_PV6)
         assertEquals(8u, TSF_SIGNATURE_AUTHENTICATED)
 
-        assertNotNull(WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS)
-        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS)
-        assertNotNull(WSZ_W32TIME_REG_KEY_TIME_PROVIDERS)
-        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_KEY_TIME_PROVIDERS)
-        assertNotNull(WSZ_W32TIME_REG_VALUE_DLL_NAME)
-        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_DLL_NAME)
-        assertNotNull(WSZ_W32TIME_REG_VALUE_ENABLED)
-        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_ENABLED)
-        assertNotNull(WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER)
-        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER)
-        assertNotNull(WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER)
-        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER)
+        assertFalse(WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS.isNull())
+        assertNotEquals(ConstPtr(0L), WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS)
+        assertFalse(WSZ_W32TIME_REG_KEY_TIME_PROVIDERS.isNull())
+        assertNotEquals(ConstPtr(0L), WSZ_W32TIME_REG_KEY_TIME_PROVIDERS)
+        assertFalse(WSZ_W32TIME_REG_VALUE_DLL_NAME.isNull())
+        assertNotEquals(ConstPtr(0L), WSZ_W32TIME_REG_VALUE_DLL_NAME)
+        assertFalse(WSZ_W32TIME_REG_VALUE_ENABLED.isNull())
+        assertNotEquals(ConstPtr(0L), WSZ_W32TIME_REG_VALUE_ENABLED)
+        assertFalse(WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER.isNull())
+        assertNotEquals(ConstPtr(0L), WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER)
+        assertFalse(WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER.isNull())
+        assertNotEquals(ConstPtr(0L), WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER)
     }
 
     @Test

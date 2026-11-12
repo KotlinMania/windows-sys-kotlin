@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDCloseSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -126,7 +126,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCloseSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwclientversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwnegotiatedversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plegacymacaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -244,7 +244,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDevi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmemorysize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -269,7 +269,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanAllocateM
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -296,7 +296,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanCloseHand
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanConnect_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanConnect2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanConnect2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -358,7 +358,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanConnect2_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeletePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeviceSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDisconnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -488,7 +488,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanEnumInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwiedatasize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanExtractPs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemor
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -578,7 +578,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetAvaila
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -611,7 +611,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetAvaila
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t wlanfilterlisttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -642,7 +642,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -673,7 +673,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -710,7 +710,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetNetwor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -747,7 +747,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -782,7 +782,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -813,7 +813,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t securableobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -846,7 +846,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -875,7 +875,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetSuppor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -904,7 +904,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -933,7 +933,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -962,7 +962,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t opcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -997,7 +997,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwkeylength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1034,7 +1034,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwlanhostednetworkstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1063,7 +1063,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1092,7 +1092,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t opcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1127,7 +1127,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwkeylength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1164,7 +1164,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1193,7 +1193,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfailreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1222,7 +1222,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanIhvControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1261,7 +1261,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanIhvContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwclientversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1292,7 +1292,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t opcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1327,7 +1327,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryAuto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1364,7 +1364,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreasoncode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1395,7 +1395,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanReasonCod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdevsvcguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1422,7 +1422,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnotifsource = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1459,7 +1459,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bregister = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1488,7 +1488,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRenamePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1558,7 +1558,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSaveTempo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanScan_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanScan_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1591,7 +1591,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanScan_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t opcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1624,7 +1624,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t wlanfilterlisttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1655,7 +1655,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1690,7 +1690,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1729,7 +1729,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1764,7 +1764,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1799,7 +1799,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1832,7 +1832,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1865,7 +1865,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* strformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1896,7 +1896,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIED
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t securableobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1925,7 +1925,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwclientversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* wstrprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1963,66 +1963,66 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanUIEditPro
 }
 
 static void register_windows_win32_networkmanagement_wifi_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpenSession_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDCloseSession_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacySession_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenSession_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDeviceVisibility_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanAllocateMemory_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanConnect2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanConnect2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanDeleteProfile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanDeviceServiceCommand_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanEnumInterfaces_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanExtractPsdIEDataList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetAvailableNetworkList2_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetFilterList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetInterfaceCapability_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetNetworkBssList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetProfile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileCustomUserData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetProfileList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuritySettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanGetSupportedDeviceServices_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStart_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkForceStop_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkInitSettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryProperty_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQuerySecondaryKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkQueryStatus_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkRefreshSecuritySettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetProperty_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkSetSecondaryKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStartUsing_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanHostedNetworkStopUsing_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanIhvControl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanQueryAutoConfigParameter_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanQueryInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanReasonCodeToString_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanRegisterDeviceServiceNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanRegisterNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanRegisterVirtualStationNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanRenameProfile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSaveTemporaryProfile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanScan", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanScan_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoConfigParameter_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetFilterList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetProfile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileCustomUserData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileEapXmlUserData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetProfileList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetProfilePosition_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIEDataList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuritySettings_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_wifi_wlanUIEditProfile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDCancelOpenSession_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDCloseSession", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDCloseSession_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanConnect2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanConnect2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanDisconnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanDisconnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetProfile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetProfile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanIhvControl", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanIhvControl_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanScan", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanScan_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetProfile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetProfile_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_wifi_napi, nullptr };

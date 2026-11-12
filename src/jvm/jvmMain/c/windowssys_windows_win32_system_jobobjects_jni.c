@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1assignProcessToJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jlong hprocess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1createJobObjectA(JNIEnv* km_env, jclass km_clazz, jlong lpjobattributes, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsCreateJobObjectA(JNIEnv* km_env, jclass km_clazz, jlong lpjobattributes, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1createJobObjectW(JNIEnv* km_env, jclass km_clazz, jlong lpjobattributes, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsCreateJobObjectW(JNIEnv* km_env, jclass km_clazz, jlong lpjobattributes, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1createJobSet(JNIEnv* km_env, jclass km_clazz, jint numjob, jlong userjobset, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsCreateJobSet(JNIEnv* km_env, jclass km_clazz, jint numjob, jlong userjobset, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1freeMemoryJobObject(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -145,7 +145,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1isProcessInJob(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong jobhandle, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsIsProcessInJob(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong jobhandle, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1openJobObjectA(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsOpenJobObjectA(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1openJobObjectW(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsOpenJobObjectW(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -226,7 +226,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1queryInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jint jobobjectinformationclass, jlong lpjobobjectinformation, jint cbjobobjectinformationlength, jlong lpreturnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jint jobobjectinformationclass, jlong lpjobobjectinformation, jint cbjobobjectinformationlength, jlong lpreturnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -255,7 +255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1queryIoRateControlInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jlong volumename, jlong infoblocks, jlong infoblockcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jlong volumename, jlong infoblocks, jlong infoblockcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -283,7 +283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1setInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jint jobobjectinformationclass, jlong lpjobobjectinformation, jint cbjobobjectinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsSetInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jint jobobjectinformationclass, jlong lpjobobjectinformation, jint cbjobobjectinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1setIoRateControlInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jlong ioratecontrolinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jlong ioratecontrolinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -337,7 +337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1terminateJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jint uexitcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsTerminateJobObject(JNIEnv* km_env, jclass km_clazz, jlong hjob, jint uexitcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -363,7 +363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssys_1windows_1win32_1system_1jobobjects_1userHandleGrantAccess(JNIEnv* km_env, jclass km_clazz, jlong huserhandle, jlong hjob, jint bgrant) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_jobobjects_WindowsWin32SystemJobobjectsJniBridge_windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess(JNIEnv* km_env, jclass km_clazz, jlong huserhandle, jlong hjob, jint bgrant) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

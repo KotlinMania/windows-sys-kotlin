@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPropertyStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultiplexPropertyStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t flags = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdpsf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropertyStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexPropertyStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgpunkstores = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cstores = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -200,7 +200,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChangeArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rgpropkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -235,7 +235,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -266,7 +266,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromPropertySetStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppss = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropertyChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t flags = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -330,7 +330,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDescriptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t filteron = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -392,7 +392,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -454,7 +454,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceForValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -483,7 +483,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetImage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t freadwrite = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -514,7 +514,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandlerWithCreateObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t freadwrite = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszcanonicalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -574,7 +574,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t psps = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -605,7 +605,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamed
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -634,7 +634,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszcanonicalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszproplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -692,7 +692,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t psps = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -750,7 +750,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -777,7 +777,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -806,7 +806,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandlerCLSID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -833,7 +833,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -860,7 +860,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -889,7 +889,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -918,7 +918,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -976,7 +976,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1005,7 +1005,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1034,7 +1034,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPointl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1063,7 +1063,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1092,7 +1092,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPropertyKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRectl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1150,7 +1150,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1179,7 +1179,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1210,7 +1210,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1239,7 +1239,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1268,7 +1268,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1299,7 +1299,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlonglong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1328,7 +1328,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnknown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1359,7 +1359,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1388,7 +1388,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBstr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1417,7 +1417,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1446,7 +1446,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1475,7 +1475,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1504,7 +1504,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1533,7 +1533,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePointl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1562,7 +1562,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1591,7 +1591,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePropertyKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1620,7 +1620,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRectl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1649,7 +1649,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteShort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1678,7 +1678,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1707,7 +1707,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1736,7 +1736,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlonglong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1765,7 +1765,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnknown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propbag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1794,7 +1794,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1821,7 +1821,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSProperty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySchema_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1844,7 +1844,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySchema_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1869,7 +1869,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1898,7 +1898,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSSetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1927,7 +1927,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSStringFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertySchema_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPSUnregisterPropertySchema_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1952,7 +1952,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSUnregist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flopt = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1979,7 +1979,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrClos
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2012,7 +2012,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpif = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2043,7 +2043,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpen
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2076,7 +2076,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertiesByExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppropstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2103,7 +2103,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefau
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreForWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2132,7 +2132,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromIDList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2163,7 +2163,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromParsingName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2196,7 +2196,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPrope
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fmtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2235,7 +2235,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ucodepage = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2268,7 +2268,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgWriteMultiple_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pucodepage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2304,82 +2304,82 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgW
 }
 
 static void register_windows_win32_ui_shell_propertiessystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalValue_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPropertyStore", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPropertyStore_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultiplexPropertyStore", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultiplexPropertyStore_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropertyStore", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropertyStore_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexPropertyStore", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexPropertyStore_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChangeArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChangeArray_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromPropertySetStorage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromPropertySetStorage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropertyChange", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropertyChange_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDescriptions", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDescriptions_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAlloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAlloc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceForValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceForValue_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandler", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandler_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandlerWithCreateObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandlerWithCreateObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionByName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionByName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandlerCLSID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandlerCLSID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDword", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDword_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPointl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPointl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoints", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoints_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPropertyKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPropertyKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRectl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRectl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShort", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShort_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrAlloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrAlloc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStream_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlonglong", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlonglong_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnknown", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnknown_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBool", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBool_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBstr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBstr_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDword", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDword_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGuid", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGuid_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLong", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLong_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePointl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePointl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoints", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoints_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePropertyKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePropertyKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRectl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRectl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteShort", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteShort_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStream_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlonglong", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlonglong_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnknown", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnknown_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySchema", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySchema_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySchema", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySchema_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertySchema", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertySchema_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertiesByExt", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertiesByExt_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreForWindow", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreForWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromIDList_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromParsingName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromParsingName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgWriteMultiple", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgWriteMultiple_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPSUnregisterPropertySchema", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPSUnregisterPropertySchema_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple_napi));
+    exports.Set("windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple", Napi::Function::New(env, windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_shell_propertiessystem_napi, nullptr };

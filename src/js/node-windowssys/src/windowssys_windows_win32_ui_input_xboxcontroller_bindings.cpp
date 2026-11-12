@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputEnable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t enable = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwuserindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* prenderdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -106,7 +106,7 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAud
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwuserindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t devtype = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwuserindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -164,7 +164,7 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwuserindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKey
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputGetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwuserindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -220,7 +220,7 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputXboxcontrollerXInputSetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwuserindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvibration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -248,13 +248,13 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputSetSta
 }
 
 static void register_windows_win32_ui_input_xboxcontroller_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable_napi));
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds_napi));
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation_napi));
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities_napi));
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke_napi));
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState_napi));
-    exports.Set("windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState", Napi::Function::New(env, windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputEnable", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputEnable_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputGetState", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputGetState_napi));
+    exports.Set("windowssysWindowsWin32UiInputXboxcontrollerXInputSetState", Napi::Function::New(env, windowssysWindowsWin32UiInputXboxcontrollerXInputSetState_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_input_xboxcontroller_napi, nullptr };

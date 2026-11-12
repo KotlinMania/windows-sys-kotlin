@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssys_1windows_1win32_1storage_1indexserver_1bindIFilterFromStorage(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong punkouter, jlong ppiunk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssysWindowsWin32StorageIndexserverBindIFilterFromStorage(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong punkouter, jlong ppiunk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssys_1windows_1win32_1storage_1indexserver_1bindIFilterFromStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong punkouter, jlong ppiunk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssysWindowsWin32StorageIndexserverBindIFilterFromStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong punkouter, jlong ppiunk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssys_1windows_1win32_1storage_1indexserver_1loadIFilter(JNIEnv* km_env, jclass km_clazz, jlong pwcspath, jlong punkouter, jlong ppiunk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssysWindowsWin32StorageIndexserverLoadIFilter(JNIEnv* km_env, jclass km_clazz, jlong pwcspath, jlong punkouter, jlong ppiunk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssys_1windows_1win32_1storage_1indexserver_1loadIFilterEx(JNIEnv* km_env, jclass km_clazz, jlong pwcspath, jint dwflags, jlong riid, jlong ppiunk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_indexserver_WindowsWin32StorageIndexserverJniBridge_windowssysWindowsWin32StorageIndexserverLoadIFilterEx(JNIEnv* km_env, jclass km_clazz, jlong pwcspath, jint dwflags, jlong riid, jlong ppiunk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

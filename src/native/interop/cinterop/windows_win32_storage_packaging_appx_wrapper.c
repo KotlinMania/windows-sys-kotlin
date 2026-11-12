@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext(void* context, void* cookie) {
+int32_t windowssysWindowsWin32StoragePackagingAppxActivatePackageVirtualizationContext(void* context, void* cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualiz
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_addPackageDependency(void* packagedependencyid, int32_t rank, int32_t options, void* packagedependencycontext, void* packagefullname) {
+int32_t windowssysWindowsWin32StoragePackagingAppxAddPackageDependency(void* packagedependencyid, int32_t rank, int32_t options, void* packagedependencycontext, void* packagefullname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_addPackageDependency(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetClrCompat(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetCreateFileAccess(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileA
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetLifecycleManagement(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleMa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetMediaFoundationCodecLoading(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFounda
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetProcessTerminationMethod(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -179,7 +179,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerm
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetShowDeveloperDiagnostic(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDevelop
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetThreadInitializationType(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadIniti
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel(void* processtoken, void* policy) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxAppPolicyGetWindowingModel(void* processtoken, void* policy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -248,7 +248,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingMo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage(void* packagefullname, void* ismsixpackage) {
+int32_t windowssysWindowsWin32StoragePackagingAppxCheckIsMSIXPackage(void* packagefullname, void* ismsixpackage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_closePackageInfo(void* packageinforeference) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxClosePackageInfo(void* packageinforeference) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_closePackageInfo(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext(void* packagefamilyname, void* context) {
+int32_t windowssysWindowsWin32StoragePackagingAppxCreatePackageVirtualizationContext(void* packagefamilyname, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizat
 #endif
 }
 
-void windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext(uint64_t cookie) {
+void windowssysWindowsWin32StoragePackagingAppxDeactivatePackageVirtualizationContext(uint64_t cookie) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ void windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualiza
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_deletePackageDependency(void* packagedependencyid) {
+int32_t windowssysWindowsWin32StoragePackagingAppxDeletePackageDependency(void* packagedependencyid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -359,7 +359,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_deletePackageDependency(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext(void* sourcecontext, void* destcontext) {
+int32_t windowssysWindowsWin32StoragePackagingAppxDuplicatePackageVirtualizationContext(void* sourcecontext, void* destcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtuali
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily(void* packagefamilyname, uint32_t packagefilters, void* count, void* packagefullnames, void* bufferlength, void* buffer, void* packageproperties) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxFindPackagesByPackageFamily(void* packagefamilyname, uint32_t packagefilters, void* count, void* packagefullnames, void* bufferlength, void* buffer, void* packageproperties) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -410,7 +410,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId(void* packagefamilyname, void* packagerelativeapplicationid, void* applicationusermodelidlength, void* applicationusermodelid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxFormatApplicationUserModelId(void* packagefamilyname, void* packagerelativeapplicationid, void* applicationusermodelidlength, void* applicationusermodelid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_formatApplicationUserMo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId(void* hprocess, void* applicationusermodelidlength, void* applicationusermodelid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelId(void* hprocess, void* applicationusermodelidlength, void* applicationusermodelid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -459,7 +459,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getApplicationUserModel
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken(void* token, void* applicationusermodelidlength, void* applicationusermodelid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetApplicationUserModelIdFromToken(void* token, void* applicationusermodelidlength, void* applicationusermodelid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -483,7 +483,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getApplicationUserModel
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId(void* applicationusermodelidlength, void* applicationusermodelid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentApplicationUserModelId(void* applicationusermodelidlength, void* applicationusermodelid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUs
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName(void* packagefamilynamelength, void* packagefamilyname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFamilyName(void* packagefamilynamelength, void* packagefamilyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -529,7 +529,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamily
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName(void* packagefullnamelength, void* packagefullname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageFullName(void* packagefullnamelength, void* packagefullname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -552,7 +552,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullNa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId(void* bufferlength, void* buffer) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageId(void* bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -575,7 +575,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo(uint32_t flags, void* bufferlength, void* buffer, void* count) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo(uint32_t flags, void* bufferlength, void* buffer, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2(uint32_t flags, int32_t packagepathtype, void* bufferlength, void* buffer, void* count) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo2(uint32_t flags, int32_t packagepathtype, void* bufferlength, void* buffer, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -626,7 +626,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3(uint32_t flags, int32_t packageinfotype, void* bufferlength, void* buffer, void* count) {
+int32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageInfo3(uint32_t flags, int32_t packageinfotype, void* bufferlength, void* buffer, void* count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath(void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath(void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -675,7 +675,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2(int32_t packagepathtype, void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetCurrentPackagePath2(int32_t packagepathtype, void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2(
 #endif
 }
 
-void* windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext(void) {
+void* windowssysWindowsWin32StoragePackagingAppxGetCurrentPackageVirtualizationContext(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -720,7 +720,7 @@ void* windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualiz
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext(void* packagedependencycontext, void* packagedependencyid) {
+int32_t windowssysWindowsWin32StoragePackagingAppxGetIdForPackageDependencyContext(void* packagedependencycontext, void* packagedependencyid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -743,7 +743,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependenc
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds(void* packageinforeference, void* bufferlength, void* buffer, void* count) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageApplicationIds(void* packageinforeference, void* bufferlength, void* buffer, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -768,7 +768,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageApplicationId
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName(void* hprocess, void* packagefamilynamelength, void* packagefamilyname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyName(void* hprocess, void* packagefamilynamelength, void* packagefamilyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -792,7 +792,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken(void* token, void* packagefamilynamelength, void* packagefamilyname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageFamilyNameFromToken(void* token, void* packagefamilynamelength, void* packagefamilyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -816,7 +816,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFro
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFullName(void* hprocess, void* packagefullnamelength, void* packagefullname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageFullName(void* hprocess, void* packagefullnamelength, void* packagefullname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -840,7 +840,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFullName(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken(void* token, void* packagefullnamelength, void* packagefullname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageFullNameFromToken(void* token, void* packagefullnamelength, void* packagefullname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -864,7 +864,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromT
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId(void) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageGraphRevisionId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -885,7 +885,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevision
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageId(void* hprocess, void* bufferlength, void* buffer) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageId(void* hprocess, void* bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -909,7 +909,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageId(void* hpro
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageInfo(void* packageinforeference, uint32_t flags, void* bufferlength, void* buffer, void* count) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageInfo(void* packageinforeference, uint32_t flags, void* bufferlength, void* buffer, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -935,7 +935,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageInfo(void* pa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageInfo2(void* packageinforeference, uint32_t flags, int32_t packagepathtype, void* bufferlength, void* buffer, void* count) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackageInfo2(void* packageinforeference, uint32_t flags, int32_t packagepathtype, void* bufferlength, void* buffer, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackageInfo2(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagePath(void* packageid, uint32_t reserved, void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackagePath(void* packageid, uint32_t reserved, void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -987,7 +987,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagePath(void* pa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName(void* packagefullname, void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName(void* packagefullname, void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1011,7 +1011,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2(void* packagefullname, int32_t packagepathtype, void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackagePathByFullName2(void* packagefullname, int32_t packagepathtype, void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1036,7 +1036,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily(void* packagefamilyname, void* count, void* packagefullnames, void* bufferlength, void* buffer) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetPackagesByPackageFamily(void* packagefamilyname, void* count, void* packagefullnames, void* bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1062,7 +1062,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFam
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext(void* packagefamilyname, void* count, void* processes) {
+int32_t windowssysWindowsWin32StoragePackagingAppxGetProcessesInVirtualizationContext(void* packagefamilyname, void* count, void* processes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1086,7 +1086,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualiza
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency(void* packagedependencyid, void* packagefullname) {
+int32_t windowssysWindowsWin32StoragePackagingAppxGetResolvedPackageFullNameForPackageDependency(void* packagedependencyid, void* packagefullname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin(void* packagefullname, void* origin) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetStagedPackageOrigin(void* packagefullname, void* origin) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1132,7 +1132,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin(
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName(void* packagefullname, void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName(void* packagefullname, void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1156,7 +1156,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByF
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2(void* packagefullname, int32_t packagepathtype, void* pathlength, void* path) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxGetStagedPackagePathByFullName2(void* packagefullname, int32_t packagepathtype, void* pathlength, void* path) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1181,7 +1181,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByF
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName(void* packagefullname, uint32_t reserved, void* packageinforeference) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullName(void* packagefullname, uint32_t reserved, void* packageinforeference) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1205,7 +1205,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser(void* usersid, void* packagefullname, uint32_t reserved, void* packageinforeference) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxOpenPackageInfoByFullNameForUser(void* usersid, void* packagefullname, uint32_t reserved, void* packageinforeference) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1230,7 +1230,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNa
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName(void* packagefullname, void* packagefamilynamelength, void* packagefamilyname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromFullName(void* packagefullname, void* packagefamilynamelength, void* packagefamilyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1254,7 +1254,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFu
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId(void* packageid, void* packagefamilynamelength, void* packagefamilyname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxPackageFamilyNameFromId(void* packageid, void* packagefamilynamelength, void* packagefamilyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1278,7 +1278,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId(void* packageid, void* packagefullnamelength, void* packagefullname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxPackageFullNameFromId(void* packageid, void* packagefullnamelength, void* packagefullname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1302,7 +1302,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName(void* packagefullname, uint32_t flags, void* bufferlength, void* buffer) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxPackageIdFromFullName(void* packagefullname, uint32_t flags, void* bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1327,7 +1327,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName(void* packagefamilyname, void* packagenamelength, void* packagename, void* packagepublisheridlength, void* packagepublisherid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxPackageNameAndPublisherIdFromFamilyName(void* packagefamilyname, void* packagenamelength, void* packagename, void* packagepublisheridlength, void* packagepublisherid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1353,7 +1353,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisher
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId(void* applicationusermodelid, void* packagefamilynamelength, void* packagefamilyname, void* packagerelativeapplicationidlength, void* packagerelativeapplicationid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxParseApplicationUserModelId(void* applicationusermodelid, void* packagefamilynamelength, void* packagefamilyname, void* packagerelativeapplicationidlength, void* packagerelativeapplicationid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1379,7 +1379,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_parseApplicationUserMod
 #endif
 }
 
-void windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext(void* context) {
+void windowssysWindowsWin32StoragePackagingAppxReleasePackageVirtualizationContext(void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1400,7 +1400,7 @@ void windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizatio
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_packaging_appx_removePackageDependency(void* packagedependencycontext) {
+int32_t windowssysWindowsWin32StoragePackagingAppxRemovePackageDependency(void* packagedependencycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ int32_t windowssys_windows_win32_storage_packaging_appx_removePackageDependency(
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId(void* applicationusermodelid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxVerifyApplicationUserModelId(void* applicationusermodelid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserMo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName(void* packagefamilyname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxVerifyPackageFamilyName(void* packagefamilyname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1466,7 +1466,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName(void* packagefullname) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxVerifyPackageFullName(void* packagefullname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1488,7 +1488,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageId(void* packageid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxVerifyPackageId(void* packageid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1510,7 +1510,7 @@ uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageId(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId(void* packagerelativeapplicationid) {
+uint32_t windowssysWindowsWin32StoragePackagingAppxVerifyPackageRelativeApplicationId(void* packagerelativeapplicationid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

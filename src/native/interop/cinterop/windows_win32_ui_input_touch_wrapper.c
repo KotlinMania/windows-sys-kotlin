@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle(void* hgestureinfo) {
+int32_t windowssysWindowsWin32UiInputTouchCloseGestureInfoHandle(void* hgestureinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle(void* hge
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_closeTouchInputHandle(void* htouchinput) {
+int32_t windowssysWindowsWin32UiInputTouchCloseTouchInputHandle(void* htouchinput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_ui_input_touch_closeTouchInputHandle(void* htou
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_getGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t dwflags, void* pcids, void* pgestureconfig, uint32_t cbsize) {
+int32_t windowssysWindowsWin32UiInputTouchGetGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t dwflags, void* pcids, void* pgestureconfig, uint32_t cbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_ui_input_touch_getGestureConfig(void* hwnd, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_getGestureExtraArgs(void* hgestureinfo, uint32_t cbextraargs, void* pextraargs) {
+int32_t windowssysWindowsWin32UiInputTouchGetGestureExtraArgs(void* hgestureinfo, uint32_t cbextraargs, void* pextraargs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_ui_input_touch_getGestureExtraArgs(void* hgestu
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_getGestureInfo(void* hgestureinfo, void* pgestureinfo) {
+int32_t windowssysWindowsWin32UiInputTouchGetGestureInfo(void* hgestureinfo, void* pgestureinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_ui_input_touch_getGestureInfo(void* hgestureinf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_getTouchInputInfo(void* htouchinput, uint32_t cinputs, void* pinputs, int32_t cbsize) {
+int32_t windowssysWindowsWin32UiInputTouchGetTouchInputInfo(void* htouchinput, uint32_t cinputs, void* pinputs, int32_t cbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ int32_t windowssys_windows_win32_ui_input_touch_getTouchInputInfo(void* htouchin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_isTouchWindow(void* hwnd, void* pulflags) {
+int32_t windowssysWindowsWin32UiInputTouchIsTouchWindow(void* hwnd, void* pulflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -181,7 +181,7 @@ int32_t windowssys_windows_win32_ui_input_touch_isTouchWindow(void* hwnd, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_registerTouchWindow(void* hwnd, uint32_t ulflags) {
+int32_t windowssysWindowsWin32UiInputTouchRegisterTouchWindow(void* hwnd, uint32_t ulflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -204,7 +204,7 @@ int32_t windowssys_windows_win32_ui_input_touch_registerTouchWindow(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_setGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t cids, void* pgestureconfig, uint32_t cbsize) {
+int32_t windowssysWindowsWin32UiInputTouchSetGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t cids, void* pgestureconfig, uint32_t cbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -230,7 +230,7 @@ int32_t windowssys_windows_win32_ui_input_touch_setGestureConfig(void* hwnd, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_touch_unregisterTouchWindow(void* hwnd) {
+int32_t windowssysWindowsWin32UiInputTouchUnregisterTouchWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

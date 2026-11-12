@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_abortDoc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsAbortDoc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_abortDoc_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_deviceCapabilitiesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsDeviceCapabilitiesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_deviceCapabilitiesA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_deviceCapabilitiesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsDeviceCapabilitiesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_deviceCapabilitiesW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_endDoc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsEndDoc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_endDoc_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_endPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsEndPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_endPage_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_escape_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsEscape_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iescape = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_escape_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_extEscape_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsExtEscape_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iescape = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_extEscape_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_printWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsPrintWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdcblt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_printWindow_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_setAbortProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsSetAbortProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* proc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -316,7 +316,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_setAbortProc_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_startDocA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsStartDocA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -343,7 +343,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_startDocA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_startDocW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsStartDocW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -370,7 +370,7 @@ static Napi::Value windowssys_windows_win32_storage_xps_startDocW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_xps_startPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageXpsStartPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -396,18 +396,18 @@ static Napi::Value windowssys_windows_win32_storage_xps_startPage_napi(const Nap
 }
 
 static void register_windows_win32_storage_xps_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_xps_abortDoc", Napi::Function::New(env, windowssys_windows_win32_storage_xps_abortDoc_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_deviceCapabilitiesA", Napi::Function::New(env, windowssys_windows_win32_storage_xps_deviceCapabilitiesA_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_deviceCapabilitiesW", Napi::Function::New(env, windowssys_windows_win32_storage_xps_deviceCapabilitiesW_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_endDoc", Napi::Function::New(env, windowssys_windows_win32_storage_xps_endDoc_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_endPage", Napi::Function::New(env, windowssys_windows_win32_storage_xps_endPage_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_escape", Napi::Function::New(env, windowssys_windows_win32_storage_xps_escape_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_extEscape", Napi::Function::New(env, windowssys_windows_win32_storage_xps_extEscape_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_printWindow", Napi::Function::New(env, windowssys_windows_win32_storage_xps_printWindow_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_setAbortProc", Napi::Function::New(env, windowssys_windows_win32_storage_xps_setAbortProc_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_startDocA", Napi::Function::New(env, windowssys_windows_win32_storage_xps_startDocA_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_startDocW", Napi::Function::New(env, windowssys_windows_win32_storage_xps_startDocW_napi));
-    exports.Set("windowssys_windows_win32_storage_xps_startPage", Napi::Function::New(env, windowssys_windows_win32_storage_xps_startPage_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsAbortDoc", Napi::Function::New(env, windowssysWindowsWin32StorageXpsAbortDoc_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsDeviceCapabilitiesA", Napi::Function::New(env, windowssysWindowsWin32StorageXpsDeviceCapabilitiesA_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsDeviceCapabilitiesW", Napi::Function::New(env, windowssysWindowsWin32StorageXpsDeviceCapabilitiesW_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsEndDoc", Napi::Function::New(env, windowssysWindowsWin32StorageXpsEndDoc_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsEndPage", Napi::Function::New(env, windowssysWindowsWin32StorageXpsEndPage_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsEscape", Napi::Function::New(env, windowssysWindowsWin32StorageXpsEscape_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsExtEscape", Napi::Function::New(env, windowssysWindowsWin32StorageXpsExtEscape_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsPrintWindow", Napi::Function::New(env, windowssysWindowsWin32StorageXpsPrintWindow_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsSetAbortProc", Napi::Function::New(env, windowssysWindowsWin32StorageXpsSetAbortProc_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsStartDocA", Napi::Function::New(env, windowssysWindowsWin32StorageXpsStartDocA_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsStartDocW", Napi::Function::New(env, windowssysWindowsWin32StorageXpsStartDocW_napi));
+    exports.Set("windowssysWindowsWin32StorageXpsStartPage", Napi::Function::New(env, windowssysWindowsWin32StorageXpsStartPage_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_xps_napi, nullptr };

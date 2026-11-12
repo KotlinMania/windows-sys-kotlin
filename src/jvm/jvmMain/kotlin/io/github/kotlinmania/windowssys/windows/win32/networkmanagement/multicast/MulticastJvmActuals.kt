@@ -2,54 +2,105 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.multicast
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32NetworkmanagementMulticastJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32NetworkmanagementMulticastJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup()
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup()
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup(version: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup(version: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes(addrfamily: Short, requery: Int, pscopelist: Long, pscopelen: Long, pscopecount: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes(addrfamily: Short, requery: Int, pscopelist: Long, pscopelen: Long, pscopecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastGenUID(prequestid: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastGenUID(prequestid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress(addrfamily: Short, prequestid: Long, preleaserequest: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress(addrfamily: Short, prequestid: Long, preleaserequest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress(addrfamily: Short, prequestid: Long, prenewrequest: Long, prenewresponse: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress(addrfamily: Short, prequestid: Long, prenewrequest: Long, prenewresponse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress(addrfamily: Short, prequestid: Long, pscopectx: Long, paddrrequest: Long, paddrresponse: Long): Int
+    external fun windowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress(addrfamily: Short, prequestid: Long, pscopectx: Long, paddrrequest: Long, paddrresponse: Long): Int
 }
 
 public actual fun mcastApiCleanup() {
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup()
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup()
 }
 
-public actual fun mcastApiStartup(version: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup((version?.value ?: 0L)).toUInt()
+public actual fun mcastApiStartup(version: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup(version.rawAddress).toUInt()
 
-public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: COpaquePointer?, pscopelen: COpaquePointer?, pscopecount: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes(addrfamily.toShort(), requery, (pscopelist?.value ?: 0L), (pscopelen?.value ?: 0L), (pscopecount?.value ?: 0L)).toUInt()
+public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr<McastScopeEntry>, pscopelen: MutPtr<UInt>, pscopecount: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes(addrfamily.toShort(), requery, pscopelist.rawAddress, pscopelen.rawAddress, pscopecount.rawAddress).toUInt()
 
-public actual fun mcastGenUID(prequestid: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastGenUID((prequestid?.value ?: 0L)).toUInt()
+public actual fun mcastGenUID(prequestid: MutPtr<McastClientUid>): UInt =
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastGenUID(prequestid.rawAddress).toUInt()
 
-public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: COpaquePointer?, preleaserequest: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress(addrfamily.toShort(), (prequestid?.value ?: 0L), (preleaserequest?.value ?: 0L)).toUInt()
+public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, preleaserequest: MutPtr<McastLeaseRequest>): UInt =
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress(addrfamily.toShort(), prequestid.rawAddress, preleaserequest.rawAddress).toUInt()
 
-public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: COpaquePointer?, prenewrequest: COpaquePointer?, prenewresponse: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress(addrfamily.toShort(), (prequestid?.value ?: 0L), (prenewrequest?.value ?: 0L), (prenewresponse?.value ?: 0L)).toUInt()
+public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, prenewrequest: MutPtr<McastLeaseRequest>, prenewresponse: MutPtr<McastLeaseResponse>): UInt =
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress(addrfamily.toShort(), prequestid.rawAddress, prenewrequest.rawAddress, prenewresponse.rawAddress).toUInt()
 
-public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: COpaquePointer?, pscopectx: COpaquePointer?, paddrrequest: COpaquePointer?, paddrresponse: COpaquePointer?): UInt =
-    WindowsWin32NetworkmanagementMulticastJniBridge.windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress(addrfamily.toShort(), (prequestid?.value ?: 0L), (pscopectx?.value ?: 0L), (paddrrequest?.value ?: 0L), (paddrresponse?.value ?: 0L)).toUInt()
+public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, pscopectx: MutPtr<McastScopeCtx>, paddrrequest: MutPtr<McastLeaseRequest>, paddrresponse: MutPtr<McastLeaseResponse>): UInt =
+    WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress(addrfamily.toShort(), prequestid.rawAddress, pscopectx.rawAddress, paddrrequest.rawAddress, paddrresponse.rawAddress).toUInt()

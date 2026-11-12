@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryAddSecureMemoryCacheCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_system_memory_addSecureMemoryCacheCa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofpages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPages2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofpages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -138,7 +138,7 @@ static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPagesNuma_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofpages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createFileMapping2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateFileMapping2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* file = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -210,7 +210,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMapping2_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createFileMappingA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateFileMappingA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilemappingattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createFileMappingFromApp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateFileMappingFromApp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -278,7 +278,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingFromA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateFileMappingNumaA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilemappingattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateFileMappingNumaW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilemappingattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -352,7 +352,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createFileMappingW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateFileMappingW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilemappingattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -387,7 +387,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_createMemoryResourceNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryCreateMemoryResourceNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t notificationtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -412,7 +412,7 @@ static Napi::Value windowssys_windows_win32_system_memory_createMemoryResourceNo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_discardVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryDiscardVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -439,7 +439,7 @@ static Napi::Value windowssys_windows_win32_system_memory_discardVirtualMemory_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_flushViewOfFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryFlushViewOfFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbaseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwnumberofbytestoflush = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -466,7 +466,7 @@ static Napi::Value windowssys_windows_win32_system_memory_flushViewOfFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_freeUserPhysicalPages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryFreeUserPhysicalPages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofpages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -495,7 +495,7 @@ static Napi::Value windowssys_windows_win32_system_memory_freeUserPhysicalPages_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getLargePageMinimum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetLargePageMinimum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
@@ -518,7 +518,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getLargePageMinimum_na
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetMemoryErrorHandlingCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* capabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -543,7 +543,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getMemoryErrorHandling
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getProcessHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetProcessHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -566,7 +566,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getProcessHeap_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getProcessHeaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetProcessHeaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t numberofheaps = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* processheaps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getProcessHeaps_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetProcessWorkingSetSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpminimumworkingsetsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -624,7 +624,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getProcessWorkingSetSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getSystemFileCacheSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetSystemFileCacheSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpminimumfilecachesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmaximumfilecachesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -653,7 +653,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getSystemFileCacheSize
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_getWriteWatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGetWriteWatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbaseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -688,7 +688,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getWriteWatch_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t dwbytes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalAlloc_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -740,7 +740,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalFlags_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -765,7 +765,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalHandle_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -790,7 +790,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalLock_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalReAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalReAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwbytes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -819,7 +819,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalReAlloc_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -844,7 +844,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalSize_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_globalUnlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryGlobalUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -869,7 +869,7 @@ static Napi::Value windowssys_windows_win32_system_memory_globalUnlock_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -898,7 +898,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapAlloc_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapCompact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapCompact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -925,7 +925,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapCompact_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t floptions = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t dwinitialsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -954,7 +954,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapCreate_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapDestroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -979,7 +979,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapDestroy_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1008,7 +1008,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapFree_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1033,7 +1033,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapLock_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapQueryInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapQueryInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t heapinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1066,7 +1066,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapQueryInformation_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapReAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapReAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1097,7 +1097,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapReAlloc_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapSetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapSetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t heapinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1128,7 +1128,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapSetInformation_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1157,7 +1157,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapSize_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapSummary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapSummary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1186,7 +1186,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapSummary_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapUnlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1211,7 +1211,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapUnlock_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapValidate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapValidate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1240,7 +1240,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapValidate_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_heapWalk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryHeapWalk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1267,7 +1267,7 @@ static Napi::Value windowssys_windows_win32_system_memory_heapWalk_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_isBadReadPtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryIsBadReadPtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ucb = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1294,7 +1294,7 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadReadPtr_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_isBadStringPtrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryIsBadStringPtrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ucchmax = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1321,7 +1321,7 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadStringPtrA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_isBadStringPtrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryIsBadStringPtrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ucchmax = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1348,7 +1348,7 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadStringPtrW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_isBadWritePtr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryIsBadWritePtr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ucb = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1375,7 +1375,7 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadWritePtr_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t ubytes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1402,7 +1402,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localAlloc_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1427,7 +1427,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localFlags_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1452,7 +1452,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localHandle_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1477,7 +1477,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localLock_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localReAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalReAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ubytes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1506,7 +1506,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localReAlloc_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1531,7 +1531,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localSize_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_localUnlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryLocalUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1556,7 +1556,7 @@ static Napi::Value windowssys_windows_win32_system_memory_localUnlock_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_mapUserPhysicalPages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryMapUserPhysicalPages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t numberofpages = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1585,7 +1585,7 @@ static Napi::Value windowssys_windows_win32_system_memory_mapUserPhysicalPages_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryMapUserPhysicalPagesScatter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddresses = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t numberofpages = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1614,7 +1614,7 @@ static Napi::Value windowssys_windows_win32_system_memory_mapUserPhysicalPagesSc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_offerVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryOfferVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1643,7 +1643,7 @@ static Napi::Value windowssys_windows_win32_system_memory_offerVirtualMemory_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_openDedicatedMemoryPartition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryOpenDedicatedMemoryPartition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* partition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dedicatedmemorytypeid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1674,7 +1674,7 @@ static Napi::Value windowssys_windows_win32_system_memory_openDedicatedMemoryPar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_openFileMappingA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryOpenFileMappingA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1703,7 +1703,7 @@ static Napi::Value windowssys_windows_win32_system_memory_openFileMappingA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_openFileMappingFromApp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryOpenFileMappingFromApp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t inherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1732,7 +1732,7 @@ static Napi::Value windowssys_windows_win32_system_memory_openFileMappingFromApp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_openFileMappingW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryOpenFileMappingW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1761,7 +1761,7 @@ static Napi::Value windowssys_windows_win32_system_memory_openFileMappingW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_prefetchVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryPrefetchVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t numberofentries = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1792,7 +1792,7 @@ static Napi::Value windowssys_windows_win32_system_memory_prefetchVirtualMemory_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_queryMemoryResourceNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryQueryMemoryResourceNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourcenotificationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resourcestate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1819,7 +1819,7 @@ static Napi::Value windowssys_windows_win32_system_memory_queryMemoryResourceNot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_queryPartitionInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryQueryPartitionInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* partition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t partitioninformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1850,7 +1850,7 @@ static Napi::Value windowssys_windows_win32_system_memory_queryPartitionInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_queryVirtualMemoryInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryQueryVirtualMemoryInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1885,7 +1885,7 @@ static Napi::Value windowssys_windows_win32_system_memory_queryVirtualMemoryInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_reclaimVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryReclaimVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1912,7 +1912,7 @@ static Napi::Value windowssys_windows_win32_system_memory_reclaimVirtualMemory_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_registerBadMemoryNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryRegisterBadMemoryNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1937,7 +1937,7 @@ static Napi::Value windowssys_windows_win32_system_memory_registerBadMemoryNotif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryRemoveSecureMemoryCacheCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1962,7 +1962,7 @@ static Napi::Value windowssys_windows_win32_system_memory_removeSecureMemoryCach
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_resetWriteWatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryResetWriteWatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbaseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwregionsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1989,7 +1989,7 @@ static Napi::Value windowssys_windows_win32_system_memory_resetWriteWatch_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_rtlCompareMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryRtlCompareMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2018,7 +2018,7 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlCompareMemory_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_rtlCrc32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryRtlCrc32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2047,7 +2047,7 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlCrc32_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_rtlCrc64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryRtlCrc64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2076,7 +2076,7 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlCrc64_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_rtlIsZeroMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryRtlIsZeroMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2103,7 +2103,7 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlIsZeroMemory_napi(c
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTargets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemorySetProcessValidCallTargets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2136,7 +2136,7 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemorySetProcessValidCallTargetsForMappedView_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2173,7 +2173,7 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemorySetProcessWorkingSetSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwminimumworkingsetsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2204,7 +2204,7 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessWorkingSetSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_setSystemFileCacheSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemorySetSystemFileCacheSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t minimumfilecachesize = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t maximumfilecachesize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2233,7 +2233,7 @@ static Napi::Value windowssys_windows_win32_system_memory_setSystemFileCacheSize
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_unregisterBadMemoryNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryUnregisterBadMemoryNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* registrationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2258,7 +2258,7 @@ static Napi::Value windowssys_windows_win32_system_memory_unregisterBadMemoryNot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2289,7 +2289,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualAlloc2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2326,7 +2326,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2FromApp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualAlloc2FromApp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2363,7 +2363,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2FromApp_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualAllocEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualAllocEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2396,7 +2396,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocEx_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualAllocExNuma_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualAllocExNuma_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2431,7 +2431,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocExNuma_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualAllocFromApp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualAllocFromApp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2462,7 +2462,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocFromApp_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2491,7 +2491,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualFree_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualFreeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualFreeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2522,7 +2522,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualFreeEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2549,7 +2549,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualLock_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualProtect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualProtect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2580,7 +2580,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualProtect_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualProtectEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualProtectEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2613,7 +2613,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualProtectEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualProtectFromApp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualProtectFromApp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2644,7 +2644,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualProtectFromApp_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2673,7 +2673,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualQuery_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualQueryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualQueryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2704,7 +2704,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualQueryEx_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualUnlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2731,7 +2731,7 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualUnlock_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_virtualUnlockEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryVirtualUnlockEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2761,99 +2761,99 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualUnlockEx_napi(c
 }
 
 static void register_windows_win32_system_memory_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback", Napi::Function::New(env, windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback_napi));
-    exports.Set("windowssys_windows_win32_system_memory_allocateUserPhysicalPages", Napi::Function::New(env, windowssys_windows_win32_system_memory_allocateUserPhysicalPages_napi));
-    exports.Set("windowssys_windows_win32_system_memory_allocateUserPhysicalPages2", Napi::Function::New(env, windowssys_windows_win32_system_memory_allocateUserPhysicalPages2_napi));
-    exports.Set("windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma", Napi::Function::New(env, windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createFileMapping2", Napi::Function::New(env, windowssys_windows_win32_system_memory_createFileMapping2_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createFileMappingA", Napi::Function::New(env, windowssys_windows_win32_system_memory_createFileMappingA_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createFileMappingFromApp", Napi::Function::New(env, windowssys_windows_win32_system_memory_createFileMappingFromApp_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createFileMappingNumaA", Napi::Function::New(env, windowssys_windows_win32_system_memory_createFileMappingNumaA_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createFileMappingNumaW", Napi::Function::New(env, windowssys_windows_win32_system_memory_createFileMappingNumaW_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createFileMappingW", Napi::Function::New(env, windowssys_windows_win32_system_memory_createFileMappingW_napi));
-    exports.Set("windowssys_windows_win32_system_memory_createMemoryResourceNotification", Napi::Function::New(env, windowssys_windows_win32_system_memory_createMemoryResourceNotification_napi));
-    exports.Set("windowssys_windows_win32_system_memory_discardVirtualMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_discardVirtualMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_flushViewOfFile", Napi::Function::New(env, windowssys_windows_win32_system_memory_flushViewOfFile_napi));
-    exports.Set("windowssys_windows_win32_system_memory_freeUserPhysicalPages", Napi::Function::New(env, windowssys_windows_win32_system_memory_freeUserPhysicalPages_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getLargePageMinimum", Napi::Function::New(env, windowssys_windows_win32_system_memory_getLargePageMinimum_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities", Napi::Function::New(env, windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getProcessHeap", Napi::Function::New(env, windowssys_windows_win32_system_memory_getProcessHeap_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getProcessHeaps", Napi::Function::New(env, windowssys_windows_win32_system_memory_getProcessHeaps_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getSystemFileCacheSize", Napi::Function::New(env, windowssys_windows_win32_system_memory_getSystemFileCacheSize_napi));
-    exports.Set("windowssys_windows_win32_system_memory_getWriteWatch", Napi::Function::New(env, windowssys_windows_win32_system_memory_getWriteWatch_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalFlags", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalFlags_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalHandle", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalHandle_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalLock", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalLock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalReAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalReAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalSize", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalSize_napi));
-    exports.Set("windowssys_windows_win32_system_memory_globalUnlock", Napi::Function::New(env, windowssys_windows_win32_system_memory_globalUnlock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapCompact", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapCompact_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapCreate", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapCreate_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapDestroy", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapDestroy_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapFree", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapFree_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapLock", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapLock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapQueryInformation", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapQueryInformation_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapReAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapReAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapSetInformation", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapSetInformation_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapSize", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapSize_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapSummary", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapSummary_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapUnlock", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapUnlock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapValidate", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapValidate_napi));
-    exports.Set("windowssys_windows_win32_system_memory_heapWalk", Napi::Function::New(env, windowssys_windows_win32_system_memory_heapWalk_napi));
-    exports.Set("windowssys_windows_win32_system_memory_isBadReadPtr", Napi::Function::New(env, windowssys_windows_win32_system_memory_isBadReadPtr_napi));
-    exports.Set("windowssys_windows_win32_system_memory_isBadStringPtrA", Napi::Function::New(env, windowssys_windows_win32_system_memory_isBadStringPtrA_napi));
-    exports.Set("windowssys_windows_win32_system_memory_isBadStringPtrW", Napi::Function::New(env, windowssys_windows_win32_system_memory_isBadStringPtrW_napi));
-    exports.Set("windowssys_windows_win32_system_memory_isBadWritePtr", Napi::Function::New(env, windowssys_windows_win32_system_memory_isBadWritePtr_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_localAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localFlags", Napi::Function::New(env, windowssys_windows_win32_system_memory_localFlags_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localHandle", Napi::Function::New(env, windowssys_windows_win32_system_memory_localHandle_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localLock", Napi::Function::New(env, windowssys_windows_win32_system_memory_localLock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localReAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_localReAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localSize", Napi::Function::New(env, windowssys_windows_win32_system_memory_localSize_napi));
-    exports.Set("windowssys_windows_win32_system_memory_localUnlock", Napi::Function::New(env, windowssys_windows_win32_system_memory_localUnlock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_mapUserPhysicalPages", Napi::Function::New(env, windowssys_windows_win32_system_memory_mapUserPhysicalPages_napi));
-    exports.Set("windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter", Napi::Function::New(env, windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter_napi));
-    exports.Set("windowssys_windows_win32_system_memory_offerVirtualMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_offerVirtualMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_openDedicatedMemoryPartition", Napi::Function::New(env, windowssys_windows_win32_system_memory_openDedicatedMemoryPartition_napi));
-    exports.Set("windowssys_windows_win32_system_memory_openFileMappingA", Napi::Function::New(env, windowssys_windows_win32_system_memory_openFileMappingA_napi));
-    exports.Set("windowssys_windows_win32_system_memory_openFileMappingFromApp", Napi::Function::New(env, windowssys_windows_win32_system_memory_openFileMappingFromApp_napi));
-    exports.Set("windowssys_windows_win32_system_memory_openFileMappingW", Napi::Function::New(env, windowssys_windows_win32_system_memory_openFileMappingW_napi));
-    exports.Set("windowssys_windows_win32_system_memory_prefetchVirtualMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_prefetchVirtualMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_queryMemoryResourceNotification", Napi::Function::New(env, windowssys_windows_win32_system_memory_queryMemoryResourceNotification_napi));
-    exports.Set("windowssys_windows_win32_system_memory_queryPartitionInformation", Napi::Function::New(env, windowssys_windows_win32_system_memory_queryPartitionInformation_napi));
-    exports.Set("windowssys_windows_win32_system_memory_queryVirtualMemoryInformation", Napi::Function::New(env, windowssys_windows_win32_system_memory_queryVirtualMemoryInformation_napi));
-    exports.Set("windowssys_windows_win32_system_memory_reclaimVirtualMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_reclaimVirtualMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_registerBadMemoryNotification", Napi::Function::New(env, windowssys_windows_win32_system_memory_registerBadMemoryNotification_napi));
-    exports.Set("windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback", Napi::Function::New(env, windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback_napi));
-    exports.Set("windowssys_windows_win32_system_memory_resetWriteWatch", Napi::Function::New(env, windowssys_windows_win32_system_memory_resetWriteWatch_napi));
-    exports.Set("windowssys_windows_win32_system_memory_rtlCompareMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_rtlCompareMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_rtlCrc32", Napi::Function::New(env, windowssys_windows_win32_system_memory_rtlCrc32_napi));
-    exports.Set("windowssys_windows_win32_system_memory_rtlCrc64", Napi::Function::New(env, windowssys_windows_win32_system_memory_rtlCrc64_napi));
-    exports.Set("windowssys_windows_win32_system_memory_rtlIsZeroMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_rtlIsZeroMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_setProcessValidCallTargets", Napi::Function::New(env, windowssys_windows_win32_system_memory_setProcessValidCallTargets_napi));
-    exports.Set("windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView", Napi::Function::New(env, windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView_napi));
-    exports.Set("windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx_napi));
-    exports.Set("windowssys_windows_win32_system_memory_setSystemFileCacheSize", Napi::Function::New(env, windowssys_windows_win32_system_memory_setSystemFileCacheSize_napi));
-    exports.Set("windowssys_windows_win32_system_memory_unregisterBadMemoryNotification", Napi::Function::New(env, windowssys_windows_win32_system_memory_unregisterBadMemoryNotification_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualAlloc", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualAlloc2", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualAlloc2_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualAlloc2FromApp", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualAlloc2FromApp_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualAllocEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualAllocEx_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualAllocExNuma", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualAllocExNuma_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualAllocFromApp", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualAllocFromApp_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualFree", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualFree_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualFreeEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualFreeEx_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualLock", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualLock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualProtect", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualProtect_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualProtectEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualProtectEx_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualProtectFromApp", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualProtectFromApp_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualQuery", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualQuery_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualQueryEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualQueryEx_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualUnlock", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualUnlock_napi));
-    exports.Set("windowssys_windows_win32_system_memory_virtualUnlockEx", Napi::Function::New(env, windowssys_windows_win32_system_memory_virtualUnlockEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryAddSecureMemoryCacheCallback", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryAddSecureMemoryCacheCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages2", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages2_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPagesNuma", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPagesNuma_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateFileMapping2", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateFileMapping2_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateFileMappingA", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateFileMappingA_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateFileMappingFromApp", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateFileMappingFromApp_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateFileMappingNumaA", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateFileMappingNumaA_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateFileMappingNumaW", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateFileMappingNumaW_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateFileMappingW", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateFileMappingW_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryCreateMemoryResourceNotification", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryCreateMemoryResourceNotification_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryDiscardVirtualMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryDiscardVirtualMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryFlushViewOfFile", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryFlushViewOfFile_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryFreeUserPhysicalPages", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryFreeUserPhysicalPages_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetLargePageMinimum", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetLargePageMinimum_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetMemoryErrorHandlingCapabilities", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetMemoryErrorHandlingCapabilities_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetProcessHeap", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetProcessHeap_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetProcessHeaps", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetProcessHeaps_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetProcessWorkingSetSizeEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetProcessWorkingSetSizeEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetSystemFileCacheSize", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetSystemFileCacheSize_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGetWriteWatch", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGetWriteWatch_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalFlags", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalFlags_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalHandle", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalLock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalLock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalReAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalReAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalSize", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalSize_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryGlobalUnlock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryGlobalUnlock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapCompact", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapCompact_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapCreate", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapDestroy", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapDestroy_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapFree", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapFree_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapLock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapLock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapQueryInformation", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapQueryInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapReAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapReAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapSetInformation", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapSetInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapSize", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapSize_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapSummary", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapSummary_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapUnlock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapUnlock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapValidate", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapValidate_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryHeapWalk", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryHeapWalk_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryIsBadReadPtr", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryIsBadReadPtr_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryIsBadStringPtrA", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryIsBadStringPtrA_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryIsBadStringPtrW", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryIsBadStringPtrW_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryIsBadWritePtr", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryIsBadWritePtr_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalFlags", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalFlags_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalHandle", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalLock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalLock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalReAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalReAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalSize", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalSize_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryLocalUnlock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryLocalUnlock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryMapUserPhysicalPages", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryMapUserPhysicalPages_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryMapUserPhysicalPagesScatter", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryMapUserPhysicalPagesScatter_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryOfferVirtualMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryOfferVirtualMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryOpenDedicatedMemoryPartition", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryOpenDedicatedMemoryPartition_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryOpenFileMappingA", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryOpenFileMappingA_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryOpenFileMappingFromApp", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryOpenFileMappingFromApp_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryOpenFileMappingW", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryOpenFileMappingW_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryPrefetchVirtualMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryPrefetchVirtualMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryQueryMemoryResourceNotification", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryQueryMemoryResourceNotification_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryQueryPartitionInformation", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryQueryPartitionInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryQueryVirtualMemoryInformation", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryQueryVirtualMemoryInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryReclaimVirtualMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryReclaimVirtualMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryRegisterBadMemoryNotification", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryRegisterBadMemoryNotification_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryRemoveSecureMemoryCacheCallback", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryRemoveSecureMemoryCacheCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryResetWriteWatch", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryResetWriteWatch_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryRtlCompareMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryRtlCompareMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryRtlCrc32", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryRtlCrc32_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryRtlCrc64", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryRtlCrc64_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryRtlIsZeroMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryRtlIsZeroMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemorySetProcessValidCallTargets", Napi::Function::New(env, windowssysWindowsWin32SystemMemorySetProcessValidCallTargets_napi));
+    exports.Set("windowssysWindowsWin32SystemMemorySetProcessValidCallTargetsForMappedView", Napi::Function::New(env, windowssysWindowsWin32SystemMemorySetProcessValidCallTargetsForMappedView_napi));
+    exports.Set("windowssysWindowsWin32SystemMemorySetProcessWorkingSetSizeEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemorySetProcessWorkingSetSizeEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemorySetSystemFileCacheSize", Napi::Function::New(env, windowssysWindowsWin32SystemMemorySetSystemFileCacheSize_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryUnregisterBadMemoryNotification", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryUnregisterBadMemoryNotification_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualAlloc2", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualAlloc2_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualAlloc2FromApp", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualAlloc2FromApp_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualAllocEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualAllocEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualAllocExNuma", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualAllocExNuma_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualAllocFromApp", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualAllocFromApp_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualFree", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualFree_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualFreeEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualFreeEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualLock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualLock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualProtect", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualProtect_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualProtectEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualProtectEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualProtectFromApp", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualProtectFromApp_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualQuery", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualQuery_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualQueryEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualQueryEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualUnlock", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualUnlock_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryVirtualUnlockEx", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryVirtualUnlockEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_memory_napi, nullptr };

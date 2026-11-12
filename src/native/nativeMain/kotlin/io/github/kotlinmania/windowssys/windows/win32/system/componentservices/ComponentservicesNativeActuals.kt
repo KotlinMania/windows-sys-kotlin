@@ -2,46 +2,49 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_coCreateActivity
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_coEnterServiceDomain
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_coGetDefaultContext
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_coLeaveServiceDomain
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_getDispenserManager
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_getManagedExtensions
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_mTSCreateActivity
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_recycleSurrogate
-import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssys_windows_win32_system_componentservices_safeRef
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesCoCreateActivity
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesGetDispenserManager
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesGetManagedExtensions
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesMTSCreateActivity
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesRecycleSurrogate
+import io.github.kotlinmania.windowssys.windows.win32.system.componentservices.cinterop.windowssysWindowsWin32SystemComponentservicesSafeRef
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun coCreateActivity(piunknown: COpaquePointer?, riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_componentservices_coCreateActivity(piunknown?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppobj?.value?.toCPointer<ByteVar>())
+public actual fun coCreateActivity(piunknown: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComponentservicesCoCreateActivity(piunknown.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coEnterServiceDomain(pconfigobject: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_componentservices_coEnterServiceDomain(pconfigobject?.value?.toCPointer<ByteVar>())
+public actual fun coEnterServiceDomain(pconfigobject: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain(pconfigobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetDefaultContext(apttype: Apttype, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_componentservices_coGetDefaultContext(apttype, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun coGetDefaultContext(apttype: Apttype, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext(apttype, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coLeaveServiceDomain(punkstatus: COpaquePointer?) {
-    windowssys_windows_win32_system_componentservices_coLeaveServiceDomain(punkstatus?.value?.toCPointer<ByteVar>())
+public actual fun coLeaveServiceDomain(punkstatus: MutPtr<CVoid>) {
+    windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain(punkstatus.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getDispenserManager(param0: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_componentservices_getDispenserManager(param0?.value?.toCPointer<ByteVar>())
+public actual fun getDispenserManager(param0: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComponentservicesGetDispenserManager(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getManagedExtensions(dwexts: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_componentservices_getManagedExtensions(dwexts?.value?.toCPointer<ByteVar>())
+public actual fun getManagedExtensions(dwexts: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComponentservicesGetManagedExtensions(dwexts.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mTSCreateActivity(riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_componentservices_mTSCreateActivity(riid?.value?.toCPointer<ByteVar>(), ppobj?.value?.toCPointer<ByteVar>())
+public actual fun mTSCreateActivity(riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComponentservicesMTSCreateActivity(riid.rawAddress.toCPointer<ByteVar>(), ppobj.rawAddress.toCPointer<ByteVar>())
 
 public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
-    windowssys_windows_win32_system_componentservices_recycleSurrogate(lreasoncode)
+    windowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode)
 
-public actual fun safeRef(rid: COpaquePointer?, punk: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_componentservices_safeRef(rid?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun safeRef(rid: ConstPtr<Guid>, punk: MutPtr<CVoid>): MutPtr<CVoid> =
+    MutPtr(windowssysWindowsWin32SystemComponentservicesSafeRef(rid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)

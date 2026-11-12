@@ -1,1741 +1,2204 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
+// The host must provide the C companion wrapper exports in import module windowssys.
 public actual fun allJoynAcceptBusConnection(serverbushandle: Handle, abortevent: Handle): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynAcceptBusConnection")
 
 public actual fun allJoynCloseBusHandle(bushandle: Handle): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynCloseBusHandle")
 
 public actual fun allJoynConnectToBus(connectionspec: Pcwstr): Handle =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynConnectToBus")
 
-public actual fun allJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: COpaquePointer?): Handle =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun allJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynCreateBus")
 
-public actual fun allJoynEnumEvents(connectedbushandle: Handle, eventtoreset: Handle, eventtypes: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun allJoynEnumEvents(connectedbushandle: Handle, eventtoreset: Handle, eventtypes: MutPtr<UInt>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynEnumEvents")
 
 public actual fun allJoynEventSelect(connectedbushandle: Handle, eventhandle: Handle, eventtypes: UInt): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynEventSelect")
 
-public actual fun allJoynReceiveFromBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestoread: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun allJoynReceiveFromBus(connectedbushandle: Handle, buffer: MutPtr<CVoid>, bytestoread: UInt, bytestransferred: MutPtr<UInt>, reserved: MutPtr<CVoid>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynReceiveFromBus")
 
-public actual fun allJoynSendToBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestowrite: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun allJoynSendToBus(connectedbushandle: Handle, buffer: ConstPtr<CVoid>, bytestowrite: UInt, bytestransferred: MutPtr<UInt>, reserved: MutPtr<CVoid>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAllJoynSendToBus")
 
 public actual fun qccStatusText(status: QStatus): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynQccStatusText")
 
 public actual fun alljoynAboutdataCreate(defaultlanguage: Pcstr): AlljoynAboutdata =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreate")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty(): Long
 
 public actual fun alljoynAboutdataCreateEmpty(): AlljoynAboutdata =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty().toLong()
 
 public actual fun alljoynAboutdataCreateFull(arg: AlljoynMsgarg, language: Pcstr): AlljoynAboutdata =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateFull")
 
 public actual fun alljoynAboutdataCreatefrommsgarg(data: AlljoynAboutdata, arg: AlljoynMsgarg, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefrommsgarg")
 
 public actual fun alljoynAboutdataCreatefromxml(data: AlljoynAboutdata, aboutdataxml: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefromxml")
 
-public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy(data: Long): Unit
+
+public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy(data)
 
 public actual fun alljoynAboutdataGetaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetaboutdata")
 
-public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetajsoftwareversion")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(data: Long, msgarg: Long): Int
 
 public actual fun alljoynAboutdataGetannouncedaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(data, msgarg).toInt()
 
-public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: MutPtr<MutPtr<UByte>>, num: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappid")
 
-public actual fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: COpaquePointer?, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappname")
 
-public actual fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdateofmanufacture")
 
-public actual fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdefaultlanguage")
 
-public actual fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: COpaquePointer?, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdescription")
 
-public actual fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdeviceid")
 
-public actual fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: COpaquePointer?, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdevicename")
 
-public actual fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: COpaquePointer?, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: MutPtr<AlljoynMsgarg>, language: Pcstr): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfield")
 
-public actual fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: COpaquePointer?, numFields: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: ConstPtr<ConstPtr<Byte>>, numFields: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfields")
 
 public actual fun alljoynAboutdataGetfieldsignature(data: AlljoynAboutdata, fieldname: Pcstr): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfieldsignature")
 
-public actual fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGethardwareversion")
 
-public actual fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: COpaquePointer?, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmanufacturer")
 
-public actual fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmodelnumber")
 
-public actual fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsoftwareversion")
 
-public actual fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: COpaquePointer?, num: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: ConstPtr<ConstPtr<Byte>>, num: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupportedlanguages")
 
-public actual fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupporturl")
 
 public actual fun alljoynAboutdataIsfieldannounced(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldannounced")
 
 public actual fun alljoynAboutdataIsfieldlocalized(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldlocalized")
 
 public actual fun alljoynAboutdataIsfieldrequired(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldrequired")
 
 public actual fun alljoynAboutdataIsvalid(data: AlljoynAboutdata, language: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsvalid")
 
-public actual fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: ConstPtr<UByte>, num: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappid")
 
 public actual fun alljoynAboutdataSetappidFromstring(data: AlljoynAboutdata, appid: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappidFromstring")
 
 public actual fun alljoynAboutdataSetappname(data: AlljoynAboutdata, appname: Pcstr, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappname")
 
 public actual fun alljoynAboutdataSetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdateofmanufacture")
 
 public actual fun alljoynAboutdataSetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdefaultlanguage")
 
 public actual fun alljoynAboutdataSetdescription(data: AlljoynAboutdata, description: Pcstr, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdescription")
 
 public actual fun alljoynAboutdataSetdeviceid(data: AlljoynAboutdata, deviceid: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdeviceid")
 
 public actual fun alljoynAboutdataSetdevicename(data: AlljoynAboutdata, devicename: Pcstr, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdevicename")
 
 public actual fun alljoynAboutdataSetfield(data: AlljoynAboutdata, name: Pcstr, value: AlljoynMsgarg, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetfield")
 
 public actual fun alljoynAboutdataSethardwareversion(data: AlljoynAboutdata, hardwareversion: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSethardwareversion")
 
 public actual fun alljoynAboutdataSetmanufacturer(data: AlljoynAboutdata, manufacturer: Pcstr, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmanufacturer")
 
 public actual fun alljoynAboutdataSetmodelnumber(data: AlljoynAboutdata, modelnumber: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmodelnumber")
 
 public actual fun alljoynAboutdataSetsoftwareversion(data: AlljoynAboutdata, softwareversion: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsoftwareversion")
 
 public actual fun alljoynAboutdataSetsupportedlanguage(data: AlljoynAboutdata, language: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupportedlanguage")
 
 public actual fun alljoynAboutdataSetsupporturl(data: AlljoynAboutdata, supporturl: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupporturl")
 
-public actual fun alljoynAboutdatalistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAboutdatalistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutdatalistenerCreate(callbacks: ConstPtr<AlljoynAboutdatalistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynAboutdatalistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerCreate")
 
-public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy(listener: Long): Unit
 
-public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy(listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear(icon: Long): Unit
+
+public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear(icon)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate(): Long
 
 public actual fun alljoynAbouticonCreate(): AlljoynAbouticon =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate().toLong()
 
-public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(icon: Long): Unit
 
-public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(icon)
 
-public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: ConstPtr<ConstPtr<UByte>>, size: MutPtr<ULong>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGetcontent")
 
-public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: COpaquePointer?, csize: ULong, ownsdata: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: ConstPtr<ConstPtr<Byte>>, url: ConstPtr<ConstPtr<Byte>>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGeturl")
+
+public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: MutPtr<UByte>, csize: ULong, ownsdata: UByte): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontent")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(icon: Long, arg: Long): Int
 
 public actual fun alljoynAbouticonSetcontentFrommsgarg(icon: AlljoynAbouticon, arg: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(icon, arg).toInt()
 
 public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, url: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSeturl")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(bus: Long, icon: Long): Long
 
 public actual fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(bus, icon).toLong()
 
-public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(icon: Long): Unit
+
+public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(icon)
 
 public actual fun alljoynAbouticonproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAbouticonproxy =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyCreate")
 
-public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy(proxy: Long): Unit
+
+public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy(proxy)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(proxy: Long, icon: Long): Int
 
 public actual fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(proxy, icon).toInt()
 
-public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGetversion")
 
-public actual fun alljoynAboutlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynAboutlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutlistenerCreate(callback: ConstPtr<AlljoynAboutlistenerCallback>, context: ConstPtr<CVoid>): AlljoynAboutlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerCreate")
 
-public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy(listener: Long): Unit
+
+public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy(listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(obj: Long, sessionport: Int, aboutdata: Long): Int
 
 public actual fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(obj, sessionport.toInt(), aboutdata).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(obj: Long, sessionport: Int, aboutlistener: Long): Int
 
 public actual fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj, sessionport: UShort, aboutlistener: AlljoynAboutdatalistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(obj, sessionport.toInt(), aboutlistener).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(bus: Long, isannounced: Int): Long
 
 public actual fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(bus, isannounced).toLong()
 
-public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(obj: Long): Unit
+
+public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(obj)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(obj: Long): Int
 
 public actual fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(obj).toInt()
 
-public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(description: Long): Unit
+
+public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(description)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate(): Long
 
 public actual fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate().toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(arg: Long): Long
 
 public actual fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): AlljoynAboutobjectdescription =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(arg).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(description: Long, arg: Long): Int
 
 public actual fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(description, arg).toInt()
 
-public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(description: Long): Unit
 
-public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: COpaquePointer?, numpaths: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(description)
 
-public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: ConstPtr<ConstPtr<Byte>>, numpaths: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfacepaths")
+
+public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: ConstPtr<ConstPtr<Byte>>, numinterfaces: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfaces")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(description: Long, msgarg: Long): Int
 
 public actual fun alljoynAboutobjectdescriptionGetmsgarg(description: AlljoynAboutobjectdescription, msgarg: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(description, msgarg).toInt()
 
-public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: COpaquePointer?, numpaths: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: ConstPtr<ConstPtr<Byte>>, numpaths: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetpaths")
 
 public actual fun alljoynAboutobjectdescriptionHasinterface(description: AlljoynAboutobjectdescription, interfacename: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterface")
 
 public actual fun alljoynAboutobjectdescriptionHasinterfaceatpath(description: AlljoynAboutobjectdescription, path: Pcstr, interfacename: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterfaceatpath")
 
 public actual fun alljoynAboutobjectdescriptionHaspath(description: AlljoynAboutobjectdescription, path: Pcstr): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHaspath")
 
 public actual fun alljoynAboutproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAboutproxy =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyCreate")
 
-public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy(proxy: Long): Unit
+
+public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy(proxy)
 
 public actual fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, language: Pcstr, data: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetaboutdata")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(proxy: Long, objectdesc: Long): Int
 
 public actual fun alljoynAboutproxyGetobjectdescription(proxy: AlljoynAboutproxy, objectdesc: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(proxy, objectdesc).toInt()
 
-public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetversion")
 
-public actual fun alljoynApplicationstatelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynApplicationstatelistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynApplicationstatelistenerCreate(callbacks: ConstPtr<AlljoynApplicationstatelistenerCallbacks>, context: MutPtr<CVoid>): AlljoynApplicationstatelistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerCreate")
 
-public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy(listener: Long): Unit
 
-public actual fun alljoynAuthlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy(listener)
 
-public actual fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAuthlistenerCreate(callbacks: ConstPtr<AlljoynAuthlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynAuthlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerCreate")
 
-public actual fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int, credentials: AlljoynCredentials): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy(listener: Long): Unit
 
-public actual fun alljoynAuthlistenerSetsharedsecret(listener: AlljoynAuthlistener, sharedsecret: COpaquePointer?, sharedsecretsize: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy(listener)
 
-public actual fun alljoynAuthlistenerVerifycredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: MutPtr<CVoid>, accept: Int, credentials: AlljoynCredentials): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerRequestcredentialsresponse")
 
-public actual fun alljoynAuthlistenerasyncCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynAuthlistenerSetsharedsecret(listener: AlljoynAuthlistener, sharedsecret: ConstPtr<UByte>, sharedsecretsize: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerSetsharedsecret")
 
-public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAuthlistenerVerifycredentialsresponse(listener: AlljoynAuthlistener, authcontext: MutPtr<CVoid>, accept: Int): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerVerifycredentialsresponse")
+
+public actual fun alljoynAuthlistenerasyncCreate(callbacks: ConstPtr<AlljoynAuthlistenerasyncCallbacks>, context: ConstPtr<CVoid>): AlljoynAuthlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncCreate")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy(listener: Long): Unit
+
+public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy(listener)
 
 public actual fun alljoynAutopingerAdddestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAdddestination")
 
-public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAddpinggroup")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(bus: Long): Long
 
 public actual fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(bus).toLong()
 
-public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(autopinger: Long): Unit
 
-public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(autopinger)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause(autopinger: Long): Unit
+
+public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause(autopinger)
 
 public actual fun alljoynAutopingerRemovedestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr, removeall: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovedestination")
 
-public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovepinggroup")
 
-public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume(autopinger: Long): Unit
+
+public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume(autopinger)
 
 public actual fun alljoynAutopingerSetpinginterval(autopinger: AlljoynAutopinger, group: Pcstr, pinginterval: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerSetpinginterval")
 
 public actual fun alljoynBusattachmentAddlogonentry(bus: AlljoynBusattachment, authmechanism: Pcstr, username: Pcstr, password: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddlogonentry")
 
 public actual fun alljoynBusattachmentAddmatch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddmatch")
 
 public actual fun alljoynBusattachmentAdvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAdvertisename")
 
-public actual fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: COpaquePointer?, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: MutPtr<UShort>, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentBindsessionport")
 
 public actual fun alljoynBusattachmentCanceladvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCanceladvertisename")
 
 public actual fun alljoynBusattachmentCancelfindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisedname")
 
 public actual fun alljoynBusattachmentCancelfindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisednamebytransport")
 
 public actual fun alljoynBusattachmentCancelwhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterface")
 
-public actual fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: ConstPtr<ConstPtr<Byte>>, numberinterfaces: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterfaces")
 
 public actual fun alljoynBusattachmentClearkeys(bus: AlljoynBusattachment, guid: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeys")
 
-public actual fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore(bus: Long): Unit
+
+public actual fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore(bus)
 
 public actual fun alljoynBusattachmentConnect(bus: AlljoynBusattachment, connectspec: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentConnect")
 
 public actual fun alljoynBusattachmentCreate(applicationname: Pcstr, allowremotemessages: Int): AlljoynBusattachment =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreate")
 
 public actual fun alljoynBusattachmentCreateConcurrency(applicationname: Pcstr, allowremotemessages: Int, concurrency: UInt): AlljoynBusattachment =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateConcurrency")
 
-public actual fun alljoynBusattachmentCreateinterface(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentCreateinterface(bus: AlljoynBusattachment, name: Pcstr, iface: MutPtr<AlljoynInterfacedescription>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterface")
 
-public actual fun alljoynBusattachmentCreateinterfaceSecure(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?, secpolicy: AlljoynInterfacedescriptionSecuritypolicy): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentCreateinterfaceSecure(bus: AlljoynBusattachment, name: Pcstr, iface: MutPtr<AlljoynInterfacedescription>, secpolicy: AlljoynInterfacedescriptionSecuritypolicy): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfaceSecure")
 
 public actual fun alljoynBusattachmentCreateinterfacesfromxml(bus: AlljoynBusattachment, xml: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfacesfromxml")
 
 public actual fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeletedefaultkeystore")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(bus: Long, iface: Long): Int
 
 public actual fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(bus, iface).toInt()
 
-public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(bus: Long): Unit
+
+public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(bus)
 
 public actual fun alljoynBusattachmentDisconnect(bus: AlljoynBusattachment, unused: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDisconnect")
 
-public actual fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks(bus: Long): Unit
+
+public actual fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks(bus)
 
 public actual fun alljoynBusattachmentEnablepeersecurity(bus: AlljoynBusattachment, authmechanisms: Pcstr, listener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecurity")
 
 public actual fun alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus: AlljoynBusattachment, authmechanisms: Pcstr, authlistener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int, permissionconfigurationlistener: AlljoynPermissionconfigurationlistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener")
 
 public actual fun alljoynBusattachmentFindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisedname")
 
 public actual fun alljoynBusattachmentFindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisednamebytransport")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetalljoyndebugobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(bus).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetalljoynproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(bus).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(bus: Long): Int
 
 public actual fun alljoynBusattachmentGetconcurrency(bus: AlljoynBusattachment): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(bus).toUInt()
 
 public actual fun alljoynBusattachmentGetconnectspec(bus: AlljoynBusattachment): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconnectspec")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetdbusproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(bus).toLong()
 
 public actual fun alljoynBusattachmentGetglobalguidstring(bus: AlljoynBusattachment): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetglobalguidstring")
 
 public actual fun alljoynBusattachmentGetinterface(bus: AlljoynBusattachment, name: Pcstr): AlljoynInterfacedescription =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterface")
 
-public actual fun alljoynBusattachmentGetinterfaces(bus: AlljoynBusattachment, ifaces: COpaquePointer?, numifaces: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentGetinterfaces(bus: AlljoynBusattachment, ifaces: ConstPtr<AlljoynInterfacedescription>, numifaces: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterfaces")
 
-public actual fun alljoynBusattachmentGetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentGetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: MutPtr<UInt>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetkeyexpiration")
 
-public actual fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, name: Pcstr, guid: Pcstr, guidsz: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, name: Pcstr, guid: Pcstr, guidsz: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpeerguid")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetpermissionconfigurator(bus: AlljoynBusattachment): AlljoynPermissionconfigurator =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(bus).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp(): Int
 
 public actual fun alljoynBusattachmentGettimestamp(): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp().toUInt()
 
 public actual fun alljoynBusattachmentGetuniquename(bus: AlljoynBusattachment): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetuniquename")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(bus: Long): Int
 
 public actual fun alljoynBusattachmentIsconnected(bus: AlljoynBusattachment): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(bus: Long): Int
 
 public actual fun alljoynBusattachmentIspeersecurityenabled(bus: AlljoynBusattachment): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(bus: Long): Int
 
 public actual fun alljoynBusattachmentIsstarted(bus: AlljoynBusattachment): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(bus: Long): Int
 
 public actual fun alljoynBusattachmentIsstopping(bus: AlljoynBusattachment): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(bus: Long): Int
 
 public actual fun alljoynBusattachmentJoin(bus: AlljoynBusattachment): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(bus).toInt()
 
-public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: COpaquePointer?, opts: AlljoynSessionopts): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: MutPtr<UInt>, opts: AlljoynSessionopts): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsession")
 
-public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsessionasync")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(bus: Long, sessionid: Int): Int
 
 public actual fun alljoynBusattachmentLeavesession(bus: AlljoynBusattachment, sessionid: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(bus, sessionid.toInt()).toInt()
 
-public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentNamehasowner")
 
 public actual fun alljoynBusattachmentPing(bus: AlljoynBusattachment, name: Pcstr, timeout: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentPing")
 
-public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener(bus: Long, aboutlistener: Long): Unit
+
+public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener(bus, aboutlistener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(bus: Long, listener: Long): Int
 
 public actual fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(bus, listener).toInt()
 
-public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(bus: Long, listener: Long): Unit
+
+public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(bus, listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(bus: Long, obj: Long): Int
 
 public actual fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(bus, obj).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(bus: Long, obj: Long): Int
 
 public actual fun alljoynBusattachmentRegisterbusobjectSecure(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(bus, obj).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(bus: Long, listener: Long): Int
 
 public actual fun alljoynBusattachmentRegisterkeystorelistener(bus: AlljoynBusattachment, listener: AlljoynKeystorelistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(bus, listener).toInt()
 
 public actual fun alljoynBusattachmentRegistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegistersignalhandler")
 
 public actual fun alljoynBusattachmentRegistersignalhandlerwithrule(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, matchrule: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegistersignalhandlerwithrule")
 
 public actual fun alljoynBusattachmentReleasename(bus: AlljoynBusattachment, name: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReleasename")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(bus: Long): Int
 
 public actual fun alljoynBusattachmentReloadkeystore(bus: AlljoynBusattachment): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(bus).toInt()
 
 public actual fun alljoynBusattachmentRemovematch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovematch")
 
 public actual fun alljoynBusattachmentRemovesessionmember(bus: AlljoynBusattachment, sessionid: UInt, membername: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovesessionmember")
 
 public actual fun alljoynBusattachmentRequestname(bus: AlljoynBusattachment, requestedname: Pcstr, flags: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRequestname")
 
 public actual fun alljoynBusattachmentSecureconnection(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnection")
 
 public actual fun alljoynBusattachmentSecureconnectionasync(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnectionasync")
 
 public actual fun alljoynBusattachmentSetdaemondebug(bus: AlljoynBusattachment, module: Pcstr, level: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetdaemondebug")
 
 public actual fun alljoynBusattachmentSetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetkeyexpiration")
 
-public actual fun alljoynBusattachmentSetlinktimeout(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentSetlinktimeout(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: MutPtr<UInt>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeout")
 
-public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: UInt, callback: AlljoynBusattachmentSetlinktimeoutcbPtr, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: UInt, callback: AlljoynBusattachmentSetlinktimeoutcbPtr, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeoutasync")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(bus: Long, sessionid: Int, listener: Long): Int
 
 public actual fun alljoynBusattachmentSetsessionlistener(bus: AlljoynBusattachment, sessionid: UInt, listener: AlljoynSessionlistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(bus, sessionid.toInt(), listener).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(bus: Long): Int
 
 public actual fun alljoynBusattachmentStart(bus: AlljoynBusattachment): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(bus: Long): Int
 
 public actual fun alljoynBusattachmentStop(bus: AlljoynBusattachment): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(bus: Long, sessionport: Int): Int
 
 public actual fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachment, sessionport: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(bus, sessionport.toInt()).toInt()
 
-public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(bus: Long, aboutlistener: Long): Unit
 
-public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(bus, aboutlistener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners(bus: Long): Unit
+
+public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners(bus)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(bus: Long): Int
 
 public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattachment): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(bus: Long, listener: Long): Int
 
 public actual fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(bus, listener).toInt()
 
-public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(bus: Long, listener: Long): Unit
 
-public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(bus, listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject(bus: Long, obj: Long): Unit
+
+public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject(bus, obj)
 
 public actual fun alljoynBusattachmentUnregistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregistersignalhandler")
 
 public actual fun alljoynBusattachmentUnregistersignalhandlerwithrule(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, matchrule: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregistersignalhandlerwithrule")
 
 public actual fun alljoynBusattachmentWhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterface")
 
-public actual fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: ConstPtr<ConstPtr<Byte>>, numberinterfaces: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterfaces")
 
-public actual fun alljoynBuslistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynBuslistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBuslistenerCreate(callbacks: ConstPtr<AlljoynBuslistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynBuslistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerCreate")
 
-public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy(listener: Long): Unit
+
+public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy(listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(bus: Long, iface: Long): Int
 
 public actual fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(bus, iface).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(bus: Long, iface: Long): Int
 
 public actual fun alljoynBusobjectAddinterfaceAnnounced(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(bus, iface).toInt()
 
-public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandler")
 
-public actual fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entries: COpaquePointer?, numentries: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entries: ConstPtr<AlljoynBusobjectMethodentry>, numentries: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandlers")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(bus: Long, msg: Long): Int
 
 public actual fun alljoynBusobjectCancelsessionlessmessage(bus: AlljoynBusobject, msg: AlljoynMessage): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(bus, msg).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(bus: Long, serialnumber: Int): Int
 
 public actual fun alljoynBusobjectCancelsessionlessmessageSerial(bus: AlljoynBusobject, serialnumber: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(bus, serialnumber.toInt()).toInt()
 
-public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: COpaquePointer?, contextIn: COpaquePointer?): AlljoynBusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: ConstPtr<AlljoynBusobjectCallbacks>, contextIn: ConstPtr<CVoid>): AlljoynBusobject =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCreate")
 
-public actual fun alljoynBusobjectDestroy(bus: AlljoynBusobject) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy(bus: Long): Unit
 
-public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: COpaquePointer?, numprops: ULong, id: UInt) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynBusobjectDestroy(bus: AlljoynBusobject): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy(bus)
 
-public actual fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: ConstPtr<ConstPtr<Byte>>, numprops: ULong, id: UInt): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertieschanged")
 
-public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertychanged")
+
+public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: ConstPtr<ConstPtr<Byte>>, numinterfaces: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetannouncedinterfacenames")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(bus: Long): Long
 
 public actual fun alljoynBusobjectGetbusattachment(bus: AlljoynBusobject): AlljoynBusattachment =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(bus).toLong()
 
 public actual fun alljoynBusobjectGetname(bus: AlljoynBusobject, buffer: Pcstr, buffersz: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetname")
 
 public actual fun alljoynBusobjectGetpath(bus: AlljoynBusobject): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetpath")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(bus: Long): Int
 
 public actual fun alljoynBusobjectIssecure(bus: AlljoynBusobject): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(bus).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(bus: Long, msg: Long, args: Long, numargs: Long): Int
 
 public actual fun alljoynBusobjectMethodreplyArgs(bus: AlljoynBusobject, msg: AlljoynMessage, args: AlljoynMsgarg, numargs: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(bus, msg, args, numargs.toLong()).toInt()
 
 public actual fun alljoynBusobjectMethodreplyErr(bus: AlljoynBusobject, msg: AlljoynMessage, error: Pcstr, errormessage: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyErr")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(bus: Long, msg: Long, status: Int): Int
 
 public actual fun alljoynBusobjectMethodreplyStatus(bus: AlljoynBusobject, msg: AlljoynMessage, status: QStatus): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(bus, msg, status).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(bus: Long, iface: Long, isannounced: Int): Int
 
 public actual fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: AlljoynInterfacedescription, isannounced: AlljoynAboutAnnounceflag): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(bus, iface, isannounced).toInt()
 
 public actual fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSignal")
 
-public actual fun alljoynCredentialsClear(cred: AlljoynCredentials) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear(cred: Long): Unit
+
+public actual fun alljoynCredentialsClear(cred: AlljoynCredentials): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear(cred)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate(): Long
 
 public actual fun alljoynCredentialsCreate(): AlljoynCredentials =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate().toLong()
 
-public actual fun alljoynCredentialsDestroy(cred: AlljoynCredentials) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(cred: Long): Unit
+
+public actual fun alljoynCredentialsDestroy(cred: AlljoynCredentials): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(cred)
 
 public actual fun alljoynCredentialsGetcertchain(cred: AlljoynCredentials): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetcertchain")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration(cred: Long): Int
 
 public actual fun alljoynCredentialsGetexpiration(cred: AlljoynCredentials): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration(cred).toUInt()
 
 public actual fun alljoynCredentialsGetlogonentry(cred: AlljoynCredentials): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetlogonentry")
 
 public actual fun alljoynCredentialsGetpassword(cred: AlljoynCredentials): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetpassword")
 
 public actual fun alljoynCredentialsGetprivateKey(cred: AlljoynCredentials): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetprivateKey")
 
 public actual fun alljoynCredentialsGetusername(cred: AlljoynCredentials): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetusername")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(cred: Long, creds: Int): Int
 
 public actual fun alljoynCredentialsIsset(cred: AlljoynCredentials, creds: UShort): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(cred, creds.toInt()).toInt()
 
-public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetcertchain")
 
-public actual fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration(cred: Long, expiration: Int): Unit
 
-public actual fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration(cred, expiration.toInt())
 
-public actual fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetlogonentry")
 
-public actual fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetpassword")
 
-public actual fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetprivatekey")
+
+public actual fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetusername")
 
 public actual fun alljoynGetbuildinfo(): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynGetbuildinfo")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion(): Int
 
 public actual fun alljoynGetnumericversion(): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion().toUInt()
 
 public actual fun alljoynGetversion(): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynGetversion")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInit")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInit(): Int
 
 public actual fun alljoynInit(): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInit().toInt()
 
-public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(iface: Long): Unit
+
+public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(iface)
 
 public actual fun alljoynInterfacedescriptionAddannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddannotation")
 
 public actual fun alljoynInterfacedescriptionAddargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddargannotation")
 
 public actual fun alljoynInterfacedescriptionAddmember(iface: AlljoynInterfacedescription, type: AlljoynMessagetype, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmember")
 
 public actual fun alljoynInterfacedescriptionAddmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmemberannotation")
 
 public actual fun alljoynInterfacedescriptionAddmethod(iface: AlljoynInterfacedescription, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmethod")
 
 public actual fun alljoynInterfacedescriptionAddproperty(iface: AlljoynInterfacedescription, name: Pcstr, signature: Pcstr, access: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddproperty")
 
 public actual fun alljoynInterfacedescriptionAddpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddpropertyannotation")
 
 public actual fun alljoynInterfacedescriptionAddsignal(iface: AlljoynInterfacedescription, name: Pcstr, sig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddsignal")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(one: Long, other: Long): Int
 
 public actual fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescription, other: AlljoynInterfacedescription): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(one, other).toInt()
 
-public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotation")
 
-public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationatindex")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount(iface: Long): Long
 
 public actual fun alljoynInterfacedescriptionGetannotationscount(iface: AlljoynInterfacedescription): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount(iface).toULong()
 
 public actual fun alljoynInterfacedescriptionGetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetargdescriptionforlanguage")
 
 public actual fun alljoynInterfacedescriptionGetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionforlanguage")
 
-public actual fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: COpaquePointer?, size: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: ConstPtr<ConstPtr<Byte>>, size: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages")
 
 public actual fun alljoynInterfacedescriptionGetdescriptionlanguages2(iface: AlljoynInterfacedescription, languages: Pcstr, languagessize: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages2")
 
 public actual fun alljoynInterfacedescriptionGetdescriptiontranslationcallback(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionTranslationCallbackPtr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptiontranslationcallback")
 
-public actual fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmember")
 
-public actual fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberannotation")
 
-public actual fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberargannotation")
 
 public actual fun alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberdescriptionforlanguage")
 
-public actual fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: COpaquePointer?, nummembers: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: MutPtr<AlljoynInterfacedescriptionMember>, nummembers: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmembers")
 
-public actual fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmethod")
 
 public actual fun alljoynInterfacedescriptionGetname(iface: AlljoynInterfacedescription): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetname")
 
-public actual fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: COpaquePointer?, numprops: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: MutPtr<AlljoynInterfacedescriptionProperty>, numprops: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperties")
 
-public actual fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: MutPtr<AlljoynInterfacedescriptionProperty>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperty")
 
-public actual fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertyannotation")
 
 public actual fun alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, property: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertydescriptionforlanguage")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionGetsecuritypolicy(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionSecuritypolicy =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(iface).toInt()
 
-public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsignal")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionHasdescription(iface: AlljoynInterfacedescription): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(iface).toInt()
 
 public actual fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacedescription, name: Pcstr, insig: Pcstr, outsig: Pcstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasmember")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionHasproperties(iface: AlljoynInterfacedescription): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(iface).toInt()
 
 public actual fun alljoynInterfacedescriptionHasproperty(iface: AlljoynInterfacedescription, name: Pcstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperty")
 
 public actual fun alljoynInterfacedescriptionIntrospect(iface: AlljoynInterfacedescription, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIntrospect")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionIssecure(iface: AlljoynInterfacedescription): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(iface).toInt()
 
 public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedescriptionMember, other: AlljoynInterfacedescriptionMember): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberEql")
 
-public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberGetannotation")
 
-public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberGetannotationatindex")
 
 public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: AlljoynInterfacedescriptionMember): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberGetannotationscount")
 
-public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberGetargannotation")
 
-public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberGetargannotationatindex")
 
 public actual fun alljoynInterfacedescriptionMemberGetargannotationscount(member: AlljoynInterfacedescriptionMember, argname: Pcstr): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberGetargannotationscount")
 
 public actual fun alljoynInterfacedescriptionPropertyEql(one: AlljoynInterfacedescriptionProperty, other: AlljoynInterfacedescriptionProperty): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionPropertyEql")
 
-public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionPropertyGetannotation")
 
-public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionPropertyGetannotationatindex")
 
 public actual fun alljoynInterfacedescriptionPropertyGetannotationscount(property: AlljoynInterfacedescriptionProperty): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionPropertyGetannotationscount")
 
 public actual fun alljoynInterfacedescriptionSetargdescription(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, description: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescription")
 
 public actual fun alljoynInterfacedescriptionSetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescriptionforlanguage")
 
-public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescription")
 
 public actual fun alljoynInterfacedescriptionSetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, languagetag: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionforlanguage")
 
-public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionlanguage")
 
-public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptiontranslationcallback")
 
 public actual fun alljoynInterfacedescriptionSetmemberdescription(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescription")
 
 public actual fun alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescriptionforlanguage")
 
 public actual fun alljoynInterfacedescriptionSetpropertydescription(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescription")
 
 public actual fun alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescriptionforlanguage")
 
-public actual fun alljoynKeystorelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynKeystorelistenerCreate(callbacks: ConstPtr<AlljoynKeystorelistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynKeystorelistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerCreate")
 
-public actual fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy(listener: Long): Unit
 
-public actual fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy(listener)
+
+public actual fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerGetkeys")
 
 public actual fun alljoynKeystorelistenerPutkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, source: Pcstr, password: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerPutkeys")
 
-public actual fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: ConstPtr<AlljoynKeystorelistenerWithSynchronizationCallbacks>, context: MutPtr<CVoid>): AlljoynKeystorelistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerWithSynchronizationCreate")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(bus: Long): Long
 
 public actual fun alljoynMessageCreate(bus: AlljoynBusattachment): AlljoynMessage =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(bus).toLong()
 
 public actual fun alljoynMessageDescription(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageDescription")
 
-public actual fun alljoynMessageDestroy(msg: AlljoynMessage) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy(msg: Long): Unit
+
+public actual fun alljoynMessageDestroy(msg: AlljoynMessage): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy(msg)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageEql")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(one: Long, other: Long): Int
 
 public actual fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(one, other).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(msg: Long, argn: Long): Long
 
 public actual fun alljoynMessageGetarg(msg: AlljoynMessage, argn: ULong): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(msg, argn.toLong()).toLong()
 
-public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: COpaquePointer?, args: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: MutPtr<ULong>, args: MutPtr<AlljoynMsgarg>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetargs")
 
 public actual fun alljoynMessageGetauthmechanism(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetauthmechanism")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial(msg: Long): Int
 
 public actual fun alljoynMessageGetcallserial(msg: AlljoynMessage): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial(msg).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken(msg: Long): Int
 
 public actual fun alljoynMessageGetcompressiontoken(msg: AlljoynMessage): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken(msg).toUInt()
 
 public actual fun alljoynMessageGetdestination(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetdestination")
 
-public actual fun alljoynMessageGeterrorname(msg: AlljoynMessage, errormessage: Pcstr, errormessageSize: COpaquePointer?): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMessageGeterrorname(msg: AlljoynMessage, errormessage: Pcstr, errormessageSize: MutPtr<ULong>): Pcstr =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGeterrorname")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags(msg: Long): Int
 
 public actual fun alljoynMessageGetflags(msg: AlljoynMessage): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags(msg).toUByte()
 
 public actual fun alljoynMessageGetinterface(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetinterface")
 
 public actual fun alljoynMessageGetmembername(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetmembername")
 
 public actual fun alljoynMessageGetobjectpath(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetobjectpath")
 
 public actual fun alljoynMessageGetreceiveendpointname(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreceiveendpointname")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial(msg: Long): Int
 
 public actual fun alljoynMessageGetreplyserial(msg: AlljoynMessage): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial(msg).toUInt()
 
 public actual fun alljoynMessageGetsender(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsender")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid(msg: Long): Int
 
 public actual fun alljoynMessageGetsessionid(msg: AlljoynMessage): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid(msg).toUInt()
 
 public actual fun alljoynMessageGetsignature(msg: AlljoynMessage): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsignature")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp(msg: Long): Int
 
 public actual fun alljoynMessageGettimestamp(msg: AlljoynMessage): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp(msg).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(msg: Long): Int
 
 public actual fun alljoynMessageGettype(msg: AlljoynMessage): AlljoynMessagetype =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(msg).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(msg: Long): Int
 
 public actual fun alljoynMessageIsbroadcastsignal(msg: AlljoynMessage): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(msg).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(msg: Long): Int
 
 public actual fun alljoynMessageIsencrypted(msg: AlljoynMessage): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(msg).toInt()
 
-public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: MutPtr<UInt>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsexpired")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(msg: Long): Int
 
 public actual fun alljoynMessageIsglobalbroadcast(msg: AlljoynMessage): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(msg).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(msg: Long): Int
 
 public actual fun alljoynMessageIssessionless(msg: AlljoynMessage): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(msg).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(msg: Long): Int
 
 public actual fun alljoynMessageIsunreliable(msg: AlljoynMessage): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(msg).toInt()
 
 public actual fun alljoynMessageParseargs(msg: AlljoynMessage, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageParseargs")
 
-public actual fun alljoynMessageSetendianess(endian: Byte) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess(endian: Int): Unit
+
+public actual fun alljoynMessageSetendianess(endian: Byte): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess(endian.toInt())
 
 public actual fun alljoynMessageTostring(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageTostring")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(size: Long): Long
 
 public actual fun alljoynMsgargArrayCreate(size: ULong): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(size.toLong()).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(arg: Long, index: Long): Long
 
 public actual fun alljoynMsgargArrayElement(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(arg, index.toLong()).toLong()
 
 public actual fun alljoynMsgargArrayGet(args: AlljoynMsgarg, numargs: ULong, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayGet")
 
-public actual fun alljoynMsgargArraySet(args: AlljoynMsgarg, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargArraySet(args: AlljoynMsgarg, numargs: MutPtr<ULong>, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySet")
 
-public actual fun alljoynMsgargArraySetOffset(args: AlljoynMsgarg, argoffset: ULong, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargArraySetOffset(args: AlljoynMsgarg, argoffset: ULong, numargs: MutPtr<ULong>, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySetOffset")
 
 public actual fun alljoynMsgargArraySignature(values: AlljoynMsgarg, numvalues: ULong, str: Pcstr, buf: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySignature")
 
 public actual fun alljoynMsgargArrayTostring(args: AlljoynMsgarg, numargs: ULong, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayTostring")
 
-public actual fun alljoynMsgargClear(arg: AlljoynMsgarg) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear(arg: Long): Unit
 
-public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynMsgargClear(arg: AlljoynMsgarg): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear(arg)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone(destination: Long, source: Long): Unit
+
+public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone(destination, source)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(source: Long): Long
 
 public actual fun alljoynMsgargCopy(source: AlljoynMsgarg): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(source).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate(): Long
 
 public actual fun alljoynMsgargCreate(): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate().toLong()
 
 public actual fun alljoynMsgargCreateAndSet(signature: Pcstr, vararg variadicArgs: Long): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreateAndSet")
 
-public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy(arg: Long): Unit
+
+public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy(arg)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(lhv: Long, rhv: Long): Int
 
 public actual fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(lhv, rhv).toInt()
 
 public actual fun alljoynMsgargGet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGet")
 
-public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: MutPtr<AlljoynMsgarg>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElement")
 
 public actual fun alljoynMsgargGetArrayElementsignature(arg: AlljoynMsgarg, index: ULong): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElementsignature")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements(arg: Long): Long
 
 public actual fun alljoynMsgargGetArrayNumberofelements(arg: AlljoynMsgarg): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements(arg).toULong()
 
-public actual fun alljoynMsgargGetBool(arg: AlljoynMsgarg, b: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetBool(arg: AlljoynMsgarg, b: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBool")
 
-public actual fun alljoynMsgargGetBoolArray(arg: AlljoynMsgarg, length: COpaquePointer?, ab: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetBoolArray(arg: AlljoynMsgarg, length: MutPtr<ULong>, ab: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBoolArray")
 
-public actual fun alljoynMsgargGetDouble(arg: AlljoynMsgarg, d: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetDouble(arg: AlljoynMsgarg, d: MutPtr<Double>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDouble")
 
-public actual fun alljoynMsgargGetDoubleArray(arg: AlljoynMsgarg, length: COpaquePointer?, ad: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetDoubleArray(arg: AlljoynMsgarg, length: MutPtr<ULong>, ad: MutPtr<Double>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDoubleArray")
 
-public actual fun alljoynMsgargGetInt16(arg: AlljoynMsgarg, n: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetInt16(arg: AlljoynMsgarg, n: MutPtr<Short>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16")
 
-public actual fun alljoynMsgargGetInt16Array(arg: AlljoynMsgarg, length: COpaquePointer?, an: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetInt16Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, an: MutPtr<Short>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16Array")
 
-public actual fun alljoynMsgargGetInt32(arg: AlljoynMsgarg, i: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetInt32(arg: AlljoynMsgarg, i: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32")
 
-public actual fun alljoynMsgargGetInt32Array(arg: AlljoynMsgarg, length: COpaquePointer?, ai: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetInt32Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, ai: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32Array")
 
-public actual fun alljoynMsgargGetInt64(arg: AlljoynMsgarg, x: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetInt64(arg: AlljoynMsgarg, x: MutPtr<Long>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64")
 
-public actual fun alljoynMsgargGetInt64Array(arg: AlljoynMsgarg, length: COpaquePointer?, ax: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetInt64Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, ax: MutPtr<Long>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64Array")
 
-public actual fun alljoynMsgargGetObjectpath(arg: AlljoynMsgarg, o: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetObjectpath(arg: AlljoynMsgarg, o: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetObjectpath")
 
-public actual fun alljoynMsgargGetSignature(arg: AlljoynMsgarg, g: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetSignature(arg: AlljoynMsgarg, g: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetSignature")
 
-public actual fun alljoynMsgargGetString(arg: AlljoynMsgarg, s: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetString(arg: AlljoynMsgarg, s: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetString")
 
-public actual fun alljoynMsgargGetUint16(arg: AlljoynMsgarg, q: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint16(arg: AlljoynMsgarg, q: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16")
 
-public actual fun alljoynMsgargGetUint16Array(arg: AlljoynMsgarg, length: COpaquePointer?, aq: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint16Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, aq: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16Array")
 
-public actual fun alljoynMsgargGetUint32(arg: AlljoynMsgarg, u: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint32(arg: AlljoynMsgarg, u: MutPtr<UInt>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32")
 
-public actual fun alljoynMsgargGetUint32Array(arg: AlljoynMsgarg, length: COpaquePointer?, au: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint32Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, au: MutPtr<UInt>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32Array")
 
-public actual fun alljoynMsgargGetUint64(arg: AlljoynMsgarg, t: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint64(arg: AlljoynMsgarg, t: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64")
 
-public actual fun alljoynMsgargGetUint64Array(arg: AlljoynMsgarg, length: COpaquePointer?, at: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint64Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, at: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64Array")
 
-public actual fun alljoynMsgargGetUint8(arg: AlljoynMsgarg, y: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint8(arg: AlljoynMsgarg, y: MutPtr<UByte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8")
 
-public actual fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: COpaquePointer?, ay: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, ay: MutPtr<UByte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(arg: Long, v: Long): Int
 
 public actual fun alljoynMsgargGetVariant(arg: AlljoynMsgarg, v: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(arg, v).toInt()
 
-public actual fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: COpaquePointer?, av: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: MutPtr<ULong>, av: MutPtr<AlljoynMsgarg>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariantArray")
 
 public actual fun alljoynMsgargGetdictelement(arg: AlljoynMsgarg, elemsig: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetdictelement")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(arg: Long): Long
 
 public actual fun alljoynMsgargGetkey(arg: AlljoynMsgarg): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(arg).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(arg: Long, index: Long): Long
 
 public actual fun alljoynMsgargGetmember(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(arg, index.toLong()).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(arg: Long): Long
 
 public actual fun alljoynMsgargGetnummembers(arg: AlljoynMsgarg): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(arg).toULong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(arg: Long): Int
 
 public actual fun alljoynMsgargGettype(arg: AlljoynMsgarg): AlljoynTypeid =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(arg).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(arg: Long): Long
 
 public actual fun alljoynMsgargGetvalue(arg: AlljoynMsgarg): AlljoynMsgarg =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(arg).toLong()
 
 public actual fun alljoynMsgargHassignature(arg: AlljoynMsgarg, signature: Pcstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargHassignature")
 
 public actual fun alljoynMsgargSet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSet")
 
 public actual fun alljoynMsgargSetAndStabilize(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetAndStabilize")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(arg: Long, b: Int): Int
 
 public actual fun alljoynMsgargSetBool(arg: AlljoynMsgarg, b: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(arg, b).toInt()
 
-public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBoolArray")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(arg: Long, d: Double): Int
 
 public actual fun alljoynMsgargSetDouble(arg: AlljoynMsgarg, d: Double): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(arg, d).toInt()
 
-public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: MutPtr<Double>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDoubleArray")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(arg: Long, n: Int): Int
 
 public actual fun alljoynMsgargSetInt16(arg: AlljoynMsgarg, n: Short): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(arg, n.toInt()).toInt()
 
-public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: MutPtr<Short>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(arg: Long, i: Int): Int
 
 public actual fun alljoynMsgargSetInt32(arg: AlljoynMsgarg, i: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(arg, i).toInt()
 
-public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: MutPtr<Int>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(arg: Long, x: Long): Int
 
 public actual fun alljoynMsgargSetInt64(arg: AlljoynMsgarg, x: Long): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(arg, x).toInt()
 
-public actual fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: MutPtr<Long>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64Array")
 
 public actual fun alljoynMsgargSetObjectpath(arg: AlljoynMsgarg, o: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpath")
 
-public actual fun alljoynMsgargSetObjectpathArray(arg: AlljoynMsgarg, length: ULong, ao: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetObjectpathArray(arg: AlljoynMsgarg, length: ULong, ao: ConstPtr<ConstPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpathArray")
 
 public actual fun alljoynMsgargSetSignature(arg: AlljoynMsgarg, g: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignature")
 
-public actual fun alljoynMsgargSetSignatureArray(arg: AlljoynMsgarg, length: ULong, ag: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetSignatureArray(arg: AlljoynMsgarg, length: ULong, ag: ConstPtr<ConstPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignatureArray")
 
 public actual fun alljoynMsgargSetString(arg: AlljoynMsgarg, s: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetString")
 
-public actual fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong, asTarget: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong, asTarget: ConstPtr<ConstPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetStringArray")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(arg: Long, q: Int): Int
 
 public actual fun alljoynMsgargSetUint16(arg: AlljoynMsgarg, q: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(arg, q.toInt()).toInt()
 
-public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(arg: Long, u: Int): Int
 
 public actual fun alljoynMsgargSetUint32(arg: AlljoynMsgarg, u: UInt): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(arg, u.toInt()).toInt()
 
-public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: MutPtr<UInt>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(arg: Long, t: Long): Int
 
 public actual fun alljoynMsgargSetUint64(arg: AlljoynMsgarg, t: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(arg, t.toLong()).toInt()
 
-public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(arg: Long, y: Int): Int
 
 public actual fun alljoynMsgargSetUint8(arg: AlljoynMsgarg, y: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(arg, y.toInt()).toInt()
 
-public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: MutPtr<UByte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8Array")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(arg: Long, key: Long, value: Long): Int
 
 public actual fun alljoynMsgargSetdictentry(arg: AlljoynMsgarg, key: AlljoynMsgarg, value: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(arg, key, value).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(arg: Long, structMembers: Long, numMembers: Long): Int
 
 public actual fun alljoynMsgargSetstruct(arg: AlljoynMsgarg, structMembers: AlljoynMsgarg, numMembers: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(arg, structMembers, numMembers.toLong()).toInt()
 
 public actual fun alljoynMsgargSignature(arg: AlljoynMsgarg, str: Pcstr, buf: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSignature")
 
-public actual fun alljoynMsgargStabilize(arg: AlljoynMsgarg) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize(arg: Long): Unit
+
+public actual fun alljoynMsgargStabilize(arg: AlljoynMsgarg): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize(arg)
 
 public actual fun alljoynMsgargTostring(arg: AlljoynMsgarg, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargTostring")
 
-public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: COpaquePointer?, nummandatoryinterfaces: ULong): AlljoynObserver =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: ConstPtr<ConstPtr<Byte>>, nummandatoryinterfaces: ULong): AlljoynObserver =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynObserverCreate")
 
-public actual fun alljoynObserverDestroy(observer: AlljoynObserver) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy(observer: Long): Unit
+
+public actual fun alljoynObserverDestroy(observer: AlljoynObserver): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy(observer)
 
 public actual fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: Pcstr, objectpath: Pcstr): AlljoynProxybusobjectRef =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynObserverGet")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(observer: Long): Long
 
 public actual fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynProxybusobjectRef =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(observer).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(observer: Long, proxyref: Long): Long
 
 public actual fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(observer, proxyref).toLong()
 
-public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(observer: Long, listener: Long, triggeronexisting: Int): Unit
 
-public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(observer, listener, triggeronexisting)
 
-public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners(observer: Long): Unit
 
-public actual fun alljoynObserverlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynObserverlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners(observer)
 
-public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener(observer: Long, listener: Long): Unit
+
+public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener(observer, listener)
+
+public actual fun alljoynObserverlistenerCreate(callback: ConstPtr<AlljoynObserverlistenerCallback>, context: ConstPtr<CVoid>): AlljoynObserverlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerCreate")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy(listener: Long): Unit
+
+public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy(listener)
 
 public actual fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, password: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPasswordmanagerSetcredentials")
 
-public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynPermissionconfigurationlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: ConstPtr<AlljoynPermissionconfigurationlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynPermissionconfigurationlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerCreate")
 
-public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy(listener: Long): Unit
 
-public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy(listener)
 
-public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificatechainDestroy")
 
-public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: MutPtr<AlljoynCertificateid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidCleanup")
 
-public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: MutPtr<AlljoynCertificateidarray>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidarrayCleanup")
+
+public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: MutPtr<Byte>, identitycertificatechain: MutPtr<Byte>, groupid: ConstPtr<UByte>, groupsize: ULong, groupauthority: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorClaim")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorEndmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(configurator).toInt()
 
-public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: MutPtr<AlljoynApplicationstate>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetapplicationstate")
 
-public actual fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilities")
 
-public actual fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities(): Int
 
 public actual fun alljoynPermissionconfiguratorGetdefaultclaimcapabilities(): UShort =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities().toUShort()
 
-public actual fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultpolicy")
 
-public actual fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentity")
 
-public actual fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: MutPtr<AlljoynCertificateid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentitycertificateid")
 
-public actual fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: MutPtr<AlljoynManifestarray>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifests")
 
-public actual fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifesttemplate")
 
-public actual fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: MutPtr<AlljoynCertificateidarray>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmembershipsummaries")
 
-public actual fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpolicy")
 
-public actual fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpublickey")
 
-public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: COpaquePointer?, manifestscount: ULong, append: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong, append: Int): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmanifests")
 
-public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: MutPtr<Byte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmembership")
 
-public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: MutPtr<AlljoynManifestarray>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifestarrayCleanup")
 
-public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifesttemplateDestroy")
 
-public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPolicyDestroy")
 
-public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPublickeyDestroy")
 
-public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: COpaquePointer?, seriallen: ULong, issuerpublickey: COpaquePointer?, issueraki: COpaquePointer?, issuerakilen: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: ConstPtr<UByte>, seriallen: ULong, issuerpublickey: MutPtr<Byte>, issueraki: ConstPtr<UByte>, issuerakilen: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorRemovemembership")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorReset(configurator: AlljoynPermissionconfigurator): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(configurator).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorResetpolicy(configurator: AlljoynPermissionconfigurator): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(configurator).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(configurator: Long, state: Int): Int
 
 public actual fun alljoynPermissionconfiguratorSetapplicationstate(configurator: AlljoynPermissionconfigurator, state: AlljoynApplicationstate): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(configurator, state).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(configurator: Long, claimcapabilities: Int): Int
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(configurator, claimcapabilities.toInt()).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: Long, additionalinfo: Int): Int
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: UShort): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator, additionalinfo.toInt()).toInt()
 
-public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: MutPtr<Byte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetmanifesttemplatefromxml")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorStartmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(configurator).toInt()
 
-public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdateidentity")
 
-public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: MutPtr<Byte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdatepolicy")
 
-public actual fun alljoynPinglistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynPinglistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynPinglistenerCreate(callback: ConstPtr<AlljoynPinglistenerCallback>, context: ConstPtr<CVoid>): AlljoynPinglistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerCreate")
 
-public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy(listener: Long): Unit
+
+public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy(listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(proxyobj: Long, child: Long): Int
 
 public actual fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(proxyobj, child).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(proxyobj: Long, iface: Long): Int
 
 public actual fun alljoynProxybusobjectAddinterface(proxyobj: AlljoynProxybusobject, iface: AlljoynInterfacedescription): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(proxyobj, iface).toInt()
 
 public actual fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxybusobject, name: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterfaceByName")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(source: Long): Long
 
 public actual fun alljoynProxybusobjectCopy(source: AlljoynProxybusobject): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(source).toLong()
 
 public actual fun alljoynProxybusobjectCreate(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreate")
 
 public actual fun alljoynProxybusobjectCreateSecure(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreateSecure")
 
-public actual fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy(proxyobj: Long): Unit
 
-public actual fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy(proxyobj)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching(proxyobj: Long): Unit
+
+public actual fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching(proxyobj)
 
 public actual fun alljoynProxybusobjectGetallproperties(proxyobj: AlljoynProxybusobject, iface: Pcstr, values: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallproperties")
 
-public actual fun alljoynProxybusobjectGetallpropertiesasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerGetallpropertiescbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectGetallpropertiesasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerGetallpropertiescbPtr, timeout: UInt, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallpropertiesasync")
 
 public actual fun alljoynProxybusobjectGetchild(proxyobj: AlljoynProxybusobject, path: Pcstr): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchild")
 
-public actual fun alljoynProxybusobjectGetchildren(proxyobj: AlljoynProxybusobject, children: COpaquePointer?, numchildren: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectGetchildren(proxyobj: AlljoynProxybusobject, children: MutPtr<AlljoynProxybusobject>, numchildren: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchildren")
 
 public actual fun alljoynProxybusobjectGetinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): AlljoynInterfacedescription =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterface")
 
-public actual fun alljoynProxybusobjectGetinterfaces(proxyobj: AlljoynProxybusobject, ifaces: COpaquePointer?, numifaces: ULong): ULong =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectGetinterfaces(proxyobj: AlljoynProxybusobject, ifaces: ConstPtr<AlljoynInterfacedescription>, numifaces: ULong): ULong =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterfaces")
 
 public actual fun alljoynProxybusobjectGetpath(proxyobj: AlljoynProxybusobject): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpath")
 
 public actual fun alljoynProxybusobjectGetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetproperty")
 
-public actual fun alljoynProxybusobjectGetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, callback: AlljoynProxybusobjectListenerGetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectGetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, callback: AlljoynProxybusobjectListenerGetpropertycbPtr, timeout: UInt, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpropertyasync")
 
 public actual fun alljoynProxybusobjectGetservicename(proxyobj: AlljoynProxybusobject): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetservicename")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectGetsessionid(proxyobj: AlljoynProxybusobject): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid(proxyobj).toUInt()
 
 public actual fun alljoynProxybusobjectGetuniquename(proxyobj: AlljoynProxybusobject): Pcstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetuniquename")
 
 public actual fun alljoynProxybusobjectImplementsinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectImplementsinterface")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectIntrospectremoteobject(proxyobj: AlljoynProxybusobject): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(proxyobj).toInt()
 
-public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobjectasync")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectIssecure(proxyobj: AlljoynProxybusobject): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(proxyobj).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectIsvalid(proxyobj: AlljoynProxybusobject): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(proxyobj).toInt()
 
 public actual fun alljoynProxybusobjectMethodcall(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcall")
 
 public actual fun alljoynProxybusobjectMethodcallMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallMember")
 
 public actual fun alljoynProxybusobjectMethodcallMemberNoreply(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallMemberNoreply")
 
 public actual fun alljoynProxybusobjectMethodcallNoreply(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallNoreply")
 
-public actual fun alljoynProxybusobjectMethodcallasync(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectMethodcallasync(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: MutPtr<CVoid>, timeout: UInt, flags: UByte): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallasync")
 
-public actual fun alljoynProxybusobjectMethodcallasyncMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectMethodcallasyncMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: MutPtr<CVoid>, timeout: UInt, flags: UByte): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallasyncMember")
 
 public actual fun alljoynProxybusobjectParsexml(proxyobj: AlljoynProxybusobject, xml: Pcstr, identifier: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectParsexml")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(proxy: Long): Long
 
 public actual fun alljoynProxybusobjectRefCreate(proxy: AlljoynProxybusobject): AlljoynProxybusobjectRef =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(proxy).toLong()
 
-public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(ref: Long): Unit
+
+public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(ref)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(ref: Long): Long
 
 public actual fun alljoynProxybusobjectRefGet(ref: AlljoynProxybusobjectRef): AlljoynProxybusobject =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(ref).toLong()
 
-public actual fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(ref: Long): Unit
 
-public actual fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: COpaquePointer?, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(ref)
+
+public actual fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: ConstPtr<ConstPtr<Byte>>, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRegisterpropertieschangedlistener")
 
 public actual fun alljoynProxybusobjectRemovechild(proxyobj: AlljoynProxybusobject, path: Pcstr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRemovechild")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(proxyobj: Long, forceauth: Int): Int
 
 public actual fun alljoynProxybusobjectSecureconnection(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(proxyobj, forceauth).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(proxyobj: Long, forceauth: Int): Int
 
 public actual fun alljoynProxybusobjectSecureconnectionasync(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(proxyobj, forceauth).toInt()
 
 public actual fun alljoynProxybusobjectSetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetproperty")
 
-public actual fun alljoynProxybusobjectSetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg, callback: AlljoynProxybusobjectListenerSetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynProxybusobjectSetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg, callback: AlljoynProxybusobjectListenerSetpropertycbPtr, timeout: UInt, context: MutPtr<CVoid>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetpropertyasync")
 
 public actual fun alljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerPropertieschangedPtr): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectUnregisterpropertieschangedlistener")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynRouterinit")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit(): Int
 
 public actual fun alljoynRouterinit(): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit().toInt()
 
-public actual fun alljoynRouterinitwithconfig(configxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynRouterinitwithconfig(configxml: MutPtr<Byte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynRouterinitwithconfig")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown(): Int
 
 public actual fun alljoynRoutershutdown(): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown().toInt()
 
-public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: MutPtr<Byte>, identitycertificatechain: MutPtr<Byte>, groupid: ConstPtr<UByte>, groupsize: ULong, groupauthority: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyClaim")
 
-public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, digest: COpaquePointer?, digestsize: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, digest: MutPtr<MutPtr<UByte>>, digestsize: MutPtr<ULong>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyComputemanifestdigest")
 
-public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: COpaquePointer?, sessionid: UInt): AlljoynSecurityapplicationproxy =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: MutPtr<Byte>, sessionid: UInt): AlljoynSecurityapplicationproxy =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyCreate")
 
-public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy(proxy: Long): Unit
 
-public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy(proxy)
 
-public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: MutPtr<UByte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDigestDestroy")
+
+public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEccpublickeyDestroy")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(proxy).toInt()
 
-public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: MutPtr<AlljoynApplicationstate>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetapplicationstate")
 
-public actual fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilities")
 
-public actual fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: MutPtr<UShort>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo")
 
-public actual fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetdefaultpolicy")
 
-public actual fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGeteccpublickey")
 
-public actual fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetmanifesttemplate")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): Int
 
 public actual fun alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): UShort =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport().toUShort()
 
-public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpolicy")
 
-public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: MutPtr<Byte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyInstallmembership")
 
-public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifestDestroy")
 
-public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifesttemplateDestroy")
 
-public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: MutPtr<Byte>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyPolicyDestroy")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(proxy).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyResetpolicy(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(proxy).toInt()
 
-public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signature: COpaquePointer?, signaturesize: ULong, signedmanifestxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, signature: ConstPtr<UByte>, signaturesize: ULong, signedmanifestxml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySetmanifestsignature")
 
-public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signingprivatekeypem: COpaquePointer?, signedmanifestxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, signingprivatekeypem: MutPtr<Byte>, signedmanifestxml: MutPtr<MutPtr<Byte>>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySignmanifest")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyStartmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(proxy).toInt()
 
-public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdateidentity")
 
-public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: MutPtr<Byte>): QStatus =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdatepolicy")
 
-public actual fun alljoynSessionlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun alljoynSessionlistenerCreate(callbacks: ConstPtr<AlljoynSessionlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynSessionlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerCreate")
 
-public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy(listener: Long): Unit
+
+public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy(listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(one: Long, other: Long): Int
 
 public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(one, other).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(traffic: Int, ismultipoint: Int, proximity: Int, transports: Int): Long
 
 public actual fun alljoynSessionoptsCreate(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): AlljoynSessionopts =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt()).toLong()
 
-public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(opts: Long): Unit
+
+public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(opts)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(opts: Long): Int
 
 public actual fun alljoynSessionoptsGetMultipoint(opts: AlljoynSessionopts): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(opts).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(opts: Long): Int
 
 public actual fun alljoynSessionoptsGetProximity(opts: AlljoynSessionopts): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(opts).toUByte()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic(opts: Long): Int
 
 public actual fun alljoynSessionoptsGetTraffic(opts: AlljoynSessionopts): UByte =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic(opts).toUByte()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports(opts: Long): Int
 
 public actual fun alljoynSessionoptsGetTransports(opts: AlljoynSessionopts): UShort =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports(opts).toUShort()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(one: Long, other: Long): Int
 
 public actual fun alljoynSessionoptsIscompatible(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(one, other).toInt()
 
-public actual fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(opts: Long, ismultipoint: Int): Unit
 
-public actual fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(opts, ismultipoint)
 
-public actual fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity(opts: Long, proximity: Int): Unit
 
-public actual fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity(opts, proximity.toInt())
 
-public actual fun alljoynSessionportlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionportlistener =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic(opts: Long, traffic: Int): Unit
 
-public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic(opts, traffic.toInt())
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports(opts: Long, transports: Int): Unit
+
+public actual fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports(opts, transports.toInt())
+
+public actual fun alljoynSessionportlistenerCreate(callbacks: ConstPtr<AlljoynSessionportlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynSessionportlistener =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerCreate")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy(listener: Long): Unit
+
+public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy(listener)
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynShutdown")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown(): Int
 
 public actual fun alljoynShutdown(): QStatus =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown().toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess(): Int
 
 public actual fun alljoynUnityDeferredCallbacksProcess(): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess().toInt()
 
-public actual fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly")
+private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int): Unit
+
+public actual fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int): Unit =
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly)

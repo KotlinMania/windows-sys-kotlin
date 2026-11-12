@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+
 public val ABOVE_NORMAL_PRIORITY_CLASS: ProcessCreationFlags = 32768u
 
 public val ALL_PROCESSOR_GROUPS: UShort = 65535u.toUShort()
@@ -684,8 +686,8 @@ public val WT_TRANSFER_IMPERSONATION: WorkerThreadFlags = 256u
 
 public val WOW64CONTAINER: MachineAttributes = 4
 
-public val CONDITION_VARIABLE_INIT: ConditionVariable = ConditionVariable(ptr = null)
+public val CONDITION_VARIABLE_INIT: ConditionVariable = ConditionVariable(ptr = MutPtr(0L))
 
-public val INIT_ONCE_STATIC_INIT: InitOnce = InitOnce(ptr = null)
+public val INIT_ONCE_STATIC_INIT: InitOnce = InitOnce(ptr = MutPtr(0L))
 
-public val SRWLOCK_INIT: Srwlock = Srwlock(ptr = null)
+public val SRWLOCK_INIT: Srwlock = Srwlock(ptr = MutPtr(0L))

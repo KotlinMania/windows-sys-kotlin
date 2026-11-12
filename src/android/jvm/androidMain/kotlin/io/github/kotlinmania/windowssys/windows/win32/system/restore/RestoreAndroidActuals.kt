@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32SystemRestoreJniBridge {
@@ -11,20 +12,20 @@ private object WindowsWin32SystemRestoreJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restore_sRRemoveRestorePoint(dwrpnum: Int): Int
+    external fun windowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restore_sRSetRestorePointA(prestoreptspec: Long, psmgrstatus: Long): Int
+    external fun windowssysWindowsWin32SystemRestoreSRSetRestorePointA(prestoreptspec: Long, psmgrstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restore_sRSetRestorePointW(prestoreptspec: Long, psmgrstatus: Long): Int
+    external fun windowssysWindowsWin32SystemRestoreSRSetRestorePointW(prestoreptspec: Long, psmgrstatus: Long): Int
 }
 
 public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
-    WindowsWin32SystemRestoreJniBridge.windowssys_windows_win32_system_restore_sRRemoveRestorePoint(dwrpnum.toInt()).toUInt()
+    WindowsWin32SystemRestoreJniBridge.windowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum.toInt()).toUInt()
 
-public actual fun sRSetRestorePointA(prestoreptspec: COpaquePointer?, psmgrstatus: COpaquePointer?): Bool =
-    WindowsWin32SystemRestoreJniBridge.windowssys_windows_win32_system_restore_sRSetRestorePointA((prestoreptspec?.value ?: 0L), (psmgrstatus?.value ?: 0L))
+public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr<Restorepointinfoa>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+    WindowsWin32SystemRestoreJniBridge.windowssysWindowsWin32SystemRestoreSRSetRestorePointA(prestoreptspec.rawAddress, psmgrstatus.rawAddress)
 
-public actual fun sRSetRestorePointW(prestoreptspec: COpaquePointer?, psmgrstatus: COpaquePointer?): Bool =
-    WindowsWin32SystemRestoreJniBridge.windowssys_windows_win32_system_restore_sRSetRestorePointW((prestoreptspec?.value ?: 0L), (psmgrstatus?.value ?: 0L))
+public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr<Restorepointinfow>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+    WindowsWin32SystemRestoreJniBridge.windowssysWindowsWin32SystemRestoreSRSetRestorePointW(prestoreptspec.rawAddress, psmgrstatus.rawAddress)

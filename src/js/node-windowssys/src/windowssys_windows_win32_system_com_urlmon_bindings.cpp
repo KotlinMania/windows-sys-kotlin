@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coGetClassObjectFromURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoGetClassObjectFromURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclassid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -94,7 +94,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coGetClassObjectFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineIUri_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetCombineIUri_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbaseuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prelativeuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzbaseurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzrelativeurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -164,7 +164,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineUrlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbaseuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzrelativeurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCompareUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetCompareUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzurl1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzurl2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -226,7 +226,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCompareU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCreateSecurityManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetCreateSecurityManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -255,7 +255,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCreateSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCreateZoneManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetCreateZoneManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppzm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -284,7 +284,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCreateZo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetProtocolFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetGetProtocolFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetProto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszsecurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -344,7 +344,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsecuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -375,7 +375,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetGetSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionmode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppiinternetsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -404,7 +404,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t featureentry = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -431,7 +431,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForIUri_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForIUri_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t featureentry = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -462,7 +462,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t featureentry = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -493,7 +493,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureZoneElevationEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureZoneElevationEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfromurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sztourl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -524,7 +524,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseIUri_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetParseIUri_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parseaction = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -561,7 +561,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseIUr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetParseUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parseaction = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -598,7 +598,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseUrl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetQueryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetQueryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t queryoptions = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetQueryInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetSetFeatureEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t featureentry = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -664,7 +664,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetSetFeatu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_compareSecurityIds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCompareSecurityIds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbsecurityid1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlen1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -697,7 +697,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_compareSecurityIds
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_compatFlagsFromClsid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCompatFlagsFromClsid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwcompatflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -726,7 +726,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_compatFlagsFromCls
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_copyBindInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCopyBindInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcbisrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbidest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -753,7 +753,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_copyBindInfo_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_copyStgMedium_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCopyStgMedium_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcstgmedsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstgmeddest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -780,7 +780,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_copyStgMedium_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbscb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -811,7 +811,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtxEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtxEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -846,7 +846,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_createFormatEnumerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCreateFormatEnumerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cfmtetc = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rgfmtetc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -875,7 +875,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createFormatEnumer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCreateURLMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmkctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -904,7 +904,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMoniker_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMonikerEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmkctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -935,7 +935,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMonikerEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMonikerEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmkctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -966,7 +966,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMonikerEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_faultInIEFeature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonFaultInIEFeature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclassspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -997,7 +997,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_faultInIEFeature_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_findMediaType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonFindMediaType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rgsztypes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgcftypes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1024,7 +1024,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMediaType_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_findMediaTypeClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonFindMediaTypeClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sztype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMediaTypeClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_findMimeFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonFindMimeFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1094,7 +1094,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMimeFromData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassFileOrMime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonGetClassFileOrMime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1131,7 +1131,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassFileOrMime
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonGetClassURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1158,7 +1158,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassURL_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_getComponentIDFromCLSSPEC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonGetComponentIDFromCLSSPEC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pclassspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszcomponentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1185,7 +1185,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getComponentIDFrom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonGetSoftwareUpdateInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdistunit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1212,7 +1212,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkGoBack_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonHlinkGoBack_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkGoBack_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkGoForward_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonHlinkGoForward_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1262,7 +1262,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkGoForward_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkNavigateMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonHlinkNavigateMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmktarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1289,7 +1289,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkNavigateMonik
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkNavigateString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonHlinkNavigateString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sztarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1316,7 +1316,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkNavigateStrin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmktarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1355,7 +1355,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sztarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1394,7 +1394,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNamespaceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonIEGetUserPrivateNamespaceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1417,7 +1417,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_iEInstallScope_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonIEInstallScope_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwscope = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1442,7 +1442,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_iEInstallScope_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_isAsyncMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonIsAsyncMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1467,7 +1467,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isAsyncMoniker_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1492,7 +1492,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1517,7 +1517,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_isValidURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonIsValidURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1546,7 +1546,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isValidURL_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_mkParseDisplayNameEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonMkParseDisplayNameEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szdisplayname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_mkParseDisplayName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_obtainUserAgentString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonObtainUserAgentString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszuaout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1606,7 +1606,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_obtainUserAgentStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_registerBindStatusCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonRegisterBindStatusCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbscb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1637,7 +1637,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerBindStatus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_registerFormatEnumerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonRegisterFormatEnumerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pefetc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1666,7 +1666,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerFormatEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_registerMediaTypeClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonRegisterMediaTypeClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ctypes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1699,7 +1699,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerMediaTypeC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_registerMediaTypes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonRegisterMediaTypes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ctypes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rgsztypes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1728,7 +1728,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerMediaTypes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_releaseBindInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonReleaseBindInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbindinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1750,7 +1750,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_releaseBindInfo_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_revokeBindStatusCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonRevokeBindStatusCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbscb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1777,7 +1777,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_revokeBindStatusCa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_revokeFormatEnumerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonRevokeFormatEnumerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pefetc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1804,7 +1804,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_revokeFormatEnumer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_setAccessForIEAppContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonSetAccessForIEAppContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ieobjecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1833,7 +1833,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_setAccessForIEAppC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateAdvertisementState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonSetSoftwareUpdateAdvertisementState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdistunit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwadstate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1864,7 +1864,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1899,7 +1899,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCache
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1934,7 +1934,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCache
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLDownloadToFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1967,7 +1967,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLDownloadToFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2000,7 +2000,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2033,7 +2033,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2066,7 +2066,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2097,7 +2097,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2128,7 +2128,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLOpenStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2159,7 +2159,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonURLOpenStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2190,7 +2190,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonUrlMkGetSessionOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2223,7 +2223,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonUrlMkSetSessionOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2254,7 +2254,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_urlmon_writeHitLogging_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComUrlmonWriteHitLogging_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplogginginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2280,79 +2280,79 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_writeHitLogging_na
 }
 
 static void register_windows_win32_system_com_urlmon_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coGetClassObjectFromURL", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coGetClassObjectFromURL_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetCombineIUri", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetCombineIUri_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetCombineUrl", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetCombineUrl_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetCombineUrlEx", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetCombineUrlEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetCompareUrl", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetCompareUrl_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetCreateSecurityManager", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetCreateSecurityManager_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetCreateZoneManager", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetCreateZoneManager_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetGetProtocolFlags", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetGetProtocolFlags_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrl", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrl_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrlEx", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrlEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetGetSession", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetGetSession_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabled", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForIUri", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForIUri_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForUrl", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForUrl_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureZoneElevationEnabled", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureZoneElevationEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetParseIUri", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetParseIUri_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetParseUrl", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetParseUrl_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetQueryInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetQueryInfo_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_coInternetSetFeatureEnabled", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_coInternetSetFeatureEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_compareSecurityIds", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_compareSecurityIds_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_compatFlagsFromClsid", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_compatFlagsFromClsid_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_copyBindInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_copyBindInfo_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_copyStgMedium", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_copyStgMedium_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_createAsyncBindCtxEx", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_createAsyncBindCtxEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_createFormatEnumerator", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_createFormatEnumerator_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_createURLMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_createURLMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_createURLMonikerEx", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_createURLMonikerEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_createURLMonikerEx2", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_createURLMonikerEx2_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_faultInIEFeature", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_faultInIEFeature_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_findMediaType", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_findMediaType_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_findMediaTypeClass", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_findMediaTypeClass_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_findMimeFromData", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_findMimeFromData_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_getClassFileOrMime", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_getClassFileOrMime_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_getClassURL", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_getClassURL_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_getComponentIDFromCLSSPEC", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_getComponentIDFromCLSSPEC_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateInfo_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_hlinkGoBack", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_hlinkGoBack_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_hlinkGoForward", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_hlinkGoForward_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_hlinkNavigateMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_hlinkNavigateMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_hlinkNavigateString", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_hlinkNavigateString_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToString", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToString_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNamespaceName", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNamespaceName_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_iEInstallScope", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_iEInstallScope_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_isAsyncMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_isAsyncMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_isValidURL", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_isValidURL_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_mkParseDisplayNameEx", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_mkParseDisplayNameEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_obtainUserAgentString", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_obtainUserAgentString_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_registerBindStatusCallback", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_registerBindStatusCallback_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_registerFormatEnumerator", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_registerFormatEnumerator_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_registerMediaTypeClass", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_registerMediaTypeClass_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_registerMediaTypes", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_registerMediaTypes_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_releaseBindInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_releaseBindInfo_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_revokeBindStatusCallback", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_revokeBindStatusCallback_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_revokeFormatEnumerator", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_revokeFormatEnumerator_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_setAccessForIEAppContainer", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_setAccessForIEAppContainer_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateAdvertisementState", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateAdvertisementState_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileA", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileA_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileW", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileW_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamA", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamA_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamW", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamW_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOption", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOption_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOption", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOption_napi));
-    exports.Set("windowssys_windows_win32_system_com_urlmon_writeHitLogging", Napi::Function::New(env, windowssys_windows_win32_system_com_urlmon_writeHitLogging_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoGetClassObjectFromURL", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoGetClassObjectFromURL_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetCombineIUri", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetCombineIUri_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrl", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrl_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrlEx", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrlEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetCompareUrl", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetCompareUrl_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetCreateSecurityManager", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetCreateSecurityManager_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetCreateZoneManager", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetCreateZoneManager_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetGetProtocolFlags", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetGetProtocolFlags_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrl", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrl_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrlEx", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrlEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetGetSession", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetGetSession_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForIUri", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForIUri_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForUrl", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForUrl_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureZoneElevationEnabled", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureZoneElevationEnabled_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetParseIUri", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetParseIUri_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetParseUrl", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetParseUrl_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetQueryInfo", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetQueryInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCompareSecurityIds", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCompareSecurityIds_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCompatFlagsFromClsid", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCompatFlagsFromClsid_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCopyBindInfo", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCopyBindInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCopyStgMedium", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCopyStgMedium_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtx", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtx_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtxEx", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtxEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCreateFormatEnumerator", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCreateFormatEnumerator_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCreateURLMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCreateURLMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx2", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx2_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonFaultInIEFeature", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonFaultInIEFeature_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonFindMediaType", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonFindMediaType_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonFindMediaTypeClass", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonFindMediaTypeClass_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonFindMimeFromData", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonFindMimeFromData_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonGetClassFileOrMime", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonGetClassFileOrMime_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonGetClassURL", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonGetClassURL_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonGetComponentIDFromCLSSPEC", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonGetComponentIDFromCLSSPEC_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonGetSoftwareUpdateInfo", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonGetSoftwareUpdateInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonHlinkGoBack", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonHlinkGoBack_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonHlinkGoForward", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonHlinkGoForward_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonHlinkNavigateMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonHlinkNavigateMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonHlinkNavigateString", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonHlinkNavigateString_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToString", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToString_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonIEGetUserPrivateNamespaceName", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonIEGetUserPrivateNamespaceName_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonIEInstallScope", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonIEInstallScope_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonIsAsyncMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonIsAsyncMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledA", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledA_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledW", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledW_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonIsValidURL", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonIsValidURL_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonMkParseDisplayNameEx", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonMkParseDisplayNameEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonObtainUserAgentString", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonObtainUserAgentString_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonRegisterBindStatusCallback", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonRegisterBindStatusCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonRegisterFormatEnumerator", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonRegisterFormatEnumerator_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonRegisterMediaTypeClass", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonRegisterMediaTypeClass_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonRegisterMediaTypes", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonRegisterMediaTypes_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonReleaseBindInfo", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonReleaseBindInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonRevokeBindStatusCallback", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonRevokeBindStatusCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonRevokeFormatEnumerator", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonRevokeFormatEnumerator_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonSetAccessForIEAppContainer", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonSetAccessForIEAppContainer_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonSetSoftwareUpdateAdvertisementState", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonSetSoftwareUpdateAdvertisementState_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileA", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileA_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileW", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLDownloadToFileA", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLDownloadToFileA_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLDownloadToFileW", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLDownloadToFileW_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamA", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamA_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamW", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamW_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamA", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamA_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamW", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamW_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLOpenStreamA", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLOpenStreamA_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonURLOpenStreamW", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonURLOpenStreamW_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonUrlMkGetSessionOption", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonUrlMkGetSessionOption_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonUrlMkSetSessionOption", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonUrlMkSetSessionOption_napi));
+    exports.Set("windowssysWindowsWin32SystemComUrlmonWriteHitLogging", Napi::Function::New(env, windowssysWindowsWin32SystemComUrlmonWriteHitLogging_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_com_urlmon_napi, nullptr };

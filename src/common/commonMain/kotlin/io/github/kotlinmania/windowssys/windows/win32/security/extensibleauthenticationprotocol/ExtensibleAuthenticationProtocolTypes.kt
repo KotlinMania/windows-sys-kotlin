@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
 
 public typealias EaphostAuthStatus = Int
@@ -36,7 +37,7 @@ public typealias EapPeerMethodResultReason = Int
 public typealias IsolationState = Int
 
 public fun interface NotificationHandlerFn {
-    public operator fun invoke(connectionid: Guid, pcontextdata: COpaquePointer?)
+    public operator fun invoke(connectionid: Guid, pcontextdata: MutPtr<CVoid>)
 }
 
 public typealias NotificationHandler = NotificationHandlerFn?

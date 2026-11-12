@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_networking_websocket_webSocketAbortHandle(void* hwebsocket) {
+void windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle(void* hwebsocket) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_networking_websocket_webSocketAbortHandle(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake(void* hwebsocket, void* pszsubprotocols, uint32_t ulsubprotocolcount, void* pszextensions, uint32_t ulextensioncount, void* pinitialheaders, uint32_t ulinitialheadercount, void* padditionalheaders, void* puladditionalheadercount) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake(void* hwebsocket, void* pszsubprotocols, uint32_t ulsubprotocolcount, void* pszextensions, uint32_t ulextensioncount, void* pinitialheaders, uint32_t ulinitialheadercount, void* padditionalheaders, void* puladditionalheadercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketBeginClientHandsh
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake(void* hwebsocket, void* pszsubprotocolselected, void* pszextensionselected, uint32_t ulextensionselectedcount, void* prequestheaders, uint32_t ulrequestheadercount, void* presponseheaders, void* pulresponseheadercount) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake(void* hwebsocket, void* pszsubprotocolselected, void* pszextensionselected, uint32_t ulextensionselectedcount, void* prequestheaders, uint32_t ulrequestheadercount, void* presponseheaders, void* pulresponseheadercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -95,7 +95,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketBeginServerHandsh
 #endif
 }
 
-void windowssys_windows_win32_networking_websocket_webSocketCompleteAction(void* hwebsocket, void* pvactioncontext, uint32_t ulbytestransferred) {
+void windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction(void* hwebsocket, void* pvactioncontext, uint32_t ulbytestransferred) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -118,7 +118,7 @@ void windowssys_windows_win32_networking_websocket_webSocketCompleteAction(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle(void* pproperties, uint32_t ulpropertycount, void* phwebsocket) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle(void* pproperties, uint32_t ulpropertycount, void* phwebsocket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -142,7 +142,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketCreateClientHandl
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle(void* pproperties, uint32_t ulpropertycount, void* phwebsocket) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle(void* pproperties, uint32_t ulpropertycount, void* phwebsocket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -166,7 +166,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketCreateServerHandl
 #endif
 }
 
-void windowssys_windows_win32_networking_websocket_webSocketDeleteHandle(void* hwebsocket) {
+void windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle(void* hwebsocket) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -187,7 +187,7 @@ void windowssys_windows_win32_networking_websocket_webSocketDeleteHandle(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake(void* hwebsocket, void* presponseheaders, uint32_t ulreponseheadercount, void* pulselectedextensions, void* pulselectedextensioncount, void* pulselectedsubprotocol) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake(void* hwebsocket, void* presponseheaders, uint32_t ulreponseheadercount, void* pulselectedextensions, void* pulselectedextensioncount, void* pulselectedsubprotocol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketEndClientHandshak
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake(void* hwebsocket) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake(void* hwebsocket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketEndServerHandshak
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketGetAction(void* hwebsocket, int32_t eactionqueue, void* pdatabuffers, void* puldatabuffercount, void* paction, void* pbuffertype, void* pvapplicationcontext, void* pvactioncontext) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction(void* hwebsocket, int32_t eactionqueue, void* pdatabuffers, void* puldatabuffercount, void* paction, void* pbuffertype, void* pvapplicationcontext, void* pvactioncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketGetAction(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty(int32_t etype, void* pvvalue, void* ulsize) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty(int32_t etype, void* pvvalue, void* ulsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketReceive(void* hwebsocket, void* pbuffer, void* pvcontext) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketReceive(void* hwebsocket, void* pbuffer, void* pvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -313,7 +313,7 @@ int32_t windowssys_windows_win32_networking_websocket_webSocketReceive(void* hwe
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_websocket_webSocketSend(void* hwebsocket, int32_t buffertype, void* pbuffer, void* context) {
+int32_t windowssysWindowsWin32NetworkingWebsocketWebSocketSend(void* hwebsocket, int32_t buffertype, void* pbuffer, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

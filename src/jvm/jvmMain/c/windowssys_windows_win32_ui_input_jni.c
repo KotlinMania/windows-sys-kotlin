@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1defRawInputProc(JNIEnv* km_env, jclass km_clazz, jlong parawinput, jint ninput, jint cbsizeheader) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputDefRawInputProc(JNIEnv* km_env, jclass km_clazz, jlong parawinput, jint ninput, jint cbsizeheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getCIMSSM(JNIEnv* km_env, jclass km_clazz, jlong inputmessagesource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetCIMSSM(JNIEnv* km_env, jclass km_clazz, jlong inputmessagesource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getCurrentInputMessageSource(JNIEnv* km_env, jclass km_clazz, jlong inputmessagesource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetCurrentInputMessageSource(JNIEnv* km_env, jclass km_clazz, jlong inputmessagesource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getRawInputBuffer(JNIEnv* km_env, jclass km_clazz, jlong pdata, jlong pcbsize, jint cbsizeheader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetRawInputBuffer(JNIEnv* km_env, jclass km_clazz, jlong pdata, jlong pcbsize, jint cbsizeheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getRawInputData(JNIEnv* km_env, jclass km_clazz, jlong hrawinput, jint uicommand, jlong pdata, jlong pcbsize, jint cbsizeheader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetRawInputData(JNIEnv* km_env, jclass km_clazz, jlong hrawinput, jint uicommand, jlong pdata, jlong pcbsize, jint cbsizeheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getRawInputDeviceInfoA(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jint uicommand, jlong pdata, jlong pcbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetRawInputDeviceInfoA(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jint uicommand, jlong pdata, jlong pcbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getRawInputDeviceInfoW(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jint uicommand, jlong pdata, jlong pcbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetRawInputDeviceInfoW(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jint uicommand, jlong pdata, jlong pcbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -208,7 +208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getRawInputDeviceList(JNIEnv* km_env, jclass km_clazz, jlong prawinputdevicelist, jlong puinumdevices, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetRawInputDeviceList(JNIEnv* km_env, jclass km_clazz, jlong prawinputdevicelist, jlong puinumdevices, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1getRegisteredRawInputDevices(JNIEnv* km_env, jclass km_clazz, jlong prawinputdevices, jlong puinumdevices, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputGetRegisteredRawInputDevices(JNIEnv* km_env, jclass km_clazz, jlong prawinputdevices, jlong puinumdevices, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -262,7 +262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssys_1windows_1win32_1ui_1input_1registerRawInputDevices(JNIEnv* km_env, jclass km_clazz, jlong prawinputdevices, jint uinumdevices, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_WindowsWin32UiInputJniBridge_windowssysWindowsWin32UiInputRegisterRawInputDevices(JNIEnv* km_env, jclass km_clazz, jlong prawinputdevices, jint uinumdevices, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

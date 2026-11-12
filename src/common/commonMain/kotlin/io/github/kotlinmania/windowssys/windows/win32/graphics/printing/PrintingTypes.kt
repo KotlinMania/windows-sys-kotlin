@@ -1,13 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.devices.communication.Commtimeouts
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerbroadcastSetting
 
 public typealias BidiType = Int
 
@@ -46,7 +50,7 @@ public typealias NotificationCallbackCommands = Int
 public typealias NotificationConfigFlags = Int
 
 public fun interface OemcuipcallbackFn {
-    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Int
+    public operator fun invoke(param0: MutPtr<Cpsuicbparam>, param1: MutPtr<Oemcuipparam>): Int
 }
 
 public typealias Oemcuipcallback = OemcuipcallbackFn?
@@ -58,19 +62,19 @@ public fun interface PfncompropsheetFn {
 public typealias Pfncompropsheet = PfncompropsheetFn?
 
 public fun interface PfnpropsheetuiFn {
-    public operator fun invoke(ppsuiinfo: COpaquePointer?, lparam: Lparam): Int
+    public operator fun invoke(ppsuiinfo: MutPtr<PropsheetuiInfo>, lparam: Lparam): Int
 }
 
 public typealias Pfnpropsheetui = PfnpropsheetuiFn?
 
 public fun interface PfnDrvGetDriverSettingFn {
-    public operator fun invoke(pdriverobj: COpaquePointer?, feature: Pcstr, poutput: COpaquePointer?, cbsize: UInt, pcbneeded: COpaquePointer?, pdwoptionsreturned: COpaquePointer?): Bool
+    public operator fun invoke(pdriverobj: MutPtr<CVoid>, feature: Pcstr, poutput: MutPtr<CVoid>, cbsize: UInt, pcbneeded: MutPtr<UInt>, pdwoptionsreturned: MutPtr<UInt>): Bool
 }
 
 public typealias PfnDrvGetDriverSetting = PfnDrvGetDriverSettingFn?
 
 public fun interface PfnDrvUpdateUisettingFn {
-    public operator fun invoke(pdriverobj: COpaquePointer?, poptitem: COpaquePointer?, dwpreviousselection: UInt, dwmode: UInt): Bool
+    public operator fun invoke(pdriverobj: MutPtr<CVoid>, poptitem: MutPtr<CVoid>, dwpreviousselection: UInt, dwmode: UInt): Bool
 }
 
 public typealias PfnDrvUpdateUisetting = PfnDrvUpdateUisettingFn?
@@ -94,13 +98,13 @@ public fun interface PfnPrintingAddport2Fn {
 public typealias PfnPrintingAddport2 = PfnPrintingAddport2Fn?
 
 public fun interface PfnPrintingAddportexFn {
-    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: Pcwstr): Bool
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: ConstPtr<UByte>, param3: Pcwstr): Bool
 }
 
 public typealias PfnPrintingAddportex = PfnPrintingAddportexFn?
 
 public fun interface PfnPrintingAddportex2Fn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: Pcwstr): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: ConstPtr<UByte>, param4: Pcwstr): Bool
 }
 
 public typealias PfnPrintingAddportex2 = PfnPrintingAddportex2Fn?
@@ -154,25 +158,25 @@ public fun interface PfnPrintingEnddocport2Fn {
 public typealias PfnPrintingEnddocport2 = PfnPrintingEnddocport2Fn?
 
 public fun interface PfnPrintingEnumportsFn {
-    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: COpaquePointer?): Bool
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: MutPtr<UByte>, param3: UInt, param4: MutPtr<UInt>, param5: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingEnumports = PfnPrintingEnumportsFn?
 
 public fun interface PfnPrintingEnumports2Fn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: UInt, param5: COpaquePointer?, param6: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: MutPtr<UByte>, param4: UInt, param5: MutPtr<UInt>, param6: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingEnumports2 = PfnPrintingEnumports2Fn?
 
 public fun interface PfnPrintingGetprinterdatafromportFn {
-    public operator fun invoke(param0: Handle, param1: UInt, param2: Pcwstr, param3: Pcwstr, param4: UInt, param5: Pcwstr, param6: UInt, param7: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: UInt, param2: Pcwstr, param3: Pcwstr, param4: UInt, param5: Pcwstr, param6: UInt, param7: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingGetprinterdatafromport = PfnPrintingGetprinterdatafromportFn?
 
 public fun interface PfnPrintingGetprinterdatafromport2Fn {
-    public operator fun invoke(param0: Handle, param1: UInt, param2: Pcwstr, param3: Pcwstr, param4: UInt, param5: Pcwstr, param6: UInt, param7: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: UInt, param2: Pcwstr, param3: Pcwstr, param4: UInt, param5: Pcwstr, param6: UInt, param7: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingGetprinterdatafromport2 = PfnPrintingGetprinterdatafromport2Fn?
@@ -190,61 +194,61 @@ public fun interface PfnPrintingNotifyusedports2Fn {
 public typealias PfnPrintingNotifyusedports2 = PfnPrintingNotifyusedports2Fn?
 
 public fun interface PfnPrintingOpenportFn {
-    public operator fun invoke(param0: Pcwstr, param1: COpaquePointer?): Bool
+    public operator fun invoke(param0: Pcwstr, param1: MutPtr<Handle>): Bool
 }
 
 public typealias PfnPrintingOpenport = PfnPrintingOpenportFn?
 
 public fun interface PfnPrintingOpenport2Fn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: MutPtr<Handle>): Bool
 }
 
 public typealias PfnPrintingOpenport2 = PfnPrintingOpenport2Fn?
 
 public fun interface PfnPrintingOpenportexFn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: Pcwstr, param3: COpaquePointer?, param4: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: Pcwstr, param3: MutPtr<Handle>, param4: ConstPtr<Monitor2>): Bool
 }
 
 public typealias PfnPrintingOpenportex = PfnPrintingOpenportexFn?
 
 public fun interface PfnPrintingOpenportex2Fn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: Pcwstr, param3: Pcwstr, param4: COpaquePointer?, param5: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: Pcwstr, param3: Pcwstr, param4: MutPtr<Handle>, param5: ConstPtr<Monitor2>): Bool
 }
 
 public typealias PfnPrintingOpenportex2 = PfnPrintingOpenportex2Fn?
 
 public fun interface PfnPrintingPowerevent2Fn {
-    public operator fun invoke(param0: Handle, param1: UInt, param2: COpaquePointer?): UInt
+    public operator fun invoke(param0: Handle, param1: UInt, param2: ConstPtr<PowerbroadcastSetting>): UInt
 }
 
 public typealias PfnPrintingPowerevent2 = PfnPrintingPowerevent2Fn?
 
 public fun interface PfnPrintingReadportFn {
-    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: MutPtr<UByte>, param2: UInt, param3: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingReadport = PfnPrintingReadportFn?
 
 public fun interface PfnPrintingReadport2Fn {
-    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: MutPtr<UByte>, param2: UInt, param3: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingReadport2 = PfnPrintingReadport2Fn?
 
 public fun interface PfnPrintingSendrecvbididatafromport2Fn {
-    public operator fun invoke(param0: Handle, param1: UInt, param2: Pcwstr, param3: COpaquePointer?, param4: COpaquePointer?): UInt
+    public operator fun invoke(param0: Handle, param1: UInt, param2: Pcwstr, param3: ConstPtr<BidiRequestContainer>, param4: MutPtr<MutPtr<BidiResponseContainer>>): UInt
 }
 
 public typealias PfnPrintingSendrecvbididatafromport2 = PfnPrintingSendrecvbididatafromport2Fn?
 
 public fun interface PfnPrintingSetporttimeoutsFn {
-    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt): Bool
+    public operator fun invoke(param0: Handle, param1: ConstPtr<Commtimeouts>, param2: UInt): Bool
 }
 
 public typealias PfnPrintingSetporttimeouts = PfnPrintingSetporttimeoutsFn?
 
 public fun interface PfnPrintingSetporttimeouts2Fn {
-    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt): Bool
+    public operator fun invoke(param0: Handle, param1: ConstPtr<Commtimeouts>, param2: UInt): Bool
 }
 
 public typealias PfnPrintingSetporttimeouts2 = PfnPrintingSetporttimeouts2Fn?
@@ -256,25 +260,25 @@ public fun interface PfnPrintingShutdown2Fn {
 public typealias PfnPrintingShutdown2 = PfnPrintingShutdown2Fn?
 
 public fun interface PfnPrintingStartdocportFn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: UInt, param4: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: UInt, param4: ConstPtr<UByte>): Bool
 }
 
 public typealias PfnPrintingStartdocport = PfnPrintingStartdocportFn?
 
 public fun interface PfnPrintingStartdocport2Fn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: UInt, param4: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: UInt, param4: ConstPtr<UByte>): Bool
 }
 
 public typealias PfnPrintingStartdocport2 = PfnPrintingStartdocport2Fn?
 
 public fun interface PfnPrintingWriteportFn {
-    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: ConstPtr<UByte>, param2: UInt, param3: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingWriteport = PfnPrintingWriteportFn?
 
 public fun interface PfnPrintingWriteport2Fn {
-    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: ConstPtr<UByte>, param2: UInt, param3: MutPtr<UInt>): Bool
 }
 
 public typealias PfnPrintingWriteport2 = PfnPrintingWriteport2Fn?
@@ -292,25 +296,25 @@ public fun interface PfnPrintingXcvcloseport2Fn {
 public typealias PfnPrintingXcvcloseport2 = PfnPrintingXcvcloseport2Fn?
 
 public fun interface PfnPrintingXcvdataportFn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: UInt, param6: COpaquePointer?): UInt
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: ConstPtr<UByte>, param3: UInt, param4: MutPtr<UByte>, param5: UInt, param6: MutPtr<UInt>): UInt
 }
 
 public typealias PfnPrintingXcvdataport = PfnPrintingXcvdataportFn?
 
 public fun interface PfnPrintingXcvdataport2Fn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: UInt, param6: COpaquePointer?): UInt
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: ConstPtr<UByte>, param3: UInt, param4: MutPtr<UByte>, param5: UInt, param6: MutPtr<UInt>): UInt
 }
 
 public typealias PfnPrintingXcvdataport2 = PfnPrintingXcvdataport2Fn?
 
 public fun interface PfnPrintingXcvopenportFn {
-    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?): Bool
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: MutPtr<Handle>): Bool
 }
 
 public typealias PfnPrintingXcvopenport = PfnPrintingXcvopenportFn?
 
 public fun interface PfnPrintingXcvopenport2Fn {
-    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: COpaquePointer?): Bool
+    public operator fun invoke(param0: Handle, param1: Pcwstr, param2: UInt, param3: MutPtr<Handle>): Bool
 }
 
 public typealias PfnPrintingXcvopenport2 = PfnPrintingXcvopenport2Fn?
@@ -338,7 +342,7 @@ public typealias PrintSchemaParameterDataType = Int
 public typealias PrintSchemaSelectionType = Int
 
 public fun interface RouterNotifyCallbackFn {
-    public operator fun invoke(dwcommand: UInt, pcontext: COpaquePointer?, dwcolor: UInt, pnofityinfo: COpaquePointer?, fdwflags: UInt, pdwresult: COpaquePointer?): Bool
+    public operator fun invoke(dwcommand: UInt, pcontext: ConstPtr<CVoid>, dwcolor: UInt, pnofityinfo: ConstPtr<PrinterNotifyInfo>, fdwflags: UInt, pdwresult: MutPtr<UInt>): Bool
 }
 
 public typealias RouterNotifyCallback = RouterNotifyCallbackFn?
@@ -354,7 +358,7 @@ public typealias XpsrasPixelFormat = Int
 public typealias XpsrasRenderingMode = Int
 
 public fun interface CpsuicallbackFn {
-    public operator fun invoke(pcpsuicbparam: COpaquePointer?): Int
+    public operator fun invoke(pcpsuicbparam: MutPtr<Cpsuicbparam>): Int
 }
 
 public typealias Cpsuicallback = CpsuicallbackFn?

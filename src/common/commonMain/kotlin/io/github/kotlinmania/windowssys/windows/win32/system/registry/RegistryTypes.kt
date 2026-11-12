@@ -1,11 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.registry
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
-public typealias Hkey = COpaquePointer?
+public typealias Hkey = MutPtr<CVoid>
 
 public fun interface PqueryhandlerFn {
-    public operator fun invoke(keycontext: COpaquePointer?, valList: COpaquePointer?, numVals: UInt, outputbuffer: COpaquePointer?, totalOutlen: COpaquePointer?, inputBlen: UInt): UInt
+    public operator fun invoke(keycontext: MutPtr<CVoid>, valList: MutPtr<ValContext>, numVals: UInt, outputbuffer: MutPtr<CVoid>, totalOutlen: MutPtr<UInt>, inputBlen: UInt): UInt
 }
 
 public typealias Pqueryhandler = PqueryhandlerFn?

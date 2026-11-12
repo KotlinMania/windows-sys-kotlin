@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmAddFilter(uint32_t dwsessionhandle, void* strmodulename, void* pprocess, void* strserviceshortname, int32_t filteraction) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmAddFilter(uint32_t dwsessionhandle, void* strmodulename, void* pprocess, void* strserviceshortname, int32_t filteraction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmAddFilter(uint32_t dws
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask(uint32_t dwsessionhandle) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmCancelCurrentTask(uint32_t dwsessionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmEndSession(uint32_t dwsessionhandle) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmEndSession(uint32_t dwsessionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmEndSession(uint32_t dw
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmGetFilterList(uint32_t dwsessionhandle, void* pbfilterbuf, uint32_t cbfilterbuf, void* cbfilterbufneeded) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmGetFilterList(uint32_t dwsessionhandle, void* pbfilterbuf, uint32_t cbfilterbuf, void* cbfilterbufneeded) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmGetFilterList(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmGetList(uint32_t dwsessionhandle, void* pnprocinfoneeded, void* pnprocinfo, void* rgaffectedapps, void* lpdwrebootreasons) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmGetList(uint32_t dwsessionhandle, void* pnprocinfoneeded, void* pnprocinfo, void* rgaffectedapps, void* lpdwrebootreasons) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmGetList(uint32_t dwses
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmJoinSession(void* psessionhandle, void* strsessionkey) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmJoinSession(void* psessionhandle, void* strsessionkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmJoinSession(void* pses
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmRegisterResources(uint32_t dwsessionhandle, uint32_t nfiles, void* rgsfilenames, uint32_t napplications, void* rgapplications, uint32_t nservices, void* rgsservicenames) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmRegisterResources(uint32_t dwsessionhandle, uint32_t nfiles, void* rgsfilenames, uint32_t napplications, void* rgapplications, uint32_t nservices, void* rgsservicenames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -187,7 +187,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmRegisterResources(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmRemoveFilter(uint32_t dwsessionhandle, void* strmodulename, void* pprocess, void* strserviceshortname) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmRemoveFilter(uint32_t dwsessionhandle, void* strmodulename, void* pprocess, void* strserviceshortname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmRemoveFilter(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmRestart(uint32_t dwsessionhandle, uint32_t dwrestartflags, void* fnstatus) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmRestart(uint32_t dwsessionhandle, uint32_t dwrestartflags, void* fnstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmRestart(uint32_t dwses
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmShutdown(uint32_t dwsessionhandle, uint32_t lactionflags, void* fnstatus) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmShutdown(uint32_t dwsessionhandle, uint32_t lactionflags, void* fnstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -260,7 +260,7 @@ uint32_t windowssys_windows_win32_system_restartmanager_rmShutdown(uint32_t dwse
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_restartmanager_rmStartSession(void* psessionhandle, uint32_t dwsessionflags, void* strsessionkey) {
+uint32_t windowssysWindowsWin32SystemRestartmanagerRmStartSession(void* psessionhandle, uint32_t dwsessionflags, void* strsessionkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -2,65 +2,67 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_getDeviceID
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose
-import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesGetDeviceID
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose
+import io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices.cinterop.windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun getDeviceID(pbwindowsaik: COpaquePointer?, cbwindowsaik: UInt, pcbresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_tpmbaseservices_getDeviceID(pbwindowsaik?.value?.toCPointer<ByteVar>(), cbwindowsaik, pcbresult?.value?.toCPointer<ByteVar>(), pfprotectedbytpm?.value?.toCPointer<ByteVar>())
+public actual fun getDeviceID(pbwindowsaik: MutPtr<UByte>, cbwindowsaik: UInt, pcbresult: MutPtr<UInt>, pfprotectedbytpm: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32SystemTpmbaseservicesGetDeviceID(pbwindowsaik.rawAddress.toCPointer<ByteVar>(), cbwindowsaik, pcbresult.rawAddress.toCPointer<ByteVar>(), pfprotectedbytpm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString(pszwindowsaik?.value?.toCPointer<ByteVar>(), cchwindowsaik, pcchresult?.value?.toCPointer<ByteVar>(), pfprotectedbytpm?.value?.toCPointer<ByteVar>())
+public actual fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: MutPtr<UInt>, pfprotectedbytpm: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString(pszwindowsaik.rawAddress.toCPointer<ByteVar>(), cchwindowsaik, pcchresult.rawAddress.toCPointer<ByteVar>(), pfprotectedbytpm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tbsiContextCreate(pcontextparams: COpaquePointer?, phcontext: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate(pcontextparams?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>())
+public actual fun tbsiContextCreate(pcontextparams: ConstPtr<TbsContextParams>, phcontext: MutPtr<MutPtr<CVoid>>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate(pcontextparams.rawAddress.toCPointer<ByteVar>(), phcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun tbsiCreateWindowsKey(keyhandle: UInt): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey(keyhandle)
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey(keyhandle)
 
-public actual fun tbsiGetDeviceInfo(size: UInt, info: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo(size, info?.value?.toCPointer<ByteVar>())
+public actual fun tbsiGetDeviceInfo(size: UInt, info: MutPtr<CVoid>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo(size, info.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tbsiGetOwnerAuth(hcontext: COpaquePointer?, ownerauthtype: UInt, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth(hcontext?.value?.toCPointer<ByteVar>(), ownerauthtype, poutputbuf?.value?.toCPointer<ByteVar>(), poutputbuflen?.value?.toCPointer<ByteVar>())
+public actual fun tbsiGetOwnerAuth(hcontext: ConstPtr<CVoid>, ownerauthtype: UInt, poutputbuf: MutPtr<UByte>, poutputbuflen: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth(hcontext.rawAddress.toCPointer<ByteVar>(), ownerauthtype, poutputbuf.rawAddress.toCPointer<ByteVar>(), poutputbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tbsiGetTcgLog(hcontext: COpaquePointer?, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog(hcontext?.value?.toCPointer<ByteVar>(), poutputbuf?.value?.toCPointer<ByteVar>(), poutputbuflen?.value?.toCPointer<ByteVar>())
+public actual fun tbsiGetTcgLog(hcontext: ConstPtr<CVoid>, poutputbuf: MutPtr<UByte>, poutputbuflen: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog(hcontext.rawAddress.toCPointer<ByteVar>(), poutputbuf.rawAddress.toCPointer<ByteVar>(), poutputbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx(logtype, pboutput?.value?.toCPointer<ByteVar>(), pcboutput?.value?.toCPointer<ByteVar>())
+public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: MutPtr<UByte>, pcboutput: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx(logtype, pboutput.rawAddress.toCPointer<ByteVar>(), pcboutput.rawAddress.toCPointer<ByteVar>())
 
 public actual fun tbsiIsTpmPresent(): Bool =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent()
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent()
 
-public actual fun tbsiPhysicalPresenceCommand(hcontext: COpaquePointer?, pabinput: COpaquePointer?, cbinput: UInt, paboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand(hcontext?.value?.toCPointer<ByteVar>(), pabinput?.value?.toCPointer<ByteVar>(), cbinput, paboutput?.value?.toCPointer<ByteVar>(), pcboutput?.value?.toCPointer<ByteVar>())
+public actual fun tbsiPhysicalPresenceCommand(hcontext: ConstPtr<CVoid>, pabinput: ConstPtr<UByte>, cbinput: UInt, paboutput: MutPtr<UByte>, pcboutput: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand(hcontext.rawAddress.toCPointer<ByteVar>(), pabinput.rawAddress.toCPointer<ByteVar>(), cbinput, paboutput.rawAddress.toCPointer<ByteVar>(), pcboutput.rawAddress.toCPointer<ByteVar>())
 
 public actual fun tbsiRevokeAttestation(): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation()
+    windowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation()
 
-public actual fun tbsipCancelCommands(hcontext: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands(hcontext?.value?.toCPointer<ByteVar>())
+public actual fun tbsipCancelCommands(hcontext: ConstPtr<CVoid>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands(hcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tbsipContextClose(hcontext: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose(hcontext?.value?.toCPointer<ByteVar>())
+public actual fun tbsipContextClose(hcontext: ConstPtr<CVoid>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose(hcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tbsipSubmitCommand(hcontext: COpaquePointer?, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: COpaquePointer?, cbcommand: UInt, pabresult: COpaquePointer?, pcbresult: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand(hcontext?.value?.toCPointer<ByteVar>(), locality, priority, pabcommand?.value?.toCPointer<ByteVar>(), cbcommand, pabresult?.value?.toCPointer<ByteVar>(), pcbresult?.value?.toCPointer<ByteVar>())
+public actual fun tbsipSubmitCommand(hcontext: ConstPtr<CVoid>, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: ConstPtr<UByte>, cbcommand: UInt, pabresult: MutPtr<UByte>, pcbresult: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand(hcontext.rawAddress.toCPointer<ByteVar>(), locality, priority, pabcommand.rawAddress.toCPointer<ByteVar>(), cbcommand, pabresult.rawAddress.toCPointer<ByteVar>(), pcbresult.rawAddress.toCPointer<ByteVar>())

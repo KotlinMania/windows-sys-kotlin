@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1choosePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglChoosePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1describePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint ipixelformat, jint nbytes, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglDescribePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint ipixelformat, jint nbytes, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1getEnhMetaFilePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hemf, jint cbbuffer, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGetEnhMetaFilePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hemf, jint cbbuffer, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1getPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGetPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -125,7 +125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1setPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint format, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglSetPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint format, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1swapBuffers(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglSwapBuffers(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glAccum(JNIEnv* km_env, jclass km_clazz, jint op, jfloat value) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlAccum(JNIEnv* km_env, jclass km_clazz, jint op, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glAlphaFunc(JNIEnv* km_env, jclass km_clazz, jint func, jfloat ref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlAlphaFunc(JNIEnv* km_env, jclass km_clazz, jint func, jfloat ref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -221,7 +221,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glAreTexturesResident(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures, jlong residences) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlAreTexturesResident(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures, jlong residences) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -248,7 +248,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jbyte)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glArrayElement(JNIEnv* km_env, jclass km_clazz, jint i) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlArrayElement(JNIEnv* km_env, jclass km_clazz, jint i) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glBegin(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlBegin(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -290,7 +290,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glBindTexture(JNIEnv* km_env, jclass km_clazz, jint target, jint texture) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlBindTexture(JNIEnv* km_env, jclass km_clazz, jint target, jint texture) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -312,7 +312,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glBitmap(JNIEnv* km_env, jclass km_clazz, jint width, jint height, jfloat xorig, jfloat yorig, jfloat xmove, jfloat ymove, jlong bitmap) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlBitmap(JNIEnv* km_env, jclass km_clazz, jint width, jint height, jfloat xorig, jfloat yorig, jfloat xmove, jfloat ymove, jlong bitmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -339,7 +339,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glBlendFunc(JNIEnv* km_env, jclass km_clazz, jint sfactor, jint dfactor) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlBlendFunc(JNIEnv* km_env, jclass km_clazz, jint sfactor, jint dfactor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -361,7 +361,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCallList(JNIEnv* km_env, jclass km_clazz, jint list) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCallList(JNIEnv* km_env, jclass km_clazz, jint list) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -382,7 +382,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCallLists(JNIEnv* km_env, jclass km_clazz, jint n, jint type, jlong lists) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCallLists(JNIEnv* km_env, jclass km_clazz, jint n, jint type, jlong lists) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -405,7 +405,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClear(JNIEnv* km_env, jclass km_clazz, jint mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClear(JNIEnv* km_env, jclass km_clazz, jint mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -426,7 +426,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClearAccum(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClearAccum(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -450,7 +450,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClearColor(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClearColor(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -474,7 +474,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClearDepth(JNIEnv* km_env, jclass km_clazz, jdouble depth) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClearDepth(JNIEnv* km_env, jclass km_clazz, jdouble depth) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -495,7 +495,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClearIndex(JNIEnv* km_env, jclass km_clazz, jfloat c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClearIndex(JNIEnv* km_env, jclass km_clazz, jfloat c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -516,7 +516,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClearStencil(JNIEnv* km_env, jclass km_clazz, jint s) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClearStencil(JNIEnv* km_env, jclass km_clazz, jint s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -537,7 +537,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glClipPlane(JNIEnv* km_env, jclass km_clazz, jint plane, jlong equation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlClipPlane(JNIEnv* km_env, jclass km_clazz, jint plane, jlong equation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -559,7 +559,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3b(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3b(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -582,7 +582,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3bv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3bv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -603,7 +603,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3d(JNIEnv* km_env, jclass km_clazz, jdouble red, jdouble green, jdouble blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3d(JNIEnv* km_env, jclass km_clazz, jdouble red, jdouble green, jdouble blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -626,7 +626,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -647,7 +647,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3f(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3f(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -670,7 +670,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -691,7 +691,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3i(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3i(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -714,7 +714,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -735,7 +735,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3s(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3s(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -758,7 +758,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -779,7 +779,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3ub(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3ub(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -802,7 +802,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3ubv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3ubv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -823,7 +823,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3ui(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3ui(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -846,7 +846,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3uiv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3uiv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -867,7 +867,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3us(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3us(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -890,7 +890,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor3usv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor3usv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -911,7 +911,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4b(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue, jbyte alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4b(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue, jbyte alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4bv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4bv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -956,7 +956,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4d(JNIEnv* km_env, jclass km_clazz, jdouble red, jdouble green, jdouble blue, jdouble alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4d(JNIEnv* km_env, jclass km_clazz, jdouble red, jdouble green, jdouble blue, jdouble alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -980,7 +980,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1001,7 +1001,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4f(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4f(JNIEnv* km_env, jclass km_clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1025,7 +1025,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1046,7 +1046,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4i(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue, jint alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4i(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue, jint alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1070,7 +1070,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1091,7 +1091,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4s(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue, jshort alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4s(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue, jshort alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1115,7 +1115,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1136,7 +1136,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4ub(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue, jbyte alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4ub(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue, jbyte alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1160,7 +1160,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4ubv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4ubv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1181,7 +1181,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4ui(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue, jint alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4ui(JNIEnv* km_env, jclass km_clazz, jint red, jint green, jint blue, jint alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1205,7 +1205,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4uiv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4uiv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1226,7 +1226,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4us(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue, jshort alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4us(JNIEnv* km_env, jclass km_clazz, jshort red, jshort green, jshort blue, jshort alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1250,7 +1250,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColor4usv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColor4usv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1271,7 +1271,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColorMask(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue, jbyte alpha) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColorMask(JNIEnv* km_env, jclass km_clazz, jbyte red, jbyte green, jbyte blue, jbyte alpha) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1295,7 +1295,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColorMaterial(JNIEnv* km_env, jclass km_clazz, jint face, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColorMaterial(JNIEnv* km_env, jclass km_clazz, jint face, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1317,7 +1317,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glColorPointer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlColorPointer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1341,7 +1341,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCopyPixels(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCopyPixels(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1366,7 +1366,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCopyTexImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint x, jint y, jint width, jint border) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCopyTexImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint x, jint y, jint width, jint border) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1393,7 +1393,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCopyTexImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint x, jint y, jint width, jint height, jint border) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCopyTexImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint x, jint y, jint width, jint height, jint border) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1421,7 +1421,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCopyTexSubImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint x, jint y, jint width) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCopyTexSubImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint x, jint y, jint width) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1447,7 +1447,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCopyTexSubImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint yoffset, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCopyTexSubImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint yoffset, jint x, jint y, jint width, jint height) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1475,7 +1475,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glCullFace(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlCullFace(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1496,7 +1496,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDeleteLists(JNIEnv* km_env, jclass km_clazz, jint list, jint range) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDeleteLists(JNIEnv* km_env, jclass km_clazz, jint list, jint range) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1518,7 +1518,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDeleteTextures(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDeleteTextures(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1540,7 +1540,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDepthFunc(JNIEnv* km_env, jclass km_clazz, jint func) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDepthFunc(JNIEnv* km_env, jclass km_clazz, jint func) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1561,7 +1561,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDepthMask(JNIEnv* km_env, jclass km_clazz, jbyte flag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDepthMask(JNIEnv* km_env, jclass km_clazz, jbyte flag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1582,7 +1582,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDepthRange(JNIEnv* km_env, jclass km_clazz, jdouble znear, jdouble zfar) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDepthRange(JNIEnv* km_env, jclass km_clazz, jdouble znear, jdouble zfar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1604,7 +1604,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDisable(JNIEnv* km_env, jclass km_clazz, jint cap) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDisable(JNIEnv* km_env, jclass km_clazz, jint cap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1625,7 +1625,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDisableClientState(JNIEnv* km_env, jclass km_clazz, jint array) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDisableClientState(JNIEnv* km_env, jclass km_clazz, jint array) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1646,7 +1646,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDrawArrays(JNIEnv* km_env, jclass km_clazz, jint mode, jint first, jint count) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDrawArrays(JNIEnv* km_env, jclass km_clazz, jint mode, jint first, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1669,7 +1669,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDrawBuffer(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDrawBuffer(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1690,7 +1690,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDrawElements(JNIEnv* km_env, jclass km_clazz, jint mode, jint count, jint type, jlong indices) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDrawElements(JNIEnv* km_env, jclass km_clazz, jint mode, jint count, jint type, jlong indices) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1714,7 +1714,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glDrawPixels(JNIEnv* km_env, jclass km_clazz, jint width, jint height, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlDrawPixels(JNIEnv* km_env, jclass km_clazz, jint width, jint height, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1739,7 +1739,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEdgeFlag(JNIEnv* km_env, jclass km_clazz, jbyte flag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEdgeFlag(JNIEnv* km_env, jclass km_clazz, jbyte flag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1760,7 +1760,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEdgeFlagPointer(JNIEnv* km_env, jclass km_clazz, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEdgeFlagPointer(JNIEnv* km_env, jclass km_clazz, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1782,7 +1782,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEdgeFlagv(JNIEnv* km_env, jclass km_clazz, jlong flag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEdgeFlagv(JNIEnv* km_env, jclass km_clazz, jlong flag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1803,7 +1803,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEnable(JNIEnv* km_env, jclass km_clazz, jint cap) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEnable(JNIEnv* km_env, jclass km_clazz, jint cap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1824,7 +1824,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEnableClientState(JNIEnv* km_env, jclass km_clazz, jint array) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEnableClientState(JNIEnv* km_env, jclass km_clazz, jint array) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1845,7 +1845,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEnd(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEnd(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1865,7 +1865,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEndList(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEndList(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1885,7 +1885,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord1d(JNIEnv* km_env, jclass km_clazz, jdouble u) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord1d(JNIEnv* km_env, jclass km_clazz, jdouble u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1906,7 +1906,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord1dv(JNIEnv* km_env, jclass km_clazz, jlong u) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord1dv(JNIEnv* km_env, jclass km_clazz, jlong u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1927,7 +1927,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord1f(JNIEnv* km_env, jclass km_clazz, jfloat u) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord1f(JNIEnv* km_env, jclass km_clazz, jfloat u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1948,7 +1948,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord1fv(JNIEnv* km_env, jclass km_clazz, jlong u) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord1fv(JNIEnv* km_env, jclass km_clazz, jlong u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1969,7 +1969,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord2d(JNIEnv* km_env, jclass km_clazz, jdouble u, jdouble v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord2d(JNIEnv* km_env, jclass km_clazz, jdouble u, jdouble v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1991,7 +1991,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord2dv(JNIEnv* km_env, jclass km_clazz, jlong u) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord2dv(JNIEnv* km_env, jclass km_clazz, jlong u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2012,7 +2012,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord2f(JNIEnv* km_env, jclass km_clazz, jfloat u, jfloat v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord2f(JNIEnv* km_env, jclass km_clazz, jfloat u, jfloat v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2034,7 +2034,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalCoord2fv(JNIEnv* km_env, jclass km_clazz, jlong u) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalCoord2fv(JNIEnv* km_env, jclass km_clazz, jlong u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2055,7 +2055,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalMesh1(JNIEnv* km_env, jclass km_clazz, jint mode, jint i1, jint i2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalMesh1(JNIEnv* km_env, jclass km_clazz, jint mode, jint i1, jint i2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2078,7 +2078,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalMesh2(JNIEnv* km_env, jclass km_clazz, jint mode, jint i1, jint i2, jint j1, jint j2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalMesh2(JNIEnv* km_env, jclass km_clazz, jint mode, jint i1, jint i2, jint j1, jint j2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2103,7 +2103,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalPoint1(JNIEnv* km_env, jclass km_clazz, jint i) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalPoint1(JNIEnv* km_env, jclass km_clazz, jint i) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2124,7 +2124,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glEvalPoint2(JNIEnv* km_env, jclass km_clazz, jint i, jint j) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlEvalPoint2(JNIEnv* km_env, jclass km_clazz, jint i, jint j) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2146,7 +2146,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFeedbackBuffer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFeedbackBuffer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2169,7 +2169,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFinish(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFinish(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2189,7 +2189,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFlush(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFlush(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2209,7 +2209,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFogf(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFogf(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2231,7 +2231,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFogfv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFogfv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2253,7 +2253,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFogi(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFogi(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2275,7 +2275,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFogiv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFogiv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2297,7 +2297,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFrontFace(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFrontFace(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2318,7 +2318,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glFrustum(JNIEnv* km_env, jclass km_clazz, jdouble left, jdouble right, jdouble bottom, jdouble top, jdouble znear, jdouble zfar) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlFrustum(JNIEnv* km_env, jclass km_clazz, jdouble left, jdouble right, jdouble bottom, jdouble top, jdouble znear, jdouble zfar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2344,7 +2344,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGenLists(JNIEnv* km_env, jclass km_clazz, jint range) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGenLists(JNIEnv* km_env, jclass km_clazz, jint range) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2369,7 +2369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGenTextures(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGenTextures(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2391,7 +2391,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetBooleanv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetBooleanv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2413,7 +2413,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetClipPlane(JNIEnv* km_env, jclass km_clazz, jint plane, jlong equation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetClipPlane(JNIEnv* km_env, jclass km_clazz, jint plane, jlong equation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2435,7 +2435,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetDoublev(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetDoublev(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2457,7 +2457,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetError(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetError(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2481,7 +2481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetFloatv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetFloatv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2503,7 +2503,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetIntegerv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetIntegerv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2525,7 +2525,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetLightfv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetLightfv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2548,7 +2548,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetLightiv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetLightiv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2571,7 +2571,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetMapdv(JNIEnv* km_env, jclass km_clazz, jint target, jint query, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetMapdv(JNIEnv* km_env, jclass km_clazz, jint target, jint query, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2594,7 +2594,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetMapfv(JNIEnv* km_env, jclass km_clazz, jint target, jint query, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetMapfv(JNIEnv* km_env, jclass km_clazz, jint target, jint query, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2617,7 +2617,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetMapiv(JNIEnv* km_env, jclass km_clazz, jint target, jint query, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetMapiv(JNIEnv* km_env, jclass km_clazz, jint target, jint query, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2640,7 +2640,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetMaterialfv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetMaterialfv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2663,7 +2663,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetMaterialiv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetMaterialiv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2686,7 +2686,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetPixelMapfv(JNIEnv* km_env, jclass km_clazz, jint map, jlong values) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetPixelMapfv(JNIEnv* km_env, jclass km_clazz, jint map, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2708,7 +2708,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetPixelMapuiv(JNIEnv* km_env, jclass km_clazz, jint map, jlong values) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetPixelMapuiv(JNIEnv* km_env, jclass km_clazz, jint map, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2730,7 +2730,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetPixelMapusv(JNIEnv* km_env, jclass km_clazz, jint map, jlong values) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetPixelMapusv(JNIEnv* km_env, jclass km_clazz, jint map, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2752,7 +2752,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetPointerv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetPointerv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2774,7 +2774,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetPolygonStipple(JNIEnv* km_env, jclass km_clazz, jlong mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetPolygonStipple(JNIEnv* km_env, jclass km_clazz, jlong mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2795,7 +2795,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetString(JNIEnv* km_env, jclass km_clazz, jint name) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetString(JNIEnv* km_env, jclass km_clazz, jint name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2820,7 +2820,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexEnvfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexEnvfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2843,7 +2843,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexEnviv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexEnviv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2866,7 +2866,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexGendv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexGendv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2889,7 +2889,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexGenfv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexGenfv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2912,7 +2912,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexGeniv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexGeniv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2935,7 +2935,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexImage(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexImage(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2960,7 +2960,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexLevelParameterfv(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexLevelParameterfv(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2984,7 +2984,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexLevelParameteriv(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexLevelParameteriv(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3008,7 +3008,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexParameterfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexParameterfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3031,7 +3031,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glGetTexParameteriv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlGetTexParameteriv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3054,7 +3054,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glHint(JNIEnv* km_env, jclass km_clazz, jint target, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlHint(JNIEnv* km_env, jclass km_clazz, jint target, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3076,7 +3076,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexMask(JNIEnv* km_env, jclass km_clazz, jint mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexMask(JNIEnv* km_env, jclass km_clazz, jint mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3097,7 +3097,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexPointer(JNIEnv* km_env, jclass km_clazz, jint type, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexPointer(JNIEnv* km_env, jclass km_clazz, jint type, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3120,7 +3120,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexd(JNIEnv* km_env, jclass km_clazz, jdouble c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexd(JNIEnv* km_env, jclass km_clazz, jdouble c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3141,7 +3141,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexdv(JNIEnv* km_env, jclass km_clazz, jlong c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexdv(JNIEnv* km_env, jclass km_clazz, jlong c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3162,7 +3162,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexf(JNIEnv* km_env, jclass km_clazz, jfloat c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexf(JNIEnv* km_env, jclass km_clazz, jfloat c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3183,7 +3183,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexfv(JNIEnv* km_env, jclass km_clazz, jlong c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexfv(JNIEnv* km_env, jclass km_clazz, jlong c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3204,7 +3204,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexi(JNIEnv* km_env, jclass km_clazz, jint c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexi(JNIEnv* km_env, jclass km_clazz, jint c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3225,7 +3225,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexiv(JNIEnv* km_env, jclass km_clazz, jlong c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexiv(JNIEnv* km_env, jclass km_clazz, jlong c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3246,7 +3246,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexs(JNIEnv* km_env, jclass km_clazz, jshort c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexs(JNIEnv* km_env, jclass km_clazz, jshort c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3267,7 +3267,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexsv(JNIEnv* km_env, jclass km_clazz, jlong c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexsv(JNIEnv* km_env, jclass km_clazz, jlong c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3288,7 +3288,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexub(JNIEnv* km_env, jclass km_clazz, jbyte c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexub(JNIEnv* km_env, jclass km_clazz, jbyte c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3309,7 +3309,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIndexubv(JNIEnv* km_env, jclass km_clazz, jlong c) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIndexubv(JNIEnv* km_env, jclass km_clazz, jlong c) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3330,7 +3330,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glInitNames(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlInitNames(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3350,7 +3350,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glInterleavedArrays(JNIEnv* km_env, jclass km_clazz, jint format, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlInterleavedArrays(JNIEnv* km_env, jclass km_clazz, jint format, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3373,7 +3373,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIsEnabled(JNIEnv* km_env, jclass km_clazz, jint cap) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIsEnabled(JNIEnv* km_env, jclass km_clazz, jint cap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3398,7 +3398,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIsList(JNIEnv* km_env, jclass km_clazz, jint list) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIsList(JNIEnv* km_env, jclass km_clazz, jint list) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3423,7 +3423,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glIsTexture(JNIEnv* km_env, jclass km_clazz, jint texture) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlIsTexture(JNIEnv* km_env, jclass km_clazz, jint texture) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3448,7 +3448,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jbyte)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightModelf(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightModelf(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3470,7 +3470,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightModelfv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightModelfv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3492,7 +3492,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightModeli(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightModeli(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3514,7 +3514,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightModeliv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightModeliv(JNIEnv* km_env, jclass km_clazz, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3536,7 +3536,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightf(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jfloat param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightf(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jfloat param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3559,7 +3559,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightfv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightfv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3582,7 +3582,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLighti(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jint param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLighti(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3605,7 +3605,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLightiv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLightiv(JNIEnv* km_env, jclass km_clazz, jint light, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3628,7 +3628,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLineStipple(JNIEnv* km_env, jclass km_clazz, jint factor, jshort pattern) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLineStipple(JNIEnv* km_env, jclass km_clazz, jint factor, jshort pattern) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3650,7 +3650,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLineWidth(JNIEnv* km_env, jclass km_clazz, jfloat width) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLineWidth(JNIEnv* km_env, jclass km_clazz, jfloat width) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3671,7 +3671,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glListBase(JNIEnv* km_env, jclass km_clazz, jint base) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlListBase(JNIEnv* km_env, jclass km_clazz, jint base) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3692,7 +3692,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLoadIdentity(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLoadIdentity(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3712,7 +3712,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLoadMatrixd(JNIEnv* km_env, jclass km_clazz, jlong m) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLoadMatrixd(JNIEnv* km_env, jclass km_clazz, jlong m) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3733,7 +3733,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLoadMatrixf(JNIEnv* km_env, jclass km_clazz, jlong m) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLoadMatrixf(JNIEnv* km_env, jclass km_clazz, jlong m) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3754,7 +3754,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLoadName(JNIEnv* km_env, jclass km_clazz, jint name) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLoadName(JNIEnv* km_env, jclass km_clazz, jint name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3775,7 +3775,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glLogicOp(JNIEnv* km_env, jclass km_clazz, jint opcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlLogicOp(JNIEnv* km_env, jclass km_clazz, jint opcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3796,7 +3796,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMap1d(JNIEnv* km_env, jclass km_clazz, jint target, jdouble u1, jdouble u2, jint stride, jint order, jlong points) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMap1d(JNIEnv* km_env, jclass km_clazz, jint target, jdouble u1, jdouble u2, jint stride, jint order, jlong points) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3822,7 +3822,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMap1f(JNIEnv* km_env, jclass km_clazz, jint target, jfloat u1, jfloat u2, jint stride, jint order, jlong points) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMap1f(JNIEnv* km_env, jclass km_clazz, jint target, jfloat u1, jfloat u2, jint stride, jint order, jlong points) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3848,7 +3848,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMap2d(JNIEnv* km_env, jclass km_clazz, jint target, jdouble u1, jdouble u2, jint ustride, jint uorder, jdouble v1, jdouble v2, jint vstride, jint vorder, jlong points) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMap2d(JNIEnv* km_env, jclass km_clazz, jint target, jdouble u1, jdouble u2, jint ustride, jint uorder, jdouble v1, jdouble v2, jint vstride, jint vorder, jlong points) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3878,7 +3878,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMap2f(JNIEnv* km_env, jclass km_clazz, jint target, jfloat u1, jfloat u2, jint ustride, jint uorder, jfloat v1, jfloat v2, jint vstride, jint vorder, jlong points) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMap2f(JNIEnv* km_env, jclass km_clazz, jint target, jfloat u1, jfloat u2, jint ustride, jint uorder, jfloat v1, jfloat v2, jint vstride, jint vorder, jlong points) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3908,7 +3908,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMapGrid1d(JNIEnv* km_env, jclass km_clazz, jint un, jdouble u1, jdouble u2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMapGrid1d(JNIEnv* km_env, jclass km_clazz, jint un, jdouble u1, jdouble u2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3931,7 +3931,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMapGrid1f(JNIEnv* km_env, jclass km_clazz, jint un, jfloat u1, jfloat u2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMapGrid1f(JNIEnv* km_env, jclass km_clazz, jint un, jfloat u1, jfloat u2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3954,7 +3954,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMapGrid2d(JNIEnv* km_env, jclass km_clazz, jint un, jdouble u1, jdouble u2, jint vn, jdouble v1, jdouble v2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMapGrid2d(JNIEnv* km_env, jclass km_clazz, jint un, jdouble u1, jdouble u2, jint vn, jdouble v1, jdouble v2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3980,7 +3980,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMapGrid2f(JNIEnv* km_env, jclass km_clazz, jint un, jfloat u1, jfloat u2, jint vn, jfloat v1, jfloat v2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMapGrid2f(JNIEnv* km_env, jclass km_clazz, jint un, jfloat u1, jfloat u2, jint vn, jfloat v1, jfloat v2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4006,7 +4006,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMaterialf(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jfloat param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMaterialf(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jfloat param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4029,7 +4029,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMaterialfv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMaterialfv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4052,7 +4052,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMateriali(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jint param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMateriali(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4075,7 +4075,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMaterialiv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMaterialiv(JNIEnv* km_env, jclass km_clazz, jint face, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4098,7 +4098,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMatrixMode(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMatrixMode(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4119,7 +4119,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMultMatrixd(JNIEnv* km_env, jclass km_clazz, jlong m) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMultMatrixd(JNIEnv* km_env, jclass km_clazz, jlong m) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4140,7 +4140,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glMultMatrixf(JNIEnv* km_env, jclass km_clazz, jlong m) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlMultMatrixf(JNIEnv* km_env, jclass km_clazz, jlong m) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4161,7 +4161,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNewList(JNIEnv* km_env, jclass km_clazz, jint list, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNewList(JNIEnv* km_env, jclass km_clazz, jint list, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4183,7 +4183,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3b(JNIEnv* km_env, jclass km_clazz, jbyte nx, jbyte ny, jbyte nz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3b(JNIEnv* km_env, jclass km_clazz, jbyte nx, jbyte ny, jbyte nz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4206,7 +4206,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3bv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3bv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4227,7 +4227,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3d(JNIEnv* km_env, jclass km_clazz, jdouble nx, jdouble ny, jdouble nz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3d(JNIEnv* km_env, jclass km_clazz, jdouble nx, jdouble ny, jdouble nz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4250,7 +4250,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4271,7 +4271,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3f(JNIEnv* km_env, jclass km_clazz, jfloat nx, jfloat ny, jfloat nz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3f(JNIEnv* km_env, jclass km_clazz, jfloat nx, jfloat ny, jfloat nz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4294,7 +4294,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4315,7 +4315,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3i(JNIEnv* km_env, jclass km_clazz, jint nx, jint ny, jint nz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3i(JNIEnv* km_env, jclass km_clazz, jint nx, jint ny, jint nz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4338,7 +4338,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4359,7 +4359,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3s(JNIEnv* km_env, jclass km_clazz, jshort nx, jshort ny, jshort nz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3s(JNIEnv* km_env, jclass km_clazz, jshort nx, jshort ny, jshort nz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4382,7 +4382,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormal3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormal3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4403,7 +4403,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glNormalPointer(JNIEnv* km_env, jclass km_clazz, jint type, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlNormalPointer(JNIEnv* km_env, jclass km_clazz, jint type, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4426,7 +4426,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glOrtho(JNIEnv* km_env, jclass km_clazz, jdouble left, jdouble right, jdouble bottom, jdouble top, jdouble znear, jdouble zfar) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlOrtho(JNIEnv* km_env, jclass km_clazz, jdouble left, jdouble right, jdouble bottom, jdouble top, jdouble znear, jdouble zfar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4452,7 +4452,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPassThrough(JNIEnv* km_env, jclass km_clazz, jfloat token) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPassThrough(JNIEnv* km_env, jclass km_clazz, jfloat token) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4473,7 +4473,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelMapfv(JNIEnv* km_env, jclass km_clazz, jint map, jint mapsize, jlong values) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelMapfv(JNIEnv* km_env, jclass km_clazz, jint map, jint mapsize, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4496,7 +4496,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelMapuiv(JNIEnv* km_env, jclass km_clazz, jint map, jint mapsize, jlong values) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelMapuiv(JNIEnv* km_env, jclass km_clazz, jint map, jint mapsize, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4519,7 +4519,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelMapusv(JNIEnv* km_env, jclass km_clazz, jint map, jint mapsize, jlong values) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelMapusv(JNIEnv* km_env, jclass km_clazz, jint map, jint mapsize, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4542,7 +4542,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelStoref(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelStoref(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4564,7 +4564,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelStorei(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelStorei(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4586,7 +4586,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelTransferf(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelTransferf(JNIEnv* km_env, jclass km_clazz, jint pname, jfloat param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4608,7 +4608,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelTransferi(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelTransferi(JNIEnv* km_env, jclass km_clazz, jint pname, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4630,7 +4630,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPixelZoom(JNIEnv* km_env, jclass km_clazz, jfloat xfactor, jfloat yfactor) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPixelZoom(JNIEnv* km_env, jclass km_clazz, jfloat xfactor, jfloat yfactor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4652,7 +4652,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPointSize(JNIEnv* km_env, jclass km_clazz, jfloat size) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPointSize(JNIEnv* km_env, jclass km_clazz, jfloat size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4673,7 +4673,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPolygonMode(JNIEnv* km_env, jclass km_clazz, jint face, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPolygonMode(JNIEnv* km_env, jclass km_clazz, jint face, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4695,7 +4695,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPolygonOffset(JNIEnv* km_env, jclass km_clazz, jfloat factor, jfloat units) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPolygonOffset(JNIEnv* km_env, jclass km_clazz, jfloat factor, jfloat units) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4717,7 +4717,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPolygonStipple(JNIEnv* km_env, jclass km_clazz, jlong mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPolygonStipple(JNIEnv* km_env, jclass km_clazz, jlong mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4738,7 +4738,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPopAttrib(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPopAttrib(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4758,7 +4758,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPopClientAttrib(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPopClientAttrib(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4778,7 +4778,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPopMatrix(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPopMatrix(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4798,7 +4798,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPopName(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPopName(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4818,7 +4818,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPrioritizeTextures(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures, jlong priorities) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPrioritizeTextures(JNIEnv* km_env, jclass km_clazz, jint n, jlong textures, jlong priorities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4841,7 +4841,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPushAttrib(JNIEnv* km_env, jclass km_clazz, jint mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPushAttrib(JNIEnv* km_env, jclass km_clazz, jint mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4862,7 +4862,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPushClientAttrib(JNIEnv* km_env, jclass km_clazz, jint mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPushClientAttrib(JNIEnv* km_env, jclass km_clazz, jint mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4883,7 +4883,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPushMatrix(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPushMatrix(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4903,7 +4903,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glPushName(JNIEnv* km_env, jclass km_clazz, jint name) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlPushName(JNIEnv* km_env, jclass km_clazz, jint name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4924,7 +4924,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4946,7 +4946,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4967,7 +4967,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4989,7 +4989,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5010,7 +5010,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2i(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2i(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5032,7 +5032,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5053,7 +5053,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5075,7 +5075,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos2sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos2sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5096,7 +5096,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5119,7 +5119,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5140,7 +5140,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5163,7 +5163,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5184,7 +5184,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5207,7 +5207,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5228,7 +5228,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5251,7 +5251,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5272,7 +5272,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z, jdouble w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5296,7 +5296,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5317,7 +5317,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z, jfloat w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5341,7 +5341,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5362,7 +5362,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z, jint w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z, jint w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5386,7 +5386,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5407,7 +5407,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z, jshort w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z, jshort w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5431,7 +5431,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRasterPos4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRasterPos4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5452,7 +5452,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glReadBuffer(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlReadBuffer(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5473,7 +5473,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glReadPixels(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlReadPixels(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5500,7 +5500,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRectd(JNIEnv* km_env, jclass km_clazz, jdouble x1, jdouble y1, jdouble x2, jdouble y2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRectd(JNIEnv* km_env, jclass km_clazz, jdouble x1, jdouble y1, jdouble x2, jdouble y2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5524,7 +5524,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRectdv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRectdv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5546,7 +5546,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRectf(JNIEnv* km_env, jclass km_clazz, jfloat x1, jfloat y1, jfloat x2, jfloat y2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRectf(JNIEnv* km_env, jclass km_clazz, jfloat x1, jfloat y1, jfloat x2, jfloat y2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5570,7 +5570,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRectfv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRectfv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5592,7 +5592,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRecti(JNIEnv* km_env, jclass km_clazz, jint x1, jint y1, jint x2, jint y2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRecti(JNIEnv* km_env, jclass km_clazz, jint x1, jint y1, jint x2, jint y2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5616,7 +5616,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRectiv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRectiv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5638,7 +5638,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRects(JNIEnv* km_env, jclass km_clazz, jshort x1, jshort y1, jshort x2, jshort y2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRects(JNIEnv* km_env, jclass km_clazz, jshort x1, jshort y1, jshort x2, jshort y2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5662,7 +5662,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRectsv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRectsv(JNIEnv* km_env, jclass km_clazz, jlong v1, jlong v2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5684,7 +5684,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRenderMode(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRenderMode(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5709,7 +5709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRotated(JNIEnv* km_env, jclass km_clazz, jdouble angle, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRotated(JNIEnv* km_env, jclass km_clazz, jdouble angle, jdouble x, jdouble y, jdouble z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5733,7 +5733,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glRotatef(JNIEnv* km_env, jclass km_clazz, jfloat angle, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlRotatef(JNIEnv* km_env, jclass km_clazz, jfloat angle, jfloat x, jfloat y, jfloat z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5757,7 +5757,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glScaled(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlScaled(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5780,7 +5780,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glScalef(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlScalef(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5803,7 +5803,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glScissor(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlScissor(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5827,7 +5827,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glSelectBuffer(JNIEnv* km_env, jclass km_clazz, jint size, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlSelectBuffer(JNIEnv* km_env, jclass km_clazz, jint size, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5849,7 +5849,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glShadeModel(JNIEnv* km_env, jclass km_clazz, jint mode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlShadeModel(JNIEnv* km_env, jclass km_clazz, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5870,7 +5870,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glStencilFunc(JNIEnv* km_env, jclass km_clazz, jint func, jint ref, jint mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlStencilFunc(JNIEnv* km_env, jclass km_clazz, jint func, jint ref, jint mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5893,7 +5893,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glStencilMask(JNIEnv* km_env, jclass km_clazz, jint mask) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlStencilMask(JNIEnv* km_env, jclass km_clazz, jint mask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5914,7 +5914,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glStencilOp(JNIEnv* km_env, jclass km_clazz, jint fail, jint zfail, jint zpass) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlStencilOp(JNIEnv* km_env, jclass km_clazz, jint fail, jint zfail, jint zpass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5937,7 +5937,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1d(JNIEnv* km_env, jclass km_clazz, jdouble s) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1d(JNIEnv* km_env, jclass km_clazz, jdouble s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5958,7 +5958,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5979,7 +5979,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1f(JNIEnv* km_env, jclass km_clazz, jfloat s) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1f(JNIEnv* km_env, jclass km_clazz, jfloat s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6000,7 +6000,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6021,7 +6021,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1i(JNIEnv* km_env, jclass km_clazz, jint s) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1i(JNIEnv* km_env, jclass km_clazz, jint s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6042,7 +6042,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6063,7 +6063,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1s(JNIEnv* km_env, jclass km_clazz, jshort s) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1s(JNIEnv* km_env, jclass km_clazz, jshort s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6084,7 +6084,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord1sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord1sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6105,7 +6105,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2d(JNIEnv* km_env, jclass km_clazz, jdouble s, jdouble t) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2d(JNIEnv* km_env, jclass km_clazz, jdouble s, jdouble t) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6127,7 +6127,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6148,7 +6148,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2f(JNIEnv* km_env, jclass km_clazz, jfloat s, jfloat t) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2f(JNIEnv* km_env, jclass km_clazz, jfloat s, jfloat t) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6170,7 +6170,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6191,7 +6191,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2i(JNIEnv* km_env, jclass km_clazz, jint s, jint t) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2i(JNIEnv* km_env, jclass km_clazz, jint s, jint t) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6213,7 +6213,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6234,7 +6234,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2s(JNIEnv* km_env, jclass km_clazz, jshort s, jshort t) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2s(JNIEnv* km_env, jclass km_clazz, jshort s, jshort t) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6256,7 +6256,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord2sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord2sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6277,7 +6277,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3d(JNIEnv* km_env, jclass km_clazz, jdouble s, jdouble t, jdouble r) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3d(JNIEnv* km_env, jclass km_clazz, jdouble s, jdouble t, jdouble r) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6300,7 +6300,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6321,7 +6321,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3f(JNIEnv* km_env, jclass km_clazz, jfloat s, jfloat t, jfloat r) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3f(JNIEnv* km_env, jclass km_clazz, jfloat s, jfloat t, jfloat r) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6344,7 +6344,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6365,7 +6365,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3i(JNIEnv* km_env, jclass km_clazz, jint s, jint t, jint r) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3i(JNIEnv* km_env, jclass km_clazz, jint s, jint t, jint r) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6388,7 +6388,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6409,7 +6409,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3s(JNIEnv* km_env, jclass km_clazz, jshort s, jshort t, jshort r) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3s(JNIEnv* km_env, jclass km_clazz, jshort s, jshort t, jshort r) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6432,7 +6432,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6453,7 +6453,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4d(JNIEnv* km_env, jclass km_clazz, jdouble s, jdouble t, jdouble r, jdouble q) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4d(JNIEnv* km_env, jclass km_clazz, jdouble s, jdouble t, jdouble r, jdouble q) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6477,7 +6477,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6498,7 +6498,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4f(JNIEnv* km_env, jclass km_clazz, jfloat s, jfloat t, jfloat r, jfloat q) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4f(JNIEnv* km_env, jclass km_clazz, jfloat s, jfloat t, jfloat r, jfloat q) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6522,7 +6522,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6543,7 +6543,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4i(JNIEnv* km_env, jclass km_clazz, jint s, jint t, jint r, jint q) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4i(JNIEnv* km_env, jclass km_clazz, jint s, jint t, jint r, jint q) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6567,7 +6567,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6588,7 +6588,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4s(JNIEnv* km_env, jclass km_clazz, jshort s, jshort t, jshort r, jshort q) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4s(JNIEnv* km_env, jclass km_clazz, jshort s, jshort t, jshort r, jshort q) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6612,7 +6612,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoord4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoord4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6633,7 +6633,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexCoordPointer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexCoordPointer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6657,7 +6657,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexEnvf(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jfloat param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexEnvf(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jfloat param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6680,7 +6680,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexEnvfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexEnvfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6703,7 +6703,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexEnvi(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jint param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexEnvi(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6726,7 +6726,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexEnviv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexEnviv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6749,7 +6749,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexGend(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jdouble param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexGend(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jdouble param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6772,7 +6772,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexGendv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexGendv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6795,7 +6795,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexGenf(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jfloat param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexGenf(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jfloat param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6818,7 +6818,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexGenfv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexGenfv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6841,7 +6841,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexGeni(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jint param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexGeni(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6864,7 +6864,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexGeniv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexGeniv(JNIEnv* km_env, jclass km_clazz, jint coord, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6887,7 +6887,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint width, jint border, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint width, jint border, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6915,7 +6915,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6944,7 +6944,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexParameterf(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jfloat param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexParameterf(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jfloat param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6967,7 +6967,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexParameterfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexParameterfv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6990,7 +6990,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexParameteri(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jint param2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexParameteri(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7013,7 +7013,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexParameteriv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexParameteriv(JNIEnv* km_env, jclass km_clazz, jint target, jint pname, jlong params) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7036,7 +7036,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexSubImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint width, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexSubImage1D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint width, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7063,7 +7063,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTexSubImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixels) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTexSubImage2D(JNIEnv* km_env, jclass km_clazz, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixels) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7092,7 +7092,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTranslated(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTranslated(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7115,7 +7115,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glTranslatef(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlTranslatef(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7138,7 +7138,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7160,7 +7160,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7181,7 +7181,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7203,7 +7203,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7224,7 +7224,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2i(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2i(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7246,7 +7246,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7267,7 +7267,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7289,7 +7289,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex2sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex2sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7310,7 +7310,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7333,7 +7333,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7354,7 +7354,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7377,7 +7377,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7398,7 +7398,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7421,7 +7421,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7442,7 +7442,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7465,7 +7465,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex3sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7486,7 +7486,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4d(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble z, jdouble w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7510,7 +7510,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4dv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7531,7 +7531,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4f(JNIEnv* km_env, jclass km_clazz, jfloat x, jfloat y, jfloat z, jfloat w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7555,7 +7555,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4fv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7576,7 +7576,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z, jint w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4i(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint z, jint w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7600,7 +7600,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4iv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7621,7 +7621,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z, jshort w) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4s(JNIEnv* km_env, jclass km_clazz, jshort x, jshort y, jshort z, jshort w) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7645,7 +7645,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertex4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertex4sv(JNIEnv* km_env, jclass km_clazz, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7666,7 +7666,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glVertexPointer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jint stride, jlong pointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlVertexPointer(JNIEnv* km_env, jclass km_clazz, jint size, jint type, jint stride, jlong pointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7690,7 +7690,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1glViewport(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGlViewport(JNIEnv* km_env, jclass km_clazz, jint x, jint y, jint width, jint height) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7714,7 +7714,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluBeginCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluBeginCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7735,7 +7735,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluBeginPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluBeginPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7756,7 +7756,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluBeginSurface(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluBeginSurface(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7777,7 +7777,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluBeginTrim(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluBeginTrim(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7798,7 +7798,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluBuild1DMipmaps(JNIEnv* km_env, jclass km_clazz, jint target, jint components, jint width, jint format, jint type, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluBuild1DMipmaps(JNIEnv* km_env, jclass km_clazz, jint target, jint components, jint width, jint format, jint type, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7828,7 +7828,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluBuild2DMipmaps(JNIEnv* km_env, jclass km_clazz, jint target, jint components, jint width, jint height, jint format, jint type, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluBuild2DMipmaps(JNIEnv* km_env, jclass km_clazz, jint target, jint components, jint width, jint height, jint format, jint type, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7859,7 +7859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluCylinder(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble baseradius, jdouble topradius, jdouble height, jint slices, jint stacks) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluCylinder(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble baseradius, jdouble topradius, jdouble height, jint slices, jint stacks) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7885,7 +7885,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluDeleteNurbsRenderer(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluDeleteNurbsRenderer(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7906,7 +7906,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluDeleteQuadric(JNIEnv* km_env, jclass km_clazz, jlong state) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluDeleteQuadric(JNIEnv* km_env, jclass km_clazz, jlong state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7927,7 +7927,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluDeleteTess(JNIEnv* km_env, jclass km_clazz, jlong tess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluDeleteTess(JNIEnv* km_env, jclass km_clazz, jlong tess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7948,7 +7948,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluDisk(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble innerradius, jdouble outerradius, jint slices, jint loops) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluDisk(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble innerradius, jdouble outerradius, jint slices, jint loops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7973,7 +7973,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluEndCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluEndCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7994,7 +7994,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluEndPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluEndPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8015,7 +8015,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluEndSurface(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluEndSurface(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8036,7 +8036,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluEndTrim(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluEndTrim(JNIEnv* km_env, jclass km_clazz, jlong nobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8057,7 +8057,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluErrorString(JNIEnv* km_env, jclass km_clazz, jint errcode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluErrorString(JNIEnv* km_env, jclass km_clazz, jint errcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8082,7 +8082,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluErrorUnicodeStringEXT(JNIEnv* km_env, jclass km_clazz, jint errcode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluErrorUnicodeStringEXT(JNIEnv* km_env, jclass km_clazz, jint errcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8107,7 +8107,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluGetNurbsProperty(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint property, jlong value) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluGetNurbsProperty(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint property, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8130,7 +8130,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluGetString(JNIEnv* km_env, jclass km_clazz, jint name) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluGetString(JNIEnv* km_env, jclass km_clazz, jint name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8155,7 +8155,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluGetTessProperty(JNIEnv* km_env, jclass km_clazz, jlong tess, jint which, jlong value) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluGetTessProperty(JNIEnv* km_env, jclass km_clazz, jlong tess, jint which, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8178,7 +8178,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluLoadSamplingMatrices(JNIEnv* km_env, jclass km_clazz, jlong nobj, jlong modelmatrix, jlong projmatrix, jlong viewport) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluLoadSamplingMatrices(JNIEnv* km_env, jclass km_clazz, jlong nobj, jlong modelmatrix, jlong projmatrix, jlong viewport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8202,7 +8202,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluLookAt(JNIEnv* km_env, jclass km_clazz, jdouble eyex, jdouble eyey, jdouble eyez, jdouble centerx, jdouble centery, jdouble centerz, jdouble upx, jdouble upy, jdouble upz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluLookAt(JNIEnv* km_env, jclass km_clazz, jdouble eyex, jdouble eyey, jdouble eyez, jdouble centerx, jdouble centery, jdouble centerz, jdouble upx, jdouble upy, jdouble upz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8231,7 +8231,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNewNurbsRenderer(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNewNurbsRenderer(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8255,7 +8255,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNewQuadric(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNewQuadric(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8279,7 +8279,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNewTess(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNewTess(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8303,7 +8303,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNextContour(JNIEnv* km_env, jclass km_clazz, jlong tess, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNextContour(JNIEnv* km_env, jclass km_clazz, jlong tess, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8325,7 +8325,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNurbsCallback(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint which, jlong fn) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNurbsCallback(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint which, jlong fn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8348,7 +8348,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNurbsCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint nknots, jlong knot, jint stride, jlong ctlarray, jint order, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNurbsCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint nknots, jlong knot, jint stride, jlong ctlarray, jint order, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8375,7 +8375,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNurbsProperty(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint property, jfloat value) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNurbsProperty(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint property, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8398,7 +8398,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluNurbsSurface(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint sknot_count, jlong sknot, jint tknot_count, jlong tknot, jint s_stride, jint t_stride, jlong ctlarray, jint sorder, jint torder, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluNurbsSurface(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint sknotCount, jlong sknot, jint tknotCount, jlong tknot, jint sStride, jint tStride, jlong ctlarray, jint sorder, jint torder, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8409,18 +8409,18 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "gluNurbsSurface");
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr((void*)(uintptr_t)nobj, (int32_t)sknot_count, (void*)(uintptr_t)sknot, (int32_t)tknot_count, (void*)(uintptr_t)tknot, (int32_t)s_stride, (int32_t)t_stride, (void*)(uintptr_t)ctlarray, (int32_t)sorder, (int32_t)torder, (uint32_t)type);
+        km_fn_ptr((void*)(uintptr_t)nobj, (int32_t)sknotCount, (void*)(uintptr_t)sknot, (int32_t)tknotCount, (void*)(uintptr_t)tknot, (int32_t)sStride, (int32_t)tStride, (void*)(uintptr_t)ctlarray, (int32_t)sorder, (int32_t)torder, (uint32_t)type);
     } else {
         errno = ENOSYS;
     }
 #else
     (void)nobj;
-    (void)sknot_count;
+    (void)sknotCount;
     (void)sknot;
-    (void)tknot_count;
+    (void)tknotCount;
     (void)tknot;
-    (void)s_stride;
-    (void)t_stride;
+    (void)sStride;
+    (void)tStride;
     (void)ctlarray;
     (void)sorder;
     (void)torder;
@@ -8429,7 +8429,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluOrtho2D(JNIEnv* km_env, jclass km_clazz, jdouble left, jdouble right, jdouble bottom, jdouble top) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluOrtho2D(JNIEnv* km_env, jclass km_clazz, jdouble left, jdouble right, jdouble bottom, jdouble top) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8453,7 +8453,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluPartialDisk(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble innerradius, jdouble outerradius, jint slices, jint loops, jdouble startangle, jdouble sweepangle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluPartialDisk(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble innerradius, jdouble outerradius, jint slices, jint loops, jdouble startangle, jdouble sweepangle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8480,7 +8480,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluPerspective(JNIEnv* km_env, jclass km_clazz, jdouble fovy, jdouble aspect, jdouble znear, jdouble zfar) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluPerspective(JNIEnv* km_env, jclass km_clazz, jdouble fovy, jdouble aspect, jdouble znear, jdouble zfar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8504,7 +8504,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluPickMatrix(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble width, jdouble height, jlong viewport) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluPickMatrix(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jdouble width, jdouble height, jlong viewport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8529,7 +8529,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluProject(JNIEnv* km_env, jclass km_clazz, jdouble objx, jdouble objy, jdouble objz, jlong modelmatrix, jlong projmatrix, jlong viewport, jlong winx, jlong winy, jlong winz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluProject(JNIEnv* km_env, jclass km_clazz, jdouble objx, jdouble objy, jdouble objz, jlong modelmatrix, jlong projmatrix, jlong viewport, jlong winx, jlong winy, jlong winz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8562,7 +8562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluPwlCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint count, jlong array, jint stride, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluPwlCurve(JNIEnv* km_env, jclass km_clazz, jlong nobj, jint count, jlong array, jint stride, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8587,7 +8587,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluQuadricCallback(JNIEnv* km_env, jclass km_clazz, jlong qobj, jint which, jlong fn) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluQuadricCallback(JNIEnv* km_env, jclass km_clazz, jlong qobj, jint which, jlong fn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8610,7 +8610,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluQuadricDrawStyle(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jint drawstyle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluQuadricDrawStyle(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jint drawstyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8632,7 +8632,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluQuadricNormals(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jint normals) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluQuadricNormals(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jint normals) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8654,7 +8654,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluQuadricOrientation(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jint orientation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluQuadricOrientation(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jint orientation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8676,7 +8676,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluQuadricTexture(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jbyte texturecoords) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluQuadricTexture(JNIEnv* km_env, jclass km_clazz, jlong quadobject, jbyte texturecoords) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8698,7 +8698,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluScaleImage(JNIEnv* km_env, jclass km_clazz, jint format, jint widthin, jint heightin, jint typein, jlong datain, jint widthout, jint heightout, jint typeout, jlong dataout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluScaleImage(JNIEnv* km_env, jclass km_clazz, jint format, jint widthin, jint heightin, jint typein, jlong datain, jint widthout, jint heightout, jint typeout, jlong dataout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8731,7 +8731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluSphere(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble radius, jint slices, jint stacks) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluSphere(JNIEnv* km_env, jclass km_clazz, jlong qobj, jdouble radius, jint slices, jint stacks) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8755,7 +8755,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessBeginContour(JNIEnv* km_env, jclass km_clazz, jlong tess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessBeginContour(JNIEnv* km_env, jclass km_clazz, jlong tess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8776,7 +8776,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessBeginPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess, jlong polygon_data) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessBeginPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess, jlong polygonData) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8787,18 +8787,18 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "gluTessBeginPolygon");
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr((void*)(uintptr_t)tess, (void*)(uintptr_t)polygon_data);
+        km_fn_ptr((void*)(uintptr_t)tess, (void*)(uintptr_t)polygonData);
     } else {
         errno = ENOSYS;
     }
 #else
     (void)tess;
-    (void)polygon_data;
+    (void)polygonData;
     errno = ENOSYS;
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessCallback(JNIEnv* km_env, jclass km_clazz, jlong tess, jint which, jlong fn) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessCallback(JNIEnv* km_env, jclass km_clazz, jlong tess, jint which, jlong fn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8821,7 +8821,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessEndContour(JNIEnv* km_env, jclass km_clazz, jlong tess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessEndContour(JNIEnv* km_env, jclass km_clazz, jlong tess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8842,7 +8842,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessEndPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessEndPolygon(JNIEnv* km_env, jclass km_clazz, jlong tess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8863,7 +8863,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessNormal(JNIEnv* km_env, jclass km_clazz, jlong tess, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessNormal(JNIEnv* km_env, jclass km_clazz, jlong tess, jdouble x, jdouble y, jdouble z) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8887,7 +8887,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessProperty(JNIEnv* km_env, jclass km_clazz, jlong tess, jint which, jdouble value) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessProperty(JNIEnv* km_env, jclass km_clazz, jlong tess, jint which, jdouble value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8910,7 +8910,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluTessVertex(JNIEnv* km_env, jclass km_clazz, jlong tess, jlong coords, jlong data) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluTessVertex(JNIEnv* km_env, jclass km_clazz, jlong tess, jlong coords, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8933,7 +8933,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1gluUnProject(JNIEnv* km_env, jclass km_clazz, jdouble winx, jdouble winy, jdouble winz, jlong modelmatrix, jlong projmatrix, jlong viewport, jlong objx, jlong objy, jlong objz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglGluUnProject(JNIEnv* km_env, jclass km_clazz, jdouble winx, jdouble winy, jdouble winz, jlong modelmatrix, jlong projmatrix, jlong viewport, jlong objx, jlong objy, jlong objz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8966,7 +8966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglCopyContext(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglCopyContext(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8993,7 +8993,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglCreateContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglCreateContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9018,7 +9018,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglCreateLayerContext(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglCreateLayerContext(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9044,7 +9044,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglDeleteContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglDeleteContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9069,7 +9069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglDescribeLayerPlane(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jlong param4) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglDescribeLayerPlane(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jlong param4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9098,7 +9098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglGetCurrentContext(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglGetCurrentContext(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9122,7 +9122,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglGetCurrentDC(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglGetCurrentDC(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9146,7 +9146,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglGetLayerPaletteEntries(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jlong param4) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglGetLayerPaletteEntries(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jlong param4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9175,7 +9175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglGetProcAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglGetProcAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9200,7 +9200,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglMakeCurrent(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglMakeCurrent(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9226,7 +9226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglRealizeLayerPalette(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglRealizeLayerPalette(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9253,7 +9253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglSetLayerPaletteEntries(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jlong param4) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglSetLayerPaletteEntries(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jlong param4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9282,7 +9282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglShareLists(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglShareLists(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9308,7 +9308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglSwapLayerBuffers(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglSwapLayerBuffers(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9334,7 +9334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglUseFontBitmapsA(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglUseFontBitmapsA(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9362,7 +9362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglUseFontBitmapsW(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglUseFontBitmapsW(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9390,7 +9390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglUseFontOutlinesA(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jfloat param4, jfloat param5, jint param6, jlong param7) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglUseFontOutlinesA(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jfloat param4, jfloat param5, jint param6, jlong param7) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9422,7 +9422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglUseFontOutlinesW(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jfloat param4, jfloat param5, jint param6, jlong param7) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssysWindowsWin32GraphicsOpenglWglUseFontOutlinesW(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jint param3, jfloat param4, jfloat param5, jint param6, jlong param7) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

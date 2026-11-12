@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong callout, jlong sd, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong callout, jlong sd, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -47,7 +47,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -181,7 +181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint id, jlong callout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint id, jlong callout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -208,7 +208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong callout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong callout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -267,7 +267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -298,7 +298,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -327,7 +327,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -354,7 +354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmCalloutUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmCalloutUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -407,7 +407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,7 +433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -462,7 +462,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong connection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong connection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -489,7 +489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -520,7 +520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -550,7 +550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -579,7 +579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmConnectionUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmConnectionUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -605,7 +605,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmDynamicKeywordSubscribe0(JNIEnv* km_env, jclass km_clazz, jint flags, jlong callback, jlong context, jlong subscriptionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmDynamicKeywordSubscribe0(JNIEnv* km_env, jclass km_clazz, jint flags, jlong callback, jlong context, jlong subscriptionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -633,7 +633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmDynamicKeywordUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong subscriptionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmDynamicKeywordUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong subscriptionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -658,7 +658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmEngineClose0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmEngineClose0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmEngineGetOption0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint option, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmEngineGetOption0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint option, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -710,7 +710,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmEngineGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmEngineGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -741,7 +741,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmEngineOpen0(JNIEnv* km_env, jclass km_clazz, jlong servername, jint authnservice, jlong authidentity, jlong session, jlong enginehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmEngineOpen0(JNIEnv* km_env, jclass km_clazz, jlong servername, jint authnservice, jlong authidentity, jlong session, jlong enginehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -770,7 +770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmEngineSetOption0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint option, jlong newvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmEngineSetOption0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint option, jlong newvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -797,7 +797,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmEngineSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmEngineSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong filter, jlong sd, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong filter, jlong sd, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -855,7 +855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -882,7 +882,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -908,7 +908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -934,7 +934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -960,7 +960,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -989,7 +989,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong filter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong filter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1016,7 +1016,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong filter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong filter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1043,7 +1043,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1075,7 +1075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1106,7 +1106,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1135,7 +1135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1162,7 +1162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFilterUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFilterUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1188,7 +1188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmFreeMemory0(JNIEnv* km_env, jclass km_clazz, jlong p) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmFreeMemory0(JNIEnv* km_env, jclass km_clazz, jlong p) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1209,7 +1209,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmGetAppIdFromFileName0(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong appid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmGetAppIdFromFileName0(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong appid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1235,7 +1235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmIPsecTunnelAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong sd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmIPsecTunnelAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong sd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1266,7 +1266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmIPsecTunnelAdd1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong keymodkey, jlong sd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmIPsecTunnelAdd1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong keymodkey, jlong sd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1298,7 +1298,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmIPsecTunnelAdd2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong keymodkey, jlong sd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmIPsecTunnelAdd2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong keymodkey, jlong sd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1330,7 +1330,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmIPsecTunnelAdd3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong keymodkey, jlong sd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmIPsecTunnelAdd3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags, jlong mainmodepolicy, jlong tunnelpolicy, jint numfilterconditions, jlong filterconditions, jlong keymodkey, jlong sd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1362,7 +1362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmIPsecTunnelDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmIPsecTunnelDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1388,7 +1388,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1415,7 +1415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1441,7 +1441,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1470,7 +1470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jshort id, jlong layer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jshort id, jlong layer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1497,7 +1497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong layer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong layer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1524,7 +1524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1556,7 +1556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmLayerSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmLayerSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1587,7 +1587,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1614,7 +1614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1640,7 +1640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1669,7 +1669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1698,7 +1698,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventEnum2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventEnum2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1727,7 +1727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventEnum3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventEnum3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1756,7 +1756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventEnum4(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventEnum4(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1785,7 +1785,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventEnum5(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventEnum5(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1814,7 +1814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1843,7 +1843,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventSubscribe1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventSubscribe1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1872,7 +1872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventSubscribe2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventSubscribe2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1901,7 +1901,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventSubscribe3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventSubscribe3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1930,7 +1930,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventSubscribe4(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventSubscribe4(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1959,7 +1959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1986,7 +1986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2012,7 +2012,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventsGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventsGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2043,7 +2043,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmNetEventsSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmNetEventsSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2073,7 +2073,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong provider, jlong sd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong provider, jlong sd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2100,7 +2100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2128,7 +2128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextAdd1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextAdd1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2156,7 +2156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextAdd2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextAdd2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2184,7 +2184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextAdd3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextAdd3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong providercontext, jlong sd, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2212,7 +2212,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2239,7 +2239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2265,7 +2265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2291,7 +2291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2317,7 +2317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2346,7 +2346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2375,7 +2375,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextEnum2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextEnum2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2404,7 +2404,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextEnum3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextEnum3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2433,7 +2433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2460,7 +2460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetById1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetById1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2487,7 +2487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetById2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetById2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2514,7 +2514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetById3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetById3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2541,7 +2541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2568,7 +2568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetByKey1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetByKey1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2595,7 +2595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetByKey2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetByKey2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2622,7 +2622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetByKey3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetByKey3(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong providercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2649,7 +2649,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2681,7 +2681,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2712,7 +2712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2741,7 +2741,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2768,7 +2768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderContextUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderContextUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2794,7 +2794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2821,7 +2821,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2847,7 +2847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2873,7 +2873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2902,7 +2902,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong provider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong provider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2929,7 +2929,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2961,7 +2961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2992,7 +2992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3021,7 +3021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3048,7 +3048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmProviderUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmProviderUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3074,7 +3074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSessionCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSessionCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3101,7 +3101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSessionDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSessionDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3127,7 +3127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSessionEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSessionEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3156,7 +3156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong sublayer, jlong sd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerAdd0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong sublayer, jlong sd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3183,7 +3183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3210,7 +3210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerDeleteByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3236,7 +3236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3262,7 +3262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3291,7 +3291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong sublayer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerGetByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jlong sublayer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3318,7 +3318,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3350,7 +3350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong key, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3381,7 +3381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerSubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3410,7 +3410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3437,7 +3437,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSubLayerUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSubLayerUnsubscribeChanges0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong changehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3463,7 +3463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSystemPortsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong sysports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSystemPortsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong sysports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3489,7 +3489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSystemPortsSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong reserved, jlong callback, jlong context, jlong sysportshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSystemPortsSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong reserved, jlong callback, jlong context, jlong sysportshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3518,7 +3518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmSystemPortsUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong sysportshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmSystemPortsUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong sysportshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3544,7 +3544,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmTransactionAbort0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmTransactionAbort0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3569,7 +3569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmTransactionBegin0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmTransactionBegin0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3595,7 +3595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmTransactionCommit0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmTransactionCommit0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3620,7 +3620,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmvSwitchEventSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong subscriptionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmvSwitchEventSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong subscriptionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3649,7 +3649,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmvSwitchEventUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscriptionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmvSwitchEventUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscriptionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3675,7 +3675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmvSwitchEventsGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmvSwitchEventsGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3706,7 +3706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1fwpmvSwitchEventsSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformFwpmvSwitchEventsSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3736,7 +3736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecDospGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecDospGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3767,7 +3767,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecDospGetStatistics0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong idpstatistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecDospGetStatistics0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong idpstatistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3793,7 +3793,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecDospSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecDospSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3823,7 +3823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecDospStateCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecDospStateCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3850,7 +3850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecDospStateDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecDospStateDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3876,7 +3876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecDospStateEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecDospStateEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3905,7 +3905,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecGetStatistics0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ipsecstatistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecGetStatistics0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ipsecstatistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3931,7 +3931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecGetStatistics1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ipsecstatistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecGetStatistics1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ipsecstatistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3957,7 +3957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecKeyManagerAddAndRegister0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong keymanager, jlong keymanagercallbacks, jlong keymgmthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecKeyManagerAddAndRegister0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong keymanager, jlong keymanagercallbacks, jlong keymgmthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3985,7 +3985,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecKeyManagerGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong reserved, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecKeyManagerGetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong reserved, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4017,7 +4017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecKeyManagerSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong reserved, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecKeyManagerSetSecurityInfoByKey0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong reserved, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4048,7 +4048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecKeyManagerUnregisterAndDelete0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong keymgmthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecKeyManagerUnregisterAndDelete0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong keymgmthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4074,7 +4074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecKeyManagersGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecKeyManagersGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4101,7 +4101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextAddInbound0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong inboundbundle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextAddInbound0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong inboundbundle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4128,7 +4128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextAddInbound1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong inboundbundle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextAddInbound1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong inboundbundle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4155,7 +4155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextAddOutbound0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong outboundbundle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextAddOutbound0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong outboundbundle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4182,7 +4182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextAddOutbound1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong outboundbundle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextAddOutbound1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong outboundbundle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4209,7 +4209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextCreate0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong outboundtraffic, jlong inboundfilterid, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextCreate0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong outboundtraffic, jlong inboundfilterid, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4237,7 +4237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextCreate1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong outboundtraffic, jlong virtualiftunnelinfo, jlong inboundfilterid, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextCreate1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong outboundtraffic, jlong virtualiftunnelinfo, jlong inboundfilterid, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4266,7 +4266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4293,7 +4293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4319,7 +4319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4345,7 +4345,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4374,7 +4374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4403,7 +4403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextExpire0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextExpire0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4429,7 +4429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong sacontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong sacontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4456,7 +4456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextGetById1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong sacontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextGetById1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong sacontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4483,7 +4483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextGetSpi0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong getspi, jlong inboundspi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextGetSpi0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong getspi, jlong inboundspi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4511,7 +4511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextGetSpi1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong getspi, jlong inboundspi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextGetSpi1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong getspi, jlong inboundspi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4539,7 +4539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextSetSpi0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong getspi, jint inboundspi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextSetSpi0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong getspi, jint inboundspi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4567,7 +4567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextSubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong subscription, jlong callback, jlong context, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4596,7 +4596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextSubscriptionsGet0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4623,7 +4623,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong eventshandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextUnsubscribe0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong eventshandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4649,7 +4649,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaContextUpdate0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong flags, jlong newvalues) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaContextUpdate0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong flags, jlong newvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4676,7 +4676,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4703,7 +4703,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaDbGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaDbGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4734,7 +4734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaDbSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaDbSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4764,7 +4764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4790,7 +4790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4819,7 +4819,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1iPsecSaEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIPsecSaEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4848,7 +4848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextGetStatistics0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ikeextstatistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextGetStatistics0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ikeextstatistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4874,7 +4874,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextGetStatistics1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ikeextstatistics) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextGetStatistics1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong ikeextstatistics) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4900,7 +4900,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaCreateEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumtemplate, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4927,7 +4927,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaDbGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaDbGetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4958,7 +4958,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaDbSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaDbSetSecurityInfo0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jint securityinfo, jlong sidowner, jlong sidgroup, jlong dacl, jlong sacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4988,7 +4988,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaDeleteById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5014,7 +5014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaDestroyEnumHandle0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5040,7 +5040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaEnum0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5069,7 +5069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaEnum1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5098,7 +5098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaEnum2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaEnum2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong enumhandle, jint numentriesrequested, jlong entries, jlong numentriesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5127,7 +5127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong sa) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaGetById0(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong sa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5154,7 +5154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaGetById1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong salookupcontext, jlong sa) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaGetById1(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong salookupcontext, jlong sa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5182,7 +5182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfilteringplatform_1ikeextSaGetById2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong salookupcontext, jlong sa) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfilteringplatform_WindowsWin32NetworkmanagementWindowsfilteringplatformJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfilteringplatformIkeextSaGetById2(JNIEnv* km_env, jclass km_clazz, jlong enginehandle, jlong id, jlong salookupcontext, jlong sa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -2,6 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
@@ -27,6 +29,33 @@ public data class Restorepointinfoa(
         result = 31 * result + this.llSequenceNumber.hashCode()
         result = 31 * result + this.szDescription.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfoa> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfoa> {
+                override val sizeBytes: Long = 80L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): Restorepointinfoa =
+                    Restorepointinfoa(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (64).toInt())
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: Restorepointinfoa) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwEventType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwRestorePtType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.llSequenceNumber)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (64).toInt())
+                    ).writeNative(addr + 16L, value.szDescription)
+                }
+            }
     }
 }
 
@@ -80,6 +109,33 @@ public data class Restorepointinfow(
         result = 31 * result + this.llSequenceNumber.hashCode()
         result = 31 * result + this.szDescription.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfow> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfow> {
+                override val sizeBytes: Long = 528L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): Restorepointinfow =
+                    Restorepointinfow(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: Restorepointinfow) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwEventType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwRestorePtType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.llSequenceNumber)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 16L, value.szDescription)
+                }
+            }
     }
 }
 

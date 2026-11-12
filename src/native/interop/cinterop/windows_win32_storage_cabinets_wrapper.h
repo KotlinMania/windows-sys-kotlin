@@ -9,16 +9,16 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_storage_cabinets_fCIAddFile(void* hfci, void* pszsourcefile, void* pszfilename, int32_t fexecute, void* pfnfcignc, void* pfnfcis, void* pfnfcigoi, uint16_t typecompress);
-void* windowssys_windows_win32_storage_cabinets_fCICreate(void* perf, void* pfnfcifp, void* pfna, void* pfnf, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, void* pfndelete, void* pfnfcigtf, void* pccab, void* pv);
-int32_t windowssys_windows_win32_storage_cabinets_fCIDestroy(void* hfci);
-int32_t windowssys_windows_win32_storage_cabinets_fCIFlushCabinet(void* hfci, int32_t fgetnextcab, void* pfnfcignc, void* pfnfcis);
-int32_t windowssys_windows_win32_storage_cabinets_fCIFlushFolder(void* hfci, void* pfnfcignc, void* pfnfcis);
-int32_t windowssys_windows_win32_storage_cabinets_fDICopy(void* hfdi, void* pszcabinet, void* pszcabpath, int32_t flags, void* pfnfdin, void* pfnfdid, void* pvuser);
-void* windowssys_windows_win32_storage_cabinets_fDICreate(void* pfnalloc, void* pfnfree, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, int32_t cputype, void* perf);
-int32_t windowssys_windows_win32_storage_cabinets_fDIDestroy(void* hfdi);
-int32_t windowssys_windows_win32_storage_cabinets_fDIIsCabinet(void* hfdi, int64_t hf, void* pfdici);
-int32_t windowssys_windows_win32_storage_cabinets_fDITruncateCabinet(void* hfdi, void* pszcabinetname, uint16_t ifoldertodelete);
+int32_t windowssysWindowsWin32StorageCabinetsFCIAddFile(void* hfci, void* pszsourcefile, void* pszfilename, int32_t fexecute, void* pfnfcignc, void* pfnfcis, void* pfnfcigoi, uint16_t typecompress);
+void* windowssysWindowsWin32StorageCabinetsFCICreate(void* perf, void* pfnfcifp, void* pfna, void* pfnf, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, void* pfndelete, void* pfnfcigtf, void* pccab, void* pv);
+int32_t windowssysWindowsWin32StorageCabinetsFCIDestroy(void* hfci);
+int32_t windowssysWindowsWin32StorageCabinetsFCIFlushCabinet(void* hfci, int32_t fgetnextcab, void* pfnfcignc, void* pfnfcis);
+int32_t windowssysWindowsWin32StorageCabinetsFCIFlushFolder(void* hfci, void* pfnfcignc, void* pfnfcis);
+int32_t windowssysWindowsWin32StorageCabinetsFDICopy(void* hfdi, void* pszcabinet, void* pszcabpath, int32_t flags, void* pfnfdin, void* pfnfdid, void* pvuser);
+void* windowssysWindowsWin32StorageCabinetsFDICreate(void* pfnalloc, void* pfnfree, void* pfnopen, void* pfnread, void* pfnwrite, void* pfnclose, void* pfnseek, int32_t cputype, void* perf);
+int32_t windowssysWindowsWin32StorageCabinetsFDIDestroy(void* hfdi);
+int32_t windowssysWindowsWin32StorageCabinetsFDIIsCabinet(void* hfdi, int64_t hf, void* pfdici);
+int32_t windowssysWindowsWin32StorageCabinetsFDITruncateCabinet(void* hfdi, void* pszcabinetname, uint16_t ifoldertodelete);
 
 #ifdef __cplusplus
 }

@@ -9,16 +9,16 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_applocker_saferCloseLevel(void* hlevelhandle);
-int32_t windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel(void* levelhandle, void* inaccesstoken, void* outaccesstoken, uint32_t dwflags, void* lpreserved);
-int32_t windowssys_windows_win32_security_applocker_saferCreateLevel(uint32_t dwscopeid, uint32_t dwlevelid, uint32_t openflags, void* plevelhandle, void* lpreserved);
-int32_t windowssys_windows_win32_security_applocker_saferGetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize, void* lpdwoutbuffersize);
-int32_t windowssys_windows_win32_security_applocker_saferGetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* infobufferretsize, void* lpreserved);
-int32_t windowssys_windows_win32_security_applocker_saferIdentifyLevel(uint32_t dwnumproperties, void* pcodeproperties, void* plevelhandle, void* lpreserved);
-int32_t windowssys_windows_win32_security_applocker_saferRecordEventLogEntry(void* hlevel, void* sztargetpath, void* lpreserved);
-int32_t windowssys_windows_win32_security_applocker_saferSetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize);
-int32_t windowssys_windows_win32_security_applocker_saferSetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* lpreserved);
-int32_t windowssys_windows_win32_security_applocker_saferiIsExecutableFileType(void* szfullpathname, bool bfromshellexecute);
+int32_t windowssysWindowsWin32SecurityApplockerSaferCloseLevel(void* hlevelhandle);
+int32_t windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel(void* levelhandle, void* inaccesstoken, void* outaccesstoken, uint32_t dwflags, void* lpreserved);
+int32_t windowssysWindowsWin32SecurityApplockerSaferCreateLevel(uint32_t dwscopeid, uint32_t dwlevelid, uint32_t openflags, void* plevelhandle, void* lpreserved);
+int32_t windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize, void* lpdwoutbuffersize);
+int32_t windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* infobufferretsize, void* lpreserved);
+int32_t windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel(uint32_t dwnumproperties, void* pcodeproperties, void* plevelhandle, void* lpreserved);
+int32_t windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry(void* hlevel, void* sztargetpath, void* lpreserved);
+int32_t windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize);
+int32_t windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* lpreserved);
+int32_t windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType(void* szfullpathname, bool bfromshellexecute);
 
 #ifdef __cplusplus
 }

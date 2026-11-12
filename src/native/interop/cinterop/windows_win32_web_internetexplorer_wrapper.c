@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_web_internetexplorer_computeInvCMAP(void* prgbcolors, uint32_t ncolors, void* pinvtable, uint32_t cbtable) {
+int32_t windowssysWindowsWin32WebInternetexplorerComputeInvCMAP(void* prgbcolors, uint32_t ncolors, void* pinvtable, uint32_t cbtable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_computeInvCMAP(void* prgbc
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_createMIMEMap(void* ppmap) {
+int32_t windowssysWindowsWin32WebInternetexplorerCreateMIMEMap(void* ppmap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_createMIMEMap(void* ppmap)
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_decodeImage(void* pstream, void* pmap, void* peventsink) {
+int32_t windowssysWindowsWin32WebInternetexplorerDecodeImage(void* pstream, void* pmap, void* peventsink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_decodeImage(void* pstream,
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_decodeImageEx(void* pstream, void* pmap, void* peventsink, void* pszmimetypeparam) {
+int32_t windowssysWindowsWin32WebInternetexplorerDecodeImageEx(void* pstream, void* pmap, void* peventsink, void* pszmimetypeparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_decodeImageEx(void* pstrea
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ditherTo8(void* pdestbits, int32_t ndestpitch, void* psrcbits, int32_t nsrcpitch, void* bfidsrc, void* prgbdestcolors, void* prgbsrccolors, void* pbdestinvmap, int32_t x, int32_t y, int32_t cx, int32_t cy, int32_t ldesttrans, int32_t lsrctrans) {
+int32_t windowssysWindowsWin32WebInternetexplorerDitherTo8(void* pdestbits, int32_t ndestpitch, void* psrcbits, int32_t nsrcpitch, void* bfidsrc, void* prgbdestcolors, void* prgbsrccolors, void* pbdestinvmap, int32_t x, int32_t y, int32_t cx, int32_t cy, int32_t ldesttrans, int32_t lsrctrans) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*, void*, void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -146,7 +146,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ditherTo8(void* pdestbits,
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDBytes(void* pnmaxbytes) {
+int32_t windowssysWindowsWin32WebInternetexplorerGetMaxMIMEIDBytes(void* pnmaxbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -168,7 +168,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDBytes(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEAssociateThreadWithTab(uint32_t dwtabthreadid, uint32_t dwassociatedthreadid) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEAssociateThreadWithTab(uint32_t dwtabthreadid, uint32_t dwassociatedthreadid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -191,7 +191,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEAssociateThreadWithTab(u
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iECancelSaveFile(void* hstate) {
+int32_t windowssysWindowsWin32WebInternetexplorerIECancelSaveFile(void* hstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -213,7 +213,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iECancelSaveFile(void* hst
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iECreateDirectory(void* lppathname, void* lpsecurityattributes) {
+int32_t windowssysWindowsWin32WebInternetexplorerIECreateDirectory(void* lppathname, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iECreateDirectory(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_web_internetexplorer_iECreateFile(void* lpfilename, uint32_t dwdesiredaccess, uint32_t dwsharemode, void* lpsecurityattributes, uint32_t dwcreationdisposition, uint32_t dwflagsandattributes, void* htemplatefile) {
+void* windowssysWindowsWin32WebInternetexplorerIECreateFile(void* lpfilename, uint32_t dwdesiredaccess, uint32_t dwsharemode, void* lpsecurityattributes, uint32_t dwcreationdisposition, uint32_t dwflagsandattributes, void* htemplatefile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ void* windowssys_windows_win32_web_internetexplorer_iECreateFile(void* lpfilenam
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEDeleteFile(void* lpfilename) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEDeleteFile(void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -286,7 +286,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEDeleteFile(void* lpfilen
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEDisassociateThreadWithTab(uint32_t dwtabthreadid, uint32_t dwassociatedthreadid) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEDisassociateThreadWithTab(uint32_t dwtabthreadid, uint32_t dwassociatedthreadid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEDisassociateThreadWithTa
 #endif
 }
 
-void* windowssys_windows_win32_web_internetexplorer_iEFindFirstFile(void* lpfilename, void* lpfindfiledata) {
+void* windowssysWindowsWin32WebInternetexplorerIEFindFirstFile(void* lpfilename, void* lpfindfiledata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -332,7 +332,7 @@ void* windowssys_windows_win32_web_internetexplorer_iEFindFirstFile(void* lpfile
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEGetFileAttributesEx(void* lpfilename, int32_t finfolevelid, void* lpfileinformation) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEGetFileAttributesEx(void* lpfilename, int32_t finfolevelid, void* lpfileinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -356,7 +356,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEGetFileAttributesEx(void
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEGetProtectedModeCookie(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* pcchcookiedata, uint32_t dwflags) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEGetProtectedModeCookie(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* pcchcookiedata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEGetProtectedModeCookie(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEGetWriteableFolderPath(void* clsidfolderid, void* lppwstrpath) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEGetWriteableFolderPath(void* clsidfolderid, void* lppwstrpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -405,7 +405,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEGetWriteableFolderPath(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEGetWriteableLowHKCU(void* phkey) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEGetWriteableLowHKCU(void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -427,7 +427,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEGetWriteableLowHKCU(void
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEInPrivateFilteringEnabled(void) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEInPrivateFilteringEnabled(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -448,7 +448,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEInPrivateFilteringEnable
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBrowsing(void) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBrowsing(void
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeProcess(void* pbresult) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeProcess(void* pbresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -491,7 +491,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeProcess(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeURL(void* lpwstrurl) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeURL(void* lpwstrurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -513,7 +513,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeURL(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iELaunchURL(void* lpwstrurl, void* lpprocinfo, void* lpinfo) {
+int32_t windowssysWindowsWin32WebInternetexplorerIELaunchURL(void* lpwstrurl, void* lpprocinfo, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iELaunchURL(void* lpwstrur
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEMoveFileEx(void* lpexistingfilename, void* lpnewfilename, uint32_t dwflags) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEMoveFileEx(void* lpexistingfilename, void* lpnewfilename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEMoveFileEx(void* lpexist
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iERefreshElevationPolicy(void) {
+int32_t windowssysWindowsWin32WebInternetexplorerIERefreshElevationPolicy(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -582,7 +582,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iERefreshElevationPolicy(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iERegCreateKeyEx(void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
+int32_t windowssysWindowsWin32WebInternetexplorerIERegCreateKeyEx(void* lpsubkey, uint32_t reserved, void* lpclass, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iERegCreateKeyEx(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iERegSetValueEx(void* lpsubkey, void* lpvaluename, uint32_t reserved, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+int32_t windowssysWindowsWin32WebInternetexplorerIERegSetValueEx(void* lpsubkey, void* lpvaluename, uint32_t reserved, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -638,7 +638,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iERegSetValueEx(void* lpsu
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iERemoveDirectory(void* lppathname) {
+int32_t windowssysWindowsWin32WebInternetexplorerIERemoveDirectory(void* lppathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iERemoveDirectory(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iESaveFile(void* hstate, void* lpwstrsourcefile) {
+int32_t windowssysWindowsWin32WebInternetexplorerIESaveFile(void* hstate, void* lpwstrsourcefile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -683,7 +683,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iESaveFile(void* hstate, v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iESetProtectedModeCookie(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, uint32_t dwflags) {
+int32_t windowssysWindowsWin32WebInternetexplorerIESetProtectedModeCookie(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -708,7 +708,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iESetProtectedModeCookie(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEShowOpenFileDialog(void* hwnd, void* lpwstrfilename, uint32_t cchmaxfilename, void* lpwstrinitialdir, void* lpwstrfilter, void* lpwstrdefext, uint32_t dwfilterindex, uint32_t dwflags, void* phfile) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEShowOpenFileDialog(void* hwnd, void* lpwstrfilename, uint32_t cchmaxfilename, void* lpwstrinitialdir, void* lpwstrfilter, void* lpwstrdefext, uint32_t dwfilterindex, uint32_t dwflags, void* phfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -738,7 +738,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEShowOpenFileDialog(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iEShowSaveFileDialog(void* hwnd, void* lpwstrinitialfilename, void* lpwstrinitialdir, void* lpwstrfilter, void* lpwstrdefext, uint32_t dwfilterindex, uint32_t dwflags, void* lppwstrdestinationfilepath, void* phstate) {
+int32_t windowssysWindowsWin32WebInternetexplorerIEShowSaveFileDialog(void* hwnd, void* lpwstrinitialfilename, void* lpwstrinitialdir, void* lpwstrfilter, void* lpwstrdefext, uint32_t dwfilterindex, uint32_t dwflags, void* lppwstrdestinationfilepath, void* phstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -768,7 +768,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iEShowSaveFileDialog(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_iETrackingProtectionEnabled(void) {
+int32_t windowssysWindowsWin32WebInternetexplorerIETrackingProtectionEnabled(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -789,7 +789,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_iETrackingProtectionEnable
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_identifyMIMEType(void* pbbytes, uint32_t nbytes, void* pnformat) {
+int32_t windowssysWindowsWin32WebInternetexplorerIdentifyMIMEType(void* pbbytes, uint32_t nbytes, void* pnformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -813,7 +813,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_identifyMIMEType(void* pbb
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog(void* hdlg, void* pszusername, void* pszcontentdescription, void* pratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog(void* hdlg, void* pszusername, void* pszcontentdescription, void* pratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -838,7 +838,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2(void* hdlg, void* pszusername, void* pratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog2(void* hdlg, void* pszusername, void* pratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -862,7 +862,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2(
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2W(void* hdlg, void* pszusername, void* pratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog2W(void* hdlg, void* pszusername, void* pratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -886,7 +886,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2W
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialogW(void* hdlg, void* pszusername, void* pszcontentdescription, void* pratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialogW(void* hdlg, void* pszusername, void* pszcontentdescription, void* pratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -911,7 +911,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialogW(
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingAddToApprovedSites(void* hdlg, uint32_t cbpasswordblob, void* pbpasswordblob, void* lpszurl, int32_t falwaysnever, int32_t fsitepage, int32_t fapprovedsitesenforced) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingAddToApprovedSites(void* hdlg, uint32_t cbpasswordblob, void* pbpasswordblob, void* lpszurl, int32_t falwaysnever, int32_t fsitepage, int32_t fapprovedsitesenforced) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -939,7 +939,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingAddToApprovedSites(v
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccess(void* pszusername, void* pszurl, void* pszratinginfo, void* pdata, uint32_t cbdata, void* ppratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingCheckUserAccess(void* pszusername, void* pszurl, void* pszratinginfo, void* pdata, uint32_t cbdata, void* ppratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccess(void
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccessW(void* pszusername, void* pszurl, void* pszratinginfo, void* pdata, uint32_t cbdata, void* ppratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingCheckUserAccessW(void* pszusername, void* pszurl, void* pszratinginfo, void* pdata, uint32_t cbdata, void* ppratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -993,7 +993,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccessW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingClickedOnPRFInternal(void* hwndowner, void* param1, void* lpszfilename, int32_t nshow) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingClickedOnPRFInternal(void* hwndowner, void* param1, void* lpszfilename, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1018,7 +1018,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingClickedOnPRFInternal
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingClickedOnRATInternal(void* hwndowner, void* param1, void* lpszfilename, int32_t nshow) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingClickedOnRATInternal(void* hwndowner, void* param1, void* lpszfilename, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1043,7 +1043,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingClickedOnRATInternal
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingEnable(void* hwndparent, void* pszusername, int32_t fenable) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingEnable(void* hwndparent, void* pszusername, int32_t fenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1067,7 +1067,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingEnable(void* hwndpar
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingEnableW(void* hwndparent, void* pszusername, int32_t fenable) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingEnableW(void* hwndparent, void* pszusername, int32_t fenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1091,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingEnableW(void* hwndpa
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingEnabledQuery(void) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingEnabledQuery(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1112,7 +1112,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingEnabledQuery(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingFreeDetails(void* pratingdetails) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingFreeDetails(void* pratingdetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1134,7 +1134,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingFreeDetails(void* pr
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingInit(void) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingInit(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1155,7 +1155,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingInit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingObtainCancel(void* hratingobtainquery) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingObtainCancel(void* hratingobtainquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1177,7 +1177,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingObtainCancel(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingObtainQuery(void* psztargeturl, uint32_t dwuserdata, int64_t fcallback, void* phratingobtainquery) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingObtainQuery(void* psztargeturl, uint32_t dwuserdata, int64_t fcallback, void* phratingobtainquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1202,7 +1202,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingObtainQuery(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingObtainQueryW(void* psztargeturl, uint32_t dwuserdata, int64_t fcallback, void* phratingobtainquery) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingObtainQueryW(void* psztargeturl, uint32_t dwuserdata, int64_t fcallback, void* phratingobtainquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1227,7 +1227,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingObtainQueryW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingSetupUI(void* hdlg, void* pszusername) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingSetupUI(void* hdlg, void* pszusername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1250,7 +1250,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingSetupUI(void* hdlg, 
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_ratingSetupUIW(void* hdlg, void* pszusername) {
+int32_t windowssysWindowsWin32WebInternetexplorerRatingSetupUIW(void* hdlg, void* pszusername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1273,7 +1273,7 @@ int32_t windowssys_windows_win32_web_internetexplorer_ratingSetupUIW(void* hdlg,
 #endif
 }
 
-int32_t windowssys_windows_win32_web_internetexplorer_sniffStream(void* pinstream, void* pnformat, void* ppoutstream) {
+int32_t windowssysWindowsWin32WebInternetexplorerSniffStream(void* pinstream, void* pnformat, void* ppoutstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

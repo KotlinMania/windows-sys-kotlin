@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterprofiling_disableThreadProfiling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingDisableThreadProfiling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* performancedatahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterprofiling_enableThreadProfiling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingEnableThreadProfiling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterprofiling_queryThreadProfiling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingQueryThreadProfiling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -134,7 +134,7 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterprofiling_readThreadProfilingData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingReadThreadProfilingData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* performancedatahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -164,10 +164,10 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
 }
 
 static void register_windows_win32_system_performance_hardwarecounterprofiling_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_performance_hardwarecounterprofiling_disableThreadProfiling", Napi::Function::New(env, windowssys_windows_win32_system_performance_hardwarecounterprofiling_disableThreadProfiling_napi));
-    exports.Set("windowssys_windows_win32_system_performance_hardwarecounterprofiling_enableThreadProfiling", Napi::Function::New(env, windowssys_windows_win32_system_performance_hardwarecounterprofiling_enableThreadProfiling_napi));
-    exports.Set("windowssys_windows_win32_system_performance_hardwarecounterprofiling_queryThreadProfiling", Napi::Function::New(env, windowssys_windows_win32_system_performance_hardwarecounterprofiling_queryThreadProfiling_napi));
-    exports.Set("windowssys_windows_win32_system_performance_hardwarecounterprofiling_readThreadProfilingData", Napi::Function::New(env, windowssys_windows_win32_system_performance_hardwarecounterprofiling_readThreadProfilingData_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingDisableThreadProfiling", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingDisableThreadProfiling_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingEnableThreadProfiling", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingEnableThreadProfiling_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingQueryThreadProfiling", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingQueryThreadProfiling_napi));
+    exports.Set("windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingReadThreadProfilingData", Napi::Function::New(env, windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingReadThreadProfilingData_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_performance_hardwarecounterprofiling_napi, nullptr };

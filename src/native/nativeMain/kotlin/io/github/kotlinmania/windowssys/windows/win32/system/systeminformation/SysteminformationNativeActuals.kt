@@ -2,273 +2,277 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_dnsHostnameToComputerNameExW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_enumSystemFirmwareTables
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getComputerNameExA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getComputerNameExW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getDeveloperDriveEnablementState
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getFirmwareType
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getIntegratedDisplaySize
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getLocalTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getLogicalProcessorInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getLogicalProcessorInformationEx
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getNativeSystemInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getOsManufacturingMode
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getOsSafeBootMode
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getPhysicallyInstalledSystemMemory
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getProcessorSystemCycleTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getProductInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemCpuSetInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemDEPPolicy
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemDirectoryA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemDirectoryW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemFirmwareTable
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemLeapSecondInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemTimeAdjustment
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemTimeAdjustmentPrecise
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemTimeAsFileTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemTimePreciseAsFileTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemWindowsDirectoryA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemWindowsDirectoryW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemWow64Directory2A
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemWow64Directory2W
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemWow64DirectoryA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getSystemWow64DirectoryW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getTickCount
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getTickCount64
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getVersion
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getVersionExA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getVersionExW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getWindowsDirectoryA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_getWindowsDirectoryW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_globalMemoryStatus
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_globalMemoryStatusEx
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_isUserCetAvailableInEnvironment
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_isWow64GuestMachineSupported
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_rtlConvertDeviceFamilyInfoToString
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_rtlGetDeviceFamilyInfoEnum
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_rtlGetProductInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_rtlGetSystemGlobalData
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_rtlOsDeploymentState
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_rtlSwitchedVVI
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setComputerNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setComputerNameEx2W
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setComputerNameExA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setComputerNameExW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setComputerNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setLocalTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setSystemTime
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setSystemTimeAdjustment
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_setSystemTimeAdjustmentPrecise
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_verSetConditionMask
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_verifyVersionInfoA
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssys_windows_win32_system_systeminformation_verifyVersionInfoW
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetComputerNameExA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetComputerNameExW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetFirmwareType
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetIntegratedDisplaySize
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetLocalTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformationEx
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetOsManufacturingMode
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetOsSafeBootMode
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetPhysicallyInstalledSystemMemory
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetProcessorSystemCycleTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetProductInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemCpuSetInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemDEPPolicy
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemFirmwareTable
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemLeapSecondInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustment
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustmentPrecise
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemWindowsDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemWindowsDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemWow64Directory2A
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemWow64Directory2W
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemWow64DirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetSystemWow64DirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetTickCount
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetTickCount64
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetVersion
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetVersionExA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetVersionExW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatusEx
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationRtlConvertDeviceFamilyInfoToString
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationRtlGetProductInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationRtlGetSystemGlobalData
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetComputerNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetComputerNameEx2W
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetComputerNameExA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetComputerNameExW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetComputerNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetLocalTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetSystemTime
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustment
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustmentPrecise
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationVerSetConditionMask
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoA
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_dnsHostnameToComputerNameExW(hostname?.value?.toCPointer<ByteVar>(), computername?.value?.toCPointer<ByteVar>(), nsize?.value?.toCPointer<ByteVar>())
+public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW(hostname.rawAddress.toCPointer<ByteVar>(), computername.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: COpaquePointer?, buffersize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_enumSystemFirmwareTables(firmwaretableprovidersignature, pfirmwaretableenumbuffer?.value?.toCPointer<ByteVar>(), buffersize)
+public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+    windowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables(firmwaretableprovidersignature, pfirmwaretableenumbuffer.rawAddress.toCPointer<ByteVar>(), buffersize)
 
-public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getComputerNameExA(nametype, lpbuffer?.value?.toCPointer<ByteVar>(), nsize?.value?.toCPointer<ByteVar>())
+public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetComputerNameExA(nametype, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getComputerNameExW(nametype, lpbuffer?.value?.toCPointer<ByteVar>(), nsize?.value?.toCPointer<ByteVar>())
+public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetComputerNameExW(nametype, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState =
-    windowssys_windows_win32_system_systeminformation_getDeveloperDriveEnablementState()
+    windowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState()
 
-public actual fun getFirmwareType(firmwaretype: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getFirmwareType(firmwaretype?.value?.toCPointer<ByteVar>())
+public actual fun getFirmwareType(firmwaretype: MutPtr<FirmwareType>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetFirmwareType(firmwaretype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIntegratedDisplaySize(sizeininches: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_systeminformation_getIntegratedDisplaySize(sizeininches?.value?.toCPointer<ByteVar>())
+public actual fun getIntegratedDisplaySize(sizeininches: MutPtr<Double>): Hresult =
+    windowssysWindowsWin32SystemSysteminformationGetIntegratedDisplaySize(sizeininches.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLocalTime(lpsystemtime: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_getLocalTime(lpsystemtime?.value?.toCPointer<ByteVar>())
+public actual fun getLocalTime(lpsystemtime: MutPtr<Systemtime>) {
+    windowssysWindowsWin32SystemSysteminformationGetLocalTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getLogicalProcessorInformation(buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getLogicalProcessorInformation(buffer?.value?.toCPointer<ByteVar>(), returnedlength?.value?.toCPointer<ByteVar>())
+public actual fun getLogicalProcessorInformation(buffer: MutPtr<SystemLogicalProcessorInformation>, returnedlength: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformation(buffer.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getLogicalProcessorInformationEx(relationshiptype, buffer?.value?.toCPointer<ByteVar>(), returnedlength?.value?.toCPointer<ByteVar>())
+public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr<SystemLogicalProcessorInformationEx>, returnedlength: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformationEx(relationshiptype, buffer.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNativeSystemInfo(lpsysteminfo: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_getNativeSystemInfo(lpsysteminfo?.value?.toCPointer<ByteVar>())
+public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+    windowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo(lpsysteminfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getOsManufacturingMode(pbenabled: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getOsManufacturingMode(pbenabled?.value?.toCPointer<ByteVar>())
+public actual fun getOsManufacturingMode(pbenabled: MutPtr<Bool>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetOsManufacturingMode(pbenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOsSafeBootMode(flags: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getOsSafeBootMode(flags?.value?.toCPointer<ByteVar>())
+public actual fun getOsSafeBootMode(flags: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetOsSafeBootMode(flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes?.value?.toCPointer<ByteVar>())
+public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr<ULong>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProcessorSystemCycleTime(group: UShort, buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getProcessorSystemCycleTime(group, buffer?.value?.toCPointer<ByteVar>(), returnedlength?.value?.toCPointer<ByteVar>())
+public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr<SystemProcessorCycleTimeInformation>, returnedlength: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetProcessorSystemCycleTime(group, buffer.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getProductInfo(dwosmajorversion, dwosminorversion, dwspmajorversion, dwspminorversion, pdwreturnedproducttype?.value?.toCPointer<ByteVar>())
+public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr<OsProductType>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetProductInfo(dwosmajorversion, dwosminorversion, dwspmajorversion, dwspminorversion, pdwreturnedproducttype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemCpuSetInformation(information: COpaquePointer?, bufferlength: UInt, returnedlength: COpaquePointer?, process: Handle, flags: UInt): Bool =
-    windowssys_windows_win32_system_systeminformation_getSystemCpuSetInformation(information?.value?.toCPointer<ByteVar>(), bufferlength, returnedlength?.value?.toCPointer<ByteVar>(), process?.value?.toCPointer<ByteVar>(), flags)
+public actual fun getSystemCpuSetInformation(information: MutPtr<SystemCpuSetInformation>, bufferlength: UInt, returnedlength: MutPtr<UInt>, process: Handle, flags: UInt): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetSystemCpuSetInformation(information.rawAddress.toCPointer<ByteVar>(), bufferlength, returnedlength.rawAddress.toCPointer<ByteVar>(), process.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun getSystemDEPPolicy(): DepSystemPolicyType =
-    windowssys_windows_win32_system_systeminformation_getSystemDEPPolicy()
+    windowssysWindowsWin32SystemSysteminformationGetSystemDEPPolicy()
 
 public actual fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemDirectoryA(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryA(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
 public actual fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemDirectoryW(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryW(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
-public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: COpaquePointer?, buffersize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid, pfirmwaretablebuffer?.value?.toCPointer<ByteVar>(), buffersize)
+public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+    windowssysWindowsWin32SystemSysteminformationGetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid, pfirmwaretablebuffer.rawAddress.toCPointer<ByteVar>(), buffersize)
 
-public actual fun getSystemInfo(lpsysteminfo: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_getSystemInfo(lpsysteminfo?.value?.toCPointer<ByteVar>())
+public actual fun getSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+    windowssysWindowsWin32SystemSysteminformationGetSystemInfo(lpsysteminfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getSystemLeapSecondInformation(enabled: COpaquePointer?, flags: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getSystemLeapSecondInformation(enabled?.value?.toCPointer<ByteVar>(), flags?.value?.toCPointer<ByteVar>())
+public actual fun getSystemLeapSecondInformation(enabled: MutPtr<Bool>, flags: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetSystemLeapSecondInformation(enabled.rawAddress.toCPointer<ByteVar>(), flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemTime(lpsystemtime: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_getSystemTime(lpsystemtime?.value?.toCPointer<ByteVar>())
+public actual fun getSystemTime(lpsystemtime: MutPtr<Systemtime>) {
+    windowssysWindowsWin32SystemSysteminformationGetSystemTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getSystemTimeAdjustment(lptimeadjustment: COpaquePointer?, lptimeincrement: COpaquePointer?, lptimeadjustmentdisabled: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getSystemTimeAdjustment(lptimeadjustment?.value?.toCPointer<ByteVar>(), lptimeincrement?.value?.toCPointer<ByteVar>(), lptimeadjustmentdisabled?.value?.toCPointer<ByteVar>())
+public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr<UInt>, lptimeincrement: MutPtr<UInt>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustment(lptimeadjustment.rawAddress.toCPointer<ByteVar>(), lptimeincrement.rawAddress.toCPointer<ByteVar>(), lptimeadjustmentdisabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: COpaquePointer?, lptimeincrement: COpaquePointer?, lptimeadjustmentdisabled: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getSystemTimeAdjustmentPrecise(lptimeadjustment?.value?.toCPointer<ByteVar>(), lptimeincrement?.value?.toCPointer<ByteVar>(), lptimeadjustmentdisabled?.value?.toCPointer<ByteVar>())
+public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr<ULong>, lptimeincrement: MutPtr<ULong>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustmentPrecise(lptimeadjustment.rawAddress.toCPointer<ByteVar>(), lptimeincrement.rawAddress.toCPointer<ByteVar>(), lptimeadjustmentdisabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_getSystemTimeAsFileTime(lpsystemtimeasfiletime?.value?.toCPointer<ByteVar>())
+public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+    windowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime(lpsystemtimeasfiletime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime?.value?.toCPointer<ByteVar>())
+public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+    windowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun getSystemWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemWindowsDirectoryA(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetSystemWindowsDirectoryA(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
 public actual fun getSystemWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemWindowsDirectoryW(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetSystemWindowsDirectoryW(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
 public actual fun getSystemWow64Directory2A(lpbuffer: Pstr, usize: UInt, imagefilemachinetype: ImageFileMachine): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemWow64Directory2A(lpbuffer?.value?.toCPointer<ByteVar>(), usize, imagefilemachinetype)
+    windowssysWindowsWin32SystemSysteminformationGetSystemWow64Directory2A(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize, imagefilemachinetype)
 
 public actual fun getSystemWow64Directory2W(lpbuffer: Pwstr, usize: UInt, imagefilemachinetype: ImageFileMachine): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemWow64Directory2W(lpbuffer?.value?.toCPointer<ByteVar>(), usize, imagefilemachinetype)
+    windowssysWindowsWin32SystemSysteminformationGetSystemWow64Directory2W(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize, imagefilemachinetype)
 
 public actual fun getSystemWow64DirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemWow64DirectoryA(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetSystemWow64DirectoryA(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
 public actual fun getSystemWow64DirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getSystemWow64DirectoryW(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetSystemWow64DirectoryW(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
 public actual fun getTickCount(): UInt =
-    windowssys_windows_win32_system_systeminformation_getTickCount()
+    windowssysWindowsWin32SystemSysteminformationGetTickCount()
 
 public actual fun getTickCount64(): ULong =
-    windowssys_windows_win32_system_systeminformation_getTickCount64()
+    windowssysWindowsWin32SystemSysteminformationGetTickCount64()
 
 public actual fun getVersion(): UInt =
-    windowssys_windows_win32_system_systeminformation_getVersion()
+    windowssysWindowsWin32SystemSysteminformationGetVersion()
 
-public actual fun getVersionExA(lpversioninformation: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getVersionExA(lpversioninformation?.value?.toCPointer<ByteVar>())
+public actual fun getVersionExA(lpversioninformation: MutPtr<Osversioninfoa>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetVersionExA(lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getVersionExW(lpversioninformation: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_getVersionExW(lpversioninformation?.value?.toCPointer<ByteVar>())
+public actual fun getVersionExW(lpversioninformation: MutPtr<Osversioninfow>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGetVersionExW(lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getWindowsDirectoryA(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryA(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
 public actual fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_getWindowsDirectoryW(lpbuffer?.value?.toCPointer<ByteVar>(), usize)
+    windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryW(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
-public actual fun globalMemoryStatus(lpbuffer: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_globalMemoryStatus(lpbuffer?.value?.toCPointer<ByteVar>())
+public actual fun globalMemoryStatus(lpbuffer: MutPtr<Memorystatus>) {
+    windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus(lpbuffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun globalMemoryStatusEx(lpbuffer: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_globalMemoryStatusEx(lpbuffer?.value?.toCPointer<ByteVar>())
+public actual fun globalMemoryStatusEx(lpbuffer: MutPtr<Memorystatusex>): Bool =
+    windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatusEx(lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool =
-    windowssys_windows_win32_system_systeminformation_isUserCetAvailableInEnvironment(usercetenvironment)
+    windowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment)
 
-public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_systeminformation_isWow64GuestMachineSupported(wowguestmachine, machineissupported?.value?.toCPointer<ByteVar>())
+public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported(wowguestmachine, machineissupported.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: COpaquePointer?, puldeviceformbuffersize: COpaquePointer?, devicefamily: Pwstr, deviceform: Pwstr): UInt =
-    windowssys_windows_win32_system_systeminformation_rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize?.value?.toCPointer<ByteVar>(), puldeviceformbuffersize?.value?.toCPointer<ByteVar>(), devicefamily?.value?.toCPointer<ByteVar>(), deviceform?.value?.toCPointer<ByteVar>())
+public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr<UInt>, puldeviceformbuffersize: MutPtr<UInt>, devicefamily: Pwstr, deviceform: Pwstr): UInt =
+    windowssysWindowsWin32SystemSysteminformationRtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize.rawAddress.toCPointer<ByteVar>(), puldeviceformbuffersize.rawAddress.toCPointer<ByteVar>(), devicefamily.rawAddress.toCPointer<ByteVar>(), deviceform.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: COpaquePointer?, puldevicefamily: COpaquePointer?, puldeviceform: COpaquePointer?) {
-    windowssys_windows_win32_system_systeminformation_rtlGetDeviceFamilyInfoEnum(pulluapinfo?.value?.toCPointer<ByteVar>(), puldevicefamily?.value?.toCPointer<ByteVar>(), puldeviceform?.value?.toCPointer<ByteVar>())
+public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr<ULong>, puldevicefamily: MutPtr<Devicefamilyinfoenum>, puldeviceform: MutPtr<Devicefamilydeviceform>) {
+    windowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum(pulluapinfo.rawAddress.toCPointer<ByteVar>(), puldevicefamily.rawAddress.toCPointer<ByteVar>(), puldeviceform.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: COpaquePointer?): Boolean =
-    windowssys_windows_win32_system_systeminformation_rtlGetProductInfo(osmajorversion, osminorversion, spmajorversion, spminorversion, returnedproducttype?.value?.toCPointer<ByteVar>())
+public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr<UInt>): Boolean =
+    windowssysWindowsWin32SystemSysteminformationRtlGetProductInfo(osmajorversion, osminorversion, spmajorversion, spminorversion, returnedproducttype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: COpaquePointer?, size: UInt): UInt =
-    windowssys_windows_win32_system_systeminformation_rtlGetSystemGlobalData(dataid, buffer?.value?.toCPointer<ByteVar>(), size)
+public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr<CVoid>, size: UInt): UInt =
+    windowssysWindowsWin32SystemSysteminformationRtlGetSystemGlobalData(dataid, buffer.rawAddress.toCPointer<ByteVar>(), size)
 
 public actual fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues =
-    windowssys_windows_win32_system_systeminformation_rtlOsDeploymentState(flags)
+    windowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags)
 
-public actual fun rtlSwitchedVVI(versioninfo: COpaquePointer?, typemask: UInt, conditionmask: ULong): UInt =
-    windowssys_windows_win32_system_systeminformation_rtlSwitchedVVI(versioninfo?.value?.toCPointer<ByteVar>(), typemask, conditionmask)
+public actual fun rtlSwitchedVVI(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): UInt =
+    windowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI(versioninfo.rawAddress.toCPointer<ByteVar>(), typemask, conditionmask)
 
 public actual fun setComputerNameA(lpcomputername: Pcstr): Bool =
-    windowssys_windows_win32_system_systeminformation_setComputerNameA(lpcomputername?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSysteminformationSetComputerNameA(lpcomputername.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setComputerNameEx2W(nametype: ComputerNameFormat, flags: UInt, lpbuffer: Pcwstr): Bool =
-    windowssys_windows_win32_system_systeminformation_setComputerNameEx2W(nametype, flags, lpbuffer?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSysteminformationSetComputerNameEx2W(nametype, flags, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pcstr): Bool =
-    windowssys_windows_win32_system_systeminformation_setComputerNameExA(nametype, lpbuffer?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSysteminformationSetComputerNameExA(nametype, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pcwstr): Bool =
-    windowssys_windows_win32_system_systeminformation_setComputerNameExW(nametype, lpbuffer?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSysteminformationSetComputerNameExW(nametype, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setComputerNameW(lpcomputername: Pcwstr): Bool =
-    windowssys_windows_win32_system_systeminformation_setComputerNameW(lpcomputername?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemSysteminformationSetComputerNameW(lpcomputername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setLocalTime(lpsystemtime: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_setLocalTime(lpsystemtime?.value?.toCPointer<ByteVar>())
+public actual fun setLocalTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+    windowssysWindowsWin32SystemSysteminformationSetLocalTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setSystemTime(lpsystemtime: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_systeminformation_setSystemTime(lpsystemtime?.value?.toCPointer<ByteVar>())
+public actual fun setSystemTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+    windowssysWindowsWin32SystemSysteminformationSetSystemTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: Bool): Bool =
-    windowssys_windows_win32_system_systeminformation_setSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled)
+    windowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled)
 
 public actual fun setSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimeadjustmentdisabled: Bool): Bool =
-    windowssys_windows_win32_system_systeminformation_setSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled)
+    windowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled)
 
 public actual fun verSetConditionMask(conditionmask: ULong, typemask: VerFlags, condition: UByte): ULong =
-    windowssys_windows_win32_system_systeminformation_verSetConditionMask(conditionmask, typemask, condition)
+    windowssysWindowsWin32SystemSysteminformationVerSetConditionMask(conditionmask, typemask, condition)
 
-public actual fun verifyVersionInfoA(lpversioninformation: COpaquePointer?, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
-    windowssys_windows_win32_system_systeminformation_verifyVersionInfoA(lpversioninformation?.value?.toCPointer<ByteVar>(), dwtypemask, dwlconditionmask)
+public actual fun verifyVersionInfoA(lpversioninformation: MutPtr<Osversioninfoexa>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+    windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoA(lpversioninformation.rawAddress.toCPointer<ByteVar>(), dwtypemask, dwlconditionmask)
 
-public actual fun verifyVersionInfoW(lpversioninformation: COpaquePointer?, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
-    windowssys_windows_win32_system_systeminformation_verifyVersionInfoW(lpversioninformation?.value?.toCPointer<ByteVar>(), dwtypemask, dwlconditionmask)
+public actual fun verifyVersionInfoW(lpversioninformation: MutPtr<Osversioninfoexw>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+    windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(lpversioninformation.rawAddress.toCPointer<ByteVar>(), dwtypemask, dwlconditionmask)

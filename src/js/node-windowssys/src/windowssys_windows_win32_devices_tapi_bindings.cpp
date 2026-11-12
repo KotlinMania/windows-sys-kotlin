@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_getTnefStreamCodepage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiGetTnefStreamCodepage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpulcodepage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_getTnefStreamCodepage_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiOpenTnefStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvsupport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStream_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiOpenTnefStreamEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvsupport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -156,7 +156,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAccept_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAccept_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsuseruserinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -185,7 +185,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAccept_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAddProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszproviderfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -214,7 +214,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProvider_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProviderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAddProviderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszproviderfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProviderA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProviderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAddProviderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszproviderfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -272,7 +272,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProviderW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAddToConference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAddToConference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hconfcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hconsultcall = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -299,7 +299,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddToConference_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAgentSpecific_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAgentSpecific_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -332,7 +332,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAgentSpecific_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineAnswer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineAnswer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsuseruserinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAnswer_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineBlindTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransfer_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransferA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineBlindTransferA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransferA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransferW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineBlindTransferW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddressw = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -448,7 +448,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransferW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -473,7 +473,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineClose_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineCompleteCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineCompleteCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwcompletionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -504,7 +504,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCompleteCall_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineCompleteTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineCompleteTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hconsultcall = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCompleteTransfer_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -564,7 +564,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialog_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigDialogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEdit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigDialogEdit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -628,7 +628,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEdit_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigDialogEditA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigDialogEditW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -698,7 +698,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -727,7 +727,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineConfigProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpermanentproviderid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -754,7 +754,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigProvider_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineCreateAgentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszagentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -785,7 +785,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineCreateAgentSessionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -820,7 +820,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineCreateAgentSessionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -855,7 +855,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineCreateAgentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszagentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -886,7 +886,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDeallocateCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDeallocateCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -911,7 +911,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDeallocateCall_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDevSpecific_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDevSpecific_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -944,7 +944,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDevSpecific_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDevSpecificFeature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDevSpecificFeature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwfeature = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -975,7 +975,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDevSpecificFeature_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDial_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDial_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1004,7 +1004,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDial_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1033,7 +1033,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDialA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1062,7 +1062,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDialW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineDrop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineDrop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsuseruserinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1091,7 +1091,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDrop_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineForward_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineForward_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t balladdresses = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1128,7 +1128,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForward_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineForwardA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t balladdresses = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1165,7 +1165,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineForwardW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t balladdresses = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1202,7 +1202,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGatherDigits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmodes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1239,7 +1239,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigits_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGatherDigitsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmodes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1276,7 +1276,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGatherDigitsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmodes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1313,7 +1313,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGenerateDigits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1344,7 +1344,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigits_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigitsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGenerateDigitsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1375,7 +1375,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigitsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigitsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGenerateDigitsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1406,7 +1406,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigitsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateTone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGenerateTone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtonemode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateTone_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1474,7 +1474,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCaps_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1509,7 +1509,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1544,7 +1544,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwaddressid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressID_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressIDA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressIDA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwaddressid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1610,7 +1610,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressIDA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressIDW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressIDW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwaddressid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1643,7 +1643,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressIDW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1672,7 +1672,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatus_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1701,7 +1701,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatusA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAddressStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1730,7 +1730,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatusW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentActivityListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1759,7 +1759,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentActivityLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentActivityListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1788,7 +1788,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentActivityLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1821,7 +1821,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentCapsA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1854,7 +1854,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentCapsW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentGroupListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1883,7 +1883,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentGroupListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1912,7 +1912,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1941,7 +1941,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentInfo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagentsession = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1970,7 +1970,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentSessionList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentSessionList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1999,7 +1999,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentSessionList
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2028,7 +2028,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentStatusA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAgentStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2057,7 +2057,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentStatusW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAppPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszappfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmediamode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2092,7 +2092,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriority_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAppPriorityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszappfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmediamode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2127,7 +2127,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetAppPriorityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszappfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmediamode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2162,7 +2162,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCallInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcallinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2189,7 +2189,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfo_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCallInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcallinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2216,7 +2216,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCallInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcallinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2243,7 +2243,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCallStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcallstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2270,7 +2270,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallStatus_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcalllist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2297,7 +2297,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCountry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcountryid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2326,7 +2326,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountry_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCountryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcountryid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2355,7 +2355,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountryA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetCountryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcountryid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2384,7 +2384,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountryW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetDevCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2417,7 +2417,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCaps_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2450,7 +2450,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCapsA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2483,7 +2483,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCapsW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetDevConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2512,7 +2512,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfig_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetDevConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2541,7 +2541,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfigA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetDevConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2570,7 +2570,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfigW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetGroupListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetGroupListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpgrouplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2597,7 +2597,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetGroupListA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetGroupListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetGroupListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpgrouplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2624,7 +2624,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetGroupListW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2659,7 +2659,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetID_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetIDA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2694,7 +2694,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetIDW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2729,7 +2729,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdeviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2758,7 +2758,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIcon_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdeviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2787,7 +2787,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIconA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdeviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2816,7 +2816,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIconW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetLineDevStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lplinedevstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2843,7 +2843,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatus_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetLineDevStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lplinedevstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2870,7 +2870,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetLineDevStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lplinedevstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2897,7 +2897,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2926,7 +2926,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetMessage_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetNewCalls_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetNewCalls_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2957,7 +2957,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetNewCalls_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetNumRings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetNumRings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2986,7 +2986,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetNumRings_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetProviderList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproviderlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3013,7 +3013,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderList_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetProviderListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproviderlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3040,7 +3040,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderListA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetProviderListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproviderlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3067,7 +3067,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderListW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProxyStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetProxyStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3098,7 +3098,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProxyStatus_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetQueueInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwqueueid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3127,7 +3127,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueInfo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetQueueListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpgroupid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3156,7 +3156,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueListA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetQueueListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpgroupid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3185,7 +3185,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueListW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwrequestmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3214,7 +3214,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequest_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequestA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetRequestA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwrequestmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3243,7 +3243,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequestA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequestW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetRequestW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwrequestmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3272,7 +3272,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequestW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwlinestates = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3301,7 +3301,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetStatusMessages_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetTranslateCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3330,7 +3330,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCaps_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetTranslateCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3359,7 +3359,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineGetTranslateCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwapiversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3388,7 +3388,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoff_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineHandoff_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3417,7 +3417,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoff_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoffA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineHandoffA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3446,7 +3446,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoffA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoffW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineHandoffW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3475,7 +3475,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoffW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineHold_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineHold_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3500,7 +3500,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHold_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphlineapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3533,7 +3533,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitialize_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineInitializeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphlineapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3570,7 +3570,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineInitializeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphlineapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3607,7 +3607,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineMakeCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3640,7 +3640,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCall_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCallA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineMakeCallA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3673,7 +3673,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCallA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCallW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineMakeCallW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3706,7 +3706,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCallW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorDigits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineMonitorDigits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdigitmodes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3733,7 +3733,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorDigits_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorMedia_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineMonitorMedia_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwmediamodes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3760,7 +3760,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorMedia_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorTones_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineMonitorTones_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lptonelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3789,7 +3789,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorTones_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3824,7 +3824,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineNegotiateExtVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3859,7 +3859,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3900,7 +3900,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpen_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineOpenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3941,7 +3941,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineOpenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3982,7 +3982,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwparkmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4013,7 +4013,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePark_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineParkA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineParkA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwparkmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4044,7 +4044,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineParkA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineParkW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineParkW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwparkmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4075,7 +4075,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineParkW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePickup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePickup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4108,7 +4108,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePickup_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePickupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePickupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4141,7 +4141,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePickupA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePickupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePickupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4174,7 +4174,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePickupW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePrepareAddToConference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hconfcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphconsultcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4203,7 +4203,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConfere
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hconfcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphconsultcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4232,7 +4232,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConfere
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hconfcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphconsultcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4261,7 +4261,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConfere
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineProxyMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4296,7 +4296,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyMessage_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyResponse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineProxyResponse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproxyrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4325,7 +4325,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyResponse_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineRedirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4354,7 +4354,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirect_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineRedirectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4383,7 +4383,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirectA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineRedirectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4412,7 +4412,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirectW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwregistrationinstance = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4443,7 +4443,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRegisterRequestReci
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4468,7 +4468,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineRemoveFromConference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineRemoveFromConference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4493,7 +4493,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRemoveFromConferenc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineRemoveProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineRemoveProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwpermanentproviderid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4520,7 +4520,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRemoveProvider_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSecureCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSecureCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4545,7 +4545,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSecureCall_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSendUserUserInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSendUserUserInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsuseruserinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4574,7 +4574,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSendUserUserInfo_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentActivity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAgentActivity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4603,7 +4603,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentActivity_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAgentGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4632,7 +4632,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentGroup_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4661,7 +4661,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentMeasurement
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentSessionState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAgentSessionState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagentsession = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4692,7 +4692,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentSessionStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAgentState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4723,7 +4723,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentState_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentStateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAgentStateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hagent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4754,7 +4754,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentStateEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAppPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszappfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmediamode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4789,7 +4789,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriority_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAppPriorityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszappfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmediamode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4824,7 +4824,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAppPriorityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszappfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmediamode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4859,7 +4859,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppSpecific_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetAppSpecific_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwappspecific = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4886,7 +4886,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppSpecific_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetCallData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcalldata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4915,7 +4915,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallData_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetCallParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbearermode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4948,7 +4948,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallParams_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallPrivilege_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetCallPrivilege_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwcallprivilege = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4975,7 +4975,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallPrivilege_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpsendingflowspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5008,7 +5008,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallQualityOfSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallTreatment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetCallTreatment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtreatment = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5035,7 +5035,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallTreatment_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCurrentLocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetCurrentLocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwlocation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5062,7 +5062,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCurrentLocation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetDevConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5093,7 +5093,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfig_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetDevConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5124,7 +5124,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfigA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetDevConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5155,7 +5155,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfigW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetLineDevStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetLineDevStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwstatustochange = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5184,7 +5184,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetLineDevStatus_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetMediaControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5231,7 +5231,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaControl_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetMediaMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwmediamodes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5258,7 +5258,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaMode_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetNumRings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetNumRings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5287,7 +5287,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetNumRings_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwqueueid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5316,7 +5316,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetQueueMeasurement
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwlinestates = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5345,7 +5345,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetStatusMessages_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTerminal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetTerminal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5382,7 +5382,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTerminal_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetTollList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5413,7 +5413,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollList_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetTollListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5444,7 +5444,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollListA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetTollListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5475,7 +5475,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollListW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetupConference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5510,7 +5510,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConference_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetupConferenceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5545,7 +5545,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetupConferenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5580,7 +5580,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetupTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphconsultcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5609,7 +5609,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransfer_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransferA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetupTransferA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphconsultcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5638,7 +5638,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransferA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransferW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSetupTransferW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphconsultcall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5667,7 +5667,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransferW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5692,7 +5692,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineShutdown_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineSwapHold_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineSwapHold_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hactivecall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hheldcall = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5719,7 +5719,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSwapHold_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineTranslateAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5756,7 +5756,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddress_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineTranslateAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5793,7 +5793,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineTranslateAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5830,7 +5830,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineTranslateDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5863,7 +5863,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialog_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineTranslateDialogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5896,7 +5896,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialogA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineTranslateDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hlineapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5929,7 +5929,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialogW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineUncompleteCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineUncompleteCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwcompletionid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5956,7 +5956,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUncompleteCall_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineUnhold_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineUnhold_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5981,7 +5981,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnhold_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineUnpark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineUnpark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6012,7 +6012,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnpark_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineUnparkA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineUnparkA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6043,7 +6043,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnparkA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_lineUnparkW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiLineUnparkW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hline = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwaddressid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6074,7 +6074,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnparkW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6099,7 +6099,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneClose_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneConfigDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6128,7 +6128,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialog_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneConfigDialogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6157,7 +6157,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialogA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneConfigDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6186,7 +6186,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialogW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneDevSpecific_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneDevSpecific_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6215,7 +6215,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneDevSpecific_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetButtonInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6244,7 +6244,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfo_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6273,7 +6273,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6302,7 +6302,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdataid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6333,7 +6333,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetData_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetDevCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6366,7 +6366,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCaps_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6399,7 +6399,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCapsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6432,7 +6432,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCapsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDisplay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetDisplay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdisplay = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6459,7 +6459,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDisplay_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetGain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetGain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwhookswitchdev = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6488,7 +6488,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetGain_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetHookSwitch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetHookSwitch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwhookswitchdevs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6515,7 +6515,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetHookSwitch_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6544,7 +6544,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetID_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIDA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetIDA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6573,7 +6573,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIDA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIDW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetIDW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6602,7 +6602,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIDW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdeviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6631,7 +6631,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIcon_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdeviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6660,7 +6660,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIconA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdeviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6689,7 +6689,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIconW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetLamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetLamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6718,7 +6718,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetLamp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6747,7 +6747,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetMessage_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetRing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetRing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwringmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6776,7 +6776,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetRing_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpphonestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6803,7 +6803,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatus_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpphonestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6830,7 +6830,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwphonestates = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6861,7 +6861,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusMessages_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpphonestatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6888,7 +6888,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneGetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwhookswitchdev = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6917,7 +6917,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetVolume_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphphoneapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6950,7 +6950,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitialize_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneInitializeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphphoneapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6987,7 +6987,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneInitializeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphphoneapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7024,7 +7024,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7059,7 +7059,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7094,7 +7094,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7131,7 +7131,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneOpen_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetButtonInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7160,7 +7160,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfo_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7189,7 +7189,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7218,7 +7218,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdataid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7249,7 +7249,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetData_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetDisplay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetDisplay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwrow = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7282,7 +7282,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetDisplay_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetGain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetGain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwhookswitchdev = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7311,7 +7311,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetGain_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetHookSwitch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetHookSwitch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwhookswitchdevs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7340,7 +7340,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetHookSwitch_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetLamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetLamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwbuttonlampid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7369,7 +7369,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetLamp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetRing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetRing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwringmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7398,7 +7398,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetRing_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetStatusMessages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwphonestates = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7429,7 +7429,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetStatusMessages_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneSetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwhookswitchdev = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7458,7 +7458,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetVolume_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_phoneShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiPhoneShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hphoneapp = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7483,7 +7483,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneShutdown_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiGetLocationInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszcountrycode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcitycode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7510,7 +7510,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiGetLocationInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszcountrycode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcitycode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7537,7 +7537,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiGetLocationInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszcountrycodew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcitycodew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7564,7 +7564,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestDrop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestDrop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t wrequestid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7591,7 +7591,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestDrop_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestMakeCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszappname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7622,7 +7622,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCall_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestMakeCallA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszappname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7653,7 +7653,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestMakeCallW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdestaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszappname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7684,7 +7684,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestMediaCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t wrequestid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7727,7 +7727,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCall_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestMediaCallA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t wrequestid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7770,7 +7770,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesTapiTapiRequestMediaCallW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t wrequestid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7814,258 +7814,258 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW_n
 }
 
 static void register_windows_win32_devices_tapi_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_tapi_getTnefStreamCodepage", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_getTnefStreamCodepage_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_openTnefStream", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_openTnefStream_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_openTnefStreamEx", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAccept", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAccept_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAddProvider", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAddProvider_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAddProviderA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAddProviderA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAddProviderW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAddProviderW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAddToConference", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAddToConference_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAgentSpecific", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAgentSpecific_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineAnswer", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineAnswer_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineBlindTransfer", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineBlindTransfer_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineBlindTransferA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineBlindTransferA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineBlindTransferW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineBlindTransferW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineClose", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineClose_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineCompleteCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineCompleteCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineCompleteTransfer", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineCompleteTransfer_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigDialog", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigDialog_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigDialogA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigDialogA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigDialogEdit", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigDialogEdit_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigDialogEditA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigDialogEditA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigDialogEditW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigDialogEditW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigDialogW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigDialogW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineConfigProvider", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineConfigProvider_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineCreateAgentA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineCreateAgentA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineCreateAgentW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineCreateAgentW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDeallocateCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDeallocateCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDevSpecific", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDevSpecific_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDevSpecificFeature", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDevSpecificFeature_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDial", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDial_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDialA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDialA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDialW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDialW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineDrop", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineDrop_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineForward", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineForward_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineForwardA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineForwardA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineForwardW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineForwardW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGatherDigits", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGatherDigits_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGatherDigitsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGatherDigitsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGatherDigitsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGatherDigitsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGenerateDigits", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGenerateDigits_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGenerateDigitsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGenerateDigitsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGenerateDigitsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGenerateDigitsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGenerateTone", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGenerateTone_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressCaps", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressCapsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressCapsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressCapsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressCapsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressID", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressID_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressIDA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressIDA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressIDW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressIDW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressStatus", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressStatusA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressStatusA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAddressStatusW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAddressStatusW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentCapsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentCapsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentCapsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentCapsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentSessionList", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentSessionList_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentStatusA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentStatusA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAgentStatusW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAgentStatusW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAppPriority", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAppPriority_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAppPriorityA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAppPriorityA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetAppPriorityW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetAppPriorityW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCallInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCallInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCallInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCallInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCallInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCallInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCallStatus", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCallStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCountry", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCountry_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCountryA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCountryA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetCountryW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetCountryW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetDevCaps", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetDevCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetDevConfig", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetDevConfig_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetDevConfigA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetDevConfigA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetDevConfigW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetDevConfigW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetGroupListA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetGroupListA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetGroupListW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetGroupListW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetID", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetID_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetIDA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetIDA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetIDW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetIDW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetIcon", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetIcon_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetIconA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetIconA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetIconW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetIconW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetLineDevStatus", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetLineDevStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetMessage", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetMessage_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetNewCalls", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetNewCalls_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetNumRings", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetNumRings_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetProviderList", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetProviderList_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetProviderListA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetProviderListA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetProviderListW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetProviderListW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetProxyStatus", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetProxyStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetQueueInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetQueueInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetQueueListA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetQueueListA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetQueueListW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetQueueListW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetRequest", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetRequest_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetRequestA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetRequestA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetRequestW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetRequestW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetStatusMessages", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetStatusMessages_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetTranslateCaps", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetTranslateCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineHandoff", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineHandoff_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineHandoffA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineHandoffA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineHandoffW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineHandoffW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineHold", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineHold_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineInitialize", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineInitialize_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineInitializeExA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineInitializeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineInitializeExW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineInitializeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineMakeCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineMakeCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineMakeCallA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineMakeCallA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineMakeCallW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineMakeCallW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineMonitorDigits", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineMonitorDigits_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineMonitorMedia", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineMonitorMedia_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineMonitorTones", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineMonitorTones_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineOpen", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineOpen_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineOpenA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineOpenA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineOpenW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineOpenW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePark", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePark_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineParkA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineParkA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineParkW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineParkW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePickup", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePickup_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePickupA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePickupA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePickupW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePickupW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePrepareAddToConference", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePrepareAddToConference_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineProxyMessage", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineProxyMessage_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineProxyResponse", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineProxyResponse_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineRedirect", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineRedirect_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineRedirectA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineRedirectA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineRedirectW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineRedirectW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineRemoveFromConference", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineRemoveFromConference_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineRemoveProvider", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineRemoveProvider_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSecureCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSecureCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSendUserUserInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSendUserUserInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAgentActivity", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAgentActivity_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAgentGroup", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAgentGroup_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAgentSessionState", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAgentSessionState_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAgentState", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAgentState_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAgentStateEx", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAgentStateEx_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAppPriority", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAppPriority_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAppPriorityA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAppPriorityA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAppPriorityW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAppPriorityW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetAppSpecific", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetAppSpecific_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetCallData", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetCallData_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetCallParams", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetCallParams_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetCallPrivilege", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetCallPrivilege_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetCallTreatment", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetCallTreatment_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetCurrentLocation", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetCurrentLocation_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetDevConfig", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetDevConfig_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetDevConfigA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetDevConfigA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetDevConfigW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetDevConfigW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetLineDevStatus", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetLineDevStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetMediaControl", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetMediaControl_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetMediaMode", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetMediaMode_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetNumRings", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetNumRings_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetStatusMessages", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetStatusMessages_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetTerminal", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetTerminal_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetTollList", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetTollList_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetTollListA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetTollListA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetTollListW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetTollListW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetupConference", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetupConference_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetupConferenceA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetupConferenceA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetupConferenceW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetupConferenceW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetupTransfer", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetupTransfer_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetupTransferA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetupTransferA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSetupTransferW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSetupTransferW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineShutdown", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineShutdown_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineSwapHold", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineSwapHold_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineTranslateAddress", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineTranslateAddress_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineTranslateAddressA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineTranslateAddressA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineTranslateAddressW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineTranslateAddressW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineTranslateDialog", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineTranslateDialog_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineTranslateDialogA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineTranslateDialogA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineTranslateDialogW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineTranslateDialogW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineUncompleteCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineUncompleteCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineUnhold", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineUnhold_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineUnpark", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineUnpark_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineUnparkA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineUnparkA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_lineUnparkW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_lineUnparkW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneClose", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneClose_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneConfigDialog", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneConfigDialog_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneConfigDialogA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneConfigDialogA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneConfigDialogW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneConfigDialogW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneDevSpecific", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneDevSpecific_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetButtonInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetButtonInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetData", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetData_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetDevCaps", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetDevCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetDisplay", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetDisplay_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetGain", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetGain_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetHookSwitch", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetHookSwitch_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetID", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetID_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetIDA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetIDA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetIDW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetIDW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetIcon", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetIcon_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetIconA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetIconA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetIconW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetIconW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetLamp", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetLamp_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetMessage", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetMessage_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetRing", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetRing_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetStatus", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetStatusA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetStatusA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetStatusMessages", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetStatusMessages_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetStatusW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetStatusW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneGetVolume", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneGetVolume_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneInitialize", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneInitialize_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneInitializeExA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneInitializeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneInitializeExW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneInitializeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneOpen", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneOpen_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetButtonInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetButtonInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetData", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetData_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetDisplay", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetDisplay_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetGain", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetGain_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetHookSwitch", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetHookSwitch_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetLamp", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetLamp_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetRing", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetRing_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetStatusMessages", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetStatusMessages_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneSetVolume", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneSetVolume_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_phoneShutdown", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_phoneShutdown_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiGetLocationInfo", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiGetLocationInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestDrop", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestDrop_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestMakeCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestMakeCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestMediaCall", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestMediaCall_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA_napi));
-    exports.Set("windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW", Napi::Function::New(env, windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiGetTnefStreamCodepage", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiGetTnefStreamCodepage_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiOpenTnefStream", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiOpenTnefStream_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiOpenTnefStreamEx", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiOpenTnefStreamEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAccept", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAccept_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAddProvider", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAddProvider_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAddProviderA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAddProviderA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAddProviderW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAddProviderW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAddToConference", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAddToConference_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAgentSpecific", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAgentSpecific_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineAnswer", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineAnswer_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineBlindTransfer", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineBlindTransfer_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineBlindTransferA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineBlindTransferA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineBlindTransferW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineBlindTransferW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineClose", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineClose_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineCompleteCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineCompleteCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineCompleteTransfer", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineCompleteTransfer_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigDialog", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigDialog_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigDialogA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigDialogA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigDialogEdit", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigDialogEdit_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigDialogEditA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigDialogEditA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigDialogEditW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigDialogEditW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigDialogW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigDialogW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineConfigProvider", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineConfigProvider_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineCreateAgentA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineCreateAgentA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineCreateAgentSessionA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineCreateAgentSessionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineCreateAgentSessionW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineCreateAgentSessionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineCreateAgentW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineCreateAgentW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDeallocateCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDeallocateCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDevSpecific", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDevSpecific_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDevSpecificFeature", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDevSpecificFeature_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDial", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDial_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDialA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDialA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDialW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDialW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineDrop", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineDrop_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineForward", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineForward_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineForwardA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineForwardA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineForwardW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineForwardW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGatherDigits", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGatherDigits_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGatherDigitsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGatherDigitsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGatherDigitsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGatherDigitsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGenerateDigits", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGenerateDigits_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGenerateDigitsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGenerateDigitsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGenerateDigitsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGenerateDigitsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGenerateTone", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGenerateTone_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressCaps", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressCaps_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressCapsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressCapsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressCapsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressCapsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressID", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressID_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressIDA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressIDA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressIDW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressIDW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressStatusA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressStatusA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAddressStatusW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAddressStatusW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentActivityListA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentActivityListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentActivityListW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentActivityListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentCapsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentCapsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentCapsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentCapsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentGroupListA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentGroupListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentGroupListW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentGroupListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentSessionList", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentSessionList_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentStatusA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentStatusA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAgentStatusW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAgentStatusW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAppPriority", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAppPriority_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAppPriorityA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAppPriorityA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetAppPriorityW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetAppPriorityW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCallInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCallInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCallInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCallInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCallInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCallInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCallStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCallStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCountry", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCountry_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCountryA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCountryA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetCountryW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetCountryW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetDevCaps", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetDevCaps_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetDevConfig", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetDevConfig_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetDevConfigA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetDevConfigA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetDevConfigW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetDevConfigW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetGroupListA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetGroupListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetGroupListW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetGroupListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetID", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetID_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetIDA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetIDA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetIDW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetIDW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetIcon", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetIcon_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetIconA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetIconA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetIconW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetIconW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetLineDevStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetLineDevStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetLineDevStatusA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetLineDevStatusA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetLineDevStatusW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetLineDevStatusW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetMessage", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetMessage_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetNewCalls", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetNewCalls_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetNumRings", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetNumRings_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetProviderList", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetProviderList_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetProviderListA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetProviderListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetProviderListW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetProviderListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetProxyStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetProxyStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetQueueInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetQueueInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetQueueListA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetQueueListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetQueueListW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetQueueListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetRequest", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetRequest_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetRequestA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetRequestA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetRequestW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetRequestW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetStatusMessages", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetStatusMessages_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetTranslateCaps", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetTranslateCaps_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetTranslateCapsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetTranslateCapsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineGetTranslateCapsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineGetTranslateCapsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineHandoff", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineHandoff_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineHandoffA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineHandoffA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineHandoffW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineHandoffW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineHold", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineHold_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineInitialize", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineInitialize_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineInitializeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineInitializeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineInitializeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineInitializeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineMakeCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineMakeCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineMakeCallA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineMakeCallA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineMakeCallW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineMakeCallW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineMonitorDigits", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineMonitorDigits_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineMonitorMedia", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineMonitorMedia_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineMonitorTones", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineMonitorTones_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineNegotiateExtVersion", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineNegotiateExtVersion_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineOpen", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineOpen_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineOpenA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineOpenA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineOpenW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineOpenW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePark", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePark_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineParkA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineParkA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineParkW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineParkW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePickup", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePickup_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePickupA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePickupA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePickupW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePickupW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePrepareAddToConference", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePrepareAddToConference_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineProxyMessage", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineProxyMessage_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineProxyResponse", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineProxyResponse_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineRedirect", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineRedirect_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineRedirectA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineRedirectA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineRedirectW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineRedirectW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineRemoveFromConference", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineRemoveFromConference_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineRemoveProvider", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineRemoveProvider_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSecureCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSecureCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSendUserUserInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSendUserUserInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAgentActivity", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAgentActivity_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAgentGroup", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAgentGroup_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAgentSessionState", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAgentSessionState_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAgentState", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAgentState_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAgentStateEx", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAgentStateEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAppPriority", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAppPriority_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAppPriorityA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAppPriorityA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAppPriorityW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAppPriorityW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetAppSpecific", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetAppSpecific_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetCallData", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetCallData_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetCallParams", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetCallParams_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetCallPrivilege", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetCallPrivilege_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetCallTreatment", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetCallTreatment_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetCurrentLocation", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetCurrentLocation_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetDevConfig", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetDevConfig_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetDevConfigA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetDevConfigA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetDevConfigW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetDevConfigW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetLineDevStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetLineDevStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetMediaControl", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetMediaControl_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetMediaMode", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetMediaMode_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetNumRings", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetNumRings_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetStatusMessages", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetStatusMessages_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetTerminal", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetTerminal_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetTollList", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetTollList_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetTollListA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetTollListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetTollListW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetTollListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetupConference", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetupConference_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetupConferenceA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetupConferenceA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetupConferenceW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetupConferenceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetupTransfer", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetupTransfer_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetupTransferA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetupTransferA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSetupTransferW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSetupTransferW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineShutdown", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineShutdown_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineSwapHold", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineSwapHold_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineTranslateAddress", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineTranslateAddress_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineTranslateAddressA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineTranslateAddressA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineTranslateAddressW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineTranslateAddressW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineTranslateDialog", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineTranslateDialog_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineTranslateDialogA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineTranslateDialogA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineTranslateDialogW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineTranslateDialogW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineUncompleteCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineUncompleteCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineUnhold", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineUnhold_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineUnpark", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineUnpark_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineUnparkA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineUnparkA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiLineUnparkW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiLineUnparkW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneClose", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneClose_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneConfigDialog", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneConfigDialog_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneConfigDialogA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneConfigDialogA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneConfigDialogW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneConfigDialogW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneDevSpecific", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneDevSpecific_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetButtonInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetButtonInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetData", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetData_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetDevCaps", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetDevCaps_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetDisplay", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetDisplay_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetGain", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetGain_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetHookSwitch", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetHookSwitch_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetID", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetID_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetIDA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetIDA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetIDW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetIDW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetIcon", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetIcon_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetIconA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetIconA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetIconW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetIconW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetLamp", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetLamp_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetMessage", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetMessage_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetRing", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetRing_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetStatusA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetStatusA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetStatusMessages", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetStatusMessages_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetStatusW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetStatusW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneGetVolume", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneGetVolume_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneInitialize", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneInitialize_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneInitializeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneInitializeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneInitializeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneInitializeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneOpen", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneOpen_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetButtonInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetButtonInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetData", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetData_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetDisplay", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetDisplay_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetGain", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetGain_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetHookSwitch", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetHookSwitch_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetLamp", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetLamp_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetRing", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetRing_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetStatusMessages", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetStatusMessages_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneSetVolume", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneSetVolume_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiPhoneShutdown", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiPhoneShutdown_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiGetLocationInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiGetLocationInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiGetLocationInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiGetLocationInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiGetLocationInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiGetLocationInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestDrop", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestDrop_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestMakeCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestMakeCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestMakeCallA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestMakeCallA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestMakeCallW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestMakeCallW_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestMediaCall", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestMediaCall_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestMediaCallA", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestMediaCallA_napi));
+    exports.Set("windowssysWindowsWin32DevicesTapiTapiRequestMediaCallW", Napi::Function::New(env, windowssysWindowsWin32DevicesTapiTapiRequestMediaCallW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_tapi_napi, nullptr };

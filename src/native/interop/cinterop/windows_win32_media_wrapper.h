@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_media_timeBeginPeriod(uint32_t uperiod);
-uint32_t windowssys_windows_win32_media_timeEndPeriod(uint32_t uperiod);
-uint32_t windowssys_windows_win32_media_timeGetDevCaps(void* ptc, uint32_t cbtc);
-uint32_t windowssys_windows_win32_media_timeGetSystemTime(void* pmmt, uint32_t cbmmt);
-uint32_t windowssys_windows_win32_media_timeGetTime(void);
-uint32_t windowssys_windows_win32_media_timeKillEvent(uint32_t utimerid);
-uint32_t windowssys_windows_win32_media_timeSetEvent(uint32_t udelay, uint32_t uresolution, void* fptc, uint64_t dwuser, uint32_t fuevent);
+uint32_t windowssysWindowsWin32MediaTimeBeginPeriod(uint32_t uperiod);
+uint32_t windowssysWindowsWin32MediaTimeEndPeriod(uint32_t uperiod);
+uint32_t windowssysWindowsWin32MediaTimeGetDevCaps(void* ptc, uint32_t cbtc);
+uint32_t windowssysWindowsWin32MediaTimeGetSystemTime(void* pmmt, uint32_t cbmmt);
+uint32_t windowssysWindowsWin32MediaTimeGetTime(void);
+uint32_t windowssysWindowsWin32MediaTimeKillEvent(uint32_t utimerid);
+uint32_t windowssysWindowsWin32MediaTimeSetEvent(uint32_t udelay, uint32_t uresolution, void* fptc, uint64_t dwuser, uint32_t fuevent);
 
 #ifdef __cplusplus
 }

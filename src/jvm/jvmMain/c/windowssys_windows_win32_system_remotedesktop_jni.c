@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1processIdToSessionId(JNIEnv* km_env, jclass km_clazz, jint dwprocessid, jlong psessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopProcessIdToSessionId(JNIEnv* km_env, jclass km_clazz, jint dwprocessid, jlong psessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSCloseServer(JNIEnv* km_env, jclass km_clazz, jlong hserver) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSCloseServer(JNIEnv* km_env, jclass km_clazz, jlong hserver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -66,7 +66,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSConnectSessionA(JNIEnv* km_env, jclass km_clazz, jint logonid, jint targetlogonid, jlong ppassword, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionA(JNIEnv* km_env, jclass km_clazz, jint logonid, jint targetlogonid, jlong ppassword, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSConnectSessionW(JNIEnv* km_env, jclass km_clazz, jint logonid, jint targetlogonid, jlong ppassword, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionW(JNIEnv* km_env, jclass km_clazz, jint logonid, jint targetlogonid, jlong ppassword, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSCreateListenerA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer, jint flag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer, jint flag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSCreateListenerW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer, jint flag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer, jint flag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSDisconnectSession(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSDisconnectSession(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -209,7 +209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnableChildSessions(JNIEnv* km_env, jclass km_clazz, jint benable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions(JNIEnv* km_env, jclass km_clazz, jint benable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -234,7 +234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateListenersA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plisteners, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plisteners, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -263,7 +263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateListenersW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plisteners, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plisteners, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -292,7 +292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateProcessesA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppprocessinfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppprocessinfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateProcessesExA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint sessionid, jlong ppprocessinfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint sessionid, jlong ppprocessinfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -350,7 +350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateProcessesExW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint sessionid, jlong ppprocessinfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint sessionid, jlong ppprocessinfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -379,7 +379,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateProcessesW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppprocessinfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppprocessinfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -408,7 +408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateServersA(JNIEnv* km_env, jclass km_clazz, jlong pdomainname, jint reserved, jint version, jlong ppserverinfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersA(JNIEnv* km_env, jclass km_clazz, jlong pdomainname, jint reserved, jint version, jlong ppserverinfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -437,7 +437,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateServersW(JNIEnv* km_env, jclass km_clazz, jlong pdomainname, jint reserved, jint version, jlong ppserverinfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersW(JNIEnv* km_env, jclass km_clazz, jlong pdomainname, jint reserved, jint version, jlong ppserverinfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -466,7 +466,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateSessionsA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppsessioninfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppsessioninfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -495,7 +495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateSessionsExA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint filter, jlong ppsessioninfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint filter, jlong ppsessioninfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -524,7 +524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateSessionsExW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint filter, jlong ppsessioninfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint filter, jlong ppsessioninfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -553,7 +553,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSEnumerateSessionsW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppsessioninfo, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppsessioninfo, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -582,7 +582,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -603,7 +603,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSFreeMemoryExA(JNIEnv* km_env, jclass km_clazz, jint wtstypeclass, jlong pmemory, jint numberofentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExA(JNIEnv* km_env, jclass km_clazz, jint wtstypeclass, jlong pmemory, jint numberofentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -630,7 +630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSFreeMemoryExW(JNIEnv* km_env, jclass km_clazz, jint wtstypeclass, jlong pmemory, jint numberofentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExW(JNIEnv* km_env, jclass km_clazz, jint wtstypeclass, jlong pmemory, jint numberofentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -657,7 +657,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSGetActiveConsoleSessionId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSGetActiveConsoleSessionId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -681,7 +681,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSGetChildSessionId(JNIEnv* km_env, jclass km_clazz, jlong psessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSGetChildSessionId(JNIEnv* km_env, jclass km_clazz, jlong psessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -706,7 +706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSGetListenerSecurityA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSGetListenerSecurityW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -770,7 +770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSIsChildSessionsEnabled(JNIEnv* km_env, jclass km_clazz, jlong pbenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSIsChildSessionsEnabled(JNIEnv* km_env, jclass km_clazz, jlong pbenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -795,7 +795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSLogoffSession(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSLogoffSession(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -822,7 +822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSOpenServerA(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSOpenServerA(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -847,7 +847,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSOpenServerExA(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExA(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -872,7 +872,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSOpenServerExW(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSOpenServerExW(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -897,7 +897,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSOpenServerW(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSOpenServerW(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -922,7 +922,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQueryListenerConfigA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -951,7 +951,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQueryListenerConfigW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -980,7 +980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQuerySessionInformationA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint wtsinfoclass, jlong ppbuffer, jlong pbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint wtsinfoclass, jlong ppbuffer, jlong pbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1009,7 +1009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQuerySessionInformationW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint wtsinfoclass, jlong ppbuffer, jlong pbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint wtsinfoclass, jlong ppbuffer, jlong pbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1038,7 +1038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQueryUserConfigA(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong ppbuffer, jlong pbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigA(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong ppbuffer, jlong pbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1067,7 +1067,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQueryUserConfigW(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong ppbuffer, jlong pbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigW(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong ppbuffer, jlong pbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1096,7 +1096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSQueryUserToken(JNIEnv* km_env, jclass km_clazz, jint sessionid, jlong phtoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSQueryUserToken(JNIEnv* km_env, jclass km_clazz, jint sessionid, jlong phtoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1122,7 +1122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSRegisterSessionNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1148,7 +1148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSRegisterSessionNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong hwnd, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong hwnd, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1175,7 +1175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSendMessageA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong ptitle, jint titlelength, jlong pmessage, jint messagelength, jint style, jint timeout, jlong presponse, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSendMessageA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong ptitle, jint titlelength, jlong pmessage, jint messagelength, jint style, jint timeout, jlong presponse, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1209,7 +1209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSendMessageW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong ptitle, jint titlelength, jlong pmessage, jint messagelength, jint style, jint timeout, jlong presponse, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSendMessageW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong ptitle, jint titlelength, jlong pmessage, jint messagelength, jint style, jint timeout, jlong presponse, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1243,7 +1243,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSetListenerSecurityA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1273,7 +1273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSetListenerSecurityW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1303,7 +1303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSetRenderHint(JNIEnv* km_env, jclass km_clazz, jlong prenderhintid, jlong hwndowner, jint renderhinttype, jint cbhintdatalength, jlong phintdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSetRenderHint(JNIEnv* km_env, jclass km_clazz, jlong prenderhintid, jlong hwndowner, jint renderhinttype, jint cbhintdatalength, jlong phintdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1332,7 +1332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSetUserConfigA(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong pbuffer, jint datalength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigA(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong pbuffer, jint datalength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1361,7 +1361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSSetUserConfigW(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong pbuffer, jint datalength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSSetUserConfigW(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong pbuffer, jint datalength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1390,7 +1390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSShutdownSystem(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint shutdownflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSShutdownSystem(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint shutdownflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1416,7 +1416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSStartRemoteControlSessionA(JNIEnv* km_env, jclass km_clazz, jlong ptargetservername, jint targetlogonid, jbyte hotkeyvk, jshort hotkeymodifiers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionA(JNIEnv* km_env, jclass km_clazz, jlong ptargetservername, jint targetlogonid, jbyte hotkeyvk, jshort hotkeymodifiers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1444,7 +1444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSStartRemoteControlSessionW(JNIEnv* km_env, jclass km_clazz, jlong ptargetservername, jint targetlogonid, jbyte hotkeyvk, jshort hotkeymodifiers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSStartRemoteControlSessionW(JNIEnv* km_env, jclass km_clazz, jlong ptargetservername, jint targetlogonid, jbyte hotkeyvk, jshort hotkeymodifiers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1472,7 +1472,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSStopRemoteControlSession(JNIEnv* km_env, jclass km_clazz, jint logonid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession(JNIEnv* km_env, jclass km_clazz, jint logonid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1497,7 +1497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint processid, jint exitcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint processid, jint exitcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1524,7 +1524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSUnRegisterSessionNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1549,7 +1549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSUnRegisterSessionNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSUnRegisterSessionNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1575,7 +1575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelClose(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelClose(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1600,7 +1600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelOpen(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong pvirtualname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpen(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong pvirtualname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1627,7 +1627,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelOpenEx(JNIEnv* km_env, jclass km_clazz, jint sessionid, jlong pvirtualname, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelOpenEx(JNIEnv* km_env, jclass km_clazz, jint sessionid, jlong pvirtualname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1654,7 +1654,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelPurgeInput(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeInput(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1679,7 +1679,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelPurgeOutput(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeOutput(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1704,7 +1704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelQuery(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jint param1, jlong ppbuffer, jlong pbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelQuery(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jint param1, jlong ppbuffer, jlong pbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1732,7 +1732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelRead(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jint timeout, jlong buffer, jint buffersize, jlong pbytesread) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelRead(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jint timeout, jlong buffer, jint buffersize, jlong pbytesread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1761,7 +1761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSVirtualChannelWrite(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jlong buffer, jint length, jlong pbyteswritten) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelWrite(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jlong buffer, jint length, jlong pbyteswritten) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1789,7 +1789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1wTSWaitSystemEvent(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint eventmask, jlong peventflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint eventmask, jlong peventflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

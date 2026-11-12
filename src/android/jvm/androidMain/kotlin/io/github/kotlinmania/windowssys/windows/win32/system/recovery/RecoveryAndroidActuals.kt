@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.recovery
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,51 +18,51 @@ private object WindowsWin32SystemRecoveryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_applicationRecoveryFinished(bsuccess: Int)
+    external fun windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished(bsuccess: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_applicationRecoveryInProgress(pbcancelled: Long): Int
+    external fun windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress(pbcancelled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback(hprocess: Long, precoverycallback: Long, ppvparameter: Long, pdwpinginterval: Long, pdwflags: Long): Int
+    external fun windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback(hprocess: Long, precoverycallback: Long, ppvparameter: Long, pdwpinginterval: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_getApplicationRestartSettings(hprocess: Long, pwzcommandline: Long, pcchsize: Long, pdwflags: Long): Int
+    external fun windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings(hprocess: Long, pwzcommandline: Long, pcchsize: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback(precoveycallback: Long, pvparameter: Long, dwpinginterval: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback(precoveycallback: Long, pvparameter: Long, dwpinginterval: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_registerApplicationRestart(pwzcommandline: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart(pwzcommandline: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback(): Int
+    external fun windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_recovery_unregisterApplicationRestart(): Int
+    external fun windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart(): Int
 }
 
 public actual fun applicationRecoveryFinished(bsuccess: Bool) {
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_applicationRecoveryFinished(bsuccess)
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished(bsuccess)
 }
 
-public actual fun applicationRecoveryInProgress(pbcancelled: COpaquePointer?): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_applicationRecoveryInProgress((pbcancelled?.value ?: 0L))
+public actual fun applicationRecoveryInProgress(pbcancelled: MutPtr<Bool>): Hresult =
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress(pbcancelled.rawAddress)
 
-public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: COpaquePointer?, ppvparameter: COpaquePointer?, pdwpinginterval: COpaquePointer?, pdwflags: COpaquePointer?): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback((hprocess?.value ?: 0L), (precoverycallback?.value ?: 0L), (ppvparameter?.value ?: 0L), (pdwpinginterval?.value ?: 0L), (pdwflags?.value ?: 0L))
+public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: MutPtr<ApplicationRecoveryCallback>, ppvparameter: MutPtr<MutPtr<CVoid>>, pdwpinginterval: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback(hprocess.rawAddress, precoverycallback.rawAddress, ppvparameter.rawAddress, pdwpinginterval.rawAddress, pdwflags.rawAddress)
 
-public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: COpaquePointer?, pdwflags: COpaquePointer?): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_getApplicationRestartSettings((hprocess?.value ?: 0L), (pwzcommandline?.value ?: 0L), (pcchsize?.value ?: 0L), (pdwflags?.value ?: 0L))
+public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings(hprocess.rawAddress, pwzcommandline.rawAddress, pcchsize.rawAddress, pdwflags.rawAddress)
 
-public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: COpaquePointer?, dwpinginterval: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback(0L, (pvparameter?.value ?: 0L), dwpinginterval.toInt(), dwflags.toInt())
+public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: ConstPtr<CVoid>, dwpinginterval: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback(0L, pvparameter.rawAddress, dwpinginterval.toInt(), dwflags.toInt())
 
 public actual fun registerApplicationRestart(pwzcommandline: Pcwstr, dwflags: RegisterApplicationRestartFlags): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_registerApplicationRestart((pwzcommandline?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart(pwzcommandline.rawAddress, dwflags.toInt())
 
 public actual fun unregisterApplicationRecoveryCallback(): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback()
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback()
 
 public actual fun unregisterApplicationRestart(): Hresult =
-    WindowsWin32SystemRecoveryJniBridge.windowssys_windows_win32_system_recovery_unregisterApplicationRestart()
+    WindowsWin32SystemRecoveryJniBridge.windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart()

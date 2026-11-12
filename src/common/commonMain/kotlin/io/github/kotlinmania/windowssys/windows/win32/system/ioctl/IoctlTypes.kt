@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias BinTypes = Int
 
@@ -53,7 +54,7 @@ public typealias MediaType = Int
 public typealias PartitionStyle = Int
 
 public fun interface PioIrpExtProcessTrackedOffsetCallbackFn {
-    public operator fun invoke(sourcecontext: COpaquePointer?, targetcontext: COpaquePointer?, relativeoffset: Long)
+    public operator fun invoke(sourcecontext: ConstPtr<IoIrpExtTrackOffsetHeader>, targetcontext: MutPtr<IoIrpExtTrackOffsetHeader>, relativeoffset: Long)
 }
 
 public typealias PioIrpExtProcessTrackedOffsetCallback = PioIrpExtProcessTrackedOffsetCallbackFn?

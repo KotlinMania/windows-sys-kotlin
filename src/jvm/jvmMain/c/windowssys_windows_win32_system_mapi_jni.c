@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mapi_WindowsWin32SystemMapiJniBridge_windowssys_1windows_1win32_1system_1mapi_1mAPIFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mapi_WindowsWin32SystemMapiJniBridge_windowssysWindowsWin32SystemMapiMAPIFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

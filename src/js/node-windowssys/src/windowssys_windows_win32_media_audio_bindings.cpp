@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_activateAudioInterfaceAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioActivateAudioInterfaceAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceinterfacepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_media_audio_activateAudioInterfaceAs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_coRegisterMessageFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCoRegisterMessageFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmessagefilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpmessagefilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_media_audio_coRegisterMessageFilter_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* deviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t role = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -246,7 +246,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -273,7 +273,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* deviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -302,7 +302,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t role = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -331,7 +331,7 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_playSoundA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioPlaySoundA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsound = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -360,7 +360,7 @@ static Napi::Value windowssys_windows_win32_media_audio_playSoundA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_playSoundW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioPlaySoundW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsound = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_media_audio_playSoundW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverAddA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverAddA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -422,7 +422,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverAddA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverAddW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverAddW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -455,7 +455,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverAddW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwclose = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverClose_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* padd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -511,7 +511,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverDetailsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* padd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverDetailsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwinstance = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -569,7 +569,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverEnum_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hao = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -598,7 +598,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverID_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -629,7 +629,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverMessage_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phad = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -658,7 +658,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverOpen_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpriority = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverPriority_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmDriverRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmDriverRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwremove = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -714,7 +714,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverRemove_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterChooseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterChooseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pafltrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterChooseA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterChooseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterChooseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pafltrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -764,7 +764,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterChooseW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -793,7 +793,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterDetailsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -822,7 +822,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterDetailsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterEnumA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterEnumA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -855,7 +855,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterEnumA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterEnumW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterEnumW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -888,7 +888,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterEnumW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterTagDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -917,7 +917,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagDetailsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterTagDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -946,7 +946,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagDetailsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagEnumA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterTagEnumA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -979,7 +979,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagEnumA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagEnumW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFilterTagEnumW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagEnumW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatChooseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatChooseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pafmtc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1037,7 +1037,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatChooseA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatChooseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatChooseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pafmtc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1062,7 +1062,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatChooseW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1091,7 +1091,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatDetailsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1120,7 +1120,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatDetailsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatEnumA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatEnumA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1153,7 +1153,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatEnumA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatEnumW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatEnumW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pafd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1186,7 +1186,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatEnumW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatSuggest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatSuggest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwfxsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1219,7 +1219,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatSuggest_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatTagDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1248,7 +1248,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagDetailsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatTagDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1277,7 +1277,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagDetailsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagEnumA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatTagEnumA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1310,7 +1310,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagEnumA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagEnumW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmFormatTagEnumW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paftd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1343,7 +1343,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagEnumW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmGetVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmGetVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1366,7 +1366,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmGetVersion_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmMetrics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmMetrics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hao = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umetric = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1395,7 +1395,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmMetrics_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwclose = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1422,7 +1422,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamClose_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamConvert_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamConvert_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1451,7 +1451,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamConvert_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1482,7 +1482,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamMessage_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phas = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* had = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamOpen_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1550,7 +1550,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamPrepareHeader_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwreset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamReset_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbinput = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1608,7 +1608,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamSize_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_acmStreamUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAcmStreamUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* has = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1637,7 +1637,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamUnprepareHeader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_auxGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAuxGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pac = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1666,7 +1666,7 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetDevCapsA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_auxGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAuxGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pac = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1695,7 +1695,7 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetDevCapsW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_auxGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAuxGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1718,7 +1718,7 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetNumDevs_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_auxGetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAuxGetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1745,7 +1745,7 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetVolume_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_auxOutMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAuxOutMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1776,7 +1776,7 @@ static Napi::Value windowssys_windows_win32_media_audio_auxOutMessage_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_auxSetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioAuxSetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwvolume = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1803,7 +1803,7 @@ static Napi::Value windowssys_windows_win32_media_audio_auxSetVolume_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1832,7 +1832,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiConnect_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1861,7 +1861,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiDisconnect_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInAddBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInAddBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1890,7 +1890,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInAddBuffer_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1915,7 +1915,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInClose_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pmic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1944,7 +1944,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetDevCapsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pmic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1973,7 +1973,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetDevCapsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2002,7 +2002,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetErrorTextA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2031,7 +2031,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetErrorTextW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pudeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2058,7 +2058,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetID_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2081,7 +2081,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetNumDevs_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2112,7 +2112,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInMessage_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2145,7 +2145,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInOpen_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2174,7 +2174,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInPrepareHeader_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2199,7 +2199,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInReset_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2224,7 +2224,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInStart_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInStop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInStop_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiInUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiInUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2278,7 +2278,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInUnprepareHeader_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutCacheDrumPatches_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutCacheDrumPatches_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upatch = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2309,7 +2309,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutCacheDrumPatches_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutCachePatches_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutCachePatches_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ubank = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2340,7 +2340,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutCachePatches_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2365,7 +2365,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutClose_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pmoc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2394,7 +2394,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetDevCapsA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pmoc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2423,7 +2423,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetDevCapsW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2452,7 +2452,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetErrorTextA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2481,7 +2481,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetErrorTextW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pudeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2508,7 +2508,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetID_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2531,7 +2531,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetNumDevs_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutGetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutGetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2558,7 +2558,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetVolume_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutLongMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutLongMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2587,7 +2587,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutLongMsg_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2618,7 +2618,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutMessage_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2651,7 +2651,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutOpen_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2680,7 +2680,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutPrepareHeader_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2705,7 +2705,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutReset_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutSetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutSetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwvolume = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2732,7 +2732,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutSetVolume_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutShortMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutShortMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2759,7 +2759,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutShortMsg_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiOutUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiOutUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2788,7 +2788,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutUnprepareHeader_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2813,7 +2813,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamClose_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pudeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2848,7 +2848,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamOpen_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamOut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamOut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2877,7 +2877,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamOut_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamPause_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamPause_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2902,7 +2902,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamPause_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2931,7 +2931,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamPosition_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppropdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2960,7 +2960,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamProperty_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamRestart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamRestart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2985,7 +2985,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamRestart_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_midiStreamStop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMidiStreamStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3010,7 +3010,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamStop_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3035,7 +3035,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerClose_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetControlDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetControlDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxcd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3064,7 +3064,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetControlDetailsA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetControlDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetControlDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxcd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3093,7 +3093,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetControlDetailsW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t umxid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pmxcaps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3122,7 +3122,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetDevCapsA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t umxid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pmxcaps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3151,7 +3151,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetDevCapsW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pumxid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3180,7 +3180,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetID_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineControlsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetLineControlsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxlc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3209,7 +3209,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineControlsA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineControlsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetLineControlsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxlc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3238,7 +3238,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineControlsW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetLineInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3267,7 +3267,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetLineInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3296,7 +3296,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3319,7 +3319,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetNumDevs_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3350,7 +3350,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerMessage_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phmx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umxid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3383,7 +3383,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerOpen_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_mixerSetControlDetails_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioMixerSetControlDetails_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmxobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmxcd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3412,7 +3412,7 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerSetControlDetails_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_sndPlaySoundA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioSndPlaySoundA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsound = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fusound = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3439,7 +3439,7 @@ static Napi::Value windowssys_windows_win32_media_audio_sndPlaySoundA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_sndPlaySoundW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioSndPlaySoundW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsound = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fusound = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3466,7 +3466,7 @@ static Napi::Value windowssys_windows_win32_media_audio_sndPlaySoundW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInAddBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInAddBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3495,7 +3495,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInAddBuffer_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3520,7 +3520,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInClose_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pwic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3549,7 +3549,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetDevCapsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pwic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3578,7 +3578,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetDevCapsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3607,7 +3607,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetErrorTextA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3636,7 +3636,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetErrorTextW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pudeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3663,7 +3663,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetID_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3686,7 +3686,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetNumDevs_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInGetPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInGetPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3715,7 +3715,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetPosition_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3746,7 +3746,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInMessage_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3781,7 +3781,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInOpen_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3810,7 +3810,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInPrepareHeader_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3835,7 +3835,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInReset_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3860,7 +3860,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInStart_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInStop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3885,7 +3885,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInStop_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveInUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveInUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3914,7 +3914,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInUnprepareHeader_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutBreakLoop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutBreakLoop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3939,7 +3939,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutBreakLoop_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3964,7 +3964,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutClose_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetDevCapsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pwoc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3993,7 +3993,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetDevCapsA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetDevCapsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t udeviceid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pwoc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4022,7 +4022,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetDevCapsW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetErrorTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4051,7 +4051,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetErrorTextA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetErrorTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t mmrerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4080,7 +4080,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetErrorTextW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pudeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4107,7 +4107,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetID_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetNumDevs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -4130,7 +4130,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetNumDevs_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPitch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetPitch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwpitch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4157,7 +4157,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPitch_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPlaybackRate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetPlaybackRate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwrate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4184,7 +4184,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPlaybackRate_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4213,7 +4213,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPosition_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutGetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutGetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4240,7 +4240,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetVolume_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4271,7 +4271,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutMessage_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t udeviceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4306,7 +4306,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutOpen_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutPause_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutPause_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4331,7 +4331,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutPause_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutPrepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4360,7 +4360,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutPrepareHeader_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4385,7 +4385,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutReset_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutRestart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutRestart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4410,7 +4410,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutRestart_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutSetPitch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutSetPitch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpitch = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4437,7 +4437,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutSetPitch_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutSetPlaybackRate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutSetPlaybackRate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwrate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4464,7 +4464,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutSetPlaybackRate_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutSetVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutSetVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwvolume = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4491,7 +4491,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutSetVolume_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutUnprepareHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4520,7 +4520,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutUnprepareHeader_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_waveOutWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaAudioWaveOutWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4550,164 +4550,164 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutWrite_napi(const 
 }
 
 static void register_windows_win32_media_audio_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_audio_activateAudioInterfaceAsync", Napi::Function::New(env, windowssys_windows_win32_media_audio_activateAudioInterfaceAsync_napi));
-    exports.Set("windowssys_windows_win32_media_audio_coRegisterMessageFilter", Napi::Function::New(env, windowssys_windows_win32_media_audio_coRegisterMessageFilter_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitor", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitor_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId_napi));
-    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole_napi));
-    exports.Set("windowssys_windows_win32_media_audio_playSoundA", Napi::Function::New(env, windowssys_windows_win32_media_audio_playSoundA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_playSoundW", Napi::Function::New(env, windowssys_windows_win32_media_audio_playSoundW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverAddA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverAddA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverAddW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverAddW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverDetailsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverDetailsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverDetailsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverDetailsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverEnum", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverEnum_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverID", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverID_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverPriority", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverPriority_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmDriverRemove", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverRemove_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterChooseA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterChooseA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterChooseW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterChooseW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterDetailsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterDetailsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterDetailsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterDetailsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterEnumA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterEnumA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterEnumW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterEnumW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterTagDetailsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterTagDetailsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterTagDetailsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterTagDetailsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterTagEnumA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterTagEnumA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFilterTagEnumW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFilterTagEnumW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatChooseA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatChooseA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatChooseW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatChooseW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatDetailsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatDetailsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatDetailsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatDetailsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatEnumA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatEnumA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatEnumW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatEnumW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatSuggest", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatSuggest_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatTagDetailsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatTagDetailsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatTagDetailsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatTagDetailsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatTagEnumA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatTagEnumA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmFormatTagEnumW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmFormatTagEnumW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmGetVersion", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmGetVersion_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmMetrics", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmMetrics_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamConvert", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamConvert_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamPrepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamPrepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamReset", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamReset_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamSize", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamSize_napi));
-    exports.Set("windowssys_windows_win32_media_audio_acmStreamUnprepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmStreamUnprepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_auxGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_auxGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_auxGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_auxGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_auxGetNumDevs", Napi::Function::New(env, windowssys_windows_win32_media_audio_auxGetNumDevs_napi));
-    exports.Set("windowssys_windows_win32_media_audio_auxGetVolume", Napi::Function::New(env, windowssys_windows_win32_media_audio_auxGetVolume_napi));
-    exports.Set("windowssys_windows_win32_media_audio_auxOutMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_auxOutMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_auxSetVolume", Napi::Function::New(env, windowssys_windows_win32_media_audio_auxSetVolume_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiConnect", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiConnect_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiDisconnect", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiDisconnect_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInAddBuffer", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInAddBuffer_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInGetErrorTextA", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInGetErrorTextA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInGetErrorTextW", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInGetErrorTextW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInGetID", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInGetID_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInGetNumDevs", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInGetNumDevs_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInPrepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInPrepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInReset", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInReset_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInStart", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInStart_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInStop", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInStop_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiInUnprepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiInUnprepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutCacheDrumPatches", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutCacheDrumPatches_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutCachePatches", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutCachePatches_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetErrorTextA", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetErrorTextA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetErrorTextW", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetErrorTextW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetID", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetID_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetNumDevs", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetNumDevs_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutGetVolume", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutGetVolume_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutLongMsg", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutLongMsg_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutPrepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutPrepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutReset", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutReset_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutSetVolume", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutSetVolume_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutShortMsg", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutShortMsg_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiOutUnprepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiOutUnprepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamOut", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamOut_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamPause", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamPause_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamPosition", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamPosition_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamProperty", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamProperty_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamRestart", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamRestart_napi));
-    exports.Set("windowssys_windows_win32_media_audio_midiStreamStop", Napi::Function::New(env, windowssys_windows_win32_media_audio_midiStreamStop_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetControlDetailsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetControlDetailsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetControlDetailsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetControlDetailsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetID", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetID_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetLineControlsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetLineControlsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetLineControlsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetLineControlsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetLineInfoA", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetLineInfoA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetLineInfoW", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetLineInfoW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerGetNumDevs", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerGetNumDevs_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_mixerSetControlDetails", Napi::Function::New(env, windowssys_windows_win32_media_audio_mixerSetControlDetails_napi));
-    exports.Set("windowssys_windows_win32_media_audio_sndPlaySoundA", Napi::Function::New(env, windowssys_windows_win32_media_audio_sndPlaySoundA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_sndPlaySoundW", Napi::Function::New(env, windowssys_windows_win32_media_audio_sndPlaySoundW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInAddBuffer", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInAddBuffer_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetErrorTextA", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetErrorTextA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetErrorTextW", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetErrorTextW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetID", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetID_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetNumDevs", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetNumDevs_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInGetPosition", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInGetPosition_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInPrepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInPrepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInReset", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInReset_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInStart", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInStart_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInStop", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInStop_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveInUnprepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveInUnprepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutBreakLoop", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutBreakLoop_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutClose_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetDevCapsA", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetDevCapsA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetDevCapsW", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetDevCapsW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetErrorTextA", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetErrorTextA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetErrorTextW", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetErrorTextW_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetID", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetID_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetNumDevs", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetNumDevs_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetPitch", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetPitch_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetPlaybackRate", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetPlaybackRate_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetPosition", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetPosition_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutGetVolume", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutGetVolume_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutMessage", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutMessage_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutOpen", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutOpen_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutPause", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutPause_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutPrepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutPrepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutReset", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutReset_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutRestart", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutRestart_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutSetPitch", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutSetPitch_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutSetPlaybackRate", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutSetPlaybackRate_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutSetVolume", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutSetVolume_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutUnprepareHeader", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutUnprepareHeader_napi));
-    exports.Set("windowssys_windows_win32_media_audio_waveOutWrite", Napi::Function::New(env, windowssys_windows_win32_media_audio_waveOutWrite_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioActivateAudioInterfaceAsync", Napi::Function::New(env, windowssysWindowsWin32MediaAudioActivateAudioInterfaceAsync_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCoRegisterMessageFilter", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCoRegisterMessageFilter_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitor", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitor_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategory", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategory_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceId_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceRole_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitor", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitor_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategory", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategory_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceId_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceRole_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioPlaySoundA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioPlaySoundA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioPlaySoundW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioPlaySoundW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverAddA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverAddA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverAddW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverAddW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverDetailsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverDetailsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverDetailsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverDetailsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverEnum", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverEnum_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverID", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverID_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverPriority", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverPriority_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmDriverRemove", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmDriverRemove_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterChooseA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterChooseA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterChooseW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterChooseW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterDetailsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterDetailsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterDetailsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterDetailsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterEnumA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterEnumA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterEnumW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterEnumW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterTagDetailsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterTagDetailsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterTagDetailsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterTagDetailsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterTagEnumA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterTagEnumA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFilterTagEnumW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFilterTagEnumW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatChooseA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatChooseA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatChooseW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatChooseW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatDetailsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatDetailsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatDetailsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatDetailsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatEnumA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatEnumA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatEnumW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatEnumW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatSuggest", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatSuggest_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatTagDetailsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatTagDetailsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatTagDetailsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatTagDetailsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatTagEnumA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatTagEnumA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmFormatTagEnumW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmFormatTagEnumW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmGetVersion", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmGetVersion_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmMetrics", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmMetrics_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamConvert", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamConvert_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamPrepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamPrepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamReset", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamReset_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamSize", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamSize_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAcmStreamUnprepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAcmStreamUnprepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAuxGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAuxGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAuxGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAuxGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAuxGetNumDevs", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAuxGetNumDevs_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAuxGetVolume", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAuxGetVolume_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAuxOutMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAuxOutMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioAuxSetVolume", Napi::Function::New(env, windowssysWindowsWin32MediaAudioAuxSetVolume_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiConnect", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiConnect_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiDisconnect", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiDisconnect_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInAddBuffer", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInAddBuffer_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInGetErrorTextA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInGetErrorTextA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInGetErrorTextW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInGetErrorTextW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInGetID", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInGetID_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInGetNumDevs", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInGetNumDevs_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInPrepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInPrepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInReset", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInReset_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInStart", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInStart_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInStop", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInStop_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiInUnprepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiInUnprepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutCacheDrumPatches", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutCacheDrumPatches_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutCachePatches", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutCachePatches_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetErrorTextA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetErrorTextA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetErrorTextW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetErrorTextW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetID", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetID_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetNumDevs", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetNumDevs_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutGetVolume", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutGetVolume_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutLongMsg", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutLongMsg_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutPrepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutPrepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutReset", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutReset_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutSetVolume", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutSetVolume_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutShortMsg", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutShortMsg_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiOutUnprepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiOutUnprepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamOut", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamOut_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamPause", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamPause_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamPosition", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamPosition_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamProperty", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamProperty_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamRestart", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamRestart_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMidiStreamStop", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMidiStreamStop_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetControlDetailsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetControlDetailsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetControlDetailsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetControlDetailsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetID", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetID_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetLineControlsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetLineControlsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetLineControlsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetLineControlsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetLineInfoA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetLineInfoA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetLineInfoW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetLineInfoW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerGetNumDevs", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerGetNumDevs_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioMixerSetControlDetails", Napi::Function::New(env, windowssysWindowsWin32MediaAudioMixerSetControlDetails_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioSndPlaySoundA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioSndPlaySoundA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioSndPlaySoundW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioSndPlaySoundW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInAddBuffer", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInAddBuffer_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetErrorTextA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetErrorTextA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetErrorTextW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetErrorTextW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetID", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetID_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetNumDevs", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetNumDevs_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInGetPosition", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInGetPosition_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInPrepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInPrepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInReset", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInReset_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInStart", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInStart_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInStop", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInStop_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveInUnprepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveInUnprepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutBreakLoop", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutBreakLoop_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutClose", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutClose_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetDevCapsA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetDevCapsA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetDevCapsW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetDevCapsW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetErrorTextA", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetErrorTextA_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetErrorTextW", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetErrorTextW_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetID", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetID_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetNumDevs", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetNumDevs_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetPitch", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetPitch_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetPlaybackRate", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetPlaybackRate_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetPosition", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetPosition_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutGetVolume", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutGetVolume_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutMessage", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutMessage_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutOpen", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutOpen_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutPause", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutPause_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutPrepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutPrepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutReset", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutReset_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutRestart", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutRestart_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutSetPitch", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutSetPitch_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutSetPlaybackRate", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutSetPlaybackRate_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutSetVolume", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutSetVolume_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutUnprepareHeader", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutUnprepareHeader_napi));
+    exports.Set("windowssysWindowsWin32MediaAudioWaveOutWrite", Napi::Function::New(env, windowssysWindowsWin32MediaAudioWaveOutWrite_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_media_audio_napi, nullptr };

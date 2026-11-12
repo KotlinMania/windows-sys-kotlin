@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_applocker_saferCloseLevel(void* hlevelhandle) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferCloseLevel(void* hlevelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_security_applocker_saferCloseLevel(void* hlevel
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel(void* levelhandle, void* inaccesstoken, void* outaccesstoken, uint32_t dwflags, void* lpreserved) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel(void* levelhandle, void* inaccesstoken, void* outaccesstoken, uint32_t dwflags, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferCreateLevel(uint32_t dwscopeid, uint32_t dwlevelid, uint32_t openflags, void* plevelhandle, void* lpreserved) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferCreateLevel(uint32_t dwscopeid, uint32_t dwlevelid, uint32_t openflags, void* plevelhandle, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ int32_t windowssys_windows_win32_security_applocker_saferCreateLevel(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferGetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize, void* lpdwoutbuffersize) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize, void* lpdwoutbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_security_applocker_saferGetLevelInformation(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferGetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* infobufferretsize, void* lpreserved) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* infobufferretsize, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -142,7 +142,7 @@ int32_t windowssys_windows_win32_security_applocker_saferGetPolicyInformation(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferIdentifyLevel(uint32_t dwnumproperties, void* pcodeproperties, void* plevelhandle, void* lpreserved) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel(uint32_t dwnumproperties, void* pcodeproperties, void* plevelhandle, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -167,7 +167,7 @@ int32_t windowssys_windows_win32_security_applocker_saferIdentifyLevel(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferRecordEventLogEntry(void* hlevel, void* sztargetpath, void* lpreserved) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry(void* hlevel, void* sztargetpath, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -191,7 +191,7 @@ int32_t windowssys_windows_win32_security_applocker_saferRecordEventLogEntry(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferSetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation(void* levelhandle, int32_t dwinfotype, void* lpquerybuffer, uint32_t dwinbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -216,7 +216,7 @@ int32_t windowssys_windows_win32_security_applocker_saferSetLevelInformation(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferSetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* lpreserved) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation(uint32_t dwscopeid, int32_t saferpolicyinfoclass, uint32_t infobuffersize, void* infobuffer, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -242,7 +242,7 @@ int32_t windowssys_windows_win32_security_applocker_saferSetPolicyInformation(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_applocker_saferiIsExecutableFileType(void* szfullpathname, bool bfromshellexecute) {
+int32_t windowssysWindowsWin32SecurityApplockerSaferiIsExecutableFileType(void* szfullpathname, bool bfromshellexecute) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;

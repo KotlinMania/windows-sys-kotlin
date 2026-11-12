@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion(void* hwnd, void* pwszrpid, void* pwebauthnclientdata, void* pwebauthngetassertionoptions, void* ppwebauthnassertion) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorGetAssertion(void* hwnd, void* pwszrpid, void* pwebauthnclientdata, void* pwebauthngetassertionoptions, void* ppwebauthnassertion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNAuthentic
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential(void* hwnd, void* prpinformation, void* puserinformation, void* ppubkeycredparams, void* pwebauthnclientdata, void* pwebauthnmakecredentialoptions, void* ppwebauthncredentialattestation) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorMakeCredential(void* hwnd, void* prpinformation, void* puserinformation, void* ppubkeycredparams, void* pwebauthnclientdata, void* pwebauthnmakecredentialoptions, void* ppwebauthncredentialattestation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -69,7 +69,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNAuthentic
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation(void* pcancellationid) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNCancelCurrentOperation(void* pcancellationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCur
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential(uint32_t cbcredentialid, void* pbcredentialid) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNDeletePlatformCredential(uint32_t cbcredentialid, void* pbcredentialid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -114,7 +114,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePla
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion(void* pwebauthnassertion) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeAssertion(void* pwebauthnassertion) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ void windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertio
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation(void* pwebauthncredentialattestation) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeCredentialAttestation(void* pwebauthncredentialattestation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ void windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredenti
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList(void* pcredentialdetailslist) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreePlatformCredentialList(void* pcredentialdetailslist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ void windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatform
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber(void) {
+uint32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetApiVersionNumber(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ uint32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVe
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId(void* pcancellationid) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetCancellationId(void* pcancellationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancel
 #endif
 }
 
-void* windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName(int32_t hr) {
+void* windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetErrorName(int32_t hr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -242,7 +242,7 @@ void* windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorNam
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList(void* pgetcredentialsoptions, void* ppcredentialdetailslist) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetPlatformCredentialList(void* pgetcredentialsoptions, void* ppcredentialdetailslist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatfo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError(int32_t hr) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError(int32_t hr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(void* pbisuserverifyingplatformauthenticatoravailable) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(void* pbisuserverifyingplatformauthenticatoravailable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVer
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAbandonCall(void* serviceproxy, uint32_t callid, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonCall(void* serviceproxy, uint32_t callid, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -333,7 +333,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAbandonCall(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage(void* channel, void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonMessage(void* channel, void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -357,7 +357,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortChannel(void* channel, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAbortChannel(void* channel, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -380,7 +380,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortChannel(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortListener(void* listener, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAbortListener(void* listener, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortListener(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost(void* servicehost, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceHost(void* servicehost, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -426,7 +426,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHos
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy(void* serviceproxy, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceProxy(void* serviceproxy, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -449,7 +449,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAbortServicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel(void* listener, void* channel, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAcceptChannel(void* listener, void* channel, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -474,7 +474,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader(void* message, void* headerdescription, int32_t writeoption, void* value, uint32_t valuesize, uint32_t headerattributes, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAddCustomHeader(void* message, void* headerdescription, int32_t writeoption, void* value, uint32_t valuesize, uint32_t headerattributes, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -502,7 +502,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAddErrorString(void* error, void* string) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAddErrorString(void* error, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -525,7 +525,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAddErrorString(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader(void* message, void* headername, int32_t valuetype, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAddMappedHeader(void* message, void* headername, int32_t valuetype, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -553,7 +553,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAddressMessage(void* message, void* address, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAddressMessage(void* message, void* address, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +577,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAddressMessage(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAlloc(void* heap, uint64_t size, void* ptr, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAlloc(void* heap, uint64_t size, void* ptr, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -602,7 +602,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAlloc(void* hea
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute(void* asyncstate, void* operation, int32_t callbackmodel, void* callbackstate, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsAsyncExecute(void* asyncstate, void* operation, int32_t callbackmodel, void* callbackstate, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -629,7 +629,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCall(void* serviceproxy, void* operation, void* arguments, void* heap, void* callproperties, uint32_t callpropertycount, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCall(void* serviceproxy, void* operation, void* arguments, void* heap, void* callproperties, uint32_t callpropertycount, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -658,7 +658,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCall(void* serv
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders(void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCheckMustUnderstandHeaders(void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -681,7 +681,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnders
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseChannel(void* channel, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCloseChannel(void* channel, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -705,7 +705,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseChannel(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseListener(void* listener, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCloseListener(void* listener, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -729,7 +729,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseListener(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost(void* servicehost, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceHost(void* servicehost, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -753,7 +753,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHos
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy(void* serviceproxy, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceProxy(void* serviceproxy, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -777,7 +777,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCloseServicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCombineUrl(void* baseurl, void* referenceurl, uint32_t flags, void* heap, void* resulturl, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCombineUrl(void* baseurl, void* referenceurl, uint32_t flags, void* heap, void* resulturl, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -804,7 +804,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCombineUrl(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCopyError(void* source, void* destination) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCopyError(void* source, void* destination) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -827,7 +827,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCopyError(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCopyNode(void* writer, void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCopyNode(void* writer, void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -851,7 +851,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCopyNode(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateChannel(int32_t channeltype, int32_t channelbinding, void* properties, uint32_t propertycount, void* securitydescription, void* channel, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannel(int32_t channeltype, int32_t channelbinding, void* properties, uint32_t propertycount, void* securitydescription, void* channel, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -879,7 +879,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateChannel(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener(void* listener, void* properties, uint32_t propertycount, void* channel, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannelForListener(void* listener, void* properties, uint32_t propertycount, void* channel, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -905,7 +905,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateChannelFo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateError(void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateError(void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -929,7 +929,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateError(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError(void* error, int32_t faulterrorcode, int32_t faultdisclosure, void* heap, void* fault) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateFaultFromError(void* error, int32_t faulterrorcode, int32_t faultdisclosure, void* heap, void* fault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -955,7 +955,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFrom
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateHeap(uint64_t maxsize, uint64_t trimsize, void* properties, uint32_t propertycount, void* heap, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateHeap(uint64_t maxsize, uint64_t trimsize, void* properties, uint32_t propertycount, void* heap, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -982,7 +982,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateHeap(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateListener(int32_t channeltype, int32_t channelbinding, void* properties, uint32_t propertycount, void* securitydescription, void* listener, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateListener(int32_t channeltype, int32_t channelbinding, void* properties, uint32_t propertycount, void* securitydescription, void* listener, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateListener(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateMessage(int32_t envelopeversion, int32_t addressingversion, void* properties, uint32_t propertycount, void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessage(int32_t envelopeversion, int32_t addressingversion, void* properties, uint32_t propertycount, void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1037,7 +1037,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateMessage(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel(void* channel, void* properties, uint32_t propertycount, void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessageForChannel(void* channel, void* properties, uint32_t propertycount, void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1063,7 +1063,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateMessageFo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata(void* properties, uint32_t propertycount, void* metadata, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMetadata(void* properties, uint32_t propertycount, void* metadata, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1088,7 +1088,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateReader(void* properties, uint32_t propertycount, void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateReader(void* properties, uint32_t propertycount, void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateReader(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate(int32_t channeltype, void* properties, uint32_t propertycount, void* addressurl, void* contract, void* authorizationcallback, void* heap, int32_t templatetype, void* templatevalue, uint32_t templatesize, void* templatedescription, uint32_t templatedescriptionsize, void* serviceendpoint, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceEndpointFromTemplate(int32_t channeltype, void* properties, uint32_t propertycount, void* addressurl, void* contract, void* authorizationcallback, void* heap, int32_t templatetype, void* templatevalue, uint32_t templatesize, void* templatedescription, uint32_t templatedescriptionsize, void* serviceendpoint, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*, void*, void*, int32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1148,7 +1148,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEn
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost(void* endpoints, uint16_t endpointcount, void* serviceproperties, uint32_t servicepropertycount, void* servicehost, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceHost(void* endpoints, uint16_t endpointcount, void* serviceproperties, uint32_t servicepropertycount, void* servicehost, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1175,7 +1175,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy(int32_t channeltype, int32_t channelbinding, void* securitydescription, void* properties, uint32_t propertycount, void* channelproperties, uint32_t channelpropertycount, void* serviceproxy, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxy(int32_t channeltype, int32_t channelbinding, void* securitydescription, void* properties, uint32_t propertycount, void* channelproperties, uint32_t channelpropertycount, void* serviceproxy, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1205,7 +1205,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServicePr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate(int32_t channeltype, void* properties, uint32_t propertycount, int32_t templatetype, void* templatevalue, uint32_t templatesize, void* templatedescription, uint32_t templatedescriptionsize, void* serviceproxy, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxyFromTemplate(int32_t channeltype, void* properties, uint32_t propertycount, int32_t templatetype, void* templatevalue, uint32_t templatesize, void* templatedescription, uint32_t templatedescriptionsize, void* serviceproxy, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, int32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1236,7 +1236,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateServicePr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateWriter(void* properties, uint32_t propertycount, void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateWriter(void* properties, uint32_t propertycount, void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1261,7 +1261,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateWriter(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer(void* heap, void* properties, uint32_t propertycount, void* buffer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlBuffer(void* heap, void* properties, uint32_t propertycount, void* buffer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1287,7 +1287,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken(void* tokenxml, void* tokenkey, void* properties, uint32_t propertycount, void* token, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlSecurityToken(void* tokenxml, void* tokenkey, void* properties, uint32_t propertycount, void* token, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1314,7 +1314,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecuri
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime(void* datetime, void* filetime, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsDateTimeToFileTime(void* datetime, void* filetime, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1338,7 +1338,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileT
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl(void* url, uint32_t flags, void* heap, void* outurl, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsDecodeUrl(void* url, uint32_t flags, void* heap, void* outurl, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1364,7 +1364,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl(void* url, uint32_t flags, void* heap, void* outurl, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsEncodeUrl(void* url, uint32_t flags, void* heap, void* outurl, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1390,7 +1390,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization(void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsEndReaderCanonicalization(void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1413,7 +1413,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanoni
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization(void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsEndWriterCanonicalization(void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1436,7 +1436,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanoni
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime(void* filetime, void* datetime, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsFileTimeToDateTime(void* filetime, void* datetime, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1460,7 +1460,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateT
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsFillBody(void* message, uint32_t minsize, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsFillBody(void* message, uint32_t minsize, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1485,7 +1485,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsFillBody(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsFillReader(void* reader, uint32_t minsize, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsFillReader(void* reader, uint32_t minsize, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1510,7 +1510,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsFillReader(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsFindAttribute(void* reader, void* localname, void* ns, int32_t required, void* attributeindex, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsFindAttribute(void* reader, void* localname, void* ns, int32_t required, void* attributeindex, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1537,7 +1537,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsFindAttribute(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsFlushBody(void* message, uint32_t minsize, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsFlushBody(void* message, uint32_t minsize, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1562,7 +1562,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsFlushBody(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsFlushWriter(void* writer, uint32_t minsize, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsFlushWriter(void* writer, uint32_t minsize, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1587,7 +1587,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsFlushWriter(voi
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeChannel(void* channel) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeChannel(void* channel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1608,7 +1608,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeChannel(void* 
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeError(void* error) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeError(void* error) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1629,7 +1629,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeError(void* er
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeHeap(void* heap) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeHeap(void* heap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1650,7 +1650,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeHeap(void* hea
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeListener(void* listener) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeListener(void* listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1671,7 +1671,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeListener(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeMessage(void* message) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMessage(void* message) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeMessage(void* 
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata(void* metadata) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMetadata(void* metadata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1713,7 +1713,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeReader(void* reader) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeReader(void* reader) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1734,7 +1734,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeReader(void* r
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken(void* token) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeSecurityToken(void* token) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1755,7 +1755,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken(
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost(void* servicehost) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceHost(void* servicehost) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1776,7 +1776,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost(vo
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy(void* serviceproxy) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceProxy(void* serviceproxy) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1797,7 +1797,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy(v
 #endif
 }
 
-void windowssys_windows_win32_networking_windowswebservices_wsFreeWriter(void* writer) {
+void windowssysWindowsWin32NetworkingWindowswebservicesWsFreeWriter(void* writer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1818,7 +1818,7 @@ void windowssys_windows_win32_networking_windowswebservices_wsFreeWriter(void* w
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty(void* channel, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetChannelProperty(void* channel, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1844,7 +1844,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetChannelPrope
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader(void* message, void* customheaderdescription, int32_t repeatingoption, uint32_t headerindex, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* headerattributes, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetCustomHeader(void* message, void* customheaderdescription, int32_t repeatingoption, uint32_t headerindex, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* headerattributes, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, int32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1875,7 +1875,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetDictionary(int32_t encoding, void* dictionary, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetDictionary(int32_t encoding, void* dictionary, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1899,7 +1899,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetDictionary(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty(void* error, int32_t id, void* buffer, uint32_t buffersize) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorProperty(void* error, int32_t id, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1924,7 +1924,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetErrorPropert
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetErrorString(void* error, uint32_t arg_1_index, void* string) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorString(void* error, uint32_t arg1Index, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1935,20 +1935,20 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetErrorString(
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(error, arg_1_index, string);
+        return km_fn_ptr(error, arg1Index, string);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)error;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)string;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail(void* error, void* faultdetaildescription, int32_t readoption, void* heap, void* value, uint32_t valuesize) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorDetail(void* error, void* faultdetaildescription, int32_t readoption, void* heap, void* value, uint32_t valuesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1975,7 +1975,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDe
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty(void* error, int32_t id, void* buffer, uint32_t buffersize) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorProperty(void* error, int32_t id, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2000,7 +2000,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorPr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetHeader(void* message, int32_t headertype, int32_t valuetype, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeader(void* message, int32_t headertype, int32_t valuetype, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2029,7 +2029,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetHeader(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes(void* message, void* reader, void* headerattributes, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeaderAttributes(void* message, void* reader, void* headerattributes, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2054,7 +2054,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttrib
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty(void* heap, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeapProperty(void* heap, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2080,7 +2080,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty(void* listener, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetListenerProperty(void* listener, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2106,7 +2106,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetListenerProp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader(void* message, void* headername, int32_t repeatingoption, uint32_t headerindex, int32_t valuetype, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetMappedHeader(void* message, void* headername, int32_t repeatingoption, uint32_t headerindex, int32_t valuetype, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, int32_t, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2137,7 +2137,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty(void* message, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetMessageProperty(void* message, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2163,7 +2163,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMessagePrope
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints(void* metadata, void* endpoints, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataEndpoints(void* metadata, void* endpoints, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2187,7 +2187,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty(void* metadata, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataProperty(void* metadata, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress(void* metadata, void* address, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetMissingMetadataDocumentAddress(void* metadata, void* address, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2237,7 +2237,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetad
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix(void* reader, void* prefix, int32_t required, void* ns, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetNamespaceFromPrefix(void* reader, void* prefix, int32_t required, void* ns, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2263,7 +2263,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFro
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty(void* context, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetOperationContextProperty(void* context, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2289,7 +2289,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetOperationCon
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount(void* policy, void* count, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyAlternativeCount(void* policy, void* count, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2313,7 +2313,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAltern
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty(void* policy, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyProperty(void* policy, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2339,7 +2339,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProper
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace(void* writer, void* ns, int32_t required, void* prefix, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetPrefixFromNamespace(void* writer, void* ns, int32_t required, void* prefix, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2365,7 +2365,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNa
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode(void* xmlreader, void* node, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderNode(void* xmlreader, void* node, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2389,7 +2389,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition(void* reader, void* nodeposition, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderPosition(void* reader, void* nodeposition, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2413,7 +2413,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetReaderPositi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty(void* reader, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderProperty(void* reader, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2439,7 +2439,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetReaderProper
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty(void* securitycontext, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityContextProperty(void* securitycontext, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2465,7 +2465,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetSecurityCont
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty(void* securitytoken, int32_t id, void* value, uint32_t valuesize, void* heap, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityTokenProperty(void* securitytoken, int32_t id, void* value, uint32_t valuesize, void* heap, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2492,7 +2492,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetSecurityToke
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty(void* servicehost, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceHostProperty(void* servicehost, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2518,7 +2518,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostP
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty(void* serviceproxy, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceProxyProperty(void* serviceproxy, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2544,7 +2544,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxy
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition(void* writer, void* nodeposition, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterPosition(void* writer, void* nodeposition, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2568,7 +2568,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetWriterPositi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty(void* writer, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterProperty(void* writer, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2594,7 +2594,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetWriterProper
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute(void* reader, void* localname, void* heap, void* valuechars, void* valuecharcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsGetXmlAttribute(void* reader, void* localname, void* heap, void* valuechars, void* valuecharcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2621,7 +2621,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage(void* message, int32_t initialization, void* sourcemessage, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsInitializeMessage(void* message, int32_t initialization, void* sourcemessage, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2646,7 +2646,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsInitializeMessa
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood(void* message, void* headerposition, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsMarkHeaderAsUnderstood(void* message, void* headerposition, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2670,7 +2670,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnd
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative(void* policy, uint32_t alternativeindex, void* policyconstraints, int32_t matchrequired, void* heap, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsMatchPolicyAlternative(void* policy, uint32_t alternativeindex, void* policyconstraints, int32_t matchrequired, void* heap, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2697,7 +2697,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlte
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsMoveReader(void* reader, int32_t moveto, void* found, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsMoveReader(void* reader, int32_t moveto, void* found, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2722,7 +2722,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsMoveReader(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsMoveWriter(void* writer, int32_t moveto, void* found, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsMoveWriter(void* writer, int32_t moveto, void* found, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2747,7 +2747,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsMoveWriter(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenChannel(void* channel, void* endpointaddress, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsOpenChannel(void* channel, void* endpointaddress, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2772,7 +2772,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenChannel(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenListener(void* listener, void* url, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsOpenListener(void* listener, void* url, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2797,7 +2797,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenListener(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost(void* servicehost, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceHost(void* servicehost, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2821,7 +2821,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy(void* serviceproxy, void* address, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceProxy(void* serviceproxy, void* address, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2846,7 +2846,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProx
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsPullBytes(void* writer, void* callback, void* callbackstate, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsPullBytes(void* writer, void* callback, void* callbackstate, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2871,7 +2871,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsPullBytes(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsPushBytes(void* writer, void* callback, void* callbackstate, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsPushBytes(void* writer, void* callback, void* callbackstate, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2896,7 +2896,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsPushBytes(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadArray(void* reader, void* localname, void* ns, int32_t valuetype, void* array, uint32_t arraysize, uint32_t itemoffset, uint32_t itemcount, void* actualitemcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadArray(void* reader, void* localname, void* ns, int32_t valuetype, void* array, uint32_t arraysize, uint32_t itemoffset, uint32_t itemcount, void* actualitemcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2927,7 +2927,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadArray(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadAttribute(void* reader, void* attributedescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadAttribute(void* reader, void* attributedescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2955,7 +2955,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadAttribute(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadBody(void* message, void* bodydescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadBody(void* message, void* bodydescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2983,7 +2983,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadBody(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadBytes(void* reader, void* bytes, uint32_t maxbytecount, void* actualbytecount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadBytes(void* reader, void* bytes, uint32_t maxbytecount, void* actualbytecount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3009,7 +3009,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadBytes(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadChars(void* reader, void* chars, uint32_t maxcharcount, void* actualcharcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadChars(void* reader, void* chars, uint32_t maxcharcount, void* actualcharcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3035,7 +3035,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadChars(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8(void* reader, void* bytes, uint32_t maxbytecount, void* actualbytecount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadCharsUtf8(void* reader, void* bytes, uint32_t maxbytecount, void* actualbytecount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3061,7 +3061,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadElement(void* reader, void* elementdescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadElement(void* reader, void* elementdescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3089,7 +3089,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadElement(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute(void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndAttribute(void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3112,7 +3112,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribut
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEndElement(void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndElement(void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3135,7 +3135,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEndElement(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension(void* reader, void* endpointaddress, int32_t extensiontype, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndpointAddressExtension(void* reader, void* endpointaddress, int32_t extensiontype, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3164,7 +3164,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAdd
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd(void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeEnd(void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3187,7 +3187,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart(void* message, void* reader, void* donecallback, void* donecallbackstate, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeStart(void* message, void* reader, void* donecallback, void* donecallbackstate, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3213,7 +3213,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeSta
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd(void* channel, void* message, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageEnd(void* channel, void* message, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3238,7 +3238,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart(void* channel, void* message, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageStart(void* channel, void* message, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3263,7 +3263,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadMessageStar
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadMetadata(void* metadata, void* reader, void* url, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadMetadata(void* metadata, void* reader, void* url, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3288,7 +3288,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadMetadata(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadNode(void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadNode(void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3311,7 +3311,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadNode(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName(void* reader, void* heap, void* prefix, void* localname, void* ns, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadQualifiedName(void* reader, void* heap, void* prefix, void* localname, void* ns, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3338,7 +3338,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedNa
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute(void* reader, uint32_t attributeindex, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartAttribute(void* reader, uint32_t attributeindex, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3362,7 +3362,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadStartAttrib
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadStartElement(void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartElement(void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3385,7 +3385,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadStartElemen
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement(void* reader, void* localname, void* ns, void* found, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadToStartElement(void* reader, void* localname, void* ns, void* found, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3411,7 +3411,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadToStartElem
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadType(void* reader, int32_t typemapping, int32_t type, void* typedescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadType(void* reader, int32_t typemapping, int32_t type, void* typedescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3441,7 +3441,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadType(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadValue(void* reader, int32_t valuetype, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadValue(void* reader, int32_t valuetype, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3467,7 +3467,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadValue(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer(void* reader, void* heap, void* xmlbuffer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBuffer(void* reader, void* heap, void* xmlbuffer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3492,7 +3492,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes(void* reader, void* encoding, void* properties, uint32_t propertycount, void* bytes, uint32_t bytecount, void* heap, void* xmlbuffer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBufferFromBytes(void* reader, void* encoding, void* properties, uint32_t propertycount, void* bytes, uint32_t bytecount, void* heap, void* xmlbuffer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3522,7 +3522,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage(void* channel, void* message, void* messagedescriptions, uint32_t messagedescriptioncount, int32_t receiveoption, int32_t readbodyoption, void* heap, void* value, uint32_t valuesize, void* arg_9_index, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsReceiveMessage(void* channel, void* message, void* messagedescriptions, uint32_t messagedescriptioncount, int32_t receiveoption, int32_t readbodyoption, void* heap, void* value, uint32_t valuesize, void* arg9Index, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, int32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3533,7 +3533,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage(
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(channel, message, messagedescriptions, messagedescriptioncount, receiveoption, readbodyoption, heap, value, valuesize, arg_9_index, asynccontext, error);
+        return km_fn_ptr(channel, message, messagedescriptions, messagedescriptioncount, receiveoption, readbodyoption, heap, value, valuesize, arg9Index, asynccontext, error);
     }
     errno = ENOSYS;
     return -1;
@@ -3547,7 +3547,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage(
     (void)heap;
     (void)value;
     (void)valuesize;
-    (void)arg_9_index;
+    (void)arg9Index;
     (void)asynccontext;
     (void)error;
     errno = ENOSYS;
@@ -3555,7 +3555,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel(void* context, void* cancelcallback, void* freestatecallback, void* userstate, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRegisterOperationForCancel(void* context, void* cancelcallback, void* freestatecallback, void* userstate, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3581,7 +3581,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRegisterOperati
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader(void* message, void* headername, void* headerns, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveCustomHeader(void* message, void* headername, void* headerns, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3606,7 +3606,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHea
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader(void* message, int32_t headertype, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveHeader(void* message, int32_t headertype, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3630,7 +3630,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader(void* message, void* headername, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveMappedHeader(void* message, void* headername, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3654,7 +3654,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHea
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveNode(void* nodeposition, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveNode(void* nodeposition, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3677,7 +3677,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRemoveNode(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRequestReply(void* channel, void* requestmessage, void* requestmessagedescription, int32_t writeoption, void* requestbodyvalue, uint32_t requestbodyvaluesize, void* replymessage, void* replymessagedescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRequestReply(void* channel, void* requestmessage, void* requestmessagedescription, int32_t writeoption, void* requestbodyvalue, uint32_t requestbodyvaluesize, void* replymessage, void* replymessagedescription, int32_t readoption, void* heap, void* value, uint32_t valuesize, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*, void*, int32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3712,7 +3712,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRequestReply(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken(void* channel, void* properties, uint32_t propertycount, void* token, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRequestSecurityToken(void* channel, void* properties, uint32_t propertycount, void* token, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3739,7 +3739,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRequestSecurity
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetChannel(void* channel, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetChannel(void* channel, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3762,7 +3762,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetChannel(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetError(void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetError(void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3784,7 +3784,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetError(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetHeap(void* heap, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetHeap(void* heap, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3807,7 +3807,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetHeap(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetListener(void* listener, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetListener(void* listener, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3830,7 +3830,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetListener(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetMessage(void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetMessage(void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3853,7 +3853,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetMessage(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetMetadata(void* metadata, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetMetadata(void* metadata, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3876,7 +3876,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetMetadata(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost(void* servicehost, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceHost(void* servicehost, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3899,7 +3899,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetServiceHos
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy(void* serviceproxy, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceProxy(void* serviceproxy, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3922,7 +3922,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsResetServicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext(void* securitycontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsRevokeSecurityContext(void* securitycontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3945,7 +3945,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityC
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError(void* channel, void* replymessage, void* faulterror, int32_t faulterrorcode, int32_t faultdisclosure, void* requestmessage, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSendFaultMessageForError(void* channel, void* replymessage, void* faulterror, int32_t faulterrorcode, int32_t faultdisclosure, void* requestmessage, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3974,7 +3974,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessag
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSendMessage(void* channel, void* message, void* messagedescription, int32_t writeoption, void* bodyvalue, uint32_t bodyvaluesize, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSendMessage(void* channel, void* message, void* messagedescription, int32_t writeoption, void* bodyvalue, uint32_t bodyvaluesize, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4003,7 +4003,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSendMessage(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage(void* channel, void* replymessage, void* replymessagedescription, int32_t writeoption, void* replybodyvalue, uint32_t replybodyvaluesize, void* requestmessage, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSendReplyMessage(void* channel, void* replymessage, void* replymessagedescription, int32_t writeoption, void* replybodyvalue, uint32_t replybodyvaluesize, void* requestmessage, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4033,7 +4033,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessag
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty(void* channel, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetChannelProperty(void* channel, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4059,7 +4059,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetChannelPrope
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty(void* error, int32_t id, void* value, uint32_t valuesize) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetErrorProperty(void* error, int32_t id, void* value, uint32_t valuesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4084,7 +4084,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetErrorPropert
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail(void* error, void* faultdetaildescription, int32_t writeoption, void* value, uint32_t valuesize) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorDetail(void* error, void* faultdetaildescription, int32_t writeoption, void* value, uint32_t valuesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDe
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty(void* error, int32_t id, void* value, uint32_t valuesize) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorProperty(void* error, int32_t id, void* value, uint32_t valuesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4135,7 +4135,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorPr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetHeader(void* message, int32_t headertype, int32_t valuetype, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetHeader(void* message, int32_t headertype, int32_t valuetype, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4163,7 +4163,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetHeader(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetInput(void* reader, void* encoding, void* input, void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetInput(void* reader, void* encoding, void* input, void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4190,7 +4190,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetInput(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer(void* reader, void* buffer, void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetInputToBuffer(void* reader, void* buffer, void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4216,7 +4216,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffe
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty(void* listener, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetListenerProperty(void* listener, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4242,7 +4242,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetListenerProp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty(void* message, int32_t id, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetMessageProperty(void* message, int32_t id, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4268,7 +4268,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetMessagePrope
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetOutput(void* writer, void* encoding, void* output, void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutput(void* writer, void* encoding, void* output, void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4295,7 +4295,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetOutput(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer(void* writer, void* buffer, void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutputToBuffer(void* writer, void* buffer, void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4321,7 +4321,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuff
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition(void* reader, void* nodeposition, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetReaderPosition(void* reader, void* nodeposition, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4345,7 +4345,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetReaderPositi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition(void* writer, void* nodeposition, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSetWriterPosition(void* writer, void* nodeposition, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4369,7 +4369,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSetWriterPositi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel(void* channel, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsShutdownSessionChannel(void* channel, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4393,7 +4393,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsShutdownSession
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsSkipNode(void* reader, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsSkipNode(void* reader, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4416,7 +4416,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsSkipNode(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization(void* reader, void* writecallback, void* writecallbackstate, void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsStartReaderCanonicalization(void* reader, void* writecallback, void* writecallbackstate, void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4443,7 +4443,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsStartReaderCano
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization(void* writer, void* writecallback, void* writecallbackstate, void* properties, uint32_t propertycount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsStartWriterCanonicalization(void* writer, void* writecallback, void* writecallbackstate, void* properties, uint32_t propertycount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4470,7 +4470,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsStartWriterCano
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace(void* chars, uint32_t charcount, void* trimmedchars, void* trimmedcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsTrimXmlWhitespace(void* chars, uint32_t charcount, void* trimmedchars, void* trimmedcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4496,7 +4496,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespa
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName(void* ncnamechars, uint32_t ncnamecharcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsVerifyXmlNCName(void* ncnamechars, uint32_t ncnamecharcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4520,7 +4520,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteArray(void* writer, void* localname, void* ns, int32_t valuetype, void* array, uint32_t arraysize, uint32_t itemoffset, uint32_t itemcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteArray(void* writer, void* localname, void* ns, int32_t valuetype, void* array, uint32_t arraysize, uint32_t itemoffset, uint32_t itemcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4550,7 +4550,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteArray(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute(void* writer, void* attributedescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteAttribute(void* writer, void* attributedescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4577,7 +4577,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteBody(void* message, void* bodydescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBody(void* message, void* bodydescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4604,7 +4604,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteBody(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteBytes(void* writer, void* bytes, uint32_t bytecount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBytes(void* writer, void* bytes, uint32_t bytecount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4629,7 +4629,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteBytes(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteChars(void* writer, void* chars, uint32_t charcount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteChars(void* writer, void* chars, uint32_t charcount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4654,7 +4654,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteChars(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8(void* writer, void* bytes, uint32_t bytecount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteCharsUtf8(void* writer, void* bytes, uint32_t bytecount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4679,7 +4679,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteElement(void* writer, void* elementdescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteElement(void* writer, void* elementdescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4706,7 +4706,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteElement(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute(void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndAttribute(void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4729,7 +4729,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData(void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndCData(void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4752,7 +4752,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement(void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndElement(void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4775,7 +4775,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement(void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndStartElement(void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4798,7 +4798,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartEl
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd(void* message, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeEnd(void* message, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4821,7 +4821,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEn
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart(void* message, void* writer, void* donecallback, void* donecallbackstate, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeStart(void* message, void* writer, void* donecallback, void* donecallbackstate, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4847,7 +4847,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeSt
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd(void* channel, void* message, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageEnd(void* channel, void* message, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4872,7 +4872,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart(void* channel, void* message, void* asynccontext, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageStart(void* channel, void* message, void* asynccontext, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4897,7 +4897,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteMessageSta
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteNode(void* writer, void* node, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteNode(void* writer, void* node, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4921,7 +4921,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteNode(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName(void* writer, void* prefix, void* localname, void* ns, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteQualifiedName(void* writer, void* prefix, void* localname, void* ns, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4947,7 +4947,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedN
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute(void* writer, void* prefix, void* localname, void* ns, int32_t singlequote, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartAttribute(void* writer, void* prefix, void* localname, void* ns, int32_t singlequote, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4974,7 +4974,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttri
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData(void* writer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartCData(void* writer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4997,7 +4997,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement(void* writer, void* prefix, void* localname, void* ns, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartElement(void* writer, void* prefix, void* localname, void* ns, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5023,7 +5023,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteStartEleme
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteText(void* writer, void* text, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteText(void* writer, void* text, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5047,7 +5047,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteText(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteType(void* writer, int32_t typemapping, int32_t type, void* typedescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteType(void* writer, int32_t typemapping, int32_t type, void* typedescription, int32_t writeoption, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5076,7 +5076,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteType(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteValue(void* writer, int32_t valuetype, void* value, uint32_t valuesize, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteValue(void* writer, int32_t valuetype, void* value, uint32_t valuesize, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5102,7 +5102,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteValue(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer(void* writer, void* xmlbuffer, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBuffer(void* writer, void* xmlbuffer, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5126,7 +5126,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes(void* writer, void* xmlbuffer, void* encoding, void* properties, uint32_t propertycount, void* heap, void* bytes, void* bytecount, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBufferToBytes(void* writer, void* xmlbuffer, void* encoding, void* properties, uint32_t propertycount, void* heap, void* bytes, void* bytecount, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5156,7 +5156,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferT
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute(void* writer, void* prefix, void* ns, int32_t singlequote, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlnsAttribute(void* writer, void* prefix, void* ns, int32_t singlequote, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5182,7 +5182,7 @@ int32_t windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttri
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals(void* string1, void* string2, void* error) {
+int32_t windowssysWindowsWin32NetworkingWindowswebservicesWsXmlStringEquals(void* string1, void* string2, void* error) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

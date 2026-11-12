@@ -2,22 +2,24 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-import io.github.kotlinmania.windowssys.COpaquePointer
-import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector
-import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector
-import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector
-import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssysWindowsWin32SystemCorrelationvectorRtlExtendCorrelationVector
+import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssysWindowsWin32SystemCorrelationvectorRtlIncrementCorrelationVector
+import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssysWindowsWin32SystemCorrelationvectorRtlInitializeCorrelationVector
+import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssysWindowsWin32SystemCorrelationvectorRtlValidateCorrelationVector
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector(correlationvector?.value?.toCPointer<ByteVar>())
+public actual fun rtlExtendCorrelationVector(correlationvector: MutPtr<CorrelationVector>): UInt =
+    windowssysWindowsWin32SystemCorrelationvectorRtlExtendCorrelationVector(correlationvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector(correlationvector?.value?.toCPointer<ByteVar>())
+public actual fun rtlIncrementCorrelationVector(correlationvector: MutPtr<CorrelationVector>): UInt =
+    windowssysWindowsWin32SystemCorrelationvectorRtlIncrementCorrelationVector(correlationvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector(correlationvector?.value?.toCPointer<ByteVar>(), version, guid?.value?.toCPointer<ByteVar>())
+public actual fun rtlInitializeCorrelationVector(correlationvector: MutPtr<CorrelationVector>, version: Int, guid: ConstPtr<Guid>): UInt =
+    windowssysWindowsWin32SystemCorrelationvectorRtlInitializeCorrelationVector(correlationvector.rawAddress.toCPointer<ByteVar>(), version, guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector(vector?.value?.toCPointer<ByteVar>())
+public actual fun rtlValidateCorrelationVector(vector: ConstPtr<CorrelationVector>): UInt =
+    windowssysWindowsWin32SystemCorrelationvectorRtlValidateCorrelationVector(vector.rawAddress.toCPointer<ByteVar>())

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCancelIncident(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCancelIncident(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCloseIncident(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCloseIncident(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateConnectivityIncident(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateConnectivityIncident(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateDNSIncident(JNIEnv* km_env, jclass km_clazz, jlong hostname, jshort querytype, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateDNSIncident(JNIEnv* km_env, jclass km_clazz, jlong hostname, jshort querytype, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateGroupingIncident(JNIEnv* km_env, jclass km_clazz, jlong cloudname, jlong groupname, jlong identity, jlong invitation, jlong addresses, jlong appid, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateGroupingIncident(JNIEnv* km_env, jclass km_clazz, jlong cloudname, jlong groupname, jlong identity, jlong invitation, jlong addresses, jlong appid, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateIncident(JNIEnv* km_env, jclass km_clazz, jlong helperclassname, jint celt, jlong attributes, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateIncident(JNIEnv* km_env, jclass km_clazz, jlong helperclassname, jint celt, jlong attributes, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreatePnrpIncident(JNIEnv* km_env, jclass km_clazz, jlong cloudname, jlong peername, jint diagnosepublish, jlong appid, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreatePnrpIncident(JNIEnv* km_env, jclass km_clazz, jlong cloudname, jlong peername, jint diagnosepublish, jlong appid, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -209,7 +209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateSharingIncident(JNIEnv* km_env, jclass km_clazz, jlong uncpath, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateSharingIncident(JNIEnv* km_env, jclass km_clazz, jlong uncpath, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateWebIncident(JNIEnv* km_env, jclass km_clazz, jlong url, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWebIncident(JNIEnv* km_env, jclass km_clazz, jlong url, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -261,7 +261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateWebIncidentEx(JNIEnv* km_env, jclass km_clazz, jlong url, jint usewinhttp, jlong modulename, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWebIncidentEx(JNIEnv* km_env, jclass km_clazz, jlong url, jint usewinhttp, jlong modulename, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -289,7 +289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfCreateWinSockIncident(JNIEnv* km_env, jclass km_clazz, jlong sock, jlong host, jshort port, jlong appid, jlong userid, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWinSockIncident(JNIEnv* km_env, jclass km_clazz, jlong sock, jlong host, jshort port, jlong appid, jlong userid, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -319,7 +319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfDiagnoseIncident(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong rootcausecount, jlong rootcauses, jint dwwait, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfDiagnoseIncident(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong rootcausecount, jlong rootcauses, jint dwwait, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -348,7 +348,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfExecuteDiagnosis(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfExecuteDiagnosis(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -374,7 +374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfGetTraceFile(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong tracefilelocation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfGetTraceFile(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong tracefilelocation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -400,7 +400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssys_1windows_1win32_1networkmanagement_1networkdiagnosticsframework_1ndfRepairIncident(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong repairex, jint dwwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge_windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfRepairIncident(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong repairex, jint dwwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

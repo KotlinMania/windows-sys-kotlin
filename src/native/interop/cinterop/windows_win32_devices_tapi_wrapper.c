@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_tapi_getTnefStreamCodepage(void* lpstream, void* lpulcodepage, void* lpulsubcodepage) {
+int32_t windowssysWindowsWin32DevicesTapiGetTnefStreamCodepage(void* lpstream, void* lpulcodepage, void* lpulsubcodepage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_devices_tapi_getTnefStreamCodepage(void* lpstre
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_openTnefStream(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpptnef) {
+int32_t windowssysWindowsWin32DevicesTapiOpenTnefStream(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpptnef) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -67,7 +67,7 @@ int32_t windowssys_windows_win32_devices_tapi_openTnefStream(void* lpvsupport, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_openTnefStreamEx(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpadressbook, void* lpptnef) {
+int32_t windowssysWindowsWin32DevicesTapiOpenTnefStreamEx(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpadressbook, void* lpptnef) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -96,7 +96,7 @@ int32_t windowssys_windows_win32_devices_tapi_openTnefStreamEx(void* lpvsupport,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAccept(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineAccept(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -120,7 +120,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAccept(uint32_t hcall, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAddProvider(void* lpszproviderfilename, void* hwndowner, void* lpdwpermanentproviderid) {
+int32_t windowssysWindowsWin32DevicesTapiLineAddProvider(void* lpszproviderfilename, void* hwndowner, void* lpdwpermanentproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -144,7 +144,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAddProvider(void* lpszprovider
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAddProviderA(void* lpszproviderfilename, void* hwndowner, void* lpdwpermanentproviderid) {
+int32_t windowssysWindowsWin32DevicesTapiLineAddProviderA(void* lpszproviderfilename, void* hwndowner, void* lpdwpermanentproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -168,7 +168,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAddProviderA(void* lpszprovide
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAddProviderW(void* lpszproviderfilename, void* hwndowner, void* lpdwpermanentproviderid) {
+int32_t windowssysWindowsWin32DevicesTapiLineAddProviderW(void* lpszproviderfilename, void* hwndowner, void* lpdwpermanentproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -192,7 +192,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAddProviderW(void* lpszprovide
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAddToConference(uint32_t hconfcall, uint32_t hconsultcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineAddToConference(uint32_t hconfcall, uint32_t hconsultcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -215,7 +215,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAddToConference(uint32_t hconf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAgentSpecific(uint32_t hline, uint32_t dwaddressid, uint32_t dwagentextensionidindex, void* lpparams, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineAgentSpecific(uint32_t hline, uint32_t dwaddressid, uint32_t dwagentextensionidindex, void* lpparams, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -241,7 +241,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAgentSpecific(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineAnswer(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineAnswer(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineAnswer(uint32_t hcall, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineBlindTransfer(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineBlindTransfer(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineBlindTransfer(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineBlindTransferA(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineBlindTransferA(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -313,7 +313,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineBlindTransferA(uint32_t hcall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineBlindTransferW(uint32_t hcall, void* lpszdestaddressw, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineBlindTransferW(uint32_t hcall, void* lpszdestaddressw, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineBlindTransferW(uint32_t hcall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineClose(uint32_t hline) {
+int32_t windowssysWindowsWin32DevicesTapiLineClose(uint32_t hline) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -359,7 +359,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineClose(uint32_t hline) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineCompleteCall(uint32_t hcall, void* lpdwcompletionid, uint32_t dwcompletionmode, uint32_t dwmessageid) {
+int32_t windowssysWindowsWin32DevicesTapiLineCompleteCall(uint32_t hcall, void* lpdwcompletionid, uint32_t dwcompletionmode, uint32_t dwmessageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -384,7 +384,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineCompleteCall(uint32_t hcall, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineCompleteTransfer(uint32_t hcall, uint32_t hconsultcall, void* lphconfcall, uint32_t dwtransfermode) {
+int32_t windowssysWindowsWin32DevicesTapiLineCompleteTransfer(uint32_t hcall, uint32_t hconsultcall, void* lphconfcall, uint32_t dwtransfermode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineCompleteTransfer(uint32_t hcal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigDialog(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigDialog(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigDialog(uint32_t dwdevice
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogA(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigDialogA(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -457,7 +457,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogA(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogEdit(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass, void* lpdeviceconfigin, uint32_t dwsize, void* lpdeviceconfigout) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigDialogEdit(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass, void* lpdeviceconfigin, uint32_t dwsize, void* lpdeviceconfigout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -484,7 +484,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogEdit(uint32_t dwde
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogEditA(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass, void* lpdeviceconfigin, uint32_t dwsize, void* lpdeviceconfigout) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigDialogEditA(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass, void* lpdeviceconfigin, uint32_t dwsize, void* lpdeviceconfigout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -511,7 +511,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogEditA(uint32_t dwd
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogEditW(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass, void* lpdeviceconfigin, uint32_t dwsize, void* lpdeviceconfigout) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigDialogEditW(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass, void* lpdeviceconfigin, uint32_t dwsize, void* lpdeviceconfigout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -538,7 +538,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogEditW(uint32_t dwd
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogW(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigDialogW(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -562,7 +562,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigDialogW(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineConfigProvider(void* hwndowner, uint32_t dwpermanentproviderid) {
+int32_t windowssysWindowsWin32DevicesTapiLineConfigProvider(void* hwndowner, uint32_t dwpermanentproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -585,7 +585,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineConfigProvider(void* hwndowner
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentA(uint32_t hline, void* lpszagentid, void* lpszagentpin, void* lphagent) {
+int32_t windowssysWindowsWin32DevicesTapiLineCreateAgentA(uint32_t hline, void* lpszagentid, void* lpszagentpin, void* lphagent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -610,7 +610,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentA(uint32_t hline, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA(uint32_t hline, uint32_t hagent, void* lpszagentpin, uint32_t dwworkingaddressid, void* lpgroupid, void* lphagentsession) {
+int32_t windowssysWindowsWin32DevicesTapiLineCreateAgentSessionA(uint32_t hline, uint32_t hagent, void* lpszagentpin, uint32_t dwworkingaddressid, void* lpgroupid, void* lphagentsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -637,7 +637,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW(uint32_t hline, uint32_t hagent, void* lpszagentpin, uint32_t dwworkingaddressid, void* lpgroupid, void* lphagentsession) {
+int32_t windowssysWindowsWin32DevicesTapiLineCreateAgentSessionW(uint32_t hline, uint32_t hagent, void* lpszagentpin, uint32_t dwworkingaddressid, void* lpgroupid, void* lphagentsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentW(uint32_t hline, void* lpszagentid, void* lpszagentpin, void* lphagent) {
+int32_t windowssysWindowsWin32DevicesTapiLineCreateAgentW(uint32_t hline, void* lpszagentid, void* lpszagentpin, void* lphagent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -689,7 +689,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineCreateAgentW(uint32_t hline, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDeallocateCall(uint32_t hcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineDeallocateCall(uint32_t hcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -711,7 +711,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDeallocateCall(uint32_t hcall)
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDevSpecific(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, void* lpparams, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineDevSpecific(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, void* lpparams, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDevSpecific(uint32_t hline, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDevSpecificFeature(uint32_t hline, uint32_t dwfeature, void* lpparams, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineDevSpecificFeature(uint32_t hline, uint32_t dwfeature, void* lpparams, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -762,7 +762,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDevSpecificFeature(uint32_t hl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDial(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineDial(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -786,7 +786,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDial(uint32_t hcall, void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDialA(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineDialA(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -810,7 +810,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDialA(uint32_t hcall, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDialW(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineDialW(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -834,7 +834,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDialW(uint32_t hcall, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineDrop(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineDrop(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -858,7 +858,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineDrop(uint32_t hcall, void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineForward(uint32_t hline, uint32_t balladdresses, uint32_t dwaddressid, void* lpforwardlist, uint32_t dwnumringsnoanswer, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineForward(uint32_t hline, uint32_t balladdresses, uint32_t dwaddressid, void* lpforwardlist, uint32_t dwnumringsnoanswer, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -886,7 +886,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineForward(uint32_t hline, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineForwardA(uint32_t hline, uint32_t balladdresses, uint32_t dwaddressid, void* lpforwardlist, uint32_t dwnumringsnoanswer, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineForwardA(uint32_t hline, uint32_t balladdresses, uint32_t dwaddressid, void* lpforwardlist, uint32_t dwnumringsnoanswer, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +914,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineForwardA(uint32_t hline, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineForwardW(uint32_t hline, uint32_t balladdresses, uint32_t dwaddressid, void* lpforwardlist, uint32_t dwnumringsnoanswer, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineForwardW(uint32_t hline, uint32_t balladdresses, uint32_t dwaddressid, void* lpforwardlist, uint32_t dwnumringsnoanswer, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -942,7 +942,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineForwardW(uint32_t hline, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGatherDigits(uint32_t hcall, uint32_t dwdigitmodes, void* lpsdigits, uint32_t dwnumdigits, void* lpszterminationdigits, uint32_t dwfirstdigittimeout, uint32_t dwinterdigittimeout) {
+int32_t windowssysWindowsWin32DevicesTapiLineGatherDigits(uint32_t hcall, uint32_t dwdigitmodes, void* lpsdigits, uint32_t dwnumdigits, void* lpszterminationdigits, uint32_t dwfirstdigittimeout, uint32_t dwinterdigittimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -970,7 +970,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGatherDigits(uint32_t hcall, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGatherDigitsA(uint32_t hcall, uint32_t dwdigitmodes, void* lpsdigits, uint32_t dwnumdigits, void* lpszterminationdigits, uint32_t dwfirstdigittimeout, uint32_t dwinterdigittimeout) {
+int32_t windowssysWindowsWin32DevicesTapiLineGatherDigitsA(uint32_t hcall, uint32_t dwdigitmodes, void* lpsdigits, uint32_t dwnumdigits, void* lpszterminationdigits, uint32_t dwfirstdigittimeout, uint32_t dwinterdigittimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -998,7 +998,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGatherDigitsA(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGatherDigitsW(uint32_t hcall, uint32_t dwdigitmodes, void* lpsdigits, uint32_t dwnumdigits, void* lpszterminationdigits, uint32_t dwfirstdigittimeout, uint32_t dwinterdigittimeout) {
+int32_t windowssysWindowsWin32DevicesTapiLineGatherDigitsW(uint32_t hcall, uint32_t dwdigitmodes, void* lpsdigits, uint32_t dwnumdigits, void* lpszterminationdigits, uint32_t dwfirstdigittimeout, uint32_t dwinterdigittimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1026,7 +1026,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGatherDigitsW(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGenerateDigits(uint32_t hcall, uint32_t dwdigitmode, void* lpszdigits, uint32_t dwduration) {
+int32_t windowssysWindowsWin32DevicesTapiLineGenerateDigits(uint32_t hcall, uint32_t dwdigitmode, void* lpszdigits, uint32_t dwduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1051,7 +1051,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGenerateDigits(uint32_t hcall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGenerateDigitsA(uint32_t hcall, uint32_t dwdigitmode, void* lpszdigits, uint32_t dwduration) {
+int32_t windowssysWindowsWin32DevicesTapiLineGenerateDigitsA(uint32_t hcall, uint32_t dwdigitmode, void* lpszdigits, uint32_t dwduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1076,7 +1076,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGenerateDigitsA(uint32_t hcall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGenerateDigitsW(uint32_t hcall, uint32_t dwdigitmode, void* lpszdigits, uint32_t dwduration) {
+int32_t windowssysWindowsWin32DevicesTapiLineGenerateDigitsW(uint32_t hcall, uint32_t dwdigitmode, void* lpszdigits, uint32_t dwduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1101,7 +1101,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGenerateDigitsW(uint32_t hcall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGenerateTone(uint32_t hcall, uint32_t dwtonemode, uint32_t dwduration, uint32_t dwnumtones, void* lptones) {
+int32_t windowssysWindowsWin32DevicesTapiLineGenerateTone(uint32_t hcall, uint32_t dwtonemode, uint32_t dwduration, uint32_t dwnumtones, void* lptones) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1127,7 +1127,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGenerateTone(uint32_t hcall, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressCaps(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwapiversion, uint32_t dwextversion, void* lpaddresscaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressCaps(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwapiversion, uint32_t dwextversion, void* lpaddresscaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1154,7 +1154,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressCaps(uint32_t hlinea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressCapsA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwapiversion, uint32_t dwextversion, void* lpaddresscaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressCapsA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwapiversion, uint32_t dwextversion, void* lpaddresscaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1181,7 +1181,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressCapsA(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressCapsW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwapiversion, uint32_t dwextversion, void* lpaddresscaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressCapsW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwapiversion, uint32_t dwextversion, void* lpaddresscaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1208,7 +1208,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressCapsW(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressID(uint32_t hline, void* lpdwaddressid, uint32_t dwaddressmode, void* lpsaddress, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressID(uint32_t hline, void* lpdwaddressid, uint32_t dwaddressmode, void* lpsaddress, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1234,7 +1234,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressID(uint32_t hline, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressIDA(uint32_t hline, void* lpdwaddressid, uint32_t dwaddressmode, void* lpsaddress, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressIDA(uint32_t hline, void* lpdwaddressid, uint32_t dwaddressmode, void* lpsaddress, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1260,7 +1260,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressIDA(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressIDW(uint32_t hline, void* lpdwaddressid, uint32_t dwaddressmode, void* lpsaddress, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressIDW(uint32_t hline, void* lpdwaddressid, uint32_t dwaddressmode, void* lpsaddress, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1286,7 +1286,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressIDW(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressStatus(uint32_t hline, uint32_t dwaddressid, void* lpaddressstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressStatus(uint32_t hline, uint32_t dwaddressid, void* lpaddressstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1310,7 +1310,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressStatus(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressStatusA(uint32_t hline, uint32_t dwaddressid, void* lpaddressstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressStatusA(uint32_t hline, uint32_t dwaddressid, void* lpaddressstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1334,7 +1334,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressStatusA(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAddressStatusW(uint32_t hline, uint32_t dwaddressid, void* lpaddressstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAddressStatusW(uint32_t hline, uint32_t dwaddressid, void* lpaddressstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1358,7 +1358,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAddressStatusW(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA(uint32_t hline, uint32_t dwaddressid, void* lpagentactivitylist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentActivityListA(uint32_t hline, uint32_t dwaddressid, void* lpagentactivitylist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1382,7 +1382,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW(uint32_t hline, uint32_t dwaddressid, void* lpagentactivitylist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentActivityListW(uint32_t hline, uint32_t dwaddressid, void* lpagentactivitylist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1406,7 +1406,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentCapsA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwappapiversion, void* lpagentcaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentCapsA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwappapiversion, void* lpagentcaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1432,7 +1432,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentCapsA(uint32_t hlineap
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentCapsW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwappapiversion, void* lpagentcaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentCapsW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwaddressid, uint32_t dwappapiversion, void* lpagentcaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1458,7 +1458,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentCapsW(uint32_t hlineap
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA(uint32_t hline, uint32_t dwaddressid, void* lpagentgrouplist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentGroupListA(uint32_t hline, uint32_t dwaddressid, void* lpagentgrouplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1482,7 +1482,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA(uint32_t hl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW(uint32_t hline, uint32_t dwaddressid, void* lpagentgrouplist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentGroupListW(uint32_t hline, uint32_t dwaddressid, void* lpagentgrouplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1506,7 +1506,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW(uint32_t hl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentInfo(uint32_t hline, uint32_t hagent, void* lpagentinfo) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentInfo(uint32_t hline, uint32_t hagent, void* lpagentinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1530,7 +1530,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentInfo(uint32_t hline, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo(uint32_t hline, uint32_t hagentsession, void* lpagentsessioninfo) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo(uint32_t hline, uint32_t hagentsession, void* lpagentsessioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1554,7 +1554,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentSessionList(uint32_t hline, uint32_t hagent, void* lpagentsessionlist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentSessionList(uint32_t hline, uint32_t hagent, void* lpagentsessionlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1578,7 +1578,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentSessionList(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentStatusA(uint32_t hline, uint32_t dwaddressid, void* lpagentstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentStatusA(uint32_t hline, uint32_t dwaddressid, void* lpagentstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1602,7 +1602,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentStatusA(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAgentStatusW(uint32_t hline, uint32_t dwaddressid, void* lpagentstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAgentStatusW(uint32_t hline, uint32_t dwaddressid, void* lpagentstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1626,7 +1626,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAgentStatusW(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAppPriority(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpextensionname, void* lpdwpriority) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAppPriority(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpextensionname, void* lpdwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1653,7 +1653,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAppPriority(void* lpszappfi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAppPriorityA(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpextensionname, void* lpdwpriority) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAppPriorityA(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpextensionname, void* lpdwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1680,7 +1680,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAppPriorityA(void* lpszappf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetAppPriorityW(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpextensionname, void* lpdwpriority) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetAppPriorityW(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpextensionname, void* lpdwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1707,7 +1707,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetAppPriorityW(void* lpszappf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCallInfo(uint32_t hcall, void* lpcallinfo) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCallInfo(uint32_t hcall, void* lpcallinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1730,7 +1730,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCallInfo(uint32_t hcall, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCallInfoA(uint32_t hcall, void* lpcallinfo) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCallInfoA(uint32_t hcall, void* lpcallinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1753,7 +1753,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCallInfoA(uint32_t hcall, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCallInfoW(uint32_t hcall, void* lpcallinfo) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCallInfoW(uint32_t hcall, void* lpcallinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1776,7 +1776,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCallInfoW(uint32_t hcall, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCallStatus(uint32_t hcall, void* lpcallstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCallStatus(uint32_t hcall, void* lpcallstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1799,7 +1799,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCallStatus(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls(uint32_t hcall, void* lpcalllist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls(uint32_t hcall, void* lpcalllist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1822,7 +1822,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCountry(uint32_t dwcountryid, uint32_t dwapiversion, void* lplinecountrylist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCountry(uint32_t dwcountryid, uint32_t dwapiversion, void* lplinecountrylist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1846,7 +1846,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCountry(uint32_t dwcountryi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCountryA(uint32_t dwcountryid, uint32_t dwapiversion, void* lplinecountrylist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCountryA(uint32_t dwcountryid, uint32_t dwapiversion, void* lplinecountrylist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1870,7 +1870,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCountryA(uint32_t dwcountry
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetCountryW(uint32_t dwcountryid, uint32_t dwapiversion, void* lplinecountrylist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetCountryW(uint32_t dwcountryid, uint32_t dwapiversion, void* lplinecountrylist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1894,7 +1894,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetCountryW(uint32_t dwcountry
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetDevCaps(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lplinedevcaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetDevCaps(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lplinedevcaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1920,7 +1920,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetDevCaps(uint32_t hlineapp, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetDevCapsA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lplinedevcaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetDevCapsA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lplinedevcaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1946,7 +1946,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetDevCapsA(uint32_t hlineapp,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetDevCapsW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lplinedevcaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetDevCapsW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lplinedevcaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1972,7 +1972,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetDevCapsW(uint32_t hlineapp,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetDevConfig(uint32_t dwdeviceid, void* lpdeviceconfig, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetDevConfig(uint32_t dwdeviceid, void* lpdeviceconfig, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1996,7 +1996,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetDevConfig(uint32_t dwdevice
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetDevConfigA(uint32_t dwdeviceid, void* lpdeviceconfig, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetDevConfigA(uint32_t dwdeviceid, void* lpdeviceconfig, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2020,7 +2020,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetDevConfigA(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetDevConfigW(uint32_t dwdeviceid, void* lpdeviceconfig, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetDevConfigW(uint32_t dwdeviceid, void* lpdeviceconfig, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2044,7 +2044,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetDevConfigW(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetGroupListA(uint32_t hline, void* lpgrouplist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetGroupListA(uint32_t hline, void* lpgrouplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2067,7 +2067,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetGroupListA(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetGroupListW(uint32_t hline, void* lpgrouplist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetGroupListW(uint32_t hline, void* lpgrouplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2090,7 +2090,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetGroupListW(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetID(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdeviceid, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetID(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdeviceid, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2117,7 +2117,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetID(uint32_t hline, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetIDA(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdeviceid, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetIDA(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdeviceid, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2144,7 +2144,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetIDA(uint32_t hline, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetIDW(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdeviceid, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetIDW(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdeviceid, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2171,7 +2171,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetIDW(uint32_t hline, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetIcon(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetIcon(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2195,7 +2195,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetIcon(uint32_t dwdeviceid, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetIconA(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetIconA(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2219,7 +2219,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetIconA(uint32_t dwdeviceid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetIconW(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetIconW(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2243,7 +2243,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetIconW(uint32_t dwdeviceid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetLineDevStatus(uint32_t hline, void* lplinedevstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetLineDevStatus(uint32_t hline, void* lplinedevstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2266,7 +2266,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetLineDevStatus(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA(uint32_t hline, void* lplinedevstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetLineDevStatusA(uint32_t hline, void* lplinedevstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2289,7 +2289,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW(uint32_t hline, void* lplinedevstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetLineDevStatusW(uint32_t hline, void* lplinedevstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2312,7 +2312,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetMessage(uint32_t hlineapp, void* lpmessage, uint32_t dwtimeout) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetMessage(uint32_t hlineapp, void* lpmessage, uint32_t dwtimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2336,7 +2336,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetMessage(uint32_t hlineapp, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetNewCalls(uint32_t hline, uint32_t dwaddressid, uint32_t dwselect, void* lpcalllist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetNewCalls(uint32_t hline, uint32_t dwaddressid, uint32_t dwselect, void* lpcalllist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2361,7 +2361,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetNewCalls(uint32_t hline, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetNumRings(uint32_t hline, uint32_t dwaddressid, void* lpdwnumrings) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetNumRings(uint32_t hline, uint32_t dwaddressid, void* lpdwnumrings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2385,7 +2385,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetNumRings(uint32_t hline, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetProviderList(uint32_t dwapiversion, void* lpproviderlist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetProviderList(uint32_t dwapiversion, void* lpproviderlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2408,7 +2408,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetProviderList(uint32_t dwapi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetProviderListA(uint32_t dwapiversion, void* lpproviderlist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetProviderListA(uint32_t dwapiversion, void* lpproviderlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2431,7 +2431,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetProviderListA(uint32_t dwap
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetProviderListW(uint32_t dwapiversion, void* lpproviderlist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetProviderListW(uint32_t dwapiversion, void* lpproviderlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2454,7 +2454,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetProviderListW(uint32_t dwap
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetProxyStatus(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwappapiversion, void* lplineproxyreqestlist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetProxyStatus(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwappapiversion, void* lplineproxyreqestlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2479,7 +2479,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetProxyStatus(uint32_t hlinea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetQueueInfo(uint32_t hline, uint32_t dwqueueid, void* lplinequeueinfo) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetQueueInfo(uint32_t hline, uint32_t dwqueueid, void* lplinequeueinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2503,7 +2503,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetQueueInfo(uint32_t hline, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetQueueListA(uint32_t hline, void* lpgroupid, void* lpqueuelist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetQueueListA(uint32_t hline, void* lpgroupid, void* lpqueuelist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2527,7 +2527,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetQueueListA(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetQueueListW(uint32_t hline, void* lpgroupid, void* lpqueuelist) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetQueueListW(uint32_t hline, void* lpgroupid, void* lpqueuelist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2551,7 +2551,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetQueueListW(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetRequest(uint32_t hlineapp, uint32_t dwrequestmode, void* lprequestbuffer) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetRequest(uint32_t hlineapp, uint32_t dwrequestmode, void* lprequestbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2575,7 +2575,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetRequest(uint32_t hlineapp, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetRequestA(uint32_t hlineapp, uint32_t dwrequestmode, void* lprequestbuffer) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetRequestA(uint32_t hlineapp, uint32_t dwrequestmode, void* lprequestbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2599,7 +2599,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetRequestA(uint32_t hlineapp,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetRequestW(uint32_t hlineapp, uint32_t dwrequestmode, void* lprequestbuffer) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetRequestW(uint32_t hlineapp, uint32_t dwrequestmode, void* lprequestbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2623,7 +2623,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetRequestW(uint32_t hlineapp,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetStatusMessages(uint32_t hline, void* lpdwlinestates, void* lpdwaddressstates) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetStatusMessages(uint32_t hline, void* lpdwlinestates, void* lpdwaddressstates) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2647,7 +2647,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetStatusMessages(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetTranslateCaps(uint32_t hlineapp, uint32_t dwapiversion, void* lptranslatecaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetTranslateCaps(uint32_t hlineapp, uint32_t dwapiversion, void* lptranslatecaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2671,7 +2671,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetTranslateCaps(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA(uint32_t hlineapp, uint32_t dwapiversion, void* lptranslatecaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetTranslateCapsA(uint32_t hlineapp, uint32_t dwapiversion, void* lptranslatecaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2695,7 +2695,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW(uint32_t hlineapp, uint32_t dwapiversion, void* lptranslatecaps) {
+int32_t windowssysWindowsWin32DevicesTapiLineGetTranslateCapsW(uint32_t hlineapp, uint32_t dwapiversion, void* lptranslatecaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2719,7 +2719,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineHandoff(uint32_t hcall, void* lpszfilename, uint32_t dwmediamode) {
+int32_t windowssysWindowsWin32DevicesTapiLineHandoff(uint32_t hcall, void* lpszfilename, uint32_t dwmediamode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2743,7 +2743,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineHandoff(uint32_t hcall, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineHandoffA(uint32_t hcall, void* lpszfilename, uint32_t dwmediamode) {
+int32_t windowssysWindowsWin32DevicesTapiLineHandoffA(uint32_t hcall, void* lpszfilename, uint32_t dwmediamode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2767,7 +2767,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineHandoffA(uint32_t hcall, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineHandoffW(uint32_t hcall, void* lpszfilename, uint32_t dwmediamode) {
+int32_t windowssysWindowsWin32DevicesTapiLineHandoffW(uint32_t hcall, void* lpszfilename, uint32_t dwmediamode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2791,7 +2791,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineHandoffW(uint32_t hcall, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineHold(uint32_t hcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineHold(uint32_t hcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2813,7 +2813,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineHold(uint32_t hcall) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineInitialize(void* lphlineapp, void* hinstance, void* lpfncallback, void* lpszappname, void* lpdwnumdevs) {
+int32_t windowssysWindowsWin32DevicesTapiLineInitialize(void* lphlineapp, void* hinstance, void* lpfncallback, void* lpszappname, void* lpdwnumdevs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2839,7 +2839,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineInitialize(void* lphlineapp, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineInitializeExA(void* lphlineapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lplineinitializeexparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineInitializeExA(void* lphlineapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lplineinitializeexparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2867,7 +2867,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineInitializeExA(void* lphlineapp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineInitializeExW(void* lphlineapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lplineinitializeexparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineInitializeExW(void* lphlineapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lplineinitializeexparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2895,7 +2895,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineInitializeExW(void* lphlineapp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineMakeCall(uint32_t hline, void* lphcall, void* lpszdestaddress, uint32_t dwcountrycode, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineMakeCall(uint32_t hline, void* lphcall, void* lpszdestaddress, uint32_t dwcountrycode, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2921,7 +2921,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineMakeCall(uint32_t hline, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineMakeCallA(uint32_t hline, void* lphcall, void* lpszdestaddress, uint32_t dwcountrycode, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineMakeCallA(uint32_t hline, void* lphcall, void* lpszdestaddress, uint32_t dwcountrycode, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2947,7 +2947,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineMakeCallA(uint32_t hline, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineMakeCallW(uint32_t hline, void* lphcall, void* lpszdestaddress, uint32_t dwcountrycode, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineMakeCallW(uint32_t hline, void* lphcall, void* lpszdestaddress, uint32_t dwcountrycode, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2973,7 +2973,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineMakeCallW(uint32_t hline, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineMonitorDigits(uint32_t hcall, uint32_t dwdigitmodes) {
+int32_t windowssysWindowsWin32DevicesTapiLineMonitorDigits(uint32_t hcall, uint32_t dwdigitmodes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2996,7 +2996,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineMonitorDigits(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineMonitorMedia(uint32_t hcall, uint32_t dwmediamodes) {
+int32_t windowssysWindowsWin32DevicesTapiLineMonitorMedia(uint32_t hcall, uint32_t dwmediamodes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3019,7 +3019,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineMonitorMedia(uint32_t hcall, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineMonitorTones(uint32_t hcall, void* lptonelist, uint32_t dwnumentries) {
+int32_t windowssysWindowsWin32DevicesTapiLineMonitorTones(uint32_t hcall, void* lptonelist, uint32_t dwnumentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3043,7 +3043,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineMonitorTones(uint32_t hcall, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapilowversion, uint32_t dwapihighversion, void* lpdwapiversion, void* lpextensionid) {
+int32_t windowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapilowversion, uint32_t dwapihighversion, void* lpdwapiversion, void* lpextensionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3070,7 +3070,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextlowversion, uint32_t dwexthighversion, void* lpdwextversion) {
+int32_t windowssysWindowsWin32DevicesTapiLineNegotiateExtVersion(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextlowversion, uint32_t dwexthighversion, void* lpdwextversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3097,7 +3097,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineOpen(uint32_t hlineapp, uint32_t dwdeviceid, void* lphline, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivileges, uint32_t dwmediamodes, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineOpen(uint32_t hlineapp, uint32_t dwdeviceid, void* lphline, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivileges, uint32_t dwmediamodes, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3127,7 +3127,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineOpen(uint32_t hlineapp, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineOpenA(uint32_t hlineapp, uint32_t dwdeviceid, void* lphline, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivileges, uint32_t dwmediamodes, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineOpenA(uint32_t hlineapp, uint32_t dwdeviceid, void* lphline, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivileges, uint32_t dwmediamodes, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3157,7 +3157,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineOpenA(uint32_t hlineapp, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineOpenW(uint32_t hlineapp, uint32_t dwdeviceid, void* lphline, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivileges, uint32_t dwmediamodes, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineOpenW(uint32_t hlineapp, uint32_t dwdeviceid, void* lphline, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivileges, uint32_t dwmediamodes, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3187,7 +3187,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineOpenW(uint32_t hlineapp, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePark(uint32_t hcall, uint32_t dwparkmode, void* lpszdiraddress, void* lpnondiraddress) {
+int32_t windowssysWindowsWin32DevicesTapiLinePark(uint32_t hcall, uint32_t dwparkmode, void* lpszdiraddress, void* lpnondiraddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3212,7 +3212,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePark(uint32_t hcall, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineParkA(uint32_t hcall, uint32_t dwparkmode, void* lpszdiraddress, void* lpnondiraddress) {
+int32_t windowssysWindowsWin32DevicesTapiLineParkA(uint32_t hcall, uint32_t dwparkmode, void* lpszdiraddress, void* lpnondiraddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3237,7 +3237,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineParkA(uint32_t hcall, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineParkW(uint32_t hcall, uint32_t dwparkmode, void* lpszdiraddress, void* lpnondiraddress) {
+int32_t windowssysWindowsWin32DevicesTapiLineParkW(uint32_t hcall, uint32_t dwparkmode, void* lpszdiraddress, void* lpnondiraddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3262,7 +3262,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineParkW(uint32_t hcall, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePickup(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress, void* lpszgroupid) {
+int32_t windowssysWindowsWin32DevicesTapiLinePickup(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress, void* lpszgroupid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3288,7 +3288,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePickup(uint32_t hline, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePickupA(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress, void* lpszgroupid) {
+int32_t windowssysWindowsWin32DevicesTapiLinePickupA(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress, void* lpszgroupid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3314,7 +3314,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePickupA(uint32_t hline, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePickupW(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress, void* lpszgroupid) {
+int32_t windowssysWindowsWin32DevicesTapiLinePickupW(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress, void* lpszgroupid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3340,7 +3340,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePickupW(uint32_t hline, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePrepareAddToConference(uint32_t hconfcall, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLinePrepareAddToConference(uint32_t hconfcall, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3364,7 +3364,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePrepareAddToConference(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA(uint32_t hconfcall, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA(uint32_t hconfcall, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3388,7 +3388,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW(uint32_t hconfcall, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW(uint32_t hconfcall, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3412,7 +3412,7 @@ int32_t windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineProxyMessage(uint32_t hline, uint32_t hcall, uint32_t dwmsg, uint32_t dwparam1, uint32_t dwparam2, uint32_t dwparam3) {
+int32_t windowssysWindowsWin32DevicesTapiLineProxyMessage(uint32_t hline, uint32_t hcall, uint32_t dwmsg, uint32_t dwparam1, uint32_t dwparam2, uint32_t dwparam3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3439,7 +3439,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineProxyMessage(uint32_t hline, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineProxyResponse(uint32_t hline, void* lpproxyrequest, uint32_t dwresult) {
+int32_t windowssysWindowsWin32DevicesTapiLineProxyResponse(uint32_t hline, void* lpproxyrequest, uint32_t dwresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3463,7 +3463,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineProxyResponse(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineRedirect(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineRedirect(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3487,7 +3487,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineRedirect(uint32_t hcall, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineRedirectA(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineRedirectA(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3511,7 +3511,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineRedirectA(uint32_t hcall, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineRedirectW(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
+int32_t windowssysWindowsWin32DevicesTapiLineRedirectW(uint32_t hcall, void* lpszdestaddress, uint32_t dwcountrycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3535,7 +3535,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineRedirectW(uint32_t hcall, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient(uint32_t hlineapp, uint32_t dwregistrationinstance, uint32_t dwrequestmode, uint32_t benable) {
+int32_t windowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient(uint32_t hlineapp, uint32_t dwregistrationinstance, uint32_t dwrequestmode, uint32_t benable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3560,7 +3560,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo(uint32_t hcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo(uint32_t hcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3582,7 +3582,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineRemoveFromConference(uint32_t hcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineRemoveFromConference(uint32_t hcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3604,7 +3604,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineRemoveFromConference(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineRemoveProvider(uint32_t dwpermanentproviderid, void* hwndowner) {
+int32_t windowssysWindowsWin32DevicesTapiLineRemoveProvider(uint32_t dwpermanentproviderid, void* hwndowner) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3627,7 +3627,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineRemoveProvider(uint32_t dwperm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSecureCall(uint32_t hcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineSecureCall(uint32_t hcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3649,7 +3649,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSecureCall(uint32_t hcall) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSendUserUserInfo(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineSendUserUserInfo(uint32_t hcall, void* lpsuseruserinfo, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3673,7 +3673,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSendUserUserInfo(uint32_t hcal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAgentActivity(uint32_t hline, uint32_t dwaddressid, uint32_t dwactivityid) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAgentActivity(uint32_t hline, uint32_t dwaddressid, uint32_t dwactivityid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3697,7 +3697,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAgentActivity(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAgentGroup(uint32_t hline, uint32_t dwaddressid, void* lpagentgrouplist) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAgentGroup(uint32_t hline, uint32_t dwaddressid, void* lpagentgrouplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3721,7 +3721,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAgentGroup(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod(uint32_t hline, uint32_t hagent, uint32_t dwmeasurementperiod) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod(uint32_t hline, uint32_t hagent, uint32_t dwmeasurementperiod) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3745,7 +3745,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAgentSessionState(uint32_t hline, uint32_t hagentsession, uint32_t dwagentsessionstate, uint32_t dwnextagentsessionstate) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAgentSessionState(uint32_t hline, uint32_t hagentsession, uint32_t dwagentsessionstate, uint32_t dwnextagentsessionstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3770,7 +3770,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAgentSessionState(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAgentState(uint32_t hline, uint32_t dwaddressid, uint32_t dwagentstate, uint32_t dwnextagentstate) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAgentState(uint32_t hline, uint32_t dwaddressid, uint32_t dwagentstate, uint32_t dwnextagentstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3795,7 +3795,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAgentState(uint32_t hline, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAgentStateEx(uint32_t hline, uint32_t hagent, uint32_t dwagentstate, uint32_t dwnextagentstate) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAgentStateEx(uint32_t hline, uint32_t hagent, uint32_t dwagentstate, uint32_t dwnextagentstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3820,7 +3820,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAgentStateEx(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAppPriority(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpszextensionname, uint32_t dwpriority) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAppPriority(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpszextensionname, uint32_t dwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3847,7 +3847,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAppPriority(void* lpszappfi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAppPriorityA(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpszextensionname, uint32_t dwpriority) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAppPriorityA(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpszextensionname, uint32_t dwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3874,7 +3874,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAppPriorityA(void* lpszappf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAppPriorityW(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpszextensionname, uint32_t dwpriority) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAppPriorityW(void* lpszappfilename, uint32_t dwmediamode, void* lpextensionid, uint32_t dwrequestmode, void* lpszextensionname, uint32_t dwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3901,7 +3901,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAppPriorityW(void* lpszappf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetAppSpecific(uint32_t hcall, uint32_t dwappspecific) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetAppSpecific(uint32_t hcall, uint32_t dwappspecific) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3924,7 +3924,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetAppSpecific(uint32_t hcall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetCallData(uint32_t hcall, void* lpcalldata, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetCallData(uint32_t hcall, void* lpcalldata, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3948,7 +3948,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetCallData(uint32_t hcall, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetCallParams(uint32_t hcall, uint32_t dwbearermode, uint32_t dwminrate, uint32_t dwmaxrate, void* lpdialparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetCallParams(uint32_t hcall, uint32_t dwbearermode, uint32_t dwminrate, uint32_t dwmaxrate, void* lpdialparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3974,7 +3974,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetCallParams(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetCallPrivilege(uint32_t hcall, uint32_t dwcallprivilege) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetCallPrivilege(uint32_t hcall, uint32_t dwcallprivilege) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3997,7 +3997,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetCallPrivilege(uint32_t hcal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService(uint32_t hcall, void* lpsendingflowspec, uint32_t dwsendingflowspecsize, void* lpreceivingflowspec, uint32_t dwreceivingflowspecsize) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService(uint32_t hcall, void* lpsendingflowspec, uint32_t dwsendingflowspecsize, void* lpreceivingflowspec, uint32_t dwreceivingflowspecsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4023,7 +4023,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetCallTreatment(uint32_t hcall, uint32_t dwtreatment) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetCallTreatment(uint32_t hcall, uint32_t dwtreatment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4046,7 +4046,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetCallTreatment(uint32_t hcal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetCurrentLocation(uint32_t hlineapp, uint32_t dwlocation) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetCurrentLocation(uint32_t hlineapp, uint32_t dwlocation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4069,7 +4069,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetCurrentLocation(uint32_t hl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetDevConfig(uint32_t dwdeviceid, void* lpdeviceconfig, uint32_t dwsize, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetDevConfig(uint32_t dwdeviceid, void* lpdeviceconfig, uint32_t dwsize, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4094,7 +4094,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetDevConfig(uint32_t dwdevice
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetDevConfigA(uint32_t dwdeviceid, void* lpdeviceconfig, uint32_t dwsize, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetDevConfigA(uint32_t dwdeviceid, void* lpdeviceconfig, uint32_t dwsize, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4119,7 +4119,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetDevConfigA(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetDevConfigW(uint32_t dwdeviceid, void* lpdeviceconfig, uint32_t dwsize, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetDevConfigW(uint32_t dwdeviceid, void* lpdeviceconfig, uint32_t dwsize, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4144,7 +4144,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetDevConfigW(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetLineDevStatus(uint32_t hline, uint32_t dwstatustochange, uint32_t fstatus) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetLineDevStatus(uint32_t hline, uint32_t dwstatustochange, uint32_t fstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4168,7 +4168,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetLineDevStatus(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetMediaControl(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdigitlist, uint32_t dwdigitnumentries, void* lpmedialist, uint32_t dwmedianumentries, void* lptonelist, uint32_t dwtonenumentries, void* lpcallstatelist, uint32_t dwcallstatenumentries) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetMediaControl(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, void* lpdigitlist, uint32_t dwdigitnumentries, void* lpmedialist, uint32_t dwmedianumentries, void* lptonelist, uint32_t dwtonenumentries, void* lpcallstatelist, uint32_t dwcallstatenumentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4201,7 +4201,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetMediaControl(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetMediaMode(uint32_t hcall, uint32_t dwmediamodes) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetMediaMode(uint32_t hcall, uint32_t dwmediamodes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4224,7 +4224,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetMediaMode(uint32_t hcall, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetNumRings(uint32_t hline, uint32_t dwaddressid, uint32_t dwnumrings) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetNumRings(uint32_t hline, uint32_t dwaddressid, uint32_t dwnumrings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4248,7 +4248,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetNumRings(uint32_t hline, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod(uint32_t hline, uint32_t dwqueueid, uint32_t dwmeasurementperiod) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod(uint32_t hline, uint32_t dwqueueid, uint32_t dwmeasurementperiod) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4272,7 +4272,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetStatusMessages(uint32_t hline, uint32_t dwlinestates, uint32_t dwaddressstates) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetStatusMessages(uint32_t hline, uint32_t dwlinestates, uint32_t dwaddressstates) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4296,7 +4296,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetStatusMessages(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetTerminal(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, uint32_t dwterminalmodes, uint32_t dwterminalid, uint32_t benable) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetTerminal(uint32_t hline, uint32_t dwaddressid, uint32_t hcall, uint32_t dwselect, uint32_t dwterminalmodes, uint32_t dwterminalid, uint32_t benable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4324,7 +4324,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetTerminal(uint32_t hline, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetTollList(uint32_t hlineapp, uint32_t dwdeviceid, void* lpszaddressin, uint32_t dwtolllistoption) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetTollList(uint32_t hlineapp, uint32_t dwdeviceid, void* lpszaddressin, uint32_t dwtolllistoption) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4349,7 +4349,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetTollList(uint32_t hlineapp,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetTollListA(uint32_t hlineapp, uint32_t dwdeviceid, void* lpszaddressin, uint32_t dwtolllistoption) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetTollListA(uint32_t hlineapp, uint32_t dwdeviceid, void* lpszaddressin, uint32_t dwtolllistoption) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4374,7 +4374,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetTollListA(uint32_t hlineapp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetTollListW(uint32_t hlineapp, uint32_t dwdeviceid, void* lpszaddressinw, uint32_t dwtolllistoption) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetTollListW(uint32_t hlineapp, uint32_t dwdeviceid, void* lpszaddressinw, uint32_t dwtolllistoption) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4399,7 +4399,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetTollListW(uint32_t hlineapp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetupConference(uint32_t hcall, uint32_t hline, void* lphconfcall, void* lphconsultcall, uint32_t dwnumparties, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetupConference(uint32_t hcall, uint32_t hline, void* lphconfcall, void* lphconsultcall, uint32_t dwnumparties, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4426,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetupConference(uint32_t hcall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetupConferenceA(uint32_t hcall, uint32_t hline, void* lphconfcall, void* lphconsultcall, uint32_t dwnumparties, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetupConferenceA(uint32_t hcall, uint32_t hline, void* lphconfcall, void* lphconsultcall, uint32_t dwnumparties, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4453,7 +4453,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetupConferenceA(uint32_t hcal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetupConferenceW(uint32_t hcall, uint32_t hline, void* lphconfcall, void* lphconsultcall, uint32_t dwnumparties, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetupConferenceW(uint32_t hcall, uint32_t hline, void* lphconfcall, void* lphconsultcall, uint32_t dwnumparties, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4480,7 +4480,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetupConferenceW(uint32_t hcal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetupTransfer(uint32_t hcall, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetupTransfer(uint32_t hcall, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4504,7 +4504,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetupTransfer(uint32_t hcall, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetupTransferA(uint32_t hcall, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetupTransferA(uint32_t hcall, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4528,7 +4528,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetupTransferA(uint32_t hcall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSetupTransferW(uint32_t hcall, void* lphconsultcall, void* lpcallparams) {
+int32_t windowssysWindowsWin32DevicesTapiLineSetupTransferW(uint32_t hcall, void* lphconsultcall, void* lpcallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4552,7 +4552,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSetupTransferW(uint32_t hcall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineShutdown(uint32_t hlineapp) {
+int32_t windowssysWindowsWin32DevicesTapiLineShutdown(uint32_t hlineapp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4574,7 +4574,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineShutdown(uint32_t hlineapp) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineSwapHold(uint32_t hactivecall, uint32_t hheldcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineSwapHold(uint32_t hactivecall, uint32_t hheldcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4597,7 +4597,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineSwapHold(uint32_t hactivecall,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineTranslateAddress(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* lpszaddressin, uint32_t dwcard, uint32_t dwtranslateoptions, void* lptranslateoutput) {
+int32_t windowssysWindowsWin32DevicesTapiLineTranslateAddress(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* lpszaddressin, uint32_t dwcard, uint32_t dwtranslateoptions, void* lptranslateoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4625,7 +4625,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineTranslateAddress(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineTranslateAddressA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* lpszaddressin, uint32_t dwcard, uint32_t dwtranslateoptions, void* lptranslateoutput) {
+int32_t windowssysWindowsWin32DevicesTapiLineTranslateAddressA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* lpszaddressin, uint32_t dwcard, uint32_t dwtranslateoptions, void* lptranslateoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4653,7 +4653,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineTranslateAddressA(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineTranslateAddressW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* lpszaddressin, uint32_t dwcard, uint32_t dwtranslateoptions, void* lptranslateoutput) {
+int32_t windowssysWindowsWin32DevicesTapiLineTranslateAddressW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* lpszaddressin, uint32_t dwcard, uint32_t dwtranslateoptions, void* lptranslateoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4681,7 +4681,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineTranslateAddressW(uint32_t hli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineTranslateDialog(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* hwndowner, void* lpszaddressin) {
+int32_t windowssysWindowsWin32DevicesTapiLineTranslateDialog(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* hwndowner, void* lpszaddressin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4707,7 +4707,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineTranslateDialog(uint32_t hline
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineTranslateDialogA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* hwndowner, void* lpszaddressin) {
+int32_t windowssysWindowsWin32DevicesTapiLineTranslateDialogA(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* hwndowner, void* lpszaddressin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4733,7 +4733,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineTranslateDialogA(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineTranslateDialogW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* hwndowner, void* lpszaddressin) {
+int32_t windowssysWindowsWin32DevicesTapiLineTranslateDialogW(uint32_t hlineapp, uint32_t dwdeviceid, uint32_t dwapiversion, void* hwndowner, void* lpszaddressin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4759,7 +4759,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineTranslateDialogW(uint32_t hlin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineUncompleteCall(uint32_t hline, uint32_t dwcompletionid) {
+int32_t windowssysWindowsWin32DevicesTapiLineUncompleteCall(uint32_t hline, uint32_t dwcompletionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4782,7 +4782,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineUncompleteCall(uint32_t hline,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineUnhold(uint32_t hcall) {
+int32_t windowssysWindowsWin32DevicesTapiLineUnhold(uint32_t hcall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4804,7 +4804,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineUnhold(uint32_t hcall) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineUnpark(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress) {
+int32_t windowssysWindowsWin32DevicesTapiLineUnpark(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4829,7 +4829,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineUnpark(uint32_t hline, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineUnparkA(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress) {
+int32_t windowssysWindowsWin32DevicesTapiLineUnparkA(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4854,7 +4854,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineUnparkA(uint32_t hline, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_lineUnparkW(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress) {
+int32_t windowssysWindowsWin32DevicesTapiLineUnparkW(uint32_t hline, uint32_t dwaddressid, void* lphcall, void* lpszdestaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4879,7 +4879,7 @@ int32_t windowssys_windows_win32_devices_tapi_lineUnparkW(uint32_t hline, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneClose(uint32_t hphone) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneClose(uint32_t hphone) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4901,7 +4901,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneClose(uint32_t hphone) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneConfigDialog(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneConfigDialog(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4925,7 +4925,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneConfigDialog(uint32_t dwdevic
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneConfigDialogA(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneConfigDialogA(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4949,7 +4949,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneConfigDialogA(uint32_t dwdevi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneConfigDialogW(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneConfigDialogW(uint32_t dwdeviceid, void* hwndowner, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4973,7 +4973,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneConfigDialogW(uint32_t dwdevi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneDevSpecific(uint32_t hphone, void* lpparams, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneDevSpecific(uint32_t hphone, void* lpparams, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4997,7 +4997,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneDevSpecific(uint32_t hphone, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetButtonInfo(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetButtonInfo(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5021,7 +5021,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetButtonInfo(uint32_t hphone
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5045,7 +5045,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA(uint32_t hphon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5069,7 +5069,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW(uint32_t hphon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetData(uint32_t hphone, uint32_t dwdataid, void* lpdata, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetData(uint32_t hphone, uint32_t dwdataid, void* lpdata, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5094,7 +5094,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetData(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetDevCaps(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lpphonecaps) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetDevCaps(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lpphonecaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5120,7 +5120,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetDevCaps(uint32_t hphoneapp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetDevCapsA(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lpphonecaps) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetDevCapsA(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lpphonecaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5146,7 +5146,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetDevCapsA(uint32_t hphoneap
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetDevCapsW(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lpphonecaps) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetDevCapsW(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextversion, void* lpphonecaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5172,7 +5172,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetDevCapsW(uint32_t hphoneap
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetDisplay(uint32_t hphone, void* lpdisplay) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetDisplay(uint32_t hphone, void* lpdisplay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5195,7 +5195,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetDisplay(uint32_t hphone, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetGain(uint32_t hphone, uint32_t dwhookswitchdev, void* lpdwgain) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetGain(uint32_t hphone, uint32_t dwhookswitchdev, void* lpdwgain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5219,7 +5219,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetGain(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetHookSwitch(uint32_t hphone, void* lpdwhookswitchdevs) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetHookSwitch(uint32_t hphone, void* lpdwhookswitchdevs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5242,7 +5242,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetHookSwitch(uint32_t hphone
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetID(uint32_t hphone, void* lpdeviceid, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetID(uint32_t hphone, void* lpdeviceid, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5266,7 +5266,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetID(uint32_t hphone, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetIDA(uint32_t hphone, void* lpdeviceid, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetIDA(uint32_t hphone, void* lpdeviceid, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5290,7 +5290,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetIDA(uint32_t hphone, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetIDW(uint32_t hphone, void* lpdeviceid, void* lpszdeviceclass) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetIDW(uint32_t hphone, void* lpdeviceid, void* lpszdeviceclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5314,7 +5314,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetIDW(uint32_t hphone, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetIcon(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetIcon(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5338,7 +5338,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetIcon(uint32_t dwdeviceid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetIconA(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetIconA(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5362,7 +5362,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetIconA(uint32_t dwdeviceid,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetIconW(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetIconW(uint32_t dwdeviceid, void* lpszdeviceclass, void* lphicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5386,7 +5386,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetIconW(uint32_t dwdeviceid,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetLamp(uint32_t hphone, uint32_t dwbuttonlampid, void* lpdwlampmode) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetLamp(uint32_t hphone, uint32_t dwbuttonlampid, void* lpdwlampmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5410,7 +5410,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetLamp(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetMessage(uint32_t hphoneapp, void* lpmessage, uint32_t dwtimeout) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetMessage(uint32_t hphoneapp, void* lpmessage, uint32_t dwtimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5434,7 +5434,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetMessage(uint32_t hphoneapp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetRing(uint32_t hphone, void* lpdwringmode, void* lpdwvolume) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetRing(uint32_t hphone, void* lpdwringmode, void* lpdwvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5458,7 +5458,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetRing(uint32_t hphone, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetStatus(uint32_t hphone, void* lpphonestatus) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetStatus(uint32_t hphone, void* lpphonestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5481,7 +5481,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetStatus(uint32_t hphone, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetStatusA(uint32_t hphone, void* lpphonestatus) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetStatusA(uint32_t hphone, void* lpphonestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5504,7 +5504,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetStatusA(uint32_t hphone, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetStatusMessages(uint32_t hphone, void* lpdwphonestates, void* lpdwbuttonmodes, void* lpdwbuttonstates) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetStatusMessages(uint32_t hphone, void* lpdwphonestates, void* lpdwbuttonmodes, void* lpdwbuttonstates) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5529,7 +5529,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetStatusMessages(uint32_t hp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetStatusW(uint32_t hphone, void* lpphonestatus) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetStatusW(uint32_t hphone, void* lpphonestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5552,7 +5552,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetStatusW(uint32_t hphone, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneGetVolume(uint32_t hphone, uint32_t dwhookswitchdev, void* lpdwvolume) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneGetVolume(uint32_t hphone, uint32_t dwhookswitchdev, void* lpdwvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5576,7 +5576,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneGetVolume(uint32_t hphone, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneInitialize(void* lphphoneapp, void* hinstance, void* lpfncallback, void* lpszappname, void* lpdwnumdevs) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneInitialize(void* lphphoneapp, void* hinstance, void* lpfncallback, void* lpszappname, void* lpdwnumdevs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5602,7 +5602,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneInitialize(void* lphphoneapp,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneInitializeExA(void* lphphoneapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lpphoneinitializeexparams) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneInitializeExA(void* lphphoneapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lpphoneinitializeexparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5630,7 +5630,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneInitializeExA(void* lphphonea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneInitializeExW(void* lphphoneapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lpphoneinitializeexparams) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneInitializeExW(void* lphphoneapp, void* hinstance, void* lpfncallback, void* lpszfriendlyappname, void* lpdwnumdevs, void* lpdwapiversion, void* lpphoneinitializeexparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5658,7 +5658,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneInitializeExW(void* lphphonea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapilowversion, uint32_t dwapihighversion, void* lpdwapiversion, void* lpextensionid) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapilowversion, uint32_t dwapihighversion, void* lpdwapiversion, void* lpextensionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5685,7 +5685,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextlowversion, uint32_t dwexthighversion, void* lpdwextversion) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion(uint32_t hphoneapp, uint32_t dwdeviceid, uint32_t dwapiversion, uint32_t dwextlowversion, uint32_t dwexthighversion, void* lpdwextversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5712,7 +5712,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneOpen(uint32_t hphoneapp, uint32_t dwdeviceid, void* lphphone, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivilege) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneOpen(uint32_t hphoneapp, uint32_t dwdeviceid, void* lphphone, uint32_t dwapiversion, uint32_t dwextversion, uint64_t dwcallbackinstance, uint32_t dwprivilege) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5740,7 +5740,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneOpen(uint32_t hphoneapp, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetButtonInfo(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetButtonInfo(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5764,7 +5764,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetButtonInfo(uint32_t hphone
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5788,7 +5788,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA(uint32_t hphon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW(uint32_t hphone, uint32_t dwbuttonlampid, void* lpbuttoninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5812,7 +5812,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW(uint32_t hphon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetData(uint32_t hphone, uint32_t dwdataid, void* lpdata, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetData(uint32_t hphone, uint32_t dwdataid, void* lpdata, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5837,7 +5837,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetData(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetDisplay(uint32_t hphone, uint32_t dwrow, uint32_t dwcolumn, void* lpsdisplay, uint32_t dwsize) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetDisplay(uint32_t hphone, uint32_t dwrow, uint32_t dwcolumn, void* lpsdisplay, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5863,7 +5863,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetDisplay(uint32_t hphone, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetGain(uint32_t hphone, uint32_t dwhookswitchdev, uint32_t dwgain) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetGain(uint32_t hphone, uint32_t dwhookswitchdev, uint32_t dwgain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5887,7 +5887,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetGain(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetHookSwitch(uint32_t hphone, uint32_t dwhookswitchdevs, uint32_t dwhookswitchmode) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetHookSwitch(uint32_t hphone, uint32_t dwhookswitchdevs, uint32_t dwhookswitchmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5911,7 +5911,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetHookSwitch(uint32_t hphone
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetLamp(uint32_t hphone, uint32_t dwbuttonlampid, uint32_t dwlampmode) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetLamp(uint32_t hphone, uint32_t dwbuttonlampid, uint32_t dwlampmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5935,7 +5935,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetLamp(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetRing(uint32_t hphone, uint32_t dwringmode, uint32_t dwvolume) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetRing(uint32_t hphone, uint32_t dwringmode, uint32_t dwvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5959,7 +5959,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetRing(uint32_t hphone, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetStatusMessages(uint32_t hphone, uint32_t dwphonestates, uint32_t dwbuttonmodes, uint32_t dwbuttonstates) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetStatusMessages(uint32_t hphone, uint32_t dwphonestates, uint32_t dwbuttonmodes, uint32_t dwbuttonstates) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5984,7 +5984,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetStatusMessages(uint32_t hp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneSetVolume(uint32_t hphone, uint32_t dwhookswitchdev, uint32_t dwvolume) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneSetVolume(uint32_t hphone, uint32_t dwhookswitchdev, uint32_t dwvolume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6008,7 +6008,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneSetVolume(uint32_t hphone, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_phoneShutdown(uint32_t hphoneapp) {
+int32_t windowssysWindowsWin32DevicesTapiPhoneShutdown(uint32_t hphoneapp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6030,7 +6030,7 @@ int32_t windowssys_windows_win32_devices_tapi_phoneShutdown(uint32_t hphoneapp) 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiGetLocationInfo(void* lpszcountrycode, void* lpszcitycode) {
+int32_t windowssysWindowsWin32DevicesTapiTapiGetLocationInfo(void* lpszcountrycode, void* lpszcitycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6053,7 +6053,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiGetLocationInfo(void* lpszcoun
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA(void* lpszcountrycode, void* lpszcitycode) {
+int32_t windowssysWindowsWin32DevicesTapiTapiGetLocationInfoA(void* lpszcountrycode, void* lpszcitycode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6076,7 +6076,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA(void* lpszcou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW(void* lpszcountrycodew, void* lpszcitycodew) {
+int32_t windowssysWindowsWin32DevicesTapiTapiGetLocationInfoW(void* lpszcountrycodew, void* lpszcitycodew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6099,7 +6099,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW(void* lpszcou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestDrop(void* hwnd, uint64_t wrequestid) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestDrop(void* hwnd, uint64_t wrequestid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6122,7 +6122,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiRequestDrop(void* hwnd, uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestMakeCall(void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestMakeCall(void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6147,7 +6147,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiRequestMakeCall(void* lpszdest
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA(void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestMakeCallA(void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6172,7 +6172,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA(void* lpszdes
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW(void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestMakeCallW(void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6197,7 +6197,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW(void* lpszdes
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestMediaCall(void* hwnd, uint64_t wrequestid, void* lpszdeviceclass, void* lpdeviceid, uint32_t dwsize, uint32_t dwsecure, void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestMediaCall(void* hwnd, uint64_t wrequestid, void* lpszdeviceclass, void* lpdeviceid, uint32_t dwsize, uint32_t dwsecure, void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6228,7 +6228,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiRequestMediaCall(void* hwnd, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA(void* hwnd, uint64_t wrequestid, void* lpszdeviceclass, void* lpdeviceid, uint32_t dwsize, uint32_t dwsecure, void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestMediaCallA(void* hwnd, uint64_t wrequestid, void* lpszdeviceclass, void* lpdeviceid, uint32_t dwsize, uint32_t dwsecure, void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6259,7 +6259,7 @@ int32_t windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW(void* hwnd, uint64_t wrequestid, void* lpszdeviceclass, void* lpdeviceid, uint32_t dwsize, uint32_t dwsecure, void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
+int32_t windowssysWindowsWin32DevicesTapiTapiRequestMediaCallW(void* hwnd, uint64_t wrequestid, void* lpszdeviceclass, void* lpdeviceid, uint32_t dwsize, uint32_t dwsecure, void* lpszdestaddress, void* lpszappname, void* lpszcalledparty, void* lpszcomment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

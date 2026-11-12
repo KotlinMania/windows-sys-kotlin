@@ -2,63 +2,67 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpHostingInitialize
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpHostingTerminate
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpIsTokenService
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId
-import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssys_windows_win32_security_enterprisedata_unprotectFile
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataProtectFileToEnterpriseIdentity
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpCloseThreadNetworkContext
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpCreateThreadNetworkContext
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpDisablePermissiveModeFileEncryption
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpDoesPolicyAllowAppExecution
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpEnablePermissiveModeFileEncryption
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpGetEnterpriseIds
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpGetEnterprisePolicy
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpHostingInitialize
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpHostingTerminate
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpIsTokenService
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataSrpSetTokenEnterpriseId
+import io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata.cinterop.windowssysWindowsWin32SecurityEnterprisedataUnprotectFile
+import io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.PackageId
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun protectFileToEnterpriseIdentity(fileorfolderpath: Pcwstr, identity: Pcwstr): Hresult =
-    windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity(fileorfolderpath?.value?.toCPointer<ByteVar>(), identity?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SecurityEnterprisedataProtectFileToEnterpriseIdentity(fileorfolderpath.rawAddress.toCPointer<ByteVar>(), identity.rawAddress.toCPointer<ByteVar>())
 
-public actual fun srpCloseThreadNetworkContext(threadnetworkcontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext(threadnetworkcontext?.value?.toCPointer<ByteVar>())
+public actual fun srpCloseThreadNetworkContext(threadnetworkcontext: MutPtr<HthreadNetworkContext>): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataSrpCloseThreadNetworkContext(threadnetworkcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun srpCreateThreadNetworkContext(enterpriseid: Pcwstr, threadnetworkcontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext(enterpriseid?.value?.toCPointer<ByteVar>(), threadnetworkcontext?.value?.toCPointer<ByteVar>())
+public actual fun srpCreateThreadNetworkContext(enterpriseid: Pcwstr, threadnetworkcontext: MutPtr<HthreadNetworkContext>): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataSrpCreateThreadNetworkContext(enterpriseid.rawAddress.toCPointer<ByteVar>(), threadnetworkcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun srpDisablePermissiveModeFileEncryption(): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption()
+    windowssysWindowsWin32SecurityEnterprisedataSrpDisablePermissiveModeFileEncryption()
 
-public actual fun srpDoesPolicyAllowAppExecution(packageid: COpaquePointer?, isallowed: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution(packageid?.value?.toCPointer<ByteVar>(), isallowed?.value?.toCPointer<ByteVar>())
+public actual fun srpDoesPolicyAllowAppExecution(packageid: ConstPtr<PackageId>, isallowed: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataSrpDoesPolicyAllowAppExecution(packageid.rawAddress.toCPointer<ByteVar>(), isallowed.rawAddress.toCPointer<ByteVar>())
 
 public actual fun srpEnablePermissiveModeFileEncryption(enterpriseid: Pcwstr): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption(enterpriseid?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SecurityEnterprisedataSrpEnablePermissiveModeFileEncryption(enterpriseid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun srpGetEnterpriseIds(tokenhandle: Handle, numberofbytes: COpaquePointer?, enterpriseids: COpaquePointer?, enterpriseidcount: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds(tokenhandle?.value?.toCPointer<ByteVar>(), numberofbytes?.value?.toCPointer<ByteVar>(), enterpriseids?.value?.toCPointer<ByteVar>(), enterpriseidcount?.value?.toCPointer<ByteVar>())
+public actual fun srpGetEnterpriseIds(tokenhandle: Handle, numberofbytes: MutPtr<UInt>, enterpriseids: MutPtr<Pcwstr>, enterpriseidcount: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataSrpGetEnterpriseIds(tokenhandle.rawAddress.toCPointer<ByteVar>(), numberofbytes.rawAddress.toCPointer<ByteVar>(), enterpriseids.rawAddress.toCPointer<ByteVar>(), enterpriseidcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun srpGetEnterprisePolicy(tokenhandle: Handle, policyflags: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy(tokenhandle?.value?.toCPointer<ByteVar>(), policyflags?.value?.toCPointer<ByteVar>())
+public actual fun srpGetEnterprisePolicy(tokenhandle: Handle, policyflags: MutPtr<EnterpriseDataPolicies>): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataSrpGetEnterprisePolicy(tokenhandle.rawAddress.toCPointer<ByteVar>(), policyflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun srpHostingInitialize(version: SrphostingVersion, type: SrphostingType, pvdata: COpaquePointer?, cbdata: UInt): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpHostingInitialize(version, type, pvdata?.value?.toCPointer<ByteVar>(), cbdata)
+public actual fun srpHostingInitialize(version: SrphostingVersion, type: SrphostingType, pvdata: ConstPtr<CVoid>, cbdata: UInt): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataSrpHostingInitialize(version, type, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata)
 
 public actual fun srpHostingTerminate(type: SrphostingType) {
-    windowssys_windows_win32_security_enterprisedata_srpHostingTerminate(type)
+    windowssysWindowsWin32SecurityEnterprisedataSrpHostingTerminate(type)
 }
 
-public actual fun srpIsTokenService(tokenhandle: Handle, istokenservice: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_enterprisedata_srpIsTokenService(tokenhandle?.value?.toCPointer<ByteVar>(), istokenservice?.value?.toCPointer<ByteVar>())
+public actual fun srpIsTokenService(tokenhandle: Handle, istokenservice: MutPtr<UByte>): Ntstatus =
+    windowssysWindowsWin32SecurityEnterprisedataSrpIsTokenService(tokenhandle.rawAddress.toCPointer<ByteVar>(), istokenservice.rawAddress.toCPointer<ByteVar>())
 
 public actual fun srpSetTokenEnterpriseId(tokenhandle: Handle, enterpriseid: Pcwstr): Hresult =
-    windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId(tokenhandle?.value?.toCPointer<ByteVar>(), enterpriseid?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SecurityEnterprisedataSrpSetTokenEnterpriseId(tokenhandle.rawAddress.toCPointer<ByteVar>(), enterpriseid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unprotectFile(fileorfolderpath: Pcwstr, options: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_enterprisedata_unprotectFile(fileorfolderpath?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>())
+public actual fun unprotectFile(fileorfolderpath: Pcwstr, options: ConstPtr<FileUnprotectOptions>): Hresult =
+    windowssysWindowsWin32SecurityEnterprisedataUnprotectFile(fileorfolderpath.rawAddress.toCPointer<ByteVar>(), options.rawAddress.toCPointer<ByteVar>())

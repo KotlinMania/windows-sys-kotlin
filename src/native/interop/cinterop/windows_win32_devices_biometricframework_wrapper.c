@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAcquireFocus(void) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAcquireFocus(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAcquireFocus(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumBiometricUnits(uint32_t frameworkhandle, uint32_t factor) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits(uint32_t frameworkhandle, uint32_t factor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumBiome
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumDatabases(uint32_t frameworkhandle, uint32_t factor) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases(uint32_t frameworkhandle, uint32_t factor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumDatab
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumServiceProviders(uint32_t frameworkhandle, uint32_t factor) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders(uint32_t frameworkhandle, uint32_t factor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumServi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncMonitorFrameworkChanges(uint32_t frameworkhandle, uint32_t changetypes) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(uint32_t frameworkhandle, uint32_t changetypes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncMonitorFr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenFramework(int32_t notificationmethod, void* targetwindow, uint32_t messagecode, void* callbackroutine, void* userdata, int32_t asynchronousopen, void* frameworkhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenFramework(int32_t notificationmethod, void* targetwindow, uint32_t messagecode, void* callbackroutine, void* userdata, int32_t asynchronousopen, void* frameworkhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenFrame
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenSession(uint32_t factor, uint32_t pooltype, uint32_t flags, void* unitarray, uint64_t unitcount, void* databaseid, int32_t notificationmethod, void* targetwindow, uint32_t messagecode, void* callbackroutine, void* userdata, int32_t asynchronousopen, void* sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenSession(uint32_t factor, uint32_t pooltype, uint32_t flags, void* unitarray, uint64_t unitcount, void* databaseid, int32_t notificationmethod, void* targetwindow, uint32_t messagecode, void* callbackroutine, void* userdata, int32_t asynchronousopen, void* sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, int32_t, void*, uint32_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -190,7 +190,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenSessi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioCancel(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioCancel(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioCaptureSample(uint32_t sessionhandle, uint8_t purpose, uint8_t flags, void* unitid, void* sample, void* samplesize, void* rejectdetail) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSample(uint32_t sessionhandle, uint8_t purpose, uint8_t flags, void* unitid, void* sample, void* samplesize, void* rejectdetail) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint8_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -240,7 +240,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioCaptureSample(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioCaptureSampleWithCallback(uint32_t sessionhandle, uint8_t purpose, uint8_t flags, void* capturecallback, void* capturecallbackcontext) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSampleWithCallback(uint32_t sessionhandle, uint8_t purpose, uint8_t flags, void* capturecallback, void* capturecallbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -266,7 +266,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioCaptureSampleW
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioCloseFramework(uint32_t frameworkhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseFramework(uint32_t frameworkhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -288,7 +288,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioCloseFramework
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioCloseSession(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -310,7 +310,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioCloseSession(u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioControlUnit(uint32_t sessionhandle, uint32_t unitid, uint32_t component, uint32_t controlcode, void* sendbuffer, uint64_t sendbuffersize, void* receivebuffer, uint64_t receivebuffersize, void* receivedatasize, void* operationstatus) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnit(uint32_t sessionhandle, uint32_t unitid, uint32_t component, uint32_t controlcode, void* sendbuffer, uint64_t sendbuffersize, void* receivebuffer, uint64_t receivebuffersize, void* receivedatasize, void* operationstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -341,7 +341,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioControlUnit(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioControlUnitPrivileged(uint32_t sessionhandle, uint32_t unitid, uint32_t component, uint32_t controlcode, void* sendbuffer, uint64_t sendbuffersize, void* receivebuffer, uint64_t receivebuffersize, void* receivedatasize, void* operationstatus) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnitPrivileged(uint32_t sessionhandle, uint32_t unitid, uint32_t component, uint32_t controlcode, void* sendbuffer, uint64_t sendbuffersize, void* receivebuffer, uint64_t receivebuffersize, void* receivedatasize, void* operationstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -372,7 +372,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioControlUnitPri
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioDeleteTemplate(uint32_t sessionhandle, uint32_t unitid, void* identity, uint8_t subfactor) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioDeleteTemplate(uint32_t sessionhandle, uint32_t unitid, void* identity, uint8_t subfactor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -397,7 +397,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioDeleteTemplate
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollBegin(uint32_t sessionhandle, uint8_t subfactor, uint32_t unitid) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(uint32_t sessionhandle, uint8_t subfactor, uint32_t unitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -421,7 +421,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollBegin(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollCapture(uint32_t sessionhandle, void* rejectdetail) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCapture(uint32_t sessionhandle, void* rejectdetail) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -444,7 +444,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollCapture(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollCaptureWithCallback(uint32_t sessionhandle, void* enrollcallback, void* enrollcallbackcontext) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCaptureWithCallback(uint32_t sessionhandle, void* enrollcallback, void* enrollcallbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -468,7 +468,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollCaptureW
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollCommit(uint32_t sessionhandle, void* identity, void* isnewtemplate) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCommit(uint32_t sessionhandle, void* identity, void* isnewtemplate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -492,7 +492,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollCommit(u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollDiscard(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollDiscard(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -514,7 +514,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollDiscard(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollSelect(uint32_t sessionhandle, uint64_t selectorvalue) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(uint32_t sessionhandle, uint64_t selectorvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnrollSelect(u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumBiometricUnits(uint32_t factor, void* unitschemaarray, void* unitcount) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumBiometricUnits(uint32_t factor, void* unitschemaarray, void* unitcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumBiometricU
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumDatabases(uint32_t factor, void* storageschemaarray, void* storagecount) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumDatabases(uint32_t factor, void* storageschemaarray, void* storagecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -585,7 +585,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumDatabases(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumEnrollments(uint32_t sessionhandle, uint32_t unitid, void* identity, void* subfactorarray, void* subfactorcount) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumEnrollments(uint32_t sessionhandle, uint32_t unitid, void* identity, void* subfactorarray, void* subfactorcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumEnrollment
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumServiceProviders(uint32_t factor, void* bspschemaarray, void* bspcount) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumServiceProviders(uint32_t factor, void* bspschemaarray, void* bspcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -635,7 +635,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioEnumServicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioFree(void* address) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioFree(void* address) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -657,7 +657,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioFree(void* add
 #endif
 }
 
-void windowssys_windows_win32_devices_biometricframework_winBioGetDomainLogonSetting(void* value, void* source) {
+void windowssysWindowsWin32DevicesBiometricframeworkWinBioGetDomainLogonSetting(void* value, void* source) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -679,7 +679,7 @@ void windowssys_windows_win32_devices_biometricframework_winBioGetDomainLogonSet
 #endif
 }
 
-void windowssys_windows_win32_devices_biometricframework_winBioGetEnabledSetting(void* value, void* source) {
+void windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnabledSetting(void* value, void* source) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -701,7 +701,7 @@ void windowssys_windows_win32_devices_biometricframework_winBioGetEnabledSetting
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioGetEnrolledFactors(void* accountowner, void* enrolledfactors) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnrolledFactors(void* accountowner, void* enrolledfactors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -724,7 +724,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioGetEnrolledFac
 #endif
 }
 
-void windowssys_windows_win32_devices_biometricframework_winBioGetLogonSetting(void* value, void* source) {
+void windowssysWindowsWin32DevicesBiometricframeworkWinBioGetLogonSetting(void* value, void* source) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -746,7 +746,7 @@ void windowssys_windows_win32_devices_biometricframework_winBioGetLogonSetting(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioGetProperty(uint32_t sessionhandle, uint32_t propertytype, uint32_t propertyid, uint32_t unitid, void* identity, uint8_t subfactor, void* propertybuffer, void* propertybuffersize) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioGetProperty(uint32_t sessionhandle, uint32_t propertytype, uint32_t propertyid, uint32_t unitid, void* identity, uint8_t subfactor, void* propertybuffer, void* propertybuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -775,7 +775,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioGetProperty(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioIdentify(uint32_t sessionhandle, void* unitid, void* identity, void* subfactor, void* rejectdetail) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentify(uint32_t sessionhandle, void* unitid, void* identity, void* subfactor, void* rejectdetail) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -801,7 +801,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioIdentify(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioIdentifyWithCallback(uint32_t sessionhandle, void* identifycallback, void* identifycallbackcontext) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentifyWithCallback(uint32_t sessionhandle, void* identifycallback, void* identifycallbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioIdentifyWithCa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioImproveBegin(uint32_t sessionhandle, uint32_t unitid) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveBegin(uint32_t sessionhandle, uint32_t unitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -848,7 +848,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioImproveBegin(u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioImproveEnd(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioImproveEnd(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioLocateSensor(uint32_t sessionhandle, void* unitid) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensor(uint32_t sessionhandle, void* unitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -893,7 +893,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioLocateSensor(u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioLocateSensorWithCallback(uint32_t sessionhandle, void* locatecallback, void* locatecallbackcontext) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensorWithCallback(uint32_t sessionhandle, void* locatecallback, void* locatecallbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioLocateSensorWi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioLockUnit(uint32_t sessionhandle, uint32_t unitid) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioLockUnit(uint32_t sessionhandle, uint32_t unitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +940,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioLockUnit(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioLogonIdentifiedUser(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioLogonIdentifie
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioMonitorPresence(uint32_t sessionhandle, uint32_t unitid) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(uint32_t sessionhandle, uint32_t unitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -985,7 +985,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioMonitorPresenc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioOpenSession(uint32_t factor, uint32_t pooltype, uint32_t flags, void* unitarray, uint64_t unitcount, void* databaseid, void* sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioOpenSession(uint32_t factor, uint32_t pooltype, uint32_t flags, void* unitarray, uint64_t unitcount, void* databaseid, void* sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1013,7 +1013,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioOpenSession(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioRegisterEventMonitor(uint32_t sessionhandle, uint32_t eventmask, void* eventcallback, void* eventcallbackcontext) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioRegisterEventMonitor(uint32_t sessionhandle, uint32_t eventmask, void* eventcallback, void* eventcallbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1038,7 +1038,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioRegisterEventM
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioReleaseFocus(void) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioReleaseFocus(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1059,7 +1059,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioReleaseFocus(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioRemoveAllCredentials(void) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1080,7 +1080,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioRemoveAllCrede
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioRemoveAllDomainCredentials(void) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1101,7 +1101,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioRemoveAllDomai
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioSetCredential(int32_t type, void* credential, uint64_t credentialsize, int32_t format) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioSetCredential(int32_t type, void* credential, uint64_t credentialsize, int32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1126,7 +1126,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioSetCredential(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioSetProperty(uint32_t sessionhandle, uint32_t propertytype, uint32_t propertyid, uint32_t unitid, void* identity, uint8_t subfactor, void* propertybuffer, uint64_t propertybuffersize) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioSetProperty(uint32_t sessionhandle, uint32_t propertytype, uint32_t propertyid, uint32_t unitid, void* identity, uint8_t subfactor, void* propertybuffer, uint64_t propertybuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint8_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1155,7 +1155,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioSetProperty(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioUnlockUnit(uint32_t sessionhandle, uint32_t unitid) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioUnlockUnit(uint32_t sessionhandle, uint32_t unitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1178,7 +1178,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioUnlockUnit(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioUnregisterEventMonitor(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1200,7 +1200,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioUnregisterEven
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioVerify(uint32_t sessionhandle, void* identity, uint8_t subfactor, void* unitid, void* match, void* rejectdetail) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioVerify(uint32_t sessionhandle, void* identity, uint8_t subfactor, void* unitid, void* match, void* rejectdetail) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint8_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1227,7 +1227,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioVerify(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioVerifyWithCallback(uint32_t sessionhandle, void* identity, uint8_t subfactor, void* verifycallback, void* verifycallbackcontext) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioVerifyWithCallback(uint32_t sessionhandle, void* identity, uint8_t subfactor, void* verifycallback, void* verifycallbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1253,7 +1253,7 @@ int32_t windowssys_windows_win32_devices_biometricframework_winBioVerifyWithCall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_biometricframework_winBioWait(uint32_t sessionhandle) {
+int32_t windowssysWindowsWin32DevicesBiometricframeworkWinBioWait(uint32_t sessionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;

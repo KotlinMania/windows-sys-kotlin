@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA(void* lpszdestination, void* lpqocinfo) {
+int32_t windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA(void* lpszdestination, void* lpqocinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_system_eventnotificationservice_isDestinationRe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW(void* lpszdestination, void* lpqocinfo) {
+int32_t windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW(void* lpszdestination, void* lpqocinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_eventnotificationservice_isDestinationRe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive(void* lpdwflags) {
+int32_t windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(void* lpdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

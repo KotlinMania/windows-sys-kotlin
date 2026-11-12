@@ -9,36 +9,36 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_devices_communication_buildCommDCBA(void* lpdef, void* lpdcb);
-int32_t windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsA(void* lpdef, void* lpdcb, void* lpcommtimeouts);
-int32_t windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsW(void* lpdef, void* lpdcb, void* lpcommtimeouts);
-int32_t windowssys_windows_win32_devices_communication_buildCommDCBW(void* lpdef, void* lpdcb);
-int32_t windowssys_windows_win32_devices_communication_clearCommBreak(void* hfile);
-int32_t windowssys_windows_win32_devices_communication_clearCommError(void* hfile, void* lperrors, void* lpstat);
-int32_t windowssys_windows_win32_devices_communication_commConfigDialogA(void* lpszname, void* hwnd, void* lpcc);
-int32_t windowssys_windows_win32_devices_communication_commConfigDialogW(void* lpszname, void* hwnd, void* lpcc);
-int32_t windowssys_windows_win32_devices_communication_escapeCommFunction(void* hfile, uint32_t dwfunc);
-int32_t windowssys_windows_win32_devices_communication_getCommConfig(void* hcommdev, void* lpcc, void* lpdwsize);
-int32_t windowssys_windows_win32_devices_communication_getCommMask(void* hfile, void* lpevtmask);
-int32_t windowssys_windows_win32_devices_communication_getCommModemStatus(void* hfile, void* lpmodemstat);
-uint32_t windowssys_windows_win32_devices_communication_getCommPorts(void* lpportnumbers, uint32_t uportnumberscount, void* puportnumbersfound);
-int32_t windowssys_windows_win32_devices_communication_getCommProperties(void* hfile, void* lpcommprop);
-int32_t windowssys_windows_win32_devices_communication_getCommState(void* hfile, void* lpdcb);
-int32_t windowssys_windows_win32_devices_communication_getCommTimeouts(void* hfile, void* lpcommtimeouts);
-int32_t windowssys_windows_win32_devices_communication_getDefaultCommConfigA(void* lpszname, void* lpcc, void* lpdwsize);
-int32_t windowssys_windows_win32_devices_communication_getDefaultCommConfigW(void* lpszname, void* lpcc, void* lpdwsize);
-void* windowssys_windows_win32_devices_communication_openCommPort(uint32_t uportnumber, uint32_t dwdesiredaccess, uint32_t dwflagsandattributes);
-int32_t windowssys_windows_win32_devices_communication_purgeComm(void* hfile, uint32_t dwflags);
-int32_t windowssys_windows_win32_devices_communication_setCommBreak(void* hfile);
-int32_t windowssys_windows_win32_devices_communication_setCommConfig(void* hcommdev, void* lpcc, uint32_t dwsize);
-int32_t windowssys_windows_win32_devices_communication_setCommMask(void* hfile, uint32_t dwevtmask);
-int32_t windowssys_windows_win32_devices_communication_setCommState(void* hfile, void* lpdcb);
-int32_t windowssys_windows_win32_devices_communication_setCommTimeouts(void* hfile, void* lpcommtimeouts);
-int32_t windowssys_windows_win32_devices_communication_setDefaultCommConfigA(void* lpszname, void* lpcc, uint32_t dwsize);
-int32_t windowssys_windows_win32_devices_communication_setDefaultCommConfigW(void* lpszname, void* lpcc, uint32_t dwsize);
-int32_t windowssys_windows_win32_devices_communication_setupComm(void* hfile, uint32_t dwinqueue, uint32_t dwoutqueue);
-int32_t windowssys_windows_win32_devices_communication_transmitCommChar(void* hfile, int8_t cchar);
-int32_t windowssys_windows_win32_devices_communication_waitCommEvent(void* hfile, void* lpevtmask, void* lpoverlapped);
+int32_t windowssysWindowsWin32DevicesCommunicationBuildCommDCBA(void* lpdef, void* lpdcb);
+int32_t windowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsA(void* lpdef, void* lpdcb, void* lpcommtimeouts);
+int32_t windowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsW(void* lpdef, void* lpdcb, void* lpcommtimeouts);
+int32_t windowssysWindowsWin32DevicesCommunicationBuildCommDCBW(void* lpdef, void* lpdcb);
+int32_t windowssysWindowsWin32DevicesCommunicationClearCommBreak(void* hfile);
+int32_t windowssysWindowsWin32DevicesCommunicationClearCommError(void* hfile, void* lperrors, void* lpstat);
+int32_t windowssysWindowsWin32DevicesCommunicationCommConfigDialogA(void* lpszname, void* hwnd, void* lpcc);
+int32_t windowssysWindowsWin32DevicesCommunicationCommConfigDialogW(void* lpszname, void* hwnd, void* lpcc);
+int32_t windowssysWindowsWin32DevicesCommunicationEscapeCommFunction(void* hfile, uint32_t dwfunc);
+int32_t windowssysWindowsWin32DevicesCommunicationGetCommConfig(void* hcommdev, void* lpcc, void* lpdwsize);
+int32_t windowssysWindowsWin32DevicesCommunicationGetCommMask(void* hfile, void* lpevtmask);
+int32_t windowssysWindowsWin32DevicesCommunicationGetCommModemStatus(void* hfile, void* lpmodemstat);
+uint32_t windowssysWindowsWin32DevicesCommunicationGetCommPorts(void* lpportnumbers, uint32_t uportnumberscount, void* puportnumbersfound);
+int32_t windowssysWindowsWin32DevicesCommunicationGetCommProperties(void* hfile, void* lpcommprop);
+int32_t windowssysWindowsWin32DevicesCommunicationGetCommState(void* hfile, void* lpdcb);
+int32_t windowssysWindowsWin32DevicesCommunicationGetCommTimeouts(void* hfile, void* lpcommtimeouts);
+int32_t windowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigA(void* lpszname, void* lpcc, void* lpdwsize);
+int32_t windowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigW(void* lpszname, void* lpcc, void* lpdwsize);
+void* windowssysWindowsWin32DevicesCommunicationOpenCommPort(uint32_t uportnumber, uint32_t dwdesiredaccess, uint32_t dwflagsandattributes);
+int32_t windowssysWindowsWin32DevicesCommunicationPurgeComm(void* hfile, uint32_t dwflags);
+int32_t windowssysWindowsWin32DevicesCommunicationSetCommBreak(void* hfile);
+int32_t windowssysWindowsWin32DevicesCommunicationSetCommConfig(void* hcommdev, void* lpcc, uint32_t dwsize);
+int32_t windowssysWindowsWin32DevicesCommunicationSetCommMask(void* hfile, uint32_t dwevtmask);
+int32_t windowssysWindowsWin32DevicesCommunicationSetCommState(void* hfile, void* lpdcb);
+int32_t windowssysWindowsWin32DevicesCommunicationSetCommTimeouts(void* hfile, void* lpcommtimeouts);
+int32_t windowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigA(void* lpszname, void* lpcc, uint32_t dwsize);
+int32_t windowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigW(void* lpszname, void* lpcc, uint32_t dwsize);
+int32_t windowssysWindowsWin32DevicesCommunicationSetupComm(void* hfile, uint32_t dwinqueue, uint32_t dwoutqueue);
+int32_t windowssysWindowsWin32DevicesCommunicationTransmitCommChar(void* hfile, int8_t cchar);
+int32_t windowssysWindowsWin32DevicesCommunicationWaitCommEvent(void* hfile, void* lpevtmask, void* lpoverlapped);
 
 #ifdef __cplusplus
 }

@@ -1,17 +1,20 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 
-public actual fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+// The host must provide the C companion wrapper exports in import module windowssys.
+public actual fun rtlExtendCorrelationVector(correlationvector: MutPtr<CorrelationVector>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemCorrelationvectorRtlExtendCorrelationVector")
 
-public actual fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun rtlIncrementCorrelationVector(correlationvector: MutPtr<CorrelationVector>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemCorrelationvectorRtlIncrementCorrelationVector")
 
-public actual fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun rtlInitializeCorrelationVector(correlationvector: MutPtr<CorrelationVector>, version: Int, guid: ConstPtr<Guid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemCorrelationvectorRtlInitializeCorrelationVector")
 
-public actual fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun rtlValidateCorrelationVector(vector: ConstPtr<CorrelationVector>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemCorrelationvectorRtlValidateCorrelationVector")

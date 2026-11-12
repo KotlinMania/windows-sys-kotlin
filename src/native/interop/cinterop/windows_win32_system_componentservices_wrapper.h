@@ -9,15 +9,15 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_componentservices_coCreateActivity(void* piunknown, void* riid, void* ppobj);
-int32_t windowssys_windows_win32_system_componentservices_coEnterServiceDomain(void* pconfigobject);
-int32_t windowssys_windows_win32_system_componentservices_coGetDefaultContext(int32_t apttype, void* riid, void* ppv);
-void windowssys_windows_win32_system_componentservices_coLeaveServiceDomain(void* punkstatus);
-int32_t windowssys_windows_win32_system_componentservices_getDispenserManager(void* param0);
-int32_t windowssys_windows_win32_system_componentservices_getManagedExtensions(void* dwexts);
-int32_t windowssys_windows_win32_system_componentservices_mTSCreateActivity(void* riid, void* ppobj);
-int32_t windowssys_windows_win32_system_componentservices_recycleSurrogate(int32_t lreasoncode);
-void* windowssys_windows_win32_system_componentservices_safeRef(void* rid, void* punk);
+int32_t windowssysWindowsWin32SystemComponentservicesCoCreateActivity(void* piunknown, void* riid, void* ppobj);
+int32_t windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain(void* pconfigobject);
+int32_t windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext(int32_t apttype, void* riid, void* ppv);
+void windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain(void* punkstatus);
+int32_t windowssysWindowsWin32SystemComponentservicesGetDispenserManager(void* param0);
+int32_t windowssysWindowsWin32SystemComponentservicesGetManagedExtensions(void* dwexts);
+int32_t windowssysWindowsWin32SystemComponentservicesMTSCreateActivity(void* riid, void* ppobj);
+int32_t windowssysWindowsWin32SystemComponentservicesRecycleSurrogate(int32_t lreasoncode);
+void* windowssysWindowsWin32SystemComponentservicesSafeRef(void* rid, void* punk);
 
 #ifdef __cplusplus
 }

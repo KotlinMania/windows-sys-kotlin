@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,114 +12,165 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML(syncmlrequest: Long, syncmlresult: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML(syncmlrequest: Long, syncmlresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService(pszupn: Long, ppmgmtinfo: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService(pszupn: Long, ppmgmtinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx(pszupn: Long, pszdiscoveryservicecandidate: Long, ppmgmtinfo: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx(pszupn: Long, pszdiscoveryservicecandidate: Long, ppmgmtinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo(providerid: Long, configstringbufferlength: Long, configstring: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo(providerid: Long, configstringbufferlength: Long, configstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo(deviceinformationclass: Int, ppdeviceregistrationinfo: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo(deviceinformationclass: Int, ppdeviceregistrationinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink(cchhyperlink: Int, pszhyperlink: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink(cchhyperlink: Int, pszhyperlink: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: Long, cchupn: Int, pszupn: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: Long, cchupn: Int, pszupn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed(pfismanagementregistrationallowed: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed(pfismanagementregistrationallowed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed(isenrollmentallowed: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed(isenrollmentallowed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement(alreadyregistered: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement(alreadyregistered: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement(pszupn: Long, ppszmdmserviceuri: Long, ppzsaccesstoken: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement(pszupn: Long, ppszmdmserviceuri: Long, ppzsaccesstoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials(usertoken: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials(usertoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials(): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo(providerid: Long, configstring: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo(providerid: Long, configstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally(ismanagedexternally: Int): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement(): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement(enrollmentid: Long): Int
+    external fun windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement(enrollmentid: Long): Int
 }
 
-public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML((syncmlrequest?.value ?: 0L), (syncmlresult?.value ?: 0L))
+public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr<Pwstr>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML(syncmlrequest.rawAddress, syncmlresult.rawAddress)
 
-public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService((pszupn?.value ?: 0L), (ppmgmtinfo?.value ?: 0L))
+public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService(pszupn.rawAddress, ppmgmtinfo.rawAddress)
 
-public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx((pszupn?.value ?: 0L), (pszdiscoveryservicecandidate?.value ?: 0L), (ppmgmtinfo?.value ?: 0L))
+public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx(pszupn.rawAddress, pszdiscoveryservicecandidate.rawAddress, ppmgmtinfo.rawAddress)
 
-public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: COpaquePointer?, configstring: Pwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo((providerid?.value ?: 0L), (configstringbufferlength?.value ?: 0L), (configstring?.value ?: 0L))
+public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr<UInt>, configstring: Pwstr): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo(providerid.rawAddress, configstringbufferlength.rawAddress, configstring.rawAddress)
 
-public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo(deviceinformationclass, (ppdeviceregistrationinfo?.value ?: 0L))
+public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo.rawAddress)
 
 public actual fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink(cchhyperlink.toInt(), (pszhyperlink?.value ?: 0L))
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink(cchhyperlink.toInt(), pszhyperlink.rawAddress)
 
-public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: COpaquePointer?, cchupn: UInt, pszupn: Pwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement((pfisdeviceregisteredwithmanagement?.value ?: 0L), cchupn.toInt(), (pszupn?.value ?: 0L))
+public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr<Bool>, cchupn: UInt, pszupn: Pwstr): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement.rawAddress, cchupn.toInt(), pszupn.rawAddress)
 
-public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed((pfismanagementregistrationallowed?.value ?: 0L))
+public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr<Bool>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed(pfismanagementregistrationallowed.rawAddress)
 
-public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed((isenrollmentallowed?.value ?: 0L))
+public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr<Bool>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed(isenrollmentallowed.rawAddress)
 
-public actual fun registerDeviceWithLocalManagement(alreadyregistered: COpaquePointer?): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement((alreadyregistered?.value ?: 0L))
+public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr<Bool>): Hresult =
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement(alreadyregistered.rawAddress)
 
 public actual fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement((pszupn?.value ?: 0L), (ppszmdmserviceuri?.value ?: 0L), (ppzsaccesstoken?.value ?: 0L))
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement(pszupn.rawAddress, ppszmdmserviceuri.rawAddress, ppzsaccesstoken.rawAddress)
 
 public actual fun registerDeviceWithManagementUsingAADCredentials(usertoken: Handle): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials((usertoken?.value ?: 0L))
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials(usertoken.rawAddress)
 
 public actual fun registerDeviceWithManagementUsingAADDeviceCredentials(): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials()
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials()
 
 public actual fun registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Pcwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2((mdmapplicationid?.value ?: 0L))
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid.rawAddress)
 
 public actual fun setDeviceManagementConfigInfo(providerid: Pcwstr, configstring: Pcwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo((providerid?.value ?: 0L), (configstring?.value ?: 0L))
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo(providerid.rawAddress, configstring.rawAddress)
 
 public actual fun setManagedExternally(ismanagedexternally: Bool): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally(ismanagedexternally)
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally)
 
 public actual fun unregisterDeviceWithLocalManagement(): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement()
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement()
 
 public actual fun unregisterDeviceWithManagement(enrollmentid: Pcwstr): Hresult =
-    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement((enrollmentid?.value ?: 0L))
+    WindowsWin32ManagementMobiledevicemanagementregistrationJniBridge.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement(enrollmentid.rawAddress)

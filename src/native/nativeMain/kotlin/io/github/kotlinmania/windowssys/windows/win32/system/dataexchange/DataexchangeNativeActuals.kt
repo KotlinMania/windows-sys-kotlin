@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -13,314 +14,315 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_addAtomA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_addAtomW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_addClipboardFormatListener
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_changeClipboardChain
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_closeClipboard
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_countClipboardFormats
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeAccessData
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeAddData
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeClientTransaction
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeConnect
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeConnectList
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeDisconnect
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeDisconnectList
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeEnableCallback
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeGetData
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeGetLastError
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeImpersonateClient
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeInitializeA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeInitializeW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeNameService
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddePostAdvise
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeQueryNextServer
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeQueryStringA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeQueryStringW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeReconnect
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeSetUserHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeUnaccessData
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_ddeUninitialize
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_deleteAtom
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_emptyClipboard
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_enumClipboardFormats
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_findAtomA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_findAtomW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_freeDDElParam
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getAtomNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getAtomNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getClipboardData
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getClipboardOwner
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getClipboardViewer
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalAddAtomA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalAddAtomExA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalAddAtomExW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalAddAtomW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalDeleteAtom
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalFindAtomA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalFindAtomW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalGetAtomNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_globalGetAtomNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_initAtomTable
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_openClipboard
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_packDDElParam
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_registerClipboardFormatA
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_registerClipboardFormatW
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_reuseDDElParam
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_setClipboardData
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_setClipboardViewer
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_setWinMetaFileBits
-import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssys_windows_win32_system_dataexchange_unpackDDElParam
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeAddAtomA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeAddAtomW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeAddClipboardFormatListener
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeChangeClipboardChain
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeCloseClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeCountClipboardFormats
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeAbandonTransaction
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeAccessData
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeAddData
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeClientTransaction
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeCmpStringHandles
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeConnect
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeConnectList
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeCreateDataHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeCreateStringHandleA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeCreateStringHandleW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeDisconnect
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeDisconnectList
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeEnableCallback
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeFreeDataHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeFreeStringHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeGetData
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeGetLastError
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeImpersonateClient
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeInitializeA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeInitializeW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeKeepStringHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeNameService
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdePostAdvise
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeQueryConvInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeQueryNextServer
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeQueryStringA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeQueryStringW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeReconnect
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeSetQualityOfService
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeSetUserHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeUnaccessData
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDdeUninitialize
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeDeleteAtom
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeEmptyClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeEnumClipboardFormats
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeFindAtomA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeFindAtomW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeFreeDDElParam
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetAtomNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetAtomNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetClipboardData
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetClipboardFormatNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetClipboardFormatNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetClipboardOwner
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetClipboardSequenceNumber
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetClipboardViewer
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetOpenClipboardWindow
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetPriorityClipboardFormat
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGetUpdatedClipboardFormats
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalAddAtomA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalAddAtomExA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalAddAtomExW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalAddAtomW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalDeleteAtom
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalFindAtomA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalFindAtomW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalGetAtomNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeGlobalGetAtomNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeImpersonateDdeClientWindow
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeInitAtomTable
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeIsClipboardFormatAvailable
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeOpenClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangePackDDElParam
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeRegisterClipboardFormatA
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeRegisterClipboardFormatW
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeRemoveClipboardFormatListener
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeReuseDDElParam
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeSetClipboardData
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeSetClipboardViewer
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeSetWinMetaFileBits
+import io.github.kotlinmania.windowssys.windows.win32.system.dataexchange.cinterop.windowssysWindowsWin32SystemDataexchangeUnpackDDElParam
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
 public actual fun addAtomA(lpstring: Pcstr): UShort =
-    windowssys_windows_win32_system_dataexchange_addAtomA(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeAddAtomA(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addAtomW(lpstring: Pcwstr): UShort =
-    windowssys_windows_win32_system_dataexchange_addAtomW(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeAddAtomW(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addClipboardFormatListener(hwnd: Hwnd): Bool =
-    windowssys_windows_win32_system_dataexchange_addClipboardFormatListener(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeAddClipboardFormatListener(hwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun changeClipboardChain(hwndremove: Hwnd, hwndnewnext: Hwnd): Bool =
-    windowssys_windows_win32_system_dataexchange_changeClipboardChain(hwndremove?.value?.toCPointer<ByteVar>(), hwndnewnext?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeChangeClipboardChain(hwndremove.rawAddress.toCPointer<ByteVar>(), hwndnewnext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun closeClipboard(): Bool =
-    windowssys_windows_win32_system_dataexchange_closeClipboard()
+    windowssysWindowsWin32SystemDataexchangeCloseClipboard()
 
 public actual fun countClipboardFormats(): Int =
-    windowssys_windows_win32_system_dataexchange_countClipboardFormats()
+    windowssysWindowsWin32SystemDataexchangeCountClipboardFormats()
 
 public actual fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction(idinst, hconv?.value?.toCPointer<ByteVar>(), idtransaction)
+    windowssysWindowsWin32SystemDataexchangeDdeAbandonTransaction(idinst, hconv.rawAddress.toCPointer<ByteVar>(), idtransaction)
 
-public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_dataexchange_ddeAccessData(hdata?.value?.toCPointer<ByteVar>(), pcbdatasize?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: MutPtr<UInt>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeAccessData(hdata.rawAddress.toCPointer<ByteVar>(), pcbdatasize.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ddeAddData(hdata: Hddedata, psrc: COpaquePointer?, cb: UInt, cboff: UInt): Hddedata =
-    windowssys_windows_win32_system_dataexchange_ddeAddData(hdata?.value?.toCPointer<ByteVar>(), psrc?.value?.toCPointer<ByteVar>(), cb, cboff)?.let { COpaquePointer(it.toLong()) }
+public actual fun ddeAddData(hdata: Hddedata, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt): Hddedata =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeAddData(hdata.rawAddress.toCPointer<ByteVar>(), psrc.rawAddress.toCPointer<ByteVar>(), cb, cboff)?.toLong() ?: 0L)
 
-public actual fun ddeClientTransaction(pdata: COpaquePointer?, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: COpaquePointer?): Hddedata =
-    windowssys_windows_win32_system_dataexchange_ddeClientTransaction(pdata?.value?.toCPointer<ByteVar>(), cbdata, hconv?.value?.toCPointer<ByteVar>(), hszitem?.value?.toCPointer<ByteVar>(), wfmt, wtype, dwtimeout, pdwresult?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun ddeClientTransaction(pdata: ConstPtr<UByte>, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: MutPtr<UInt>): Hddedata =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeClientTransaction(pdata.rawAddress.toCPointer<ByteVar>(), cbdata, hconv.rawAddress.toCPointer<ByteVar>(), hszitem.rawAddress.toCPointer<ByteVar>(), wfmt, wtype, dwtimeout, pdwresult.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int =
-    windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles(hsz1?.value?.toCPointer<ByteVar>(), hsz2?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeCmpStringHandles(hsz1.rawAddress.toCPointer<ByteVar>(), hsz2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: COpaquePointer?): Hconv =
-    windowssys_windows_win32_system_dataexchange_ddeConnect(idinst, hszservice?.value?.toCPointer<ByteVar>(), hsztopic?.value?.toCPointer<ByteVar>(), pcc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: ConstPtr<Convcontext>): Hconv =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeConnect(idinst, hszservice.rawAddress.toCPointer<ByteVar>(), hsztopic.rawAddress.toCPointer<ByteVar>(), pcc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: COpaquePointer?): Hconvlist =
-    windowssys_windows_win32_system_dataexchange_ddeConnectList(idinst, hszservice?.value?.toCPointer<ByteVar>(), hsztopic?.value?.toCPointer<ByteVar>(), hconvlist?.value?.toCPointer<ByteVar>(), pcc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: ConstPtr<Convcontext>): Hconvlist =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeConnectList(idinst, hszservice.rawAddress.toCPointer<ByteVar>(), hsztopic.rawAddress.toCPointer<ByteVar>(), hconvlist.rawAddress.toCPointer<ByteVar>(), pcc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ddeCreateDataHandle(idinst: UInt, psrc: COpaquePointer?, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
-    windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle(idinst, psrc?.value?.toCPointer<ByteVar>(), cb, cboff, hszitem?.value?.toCPointer<ByteVar>(), wfmt, afcmd)?.let { COpaquePointer(it.toLong()) }
+public actual fun ddeCreateDataHandle(idinst: UInt, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeCreateDataHandle(idinst, psrc.rawAddress.toCPointer<ByteVar>(), cb, cboff, hszitem.rawAddress.toCPointer<ByteVar>(), wfmt, afcmd)?.toLong() ?: 0L)
 
 public actual fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz =
-    windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA(idinst, psz?.value?.toCPointer<ByteVar>(), icodepage)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeCreateStringHandleA(idinst, psz.rawAddress.toCPointer<ByteVar>(), icodepage)?.toLong() ?: 0L)
 
 public actual fun ddeCreateStringHandleW(idinst: UInt, psz: Pcwstr, icodepage: Int): Hsz =
-    windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW(idinst, psz?.value?.toCPointer<ByteVar>(), icodepage)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeCreateStringHandleW(idinst, psz.rawAddress.toCPointer<ByteVar>(), icodepage)?.toLong() ?: 0L)
 
 public actual fun ddeDisconnect(hconv: Hconv): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeDisconnect(hconv?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeDisconnect(hconv.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeDisconnectList(hconvlist: Hconvlist): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeDisconnectList(hconvlist?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeDisconnectList(hconvlist.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeEnableCallback(idinst: UInt, hconv: Hconv, wcmd: DdeEnableCallbackCmd): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeEnableCallback(idinst, hconv?.value?.toCPointer<ByteVar>(), wcmd)
+    windowssysWindowsWin32SystemDataexchangeDdeEnableCallback(idinst, hconv.rawAddress.toCPointer<ByteVar>(), wcmd)
 
 public actual fun ddeFreeDataHandle(hdata: Hddedata): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle(hdata?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeFreeDataHandle(hdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle(idinst, hsz?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeFreeStringHandle(idinst, hsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ddeGetData(hdata: Hddedata, pdst: COpaquePointer?, cbmax: UInt, cboff: UInt): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeGetData(hdata?.value?.toCPointer<ByteVar>(), pdst?.value?.toCPointer<ByteVar>(), cbmax, cboff)
+public actual fun ddeGetData(hdata: Hddedata, pdst: MutPtr<UByte>, cbmax: UInt, cboff: UInt): UInt =
+    windowssysWindowsWin32SystemDataexchangeDdeGetData(hdata.rawAddress.toCPointer<ByteVar>(), pdst.rawAddress.toCPointer<ByteVar>(), cbmax, cboff)
 
 public actual fun ddeGetLastError(idinst: UInt): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeGetLastError(idinst)
+    windowssysWindowsWin32SystemDataexchangeDdeGetLastError(idinst)
 
 public actual fun ddeImpersonateClient(hconv: Hconv): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeImpersonateClient(hconv?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeImpersonateClient(hconv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ddeInitializeA(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeInitializeA(pidinst?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), afcmd, ulres)
+public actual fun ddeInitializeA(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+    windowssysWindowsWin32SystemDataexchangeDdeInitializeA(pidinst.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), afcmd, ulres)
 
-public actual fun ddeInitializeW(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeInitializeW(pidinst?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), afcmd, ulres)
+public actual fun ddeInitializeW(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+    windowssysWindowsWin32SystemDataexchangeDdeInitializeW(pidinst.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), afcmd, ulres)
 
 public actual fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle(idinst, hsz?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeKeepStringHandle(idinst, hsz.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeNameServiceCmd): Hddedata =
-    windowssys_windows_win32_system_dataexchange_ddeNameService(idinst, hsz1?.value?.toCPointer<ByteVar>(), hsz2?.value?.toCPointer<ByteVar>(), afcmd)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeNameService(idinst, hsz1.rawAddress.toCPointer<ByteVar>(), hsz2.rawAddress.toCPointer<ByteVar>(), afcmd)?.toLong() ?: 0L)
 
 public actual fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool =
-    windowssys_windows_win32_system_dataexchange_ddePostAdvise(idinst, hsztopic?.value?.toCPointer<ByteVar>(), hszitem?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdePostAdvise(idinst, hsztopic.rawAddress.toCPointer<ByteVar>(), hszitem.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo(hconv?.value?.toCPointer<ByteVar>(), idtransaction, pconvinfo?.value?.toCPointer<ByteVar>())
+public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: MutPtr<Convinfo>): UInt =
+    windowssysWindowsWin32SystemDataexchangeDdeQueryConvInfo(hconv.rawAddress.toCPointer<ByteVar>(), idtransaction, pconvinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv =
-    windowssys_windows_win32_system_dataexchange_ddeQueryNextServer(hconvlist?.value?.toCPointer<ByteVar>(), hconvprev?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeQueryNextServer(hconvlist.rawAddress.toCPointer<ByteVar>(), hconvprev.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun ddeQueryStringA(idinst: UInt, hsz: Hsz, psz: Pstr, cchmax: UInt, icodepage: Int): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeQueryStringA(idinst, hsz?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>(), cchmax, icodepage)
+    windowssysWindowsWin32SystemDataexchangeDdeQueryStringA(idinst, hsz.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>(), cchmax, icodepage)
 
 public actual fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UInt, icodepage: Int): UInt =
-    windowssys_windows_win32_system_dataexchange_ddeQueryStringW(idinst, hsz?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>(), cchmax, icodepage)
+    windowssysWindowsWin32SystemDataexchangeDdeQueryStringW(idinst, hsz.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>(), cchmax, icodepage)
 
 public actual fun ddeReconnect(hconv: Hconv): Hconv =
-    windowssys_windows_win32_system_dataexchange_ddeReconnect(hconv?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeDdeReconnect(hconv.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: COpaquePointer?, pqosprev: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService(hwndclient?.value?.toCPointer<ByteVar>(), pqosnew?.value?.toCPointer<ByteVar>(), pqosprev?.value?.toCPointer<ByteVar>())
+public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: ConstPtr<SecurityQualityOfService>, pqosprev: MutPtr<SecurityQualityOfService>): Bool =
+    windowssysWindowsWin32SystemDataexchangeDdeSetQualityOfService(hwndclient.rawAddress.toCPointer<ByteVar>(), pqosnew.rawAddress.toCPointer<ByteVar>(), pqosprev.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeSetUserHandle(hconv?.value?.toCPointer<ByteVar>(), id, huser)
+    windowssysWindowsWin32SystemDataexchangeDdeSetUserHandle(hconv.rawAddress.toCPointer<ByteVar>(), id, huser)
 
 public actual fun ddeUnaccessData(hdata: Hddedata): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeUnaccessData(hdata?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeDdeUnaccessData(hdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ddeUninitialize(idinst: UInt): Bool =
-    windowssys_windows_win32_system_dataexchange_ddeUninitialize(idinst)
+    windowssysWindowsWin32SystemDataexchangeDdeUninitialize(idinst)
 
 public actual fun deleteAtom(natom: UShort): UShort =
-    windowssys_windows_win32_system_dataexchange_deleteAtom(natom)
+    windowssysWindowsWin32SystemDataexchangeDeleteAtom(natom)
 
 public actual fun emptyClipboard(): Bool =
-    windowssys_windows_win32_system_dataexchange_emptyClipboard()
+    windowssysWindowsWin32SystemDataexchangeEmptyClipboard()
 
 public actual fun enumClipboardFormats(format: UInt): UInt =
-    windowssys_windows_win32_system_dataexchange_enumClipboardFormats(format)
+    windowssysWindowsWin32SystemDataexchangeEnumClipboardFormats(format)
 
 public actual fun findAtomA(lpstring: Pcstr): UShort =
-    windowssys_windows_win32_system_dataexchange_findAtomA(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeFindAtomA(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun findAtomW(lpstring: Pcwstr): UShort =
-    windowssys_windows_win32_system_dataexchange_findAtomW(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeFindAtomW(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun freeDDElParam(msg: UInt, lparam: Lparam): Bool =
-    windowssys_windows_win32_system_dataexchange_freeDDElParam(msg, lparam)
+    windowssysWindowsWin32SystemDataexchangeFreeDDElParam(msg, lparam)
 
 public actual fun getAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
-    windowssys_windows_win32_system_dataexchange_getAtomNameA(natom, lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemDataexchangeGetAtomNameA(natom, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun getAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt =
-    windowssys_windows_win32_system_dataexchange_getAtomNameW(natom, lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemDataexchangeGetAtomNameW(natom, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun getClipboardData(uformat: UInt): Handle =
-    windowssys_windows_win32_system_dataexchange_getClipboardData(uformat)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeGetClipboardData(uformat)?.toLong() ?: 0L)
 
 public actual fun getClipboardFormatNameA(format: UInt, lpszformatname: Pstr, cchmaxcount: Int): Int =
-    windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA(format, lpszformatname?.value?.toCPointer<ByteVar>(), cchmaxcount)
+    windowssysWindowsWin32SystemDataexchangeGetClipboardFormatNameA(format, lpszformatname.rawAddress.toCPointer<ByteVar>(), cchmaxcount)
 
 public actual fun getClipboardFormatNameW(format: UInt, lpszformatname: Pwstr, cchmaxcount: Int): Int =
-    windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW(format, lpszformatname?.value?.toCPointer<ByteVar>(), cchmaxcount)
+    windowssysWindowsWin32SystemDataexchangeGetClipboardFormatNameW(format, lpszformatname.rawAddress.toCPointer<ByteVar>(), cchmaxcount)
 
 public actual fun getClipboardOwner(): Hwnd =
-    windowssys_windows_win32_system_dataexchange_getClipboardOwner()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeGetClipboardOwner()?.toLong() ?: 0L)
 
 public actual fun getClipboardSequenceNumber(): UInt =
-    windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber()
+    windowssysWindowsWin32SystemDataexchangeGetClipboardSequenceNumber()
 
 public actual fun getClipboardViewer(): Hwnd =
-    windowssys_windows_win32_system_dataexchange_getClipboardViewer()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeGetClipboardViewer()?.toLong() ?: 0L)
 
 public actual fun getOpenClipboardWindow(): Hwnd =
-    windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeGetOpenClipboardWindow()?.toLong() ?: 0L)
 
-public actual fun getPriorityClipboardFormat(paformatprioritylist: COpaquePointer?, cformats: Int): Int =
-    windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat(paformatprioritylist?.value?.toCPointer<ByteVar>(), cformats)
+public actual fun getPriorityClipboardFormat(paformatprioritylist: ConstPtr<UInt>, cformats: Int): Int =
+    windowssysWindowsWin32SystemDataexchangeGetPriorityClipboardFormat(paformatprioritylist.rawAddress.toCPointer<ByteVar>(), cformats)
 
-public actual fun getUpdatedClipboardFormats(lpuiformats: COpaquePointer?, cformats: UInt, pcformatsout: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats(lpuiformats?.value?.toCPointer<ByteVar>(), cformats, pcformatsout?.value?.toCPointer<ByteVar>())
+public actual fun getUpdatedClipboardFormats(lpuiformats: MutPtr<UInt>, cformats: UInt, pcformatsout: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemDataexchangeGetUpdatedClipboardFormats(lpuiformats.rawAddress.toCPointer<ByteVar>(), cformats, pcformatsout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun globalAddAtomA(lpstring: Pcstr): UShort =
-    windowssys_windows_win32_system_dataexchange_globalAddAtomA(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeGlobalAddAtomA(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun globalAddAtomExA(lpstring: Pcstr, flags: UInt): UShort =
-    windowssys_windows_win32_system_dataexchange_globalAddAtomExA(lpstring?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWin32SystemDataexchangeGlobalAddAtomExA(lpstring.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun globalAddAtomExW(lpstring: Pcwstr, flags: UInt): UShort =
-    windowssys_windows_win32_system_dataexchange_globalAddAtomExW(lpstring?.value?.toCPointer<ByteVar>(), flags)
+    windowssysWindowsWin32SystemDataexchangeGlobalAddAtomExW(lpstring.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun globalAddAtomW(lpstring: Pcwstr): UShort =
-    windowssys_windows_win32_system_dataexchange_globalAddAtomW(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeGlobalAddAtomW(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun globalDeleteAtom(natom: UShort): UShort =
-    windowssys_windows_win32_system_dataexchange_globalDeleteAtom(natom)
+    windowssysWindowsWin32SystemDataexchangeGlobalDeleteAtom(natom)
 
 public actual fun globalFindAtomA(lpstring: Pcstr): UShort =
-    windowssys_windows_win32_system_dataexchange_globalFindAtomA(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeGlobalFindAtomA(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun globalFindAtomW(lpstring: Pcwstr): UShort =
-    windowssys_windows_win32_system_dataexchange_globalFindAtomW(lpstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeGlobalFindAtomW(lpstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun globalGetAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
-    windowssys_windows_win32_system_dataexchange_globalGetAtomNameA(natom, lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemDataexchangeGlobalGetAtomNameA(natom, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun globalGetAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt =
-    windowssys_windows_win32_system_dataexchange_globalGetAtomNameW(natom, lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemDataexchangeGlobalGetAtomNameW(natom, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun impersonateDdeClientWindow(hwndclient: Hwnd, hwndserver: Hwnd): Bool =
-    windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow(hwndclient?.value?.toCPointer<ByteVar>(), hwndserver?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeImpersonateDdeClientWindow(hwndclient.rawAddress.toCPointer<ByteVar>(), hwndserver.rawAddress.toCPointer<ByteVar>())
 
 public actual fun initAtomTable(nsize: UInt): Bool =
-    windowssys_windows_win32_system_dataexchange_initAtomTable(nsize)
+    windowssysWindowsWin32SystemDataexchangeInitAtomTable(nsize)
 
 public actual fun isClipboardFormatAvailable(format: UInt): Bool =
-    windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable(format)
+    windowssysWindowsWin32SystemDataexchangeIsClipboardFormatAvailable(format)
 
 public actual fun openClipboard(hwndnewowner: Hwnd): Bool =
-    windowssys_windows_win32_system_dataexchange_openClipboard(hwndnewowner?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeOpenClipboard(hwndnewowner.rawAddress.toCPointer<ByteVar>())
 
 public actual fun packDDElParam(msg: UInt, uilo: ULong, uihi: ULong): Lparam =
-    windowssys_windows_win32_system_dataexchange_packDDElParam(msg, uilo, uihi)
+    windowssysWindowsWin32SystemDataexchangePackDDElParam(msg, uilo, uihi)
 
 public actual fun registerClipboardFormatA(lpszformat: Pcstr): UInt =
-    windowssys_windows_win32_system_dataexchange_registerClipboardFormatA(lpszformat?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeRegisterClipboardFormatA(lpszformat.rawAddress.toCPointer<ByteVar>())
 
 public actual fun registerClipboardFormatW(lpszformat: Pcwstr): UInt =
-    windowssys_windows_win32_system_dataexchange_registerClipboardFormatW(lpszformat?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeRegisterClipboardFormatW(lpszformat.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeClipboardFormatListener(hwnd: Hwnd): Bool =
-    windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener(hwnd?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDataexchangeRemoveClipboardFormatListener(hwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun reuseDDElParam(lparam: Lparam, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): Lparam =
-    windowssys_windows_win32_system_dataexchange_reuseDDElParam(lparam, msgin, msgout, uilo, uihi)
+    windowssysWindowsWin32SystemDataexchangeReuseDDElParam(lparam, msgin, msgout, uilo, uihi)
 
 public actual fun setClipboardData(uformat: UInt, hmem: Handle): Handle =
-    windowssys_windows_win32_system_dataexchange_setClipboardData(uformat, hmem?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeSetClipboardData(uformat, hmem.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd =
-    windowssys_windows_win32_system_dataexchange_setClipboardViewer(hwndnewviewer?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDataexchangeSetClipboardViewer(hwndnewviewer.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: COpaquePointer?, hdcref: Hdc, lpmfp: COpaquePointer?): Henhmetafile =
-    windowssys_windows_win32_system_dataexchange_setWinMetaFileBits(nsize, lpmeta16data?.value?.toCPointer<ByteVar>(), hdcref?.value?.toCPointer<ByteVar>(), lpmfp?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: ConstPtr<UByte>, hdcref: Hdc, lpmfp: ConstPtr<Metafilepict>): Henhmetafile =
+    MutPtr(windowssysWindowsWin32SystemDataexchangeSetWinMetaFileBits(nsize, lpmeta16data.rawAddress.toCPointer<ByteVar>(), hdcref.rawAddress.toCPointer<ByteVar>(), lpmfp.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: COpaquePointer?, puihi: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_dataexchange_unpackDDElParam(msg, lparam, puilo?.value?.toCPointer<ByteVar>(), puihi?.value?.toCPointer<ByteVar>())
+public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: MutPtr<ULong>, puihi: MutPtr<ULong>): Bool =
+    windowssysWindowsWin32SystemDataexchangeUnpackDDElParam(msg, lparam, puilo.rawAddress.toCPointer<ByteVar>(), puihi.rawAddress.toCPointer<ByteVar>())

@@ -2,35 +2,86 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32StorageOfflinefilesJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32StorageOfflinefilesJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(benable: Int, pbrebootrequired: Long): Int
+    external fun windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable(benable: Int, pbrebootrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus(pbactive: Long, pbenabled: Long): Int
+    external fun windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus(pbactive: Long, pbenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): Int
+    external fun windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesStart(): Int
+    external fun windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart(): Int
 }
 
-public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: COpaquePointer?): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(benable, (pbrebootrequired?.value ?: 0L)).toUInt()
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr<Bool>): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable(benable, pbrebootrequired.rawAddress).toUInt()
 
-public actual fun offlineFilesQueryStatus(pbactive: COpaquePointer?, pbenabled: COpaquePointer?): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus((pbactive?.value ?: 0L), (pbenabled?.value ?: 0L)).toUInt()
+public actual fun offlineFilesQueryStatus(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus(pbactive.rawAddress, pbenabled.rawAddress).toUInt()
 
-public actual fun offlineFilesQueryStatusEx(pbactive: COpaquePointer?, pbenabled: COpaquePointer?, pbavailable: COpaquePointer?): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx((pbactive?.value ?: 0L), (pbenabled?.value ?: 0L), (pbavailable?.value ?: 0L)).toUInt()
+public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>, pbavailable: MutPtr<Bool>): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx(pbactive.rawAddress, pbenabled.rawAddress, pbavailable.rawAddress).toUInt()
 
 public actual fun offlineFilesStart(): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesStart().toUInt()
+    WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart().toUInt()

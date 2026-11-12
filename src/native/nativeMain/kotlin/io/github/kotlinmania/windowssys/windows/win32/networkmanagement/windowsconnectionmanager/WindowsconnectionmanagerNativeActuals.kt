@@ -2,52 +2,55 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager.cinterop.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun freeInterfaceContextTable(interfacecontexttable: COpaquePointer?) {
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable(interfacecontexttable?.value?.toCPointer<ByteVar>())
+public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr<NetInterfaceContextTable>) {
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(interfacecontexttable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: COpaquePointer?, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName(hostname?.value?.toCPointer<ByteVar>(), proxyname?.value?.toCPointer<ByteVar>(), flags, connectionprofilefilterrawdata?.value?.toCPointer<ByteVar>(), connectionprofilefilterrawdatasize, interfacecontexttable?.value?.toCPointer<ByteVar>())
+public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: ConstPtr<UByte>, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: MutPtr<MutPtr<NetInterfaceContextTable>>): Hresult =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(hostname.rawAddress.toCPointer<ByteVar>(), proxyname.rawAddress.toCPointer<ByteVar>(), flags, connectionprofilefilterrawdata.rawAddress.toCPointer<ByteVar>(), connectionprofilefilterrawdatasize, interfacecontexttable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint(destinationhostname?.value?.toCPointer<ByteVar>(), interfaceindex?.value?.toCPointer<ByteVar>())
+public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(destinationhostname.rawAddress.toCPointer<ByteVar>(), interfaceindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: COpaquePointer?, registrationhandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification(0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
+public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: ConstPtr<CVoid>, registrationhandle: MutPtr<Handle>): Hresult =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), registrationhandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun onDemandUnRegisterNotification(registrationhandle: Handle): Hresult =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification(registrationhandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(registrationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcmFreeMemory(pmemory: COpaquePointer?) {
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory(pmemory?.value?.toCPointer<ByteVar>())
+public actual fun wcmFreeMemory(pmemory: MutPtr<CVoid>) {
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(pmemory.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wcmGetProfileList(preserved: COpaquePointer?, ppprofilelist: COpaquePointer?): UInt =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList(preserved?.value?.toCPointer<ByteVar>(), ppprofilelist?.value?.toCPointer<ByteVar>())
+public actual fun wcmGetProfileList(preserved: ConstPtr<CVoid>, ppprofilelist: MutPtr<MutPtr<WcmProfileInfoList>>): UInt =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(preserved.rawAddress.toCPointer<ByteVar>(), ppprofilelist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcmQueryProperty(pinterface: COpaquePointer?, strprofilename: Pcwstr, property: WcmProperty, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?): UInt =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty(pinterface?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), property, preserved?.value?.toCPointer<ByteVar>(), pdwdatasize?.value?.toCPointer<ByteVar>(), ppdata?.value?.toCPointer<ByteVar>())
+public actual fun wcmQueryProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<UByte>>): UInt =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(pinterface.rawAddress.toCPointer<ByteVar>(), strprofilename.rawAddress.toCPointer<ByteVar>(), property, preserved.rawAddress.toCPointer<ByteVar>(), pdwdatasize.rawAddress.toCPointer<ByteVar>(), ppdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcmSetProfileList(pprofilelist: COpaquePointer?, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: COpaquePointer?): UInt =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList(pprofilelist?.value?.toCPointer<ByteVar>(), dwposition, fignoreunknownprofiles, preserved?.value?.toCPointer<ByteVar>())
+public actual fun wcmSetProfileList(pprofilelist: ConstPtr<WcmProfileInfoList>, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: ConstPtr<CVoid>): UInt =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(pprofilelist.rawAddress.toCPointer<ByteVar>(), dwposition, fignoreunknownprofiles, preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcmSetProperty(pinterface: COpaquePointer?, strprofilename: Pcwstr, property: WcmProperty, preserved: COpaquePointer?, dwdatasize: UInt, pbdata: COpaquePointer?): UInt =
-    windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty(pinterface?.value?.toCPointer<ByteVar>(), strprofilename?.value?.toCPointer<ByteVar>(), property, preserved?.value?.toCPointer<ByteVar>(), dwdatasize, pbdata?.value?.toCPointer<ByteVar>())
+public actual fun wcmSetProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, dwdatasize: UInt, pbdata: ConstPtr<UByte>): UInt =
+    windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(pinterface.rawAddress.toCPointer<ByteVar>(), strprofilename.rawAddress.toCPointer<ByteVar>(), property, preserved.rawAddress.toCPointer<ByteVar>(), dwdatasize, pbdata.rawAddress.toCPointer<ByteVar>())

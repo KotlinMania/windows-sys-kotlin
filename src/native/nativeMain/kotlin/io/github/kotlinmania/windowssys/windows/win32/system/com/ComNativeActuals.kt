@@ -2,461 +2,466 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_bindMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_cLSIDFromProgID
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_cLSIDFromProgIDEx
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_cLSIDFromString
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coAddRefServerProcess
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coAllowSetForegroundWindow
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coBuildVersion
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCancelCall
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCopyProxy
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCreateGuid
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCreateInstance
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCreateInstanceEx
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coCreateInstanceFromApp
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coDecrementMTAUsage
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coDisableCallCancellation
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coDisconnectContext
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coDisconnectObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coDosDateTimeToFileTime
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coEnableCallCancellation
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coFileTimeNow
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coFileTimeToDosDateTime
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coFreeAllLibraries
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coFreeLibrary
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coFreeUnusedLibraries
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetApartmentType
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetCallContext
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetCallerTID
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetCancelObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetClassObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetContextToken
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetCurrentProcess
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetMalloc
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetObjectContext
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetPSClsid
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetSystemSecurityPermissions
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coGetTreatAsClass
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coImpersonateClient
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coIncrementMTAUsage
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coInitialize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coInitializeEx
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coInitializeSecurity
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coInstall
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coIsHandlerConnected
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coIsOle1Class
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coLoadLibrary
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coLockObjectExternal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coQueryAuthenticationServices
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coQueryClientBlanket
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coQueryProxyBlanket
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterActivationFilter
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterChannelHook
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterClassObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterDeviceCatalog
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterInitializeSpy
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterMallocSpy
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterPSClsid
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRegisterSurrogate
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coReleaseServerProcess
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coResumeClassObjects
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRevertToSelf
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRevokeClassObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRevokeDeviceCatalog
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRevokeInitializeSpy
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coRevokeMallocSpy
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coSetCancelObject
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coSetProxyBlanket
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coSuspendClassObjects
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coSwitchCallContext
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coTaskMemAlloc
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coTaskMemFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coTaskMemRealloc
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coTestCancel
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coTreatAsClass
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coUninitialize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coWaitForMultipleHandles
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_coWaitForMultipleObjects
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createAntiMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createBindCtx
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createClassMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createDataAdviseHolder
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createDataCache
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createFileMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createGenericComposite
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createIUriBuilder
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createItemMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createObjrefMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createPointerMoniker
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createStdProgressIndicator
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createUri
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createUriFromMultiByteString
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_createUriWithFragment
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_dcomChannelSetHResult
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_getClassFile
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_getErrorInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_getRunningObjectTable
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_iIDFromString
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_mkParseDisplayName
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_monikerCommonPrefixWith
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_monikerRelativePathTo
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_progIDFromCLSID
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_setErrorInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_stringFromCLSID
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_stringFromGUID2
-import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssys_windows_win32_system_com_stringFromIID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComBindMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCLSIDFromProgID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCLSIDFromProgIDEx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCLSIDFromString
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoAddRefServerProcess
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoAllowSetForegroundWindow
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoBuildVersion
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCancelCall
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCopyProxy
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCreateGuid
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCreateInstance
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCreateInstanceEx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoCreateInstanceFromApp
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoDecrementMTAUsage
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoDisableCallCancellation
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoDisconnectContext
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoDisconnectObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoDosDateTimeToFileTime
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoEnableCallCancellation
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoFileTimeNow
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoFileTimeToDosDateTime
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoFreeAllLibraries
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoFreeLibrary
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoFreeUnusedLibraries
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetApartmentType
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetCallContext
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetCallerTID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetCancelObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetClassObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetContextToken
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetCurrentProcess
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetMalloc
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetObjectContext
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetPSClsid
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoGetTreatAsClass
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoImpersonateClient
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoIncrementMTAUsage
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoInitialize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoInitializeEx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoInitializeSecurity
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoInstall
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoIsHandlerConnected
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoIsOle1Class
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoLoadLibrary
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoLockObjectExternal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoQueryAuthenticationServices
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoQueryClientBlanket
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoQueryProxyBlanket
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterActivationFilter
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterChannelHook
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterClassObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterDeviceCatalog
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterInitializeSpy
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterMallocSpy
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterPSClsid
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRegisterSurrogate
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoReleaseServerProcess
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoResumeClassObjects
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRevertToSelf
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRevokeClassObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRevokeDeviceCatalog
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRevokeInitializeSpy
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoRevokeMallocSpy
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoSetCancelObject
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoSetProxyBlanket
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoSuspendClassObjects
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoSwitchCallContext
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoTaskMemAlloc
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoTaskMemFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoTaskMemRealloc
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoTestCancel
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoTreatAsClass
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoUninitialize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoWaitForMultipleHandles
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCoWaitForMultipleObjects
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateAntiMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateBindCtx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateClassMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateDataAdviseHolder
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateDataCache
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateFileMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateGenericComposite
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateIUriBuilder
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateItemMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateObjrefMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreatePointerMoniker
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateStdProgressIndicator
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateUri
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateUriFromMultiByteString
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComCreateUriWithFragment
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComDcomChannelSetHResult
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComGetClassFile
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComGetErrorInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComGetRunningObjectTable
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComIIDFromString
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComMkParseDisplayName
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComMonikerCommonPrefixWith
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComMonikerRelativePathTo
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComProgIDFromCLSID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComSetErrorInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComStringFromCLSID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComStringFromGUID2
+import io.github.kotlinmania.windowssys.windows.win32.system.com.cinterop.windowssysWindowsWin32SystemComStringFromIID
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun bindMoniker(pmk: COpaquePointer?, grfopt: UInt, iidresult: COpaquePointer?, ppvresult: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_bindMoniker(pmk?.value?.toCPointer<ByteVar>(), grfopt, iidresult?.value?.toCPointer<ByteVar>(), ppvresult?.value?.toCPointer<ByteVar>())
+public actual fun bindMoniker(pmk: MutPtr<CVoid>, grfopt: UInt, iidresult: ConstPtr<Guid>, ppvresult: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComBindMoniker(pmk.rawAddress.toCPointer<ByteVar>(), grfopt, iidresult.rawAddress.toCPointer<ByteVar>(), ppvresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_cLSIDFromProgID(lpszprogid?.value?.toCPointer<ByteVar>(), lpclsid?.value?.toCPointer<ByteVar>())
+public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCLSIDFromProgID(lpszprogid.rawAddress.toCPointer<ByteVar>(), lpclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_cLSIDFromProgIDEx(lpszprogid?.value?.toCPointer<ByteVar>(), lpclsid?.value?.toCPointer<ByteVar>())
+public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCLSIDFromProgIDEx(lpszprogid.rawAddress.toCPointer<ByteVar>(), lpclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_cLSIDFromString(lpsz?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
+public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCLSIDFromString(lpsz.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coAddRefServerProcess(): UInt =
-    windowssys_windows_win32_system_com_coAddRefServerProcess()
+    windowssysWindowsWin32SystemComCoAddRefServerProcess()
 
-public actual fun coAllowSetForegroundWindow(punk: COpaquePointer?, lpvreserved: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coAllowSetForegroundWindow(punk?.value?.toCPointer<ByteVar>(), lpvreserved?.value?.toCPointer<ByteVar>())
+public actual fun coAllowSetForegroundWindow(punk: MutPtr<CVoid>, lpvreserved: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoAllowSetForegroundWindow(punk.rawAddress.toCPointer<ByteVar>(), lpvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coAllowUnmarshalerCLSID(clsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID(clsid?.value?.toCPointer<ByteVar>())
+public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID(clsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coBuildVersion(): UInt =
-    windowssys_windows_win32_system_com_coBuildVersion()
+    windowssysWindowsWin32SystemComCoBuildVersion()
 
 public actual fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult =
-    windowssys_windows_win32_system_com_coCancelCall(dwthreadid, ultimeout)
+    windowssysWindowsWin32SystemComCoCancelCall(dwthreadid, ultimeout)
 
-public actual fun coCopyProxy(pproxy: COpaquePointer?, ppcopy: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coCopyProxy(pproxy?.value?.toCPointer<ByteVar>(), ppcopy?.value?.toCPointer<ByteVar>())
+public actual fun coCopyProxy(pproxy: MutPtr<CVoid>, ppcopy: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoCopyProxy(pproxy.rawAddress.toCPointer<ByteVar>(), ppcopy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateFreeThreadedMarshaler(punkouter: COpaquePointer?, ppunkmarshal: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler(punkouter?.value?.toCPointer<ByteVar>(), ppunkmarshal?.value?.toCPointer<ByteVar>())
+public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr<CVoid>, ppunkmarshal: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler(punkouter.rawAddress.toCPointer<ByteVar>(), ppunkmarshal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateGuid(pguid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coCreateGuid(pguid?.value?.toCPointer<ByteVar>())
+public actual fun coCreateGuid(pguid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoCreateGuid(pguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateInstance(rclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclscontext: Clsctx, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coCreateInstance(rclsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), dwclscontext, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun coCreateInstance(rclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclscontext: Clsctx, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoCreateInstance(rclsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), dwclscontext, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateInstanceEx(clsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, pserverinfo: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coCreateInstanceEx(clsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), dwclsctx, pserverinfo?.value?.toCPointer<ByteVar>(), dwcount, presults?.value?.toCPointer<ByteVar>())
+public actual fun coCreateInstanceEx(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, pserverinfo: ConstPtr<Coserverinfo>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+    windowssysWindowsWin32SystemComCoCreateInstanceEx(clsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), dwclsctx, pserverinfo.rawAddress.toCPointer<ByteVar>(), dwcount, presults.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateInstanceFromApp(clsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, reserved: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coCreateInstanceFromApp(clsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), dwclsctx, reserved?.value?.toCPointer<ByteVar>(), dwcount, presults?.value?.toCPointer<ByteVar>())
+public actual fun coCreateInstanceFromApp(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, reserved: ConstPtr<CVoid>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+    windowssysWindowsWin32SystemComCoCreateInstanceFromApp(clsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), dwclsctx, reserved.rawAddress.toCPointer<ByteVar>(), dwcount, presults.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coDecrementMTAUsage(cookie: CoMtaUsageCookie): Hresult =
-    windowssys_windows_win32_system_com_coDecrementMTAUsage(cookie?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemComCoDecrementMTAUsage(cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coDisableCallCancellation(preserved: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coDisableCallCancellation(preserved?.value?.toCPointer<ByteVar>())
+public actual fun coDisableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoDisableCallCancellation(preserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coDisconnectContext(dwtimeout: UInt): Hresult =
-    windowssys_windows_win32_system_com_coDisconnectContext(dwtimeout)
+    windowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout)
 
-public actual fun coDisconnectObject(punk: COpaquePointer?, dwreserved: UInt): Hresult =
-    windowssys_windows_win32_system_com_coDisconnectObject(punk?.value?.toCPointer<ByteVar>(), dwreserved)
+public actual fun coDisconnectObject(punk: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+    windowssysWindowsWin32SystemComCoDisconnectObject(punk.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_com_coDosDateTimeToFileTime(ndosdate, ndostime, lpfiletime?.value?.toCPointer<ByteVar>())
+public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr<Filetime>): Bool =
+    windowssysWindowsWin32SystemComCoDosDateTimeToFileTime(ndosdate, ndostime, lpfiletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coEnableCallCancellation(preserved: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coEnableCallCancellation(preserved?.value?.toCPointer<ByteVar>())
+public actual fun coEnableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoEnableCallCancellation(preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coFileTimeNow(lpfiletime: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coFileTimeNow(lpfiletime?.value?.toCPointer<ByteVar>())
+public actual fun coFileTimeNow(lpfiletime: MutPtr<Filetime>): Hresult =
+    windowssysWindowsWin32SystemComCoFileTimeNow(lpfiletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coFileTimeToDosDateTime(lpfiletime: COpaquePointer?, lpdosdate: COpaquePointer?, lpdostime: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_com_coFileTimeToDosDateTime(lpfiletime?.value?.toCPointer<ByteVar>(), lpdosdate?.value?.toCPointer<ByteVar>(), lpdostime?.value?.toCPointer<ByteVar>())
+public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr<Filetime>, lpdosdate: MutPtr<UShort>, lpdostime: MutPtr<UShort>): Bool =
+    windowssysWindowsWin32SystemComCoFileTimeToDosDateTime(lpfiletime.rawAddress.toCPointer<ByteVar>(), lpdosdate.rawAddress.toCPointer<ByteVar>(), lpdostime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coFreeAllLibraries() {
-    windowssys_windows_win32_system_com_coFreeAllLibraries()
+    windowssysWindowsWin32SystemComCoFreeAllLibraries()
 }
 
 public actual fun coFreeLibrary(hinst: Hinstance) {
-    windowssys_windows_win32_system_com_coFreeLibrary(hinst?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemComCoFreeLibrary(hinst.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun coFreeUnusedLibraries() {
-    windowssys_windows_win32_system_com_coFreeUnusedLibraries()
+    windowssysWindowsWin32SystemComCoFreeUnusedLibraries()
 }
 
 public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt) {
-    windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx(dwunloaddelay, dwreserved)
+    windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx(dwunloaddelay, dwreserved)
 }
 
-public actual fun coGetApartmentType(papttype: COpaquePointer?, paptqualifier: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetApartmentType(papttype?.value?.toCPointer<ByteVar>(), paptqualifier?.value?.toCPointer<ByteVar>())
+public actual fun coGetApartmentType(papttype: MutPtr<Apttype>, paptqualifier: MutPtr<Apttypequalifier>): Hresult =
+    windowssysWindowsWin32SystemComCoGetApartmentType(papttype.rawAddress.toCPointer<ByteVar>(), paptqualifier.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCallContext(riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetCallContext(riid?.value?.toCPointer<ByteVar>(), ppinterface?.value?.toCPointer<ByteVar>())
+public actual fun coGetCallContext(riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoGetCallContext(riid.rawAddress.toCPointer<ByteVar>(), ppinterface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCallerTID(lpdwtid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetCallerTID(lpdwtid?.value?.toCPointer<ByteVar>())
+public actual fun coGetCallerTID(lpdwtid: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComCoGetCallerTID(lpdwtid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCancelObject(dwthreadid: UInt, iid: COpaquePointer?, ppunk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetCancelObject(dwthreadid, iid?.value?.toCPointer<ByteVar>(), ppunk?.value?.toCPointer<ByteVar>())
+public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr<Guid>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoGetCancelObject(dwthreadid, iid.rawAddress.toCPointer<ByteVar>(), ppunk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetClassObject(rclsid: COpaquePointer?, dwclscontext: UInt, pvreserved: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetClassObject(rclsid?.value?.toCPointer<ByteVar>(), dwclscontext, pvreserved?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun coGetClassObject(rclsid: ConstPtr<Guid>, dwclscontext: UInt, pvreserved: ConstPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoGetClassObject(rclsid.rawAddress.toCPointer<ByteVar>(), dwclscontext, pvreserved.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetContextToken(ptoken: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetContextToken(ptoken?.value?.toCPointer<ByteVar>())
+public actual fun coGetContextToken(ptoken: MutPtr<ULong>): Hresult =
+    windowssysWindowsWin32SystemComCoGetContextToken(ptoken.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCurrentLogicalThreadId(pguid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId(pguid?.value?.toCPointer<ByteVar>())
+public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId(pguid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coGetCurrentProcess(): UInt =
-    windowssys_windows_win32_system_com_coGetCurrentProcess()
+    windowssysWindowsWin32SystemComCoGetCurrentProcess()
 
-public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetMalloc(dwmemcontext, ppmalloc?.value?.toCPointer<ByteVar>())
+public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoGetMalloc(dwmemcontext, ppmalloc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetObject(pszname: Pcwstr, pbindoptions: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetObject(pszname?.value?.toCPointer<ByteVar>(), pbindoptions?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr<BindOpts>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoGetObject(pszname.rawAddress.toCPointer<ByteVar>(), pbindoptions.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetObjectContext(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetObjectContext(riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun coGetObjectContext(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoGetObjectContext(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetPSClsid(riid: COpaquePointer?, pclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetPSClsid(riid?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
+public actual fun coGetPSClsid(riid: ConstPtr<Guid>, pclsid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoGetPSClsid(riid.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetSystemSecurityPermissions(comsdtype, ppsd?.value?.toCPointer<ByteVar>())
+public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr<PsecurityDescriptor>): Hresult =
+    windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions(comsdtype, ppsd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetTreatAsClass(clsidold: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coGetTreatAsClass(clsidold?.value?.toCPointer<ByteVar>(), pclsidnew?.value?.toCPointer<ByteVar>())
+public actual fun coGetTreatAsClass(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoGetTreatAsClass(clsidold.rawAddress.toCPointer<ByteVar>(), pclsidnew.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coImpersonateClient(): Hresult =
-    windowssys_windows_win32_system_com_coImpersonateClient()
+    windowssysWindowsWin32SystemComCoImpersonateClient()
 
-public actual fun coIncrementMTAUsage(pcookie: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coIncrementMTAUsage(pcookie?.value?.toCPointer<ByteVar>())
+public actual fun coIncrementMTAUsage(pcookie: MutPtr<CoMtaUsageCookie>): Hresult =
+    windowssysWindowsWin32SystemComCoIncrementMTAUsage(pcookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coInitialize(pvreserved: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coInitialize(pvreserved?.value?.toCPointer<ByteVar>())
+public actual fun coInitialize(pvreserved: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoInitialize(pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coInitializeEx(pvreserved: COpaquePointer?, dwcoinit: UInt): Hresult =
-    windowssys_windows_win32_system_com_coInitializeEx(pvreserved?.value?.toCPointer<ByteVar>(), dwcoinit)
+public actual fun coInitializeEx(pvreserved: ConstPtr<CVoid>, dwcoinit: UInt): Hresult =
+    windowssysWindowsWin32SystemComCoInitializeEx(pvreserved.rawAddress.toCPointer<ByteVar>(), dwcoinit)
 
-public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: COpaquePointer?, preserved1: COpaquePointer?, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: COpaquePointer?, dwcapabilities: UInt, preserved3: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coInitializeSecurity(psecdesc?.value?.toCPointer<ByteVar>(), cauthsvc, asauthsvc?.value?.toCPointer<ByteVar>(), preserved1?.value?.toCPointer<ByteVar>(), dwauthnlevel, dwimplevel, pauthlist?.value?.toCPointer<ByteVar>(), dwcapabilities, preserved3?.value?.toCPointer<ByteVar>())
+public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr<SoleAuthenticationService>, preserved1: ConstPtr<CVoid>, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr<CVoid>, dwcapabilities: UInt, preserved3: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoInitializeSecurity(psecdesc.rawAddress.toCPointer<ByteVar>(), cauthsvc, asauthsvc.rawAddress.toCPointer<ByteVar>(), preserved1.rawAddress.toCPointer<ByteVar>(), dwauthnlevel, dwimplevel, pauthlist.rawAddress.toCPointer<ByteVar>(), dwcapabilities, preserved3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coInstall(pbc: COpaquePointer?, dwflags: UInt, pclassspec: COpaquePointer?, pquery: COpaquePointer?, pszcodebase: Pcwstr): Hresult =
-    windowssys_windows_win32_system_com_coInstall(pbc?.value?.toCPointer<ByteVar>(), dwflags, pclassspec?.value?.toCPointer<ByteVar>(), pquery?.value?.toCPointer<ByteVar>(), pszcodebase?.value?.toCPointer<ByteVar>())
+public actual fun coInstall(pbc: MutPtr<CVoid>, dwflags: UInt, pclassspec: ConstPtr<UClsspec>, pquery: ConstPtr<Querycontext>, pszcodebase: Pcwstr): Hresult =
+    windowssysWindowsWin32SystemComCoInstall(pbc.rawAddress.toCPointer<ByteVar>(), dwflags, pclassspec.rawAddress.toCPointer<ByteVar>(), pquery.rawAddress.toCPointer<ByteVar>(), pszcodebase.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coInvalidateRemoteMachineBindings(pszmachinename: Pcwstr): Hresult =
-    windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings(pszmachinename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings(pszmachinename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coIsHandlerConnected(punk: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_com_coIsHandlerConnected(punk?.value?.toCPointer<ByteVar>())
+public actual fun coIsHandlerConnected(punk: MutPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemComCoIsHandlerConnected(punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coIsOle1Class(rclsid: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_com_coIsOle1Class(rclsid?.value?.toCPointer<ByteVar>())
+public actual fun coIsOle1Class(rclsid: ConstPtr<Guid>): Bool =
+    windowssysWindowsWin32SystemComCoIsOle1Class(rclsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coLoadLibrary(lpszlibname: Pcwstr, bautofree: Bool): Hinstance =
-    windowssys_windows_win32_system_com_coLoadLibrary(lpszlibname?.value?.toCPointer<ByteVar>(), bautofree)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemComCoLoadLibrary(lpszlibname.rawAddress.toCPointer<ByteVar>(), bautofree)?.toLong() ?: 0L)
 
-public actual fun coLockObjectExternal(punk: COpaquePointer?, flock: Bool, flastunlockreleases: Bool): Hresult =
-    windowssys_windows_win32_system_com_coLockObjectExternal(punk?.value?.toCPointer<ByteVar>(), flock, flastunlockreleases)
+public actual fun coLockObjectExternal(punk: MutPtr<CVoid>, flock: Bool, flastunlockreleases: Bool): Hresult =
+    windowssysWindowsWin32SystemComCoLockObjectExternal(punk.rawAddress.toCPointer<ByteVar>(), flock, flastunlockreleases)
 
-public actual fun coQueryAuthenticationServices(pcauthsvc: COpaquePointer?, asauthsvc: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coQueryAuthenticationServices(pcauthsvc?.value?.toCPointer<ByteVar>(), asauthsvc?.value?.toCPointer<ByteVar>())
+public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr<UInt>, asauthsvc: MutPtr<MutPtr<SoleAuthenticationService>>): Hresult =
+    windowssysWindowsWin32SystemComCoQueryAuthenticationServices(pcauthsvc.rawAddress.toCPointer<ByteVar>(), asauthsvc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coQueryClientBlanket(pauthnsvc: COpaquePointer?, pauthzsvc: COpaquePointer?, pserverprincname: COpaquePointer?, pauthnlevel: COpaquePointer?, pimplevel: COpaquePointer?, pprivs: COpaquePointer?, pcapabilities: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coQueryClientBlanket(pauthnsvc?.value?.toCPointer<ByteVar>(), pauthzsvc?.value?.toCPointer<ByteVar>(), pserverprincname?.value?.toCPointer<ByteVar>(), pauthnlevel?.value?.toCPointer<ByteVar>(), pimplevel?.value?.toCPointer<ByteVar>(), pprivs?.value?.toCPointer<ByteVar>(), pcapabilities?.value?.toCPointer<ByteVar>())
+public actual fun coQueryClientBlanket(pauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pprivs: MutPtr<MutPtr<CVoid>>, pcapabilities: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComCoQueryClientBlanket(pauthnsvc.rawAddress.toCPointer<ByteVar>(), pauthzsvc.rawAddress.toCPointer<ByteVar>(), pserverprincname.rawAddress.toCPointer<ByteVar>(), pauthnlevel.rawAddress.toCPointer<ByteVar>(), pimplevel.rawAddress.toCPointer<ByteVar>(), pprivs.rawAddress.toCPointer<ByteVar>(), pcapabilities.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coQueryProxyBlanket(pproxy: COpaquePointer?, pwauthnsvc: COpaquePointer?, pauthzsvc: COpaquePointer?, pserverprincname: COpaquePointer?, pauthnlevel: COpaquePointer?, pimplevel: COpaquePointer?, pauthinfo: COpaquePointer?, pcapabilites: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coQueryProxyBlanket(pproxy?.value?.toCPointer<ByteVar>(), pwauthnsvc?.value?.toCPointer<ByteVar>(), pauthzsvc?.value?.toCPointer<ByteVar>(), pserverprincname?.value?.toCPointer<ByteVar>(), pauthnlevel?.value?.toCPointer<ByteVar>(), pimplevel?.value?.toCPointer<ByteVar>(), pauthinfo?.value?.toCPointer<ByteVar>(), pcapabilites?.value?.toCPointer<ByteVar>())
+public actual fun coQueryProxyBlanket(pproxy: MutPtr<CVoid>, pwauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pauthinfo: MutPtr<MutPtr<CVoid>>, pcapabilites: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComCoQueryProxyBlanket(pproxy.rawAddress.toCPointer<ByteVar>(), pwauthnsvc.rawAddress.toCPointer<ByteVar>(), pauthzsvc.rawAddress.toCPointer<ByteVar>(), pserverprincname.rawAddress.toCPointer<ByteVar>(), pauthnlevel.rawAddress.toCPointer<ByteVar>(), pimplevel.rawAddress.toCPointer<ByteVar>(), pauthinfo.rawAddress.toCPointer<ByteVar>(), pcapabilites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterActivationFilter(pactivationfilter: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterActivationFilter(pactivationfilter?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterActivationFilter(pactivationfilter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterChannelHook(extensionuuid: COpaquePointer?, pchannelhook: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterChannelHook(extensionuuid?.value?.toCPointer<ByteVar>(), pchannelhook?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterChannelHook(extensionuuid: ConstPtr<Guid>, pchannelhook: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterChannelHook(extensionuuid.rawAddress.toCPointer<ByteVar>(), pchannelhook.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterClassObject(rclsid: COpaquePointer?, punk: COpaquePointer?, dwclscontext: Clsctx, flags: UInt, lpdwregister: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterClassObject(rclsid?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>(), dwclscontext, flags, lpdwregister?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterClassObject(rclsid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterClassObject(rclsid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>(), dwclscontext, flags, lpdwregister.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterDeviceCatalog(deviceinstanceid?.value?.toCPointer<ByteVar>(), cookie?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr<CoDeviceCatalogCookie>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterDeviceCatalog(deviceinstanceid.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterInitializeSpy(pspy: COpaquePointer?, pulicookie: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterInitializeSpy(pspy?.value?.toCPointer<ByteVar>(), pulicookie?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterInitializeSpy(pspy: MutPtr<CVoid>, pulicookie: MutPtr<ULong>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterInitializeSpy(pspy.rawAddress.toCPointer<ByteVar>(), pulicookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterMallocSpy(pmallocspy: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterMallocSpy(pmallocspy?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterMallocSpy(pmallocspy: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterMallocSpy(pmallocspy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterPSClsid(riid: COpaquePointer?, rclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterPSClsid(riid?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterPSClsid(riid: ConstPtr<Guid>, rclsid: ConstPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterPSClsid(riid.rawAddress.toCPointer<ByteVar>(), rclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterSurrogate(psurrogate: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coRegisterSurrogate(psurrogate?.value?.toCPointer<ByteVar>())
+public actual fun coRegisterSurrogate(psurrogate: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoRegisterSurrogate(psurrogate.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coReleaseServerProcess(): UInt =
-    windowssys_windows_win32_system_com_coReleaseServerProcess()
+    windowssysWindowsWin32SystemComCoReleaseServerProcess()
 
 public actual fun coResumeClassObjects(): Hresult =
-    windowssys_windows_win32_system_com_coResumeClassObjects()
+    windowssysWindowsWin32SystemComCoResumeClassObjects()
 
 public actual fun coRevertToSelf(): Hresult =
-    windowssys_windows_win32_system_com_coRevertToSelf()
+    windowssysWindowsWin32SystemComCoRevertToSelf()
 
 public actual fun coRevokeClassObject(dwregister: UInt): Hresult =
-    windowssys_windows_win32_system_com_coRevokeClassObject(dwregister)
+    windowssysWindowsWin32SystemComCoRevokeClassObject(dwregister)
 
 public actual fun coRevokeDeviceCatalog(cookie: CoDeviceCatalogCookie): Hresult =
-    windowssys_windows_win32_system_com_coRevokeDeviceCatalog(cookie?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemComCoRevokeDeviceCatalog(cookie.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coRevokeInitializeSpy(ulicookie: ULong): Hresult =
-    windowssys_windows_win32_system_com_coRevokeInitializeSpy(ulicookie)
+    windowssysWindowsWin32SystemComCoRevokeInitializeSpy(ulicookie)
 
 public actual fun coRevokeMallocSpy(): Hresult =
-    windowssys_windows_win32_system_com_coRevokeMallocSpy()
+    windowssysWindowsWin32SystemComCoRevokeMallocSpy()
 
-public actual fun coSetCancelObject(punk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coSetCancelObject(punk?.value?.toCPointer<ByteVar>())
+public actual fun coSetCancelObject(punk: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComCoSetCancelObject(punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coSetProxyBlanket(pproxy: COpaquePointer?, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: COpaquePointer?, dwcapabilities: UInt): Hresult =
-    windowssys_windows_win32_system_com_coSetProxyBlanket(pproxy?.value?.toCPointer<ByteVar>(), dwauthnsvc, dwauthzsvc, pserverprincname?.value?.toCPointer<ByteVar>(), dwauthnlevel, dwimplevel, pauthinfo?.value?.toCPointer<ByteVar>(), dwcapabilities)
+public actual fun coSetProxyBlanket(pproxy: MutPtr<CVoid>, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr<CVoid>, dwcapabilities: UInt): Hresult =
+    windowssysWindowsWin32SystemComCoSetProxyBlanket(pproxy.rawAddress.toCPointer<ByteVar>(), dwauthnsvc, dwauthzsvc, pserverprincname.rawAddress.toCPointer<ByteVar>(), dwauthnlevel, dwimplevel, pauthinfo.rawAddress.toCPointer<ByteVar>(), dwcapabilities)
 
 public actual fun coSuspendClassObjects(): Hresult =
-    windowssys_windows_win32_system_com_coSuspendClassObjects()
+    windowssysWindowsWin32SystemComCoSuspendClassObjects()
 
-public actual fun coSwitchCallContext(pnewobject: COpaquePointer?, ppoldobject: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coSwitchCallContext(pnewobject?.value?.toCPointer<ByteVar>(), ppoldobject?.value?.toCPointer<ByteVar>())
+public actual fun coSwitchCallContext(pnewobject: MutPtr<CVoid>, ppoldobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCoSwitchCallContext(pnewobject.rawAddress.toCPointer<ByteVar>(), ppoldobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coTaskMemAlloc(cb: ULong): COpaquePointer? =
-    windowssys_windows_win32_system_com_coTaskMemAlloc(cb)?.let { COpaquePointer(it.toLong()) }
+public actual fun coTaskMemAlloc(cb: ULong): MutPtr<CVoid> =
+    MutPtr(windowssysWindowsWin32SystemComCoTaskMemAlloc(cb)?.toLong() ?: 0L)
 
-public actual fun coTaskMemFree(pv: COpaquePointer?) {
-    windowssys_windows_win32_system_com_coTaskMemFree(pv?.value?.toCPointer<ByteVar>())
+public actual fun coTaskMemFree(pv: ConstPtr<CVoid>) {
+    windowssysWindowsWin32SystemComCoTaskMemFree(pv.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun coTaskMemRealloc(pv: COpaquePointer?, cb: ULong): COpaquePointer? =
-    windowssys_windows_win32_system_com_coTaskMemRealloc(pv?.value?.toCPointer<ByteVar>(), cb)?.let { COpaquePointer(it.toLong()) }
+public actual fun coTaskMemRealloc(pv: ConstPtr<CVoid>, cb: ULong): MutPtr<CVoid> =
+    MutPtr(windowssysWindowsWin32SystemComCoTaskMemRealloc(pv.rawAddress.toCPointer<ByteVar>(), cb)?.toLong() ?: 0L)
 
 public actual fun coTestCancel(): Hresult =
-    windowssys_windows_win32_system_com_coTestCancel()
+    windowssysWindowsWin32SystemComCoTestCancel()
 
-public actual fun coTreatAsClass(clsidold: COpaquePointer?, clsidnew: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coTreatAsClass(clsidold?.value?.toCPointer<ByteVar>(), clsidnew?.value?.toCPointer<ByteVar>())
+public actual fun coTreatAsClass(clsidold: ConstPtr<Guid>, clsidnew: ConstPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComCoTreatAsClass(clsidold.rawAddress.toCPointer<ByteVar>(), clsidnew.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coUninitialize() {
-    windowssys_windows_win32_system_com_coUninitialize()
+    windowssysWindowsWin32SystemComCoUninitialize()
 }
 
-public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coWaitForMultipleHandles(dwflags, dwtimeout, chandles, phandles?.value?.toCPointer<ByteVar>(), lpdwindex?.value?.toCPointer<ByteVar>())
+public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComCoWaitForMultipleHandles(dwflags, dwtimeout, chandles, phandles.rawAddress.toCPointer<ByteVar>(), lpdwindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_coWaitForMultipleObjects(dwflags, dwtimeout, chandles, phandles?.value?.toCPointer<ByteVar>(), lpdwindex?.value?.toCPointer<ByteVar>())
+public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemComCoWaitForMultipleObjects(dwflags, dwtimeout, chandles, phandles.rawAddress.toCPointer<ByteVar>(), lpdwindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createAntiMoniker(ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createAntiMoniker(ppmk?.value?.toCPointer<ByteVar>())
+public actual fun createAntiMoniker(ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateAntiMoniker(ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createBindCtx(reserved: UInt, ppbc: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createBindCtx(reserved, ppbc?.value?.toCPointer<ByteVar>())
+public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateBindCtx(reserved, ppbc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createClassMoniker(rclsid: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createClassMoniker(rclsid?.value?.toCPointer<ByteVar>(), ppmk?.value?.toCPointer<ByteVar>())
+public actual fun createClassMoniker(rclsid: ConstPtr<Guid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateClassMoniker(rclsid.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDataAdviseHolder(ppdaholder: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createDataAdviseHolder(ppdaholder?.value?.toCPointer<ByteVar>())
+public actual fun createDataAdviseHolder(ppdaholder: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateDataAdviseHolder(ppdaholder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDataCache(punkouter: COpaquePointer?, rclsid: COpaquePointer?, iid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createDataCache(punkouter?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>(), iid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun createDataCache(punkouter: MutPtr<CVoid>, rclsid: ConstPtr<Guid>, iid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateDataCache(punkouter.rawAddress.toCPointer<ByteVar>(), rclsid.rawAddress.toCPointer<ByteVar>(), iid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createFileMoniker(lpszpathname?.value?.toCPointer<ByteVar>(), ppmk?.value?.toCPointer<ByteVar>())
+public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateFileMoniker(lpszpathname.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createGenericComposite(pmkfirst: COpaquePointer?, pmkrest: COpaquePointer?, ppmkcomposite: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createGenericComposite(pmkfirst?.value?.toCPointer<ByteVar>(), pmkrest?.value?.toCPointer<ByteVar>(), ppmkcomposite?.value?.toCPointer<ByteVar>())
+public actual fun createGenericComposite(pmkfirst: MutPtr<CVoid>, pmkrest: MutPtr<CVoid>, ppmkcomposite: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateGenericComposite(pmkfirst.rawAddress.toCPointer<ByteVar>(), pmkrest.rawAddress.toCPointer<ByteVar>(), ppmkcomposite.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIUriBuilder(piuri: COpaquePointer?, dwflags: UInt, dwreserved: ULong, ppiuribuilder: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createIUriBuilder(piuri?.value?.toCPointer<ByteVar>(), dwflags, dwreserved, ppiuribuilder?.value?.toCPointer<ByteVar>())
+public actual fun createIUriBuilder(piuri: MutPtr<CVoid>, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateIUriBuilder(piuri.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, ppiuribuilder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createItemMoniker(lpszdelim?.value?.toCPointer<ByteVar>(), lpszitem?.value?.toCPointer<ByteVar>(), ppmk?.value?.toCPointer<ByteVar>())
+public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateItemMoniker(lpszdelim.rawAddress.toCPointer<ByteVar>(), lpszitem.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createObjrefMoniker(punk: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createObjrefMoniker(punk?.value?.toCPointer<ByteVar>(), ppmk?.value?.toCPointer<ByteVar>())
+public actual fun createObjrefMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateObjrefMoniker(punk.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPointerMoniker(punk: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createPointerMoniker(punk?.value?.toCPointer<ByteVar>(), ppmk?.value?.toCPointer<ByteVar>())
+public actual fun createPointerMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreatePointerMoniker(punk.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: COpaquePointer?, ppibsc: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createStdProgressIndicator(hwndparent?.value?.toCPointer<ByteVar>(), psztitle?.value?.toCPointer<ByteVar>(), pibsccaller?.value?.toCPointer<ByteVar>(), ppibsc?.value?.toCPointer<ByteVar>())
+public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr<CVoid>, ppibsc: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateStdProgressIndicator(hwndparent.rawAddress.toCPointer<ByteVar>(), psztitle.rawAddress.toCPointer<ByteVar>(), pibsccaller.rawAddress.toCPointer<ByteVar>(), ppibsc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createUri(pwzuri?.value?.toCPointer<ByteVar>(), dwflags, dwreserved, ppuri?.value?.toCPointer<ByteVar>())
+public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateUri(pwzuri.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, ppuri.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createUriFromMultiByteString(pszansiinputuri?.value?.toCPointer<ByteVar>(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved, ppuri?.value?.toCPointer<ByteVar>())
+public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateUriFromMultiByteString(pszansiinputuri.rawAddress.toCPointer<ByteVar>(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved, ppuri.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_createUriWithFragment(pwzuri?.value?.toCPointer<ByteVar>(), pwzfragment?.value?.toCPointer<ByteVar>(), dwflags, dwreserved, ppuri?.value?.toCPointer<ByteVar>())
+public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComCreateUriWithFragment(pwzuri.rawAddress.toCPointer<ByteVar>(), pwzfragment.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, ppuri.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dcomChannelSetHResult(pvreserved: COpaquePointer?, pulreserved: COpaquePointer?, appshr: Hresult): Hresult =
-    windowssys_windows_win32_system_com_dcomChannelSetHResult(pvreserved?.value?.toCPointer<ByteVar>(), pulreserved?.value?.toCPointer<ByteVar>(), appshr)
+public actual fun dcomChannelSetHResult(pvreserved: ConstPtr<CVoid>, pulreserved: ConstPtr<UInt>, appshr: Hresult): Hresult =
+    windowssysWindowsWin32SystemComDcomChannelSetHResult(pvreserved.rawAddress.toCPointer<ByteVar>(), pulreserved.rawAddress.toCPointer<ByteVar>(), appshr)
 
-public actual fun getClassFile(szfilename: Pcwstr, pclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_getClassFile(szfilename?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
+public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComGetClassFile(szfilename.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_getErrorInfo(dwreserved, pperrinfo?.value?.toCPointer<ByteVar>())
+public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComGetErrorInfo(dwreserved, pperrinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRunningObjectTable(reserved: UInt, pprot: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_getRunningObjectTable(reserved, pprot?.value?.toCPointer<ByteVar>())
+public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComGetRunningObjectTable(reserved, pprot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iIDFromString(lpsz: Pcwstr, lpiid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_iIDFromString(lpsz?.value?.toCPointer<ByteVar>(), lpiid?.value?.toCPointer<ByteVar>())
+public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32SystemComIIDFromString(lpsz.rawAddress.toCPointer<ByteVar>(), lpiid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mkParseDisplayName(pbc: COpaquePointer?, szusername: Pcwstr, pcheaten: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_mkParseDisplayName(pbc?.value?.toCPointer<ByteVar>(), szusername?.value?.toCPointer<ByteVar>(), pcheaten?.value?.toCPointer<ByteVar>(), ppmk?.value?.toCPointer<ByteVar>())
+public actual fun mkParseDisplayName(pbc: MutPtr<CVoid>, szusername: Pcwstr, pcheaten: MutPtr<UInt>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComMkParseDisplayName(pbc.rawAddress.toCPointer<ByteVar>(), szusername.rawAddress.toCPointer<ByteVar>(), pcheaten.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun monikerCommonPrefixWith(pmkthis: COpaquePointer?, pmkother: COpaquePointer?, ppmkcommon: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_monikerCommonPrefixWith(pmkthis?.value?.toCPointer<ByteVar>(), pmkother?.value?.toCPointer<ByteVar>(), ppmkcommon?.value?.toCPointer<ByteVar>())
+public actual fun monikerCommonPrefixWith(pmkthis: MutPtr<CVoid>, pmkother: MutPtr<CVoid>, ppmkcommon: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComMonikerCommonPrefixWith(pmkthis.rawAddress.toCPointer<ByteVar>(), pmkother.rawAddress.toCPointer<ByteVar>(), ppmkcommon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun monikerRelativePathTo(pmksrc: COpaquePointer?, pmkdest: COpaquePointer?, ppmkrelpath: COpaquePointer?, dwreserved: Bool): Hresult =
-    windowssys_windows_win32_system_com_monikerRelativePathTo(pmksrc?.value?.toCPointer<ByteVar>(), pmkdest?.value?.toCPointer<ByteVar>(), ppmkrelpath?.value?.toCPointer<ByteVar>(), dwreserved)
+public actual fun monikerRelativePathTo(pmksrc: MutPtr<CVoid>, pmkdest: MutPtr<CVoid>, ppmkrelpath: MutPtr<MutPtr<CVoid>>, dwreserved: Bool): Hresult =
+    windowssysWindowsWin32SystemComMonikerRelativePathTo(pmksrc.rawAddress.toCPointer<ByteVar>(), pmkdest.rawAddress.toCPointer<ByteVar>(), ppmkrelpath.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun progIDFromCLSID(clsid: COpaquePointer?, lplpszprogid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_progIDFromCLSID(clsid?.value?.toCPointer<ByteVar>(), lplpszprogid?.value?.toCPointer<ByteVar>())
+public actual fun progIDFromCLSID(clsid: ConstPtr<Guid>, lplpszprogid: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32SystemComProgIDFromCLSID(clsid.rawAddress.toCPointer<ByteVar>(), lplpszprogid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setErrorInfo(dwreserved: UInt, perrinfo: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_setErrorInfo(dwreserved, perrinfo?.value?.toCPointer<ByteVar>())
+public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComSetErrorInfo(dwreserved, perrinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stringFromCLSID(rclsid: COpaquePointer?, lplpsz: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_stringFromCLSID(rclsid?.value?.toCPointer<ByteVar>(), lplpsz?.value?.toCPointer<ByteVar>())
+public actual fun stringFromCLSID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32SystemComStringFromCLSID(rclsid.rawAddress.toCPointer<ByteVar>(), lplpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stringFromGUID2(rguid: COpaquePointer?, lpsz: Pwstr, cchmax: Int): Int =
-    windowssys_windows_win32_system_com_stringFromGUID2(rguid?.value?.toCPointer<ByteVar>(), lpsz?.value?.toCPointer<ByteVar>(), cchmax)
+public actual fun stringFromGUID2(rguid: ConstPtr<Guid>, lpsz: Pwstr, cchmax: Int): Int =
+    windowssysWindowsWin32SystemComStringFromGUID2(rguid.rawAddress.toCPointer<ByteVar>(), lpsz.rawAddress.toCPointer<ByteVar>(), cchmax)
 
-public actual fun stringFromIID(rclsid: COpaquePointer?, lplpsz: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_stringFromIID(rclsid?.value?.toCPointer<ByteVar>(), lplpsz?.value?.toCPointer<ByteVar>())
+public actual fun stringFromIID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32SystemComStringFromIID(rclsid.rawAddress.toCPointer<ByteVar>(), lplpsz.rawAddress.toCPointer<ByteVar>())

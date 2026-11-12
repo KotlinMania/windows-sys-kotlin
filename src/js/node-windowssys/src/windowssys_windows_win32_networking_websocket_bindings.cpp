@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketAbortHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketAbortH
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubprotocols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -114,7 +114,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubprotocolselected = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCompleteAction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -179,7 +179,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketComple
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulpropertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -208,7 +208,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCreate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulpropertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCreate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketDeleteHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketDelete
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* presponseheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -294,7 +294,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetAction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eactionqueue = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -358,7 +358,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetAct
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t etype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -387,7 +387,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetGlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketReceive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketReceive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -416,7 +416,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketReceiv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_websocket_webSocketSend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWebsocketWebSocketSend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t buffertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -448,19 +448,19 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketSend_n
 }
 
 static void register_windows_win32_networking_websocket_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketAbortHandle", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketAbortHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketCompleteAction", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketCompleteAction_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketDeleteHandle", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketDeleteHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketGetAction", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketGetAction_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketReceive", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketReceive_napi));
-    exports.Set("windowssys_windows_win32_networking_websocket_webSocketSend", Napi::Function::New(env, windowssys_windows_win32_networking_websocket_webSocketSend_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketReceive", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketReceive_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWebsocketWebSocketSend", Napi::Function::New(env, windowssysWindowsWin32NetworkingWebsocketWebSocketSend_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_websocket_napi, nullptr };

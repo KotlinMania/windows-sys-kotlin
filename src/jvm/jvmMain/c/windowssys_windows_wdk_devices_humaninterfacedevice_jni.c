@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1wdk_1devices_1humaninterfacedevice_1vhfAsyncOperationComplete(JNIEnv* km_env, jclass km_clazz, jlong vhfoperationhandle, jint completionstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssysWindowsWdkDevicesHumaninterfacedeviceVhfAsyncOperationComplete(JNIEnv* km_env, jclass km_clazz, jlong vhfoperationhandle, jint completionstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1wdk_1devices_1humaninterfacedevice_1vhfCreate(JNIEnv* km_env, jclass km_clazz, jlong vhfconfig, jlong vhfhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssysWindowsWdkDevicesHumaninterfacedeviceVhfCreate(JNIEnv* km_env, jclass km_clazz, jlong vhfconfig, jlong vhfhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1wdk_1devices_1humaninterfacedevice_1vhfDelete(JNIEnv* km_env, jclass km_clazz, jlong vhfhandle, jboolean wait) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssysWindowsWdkDevicesHumaninterfacedeviceVhfDelete(JNIEnv* km_env, jclass km_clazz, jlong vhfhandle, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -93,7 +93,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1wdk_1devices_1humaninterfacedevice_1vhfReadReportSubmit(JNIEnv* km_env, jclass km_clazz, jlong vhfhandle, jlong hidtransferpacket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssysWindowsWdkDevicesHumaninterfacedeviceVhfReadReportSubmit(JNIEnv* km_env, jclass km_clazz, jlong vhfhandle, jlong hidtransferpacket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1wdk_1devices_1humaninterfacedevice_1vhfStart(JNIEnv* km_env, jclass km_clazz, jlong vhfhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices_humaninterfacedevice_WindowsWdkDevicesHumaninterfacedeviceJniBridge_windowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart(JNIEnv* km_env, jclass km_clazz, jlong vhfhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

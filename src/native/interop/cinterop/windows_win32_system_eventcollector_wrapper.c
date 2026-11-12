@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_eventcollector_ecClose(int64_t object) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcClose(int64_t object) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecClose(int64_t object) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecDeleteSubscription(void* subscriptionname, uint32_t flags) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcDeleteSubscription(void* subscriptionname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecDeleteSubscription(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription(int64_t subscriptionenum, uint32_t subscriptionnamebuffersize, void* subscriptionnamebuffer, void* subscriptionnamebufferused) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcEnumNextSubscription(int64_t subscriptionenum, uint32_t subscriptionnamebuffersize, void* subscriptionnamebuffer, void* subscriptionnamebufferused) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcGetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize(int64_t objectarray, void* objectarraysize) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcGetObjectArraySize(int64_t objectarray, void* objectarraysize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -163,7 +163,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus(void* subscriptionname, int32_t statusinfoid, void* eventsourcename, uint32_t flags, uint32_t statusvaluebuffersize, void* statusvaluebuffer, void* statusvaluebufferused) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionRunTimeStatus(void* subscriptionname, int32_t statusinfoid, void* eventsourcename, uint32_t flags, uint32_t statusvaluebuffersize, void* statusvaluebuffer, void* statusvaluebufferused) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -191,7 +191,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeS
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement(int64_t objectarray, uint32_t arrayindex) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcInsertObjectArrayElement(int64_t objectarray, uint32_t arrayindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElemen
 #endif
 }
 
-int64_t windowssys_windows_win32_system_eventcollector_ecOpenSubscription(void* subscriptionname, uint32_t accessmask, uint32_t flags) {
+int64_t windowssysWindowsWin32SystemEventcollectorEcOpenSubscription(void* subscriptionname, uint32_t accessmask, uint32_t flags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -238,7 +238,7 @@ int64_t windowssys_windows_win32_system_eventcollector_ecOpenSubscription(void* 
 #endif
 }
 
-int64_t windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum(uint32_t flags) {
+int64_t windowssysWindowsWin32SystemEventcollectorEcOpenSubscriptionEnum(uint32_t flags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -260,7 +260,7 @@ int64_t windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement(int64_t objectarray, uint32_t arrayindex) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcRemoveObjectArrayElement(int64_t objectarray, uint32_t arrayindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -283,7 +283,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElemen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecRetrySubscription(void* subscriptionname, void* eventsourcename, uint32_t flags) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcRetrySubscription(void* subscriptionname, void* eventsourcename, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -307,7 +307,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecRetrySubscription(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecSaveSubscription(int64_t subscription, uint32_t flags) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcSaveSubscription(int64_t subscription, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -330,7 +330,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecSaveSubscription(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, void* propertyvalue) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcSetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, void* propertyvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -356,7 +356,7 @@ int32_t windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, void* propertyvalue) {
+int32_t windowssysWindowsWin32SystemEventcollectorEcSetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, void* propertyvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

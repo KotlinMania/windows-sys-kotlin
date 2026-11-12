@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1getNetScheduleAccountInformation(JNIEnv* km_env, jclass km_clazz, jlong pwszservername, jint ccaccount, jlong wszaccount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementGetNetScheduleAccountInformation(JNIEnv* km_env, jclass km_clazz, jlong pwszservername, jint ccaccount, jlong wszaccount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1iNetLogonControl2(JNIEnv* km_env, jclass km_clazz, jlong servername, jint functioncode, jint querylevel, jlong data, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementINetLogonControl2(JNIEnv* km_env, jclass km_clazz, jlong servername, jint functioncode, jint querylevel, jlong data, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1logErrorA(JNIEnv* km_env, jclass km_clazz, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings, jint dwerrorcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementLogErrorA(JNIEnv* km_env, jclass km_clazz, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings, jint dwerrorcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1logErrorW(JNIEnv* km_env, jclass km_clazz, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings, jint dwerrorcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementLogErrorW(JNIEnv* km_env, jclass km_clazz, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings, jint dwerrorcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1logEventA(JNIEnv* km_env, jclass km_clazz, jint weventtype, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementLogEventA(JNIEnv* km_env, jclass km_clazz, jint weventtype, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1logEventW(JNIEnv* km_env, jclass km_clazz, jint weventtype, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementLogEventW(JNIEnv* km_env, jclass km_clazz, jint weventtype, jint dwmessageid, jint cnumberofsubstrings, jlong plpwssubstrings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -171,7 +171,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1mprSetupProtocolEnum(JNIEnv* km_env, jclass km_clazz, jint dwtransportid, jlong lplpbuffer, jlong lpdwentriesread) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementMprSetupProtocolEnum(JNIEnv* km_env, jclass km_clazz, jint dwtransportid, jlong lplpbuffer, jlong lpdwentriesread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -198,7 +198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1mprSetupProtocolFree(JNIEnv* km_env, jclass km_clazz, jlong lpbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementMprSetupProtocolFree(JNIEnv* km_env, jclass km_clazz, jlong lpbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAccessAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -244,14 +244,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAccessDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -277,7 +277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAccessEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong basepath, jint recursive, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong basepath, jint recursive, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -289,7 +289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)basepath, (uint32_t)recursive, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)basepath, (uint32_t)recursive, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -303,14 +303,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAccessGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong resource, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong resource, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -338,7 +338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAccessGetUserPerms(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong ugname, jlong resource, jlong perms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessGetUserPerms(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong ugname, jlong resource, jlong perms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -366,7 +366,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAccessSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong resource, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong resource, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -378,7 +378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)resource, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)resource, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -388,14 +388,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)resource;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAddAlternateComputerName(JNIEnv* km_env, jclass km_clazz, jlong server, jlong alternatename, jlong domainaccount, jlong domainaccountpassword, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAddAlternateComputerName(JNIEnv* km_env, jclass km_clazz, jlong server, jlong alternatename, jlong domainaccount, jlong domainaccountpassword, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -424,7 +424,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAddServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jlong password, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAddServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jlong password, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAlertRaise(JNIEnv* km_env, jclass km_clazz, jlong alerttype, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAlertRaise(JNIEnv* km_env, jclass km_clazz, jlong alerttype, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAlertRaiseEx(JNIEnv* km_env, jclass km_clazz, jlong alerttype, jlong variableinfo, jint variableinfosize, jlong servicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAlertRaiseEx(JNIEnv* km_env, jclass km_clazz, jlong alerttype, jlong variableinfo, jint variableinfosize, jlong servicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -507,7 +507,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netApiBufferAllocate(JNIEnv* km_env, jclass km_clazz, jint bytecount, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferAllocate(JNIEnv* km_env, jclass km_clazz, jint bytecount, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -533,7 +533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netApiBufferFree(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferFree(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -558,7 +558,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netApiBufferReallocate(JNIEnv* km_env, jclass km_clazz, jlong oldbuffer, jint newbytecount, jlong newbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferReallocate(JNIEnv* km_env, jclass km_clazz, jlong oldbuffer, jint newbytecount, jlong newbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -585,7 +585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netApiBufferSize(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong bytecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferSize(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong bytecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -611,7 +611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAuditClear(JNIEnv* km_env, jclass km_clazz, jlong server, jlong backupfile, jlong service) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAuditClear(JNIEnv* km_env, jclass km_clazz, jlong server, jlong backupfile, jlong service) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -638,7 +638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAuditRead(JNIEnv* km_env, jclass km_clazz, jlong server, jlong service, jlong auditloghandle, jint offset, jlong reserved1, jint reserved2, jint offsetflag, jlong bufptr, jint prefmaxlen, jlong bytesread, jlong totalavailable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAuditRead(JNIEnv* km_env, jclass km_clazz, jlong server, jlong service, jlong auditloghandle, jint offset, jlong reserved1, jint reserved2, jint offsetflag, jlong bufptr, jint prefmaxlen, jlong bytesread, jlong totalavailable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -673,7 +673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netAuditWrite(JNIEnv* km_env, jclass km_clazz, jint type, jlong buf, jint numbytes, jlong service, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetAuditWrite(JNIEnv* km_env, jclass km_clazz, jint type, jlong buf, jint numbytes, jlong service, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netConfigGet(JNIEnv* km_env, jclass km_clazz, jlong server, jlong component, jlong parameter, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetConfigGet(JNIEnv* km_env, jclass km_clazz, jlong server, jlong component, jlong parameter, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -730,7 +730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netConfigGetAll(JNIEnv* km_env, jclass km_clazz, jlong server, jlong component, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetConfigGetAll(JNIEnv* km_env, jclass km_clazz, jlong server, jlong component, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -757,7 +757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netConfigSet(JNIEnv* km_env, jclass km_clazz, jlong server, jlong reserved1, jlong component, jint level, jint reserved2, jlong buf, jint reserved3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetConfigSet(JNIEnv* km_env, jclass km_clazz, jlong server, jlong reserved1, jlong component, jint level, jint reserved2, jlong buf, jint reserved3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -788,7 +788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netCreateProvisioningPackage(JNIEnv* km_env, jclass km_clazz, jlong pprovisioningparams, jlong pppackagebindata, jlong pdwpackagebindatasize, jlong pppackagetextdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetCreateProvisioningPackage(JNIEnv* km_env, jclass km_clazz, jlong pprovisioningparams, jlong pppackagebindata, jlong pdwpackagebindatasize, jlong pppackagetextdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -816,7 +816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netEnumerateComputerNames(JNIEnv* km_env, jclass km_clazz, jlong server, jint nametype, jint reserved, jlong entrycount, jlong computernames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetEnumerateComputerNames(JNIEnv* km_env, jclass km_clazz, jlong server, jint nametype, jint reserved, jlong entrycount, jlong computernames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -845,7 +845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netEnumerateServiceAccounts(JNIEnv* km_env, jclass km_clazz, jlong servername, jint flags, jlong accountscount, jlong accounts) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetEnumerateServiceAccounts(JNIEnv* km_env, jclass km_clazz, jlong servername, jint flags, jlong accountscount, jlong accounts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -873,7 +873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netErrorLogClear(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong backupfile, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogClear(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong backupfile, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -900,7 +900,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netErrorLogRead(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong reserved1, jlong errorloghandle, jint offset, jlong reserved2, jint reserved3, jint offsetflag, jlong bufptr, jint prefmaxsize, jlong bytesread, jlong totalavailable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogRead(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong reserved1, jlong errorloghandle, jint offset, jlong reserved2, jint reserved3, jint offsetflag, jlong bufptr, jint prefmaxsize, jlong bytesread, jlong totalavailable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netErrorLogWrite(JNIEnv* km_env, jclass km_clazz, jlong reserved1, jint code, jlong component, jlong buffer, jint numbytes, jlong msgbuf, jint strcount, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogWrite(JNIEnv* km_env, jclass km_clazz, jlong reserved1, jint code, jlong component, jlong buffer, jint numbytes, jlong msgbuf, jint strcount, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -967,7 +967,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netFreeAadJoinInformation(JNIEnv* km_env, jclass km_clazz, jlong pjoininfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetFreeAadJoinInformation(JNIEnv* km_env, jclass km_clazz, jlong pjoininfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -988,7 +988,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGetAadJoinInformation(JNIEnv* km_env, jclass km_clazz, jlong pcsztenantid, jlong ppjoininfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGetAadJoinInformation(JNIEnv* km_env, jclass km_clazz, jlong pcsztenantid, jlong ppjoininfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1014,7 +1014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGetAnyDCName(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong domainname, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGetAnyDCName(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong domainname, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1041,7 +1041,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGetDCName(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong domainname, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGetDCName(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong domainname, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1068,7 +1068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGetDisplayInformationIndex(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong prefix, jlong arg_3_index) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGetDisplayInformationIndex(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong prefix, jlong arg3Index) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1080,7 +1080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)prefix, (void*)(uintptr_t)arg_3_index);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)prefix, (void*)(uintptr_t)arg3Index);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1089,14 +1089,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)prefix;
-    (void)arg_3_index;
+    (void)arg3Index;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGetJoinInformation(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpnamebuffer, jlong buffertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGetJoinInformation(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpnamebuffer, jlong buffertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1123,7 +1123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGetJoinableOUs(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpdomain, jlong lpaccount, jlong lppassword, jlong oucount, jlong ous) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGetJoinableOUs(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpdomain, jlong lpaccount, jlong lppassword, jlong oucount, jlong ous) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1153,7 +1153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1165,7 +1165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1174,14 +1174,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupAddUser(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong username) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupAddUser(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong username) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1208,7 +1208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1234,7 +1234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupDelUser(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong username) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupDelUser(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong username) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1261,7 +1261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1273,7 +1273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1285,14 +1285,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1320,7 +1320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupGetUsers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupGetUsers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1352,7 +1352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1364,7 +1364,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)groupname, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)groupname, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1374,14 +1374,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)groupname;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netGroupSetUsers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupSetUsers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1410,7 +1410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netIsServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jlong isservice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetIsServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jlong isservice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1437,7 +1437,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netJoinDomain(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpdomain, jlong lpmachineaccountou, jlong lpaccount, jlong lppassword, jint fjoinoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetJoinDomain(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpdomain, jlong lpmachineaccountou, jlong lpaccount, jlong lppassword, jint fjoinoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1467,7 +1467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1479,7 +1479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1488,14 +1488,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupAddMember(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong membersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAddMember(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong membersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1522,7 +1522,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupAddMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAddMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1551,7 +1551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1577,7 +1577,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupDelMember(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong membersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDelMember(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jlong membersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1604,7 +1604,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupDelMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDelMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1633,7 +1633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1664,7 +1664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1692,7 +1692,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupGetMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong localgroupname, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupGetMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong localgroupname, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1724,7 +1724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1736,7 +1736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)groupname, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)groupname, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1746,14 +1746,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)groupname;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netLocalGroupSetMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupSetMembers(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong groupname, jint level, jlong buf, jint totalentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1782,7 +1782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netMessageBufferSend(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname, jlong fromname, jlong buf, jint buflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageBufferSend(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname, jlong fromname, jlong buf, jint buflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1811,7 +1811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netMessageNameAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1837,7 +1837,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netMessageNameDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1863,7 +1863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netMessageNameEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1875,7 +1875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1887,14 +1887,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netMessageNameGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong msgname, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1922,7 +1922,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netProvisionComputerAccount(JNIEnv* km_env, jclass km_clazz, jlong lpdomain, jlong lpmachinename, jlong lpmachineaccountou, jlong lpdcname, jint dwoptions, jlong pprovisionbindata, jlong pdwprovisionbindatasize, jlong pprovisiontextdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetProvisionComputerAccount(JNIEnv* km_env, jclass km_clazz, jlong lpdomain, jlong lpmachinename, jlong lpmachineaccountou, jlong lpdcname, jint dwoptions, jlong pprovisionbindata, jlong pdwprovisionbindatasize, jlong pprovisiontextdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1954,7 +1954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netQueryDisplayInformation(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jint arg_2_index, jint entriesrequested, jint preferredmaximumlength, jlong returnedentrycount, jlong sortedbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetQueryDisplayInformation(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jint arg2Index, jint entriesrequested, jint preferredmaximumlength, jlong returnedentrycount, jlong sortedbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1966,7 +1966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (uint32_t)arg_2_index, (uint32_t)entriesrequested, (uint32_t)preferredmaximumlength, (void*)(uintptr_t)returnedentrycount, (void*)(uintptr_t)sortedbuffer);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (uint32_t)arg2Index, (uint32_t)entriesrequested, (uint32_t)preferredmaximumlength, (void*)(uintptr_t)returnedentrycount, (void*)(uintptr_t)sortedbuffer);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -1974,7 +1974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #else
     (void)servername;
     (void)level;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)entriesrequested;
     (void)preferredmaximumlength;
     (void)returnedentrycount;
@@ -1985,7 +1985,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netQueryServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jint infolevel, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetQueryServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jint infolevel, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2013,7 +2013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRemoteComputerSupports(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jint optionswanted, jlong optionssupported) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoteComputerSupports(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jint optionswanted, jlong optionssupported) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2040,7 +2040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRemoteTOD(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong bufferptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoteTOD(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong bufferptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2066,7 +2066,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRemoveAlternateComputerName(JNIEnv* km_env, jclass km_clazz, jlong server, jlong alternatename, jlong domainaccount, jlong domainaccountpassword, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoveAlternateComputerName(JNIEnv* km_env, jclass km_clazz, jlong server, jlong alternatename, jlong domainaccount, jlong domainaccountpassword, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2095,7 +2095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRemoveServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoveServiceAccount(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong accountname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2122,7 +2122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRenameMachineInDomain(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpnewmachinename, jlong lpaccount, jlong lppassword, jint frenameoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRenameMachineInDomain(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpnewmachinename, jlong lpaccount, jlong lppassword, jint frenameoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2151,7 +2151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2163,7 +2163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2172,14 +2172,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2205,7 +2205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2236,7 +2236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2264,7 +2264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirLock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirLock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2290,7 +2290,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2302,7 +2302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)dirname, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)dirname, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2312,14 +2312,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dirname;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplExportDirUnlock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint unlockforce) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirUnlock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint unlockforce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2346,7 +2346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2373,7 +2373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplImportDirAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2385,7 +2385,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2394,14 +2394,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplImportDirDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2427,7 +2427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplImportDirEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2458,7 +2458,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplImportDirGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2486,7 +2486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplImportDirLock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirLock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2512,7 +2512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplImportDirUnlock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint unlockforce) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirUnlock(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dirname, jint unlockforce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2539,7 +2539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netReplSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetReplSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2551,7 +2551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2560,14 +2560,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRequestOfflineDomainJoin(JNIEnv* km_env, jclass km_clazz, jlong pprovisionbindata, jint cbprovisionbindatasize, jint dwoptions, jlong lpwindowspath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRequestOfflineDomainJoin(JNIEnv* km_env, jclass km_clazz, jlong pprovisionbindata, jint cbprovisionbindatasize, jint dwoptions, jlong lpwindowspath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2595,7 +2595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netRequestProvisioningPackageInstall(JNIEnv* km_env, jclass km_clazz, jlong ppackagebindata, jint dwpackagebindatasize, jint dwprovisionoptions, jlong lpwindowspath, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetRequestProvisioningPackageInstall(JNIEnv* km_env, jclass km_clazz, jlong ppackagebindata, jint dwpackagebindatasize, jint dwprovisionoptions, jlong lpwindowspath, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2624,7 +2624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netScheduleJobAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong buffer, jlong jobid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong buffer, jlong jobid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2651,7 +2651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netScheduleJobDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jint minjobid, jint maxjobid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jint minjobid, jint maxjobid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2678,7 +2678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netScheduleJobEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong pointertobuffer, jint prefferedmaximumlength, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong pointertobuffer, jint prefferedmaximumlength, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2708,7 +2708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netScheduleJobGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint jobid, jlong pointertobuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint jobid, jlong pointertobuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2735,7 +2735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerComputerNameAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong emulateddomainname, jlong emulatedservername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerComputerNameAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong emulateddomainname, jlong emulatedservername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2762,7 +2762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerComputerNameDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong emulatedservername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerComputerNameDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong emulatedservername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2788,7 +2788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerDiskEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerDiskEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2800,7 +2800,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2812,14 +2812,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jint servertype, jlong domain, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jint servertype, jlong domain, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2831,7 +2831,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (uint32_t)servertype, (void*)(uintptr_t)domain, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (uint32_t)servertype, (void*)(uintptr_t)domain, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -2845,14 +2845,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)totalentries;
     (void)servertype;
     (void)domain;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2879,7 +2879,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2907,7 +2907,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerTransportAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2934,7 +2934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerTransportAddEx(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportAddEx(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2961,7 +2961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerTransportDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2988,7 +2988,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServerTransportEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3000,7 +3000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3012,14 +3012,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServiceControl(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong service, jint opcode, jint arg, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceControl(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong service, jint opcode, jint arg, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3048,7 +3048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServiceEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3060,7 +3060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3072,14 +3072,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServiceGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong service, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong service, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3107,7 +3107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netServiceInstall(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong service, jint argc, jlong argv, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceInstall(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong service, jint argc, jlong argv, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3136,7 +3136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netSetPrimaryComputerName(JNIEnv* km_env, jclass km_clazz, jlong server, jlong primaryname, jlong domainaccount, jlong domainaccountpassword, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetSetPrimaryComputerName(JNIEnv* km_env, jclass km_clazz, jlong server, jlong primaryname, jlong domainaccount, jlong domainaccountpassword, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3165,7 +3165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUnjoinDomain(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpaccount, jlong lppassword, jint funjoinoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUnjoinDomain(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpaccount, jlong lppassword, jint funjoinoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3193,7 +3193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUseAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint levelflags, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUseAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint levelflags, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3205,7 +3205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)levelflags, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)levelflags, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3214,14 +3214,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)levelflags;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUseDel(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong usename, jint forcelevelflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUseDel(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong usename, jint forcelevelflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3248,7 +3248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUseEnum(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jint levelflags, jlong bufptr, jint preferedmaximumsize, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUseEnum(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jint levelflags, jlong bufptr, jint preferedmaximumsize, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3279,7 +3279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUseGetInfo(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong usename, jint levelflags, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUseGetInfo(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong usename, jint levelflags, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3307,7 +3307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3319,7 +3319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3328,14 +3328,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserChangePassword(JNIEnv* km_env, jclass km_clazz, jlong domainname, jlong username, jlong oldpassword, jlong newpassword) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserChangePassword(JNIEnv* km_env, jclass km_clazz, jlong domainname, jlong username, jlong oldpassword, jlong newpassword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3363,7 +3363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3389,7 +3389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jint filter, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jint filter, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3401,7 +3401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (uint32_t)filter, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (uint32_t)filter, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3414,14 +3414,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserGetGroups(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetGroups(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3452,7 +3452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3480,7 +3480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserGetLocalGroups(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jint flags, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetLocalGroups(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jint flags, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3512,7 +3512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserModalsGet(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserModalsGet(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3539,7 +3539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserModalsSet(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserModalsSet(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3551,7 +3551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3560,14 +3560,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserSetGroups(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong buf, jint num_entries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserSetGroups(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong buf, jint numEntries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3579,7 +3579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (uint32_t)level, (void*)(uintptr_t)buf, (uint32_t)num_entries);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (uint32_t)level, (void*)(uintptr_t)buf, (uint32_t)numEntries);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3589,14 +3589,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)username;
     (void)level;
     (void)buf;
-    (void)num_entries;
+    (void)numEntries;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netUserSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetUserSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong username, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3608,7 +3608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3618,14 +3618,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)username;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netValidateName(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpname, jlong lpaccount, jlong lppassword, jint nametype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetValidateName(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jlong lpname, jlong lpaccount, jlong lppassword, jint nametype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3654,7 +3654,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netValidatePasswordPolicy(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong qualifier, jint validationtype, jlong inputarg, jlong outputarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetValidatePasswordPolicy(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong qualifier, jint validationtype, jlong inputarg, jlong outputarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3683,7 +3683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netValidatePasswordPolicyFree(JNIEnv* km_env, jclass km_clazz, jlong outputarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetValidatePasswordPolicyFree(JNIEnv* km_env, jclass km_clazz, jlong outputarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3708,7 +3708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaGetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3735,7 +3735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buffer, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaSetInfo(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buffer, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3747,7 +3747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buffer, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buffer, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3756,14 +3756,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buffer;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaTransportAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportAdd(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3775,7 +3775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3784,14 +3784,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaTransportDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong transportname, jint ucond) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportDel(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong transportname, jint ucond) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3818,7 +3818,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaTransportEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resume_handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumeHandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3830,7 +3830,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resume_handle);
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (uint32_t)level, (void*)(uintptr_t)bufptr, (uint32_t)prefmaxlen, (void*)(uintptr_t)entriesread, (void*)(uintptr_t)totalentries, (void*)(uintptr_t)resumeHandle);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3842,14 +3842,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaUserEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserEnum(JNIEnv* km_env, jclass km_clazz, jlong servername, jint level, jlong bufptr, jint prefmaxlen, jlong entriesread, jlong totalentries, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3880,7 +3880,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaUserGetInfo(JNIEnv* km_env, jclass km_clazz, jlong reserved, jint level, jlong bufptr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserGetInfo(JNIEnv* km_env, jclass km_clazz, jlong reserved, jint level, jlong bufptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3907,7 +3907,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1netWkstaUserSetInfo(JNIEnv* km_env, jclass km_clazz, jlong reserved, jint level, jlong buf, jlong parm_err) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserSetInfo(JNIEnv* km_env, jclass km_clazz, jlong reserved, jint level, jlong buf, jlong parmErr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3919,7 +3919,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)reserved, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parm_err);
+        km_res = km_fn_ptr((void*)(uintptr_t)reserved, (uint32_t)level, (void*)(uintptr_t)buf, (void*)(uintptr_t)parmErr);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -3928,14 +3928,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)reserved;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerAssert(JNIEnv* km_env, jclass km_clazz, jlong pszfailedassertion, jlong pszfilename, jint dwlinenumber, jlong pszmessage) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterAssert(JNIEnv* km_env, jclass km_clazz, jlong pszfailedassertion, jlong pszfilename, jint dwlinenumber, jlong pszmessage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3959,7 +3959,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerGetErrorStringA(JNIEnv* km_env, jclass km_clazz, jint dwerrorcode, jlong lplpszerrorstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterGetErrorStringA(JNIEnv* km_env, jclass km_clazz, jint dwerrorcode, jlong lplpszerrorstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3985,7 +3985,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerGetErrorStringW(JNIEnv* km_env, jclass km_clazz, jint dwerrorcode, jlong lplpwszerrorstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterGetErrorStringW(JNIEnv* km_env, jclass km_clazz, jint dwerrorcode, jlong lplpwszerrorstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4011,7 +4011,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogDeregisterA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogDeregisterA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4032,7 +4032,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogDeregisterW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogDeregisterW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4053,7 +4053,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4079,7 +4079,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventDataA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwdatabytes, jlong lpdatabytes) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventDataA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwdatabytes, jlong lpdatabytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4106,7 +4106,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventDataW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwdatabytes, jlong lpdatabytes) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventDataW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwdatabytes, jlong lpdatabytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4133,7 +4133,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventExA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventExA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4165,7 +4165,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventExW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventExW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4197,7 +4197,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventStringA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode, jint dwerrorindex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventStringA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode, jint dwerrorindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4224,7 +4224,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventStringW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode, jint dwerrorindex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventStringW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode, jint dwerrorindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4251,7 +4251,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventValistExA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jlong arglist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventValistExA(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jlong arglist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4277,7 +4277,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventValistExW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jlong arglist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventValistExW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwerrorcode, jint dwmessageid, jlong ptszformat, jlong arglist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4303,7 +4303,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogEventW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventW(JNIEnv* km_env, jclass km_clazz, jlong hloghandle, jint dweventtype, jint dwmessageid, jint dwsubstringcount, jlong plpszsubstringarray, jint dwerrorcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4329,7 +4329,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogRegisterA(JNIEnv* km_env, jclass km_clazz, jlong lpszsource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogRegisterA(JNIEnv* km_env, jclass km_clazz, jlong lpszsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4354,7 +4354,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1routerLogRegisterW(JNIEnv* km_env, jclass km_clazz, jlong lpszsource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogRegisterW(JNIEnv* km_env, jclass km_clazz, jlong lpszsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4379,7 +4379,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1setNetScheduleAccountInformation(JNIEnv* km_env, jclass km_clazz, jlong pwszservername, jlong pwszaccount, jlong pwszpassword) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementSetNetScheduleAccountInformation(JNIEnv* km_env, jclass km_clazz, jlong pwszservername, jlong pwszaccount, jlong pwszpassword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4406,7 +4406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceDeregisterA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4431,7 +4431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceDeregisterExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4457,7 +4457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceDeregisterExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4483,7 +4483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceDeregisterW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4508,7 +4508,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceDumpExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpbbytes, jint dwbytecount, jint dwgroupsize, jint baddressprefix, jlong lpszprefix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceDumpExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpbbytes, jint dwbytecount, jint dwgroupsize, jint baddressprefix, jlong lpszprefix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4539,7 +4539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceDumpExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpbbytes, jint dwbytecount, jint dwgroupsize, jint baddressprefix, jlong lpszprefix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceDumpExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpbbytes, jint dwbytecount, jint dwgroupsize, jint baddressprefix, jlong lpszprefix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4570,7 +4570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceGetConsoleA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lphconsole) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceGetConsoleA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lphconsole) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4596,7 +4596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceGetConsoleW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lphconsole) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceGetConsoleW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lphconsole) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4622,7 +4622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1tracePrintfA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4654,7 +4654,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1tracePrintfExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4687,7 +4687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1tracePrintfExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4720,7 +4720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1tracePrintfW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jlong lpszformat, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4752,7 +4752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1tracePutsExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTracePutsExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4779,7 +4779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1tracePutsExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTracePutsExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4806,7 +4806,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceRegisterExA(JNIEnv* km_env, jclass km_clazz, jlong lpszcallername, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceRegisterExA(JNIEnv* km_env, jclass km_clazz, jlong lpszcallername, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4832,7 +4832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceRegisterExW(JNIEnv* km_env, jclass km_clazz, jlong lpszcallername, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceRegisterExW(JNIEnv* km_env, jclass km_clazz, jlong lpszcallername, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4858,7 +4858,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceVprintfExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jlong arglist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceVprintfExA(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jlong arglist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4886,7 +4886,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssys_1windows_1win32_1networkmanagement_1netmanagement_1traceVprintfExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jlong arglist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netmanagement_WindowsWin32NetworkmanagementNetmanagementJniBridge_windowssysWindowsWin32NetworkmanagementNetmanagementTraceVprintfExW(JNIEnv* km_env, jclass km_clazz, jint dwtraceid, jint dwflags, jlong lpszformat, jlong arglist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

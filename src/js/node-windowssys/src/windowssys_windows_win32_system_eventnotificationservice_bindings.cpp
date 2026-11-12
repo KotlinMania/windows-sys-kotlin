@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdestination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpqocinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_eventnotificationservice_isDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdestination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpqocinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_eventnotificationservice_isDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -131,9 +131,9 @@ static Napi::Value windowssys_windows_win32_system_eventnotificationservice_isNe
 }
 
 static void register_windows_win32_system_eventnotificationservice_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA", Napi::Function::New(env, windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA_napi));
-    exports.Set("windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW", Napi::Function::New(env, windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW_napi));
-    exports.Set("windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive", Napi::Function::New(env, windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive_napi));
+    exports.Set("windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA", Napi::Function::New(env, windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW", Napi::Function::New(env, windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive", Napi::Function::New(env, windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_eventnotificationservice_napi, nullptr };

@@ -1,5 +1,8 @@
 package io.github.kotlinmania.windowssys
 
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.EnumPageFileInformation
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.LIST_MODULES_32BIT
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.LIST_MODULES_64BIT
@@ -25,7 +28,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.Psapi
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWsWatchInformationEx
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
+import kotlin.test.assertFalse
 
 class ProcessStatusTest {
     @Test
@@ -58,13 +61,13 @@ class ProcessStatusTest {
     fun testModuleInfo() {
         val modInfo =
             Moduleinfo(
-                lpBaseOfDll = COpaquePointer(0x140000000L),
+                lpBaseOfDll = MutPtr(0x140000000L),
                 sizeOfImage = 0x20000u,
-                entryPoint = COpaquePointer(0x140001000L),
+                entryPoint = MutPtr(0x140001000L),
             )
-        assertEquals(COpaquePointer(0x140000000L), modInfo.lpBaseOfDll)
+        assertEquals(MutPtr<CVoid>(0x140000000L), modInfo.lpBaseOfDll)
         assertEquals(0x20000u, modInfo.sizeOfImage)
-        assertEquals(COpaquePointer(0x140001000L), modInfo.entryPoint)
+        assertEquals(MutPtr<CVoid>(0x140001000L), modInfo.entryPoint)
     }
 
     @Test
@@ -166,10 +169,10 @@ class ProcessStatusTest {
 
         val wsExInfo =
             PsapiWorkingSetExInformation(
-                virtualAddress = COpaquePointer(0x10000000L),
+                virtualAddress = MutPtr(0x10000000L),
                 virtualAttributes = exBlock,
             )
-        assertEquals(COpaquePointer(0x10000000L), wsExInfo.virtualAddress)
+        assertEquals(MutPtr<CVoid>(0x10000000L), wsExInfo.virtualAddress)
         assertEquals(0x2, wsExInfo.virtualAttributes.flags)
 
         val wsInfo =
@@ -186,11 +189,11 @@ class ProcessStatusTest {
     fun testWatchInformation() {
         val watchInfo =
             PsapiWsWatchInformation(
-                faultingPc = COpaquePointer(0x7FFF0001L),
-                faultingVa = COpaquePointer(0x7FFF1000L),
+                faultingPc = MutPtr(0x7FFF0001L),
+                faultingVa = MutPtr(0x7FFF1000L),
             )
-        assertEquals(COpaquePointer(0x7FFF0001L), watchInfo.faultingPc)
-        assertEquals(COpaquePointer(0x7FFF1000L), watchInfo.faultingVa)
+        assertEquals(MutPtr<CVoid>(0x7FFF0001L), watchInfo.faultingPc)
+        assertEquals(MutPtr<CVoid>(0x7FFF1000L), watchInfo.faultingVa)
 
         val watchInfoEx =
             PsapiWsWatchInformationEx(
@@ -207,19 +210,19 @@ class ProcessStatusTest {
     fun testPageFileCallbacks() {
         val callbackA =
             PenumPageFileCallbackaFn { _, ppagefileinfo, _ ->
-                assertNotNull(ppagefileinfo)
+                assertFalse(ppagefileinfo.isNull())
                 1
             }
-        val infoPtr = COpaquePointer(0x2000L)
-        val resultA = callbackA.invoke(null, infoPtr, null)
+        val infoPtr = MutPtr<EnumPageFileInformation>(0x2000L)
+        val resultA = callbackA.invoke(MutPtr(0L), infoPtr, ConstPtr(0L))
         assertEquals(1, resultA)
 
         val callbackW =
             PenumPageFileCallbackwFn { _, ppagefileinfo, _ ->
-                assertNotNull(ppagefileinfo)
+                assertFalse(ppagefileinfo.isNull())
                 1
             }
-        val resultW = callbackW.invoke(null, infoPtr, null)
+        val resultW = callbackW.invoke(MutPtr(0L), infoPtr, ConstPtr(0L))
         assertEquals(1, resultW)
     }
 }

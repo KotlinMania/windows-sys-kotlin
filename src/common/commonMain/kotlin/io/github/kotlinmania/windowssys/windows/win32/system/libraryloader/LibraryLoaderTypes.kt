@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -45,13 +45,13 @@ public typealias Enumrestypeprocw = EnumrestypeprocwFn?
 public typealias LoadLibraryFlags = UInt
 
 public fun interface PgetModuleHandleExaFn {
-    public operator fun invoke(dwflags: UInt, lpmodulename: Pcstr, phmodule: COpaquePointer?): Bool
+    public operator fun invoke(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool
 }
 
 public typealias PgetModuleHandleExa = PgetModuleHandleExaFn?
 
 public fun interface PgetModuleHandleExwFn {
-    public operator fun invoke(dwflags: UInt, lpmodulename: Pcwstr, phmodule: COpaquePointer?): Bool
+    public operator fun invoke(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool
 }
 
 public typealias PgetModuleHandleExw = PgetModuleHandleExwFn?

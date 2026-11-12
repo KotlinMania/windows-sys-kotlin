@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog(void* hwndparent) {
+int32_t windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog(void* hwndparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx(void* hwndparent, uint32_t dwflags, void* pvreserved) {
+int32_t windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx(void* hwndparent, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature(void* pprovdata) {
+int32_t windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature(void* pprovdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignatu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned(uint32_t dwencoding, void* pcert) {
+int32_t windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned(uint32_t dwencoding, void* pcert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ int32_t windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned(uint
 #endif
 }
 
-void* windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain(void* psgnr, uint32_t idxcert) {
+void* windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain(void* psgnr, uint32_t idxcert) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ void* windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain(vo
 #endif
 }
 
-void* windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain(void* pprovdata, void* pgproviderid) {
+void* windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain(void* pprovdata, void* pgproviderid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ void* windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromC
 #endif
 }
 
-void* windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain(void* pprovdata, uint32_t idxsigner, int32_t fcountersigner, uint32_t idxcountersigner) {
+void* windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain(void* pprovdata, uint32_t idxsigner, int32_t fcountersigner, uint32_t idxcountersigner) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ void* windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain(
 #endif
 }
 
-void* windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData(void* hstatedata) {
+void* windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData(void* hstatedata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ void* windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_winVerifyTrust(void* hwnd, void* pgactionid, void* pwvtdata) {
+int32_t windowssysWindowsWin32SecurityWintrustWinVerifyTrust(void* hwnd, void* pgactionid, void* pwvtdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ int32_t windowssys_windows_win32_security_wintrust_winVerifyTrust(void* hwnd, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_winVerifyTrustEx(void* hwnd, void* pgactionid, void* pwintrustdata) {
+int32_t windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx(void* hwnd, void* pgactionid, void* pwintrustdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ int32_t windowssys_windows_win32_security_wintrust_winVerifyTrustEx(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wintrustAddActionID(void* pgactionid, uint32_t fdwflags, void* psprovinfo) {
+int32_t windowssysWindowsWin32SecurityWintrustWintrustAddActionID(void* pgactionid, uint32_t fdwflags, void* psprovinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ int32_t windowssys_windows_win32_security_wintrust_wintrustAddActionID(void* pga
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage(void* pszusageoid, void* psdefusage) {
+int32_t windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage(void* pszusageoid, void* psdefusage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -294,7 +294,7 @@ int32_t windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage(uint32_t dwaction, void* pszusageoid, void* psusage) {
+int32_t windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage(uint32_t dwaction, void* pszusageoid, void* psusage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -318,7 +318,7 @@ int32_t windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage(ui
 #endif
 }
 
-void windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags(void* pdwpolicyflags) {
+void windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags(void* pdwpolicyflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ void windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers(void* pgactionid, void* ppfns) {
+int32_t windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers(void* pgactionid, void* ppfns) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ int32_t windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wintrustRemoveActionID(void* pgactionid) {
+int32_t windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID(void* pgactionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -384,7 +384,7 @@ int32_t windowssys_windows_win32_security_wintrust_wintrustRemoveActionID(void* 
 #endif
 }
 
-void windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes(int32_t fincludepepagehashes) {
+void windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes(int32_t fincludepepagehashes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -405,7 +405,7 @@ void windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageH
 #endif
 }
 
-int32_t windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags(uint32_t dwpolicyflags) {
+int32_t windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags(uint32_t dwpolicyflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;

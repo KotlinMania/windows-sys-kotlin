@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML(void* syncmlrequest, void* syncmlresult) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML(void* syncmlrequest, void* syncmlresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_a
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService(void* pszupn, void* ppmgmtinfo) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService(void* pszupn, void* ppmgmtinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_d
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx(void* pszupn, void* pszdiscoveryservicecandidate, void* ppmgmtinfo) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx(void* pszupn, void* pszdiscoveryservicecandidate, void* ppmgmtinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_d
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo(void* providerid, void* configstringbufferlength, void* configstring) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo(void* providerid, void* configstringbufferlength, void* configstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_g
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo(int32_t deviceinformationclass, void* ppdeviceregistrationinfo) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo(int32_t deviceinformationclass, void* ppdeviceregistrationinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_g
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink(uint32_t cchhyperlink, void* pszhyperlink) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink(uint32_t cchhyperlink, void* pszhyperlink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_g
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement(void* pfisdeviceregisteredwithmanagement, uint32_t cchupn, void* pszupn) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement(void* pfisdeviceregisteredwithmanagement, uint32_t cchupn, void* pszupn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -179,7 +179,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_i
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed(void* pfismanagementregistrationallowed) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed(void* pfismanagementregistrationallowed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -201,7 +201,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_i
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed(void* isenrollmentallowed) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed(void* isenrollmentallowed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_i
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement(void* alreadyregistered) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement(void* alreadyregistered) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_r
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement(void* pszupn, void* ppszmdmserviceuri, void* ppzsaccesstoken) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement(void* pszupn, void* ppszmdmserviceuri, void* ppzsaccesstoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_r
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials(void* usertoken) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials(void* usertoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_r
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials(void) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -312,7 +312,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_r
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2(void* mdmapplicationid) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2(void* mdmapplicationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -334,7 +334,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_r
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo(void* providerid, void* configstring) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo(void* providerid, void* configstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -357,7 +357,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_s
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally(int32_t ismanagedexternally) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(int32_t ismanagedexternally) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -379,7 +379,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_s
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement(void) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -400,7 +400,7 @@ int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_u
 #endif
 }
 
-int32_t windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement(void* enrollmentid) {
+int32_t windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement(void* enrollmentid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

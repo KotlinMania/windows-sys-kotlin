@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateBackupRestorer(JNIEnv* km_env, jclass km_clazz, jlong pcallback, jlong ppbackup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(JNIEnv* km_env, jclass km_clazz, jlong pcallback, jlong ppbackup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateEditor(JNIEnv* km_env, jclass km_clazz, jlong ppeditor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(JNIEnv* km_env, jclass km_clazz, jlong ppeditor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateIndexer(JNIEnv* km_env, jclass km_clazz, jlong ppindexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(JNIEnv* km_env, jclass km_clazz, jlong ppindexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateProfileManager(JNIEnv* km_env, jclass km_clazz, jlong ppprofilemanager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(JNIEnv* km_env, jclass km_clazz, jlong ppprofilemanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateReader(JNIEnv* km_env, jclass km_clazz, jlong punkcert, jint dwrights, jlong ppreader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(JNIEnv* km_env, jclass km_clazz, jlong punkcert, jint dwrights, jlong ppreader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateSyncReader(JNIEnv* km_env, jclass km_clazz, jlong punkcert, jint dwrights, jlong ppsyncreader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(JNIEnv* km_env, jclass km_clazz, jlong punkcert, jint dwrights, jlong ppsyncreader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -174,7 +174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateWriter(JNIEnv* km_env, jclass km_clazz, jlong punkcert, jlong ppwriter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(JNIEnv* km_env, jclass km_clazz, jlong punkcert, jlong ppwriter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateWriterFileSink(JNIEnv* km_env, jclass km_clazz, jlong ppsink) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(JNIEnv* km_env, jclass km_clazz, jlong ppsink) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -225,7 +225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateWriterNetworkSink(JNIEnv* km_env, jclass km_clazz, jlong ppsink) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(JNIEnv* km_env, jclass km_clazz, jlong ppsink) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -250,7 +250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMCreateWriterPushSink(JNIEnv* km_env, jclass km_clazz, jlong ppsink) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(JNIEnv* km_env, jclass km_clazz, jlong ppsink) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -275,7 +275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssys_1windows_1win32_1media_1windowsmediaformat_1wMIsContentProtected(JNIEnv* km_env, jclass km_clazz, jlong pwszfilename, jlong pfisprotected) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_windowsmediaformat_WindowsWin32MediaWindowsmediaformatJniBridge_windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(JNIEnv* km_env, jclass km_clazz, jlong pwszfilename, jlong pfisprotected) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

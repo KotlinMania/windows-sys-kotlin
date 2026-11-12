@@ -2,8 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,7 +14,12 @@ import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Bindinfo
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Clsctx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Formatetc
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Querycontext
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgmedium
+import io.github.kotlinmania.windowssys.windows.win32.system.com.UClsspec
 
 private object WindowsWin32SystemComUrlmonJniBridge {
     init {
@@ -19,441 +27,441 @@ private object WindowsWin32SystemComUrlmonJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coGetClassObjectFromURL(rclassid: Long, szcode: Long, dwfileversionms: Int, dwfileversionls: Int, sztype: Long, pbindctx: Long, dwclscontext: Int, pvreserved: Long, riid: Long, ppv: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoGetClassObjectFromURL(rclassid: Long, szcode: Long, dwfileversionms: Int, dwfileversionls: Int, sztype: Long, pbindctx: Long, dwclscontext: Int, pvreserved: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetCombineIUri(pbaseuri: Long, prelativeuri: Long, dwcombineflags: Int, ppcombineduri: Long, dwreserved: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetCombineIUri(pbaseuri: Long, prelativeuri: Long, dwcombineflags: Int, ppcombineduri: Long, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetCombineUrl(pwzbaseurl: Long, pwzrelativeurl: Long, dwcombineflags: Int, pszresult: Long, cchresult: Int, pcchresult: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrl(pwzbaseurl: Long, pwzrelativeurl: Long, dwcombineflags: Int, pszresult: Long, cchresult: Int, pcchresult: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetCombineUrlEx(pbaseuri: Long, pwzrelativeurl: Long, dwcombineflags: Int, ppcombineduri: Long, dwreserved: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrlEx(pbaseuri: Long, pwzrelativeurl: Long, dwcombineflags: Int, ppcombineduri: Long, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetCompareUrl(pwzurl1: Long, pwzurl2: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetCompareUrl(pwzurl1: Long, pwzurl2: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetCreateSecurityManager(psp: Long, ppsm: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetCreateSecurityManager(psp: Long, ppsm: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetCreateZoneManager(psp: Long, ppzm: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetCreateZoneManager(psp: Long, ppzm: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetGetProtocolFlags(pwzurl: Long, pdwflags: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetGetProtocolFlags(pwzurl: Long, pdwflags: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrl(pwszurl: Long, ppwszsecurl: Long, psuaction: Int, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrl(pwszurl: Long, ppwszsecurl: Long, psuaction: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrlEx(puri: Long, ppsecuri: Long, psuaction: Int, dwreserved: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrlEx(puri: Long, ppsecuri: Long, psuaction: Int, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetGetSession(dwsessionmode: Int, ppiinternetsession: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetGetSession(dwsessionmode: Int, ppiinternetsession: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabled(featureentry: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled(featureentry: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForIUri(featureentry: Int, dwflags: Int, piuri: Long, psecmgr: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForIUri(featureentry: Int, dwflags: Int, piuri: Long, psecmgr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForUrl(featureentry: Int, dwflags: Int, szurl: Long, psecmgr: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForUrl(featureentry: Int, dwflags: Int, szurl: Long, psecmgr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureZoneElevationEnabled(szfromurl: Long, sztourl: Long, psecmgr: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureZoneElevationEnabled(szfromurl: Long, sztourl: Long, psecmgr: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetParseIUri(piuri: Long, parseaction: Int, dwflags: Int, pwzresult: Long, cchresult: Int, pcchresult: Long, dwreserved: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetParseIUri(piuri: Long, parseaction: Int, dwflags: Int, pwzresult: Long, cchresult: Int, pcchresult: Long, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetParseUrl(pwzurl: Long, parseaction: Int, dwflags: Int, pszresult: Long, cchresult: Int, pcchresult: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetParseUrl(pwzurl: Long, parseaction: Int, dwflags: Int, pszresult: Long, cchresult: Int, pcchresult: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetQueryInfo(pwzurl: Long, queryoptions: Int, dwqueryflags: Int, pvbuffer: Long, cbbuffer: Int, pcbbuffer: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetQueryInfo(pwzurl: Long, queryoptions: Int, dwqueryflags: Int, pvbuffer: Long, cbbuffer: Int, pcbbuffer: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_coInternetSetFeatureEnabled(featureentry: Int, dwflags: Int, fenable: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled(featureentry: Int, dwflags: Int, fenable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_compareSecurityIds(pbsecurityid1: Long, dwlen1: Int, pbsecurityid2: Long, dwlen2: Int, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCompareSecurityIds(pbsecurityid1: Long, dwlen1: Int, pbsecurityid2: Long, dwlen2: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_compatFlagsFromClsid(pclsid: Long, pdwcompatflags: Long, pdwmiscstatusflags: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCompatFlagsFromClsid(pclsid: Long, pdwcompatflags: Long, pdwmiscstatusflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_copyBindInfo(pcbisrc: Long, pbidest: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCopyBindInfo(pcbisrc: Long, pbidest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_copyStgMedium(pcstgmedsrc: Long, pstgmeddest: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCopyStgMedium(pcstgmedsrc: Long, pstgmeddest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx(reserved: Int, pbscb: Long, pefetc: Long, ppbc: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtx(reserved: Int, pbscb: Long, pefetc: Long, ppbc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_createAsyncBindCtxEx(pbc: Long, dwoptions: Int, pbscb: Long, penum: Long, ppbc: Long, reserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtxEx(pbc: Long, dwoptions: Int, pbscb: Long, penum: Long, ppbc: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_createFormatEnumerator(cfmtetc: Int, rgfmtetc: Long, ppenumfmtetc: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCreateFormatEnumerator(cfmtetc: Int, rgfmtetc: Long, ppenumfmtetc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_createURLMoniker(pmkctx: Long, szurl: Long, ppmk: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCreateURLMoniker(pmkctx: Long, szurl: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_createURLMonikerEx(pmkctx: Long, szurl: Long, ppmk: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx(pmkctx: Long, szurl: Long, ppmk: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_createURLMonikerEx2(pmkctx: Long, puri: Long, ppmk: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx2(pmkctx: Long, puri: Long, ppmk: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_faultInIEFeature(hwnd: Long, pclassspec: Long, pquery: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonFaultInIEFeature(hwnd: Long, pclassspec: Long, pquery: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_findMediaType(rgsztypes: Long, rgcftypes: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonFindMediaType(rgsztypes: Long, rgcftypes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_findMediaTypeClass(pbc: Long, sztype: Long, pclsid: Long, reserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonFindMediaTypeClass(pbc: Long, sztype: Long, pclsid: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_findMimeFromData(pbc: Long, pwzurl: Long, pbuffer: Long, cbsize: Int, pwzmimeproposed: Long, dwmimeflags: Int, ppwzmimeout: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonFindMimeFromData(pbc: Long, pwzurl: Long, pbuffer: Long, cbsize: Int, pwzmimeproposed: Long, dwmimeflags: Int, ppwzmimeout: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_getClassFileOrMime(pbc: Long, szfilename: Long, pbuffer: Long, cbsize: Int, szmime: Long, dwreserved: Int, pclsid: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonGetClassFileOrMime(pbc: Long, szfilename: Long, pbuffer: Long, cbsize: Int, szmime: Long, dwreserved: Int, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_getClassURL(szurl: Long, pclsid: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonGetClassURL(szurl: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_getComponentIDFromCLSSPEC(pclassspec: Long, ppszcomponentid: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonGetComponentIDFromCLSSPEC(pclassspec: Long, ppszcomponentid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateInfo(szdistunit: Long, psdi: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonGetSoftwareUpdateInfo(szdistunit: Long, psdi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_hlinkGoBack(punk: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonHlinkGoBack(punk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_hlinkGoForward(punk: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonHlinkGoForward(punk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_hlinkNavigateMoniker(punk: Long, pmktarget: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonHlinkNavigateMoniker(punk: Long, pmktarget: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_hlinkNavigateString(punk: Long, sztarget: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonHlinkNavigateString(punk: Long, sztarget: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToMoniker(pmktarget: Long, szlocation: Long, sztargetframename: Long, punk: Long, pbc: Long, param5: Long, grfhlnf: Int, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToMoniker(pmktarget: Long, szlocation: Long, sztargetframename: Long, punk: Long, pbc: Long, param5: Long, grfhlnf: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToString(sztarget: Long, szlocation: Long, sztargetframename: Long, punk: Long, pbc: Long, param5: Long, grfhlnf: Int, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToString(sztarget: Long, szlocation: Long, sztargetframename: Long, punk: Long, pbc: Long, param5: Long, grfhlnf: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNamespaceName(): Long
+    external fun windowssysWindowsWin32SystemComUrlmonIEGetUserPrivateNamespaceName(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_iEInstallScope(pdwscope: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonIEInstallScope(pdwscope: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_isAsyncMoniker(pmk: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonIsAsyncMoniker(pmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA(pszurl: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledA(pszurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW(pwszurl: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledW(pwszurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_isValidURL(pbc: Long, szurl: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonIsValidURL(pbc: Long, szurl: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_mkParseDisplayNameEx(pbc: Long, szdisplayname: Long, pcheaten: Long, ppmk: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonMkParseDisplayNameEx(pbc: Long, szdisplayname: Long, pcheaten: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_obtainUserAgentString(dwoption: Int, pszuaout: Long, cbsize: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonObtainUserAgentString(dwoption: Int, pszuaout: Long, cbsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_registerBindStatusCallback(pbc: Long, pbscb: Long, ppbscbprev: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonRegisterBindStatusCallback(pbc: Long, pbscb: Long, ppbscbprev: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_registerFormatEnumerator(pbc: Long, pefetc: Long, reserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonRegisterFormatEnumerator(pbc: Long, pefetc: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_registerMediaTypeClass(pbc: Long, ctypes: Int, rgsztypes: Long, rgclsid: Long, reserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonRegisterMediaTypeClass(pbc: Long, ctypes: Int, rgsztypes: Long, rgclsid: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_registerMediaTypes(ctypes: Int, rgsztypes: Long, rgcftypes: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonRegisterMediaTypes(ctypes: Int, rgsztypes: Long, rgcftypes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_releaseBindInfo(pbindinfo: Long)
+    external fun windowssysWindowsWin32SystemComUrlmonReleaseBindInfo(pbindinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_revokeBindStatusCallback(pbc: Long, pbscb: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonRevokeBindStatusCallback(pbc: Long, pbscb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_revokeFormatEnumerator(pbc: Long, pefetc: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonRevokeFormatEnumerator(pbc: Long, pefetc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_setAccessForIEAppContainer(hobject: Long, ieobjecttype: Int, dwaccessmask: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonSetAccessForIEAppContainer(hobject: Long, ieobjecttype: Int, dwaccessmask: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateAdvertisementState(szdistunit: Long, dwadstate: Int, dwadvertisedversionms: Int, dwadvertisedversionls: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonSetSoftwareUpdateAdvertisementState(szdistunit: Long, dwadstate: Int, dwadvertisedversionms: Int, dwadvertisedversionls: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileA(param0: Long, param1: Long, param2: Long, cchfilename: Int, param4: Int, param5: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileA(param0: Long, param1: Long, param2: Long, cchfilename: Int, param4: Int, param5: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileW(param0: Long, param1: Long, param2: Long, cchfilename: Int, param4: Int, param5: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileW(param0: Long, param1: Long, param2: Long, cchfilename: Int, param4: Int, param5: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLDownloadToFileA(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLDownloadToFileW(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamA(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamA(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamW(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamW(param0: Long, param1: Long, param2: Long, param3: Int, param4: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA(param0: Long, param1: Long, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamA(param0: Long, param1: Long, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW(param0: Long, param1: Long, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamW(param0: Long, param1: Long, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA(param0: Long, param1: Long, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLOpenStreamA(param0: Long, param1: Long, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW(param0: Long, param1: Long, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonURLOpenStreamW(param0: Long, param1: Long, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOption(dwoption: Int, pbuffer: Long, dwbufferlength: Int, pdwbufferlengthout: Long, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonUrlMkGetSessionOption(dwoption: Int, pbuffer: Long, dwbufferlength: Int, pdwbufferlengthout: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOption(dwoption: Int, pbuffer: Long, dwbufferlength: Int, dwreserved: Int): Int
+    external fun windowssysWindowsWin32SystemComUrlmonUrlMkSetSessionOption(dwoption: Int, pbuffer: Long, dwbufferlength: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_urlmon_writeHitLogging(lplogginginfo: Long): Int
+    external fun windowssysWindowsWin32SystemComUrlmonWriteHitLogging(lplogginginfo: Long): Int
 }
 
-public actual fun coGetClassObjectFromURL(rclassid: COpaquePointer?, szcode: Pcwstr, dwfileversionms: UInt, dwfileversionls: UInt, sztype: Pcwstr, pbindctx: COpaquePointer?, dwclscontext: Clsctx, pvreserved: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coGetClassObjectFromURL((rclassid?.value ?: 0L), (szcode?.value ?: 0L), dwfileversionms.toInt(), dwfileversionls.toInt(), (sztype?.value ?: 0L), (pbindctx?.value ?: 0L), dwclscontext.toInt(), (pvreserved?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
+public actual fun coGetClassObjectFromURL(rclassid: ConstPtr<Guid>, szcode: Pcwstr, dwfileversionms: UInt, dwfileversionls: UInt, sztype: Pcwstr, pbindctx: MutPtr<CVoid>, dwclscontext: Clsctx, pvreserved: ConstPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoGetClassObjectFromURL(rclassid.rawAddress, szcode.rawAddress, dwfileversionms.toInt(), dwfileversionls.toInt(), sztype.rawAddress, pbindctx.rawAddress, dwclscontext.toInt(), pvreserved.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun coInternetCombineIUri(pbaseuri: COpaquePointer?, prelativeuri: COpaquePointer?, dwcombineflags: UInt, ppcombineduri: COpaquePointer?, dwreserved: ULong): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetCombineIUri((pbaseuri?.value ?: 0L), (prelativeuri?.value ?: 0L), dwcombineflags.toInt(), (ppcombineduri?.value ?: 0L), dwreserved.toLong())
+public actual fun coInternetCombineIUri(pbaseuri: MutPtr<CVoid>, prelativeuri: MutPtr<CVoid>, dwcombineflags: UInt, ppcombineduri: MutPtr<MutPtr<CVoid>>, dwreserved: ULong): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetCombineIUri(pbaseuri.rawAddress, prelativeuri.rawAddress, dwcombineflags.toInt(), ppcombineduri.rawAddress, dwreserved.toLong())
 
-public actual fun coInternetCombineUrl(pwzbaseurl: Pcwstr, pwzrelativeurl: Pcwstr, dwcombineflags: UInt, pszresult: Pwstr, cchresult: UInt, pcchresult: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetCombineUrl((pwzbaseurl?.value ?: 0L), (pwzrelativeurl?.value ?: 0L), dwcombineflags.toInt(), (pszresult?.value ?: 0L), cchresult.toInt(), (pcchresult?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetCombineUrl(pwzbaseurl: Pcwstr, pwzrelativeurl: Pcwstr, dwcombineflags: UInt, pszresult: Pwstr, cchresult: UInt, pcchresult: MutPtr<UInt>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrl(pwzbaseurl.rawAddress, pwzrelativeurl.rawAddress, dwcombineflags.toInt(), pszresult.rawAddress, cchresult.toInt(), pcchresult.rawAddress, dwreserved.toInt())
 
-public actual fun coInternetCombineUrlEx(pbaseuri: COpaquePointer?, pwzrelativeurl: Pcwstr, dwcombineflags: UInt, ppcombineduri: COpaquePointer?, dwreserved: ULong): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetCombineUrlEx((pbaseuri?.value ?: 0L), (pwzrelativeurl?.value ?: 0L), dwcombineflags.toInt(), (ppcombineduri?.value ?: 0L), dwreserved.toLong())
+public actual fun coInternetCombineUrlEx(pbaseuri: MutPtr<CVoid>, pwzrelativeurl: Pcwstr, dwcombineflags: UInt, ppcombineduri: MutPtr<MutPtr<CVoid>>, dwreserved: ULong): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetCombineUrlEx(pbaseuri.rawAddress, pwzrelativeurl.rawAddress, dwcombineflags.toInt(), ppcombineduri.rawAddress, dwreserved.toLong())
 
 public actual fun coInternetCompareUrl(pwzurl1: Pcwstr, pwzurl2: Pcwstr, dwflags: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetCompareUrl((pwzurl1?.value ?: 0L), (pwzurl2?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetCompareUrl(pwzurl1.rawAddress, pwzurl2.rawAddress, dwflags.toInt())
 
-public actual fun coInternetCreateSecurityManager(psp: COpaquePointer?, ppsm: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetCreateSecurityManager((psp?.value ?: 0L), (ppsm?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetCreateSecurityManager(psp: MutPtr<CVoid>, ppsm: MutPtr<MutPtr<CVoid>>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetCreateSecurityManager(psp.rawAddress, ppsm.rawAddress, dwreserved.toInt())
 
-public actual fun coInternetCreateZoneManager(psp: COpaquePointer?, ppzm: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetCreateZoneManager((psp?.value ?: 0L), (ppzm?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetCreateZoneManager(psp: MutPtr<CVoid>, ppzm: MutPtr<MutPtr<CVoid>>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetCreateZoneManager(psp.rawAddress, ppzm.rawAddress, dwreserved.toInt())
 
-public actual fun coInternetGetProtocolFlags(pwzurl: Pcwstr, pdwflags: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetGetProtocolFlags((pwzurl?.value ?: 0L), (pdwflags?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetGetProtocolFlags(pwzurl: Pcwstr, pdwflags: MutPtr<UInt>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetGetProtocolFlags(pwzurl.rawAddress, pdwflags.rawAddress, dwreserved.toInt())
 
-public actual fun coInternetGetSecurityUrl(pwszurl: Pcwstr, ppwszsecurl: COpaquePointer?, psuaction: Psuaction, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrl((pwszurl?.value ?: 0L), (ppwszsecurl?.value ?: 0L), psuaction, dwreserved.toInt())
+public actual fun coInternetGetSecurityUrl(pwszurl: Pcwstr, ppwszsecurl: MutPtr<Pwstr>, psuaction: Psuaction, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrl(pwszurl.rawAddress, ppwszsecurl.rawAddress, psuaction, dwreserved.toInt())
 
-public actual fun coInternetGetSecurityUrlEx(puri: COpaquePointer?, ppsecuri: COpaquePointer?, psuaction: Psuaction, dwreserved: ULong): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetGetSecurityUrlEx((puri?.value ?: 0L), (ppsecuri?.value ?: 0L), psuaction, dwreserved.toLong())
+public actual fun coInternetGetSecurityUrlEx(puri: MutPtr<CVoid>, ppsecuri: MutPtr<MutPtr<CVoid>>, psuaction: Psuaction, dwreserved: ULong): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetGetSecurityUrlEx(puri.rawAddress, ppsecuri.rawAddress, psuaction, dwreserved.toLong())
 
-public actual fun coInternetGetSession(dwsessionmode: UInt, ppiinternetsession: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetGetSession(dwsessionmode.toInt(), (ppiinternetsession?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetGetSession(dwsessionmode: UInt, ppiinternetsession: MutPtr<MutPtr<CVoid>>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetGetSession(dwsessionmode.toInt(), ppiinternetsession.rawAddress, dwreserved.toInt())
 
 public actual fun coInternetIsFeatureEnabled(featureentry: Internetfeaturelist, dwflags: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabled(featureentry, dwflags.toInt())
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled(featureentry, dwflags.toInt())
 
-public actual fun coInternetIsFeatureEnabledForIUri(featureentry: Internetfeaturelist, dwflags: UInt, piuri: COpaquePointer?, psecmgr: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForIUri(featureentry, dwflags.toInt(), (piuri?.value ?: 0L), (psecmgr?.value ?: 0L))
+public actual fun coInternetIsFeatureEnabledForIUri(featureentry: Internetfeaturelist, dwflags: UInt, piuri: MutPtr<CVoid>, psecmgr: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForIUri(featureentry, dwflags.toInt(), piuri.rawAddress, psecmgr.rawAddress)
 
-public actual fun coInternetIsFeatureEnabledForUrl(featureentry: Internetfeaturelist, dwflags: UInt, szurl: Pcwstr, psecmgr: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureEnabledForUrl(featureentry, dwflags.toInt(), (szurl?.value ?: 0L), (psecmgr?.value ?: 0L))
+public actual fun coInternetIsFeatureEnabledForUrl(featureentry: Internetfeaturelist, dwflags: UInt, szurl: Pcwstr, psecmgr: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForUrl(featureentry, dwflags.toInt(), szurl.rawAddress, psecmgr.rawAddress)
 
-public actual fun coInternetIsFeatureZoneElevationEnabled(szfromurl: Pcwstr, sztourl: Pcwstr, psecmgr: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetIsFeatureZoneElevationEnabled((szfromurl?.value ?: 0L), (sztourl?.value ?: 0L), (psecmgr?.value ?: 0L), dwflags.toInt())
+public actual fun coInternetIsFeatureZoneElevationEnabled(szfromurl: Pcwstr, sztourl: Pcwstr, psecmgr: MutPtr<CVoid>, dwflags: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureZoneElevationEnabled(szfromurl.rawAddress, sztourl.rawAddress, psecmgr.rawAddress, dwflags.toInt())
 
-public actual fun coInternetParseIUri(piuri: COpaquePointer?, parseaction: Parseaction, dwflags: UInt, pwzresult: Pwstr, cchresult: UInt, pcchresult: COpaquePointer?, dwreserved: ULong): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetParseIUri((piuri?.value ?: 0L), parseaction, dwflags.toInt(), (pwzresult?.value ?: 0L), cchresult.toInt(), (pcchresult?.value ?: 0L), dwreserved.toLong())
+public actual fun coInternetParseIUri(piuri: MutPtr<CVoid>, parseaction: Parseaction, dwflags: UInt, pwzresult: Pwstr, cchresult: UInt, pcchresult: MutPtr<UInt>, dwreserved: ULong): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetParseIUri(piuri.rawAddress, parseaction, dwflags.toInt(), pwzresult.rawAddress, cchresult.toInt(), pcchresult.rawAddress, dwreserved.toLong())
 
-public actual fun coInternetParseUrl(pwzurl: Pcwstr, parseaction: Parseaction, dwflags: UInt, pszresult: Pwstr, cchresult: UInt, pcchresult: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetParseUrl((pwzurl?.value ?: 0L), parseaction, dwflags.toInt(), (pszresult?.value ?: 0L), cchresult.toInt(), (pcchresult?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetParseUrl(pwzurl: Pcwstr, parseaction: Parseaction, dwflags: UInt, pszresult: Pwstr, cchresult: UInt, pcchresult: MutPtr<UInt>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetParseUrl(pwzurl.rawAddress, parseaction, dwflags.toInt(), pszresult.rawAddress, cchresult.toInt(), pcchresult.rawAddress, dwreserved.toInt())
 
-public actual fun coInternetQueryInfo(pwzurl: Pcwstr, queryoptions: Queryoption, dwqueryflags: UInt, pvbuffer: COpaquePointer?, cbbuffer: UInt, pcbbuffer: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetQueryInfo((pwzurl?.value ?: 0L), queryoptions, dwqueryflags.toInt(), (pvbuffer?.value ?: 0L), cbbuffer.toInt(), (pcbbuffer?.value ?: 0L), dwreserved.toInt())
+public actual fun coInternetQueryInfo(pwzurl: Pcwstr, queryoptions: Queryoption, dwqueryflags: UInt, pvbuffer: MutPtr<CVoid>, cbbuffer: UInt, pcbbuffer: MutPtr<UInt>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetQueryInfo(pwzurl.rawAddress, queryoptions, dwqueryflags.toInt(), pvbuffer.rawAddress, cbbuffer.toInt(), pcbbuffer.rawAddress, dwreserved.toInt())
 
 public actual fun coInternetSetFeatureEnabled(featureentry: Internetfeaturelist, dwflags: UInt, fenable: Bool): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_coInternetSetFeatureEnabled(featureentry, dwflags.toInt(), fenable)
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled(featureentry, dwflags.toInt(), fenable)
 
-public actual fun compareSecurityIds(pbsecurityid1: COpaquePointer?, dwlen1: UInt, pbsecurityid2: COpaquePointer?, dwlen2: UInt, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_compareSecurityIds((pbsecurityid1?.value ?: 0L), dwlen1.toInt(), (pbsecurityid2?.value ?: 0L), dwlen2.toInt(), dwreserved.toInt())
+public actual fun compareSecurityIds(pbsecurityid1: ConstPtr<UByte>, dwlen1: UInt, pbsecurityid2: ConstPtr<UByte>, dwlen2: UInt, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCompareSecurityIds(pbsecurityid1.rawAddress, dwlen1.toInt(), pbsecurityid2.rawAddress, dwlen2.toInt(), dwreserved.toInt())
 
-public actual fun compatFlagsFromClsid(pclsid: COpaquePointer?, pdwcompatflags: COpaquePointer?, pdwmiscstatusflags: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_compatFlagsFromClsid((pclsid?.value ?: 0L), (pdwcompatflags?.value ?: 0L), (pdwmiscstatusflags?.value ?: 0L))
+public actual fun compatFlagsFromClsid(pclsid: ConstPtr<Guid>, pdwcompatflags: MutPtr<UInt>, pdwmiscstatusflags: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCompatFlagsFromClsid(pclsid.rawAddress, pdwcompatflags.rawAddress, pdwmiscstatusflags.rawAddress)
 
-public actual fun copyBindInfo(pcbisrc: COpaquePointer?, pbidest: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_copyBindInfo((pcbisrc?.value ?: 0L), (pbidest?.value ?: 0L))
+public actual fun copyBindInfo(pcbisrc: ConstPtr<Bindinfo>, pbidest: MutPtr<Bindinfo>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCopyBindInfo(pcbisrc.rawAddress, pbidest.rawAddress)
 
-public actual fun copyStgMedium(pcstgmedsrc: COpaquePointer?, pstgmeddest: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_copyStgMedium((pcstgmedsrc?.value ?: 0L), (pstgmeddest?.value ?: 0L))
+public actual fun copyStgMedium(pcstgmedsrc: ConstPtr<Stgmedium>, pstgmeddest: MutPtr<Stgmedium>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCopyStgMedium(pcstgmedsrc.rawAddress, pstgmeddest.rawAddress)
 
-public actual fun createAsyncBindCtx(reserved: UInt, pbscb: COpaquePointer?, pefetc: COpaquePointer?, ppbc: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx(reserved.toInt(), (pbscb?.value ?: 0L), (pefetc?.value ?: 0L), (ppbc?.value ?: 0L))
+public actual fun createAsyncBindCtx(reserved: UInt, pbscb: MutPtr<CVoid>, pefetc: MutPtr<CVoid>, ppbc: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtx(reserved.toInt(), pbscb.rawAddress, pefetc.rawAddress, ppbc.rawAddress)
 
-public actual fun createAsyncBindCtxEx(pbc: COpaquePointer?, dwoptions: UInt, pbscb: COpaquePointer?, penum: COpaquePointer?, ppbc: COpaquePointer?, reserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_createAsyncBindCtxEx((pbc?.value ?: 0L), dwoptions.toInt(), (pbscb?.value ?: 0L), (penum?.value ?: 0L), (ppbc?.value ?: 0L), reserved.toInt())
+public actual fun createAsyncBindCtxEx(pbc: MutPtr<CVoid>, dwoptions: UInt, pbscb: MutPtr<CVoid>, penum: MutPtr<CVoid>, ppbc: MutPtr<MutPtr<CVoid>>, reserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCreateAsyncBindCtxEx(pbc.rawAddress, dwoptions.toInt(), pbscb.rawAddress, penum.rawAddress, ppbc.rawAddress, reserved.toInt())
 
-public actual fun createFormatEnumerator(cfmtetc: UInt, rgfmtetc: COpaquePointer?, ppenumfmtetc: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_createFormatEnumerator(cfmtetc.toInt(), (rgfmtetc?.value ?: 0L), (ppenumfmtetc?.value ?: 0L))
+public actual fun createFormatEnumerator(cfmtetc: UInt, rgfmtetc: ConstPtr<Formatetc>, ppenumfmtetc: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCreateFormatEnumerator(cfmtetc.toInt(), rgfmtetc.rawAddress, ppenumfmtetc.rawAddress)
 
-public actual fun createURLMoniker(pmkctx: COpaquePointer?, szurl: Pcwstr, ppmk: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_createURLMoniker((pmkctx?.value ?: 0L), (szurl?.value ?: 0L), (ppmk?.value ?: 0L))
+public actual fun createURLMoniker(pmkctx: MutPtr<CVoid>, szurl: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCreateURLMoniker(pmkctx.rawAddress, szurl.rawAddress, ppmk.rawAddress)
 
-public actual fun createURLMonikerEx(pmkctx: COpaquePointer?, szurl: Pcwstr, ppmk: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_createURLMonikerEx((pmkctx?.value ?: 0L), (szurl?.value ?: 0L), (ppmk?.value ?: 0L), dwflags.toInt())
+public actual fun createURLMonikerEx(pmkctx: MutPtr<CVoid>, szurl: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx(pmkctx.rawAddress, szurl.rawAddress, ppmk.rawAddress, dwflags.toInt())
 
-public actual fun createURLMonikerEx2(pmkctx: COpaquePointer?, puri: COpaquePointer?, ppmk: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_createURLMonikerEx2((pmkctx?.value ?: 0L), (puri?.value ?: 0L), (ppmk?.value ?: 0L), dwflags.toInt())
+public actual fun createURLMonikerEx2(pmkctx: MutPtr<CVoid>, puri: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonCreateURLMonikerEx2(pmkctx.rawAddress, puri.rawAddress, ppmk.rawAddress, dwflags.toInt())
 
-public actual fun faultInIEFeature(hwnd: Hwnd, pclassspec: COpaquePointer?, pquery: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_faultInIEFeature((hwnd?.value ?: 0L), (pclassspec?.value ?: 0L), (pquery?.value ?: 0L), dwflags.toInt())
+public actual fun faultInIEFeature(hwnd: Hwnd, pclassspec: ConstPtr<UClsspec>, pquery: MutPtr<Querycontext>, dwflags: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonFaultInIEFeature(hwnd.rawAddress, pclassspec.rawAddress, pquery.rawAddress, dwflags.toInt())
 
-public actual fun findMediaType(rgsztypes: Pcstr, rgcftypes: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_findMediaType((rgsztypes?.value ?: 0L), (rgcftypes?.value ?: 0L))
+public actual fun findMediaType(rgsztypes: Pcstr, rgcftypes: MutPtr<UShort>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonFindMediaType(rgsztypes.rawAddress, rgcftypes.rawAddress)
 
-public actual fun findMediaTypeClass(pbc: COpaquePointer?, sztype: Pcstr, pclsid: COpaquePointer?, reserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_findMediaTypeClass((pbc?.value ?: 0L), (sztype?.value ?: 0L), (pclsid?.value ?: 0L), reserved.toInt())
+public actual fun findMediaTypeClass(pbc: MutPtr<CVoid>, sztype: Pcstr, pclsid: MutPtr<Guid>, reserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonFindMediaTypeClass(pbc.rawAddress, sztype.rawAddress, pclsid.rawAddress, reserved.toInt())
 
-public actual fun findMimeFromData(pbc: COpaquePointer?, pwzurl: Pcwstr, pbuffer: COpaquePointer?, cbsize: UInt, pwzmimeproposed: Pcwstr, dwmimeflags: UInt, ppwzmimeout: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_findMimeFromData((pbc?.value ?: 0L), (pwzurl?.value ?: 0L), (pbuffer?.value ?: 0L), cbsize.toInt(), (pwzmimeproposed?.value ?: 0L), dwmimeflags.toInt(), (ppwzmimeout?.value ?: 0L), dwreserved.toInt())
+public actual fun findMimeFromData(pbc: MutPtr<CVoid>, pwzurl: Pcwstr, pbuffer: ConstPtr<CVoid>, cbsize: UInt, pwzmimeproposed: Pcwstr, dwmimeflags: UInt, ppwzmimeout: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonFindMimeFromData(pbc.rawAddress, pwzurl.rawAddress, pbuffer.rawAddress, cbsize.toInt(), pwzmimeproposed.rawAddress, dwmimeflags.toInt(), ppwzmimeout.rawAddress, dwreserved.toInt())
 
-public actual fun getClassFileOrMime(pbc: COpaquePointer?, szfilename: Pcwstr, pbuffer: COpaquePointer?, cbsize: UInt, szmime: Pcwstr, dwreserved: UInt, pclsid: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_getClassFileOrMime((pbc?.value ?: 0L), (szfilename?.value ?: 0L), (pbuffer?.value ?: 0L), cbsize.toInt(), (szmime?.value ?: 0L), dwreserved.toInt(), (pclsid?.value ?: 0L))
+public actual fun getClassFileOrMime(pbc: MutPtr<CVoid>, szfilename: Pcwstr, pbuffer: ConstPtr<CVoid>, cbsize: UInt, szmime: Pcwstr, dwreserved: UInt, pclsid: MutPtr<Guid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonGetClassFileOrMime(pbc.rawAddress, szfilename.rawAddress, pbuffer.rawAddress, cbsize.toInt(), szmime.rawAddress, dwreserved.toInt(), pclsid.rawAddress)
 
-public actual fun getClassURL(szurl: Pcwstr, pclsid: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_getClassURL((szurl?.value ?: 0L), (pclsid?.value ?: 0L))
+public actual fun getClassURL(szurl: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonGetClassURL(szurl.rawAddress, pclsid.rawAddress)
 
-public actual fun getComponentIDFromCLSSPEC(pclassspec: COpaquePointer?, ppszcomponentid: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_getComponentIDFromCLSSPEC((pclassspec?.value ?: 0L), (ppszcomponentid?.value ?: 0L))
+public actual fun getComponentIDFromCLSSPEC(pclassspec: ConstPtr<UClsspec>, ppszcomponentid: MutPtr<Pstr>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonGetComponentIDFromCLSSPEC(pclassspec.rawAddress, ppszcomponentid.rawAddress)
 
-public actual fun getSoftwareUpdateInfo(szdistunit: Pcwstr, psdi: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateInfo((szdistunit?.value ?: 0L), (psdi?.value ?: 0L))
+public actual fun getSoftwareUpdateInfo(szdistunit: Pcwstr, psdi: MutPtr<Softdistinfo>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonGetSoftwareUpdateInfo(szdistunit.rawAddress, psdi.rawAddress)
 
-public actual fun hlinkGoBack(punk: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_hlinkGoBack((punk?.value ?: 0L))
+public actual fun hlinkGoBack(punk: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonHlinkGoBack(punk.rawAddress)
 
-public actual fun hlinkGoForward(punk: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_hlinkGoForward((punk?.value ?: 0L))
+public actual fun hlinkGoForward(punk: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonHlinkGoForward(punk.rawAddress)
 
-public actual fun hlinkNavigateMoniker(punk: COpaquePointer?, pmktarget: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_hlinkNavigateMoniker((punk?.value ?: 0L), (pmktarget?.value ?: 0L))
+public actual fun hlinkNavigateMoniker(punk: MutPtr<CVoid>, pmktarget: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonHlinkNavigateMoniker(punk.rawAddress, pmktarget.rawAddress)
 
-public actual fun hlinkNavigateString(punk: COpaquePointer?, sztarget: Pcwstr): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_hlinkNavigateString((punk?.value ?: 0L), (sztarget?.value ?: 0L))
+public actual fun hlinkNavigateString(punk: MutPtr<CVoid>, sztarget: Pcwstr): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonHlinkNavigateString(punk.rawAddress, sztarget.rawAddress)
 
-public actual fun hlinkSimpleNavigateToMoniker(pmktarget: COpaquePointer?, szlocation: Pcwstr, sztargetframename: Pcwstr, punk: COpaquePointer?, pbc: COpaquePointer?, param5: COpaquePointer?, grfhlnf: UInt, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToMoniker((pmktarget?.value ?: 0L), (szlocation?.value ?: 0L), (sztargetframename?.value ?: 0L), (punk?.value ?: 0L), (pbc?.value ?: 0L), (param5?.value ?: 0L), grfhlnf.toInt(), dwreserved.toInt())
+public actual fun hlinkSimpleNavigateToMoniker(pmktarget: MutPtr<CVoid>, szlocation: Pcwstr, sztargetframename: Pcwstr, punk: MutPtr<CVoid>, pbc: MutPtr<CVoid>, param5: MutPtr<CVoid>, grfhlnf: UInt, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToMoniker(pmktarget.rawAddress, szlocation.rawAddress, sztargetframename.rawAddress, punk.rawAddress, pbc.rawAddress, param5.rawAddress, grfhlnf.toInt(), dwreserved.toInt())
 
-public actual fun hlinkSimpleNavigateToString(sztarget: Pcwstr, szlocation: Pcwstr, sztargetframename: Pcwstr, punk: COpaquePointer?, pbc: COpaquePointer?, param5: COpaquePointer?, grfhlnf: UInt, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigateToString((sztarget?.value ?: 0L), (szlocation?.value ?: 0L), (sztargetframename?.value ?: 0L), (punk?.value ?: 0L), (pbc?.value ?: 0L), (param5?.value ?: 0L), grfhlnf.toInt(), dwreserved.toInt())
+public actual fun hlinkSimpleNavigateToString(sztarget: Pcwstr, szlocation: Pcwstr, sztargetframename: Pcwstr, punk: MutPtr<CVoid>, pbc: MutPtr<CVoid>, param5: MutPtr<CVoid>, grfhlnf: UInt, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonHlinkSimpleNavigateToString(sztarget.rawAddress, szlocation.rawAddress, sztargetframename.rawAddress, punk.rawAddress, pbc.rawAddress, param5.rawAddress, grfhlnf.toInt(), dwreserved.toInt())
 
 public actual fun iEGetUserPrivateNamespaceName(): Pwstr =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNamespaceName().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonIEGetUserPrivateNamespaceName())
 
-public actual fun iEInstallScope(pdwscope: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_iEInstallScope((pdwscope?.value ?: 0L))
+public actual fun iEInstallScope(pdwscope: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonIEInstallScope(pdwscope.rawAddress)
 
-public actual fun isAsyncMoniker(pmk: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_isAsyncMoniker((pmk?.value ?: 0L))
+public actual fun isAsyncMoniker(pmk: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonIsAsyncMoniker(pmk.rawAddress)
 
 public actual fun isLoggingEnabledA(pszurl: Pcstr): Bool =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA((pszurl?.value ?: 0L))
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledA(pszurl.rawAddress)
 
 public actual fun isLoggingEnabledW(pwszurl: Pcwstr): Bool =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW((pwszurl?.value ?: 0L))
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonIsLoggingEnabledW(pwszurl.rawAddress)
 
-public actual fun isValidURL(pbc: COpaquePointer?, szurl: Pcwstr, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_isValidURL((pbc?.value ?: 0L), (szurl?.value ?: 0L), dwreserved.toInt())
+public actual fun isValidURL(pbc: MutPtr<CVoid>, szurl: Pcwstr, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonIsValidURL(pbc.rawAddress, szurl.rawAddress, dwreserved.toInt())
 
-public actual fun mkParseDisplayNameEx(pbc: COpaquePointer?, szdisplayname: Pcwstr, pcheaten: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_mkParseDisplayNameEx((pbc?.value ?: 0L), (szdisplayname?.value ?: 0L), (pcheaten?.value ?: 0L), (ppmk?.value ?: 0L))
+public actual fun mkParseDisplayNameEx(pbc: MutPtr<CVoid>, szdisplayname: Pcwstr, pcheaten: MutPtr<UInt>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonMkParseDisplayNameEx(pbc.rawAddress, szdisplayname.rawAddress, pcheaten.rawAddress, ppmk.rawAddress)
 
-public actual fun obtainUserAgentString(dwoption: UInt, pszuaout: Pstr, cbsize: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_obtainUserAgentString(dwoption.toInt(), (pszuaout?.value ?: 0L), (cbsize?.value ?: 0L))
+public actual fun obtainUserAgentString(dwoption: UInt, pszuaout: Pstr, cbsize: MutPtr<UInt>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonObtainUserAgentString(dwoption.toInt(), pszuaout.rawAddress, cbsize.rawAddress)
 
-public actual fun registerBindStatusCallback(pbc: COpaquePointer?, pbscb: COpaquePointer?, ppbscbprev: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_registerBindStatusCallback((pbc?.value ?: 0L), (pbscb?.value ?: 0L), (ppbscbprev?.value ?: 0L), dwreserved.toInt())
+public actual fun registerBindStatusCallback(pbc: MutPtr<CVoid>, pbscb: MutPtr<CVoid>, ppbscbprev: MutPtr<MutPtr<CVoid>>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonRegisterBindStatusCallback(pbc.rawAddress, pbscb.rawAddress, ppbscbprev.rawAddress, dwreserved.toInt())
 
-public actual fun registerFormatEnumerator(pbc: COpaquePointer?, pefetc: COpaquePointer?, reserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_registerFormatEnumerator((pbc?.value ?: 0L), (pefetc?.value ?: 0L), reserved.toInt())
+public actual fun registerFormatEnumerator(pbc: MutPtr<CVoid>, pefetc: MutPtr<CVoid>, reserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonRegisterFormatEnumerator(pbc.rawAddress, pefetc.rawAddress, reserved.toInt())
 
-public actual fun registerMediaTypeClass(pbc: COpaquePointer?, ctypes: UInt, rgsztypes: COpaquePointer?, rgclsid: COpaquePointer?, reserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_registerMediaTypeClass((pbc?.value ?: 0L), ctypes.toInt(), (rgsztypes?.value ?: 0L), (rgclsid?.value ?: 0L), reserved.toInt())
+public actual fun registerMediaTypeClass(pbc: MutPtr<CVoid>, ctypes: UInt, rgsztypes: ConstPtr<Pcstr>, rgclsid: ConstPtr<Guid>, reserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonRegisterMediaTypeClass(pbc.rawAddress, ctypes.toInt(), rgsztypes.rawAddress, rgclsid.rawAddress, reserved.toInt())
 
-public actual fun registerMediaTypes(ctypes: UInt, rgsztypes: COpaquePointer?, rgcftypes: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_registerMediaTypes(ctypes.toInt(), (rgsztypes?.value ?: 0L), (rgcftypes?.value ?: 0L))
+public actual fun registerMediaTypes(ctypes: UInt, rgsztypes: ConstPtr<Pcstr>, rgcftypes: MutPtr<UShort>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonRegisterMediaTypes(ctypes.toInt(), rgsztypes.rawAddress, rgcftypes.rawAddress)
 
-public actual fun releaseBindInfo(pbindinfo: COpaquePointer?) {
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_releaseBindInfo((pbindinfo?.value ?: 0L))
+public actual fun releaseBindInfo(pbindinfo: MutPtr<Bindinfo>) {
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonReleaseBindInfo(pbindinfo.rawAddress)
 }
 
-public actual fun revokeBindStatusCallback(pbc: COpaquePointer?, pbscb: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_revokeBindStatusCallback((pbc?.value ?: 0L), (pbscb?.value ?: 0L))
+public actual fun revokeBindStatusCallback(pbc: MutPtr<CVoid>, pbscb: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonRevokeBindStatusCallback(pbc.rawAddress, pbscb.rawAddress)
 
-public actual fun revokeFormatEnumerator(pbc: COpaquePointer?, pefetc: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_revokeFormatEnumerator((pbc?.value ?: 0L), (pefetc?.value ?: 0L))
+public actual fun revokeFormatEnumerator(pbc: MutPtr<CVoid>, pefetc: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonRevokeFormatEnumerator(pbc.rawAddress, pefetc.rawAddress)
 
 public actual fun setAccessForIEAppContainer(hobject: Handle, ieobjecttype: IEObjectType, dwaccessmask: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_setAccessForIEAppContainer((hobject?.value ?: 0L), ieobjecttype, dwaccessmask.toInt())
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonSetAccessForIEAppContainer(hobject.rawAddress, ieobjecttype, dwaccessmask.toInt())
 
 public actual fun setSoftwareUpdateAdvertisementState(szdistunit: Pcwstr, dwadstate: UInt, dwadvertisedversionms: UInt, dwadvertisedversionls: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateAdvertisementState((szdistunit?.value ?: 0L), dwadstate.toInt(), dwadvertisedversionms.toInt(), dwadvertisedversionls.toInt())
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonSetSoftwareUpdateAdvertisementState(szdistunit.rawAddress, dwadstate.toInt(), dwadvertisedversionms.toInt(), dwadvertisedversionls.toInt())
 
-public actual fun uRLDownloadToCacheFileA(param0: COpaquePointer?, param1: Pcstr, param2: Pstr, cchfilename: UInt, param4: UInt, param5: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileA((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L), cchfilename.toInt(), param4.toInt(), (param5?.value ?: 0L))
+public actual fun uRLDownloadToCacheFileA(param0: MutPtr<CVoid>, param1: Pcstr, param2: Pstr, cchfilename: UInt, param4: UInt, param5: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileA(param0.rawAddress, param1.rawAddress, param2.rawAddress, cchfilename.toInt(), param4.toInt(), param5.rawAddress)
 
-public actual fun uRLDownloadToCacheFileW(param0: COpaquePointer?, param1: Pcwstr, param2: Pwstr, cchfilename: UInt, param4: UInt, param5: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLDownloadToCacheFileW((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L), cchfilename.toInt(), param4.toInt(), (param5?.value ?: 0L))
+public actual fun uRLDownloadToCacheFileW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: Pwstr, cchfilename: UInt, param4: UInt, param5: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLDownloadToCacheFileW(param0.rawAddress, param1.rawAddress, param2.rawAddress, cchfilename.toInt(), param4.toInt(), param5.rawAddress)
 
-public actual fun uRLDownloadToFileA(param0: COpaquePointer?, param1: Pcstr, param2: Pcstr, param3: UInt, param4: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L), param3.toInt(), (param4?.value ?: 0L))
+public actual fun uRLDownloadToFileA(param0: MutPtr<CVoid>, param1: Pcstr, param2: Pcstr, param3: UInt, param4: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLDownloadToFileA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress)
 
-public actual fun uRLDownloadToFileW(param0: COpaquePointer?, param1: Pcwstr, param2: Pcwstr, param3: UInt, param4: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L), param3.toInt(), (param4?.value ?: 0L))
+public actual fun uRLDownloadToFileW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: Pcwstr, param3: UInt, param4: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLDownloadToFileW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress)
 
-public actual fun uRLOpenBlockingStreamA(param0: COpaquePointer?, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamA((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L), param3.toInt(), (param4?.value ?: 0L))
+public actual fun uRLOpenBlockingStreamA(param0: MutPtr<CVoid>, param1: Pcstr, param2: MutPtr<MutPtr<CVoid>>, param3: UInt, param4: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress)
 
-public actual fun uRLOpenBlockingStreamW(param0: COpaquePointer?, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStreamW((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L), param3.toInt(), (param4?.value ?: 0L))
+public actual fun uRLOpenBlockingStreamW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: MutPtr<MutPtr<CVoid>>, param3: UInt, param4: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLOpenBlockingStreamW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress)
 
-public actual fun uRLOpenPullStreamA(param0: COpaquePointer?, param1: Pcstr, param2: UInt, param3: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun uRLOpenPullStreamA(param0: MutPtr<CVoid>, param1: Pcstr, param2: UInt, param3: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamA(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
-public actual fun uRLOpenPullStreamW(param0: COpaquePointer?, param1: Pcwstr, param2: UInt, param3: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun uRLOpenPullStreamW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: UInt, param3: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLOpenPullStreamW(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
-public actual fun uRLOpenStreamA(param0: COpaquePointer?, param1: Pcstr, param2: UInt, param3: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun uRLOpenStreamA(param0: MutPtr<CVoid>, param1: Pcstr, param2: UInt, param3: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLOpenStreamA(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
-public actual fun uRLOpenStreamW(param0: COpaquePointer?, param1: Pcwstr, param2: UInt, param3: COpaquePointer?): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun uRLOpenStreamW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: UInt, param3: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonURLOpenStreamW(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
-public actual fun urlMkGetSessionOption(dwoption: UInt, pbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbufferlengthout: COpaquePointer?, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOption(dwoption.toInt(), (pbuffer?.value ?: 0L), dwbufferlength.toInt(), (pdwbufferlengthout?.value ?: 0L), dwreserved.toInt())
+public actual fun urlMkGetSessionOption(dwoption: UInt, pbuffer: MutPtr<CVoid>, dwbufferlength: UInt, pdwbufferlengthout: MutPtr<UInt>, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonUrlMkGetSessionOption(dwoption.toInt(), pbuffer.rawAddress, dwbufferlength.toInt(), pdwbufferlengthout.rawAddress, dwreserved.toInt())
 
-public actual fun urlMkSetSessionOption(dwoption: UInt, pbuffer: COpaquePointer?, dwbufferlength: UInt, dwreserved: UInt): Hresult =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOption(dwoption.toInt(), (pbuffer?.value ?: 0L), dwbufferlength.toInt(), dwreserved.toInt())
+public actual fun urlMkSetSessionOption(dwoption: UInt, pbuffer: ConstPtr<CVoid>, dwbufferlength: UInt, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonUrlMkSetSessionOption(dwoption.toInt(), pbuffer.rawAddress, dwbufferlength.toInt(), dwreserved.toInt())
 
-public actual fun writeHitLogging(lplogginginfo: COpaquePointer?): Bool =
-    WindowsWin32SystemComUrlmonJniBridge.windowssys_windows_win32_system_com_urlmon_writeHitLogging((lplogginginfo?.value ?: 0L))
+public actual fun writeHitLogging(lplogginginfo: ConstPtr<HitLoggingInfo>): Bool =
+    WindowsWin32SystemComUrlmonJniBridge.windowssysWindowsWin32SystemComUrlmonWriteHitLogging(lplogginginfo.rawAddress)

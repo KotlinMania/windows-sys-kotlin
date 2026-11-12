@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn(void);
+int32_t windowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn(void);
 
 #ifdef __cplusplus
 }

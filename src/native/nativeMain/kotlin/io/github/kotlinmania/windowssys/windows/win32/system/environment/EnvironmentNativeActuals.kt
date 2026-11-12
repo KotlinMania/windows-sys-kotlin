@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -10,154 +12,154 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_callEnclave
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_createEnclave
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_createEnvironmentBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_deleteEnclave
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_destroyEnvironmentBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveGetAttestationReport
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveSealData
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveUnsealData
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_freeEnvironmentStringsA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_freeEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCommandLineA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCommandLineW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCurrentDirectoryA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCurrentDirectoryW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentStrings
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentVariableA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentVariableW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_initializeEnclave
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_isEnclaveTypeSupported
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_loadEnclaveData
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_loadEnclaveImageA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_loadEnclaveImageW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setCurrentDirectoryA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setCurrentDirectoryW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setEnvironmentVariableA
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setEnvironmentVariableW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_terminateEnclave
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentCallEnclave
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentCreateEnclave
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentCreateEnvironmentBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentDeleteEnclave
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentDestroyEnvironmentBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentEnclaveGetAttestationReport
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentEnclaveGetEnclaveInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentEnclaveSealData
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentEnclaveUnsealData
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentEnclaveVerifyAttestationReport
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsForUserA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsForUserW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentFreeEnvironmentStringsA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentFreeEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetCommandLineA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetCommandLineW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetCurrentDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetCurrentDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetEnvironmentStrings
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetEnvironmentVariableA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentGetEnvironmentVariableW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentInitializeEnclave
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentLoadEnclaveData
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentLoadEnclaveImageA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentLoadEnclaveImageW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentNeedCurrentDirectoryForExePathA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentNeedCurrentDirectoryForExePathW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentSetCurrentDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentSetCurrentDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentSetEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentSetEnvironmentVariableA
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentSetEnvironmentVariableW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssysWindowsWin32SystemEnvironmentTerminateEnclave
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun callEnclave(lproutine: Long, lpparameter: COpaquePointer?, fwaitforthread: Bool, lpreturnvalue: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_environment_callEnclave(lproutine, lpparameter?.value?.toCPointer<ByteVar>(), fwaitforthread, lpreturnvalue?.value?.toCPointer<ByteVar>())
+public actual fun callEnclave(lproutine: Long, lpparameter: ConstPtr<CVoid>, fwaitforthread: Bool, lpreturnvalue: MutPtr<MutPtr<CVoid>>): Bool =
+    windowssysWindowsWin32SystemEnvironmentCallEnclave(lproutine, lpparameter.rawAddress.toCPointer<ByteVar>(), fwaitforthread, lpreturnvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createEnclave(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_environment_createEnclave(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation?.value?.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpenclaveerror: MutPtr<UInt>): MutPtr<CVoid> =
+    MutPtr(windowssysWindowsWin32SystemEnvironmentCreateEnclave(hprocess.rawAddress.toCPointer<ByteVar>(), lpaddress.rawAddress.toCPointer<ByteVar>(), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation.rawAddress.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createEnvironmentBlock(lpenvironment: COpaquePointer?, htoken: Handle, binherit: Bool): Bool =
-    windowssys_windows_win32_system_environment_createEnvironmentBlock(lpenvironment?.value?.toCPointer<ByteVar>(), htoken?.value?.toCPointer<ByteVar>(), binherit)
+public actual fun createEnvironmentBlock(lpenvironment: MutPtr<MutPtr<CVoid>>, htoken: Handle, binherit: Bool): Bool =
+    windowssysWindowsWin32SystemEnvironmentCreateEnvironmentBlock(lpenvironment.rawAddress.toCPointer<ByteVar>(), htoken.rawAddress.toCPointer<ByteVar>(), binherit)
 
-public actual fun deleteEnclave(lpaddress: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_environment_deleteEnclave(lpaddress?.value?.toCPointer<ByteVar>())
+public actual fun deleteEnclave(lpaddress: ConstPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemEnvironmentDeleteEnclave(lpaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun destroyEnvironmentBlock(lpenvironment: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_environment_destroyEnvironmentBlock(lpenvironment?.value?.toCPointer<ByteVar>())
+public actual fun destroyEnvironmentBlock(lpenvironment: ConstPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemEnvironmentDestroyEnvironmentBlock(lpenvironment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveGetAttestationReport(enclavedata: COpaquePointer?, report: COpaquePointer?, buffersize: UInt, outputsize: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_environment_enclaveGetAttestationReport(enclavedata?.value?.toCPointer<ByteVar>(), report?.value?.toCPointer<ByteVar>(), buffersize, outputsize?.value?.toCPointer<ByteVar>())
+public actual fun enclaveGetAttestationReport(enclavedata: ConstPtr<UByte>, report: MutPtr<CVoid>, buffersize: UInt, outputsize: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemEnvironmentEnclaveGetAttestationReport(enclavedata.rawAddress.toCPointer<ByteVar>(), report.rawAddress.toCPointer<ByteVar>(), buffersize, outputsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation(informationsize, enclaveinformation?.value?.toCPointer<ByteVar>())
+public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: MutPtr<EnclaveInformation>): Hresult =
+    windowssysWindowsWin32SystemEnvironmentEnclaveGetEnclaveInformation(informationsize, enclaveinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveSealData(datatoencrypt: COpaquePointer?, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: COpaquePointer?, buffersize: UInt, protectedblobsize: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_environment_enclaveSealData(datatoencrypt?.value?.toCPointer<ByteVar>(), datatoencryptsize, identitypolicy, runtimepolicy, protectedblob?.value?.toCPointer<ByteVar>(), buffersize, protectedblobsize?.value?.toCPointer<ByteVar>())
+public actual fun enclaveSealData(datatoencrypt: ConstPtr<CVoid>, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: MutPtr<CVoid>, buffersize: UInt, protectedblobsize: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemEnvironmentEnclaveSealData(datatoencrypt.rawAddress.toCPointer<ByteVar>(), datatoencryptsize, identitypolicy, runtimepolicy, protectedblob.rawAddress.toCPointer<ByteVar>(), buffersize, protectedblobsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveUnsealData(protectedblob: COpaquePointer?, protectedblobsize: UInt, decrypteddata: COpaquePointer?, buffersize: UInt, decrypteddatasize: COpaquePointer?, sealingidentity: COpaquePointer?, unsealingflags: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_environment_enclaveUnsealData(protectedblob?.value?.toCPointer<ByteVar>(), protectedblobsize, decrypteddata?.value?.toCPointer<ByteVar>(), buffersize, decrypteddatasize?.value?.toCPointer<ByteVar>(), sealingidentity?.value?.toCPointer<ByteVar>(), unsealingflags?.value?.toCPointer<ByteVar>())
+public actual fun enclaveUnsealData(protectedblob: ConstPtr<CVoid>, protectedblobsize: UInt, decrypteddata: MutPtr<CVoid>, buffersize: UInt, decrypteddatasize: MutPtr<UInt>, sealingidentity: MutPtr<EnclaveIdentity>, unsealingflags: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemEnvironmentEnclaveUnsealData(protectedblob.rawAddress.toCPointer<ByteVar>(), protectedblobsize, decrypteddata.rawAddress.toCPointer<ByteVar>(), buffersize, decrypteddatasize.rawAddress.toCPointer<ByteVar>(), sealingidentity.rawAddress.toCPointer<ByteVar>(), unsealingflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: COpaquePointer?, reportsize: UInt): Hresult =
-    windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport(enclavetype, report?.value?.toCPointer<ByteVar>(), reportsize)
+public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: ConstPtr<CVoid>, reportsize: UInt): Hresult =
+    windowssysWindowsWin32SystemEnvironmentEnclaveVerifyAttestationReport(enclavetype, report.rawAddress.toCPointer<ByteVar>(), reportsize)
 
 public actual fun expandEnvironmentStringsA(lpsrc: Pcstr, lpdst: Pstr, nsize: UInt): UInt =
-    windowssys_windows_win32_system_environment_expandEnvironmentStringsA(lpsrc?.value?.toCPointer<ByteVar>(), lpdst?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsA(lpsrc.rawAddress.toCPointer<ByteVar>(), lpdst.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun expandEnvironmentStringsForUserA(htoken: Handle, lpsrc: Pcstr, lpdest: Pstr, dwsize: UInt): Bool =
-    windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA(htoken?.value?.toCPointer<ByteVar>(), lpsrc?.value?.toCPointer<ByteVar>(), lpdest?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsForUserA(htoken.rawAddress.toCPointer<ByteVar>(), lpsrc.rawAddress.toCPointer<ByteVar>(), lpdest.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun expandEnvironmentStringsForUserW(htoken: Handle, lpsrc: Pcwstr, lpdest: Pwstr, dwsize: UInt): Bool =
-    windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW(htoken?.value?.toCPointer<ByteVar>(), lpsrc?.value?.toCPointer<ByteVar>(), lpdest?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsForUserW(htoken.rawAddress.toCPointer<ByteVar>(), lpsrc.rawAddress.toCPointer<ByteVar>(), lpdest.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun expandEnvironmentStringsW(lpsrc: Pcwstr, lpdst: Pwstr, nsize: UInt): UInt =
-    windowssys_windows_win32_system_environment_expandEnvironmentStringsW(lpsrc?.value?.toCPointer<ByteVar>(), lpdst?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemEnvironmentExpandEnvironmentStringsW(lpsrc.rawAddress.toCPointer<ByteVar>(), lpdst.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun freeEnvironmentStringsA(penv: Pcstr): Bool =
-    windowssys_windows_win32_system_environment_freeEnvironmentStringsA(penv?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentFreeEnvironmentStringsA(penv.rawAddress.toCPointer<ByteVar>())
 
 public actual fun freeEnvironmentStringsW(penv: Pcwstr): Bool =
-    windowssys_windows_win32_system_environment_freeEnvironmentStringsW(penv?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentFreeEnvironmentStringsW(penv.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getCommandLineA(): Pcstr =
-    windowssys_windows_win32_system_environment_getCommandLineA()?.let { COpaquePointer(it.toLong()) }
+    ConstPtr(windowssysWindowsWin32SystemEnvironmentGetCommandLineA()?.toLong() ?: 0L)
 
 public actual fun getCommandLineW(): Pcwstr =
-    windowssys_windows_win32_system_environment_getCommandLineW()?.let { COpaquePointer(it.toLong()) }
+    ConstPtr(windowssysWindowsWin32SystemEnvironmentGetCommandLineW()?.toLong() ?: 0L)
 
 public actual fun getCurrentDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
-    windowssys_windows_win32_system_environment_getCurrentDirectoryA(nbufferlength, lpbuffer?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentGetCurrentDirectoryA(nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getCurrentDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
-    windowssys_windows_win32_system_environment_getCurrentDirectoryW(nbufferlength, lpbuffer?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentGetCurrentDirectoryW(nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getEnvironmentStrings(): Pstr =
-    windowssys_windows_win32_system_environment_getEnvironmentStrings()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemEnvironmentGetEnvironmentStrings()?.toLong() ?: 0L)
 
 public actual fun getEnvironmentStringsW(): Pwstr =
-    windowssys_windows_win32_system_environment_getEnvironmentStringsW()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemEnvironmentGetEnvironmentStringsW()?.toLong() ?: 0L)
 
 public actual fun getEnvironmentVariableA(lpname: Pcstr, lpbuffer: Pstr, nsize: UInt): UInt =
-    windowssys_windows_win32_system_environment_getEnvironmentVariableA(lpname?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemEnvironmentGetEnvironmentVariableA(lpname.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun getEnvironmentVariableW(lpname: Pcwstr, lpbuffer: Pwstr, nsize: UInt): UInt =
-    windowssys_windows_win32_system_environment_getEnvironmentVariableW(lpname?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
+    windowssysWindowsWin32SystemEnvironmentGetEnvironmentVariableW(lpname.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun initializeEnclave(hprocess: Handle, lpaddress: COpaquePointer?, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_environment_initializeEnclave(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), lpenclaveinformation?.value?.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror?.value?.toCPointer<ByteVar>())
+public actual fun initializeEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpenclaveinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpenclaveerror: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemEnvironmentInitializeEnclave(hprocess.rawAddress.toCPointer<ByteVar>(), lpaddress.rawAddress.toCPointer<ByteVar>(), lpenclaveinformation.rawAddress.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isEnclaveTypeSupported(flenclavetype: UInt): Bool =
-    windowssys_windows_win32_system_environment_isEnclaveTypeSupported(flenclavetype)
+    windowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported(flenclavetype)
 
-public actual fun loadEnclaveData(hprocess: Handle, lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, nsize: ULong, flprotect: UInt, lppageinformation: COpaquePointer?, dwinfolength: UInt, lpnumberofbyteswritten: COpaquePointer?, lpenclaveerror: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_environment_loadEnclaveData(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize, flprotect, lppageinformation?.value?.toCPointer<ByteVar>(), dwinfolength, lpnumberofbyteswritten?.value?.toCPointer<ByteVar>(), lpenclaveerror?.value?.toCPointer<ByteVar>())
+public actual fun loadEnclaveData(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, nsize: ULong, flprotect: UInt, lppageinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpnumberofbyteswritten: MutPtr<ULong>, lpenclaveerror: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemEnvironmentLoadEnclaveData(hprocess.rawAddress.toCPointer<ByteVar>(), lpaddress.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize, flprotect, lppageinformation.rawAddress.toCPointer<ByteVar>(), dwinfolength, lpnumberofbyteswritten.rawAddress.toCPointer<ByteVar>(), lpenclaveerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loadEnclaveImageA(lpenclaveaddress: COpaquePointer?, lpimagename: Pcstr): Bool =
-    windowssys_windows_win32_system_environment_loadEnclaveImageA(lpenclaveaddress?.value?.toCPointer<ByteVar>(), lpimagename?.value?.toCPointer<ByteVar>())
+public actual fun loadEnclaveImageA(lpenclaveaddress: ConstPtr<CVoid>, lpimagename: Pcstr): Bool =
+    windowssysWindowsWin32SystemEnvironmentLoadEnclaveImageA(lpenclaveaddress.rawAddress.toCPointer<ByteVar>(), lpimagename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loadEnclaveImageW(lpenclaveaddress: COpaquePointer?, lpimagename: Pcwstr): Bool =
-    windowssys_windows_win32_system_environment_loadEnclaveImageW(lpenclaveaddress?.value?.toCPointer<ByteVar>(), lpimagename?.value?.toCPointer<ByteVar>())
+public actual fun loadEnclaveImageW(lpenclaveaddress: ConstPtr<CVoid>, lpimagename: Pcwstr): Bool =
+    windowssysWindowsWin32SystemEnvironmentLoadEnclaveImageW(lpenclaveaddress.rawAddress.toCPointer<ByteVar>(), lpimagename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun needCurrentDirectoryForExePathA(exename: Pcstr): Bool =
-    windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA(exename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentNeedCurrentDirectoryForExePathA(exename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun needCurrentDirectoryForExePathW(exename: Pcwstr): Bool =
-    windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW(exename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentNeedCurrentDirectoryForExePathW(exename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setCurrentDirectoryA(lppathname: Pcstr): Bool =
-    windowssys_windows_win32_system_environment_setCurrentDirectoryA(lppathname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentSetCurrentDirectoryA(lppathname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setCurrentDirectoryW(lppathname: Pcwstr): Bool =
-    windowssys_windows_win32_system_environment_setCurrentDirectoryW(lppathname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentSetCurrentDirectoryW(lppathname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setEnvironmentStringsW(newenvironment: Pcwstr): Bool =
-    windowssys_windows_win32_system_environment_setEnvironmentStringsW(newenvironment?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentSetEnvironmentStringsW(newenvironment.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setEnvironmentVariableA(lpname: Pcstr, lpvalue: Pcstr): Bool =
-    windowssys_windows_win32_system_environment_setEnvironmentVariableA(lpname?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentSetEnvironmentVariableA(lpname.rawAddress.toCPointer<ByteVar>(), lpvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setEnvironmentVariableW(lpname: Pcwstr, lpvalue: Pcwstr): Bool =
-    windowssys_windows_win32_system_environment_setEnvironmentVariableW(lpname?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemEnvironmentSetEnvironmentVariableW(lpname.rawAddress.toCPointer<ByteVar>(), lpvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun terminateEnclave(lpaddress: COpaquePointer?, fwait: Bool): Bool =
-    windowssys_windows_win32_system_environment_terminateEnclave(lpaddress?.value?.toCPointer<ByteVar>(), fwait)
+public actual fun terminateEnclave(lpaddress: ConstPtr<CVoid>, fwait: Bool): Bool =
+    windowssysWindowsWin32SystemEnvironmentTerminateEnclave(lpaddress.rawAddress.toCPointer<ByteVar>(), fwait)

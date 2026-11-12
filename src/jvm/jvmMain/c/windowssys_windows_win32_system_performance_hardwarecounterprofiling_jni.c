@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssys_1windows_1win32_1system_1performance_1hardwarecounterprofiling_1disableThreadProfiling(JNIEnv* km_env, jclass km_clazz, jlong performancedatahandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingDisableThreadProfiling(JNIEnv* km_env, jclass km_clazz, jlong performancedatahandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssys_1windows_1win32_1system_1performance_1hardwarecounterprofiling_1enableThreadProfiling(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint flags, jlong hardwarecounters, jlong performancedatahandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingEnableThreadProfiling(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint flags, jlong hardwarecounters, jlong performancedatahandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssys_1windows_1win32_1system_1performance_1hardwarecounterprofiling_1queryThreadProfiling(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jlong enabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingQueryThreadProfiling(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jlong enabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssys_1windows_1win32_1system_1performance_1hardwarecounterprofiling_1readThreadProfilingData(JNIEnv* km_env, jclass km_clazz, jlong performancedatahandle, jint flags, jlong performancedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_hardwarecounterprofiling_WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge_windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingReadThreadProfilingData(JNIEnv* km_env, jclass km_clazz, jlong performancedatahandle, jint flags, jlong performancedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

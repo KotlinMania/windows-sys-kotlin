@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_iis_getExtensionVersion(void* pver) {
+int32_t windowssysWindowsWin32SystemIisGetExtensionVersion(void* pver) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_iis_getExtensionVersion(void* pver) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_iis_getFilterVersion(void* pver) {
+int32_t windowssysWindowsWin32SystemIisGetFilterVersion(void* pver) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_system_iis_getFilterVersion(void* pver) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_iis_httpExtensionProc(void* pecb) {
+uint32_t windowssysWindowsWin32SystemIisHttpExtensionProc(void* pecb) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ uint32_t windowssys_windows_win32_system_iis_httpExtensionProc(void* pecb) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_iis_httpFilterProc(void* pfc, uint32_t notificationtype, void* pvnotification) {
+uint32_t windowssysWindowsWin32SystemIisHttpFilterProc(void* pfc, uint32_t notificationtype, void* pvnotification) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

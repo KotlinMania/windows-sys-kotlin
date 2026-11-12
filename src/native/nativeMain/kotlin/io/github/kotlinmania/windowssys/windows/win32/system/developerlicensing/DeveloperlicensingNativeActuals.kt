@@ -2,20 +2,21 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing.cinterop.windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense
-import io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing.cinterop.windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense
-import io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing.cinterop.windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense
+import io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing.cinterop.windowssysWindowsWin32SystemDeveloperlicensingAcquireDeveloperLicense
+import io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing.cinterop.windowssysWindowsWin32SystemDeveloperlicensingCheckDeveloperLicense
+import io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing.cinterop.windowssysWindowsWin32SystemDeveloperlicensingRemoveDeveloperLicense
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun acquireDeveloperLicense(hwndparent: Hwnd, pexpiration: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_developerlicensing_acquireDeveloperLicense(hwndparent?.value?.toCPointer<ByteVar>(), pexpiration?.value?.toCPointer<ByteVar>())
+public actual fun acquireDeveloperLicense(hwndparent: Hwnd, pexpiration: MutPtr<Filetime>): Hresult =
+    windowssysWindowsWin32SystemDeveloperlicensingAcquireDeveloperLicense(hwndparent.rawAddress.toCPointer<ByteVar>(), pexpiration.rawAddress.toCPointer<ByteVar>())
 
-public actual fun checkDeveloperLicense(pexpiration: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_developerlicensing_checkDeveloperLicense(pexpiration?.value?.toCPointer<ByteVar>())
+public actual fun checkDeveloperLicense(pexpiration: MutPtr<Filetime>): Hresult =
+    windowssysWindowsWin32SystemDeveloperlicensingCheckDeveloperLicense(pexpiration.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeDeveloperLicense(hwndparent: Hwnd): Hresult =
-    windowssys_windows_win32_system_developerlicensing_removeDeveloperLicense(hwndparent?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemDeveloperlicensingRemoveDeveloperLicense(hwndparent.rawAddress.toCPointer<ByteVar>())

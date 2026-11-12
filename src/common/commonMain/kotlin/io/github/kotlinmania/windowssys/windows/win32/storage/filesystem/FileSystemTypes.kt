@@ -1,62 +1,67 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
+import io.github.kotlinmania.windowssys.windows.win32.security.PrivilegeSet
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
 public fun interface CacheAccessCheckFn {
-    public operator fun invoke(psecuritydescriptor: PsecurityDescriptor, hclienttoken: Handle, dwdesiredaccess: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Bool
+    public operator fun invoke(psecuritydescriptor: PsecurityDescriptor, hclienttoken: Handle, dwdesiredaccess: UInt, genericmapping: MutPtr<GenericMapping>, privilegeset: MutPtr<PrivilegeSet>, privilegesetlength: MutPtr<UInt>, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Bool>): Bool
 }
 
 public typealias CacheAccessCheck = CacheAccessCheckFn?
 
 public fun interface CacheDestroyCallbackFn {
-    public operator fun invoke(cb: UInt, lpb: COpaquePointer?)
+    public operator fun invoke(cb: UInt, lpb: MutPtr<UByte>)
 }
 
 public typealias CacheDestroyCallback = CacheDestroyCallbackFn?
 
 public fun interface CacheKeyCompareFn {
-    public operator fun invoke(cbkey1: UInt, lpbkey1: COpaquePointer?, cbkey2: UInt, lpbkey2: COpaquePointer?): Int
+    public operator fun invoke(cbkey1: UInt, lpbkey1: MutPtr<UByte>, cbkey2: UInt, lpbkey2: MutPtr<UByte>): Int
 }
 
 public typealias CacheKeyCompare = CacheKeyCompareFn?
 
 public fun interface CacheKeyHashFn {
-    public operator fun invoke(lpbkey: COpaquePointer?, cbkey: UInt): UInt
+    public operator fun invoke(lpbkey: MutPtr<UByte>, cbkey: UInt): UInt
 }
 
 public typealias CacheKeyHash = CacheKeyHashFn?
 
 public fun interface CacheReadCallbackFn {
-    public operator fun invoke(cb: UInt, lpb: COpaquePointer?, lpvcontext: COpaquePointer?): Bool
+    public operator fun invoke(cb: UInt, lpb: MutPtr<UByte>, lpvcontext: MutPtr<CVoid>): Bool
 }
 
 public typealias CacheReadCallback = CacheReadCallbackFn?
 
 public fun interface ClaimmedialabelFn {
-    public operator fun invoke(pbuffer: COpaquePointer?, nbuffersize: UInt, plabelinfo: COpaquePointer?): UInt
+    public operator fun invoke(pbuffer: ConstPtr<UByte>, nbuffersize: UInt, plabelinfo: MutPtr<MediaLabelInfo>): UInt
 }
 
 public typealias Claimmedialabel = ClaimmedialabelFn?
 
 public fun interface ClaimmedialabelexFn {
-    public operator fun invoke(pbuffer: COpaquePointer?, nbuffersize: UInt, plabelinfo: COpaquePointer?, labelguid: COpaquePointer?): UInt
+    public operator fun invoke(pbuffer: ConstPtr<UByte>, nbuffersize: UInt, plabelinfo: MutPtr<MediaLabelInfo>, labelguid: MutPtr<Guid>): UInt
 }
 
 public typealias Claimmedialabelex = ClaimmedialabelexFn?
 
 public fun interface ClfsBlockAllocationFn {
-    public operator fun invoke(cbbufferlength: UInt, pvusercontext: COpaquePointer?): COpaquePointer?
+    public operator fun invoke(cbbufferlength: UInt, pvusercontext: MutPtr<CVoid>): MutPtr<CVoid>
 }
 
 public typealias ClfsBlockAllocation = ClfsBlockAllocationFn?
 
 public fun interface ClfsBlockDeallocationFn {
-    public operator fun invoke(pvbuffer: COpaquePointer?, pvusercontext: COpaquePointer?)
+    public operator fun invoke(pvbuffer: MutPtr<CVoid>, pvusercontext: MutPtr<CVoid>)
 }
 
 public typealias ClfsBlockDeallocation = ClfsBlockDeallocationFn?
@@ -102,13 +107,13 @@ public typealias DiskquotaUsernameResolve = UInt
 public typealias EraseTapeType = UInt
 
 public fun interface FcacheCreateCallbackFn {
-    public operator fun invoke(lpstrname: Pcstr, lpvdata: COpaquePointer?, cbfilesize: COpaquePointer?, cbfilesizehigh: COpaquePointer?): Handle
+    public operator fun invoke(lpstrname: Pcstr, lpvdata: MutPtr<CVoid>, cbfilesize: MutPtr<UInt>, cbfilesizehigh: MutPtr<UInt>): Handle
 }
 
 public typealias FcacheCreateCallback = FcacheCreateCallbackFn?
 
 public fun interface FcacheRichcreateCallbackFn {
-    public operator fun invoke(lpstrname: Pcstr, lpvdata: COpaquePointer?, cbfilesize: COpaquePointer?, cbfilesizehigh: COpaquePointer?, pfdidwescanit: COpaquePointer?, pfisstuffed: COpaquePointer?, pfstoredwithdots: COpaquePointer?, pfstoredwithterminatingdot: COpaquePointer?): Handle
+    public operator fun invoke(lpstrname: Pcstr, lpvdata: MutPtr<CVoid>, cbfilesize: MutPtr<UInt>, cbfilesizehigh: MutPtr<UInt>, pfdidwescanit: MutPtr<Bool>, pfisstuffed: MutPtr<Bool>, pfstoredwithdots: MutPtr<Bool>, pfstoredwithterminatingdot: MutPtr<Bool>): Handle
 }
 
 public typealias FcacheRichcreateCallback = FcacheRichcreateCallbackFn?
@@ -155,7 +160,7 @@ public typealias GetFileVersionInfoFlags = UInt
 
 public typealias GetTapeDriveParametersOperation = UInt
 
-public typealias Hioring = COpaquePointer?
+public typealias Hioring = MutPtr<CVoid>
 
 public typealias IoringCreateAdvisoryFlags = Int
 
@@ -174,7 +179,7 @@ public typealias IoringVersion = Int
 public typealias LockFileFlags = UInt
 
 public fun interface LpprogressRoutineFn {
-    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LpprogressRoutineCallbackReason, hsourcefile: Handle, hdestinationfile: Handle, lpdata: COpaquePointer?): CopyprogressroutineProgress
+    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LpprogressRoutineCallbackReason, hsourcefile: Handle, hdestinationfile: Handle, lpdata: ConstPtr<CVoid>): CopyprogressroutineProgress
 }
 
 public typealias LpprogressRoutine = LpprogressRoutineFn?
@@ -184,7 +189,7 @@ public typealias LpprogressRoutineCallbackReason = UInt
 public typealias LzopenfileStyle = UShort
 
 public fun interface MaxmedialabelFn {
-    public operator fun invoke(pmaxsize: COpaquePointer?): UInt
+    public operator fun invoke(pmaxsize: MutPtr<UInt>): UInt
 }
 
 public typealias Maxmedialabel = MaxmedialabelFn?
@@ -276,49 +281,49 @@ public typealias NtmsUIOperations = Int
 public typealias NtmsUITypes = Int
 
 public fun interface PclfsCompletionRoutineFn {
-    public operator fun invoke(pvoverlapped: COpaquePointer?, ulreserved: UInt)
+    public operator fun invoke(pvoverlapped: MutPtr<CVoid>, ulreserved: UInt)
 }
 
 public typealias PclfsCompletionRoutine = PclfsCompletionRoutineFn?
 
 public fun interface Pcopyfile2ProgressRoutineFn {
-    public operator fun invoke(pmessage: COpaquePointer?, pvcallbackcontext: COpaquePointer?): Copyfile2MessageAction
+    public operator fun invoke(pmessage: ConstPtr<Copyfile2Message>, pvcallbackcontext: ConstPtr<CVoid>): Copyfile2MessageAction
 }
 
 public typealias Pcopyfile2ProgressRoutine = Pcopyfile2ProgressRoutineFn?
 
 public fun interface PfeExportFuncFn {
-    public operator fun invoke(pbdata: COpaquePointer?, pvcallbackcontext: COpaquePointer?, ullength: UInt): UInt
+    public operator fun invoke(pbdata: ConstPtr<UByte>, pvcallbackcontext: ConstPtr<CVoid>, ullength: UInt): UInt
 }
 
 public typealias PfeExportFunc = PfeExportFuncFn?
 
 public fun interface PfeImportFuncFn {
-    public operator fun invoke(pbdata: COpaquePointer?, pvcallbackcontext: COpaquePointer?, ullength: COpaquePointer?): UInt
+    public operator fun invoke(pbdata: MutPtr<UByte>, pvcallbackcontext: ConstPtr<CVoid>, ullength: MutPtr<UInt>): UInt
 }
 
 public typealias PfeImportFunc = PfeImportFuncFn?
 
 public fun interface PfnIoCompletionFn {
-    public operator fun invoke(pcontext: COpaquePointer?, lpo: COpaquePointer?, cb: UInt, dwcompletionstatus: UInt)
+    public operator fun invoke(pcontext: MutPtr<FioContext>, lpo: MutPtr<FhOverlapped>, cb: UInt, dwcompletionstatus: UInt)
 }
 
 public typealias PfnIoCompletion = PfnIoCompletionFn?
 
 public fun interface PlogFullHandlerCallbackFn {
-    public operator fun invoke(hlogfile: Handle, dwerror: UInt, flogispinned: Bool, pvclientcontext: COpaquePointer?)
+    public operator fun invoke(hlogfile: Handle, dwerror: UInt, flogispinned: Bool, pvclientcontext: MutPtr<CVoid>)
 }
 
 public typealias PlogFullHandlerCallback = PlogFullHandlerCallbackFn?
 
 public fun interface PlogTailAdvanceCallbackFn {
-    public operator fun invoke(hlogfile: Handle, lsntarget: ClsLsn, pvclientcontext: COpaquePointer?)
+    public operator fun invoke(hlogfile: Handle, lsntarget: ClsLsn, pvclientcontext: MutPtr<CVoid>)
 }
 
 public typealias PlogTailAdvanceCallback = PlogTailAdvanceCallbackFn?
 
 public fun interface PlogUnpinnedCallbackFn {
-    public operator fun invoke(hlogfile: Handle, pvclientcontext: COpaquePointer?)
+    public operator fun invoke(hlogfile: Handle, pvclientcontext: MutPtr<CVoid>)
 }
 
 public typealias PlogUnpinnedCallback = PlogUnpinnedCallbackFn?
@@ -380,13 +385,13 @@ public typealias VsFixedfileinfoFileType = Int
 public typealias WinStreamId = UInt
 
 public fun interface WofEnumEntryProcFn {
-    public operator fun invoke(entryinfo: COpaquePointer?, userdata: COpaquePointer?): Bool
+    public operator fun invoke(entryinfo: ConstPtr<CVoid>, userdata: ConstPtr<CVoid>): Bool
 }
 
 public typealias WofEnumEntryProc = WofEnumEntryProcFn?
 
 public fun interface WofEnumFilesProcFn {
-    public operator fun invoke(filepath: Pcwstr, externalfileinfo: COpaquePointer?, userdata: COpaquePointer?): Bool
+    public operator fun invoke(filepath: Pcwstr, externalfileinfo: ConstPtr<CVoid>, userdata: ConstPtr<CVoid>): Bool
 }
 
 public typealias WofEnumFilesProc = WofEnumFilesProcFn?

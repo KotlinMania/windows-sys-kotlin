@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1createToolhelp32Snapshot(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint th32processid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpCreateToolhelp32Snapshot(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint th32processid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1heap32First(JNIEnv* km_env, jclass km_clazz, jlong lphe, jint th32processid, jlong th32heapid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32First(JNIEnv* km_env, jclass km_clazz, jlong lphe, jint th32processid, jlong th32heapid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1heap32ListFirst(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lphl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListFirst(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lphl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1heap32ListNext(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lphl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListNext(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lphl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1heap32Next(JNIEnv* km_env, jclass km_clazz, jlong lphe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32Next(JNIEnv* km_env, jclass km_clazz, jlong lphe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1module32First(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpModule32First(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -175,7 +175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1module32FirstW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpModule32FirstW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -201,7 +201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1module32Next(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpModule32Next(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1module32NextW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpModule32NextW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpme) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -253,7 +253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1process32First(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32First(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1process32FirstW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32FirstW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -305,7 +305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1process32Next(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32Next(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1process32NextW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32NextW(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lppe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -357,7 +357,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1thread32First(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpte) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpThread32First(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpte) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -383,7 +383,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1thread32Next(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpte) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpThread32Next(JNIEnv* km_env, jclass km_clazz, jlong hsnapshot, jlong lpte) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -409,7 +409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1toolhelp_1toolhelp32ReadProcessMemory(JNIEnv* km_env, jclass km_clazz, jint th32processid, jlong lpbaseaddress, jlong lpbuffer, jlong cbread, jlong lpnumberofbytesread) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_toolhelp_WindowsWin32SystemDiagnosticsToolhelpJniBridge_windowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp32ReadProcessMemory(JNIEnv* km_env, jclass km_clazz, jint th32processid, jlong lpbaseaddress, jlong lpbuffer, jlong cbread, jlong lpnumberofbytesread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

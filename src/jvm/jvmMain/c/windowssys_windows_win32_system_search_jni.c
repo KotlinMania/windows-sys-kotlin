@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1oDBCGetTryWaitValue(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchODBCGetTryWaitValue(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -43,7 +43,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1oDBCSetTryWaitValue(JNIEnv* km_env, jclass km_clazz, jint dwvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchODBCSetTryWaitValue(JNIEnv* km_env, jclass km_clazz, jint dwvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -68,7 +68,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLAllocConnect(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jlong connectionhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLAllocConnect(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jlong connectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLAllocEnv(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLAllocEnv(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLAllocHandle(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong inputhandle, jlong outputhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLAllocHandle(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong inputhandle, jlong outputhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLAllocHandleStd(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong hinput, jlong phoutput) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLAllocHandleStd(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong hinput, jlong phoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLAllocStmt(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong statementhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLAllocStmt(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong statementhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBindCol(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jshort targettype, jlong targetvalue, jlong bufferlength, jlong strlen_or_ind) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBindCol(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jshort targettype, jlong targetvalue, jlong bufferlength, jlong strlenOrInd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     }
     int16_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlen_or_ind);
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -222,14 +222,14 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)targettype;
     (void)targetvalue;
     (void)bufferlength;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBindParam(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort parameternumber, jshort valuetype, jshort parametertype, jlong lengthprecision, jshort parameterscale, jlong parametervalue, jlong strlen_or_ind) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBindParam(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort parameternumber, jshort valuetype, jshort parametertype, jlong lengthprecision, jshort parameterscale, jlong parametervalue, jlong strlenOrInd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -241,7 +241,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     }
     int16_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlen_or_ind);
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -254,14 +254,14 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)lengthprecision;
     (void)parameterscale;
     (void)parametervalue;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBindParameter(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort ipar, jshort fparamtype, jshort fctype, jshort fsqltype, jlong cbcoldef, jshort ibscale, jlong rgbvalue, jlong cbvaluemax, jlong pcbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBindParameter(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort ipar, jshort fparamtype, jshort fctype, jshort fsqltype, jlong cbcoldef, jshort ibscale, jlong rgbvalue, jlong cbvaluemax, jlong pcbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -295,7 +295,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBrowseConnect(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBrowseConnect(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -325,7 +325,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBrowseConnectA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szconnstrin, jshort cbconnstrin, jlong szconnstrout, jshort cbconnstroutmax, jlong pcbconnstrout) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBrowseConnectA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szconnstrin, jshort cbconnstrin, jlong szconnstrout, jshort cbconnstroutmax, jlong pcbconnstrout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -355,7 +355,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBrowseConnectW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBrowseConnectW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -385,7 +385,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLBulkOperations(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort operation) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLBulkOperations(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort operation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -411,7 +411,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLCancel(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLCancel(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -436,7 +436,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLCancelHandle(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong inputhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLCancelHandle(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong inputhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -462,7 +462,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLCloseCursor(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLCloseCursor(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -487,7 +487,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLCloseEnumServers(JNIEnv* km_env, jclass km_clazz, jlong henumhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLCloseEnumServers(JNIEnv* km_env, jclass km_clazz, jlong henumhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -512,7 +512,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColAttribute(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jshort fieldidentifier, jlong characterattribute, jshort bufferlength, jlong stringlength, jlong numericattribute) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColAttribute(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jshort fieldidentifier, jlong characterattribute, jshort bufferlength, jlong stringlength, jlong numericattribute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -543,7 +543,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColAttributeA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort ifield, jlong pcharattr, jshort cbcharattrmax, jlong pcbcharattr, jlong pnumattr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColAttributeA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort ifield, jlong pcharattr, jshort cbcharattrmax, jlong pcbcharattr, jlong pnumattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -574,7 +574,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColAttributeW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort ifield, jlong pcharattr, jshort cbdescmax, jlong pcbcharattr, jlong pnumattr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColAttributeW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort ifield, jlong pcharattr, jshort cbdescmax, jlong pcbcharattr, jlong pnumattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -605,7 +605,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColAttributes(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort fdesctype, jlong rgbdesc, jshort cbdescmax, jlong pcbdesc, jlong pfdesc) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColAttributes(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort fdesctype, jlong rgbdesc, jshort cbdescmax, jlong pcbdesc, jlong pfdesc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -636,7 +636,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColAttributesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort fdesctype, jlong rgbdesc, jshort cbdescmax, jlong pcbdesc, jlong pfdesc) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColAttributesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort fdesctype, jlong rgbdesc, jshort cbdescmax, jlong pcbdesc, jlong pfdesc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -667,7 +667,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColAttributesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort fdesctype, jlong rgbdesc, jshort cbdescmax, jlong pcbdesc, jlong pfdesc) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColAttributesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jshort fdesctype, jlong rgbdesc, jshort cbdescmax, jlong pcbdesc, jlong pfdesc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -698,7 +698,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColumnPrivileges(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong szcolumnname, jshort cchcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColumnPrivileges(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong szcolumnname, jshort cchcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -731,7 +731,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColumnPrivilegesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jlong szcolumnname, jshort cbcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColumnPrivilegesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jlong szcolumnname, jshort cbcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -764,7 +764,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColumnPrivilegesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong szcolumnname, jshort cchcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColumnPrivilegesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong szcolumnname, jshort cchcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -797,7 +797,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColumns(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jlong columnname, jshort namelength4) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColumns(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jlong columnname, jshort namelength4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -830,7 +830,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColumnsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jlong szcolumnname, jshort cbcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColumnsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jlong szcolumnname, jshort cbcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -863,7 +863,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLColumnsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong szcolumnname, jshort cchcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLColumnsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong szcolumnname, jshort cchcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -896,7 +896,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLCompleteAsync(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jlong asyncretcodeptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLCompleteAsync(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jlong asyncretcodeptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -923,7 +923,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLConnect(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong servername, jshort namelength1, jlong username, jshort namelength2, jlong authentication, jshort namelength3) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLConnect(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong servername, jshort namelength1, jlong username, jshort namelength2, jlong authentication, jshort namelength3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -954,7 +954,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLConnectA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szdsn, jshort cbdsn, jlong szuid, jshort cbuid, jlong szauthstr, jshort cbauthstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLConnectA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szdsn, jshort cbdsn, jlong szuid, jshort cbuid, jlong szauthstr, jshort cbauthstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -985,7 +985,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLConnectW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szdsn, jshort cchdsn, jlong szuid, jshort cchuid, jlong szauthstr, jshort cchauthstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLConnectW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szdsn, jshort cchdsn, jlong szuid, jshort cchuid, jlong szauthstr, jshort cchauthstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1016,7 +1016,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLCopyDesc(JNIEnv* km_env, jclass km_clazz, jlong sourcedeschandle, jlong targetdeschandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLCopyDesc(JNIEnv* km_env, jclass km_clazz, jlong sourcedeschandle, jlong targetdeschandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1042,7 +1042,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDataSources(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jshort direction, jlong servername, jshort bufferlength1, jlong namelength1ptr, jlong description, jshort bufferlength2, jlong namelength2ptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDataSources(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jshort direction, jlong servername, jshort bufferlength1, jlong namelength1ptr, jlong description, jshort bufferlength2, jlong namelength2ptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1074,7 +1074,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDataSourcesA(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdsn, jshort cbdsnmax, jlong pcbdsn, jlong szdescription, jshort cbdescriptionmax, jlong pcbdescription) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDataSourcesA(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdsn, jshort cbdsnmax, jlong pcbdsn, jlong szdescription, jshort cbdescriptionmax, jlong pcbdescription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1106,7 +1106,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDataSourcesW(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdsn, jshort cchdsnmax, jlong pcchdsn, jlong wszdescription, jshort cchdescriptionmax, jlong pcchdescription) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDataSourcesW(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdsn, jshort cchdsnmax, jlong pcchdsn, jlong wszdescription, jshort cchdescriptionmax, jlong pcchdescription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1138,7 +1138,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDescribeCol(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jlong columnname, jshort bufferlength, jlong namelength, jlong datatype, jlong columnsize, jlong decimaldigits, jlong nullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDescribeCol(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jlong columnname, jshort bufferlength, jlong namelength, jlong datatype, jlong columnsize, jlong decimaldigits, jlong nullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1171,7 +1171,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDescribeColA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jlong szcolname, jshort cbcolnamemax, jlong pcbcolname, jlong pfsqltype, jlong pcbcoldef, jlong pibscale, jlong pfnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDescribeColA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jlong szcolname, jshort cbcolnamemax, jlong pcbcolname, jlong pfsqltype, jlong pcbcoldef, jlong pibscale, jlong pfnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1204,7 +1204,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDescribeColW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jlong szcolname, jshort cchcolnamemax, jlong pcchcolname, jlong pfsqltype, jlong pcbcoldef, jlong pibscale, jlong pfnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDescribeColW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort icol, jlong szcolname, jshort cchcolnamemax, jlong pcchcolname, jlong pfsqltype, jlong pcbcoldef, jlong pibscale, jlong pfnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1237,7 +1237,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDescribeParam(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort ipar, jlong pfsqltype, jlong pcbparamdef, jlong pibscale, jlong pfnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDescribeParam(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort ipar, jlong pfsqltype, jlong pcbparamdef, jlong pibscale, jlong pfnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1267,7 +1267,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDisconnect(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDisconnect(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1292,7 +1292,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDriverConnect(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong hwnd, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout, jshort fdrivercompletion) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDriverConnect(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong hwnd, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout, jshort fdrivercompletion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1324,7 +1324,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDriverConnectA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong hwnd, jlong szconnstrin, jshort cbconnstrin, jlong szconnstrout, jshort cbconnstroutmax, jlong pcbconnstrout, jshort fdrivercompletion) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDriverConnectA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong hwnd, jlong szconnstrin, jshort cbconnstrin, jlong szconnstrout, jshort cbconnstroutmax, jlong pcbconnstrout, jshort fdrivercompletion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1356,7 +1356,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDriverConnectW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong hwnd, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout, jshort fdrivercompletion) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDriverConnectW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong hwnd, jlong szconnstrin, jshort cchconnstrin, jlong szconnstrout, jshort cchconnstroutmax, jlong pcchconnstrout, jshort fdrivercompletion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1388,7 +1388,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDrivers(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdriverdesc, jshort cchdriverdescmax, jlong pcchdriverdesc, jlong szdriverattributes, jshort cchdrvrattrmax, jlong pcchdrvrattr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDrivers(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdriverdesc, jshort cchdriverdescmax, jlong pcchdriverdesc, jlong szdriverattributes, jshort cchdrvrattrmax, jlong pcchdrvrattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1420,7 +1420,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDriversA(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdriverdesc, jshort cbdriverdescmax, jlong pcbdriverdesc, jlong szdriverattributes, jshort cbdrvrattrmax, jlong pcbdrvrattr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDriversA(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdriverdesc, jshort cbdriverdescmax, jlong pcbdriverdesc, jlong szdriverattributes, jshort cbdrvrattrmax, jlong pcbdrvrattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1452,7 +1452,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLDriversW(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdriverdesc, jshort cchdriverdescmax, jlong pcchdriverdesc, jlong szdriverattributes, jshort cchdrvrattrmax, jlong pcchdrvrattr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLDriversW(JNIEnv* km_env, jclass km_clazz, jlong henv, jshort fdirection, jlong szdriverdesc, jshort cchdriverdescmax, jlong pcchdriverdesc, jlong szdriverattributes, jshort cchdrvrattrmax, jlong pcchdrvrattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1484,7 +1484,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLEndTran(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jshort completiontype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLEndTran(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jshort completiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1511,7 +1511,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLError(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jlong connectionhandle, jlong statementhandle, jlong sqlstate, jlong nativeerror, jlong messagetext, jshort bufferlength, jlong textlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLError(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jlong connectionhandle, jlong statementhandle, jlong sqlstate, jlong nativeerror, jlong messagetext, jshort bufferlength, jlong textlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1543,7 +1543,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLErrorA(JNIEnv* km_env, jclass km_clazz, jlong henv, jlong hdbc, jlong hstmt, jlong szsqlstate, jlong pfnativeerror, jlong szerrormsg, jshort cberrormsgmax, jlong pcberrormsg) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLErrorA(JNIEnv* km_env, jclass km_clazz, jlong henv, jlong hdbc, jlong hstmt, jlong szsqlstate, jlong pfnativeerror, jlong szerrormsg, jshort cberrormsgmax, jlong pcberrormsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1575,7 +1575,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLErrorW(JNIEnv* km_env, jclass km_clazz, jlong henv, jlong hdbc, jlong hstmt, jlong wszsqlstate, jlong pfnativeerror, jlong wszerrormsg, jshort ccherrormsgmax, jlong pccherrormsg) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLErrorW(JNIEnv* km_env, jclass km_clazz, jlong henv, jlong hdbc, jlong hstmt, jlong wszsqlstate, jlong pfnativeerror, jlong wszerrormsg, jshort ccherrormsgmax, jlong pccherrormsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1607,7 +1607,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLExecDirect(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong statementtext, jint textlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLExecDirect(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong statementtext, jint textlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1634,7 +1634,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLExecDirectA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint cbsqlstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLExecDirectA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint cbsqlstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1661,7 +1661,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLExecDirectW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint textlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLExecDirectW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint textlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1688,7 +1688,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLExecute(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLExecute(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1713,7 +1713,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLExtendedFetch(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort ffetchtype, jlong irow, jlong pcrow, jlong rgfrowstatus) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLExtendedFetch(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort ffetchtype, jlong irow, jlong pcrow, jlong rgfrowstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1742,7 +1742,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLFetch(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLFetch(JNIEnv* km_env, jclass km_clazz, jlong statementhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1767,7 +1767,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLFetchScroll(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort fetchorientation, jlong fetchoffset) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLFetchScroll(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort fetchorientation, jlong fetchoffset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1794,7 +1794,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLForeignKeys(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szpkcatalogname, jshort cchpkcatalogname, jlong szpkschemaname, jshort cchpkschemaname, jlong szpktablename, jshort cchpktablename, jlong szfkcatalogname, jshort cchfkcatalogname, jlong szfkschemaname, jshort cchfkschemaname, jlong szfktablename, jshort cchfktablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLForeignKeys(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szpkcatalogname, jshort cchpkcatalogname, jlong szpkschemaname, jshort cchpkschemaname, jlong szpktablename, jshort cchpktablename, jlong szfkcatalogname, jshort cchfkcatalogname, jlong szfkschemaname, jshort cchfkschemaname, jlong szfktablename, jshort cchfktablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1831,7 +1831,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLForeignKeysA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szpkcatalogname, jshort cbpkcatalogname, jlong szpkschemaname, jshort cbpkschemaname, jlong szpktablename, jshort cbpktablename, jlong szfkcatalogname, jshort cbfkcatalogname, jlong szfkschemaname, jshort cbfkschemaname, jlong szfktablename, jshort cbfktablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLForeignKeysA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szpkcatalogname, jshort cbpkcatalogname, jlong szpkschemaname, jshort cbpkschemaname, jlong szpktablename, jshort cbpktablename, jlong szfkcatalogname, jshort cbfkcatalogname, jlong szfkschemaname, jshort cbfkschemaname, jlong szfktablename, jshort cbfktablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1868,7 +1868,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLForeignKeysW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szpkcatalogname, jshort cchpkcatalogname, jlong szpkschemaname, jshort cchpkschemaname, jlong szpktablename, jshort cchpktablename, jlong szfkcatalogname, jshort cchfkcatalogname, jlong szfkschemaname, jshort cchfkschemaname, jlong szfktablename, jshort cchfktablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLForeignKeysW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szpkcatalogname, jshort cchpkcatalogname, jlong szpkschemaname, jshort cchpkschemaname, jlong szpktablename, jshort cchpktablename, jlong szfkcatalogname, jshort cchfkcatalogname, jlong szfkschemaname, jshort cchfkschemaname, jlong szfktablename, jshort cchfktablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1905,7 +1905,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLFreeConnect(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLFreeConnect(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1930,7 +1930,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLFreeEnv(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLFreeEnv(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1955,7 +1955,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLFreeHandle(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLFreeHandle(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1981,7 +1981,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLFreeStmt(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort option) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLFreeStmt(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort option) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2007,7 +2007,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetConnectAttr(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jint attribute, jlong value, jint bufferlength, jlong stringlengthptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetConnectAttr(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jint attribute, jlong value, jint bufferlength, jlong stringlengthptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2036,7 +2036,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetConnectAttrA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetConnectAttrA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2065,7 +2065,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetConnectAttrW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetConnectAttrW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2094,7 +2094,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetConnectOption(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort option, jlong value) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetConnectOption(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort option, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2121,7 +2121,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetConnectOptionA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong pvparam) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetConnectOptionA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong pvparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2148,7 +2148,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetConnectOptionW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong pvparam) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetConnectOptionW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong pvparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2175,7 +2175,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetCursorName(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong cursorname, jshort bufferlength, jlong namelengthptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetCursorName(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong cursorname, jshort bufferlength, jlong namelengthptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2203,7 +2203,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetCursorNameA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cbcursormax, jlong pcbcursor) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetCursorNameA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cbcursormax, jlong pcbcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2231,7 +2231,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetCursorNameW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cchcursormax, jlong pcchcursor) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetCursorNameW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cchcursormax, jlong pcchcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2259,7 +2259,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetData(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jshort targettype, jlong targetvalue, jlong bufferlength, jlong strlen_or_indptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetData(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort columnnumber, jshort targettype, jlong targetvalue, jlong bufferlength, jlong strlenOrIndptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2271,7 +2271,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     }
     int16_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlen_or_indptr);
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlenOrIndptr);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -2282,14 +2282,14 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)targettype;
     (void)targetvalue;
     (void)bufferlength;
-    (void)strlen_or_indptr;
+    (void)strlenOrIndptr;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDescField(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort fieldidentifier, jlong value, jint bufferlength, jlong stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDescField(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort fieldidentifier, jlong value, jint bufferlength, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2319,7 +2319,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDescFieldA(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jshort ifield, jlong rgbvalue, jint cbbufferlength, jlong stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDescFieldA(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jshort ifield, jlong rgbvalue, jint cbbufferlength, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2349,7 +2349,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDescFieldW(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jshort ifield, jlong rgbvalue, jint cbbufferlength, jlong stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDescFieldW(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jshort ifield, jlong rgbvalue, jint cbbufferlength, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2379,7 +2379,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDescRec(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jlong name, jshort bufferlength, jlong stringlengthptr, jlong typeptr, jlong subtypeptr, jlong lengthptr, jlong precisionptr, jlong scaleptr, jlong nullableptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDescRec(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jlong name, jshort bufferlength, jlong stringlengthptr, jlong typeptr, jlong subtypeptr, jlong lengthptr, jlong precisionptr, jlong scaleptr, jlong nullableptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2414,7 +2414,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDescRecA(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jlong szname, jshort cbnamemax, jlong pcbname, jlong pftype, jlong pfsubtype, jlong plength, jlong pprecision, jlong pscale, jlong pnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDescRecA(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jlong szname, jshort cbnamemax, jlong pcbname, jlong pftype, jlong pfsubtype, jlong plength, jlong pprecision, jlong pscale, jlong pnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2449,7 +2449,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDescRecW(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jlong szname, jshort cchnamemax, jlong pcchname, jlong pftype, jlong pfsubtype, jlong plength, jlong pprecision, jlong pscale, jlong pnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDescRecW(JNIEnv* km_env, jclass km_clazz, jlong hdesc, jshort irecord, jlong szname, jshort cchnamemax, jlong pcchname, jlong pftype, jlong pfsubtype, jlong plength, jlong pprecision, jlong pscale, jlong pnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2484,7 +2484,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDiagField(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jshort recnumber, jshort diagidentifier, jlong diaginfo, jshort bufferlength, jlong stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDiagField(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jshort recnumber, jshort diagidentifier, jlong diaginfo, jshort bufferlength, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2515,7 +2515,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDiagFieldA(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jshort fdiagfield, jlong rgbdiaginfo, jshort cbdiaginfomax, jlong pcbdiaginfo) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDiagFieldA(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jshort fdiagfield, jlong rgbdiaginfo, jshort cbdiaginfomax, jlong pcbdiaginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2546,7 +2546,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDiagFieldW(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jshort fdiagfield, jlong rgbdiaginfo, jshort cbbufferlength, jlong pcbstringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDiagFieldW(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jshort fdiagfield, jlong rgbdiaginfo, jshort cbbufferlength, jlong pcbstringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2577,7 +2577,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDiagRec(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jshort recnumber, jlong sqlstate, jlong nativeerror, jlong messagetext, jshort bufferlength, jlong textlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDiagRec(JNIEnv* km_env, jclass km_clazz, jshort handletype, jlong handle, jshort recnumber, jlong sqlstate, jlong nativeerror, jlong messagetext, jshort bufferlength, jlong textlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2609,7 +2609,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDiagRecA(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jlong szsqlstate, jlong pfnativeerror, jlong szerrormsg, jshort cberrormsgmax, jlong pcberrormsg) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDiagRecA(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jlong szsqlstate, jlong pfnativeerror, jlong szerrormsg, jshort cberrormsgmax, jlong pcberrormsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2641,7 +2641,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetDiagRecW(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jlong szsqlstate, jlong pfnativeerror, jlong szerrormsg, jshort ccherrormsgmax, jlong pccherrormsg) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetDiagRecW(JNIEnv* km_env, jclass km_clazz, jshort fhandletype, jlong handle, jshort irecord, jlong szsqlstate, jlong pfnativeerror, jlong szerrormsg, jshort ccherrormsgmax, jlong pccherrormsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2673,7 +2673,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetEnvAttr(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jint attribute, jlong value, jint bufferlength, jlong stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetEnvAttr(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jint attribute, jlong value, jint bufferlength, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2702,7 +2702,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetFunctions(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort functionid, jlong supported) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetFunctions(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort functionid, jlong supported) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2729,7 +2729,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetInfo(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort infotype, jlong infovalue, jshort bufferlength, jlong stringlengthptr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetInfo(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort infotype, jlong infovalue, jshort bufferlength, jlong stringlengthptr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2758,7 +2758,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetInfoA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort finfotype, jlong rgbinfovalue, jshort cbinfovaluemax, jlong pcbinfovalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetInfoA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort finfotype, jlong rgbinfovalue, jshort cbinfovaluemax, jlong pcbinfovalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2787,7 +2787,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetInfoW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort finfotype, jlong rgbinfovalue, jshort cbinfovaluemax, jlong pcbinfovalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetInfoW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort finfotype, jlong rgbinfovalue, jshort cbinfovaluemax, jlong pcbinfovalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2816,7 +2816,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetNextEnumeration(JNIEnv* km_env, jclass km_clazz, jlong henumhandle, jlong prgenumdata, jlong pienumlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetNextEnumeration(JNIEnv* km_env, jclass km_clazz, jlong henumhandle, jlong prgenumdata, jlong pienumlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2843,7 +2843,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetStmtAttr(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jint attribute, jlong value, jint bufferlength, jlong stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetStmtAttr(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jint attribute, jlong value, jint bufferlength, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2872,7 +2872,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetStmtAttrA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetStmtAttrA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2901,7 +2901,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetStmtAttrW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetStmtAttrW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jint fattribute, jlong rgbvalue, jint cbvaluemax, jlong pcbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2930,7 +2930,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetStmtOption(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort option, jlong value) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetStmtOption(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort option, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2957,7 +2957,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetTypeInfo(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort datatype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetTypeInfo(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort datatype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2983,7 +2983,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetTypeInfoA(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort datatype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetTypeInfoA(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort datatype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3009,7 +3009,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLGetTypeInfoW(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort datatype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLGetTypeInfoW(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort datatype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3035,7 +3035,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLInitEnumServers(JNIEnv* km_env, jclass km_clazz, jlong pwchservername, jlong pwchinstancename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLInitEnumServers(JNIEnv* km_env, jclass km_clazz, jlong pwchservername, jlong pwchinstancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3061,7 +3061,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLLinkedCatalogsA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jshort param2) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLLinkedCatalogsA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jshort param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3088,7 +3088,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLLinkedCatalogsW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jshort param2) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLLinkedCatalogsW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jshort param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3115,7 +3115,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLLinkedServers(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLLinkedServers(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3140,7 +3140,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLMoreResults(JNIEnv* km_env, jclass km_clazz, jlong hstmt) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLMoreResults(JNIEnv* km_env, jclass km_clazz, jlong hstmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3165,7 +3165,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLNativeSql(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szsqlstrin, jint cchsqlstrin, jlong szsqlstr, jint cchsqlstrmax, jlong pcbsqlstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLNativeSql(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szsqlstrin, jint cchsqlstrin, jlong szsqlstr, jint cchsqlstrmax, jlong pcbsqlstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3195,7 +3195,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLNativeSqlA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szsqlstrin, jint cbsqlstrin, jlong szsqlstr, jint cbsqlstrmax, jlong pcbsqlstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLNativeSqlA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szsqlstrin, jint cbsqlstrin, jlong szsqlstr, jint cbsqlstrmax, jlong pcbsqlstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3225,7 +3225,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLNativeSqlW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szsqlstrin, jint cchsqlstrin, jlong szsqlstr, jint cchsqlstrmax, jlong pcchsqlstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLNativeSqlW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jlong szsqlstrin, jint cchsqlstrin, jlong szsqlstr, jint cchsqlstrmax, jlong pcchsqlstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3255,7 +3255,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLNumParams(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong pcpar) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLNumParams(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong pcpar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3281,7 +3281,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLNumResultCols(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong columncount) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLNumResultCols(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong columncount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3307,7 +3307,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLParamData(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong value) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLParamData(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3333,7 +3333,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLParamOptions(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong crow, jlong pirow) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLParamOptions(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong crow, jlong pirow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3360,7 +3360,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPrepare(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong statementtext, jint textlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPrepare(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong statementtext, jint textlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3387,7 +3387,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPrepareA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint cbsqlstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPrepareA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint cbsqlstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3414,7 +3414,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPrepareW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint cchsqlstr) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPrepareW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szsqlstr, jint cchsqlstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3441,7 +3441,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPrimaryKeys(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPrimaryKeys(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3472,7 +3472,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPrimaryKeysA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPrimaryKeysA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3503,7 +3503,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPrimaryKeysW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPrimaryKeysW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3534,7 +3534,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLProcedureColumns(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname, jlong szcolumnname, jshort cchcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLProcedureColumns(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname, jlong szcolumnname, jshort cchcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3567,7 +3567,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLProcedureColumnsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong szprocname, jshort cbprocname, jlong szcolumnname, jshort cbcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLProcedureColumnsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong szprocname, jshort cbprocname, jlong szcolumnname, jshort cbcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3600,7 +3600,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLProcedureColumnsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname, jlong szcolumnname, jshort cchcolumnname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLProcedureColumnsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname, jlong szcolumnname, jshort cchcolumnname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3633,7 +3633,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLProcedures(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLProcedures(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3664,7 +3664,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLProceduresA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong szprocname, jshort cbprocname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLProceduresA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong szprocname, jshort cbprocname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3695,7 +3695,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLProceduresW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLProceduresW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong szprocname, jshort cchprocname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3726,7 +3726,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLPutData(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong data, jlong strlen_or_ind) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLPutData(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong data, jlong strlenOrInd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3738,7 +3738,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     }
     int16_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)data, (int64_t)strlen_or_ind);
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)data, (int64_t)strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -3746,14 +3746,14 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
 #else
     (void)statementhandle;
     (void)data;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLRowCount(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong rowcount) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLRowCount(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong rowcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3779,7 +3779,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetConnectAttr(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jint attribute, jlong value, jint stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetConnectAttr(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jint attribute, jlong value, jint stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3807,7 +3807,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetConnectAttrA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetConnectAttrA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3835,7 +3835,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetConnectAttrW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvalue) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetConnectAttrW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jint fattribute, jlong rgbvalue, jint cbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3863,7 +3863,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetConnectOption(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort option, jlong value) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetConnectOption(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jshort option, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3890,7 +3890,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetConnectOptionA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong vparam) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetConnectOptionA(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong vparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3917,7 +3917,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetConnectOptionW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong vparam) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetConnectOptionW(JNIEnv* km_env, jclass km_clazz, jlong hdbc, jshort foption, jlong vparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3944,7 +3944,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetCursorName(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong cursorname, jshort namelength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetCursorName(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong cursorname, jshort namelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3971,7 +3971,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetCursorNameA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cbcursor) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetCursorNameA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cbcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3998,7 +3998,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetCursorNameW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cchcursor) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetCursorNameW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcursor, jshort cchcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4025,7 +4025,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetDescField(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort fieldidentifier, jlong value, jint bufferlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetDescField(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort fieldidentifier, jlong value, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4054,7 +4054,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetDescFieldW(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort fieldidentifier, jlong value, jint bufferlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetDescFieldW(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort fieldidentifier, jlong value, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4083,7 +4083,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetDescRec(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort type, jshort subtype, jlong length, jshort precision, jshort scale, jlong data, jlong stringlength, jlong indicator) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetDescRec(JNIEnv* km_env, jclass km_clazz, jlong descriptorhandle, jshort recnumber, jshort type, jshort subtype, jlong length, jshort precision, jshort scale, jlong data, jlong stringlength, jlong indicator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4117,7 +4117,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetEnvAttr(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jint attribute, jlong value, jint stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetEnvAttr(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jint attribute, jlong value, jint stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4145,7 +4145,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetParam(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort parameternumber, jshort valuetype, jshort parametertype, jlong lengthprecision, jshort parameterscale, jlong parametervalue, jlong strlen_or_ind) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetParam(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort parameternumber, jshort valuetype, jshort parametertype, jlong lengthprecision, jshort parameterscale, jlong parametervalue, jlong strlenOrInd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4157,7 +4157,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     }
     int16_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlen_or_ind);
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -4170,14 +4170,14 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)lengthprecision;
     (void)parameterscale;
     (void)parametervalue;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetPos(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong irow, jshort foption, jshort flock) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetPos(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong irow, jshort foption, jshort flock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4205,7 +4205,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetScrollOptions(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort fconcurrency, jlong crowkeyset, jshort crowrowset) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetScrollOptions(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort fconcurrency, jlong crowkeyset, jshort crowrowset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4233,7 +4233,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetStmtAttr(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jint attribute, jlong value, jint stringlength) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetStmtAttr(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jint attribute, jlong value, jint stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4261,7 +4261,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetStmtAttrW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jint fattribute, jlong rgbvalue, jint cbvaluemax) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetStmtAttrW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jint fattribute, jlong rgbvalue, jint cbvaluemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4289,7 +4289,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSetStmtOption(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort option, jlong value) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSetStmtOption(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort option, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4316,7 +4316,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSpecialColumns(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort identifiertype, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jshort scope, jshort nullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSpecialColumns(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jshort identifiertype, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jshort scope, jshort nullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4350,7 +4350,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSpecialColumnsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort fcoltype, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jshort fscope, jshort fnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSpecialColumnsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort fcoltype, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jshort fscope, jshort fnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4384,7 +4384,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLSpecialColumnsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort fcoltype, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jshort fscope, jshort fnullable) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLSpecialColumnsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jshort fcoltype, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jshort fscope, jshort fnullable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4418,7 +4418,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLStatistics(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jshort unique, jshort reserved) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLStatistics(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jshort unique, jshort reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4451,7 +4451,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLStatisticsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jshort funique, jshort faccuracy) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLStatisticsA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jshort funique, jshort faccuracy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4484,7 +4484,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLStatisticsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jshort funique, jshort faccuracy) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLStatisticsW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jshort funique, jshort faccuracy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4517,7 +4517,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTablePrivileges(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTablePrivileges(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4548,7 +4548,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTablePrivilegesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTablePrivilegesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4579,7 +4579,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTablePrivilegesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTablePrivilegesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4610,7 +4610,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTables(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jlong tabletype, jshort namelength4) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTables(JNIEnv* km_env, jclass km_clazz, jlong statementhandle, jlong catalogname, jshort namelength1, jlong schemaname, jshort namelength2, jlong tablename, jshort namelength3, jlong tabletype, jshort namelength4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4643,7 +4643,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTablesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jlong sztabletype, jshort cbtabletype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTablesA(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cbcatalogname, jlong szschemaname, jshort cbschemaname, jlong sztablename, jshort cbtablename, jlong sztabletype, jshort cbtabletype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4676,7 +4676,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTablesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong sztabletype, jshort cchtabletype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTablesW(JNIEnv* km_env, jclass km_clazz, jlong hstmt, jlong szcatalogname, jshort cchcatalogname, jlong szschemaname, jshort cchschemaname, jlong sztablename, jshort cchtablename, jlong sztabletype, jshort cchtabletype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4709,7 +4709,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1sQLTransact(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jlong connectionhandle, jshort completiontype) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchSQLTransact(JNIEnv* km_env, jclass km_clazz, jlong environmenthandle, jlong connectionhandle, jshort completiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4736,7 +4736,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpBatch(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpBatch(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4761,7 +4761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpBind(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint param2, jint param3, jlong param4, jint param5, jint param6, jint param7) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpBind(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint param2, jint param3, jlong param4, jint param5, jint param6, jint param7) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4793,7 +4793,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpColfmt(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jbyte param2, jint param3, jint param4, jlong param5, jint param6, jint param7) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpColfmt(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jbyte param2, jint param3, jint param4, jlong param5, jint param6, jint param7) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4825,7 +4825,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpCollen(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpCollen(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4852,7 +4852,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpColptr(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint param2) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpColptr(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4879,7 +4879,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpColumns(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpColumns(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4905,7 +4905,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpControl(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpControl(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4932,7 +4932,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpDone(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpDone(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4957,7 +4957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpExec(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpExec(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4983,7 +4983,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpGetcolfmt(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jlong param3, jint param4, jlong param5) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpGetcolfmt(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jlong param3, jint param4, jlong param5) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5013,7 +5013,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpInitA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2, jlong param3, jint param4) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpInitA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2, jlong param3, jint param4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5042,7 +5042,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpInitW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2, jlong param3, jint param4) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpInitW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2, jlong param3, jint param4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5071,7 +5071,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpMoretext(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpMoretext(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5098,7 +5098,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpReadfmtA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpReadfmtA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5124,7 +5124,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpReadfmtW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpReadfmtW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5150,7 +5150,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpSendrow(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpSendrow(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5175,7 +5175,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpSetcolfmt(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jlong param3, jint param4) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpSetcolfmt(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jint param2, jlong param3, jint param4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5204,7 +5204,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpWritefmtA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpWritefmtA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5230,7 +5230,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1bcpWritefmtW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchBcpWritefmtW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5256,7 +5256,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1dbprtypeA(JNIEnv* km_env, jclass km_clazz, jint param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchDbprtypeA(JNIEnv* km_env, jclass km_clazz, jint param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5281,7 +5281,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssys_1windows_1win32_1system_1search_1dbprtypeW(JNIEnv* km_env, jclass km_clazz, jint param0) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_search_WindowsWin32SystemSearchJniBridge_windowssysWindowsWin32SystemSearchDbprtypeW(JNIEnv* km_env, jclass km_clazz, jint param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

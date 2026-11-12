@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmAttachMilContent(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmAttachMilContent(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmDefWindowProc(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jlong plresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmDefWindowProc(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jlong plresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmDetachMilContent(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmDetachMilContent(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmEnableBlurBehindWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pblurbehind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmEnableBlurBehindWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pblurbehind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmEnableComposition(JNIEnv* km_env, jclass km_clazz, jint ucompositionaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmEnableComposition(JNIEnv* km_env, jclass km_clazz, jint ucompositionaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmEnableMMCSS(JNIEnv* km_env, jclass km_clazz, jint fenablemmcss) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmEnableMMCSS(JNIEnv* km_env, jclass km_clazz, jint fenablemmcss) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -174,7 +174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmExtendFrameIntoClientArea(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pmarinset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmExtendFrameIntoClientArea(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pmarinset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmFlush(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmFlush(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -224,7 +224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetColorizationColor(JNIEnv* km_env, jclass km_clazz, jlong pcrcolorization, jlong pfopaqueblend) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetColorizationColor(JNIEnv* km_env, jclass km_clazz, jlong pcrcolorization, jlong pfopaqueblend) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -250,7 +250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetCompositionTimingInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptiminginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetCompositionTimingInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptiminginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -276,7 +276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetGraphicsStreamClient(JNIEnv* km_env, jclass km_clazz, jint uindex, jlong pclientuuid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetGraphicsStreamClient(JNIEnv* km_env, jclass km_clazz, jint uindex, jlong pclientuuid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -302,7 +302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetGraphicsStreamTransformHint(JNIEnv* km_env, jclass km_clazz, jint uindex, jlong ptransform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetGraphicsStreamTransformHint(JNIEnv* km_env, jclass km_clazz, jint uindex, jlong ptransform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -328,7 +328,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetTransportAttributes(JNIEnv* km_env, jclass km_clazz, jlong pfisremoting, jlong pfisconnected, jlong pdwgeneration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetTransportAttributes(JNIEnv* km_env, jclass km_clazz, jlong pfisremoting, jlong pfisconnected, jlong pdwgeneration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -355,7 +355,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetUnmetTabRequirements(JNIEnv* km_env, jclass km_clazz, jlong appwindow, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetUnmetTabRequirements(JNIEnv* km_env, jclass km_clazz, jlong appwindow, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -381,7 +381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmGetWindowAttribute(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwattribute, jlong pvattribute, jint cbattribute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmGetWindowAttribute(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwattribute, jlong pvattribute, jint cbattribute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -409,7 +409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmInvalidateIconicBitmaps(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmInvalidateIconicBitmaps(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -434,7 +434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmIsCompositionEnabled(JNIEnv* km_env, jclass km_clazz, jlong pfenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmIsCompositionEnabled(JNIEnv* km_env, jclass km_clazz, jlong pfenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -459,7 +459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmModifyPreviousDxFrameDuration(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint crefreshes, jint frelative) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmModifyPreviousDxFrameDuration(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint crefreshes, jint frelative) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -486,7 +486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmQueryThumbnailSourceSize(JNIEnv* km_env, jclass km_clazz, jlong hthumbnail, jlong psize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmQueryThumbnailSourceSize(JNIEnv* km_env, jclass km_clazz, jlong hthumbnail, jlong psize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -512,7 +512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmRegisterThumbnail(JNIEnv* km_env, jclass km_clazz, jlong hwnddestination, jlong hwndsource, jlong phthumbnailid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmRegisterThumbnail(JNIEnv* km_env, jclass km_clazz, jlong hwnddestination, jlong hwndsource, jlong phthumbnailid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmRenderGesture(JNIEnv* km_env, jclass km_clazz, jint gt, jint ccontacts, jlong pdwpointerid, jlong ppoints) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmRenderGesture(JNIEnv* km_env, jclass km_clazz, jint gt, jint ccontacts, jlong pdwpointerid, jlong ppoints) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -567,7 +567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmSetDxFrameDuration(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint crefreshes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmSetDxFrameDuration(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint crefreshes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmSetIconicLivePreviewBitmap(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hbmp, jlong pptclient, jint dwsitflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmSetIconicLivePreviewBitmap(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hbmp, jlong pptclient, jint dwsitflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -621,7 +621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmSetIconicThumbnail(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hbmp, jint dwsitflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmSetIconicThumbnail(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hbmp, jint dwsitflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -648,7 +648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmSetPresentParameters(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ppresentparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmSetPresentParameters(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ppresentparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -674,7 +674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmSetWindowAttribute(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwattribute, jlong pvattribute, jint cbattribute) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmSetWindowAttribute(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwattribute, jlong pvattribute, jint cbattribute) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmShowContact(JNIEnv* km_env, jclass km_clazz, jint dwpointerid, jint eshowcontact) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmShowContact(JNIEnv* km_env, jclass km_clazz, jint dwpointerid, jint eshowcontact) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -728,7 +728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmTransitionOwnedWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint target) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmTransitionOwnedWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint target) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -754,7 +754,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmUnregisterThumbnail(JNIEnv* km_env, jclass km_clazz, jlong hthumbnailid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmUnregisterThumbnail(JNIEnv* km_env, jclass km_clazz, jlong hthumbnailid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -779,7 +779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssys_1windows_1win32_1graphics_1dwm_1dwmUpdateThumbnailProperties(JNIEnv* km_env, jclass km_clazz, jlong hthumbnailid, jlong ptnproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_dwm_WindowsWin32GraphicsDwmJniBridge_windowssysWindowsWin32GraphicsDwmDwmUpdateThumbnailProperties(JNIEnv* km_env, jclass km_clazz, jlong hthumbnailid, jlong ptnproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

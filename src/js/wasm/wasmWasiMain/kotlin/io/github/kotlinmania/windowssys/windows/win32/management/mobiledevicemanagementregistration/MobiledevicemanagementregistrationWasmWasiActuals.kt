@@ -1,64 +1,75 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+// The host must provide the C companion wrapper exports in import module windowssys.
+public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr<Pwstr>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML")
 
-public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService")
 
-public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx")
 
-public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: COpaquePointer?, configstring: Pwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr<UInt>, configstring: Pwstr): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo")
 
-public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo")
 
 public actual fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink")
 
-public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: COpaquePointer?, cchupn: UInt, pszupn: Pwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr<Bool>, cchupn: UInt, pszupn: Pwstr): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement")
 
-public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr<Bool>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed")
 
-public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr<Bool>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed")
 
-public actual fun registerDeviceWithLocalManagement(alreadyregistered: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr<Bool>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement")
 
 public actual fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement")
 
 public actual fun registerDeviceWithManagementUsingAADCredentials(usertoken: Handle): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials")
+private external fun wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials(): Int
 
 public actual fun registerDeviceWithManagementUsingAADDeviceCredentials(): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials().toInt()
 
 public actual fun registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2")
 
 public actual fun setDeviceManagementConfigInfo(providerid: Pcwstr, configstring: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally")
+private external fun wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally: Int): Int
 
 public actual fun setManagedExternally(ismanagedexternally: Bool): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement")
+private external fun wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement(): Int
 
 public actual fun unregisterDeviceWithLocalManagement(): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement().toInt()
 
 public actual fun unregisterDeviceWithManagement(enrollmentid: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement")

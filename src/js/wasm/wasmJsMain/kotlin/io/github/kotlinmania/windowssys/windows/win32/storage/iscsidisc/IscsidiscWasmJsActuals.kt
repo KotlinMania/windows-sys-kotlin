@@ -2,487 +2,488 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32StorageIscsidiscNapiAddon(): Boolean
+private external fun initWindowsWin32StorageIscsidiscNapiAddon(): Boolean
 
-private val _windowsWin32StorageIscsidiscNapiAvailable: Boolean = _initWindowsWin32StorageIscsidiscNapiAddon()
+private val windowsWin32StorageIscsidiscNapiAvailable: Boolean = initWindowsWin32StorageIscsidiscNapiAddon()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addISNSServerA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addISNSServerA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddISNSServerA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddISNSServerA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addISNSServerW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addISNSServerW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddISNSServerW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddISNSServerW(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA(p0: String, p1: String, p2: Int, p3: Boolean, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA(p0: String, p1: String, p2: Int, p3: Boolean, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW(p0: String, p1: String, p2: Int, p3: Boolean, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW(p0: String, p1: String, p2: Int, p3: Boolean, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceW(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addRadiusServerA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addRadiusServerA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddRadiusServerA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddRadiusServerA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_addRadiusServerW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_addRadiusServerW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscAddRadiusServerW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscAddRadiusServerW(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices()")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices()")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices(): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA(p0: String, p1: Boolean, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: String, p10: Boolean, p11: String, p12: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA(p0: String, p1: Boolean, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: String, p10: Boolean, p11: String, p12: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW(p0: String, p1: Boolean, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: String, p10: Boolean, p11: String, p12: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW(p0: String, p1: Boolean, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: String, p10: Boolean, p11: String, p12: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRefreshISNSServerA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRefreshISNSServerA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRefreshISNSServerW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRefreshISNSServerW(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeISNSServerA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeISNSServerA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveISNSServerA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveISNSServerA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeISNSServerW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeISNSServerW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveISNSServerW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveISNSServerW(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetW(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceW(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveRadiusServerA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportISNSServerListA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportISNSServerListA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportISNSServerListW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportISNSServerListW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(p0: Boolean, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA(p0: Boolean, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(p0: Boolean, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW(p0: Boolean, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportRadiusServerListA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportRadiusServerListA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscReportRadiusServerListW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscReportRadiusServerListW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSendScsiInquiry(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSendScsiInquiry(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSendScsiReportLuns(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSendScsiReportLuns(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(p0: Int, p1: String, p2: Boolean): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey(p0: Int, p1: String, p2: Boolean): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA(p0: String, p1: Int, p2: String, p3: Boolean): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA(p0: String, p1: Int, p2: String, p3: Boolean): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW(p0: String, p1: Int, p2: String, p3: Boolean): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW(p0: String, p1: Int, p2: String, p3: Boolean): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameA(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW(p0)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA(p0: String, p1: Int, p2: String, p3: String, p4: Boolean): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressA(p0: String, p1: Int, p2: String, p3: String, p4: Boolean): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW(p0: String, p1: Int, p2: String, p3: String, p4: Boolean): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressW(p0: String, p1: Int, p2: String, p3: String, p4: Boolean): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices()")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiDevices()")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiDevices(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes()")
-private external fun _wasm_windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiVolumes()")
+private external fun wasmWindowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiVolumes(): Int
 
 public actual fun addISNSServerA(address: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addISNSServerA((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddISNSServerA(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addISNSServerW(address: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addISNSServerW((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddISNSServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiConnectionA(uniquesessionid: COpaquePointer?, reserved: COpaquePointer?, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, connectionid: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA((uniquesessionid?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), initiatorportnumber.toInt(), (targetportal?.value ?: 0L).toString(), securityflags.toString(), (loginoptions?.value ?: 0L).toString(), keysize.toInt(), (key?.value ?: 0L).toString(), (connectionid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIScsiConnectionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA(uniquesessionid.rawAddress.toString(), reserved.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), connectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiConnectionW(uniquesessionid: COpaquePointer?, reserved: COpaquePointer?, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, connectionid: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW((uniquesessionid?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString(), initiatorportnumber.toInt(), (targetportal?.value ?: 0L).toString(), securityflags.toString(), (loginoptions?.value ?: 0L).toString(), keysize.toInt(), (key?.value ?: 0L).toString(), (connectionid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIScsiConnectionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW(uniquesessionid.rawAddress.toString(), reserved.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), connectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: COpaquePointer?, securityflags: ULong, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (loginoptions?.value ?: 0L).toString(), securityflags.toString(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortala>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), loginoptions.rawAddress.toString(), securityflags.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: COpaquePointer?, securityflags: ULong, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (loginoptions?.value ?: 0L).toString(), securityflags.toString(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), loginoptions.rawAddress.toString(), securityflags.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: COpaquePointer?, loginoptions: COpaquePointer?, portalgroup: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA((targetname?.value ?: 0L).toString(), (targetalias?.value ?: 0L).toString(), targetflags.toInt(), persist, (mappings?.value ?: 0L).toString(), (loginoptions?.value ?: 0L).toString(), (portalgroup?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupa>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA(targetname.rawAddress.toString(), targetalias.rawAddress.toString(), targetflags.toInt(), persist, mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), portalgroup.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: COpaquePointer?, loginoptions: COpaquePointer?, portalgroup: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW((targetname?.value ?: 0L).toString(), (targetalias?.value ?: 0L).toString(), targetflags.toInt(), persist, (mappings?.value ?: 0L).toString(), (loginoptions?.value ?: 0L).toString(), (portalgroup?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW(targetname.rawAddress.toString(), targetalias.rawAddress.toString(), targetflags.toInt(), persist, mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), portalgroup.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addPersistentIScsiDeviceA(devicepath: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA((devicepath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceA(devicepath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addPersistentIScsiDeviceW(devicepath: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW((devicepath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceW(devicepath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addRadiusServerA(address: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addRadiusServerA((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddRadiusServerA(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addRadiusServerW(address: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_addRadiusServerW((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddRadiusServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clearPersistentIScsiDevices(): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDevicesForIScsiSessionA(uniquesessionid: COpaquePointer?, devicecount: COpaquePointer?, devices: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA((uniquesessionid?.value ?: 0L).toString(), (devicecount?.value ?: 0L).toString(), (devices?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getDevicesForIScsiSessionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessiona>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA(uniquesessionid.rawAddress.toString(), devicecount.rawAddress.toString(), devices.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDevicesForIScsiSessionW(uniquesessionid: COpaquePointer?, devicecount: COpaquePointer?, devices: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW((uniquesessionid?.value ?: 0L).toString(), (devicecount?.value ?: 0L).toString(), (devices?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getDevicesForIScsiSessionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessionw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW(uniquesessionid.rawAddress.toString(), devicecount.rawAddress.toString(), devices.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: COpaquePointer?, authinfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA((initiatorname?.value ?: 0L).toString(), initiatorportnumber.toInt(), (reserved?.value ?: 0L).toString(), (authinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), reserved.rawAddress.toString(), authinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: COpaquePointer?, authinfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW((initiatorname?.value ?: 0L).toString(), initiatorportnumber.toInt(), (reserved?.value ?: 0L).toString(), (authinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), reserved.rawAddress.toString(), authinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA((initiatornodename?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameA(initiatornodename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getIScsiInitiatorNodeNameW(initiatornodename: Pwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW((initiatornodename?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW(initiatornodename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiSessionListA(buffersize: COpaquePointer?, sessioncount: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA((buffersize?.value ?: 0L).toString(), (sessioncount?.value ?: 0L).toString(), (sessioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiSessionListA(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoa>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA(buffersize.rawAddress.toString(), sessioncount.rawAddress.toString(), sessioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiSessionListEx(buffersize: COpaquePointer?, sessioncountptr: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx((buffersize?.value ?: 0L).toString(), (sessioncountptr?.value ?: 0L).toString(), (sessioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiSessionListEx(buffersize: MutPtr<UInt>, sessioncountptr: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoEx>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx(buffersize.rawAddress.toString(), sessioncountptr.rawAddress.toString(), sessioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiSessionListW(buffersize: COpaquePointer?, sessioncount: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW((buffersize?.value ?: 0L).toString(), (sessioncount?.value ?: 0L).toString(), (sessioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiSessionListW(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfow>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW(buffersize.rawAddress.toString(), sessioncount.rawAddress.toString(), sessioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA((targetname?.value ?: 0L).toString(), (discoverymechanism?.value ?: 0L).toString(), infoclass, (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA(targetname.rawAddress.toString(), discoverymechanism.rawAddress.toString(), infoclass, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW((targetname?.value ?: 0L).toString(), (discoverymechanism?.value ?: 0L).toString(), infoclass, (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW(targetname.rawAddress.toString(), discoverymechanism.rawAddress.toString(), infoclass, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiVersionInformation(versioninfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation((versioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getIScsiVersionInformation(versioninfo: MutPtr<IscsiVersionInfo>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation(versioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, mappings: COpaquePointer?, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: COpaquePointer?, uniqueconnectionid: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA((targetname?.value ?: 0L).toString(), isinformationalsession, (initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (targetportal?.value ?: 0L).toString(), securityflags.toString(), (mappings?.value ?: 0L).toString(), (loginoptions?.value ?: 0L).toString(), keysize.toInt(), (key?.value ?: 0L).toString(), ispersistent, (uniquesessionid?.value ?: 0L).toString(), (uniqueconnectionid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA(targetname.rawAddress.toString(), isinformationalsession, initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), ispersistent, uniquesessionid.rawAddress.toString(), uniqueconnectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, mappings: COpaquePointer?, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: COpaquePointer?, uniqueconnectionid: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW((targetname?.value ?: 0L).toString(), isinformationalsession, (initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (targetportal?.value ?: 0L).toString(), securityflags.toString(), (mappings?.value ?: 0L).toString(), (loginoptions?.value ?: 0L).toString(), keysize.toInt(), (key?.value ?: 0L).toString(), ispersistent, (uniquesessionid?.value ?: 0L).toString(), (uniqueconnectionid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW(targetname.rawAddress.toString(), isinformationalsession, initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), ispersistent, uniquesessionid.rawAddress.toString(), uniqueconnectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun logoutIScsiTarget(uniquesessionid: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget((uniquesessionid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun logoutIScsiTarget(uniquesessionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget(uniquesessionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun refreshISNSServerA(address: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshISNSServerA(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun refreshISNSServerW(address: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshISNSServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeISNSServerA(address: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeISNSServerA((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveISNSServerA(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeISNSServerW(address: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeISNSServerW((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveISNSServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiConnection(uniquesessionid: COpaquePointer?, connectionid: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection((uniquesessionid?.value ?: 0L).toString(), (connectionid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun removeIScsiConnection(uniquesessionid: MutPtr<IscsiUniqueSessionId>, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection(uniquesessionid.rawAddress.toString(), connectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (targetname?.value ?: 0L).toString(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: MutPtr<IscsiTargetPortala>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetname.rawAddress.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (targetname?.value ?: 0L).toString(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetname.rawAddress.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW((initiatorinstance?.value ?: 0L).toString(), initiatorportnumber.toInt(), (portal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeIScsiStaticTargetA(targetname: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA((targetname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetA(targetname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeIScsiStaticTargetW(targetname: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW((targetname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetW(targetname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removePersistentIScsiDeviceA(devicepath: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA((devicepath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceA(devicepath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removePersistentIScsiDeviceW(devicepath: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW((devicepath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceW(devicepath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeRadiusServerA(address: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveRadiusServerA(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeRadiusServerW(address: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW((address?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportActiveIScsiTargetMappingsA(buffersize: COpaquePointer?, mappingcount: COpaquePointer?, mappings: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA((buffersize?.value ?: 0L).toString(), (mappingcount?.value ?: 0L).toString(), (mappings?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportActiveIScsiTargetMappingsA(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappinga>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA(buffersize.rawAddress.toString(), mappingcount.rawAddress.toString(), mappings.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportActiveIScsiTargetMappingsW(buffersize: COpaquePointer?, mappingcount: COpaquePointer?, mappings: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW((buffersize?.value ?: 0L).toString(), (mappingcount?.value ?: 0L).toString(), (mappings?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportActiveIScsiTargetMappingsW(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappingw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW(buffersize.rawAddress.toString(), mappingcount.rawAddress.toString(), mappings.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportISNSServerListA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA((buffersizeinchar?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportISNSServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportISNSServerListA(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportISNSServerListW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW((buffersizeinchar?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportISNSServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportISNSServerListW(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiInitiatorListA(buffersize: COpaquePointer?, buffer: Pstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA((buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiInitiatorListA(buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA(buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiInitiatorListW(buffersize: COpaquePointer?, buffer: Pwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW((buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiInitiatorListW(buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW(buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiPersistentLoginsA(count: COpaquePointer?, persistentlogininfo: COpaquePointer?, buffersizeinbytes: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA((count?.value ?: 0L).toString(), (persistentlogininfo?.value ?: 0L).toString(), (buffersizeinbytes?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiPersistentLoginsA(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfoa>, buffersizeinbytes: MutPtr<UInt>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA(count.rawAddress.toString(), persistentlogininfo.rawAddress.toString(), buffersizeinbytes.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiPersistentLoginsW(count: COpaquePointer?, persistentlogininfo: COpaquePointer?, buffersizeinbytes: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW((count?.value ?: 0L).toString(), (persistentlogininfo?.value ?: 0L).toString(), (buffersizeinbytes?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiPersistentLoginsW(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfow>, buffersizeinbytes: MutPtr<UInt>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW(count.rawAddress.toString(), persistentlogininfo.rawAddress.toString(), buffersizeinbytes.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsA(portalcount: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA((portalcount?.value ?: 0L).toString(), (portalinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiSendTargetPortalsA(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoa>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA(portalcount.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsExA(portalcount: COpaquePointer?, portalinfosize: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA((portalcount?.value ?: 0L).toString(), (portalinfosize?.value ?: 0L).toString(), (portalinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiSendTargetPortalsExA(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExa>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA(portalcount.rawAddress.toString(), portalinfosize.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsExW(portalcount: COpaquePointer?, portalinfosize: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW((portalcount?.value ?: 0L).toString(), (portalinfosize?.value ?: 0L).toString(), (portalinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiSendTargetPortalsExW(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW(portalcount.rawAddress.toString(), portalinfosize.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsW(portalcount: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW((portalcount?.value ?: 0L).toString(), (portalinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiSendTargetPortalsW(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfow>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW(portalcount.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: COpaquePointer?, elementcount: COpaquePointer?, portals: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA((initiatorname?.value ?: 0L).toString(), (targetname?.value ?: 0L).toString(), (targetportaltag?.value ?: 0L).toString(), (elementcount?.value ?: 0L).toString(), (portals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortala>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA(initiatorname.rawAddress.toString(), targetname.rawAddress.toString(), targetportaltag.rawAddress.toString(), elementcount.rawAddress.toString(), portals.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: COpaquePointer?, elementcount: COpaquePointer?, portals: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW((initiatorname?.value ?: 0L).toString(), (targetname?.value ?: 0L).toString(), (targetportaltag?.value ?: 0L).toString(), (elementcount?.value ?: 0L).toString(), (portals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortalw>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW(initiatorname.rawAddress.toString(), targetname.rawAddress.toString(), targetportaltag.rawAddress.toString(), elementcount.rawAddress.toString(), portals.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: COpaquePointer?, buffer: Pstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(forceupdate, (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA(forceupdate, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: COpaquePointer?, buffer: Pwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(forceupdate, (buffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW(forceupdate, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA((buffersizeinchar?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW((buffersizeinchar?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportRadiusServerListA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA((buffersizeinchar?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportRadiusServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportRadiusServerListA(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportRadiusServerListW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW((buffersizeinchar?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun reportRadiusServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportRadiusServerListW(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendScsiInquiry(uniquesessionid: COpaquePointer?, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry((uniquesessionid?.value ?: 0L).toString(), lun.toString(), evpdcmddt.toInt(), pagecode.toInt(), (scsistatus?.value ?: 0L).toString(), (responsesize?.value ?: 0L).toString(), (responsebuffer?.value ?: 0L).toString(), (sensesize?.value ?: 0L).toString(), (sensebuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun sendScsiInquiry(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSendScsiInquiry(uniquesessionid.rawAddress.toString(), lun.toString(), evpdcmddt.toInt(), pagecode.toInt(), scsistatus.rawAddress.toString(), responsesize.rawAddress.toString(), responsebuffer.rawAddress.toString(), sensesize.rawAddress.toString(), sensebuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendScsiReadCapacity(uniquesessionid: COpaquePointer?, lun: ULong, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity((uniquesessionid?.value ?: 0L).toString(), lun.toString(), (scsistatus?.value ?: 0L).toString(), (responsesize?.value ?: 0L).toString(), (responsebuffer?.value ?: 0L).toString(), (sensesize?.value ?: 0L).toString(), (sensebuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun sendScsiReadCapacity(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity(uniquesessionid.rawAddress.toString(), lun.toString(), scsistatus.rawAddress.toString(), responsesize.rawAddress.toString(), responsebuffer.rawAddress.toString(), sensesize.rawAddress.toString(), sensebuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendScsiReportLuns(uniquesessionid: COpaquePointer?, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns((uniquesessionid?.value ?: 0L).toString(), (scsistatus?.value ?: 0L).toString(), (responsesize?.value ?: 0L).toString(), (responsebuffer?.value ?: 0L).toString(), (sensesize?.value ?: 0L).toString(), (sensebuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun sendScsiReportLuns(uniquesessionid: MutPtr<IscsiUniqueSessionId>, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSendScsiReportLuns(uniquesessionid.rawAddress.toString(), scsistatus.rawAddress.toString(), responsesize.rawAddress.toString(), responsebuffer.rawAddress.toString(), sensesize.rawAddress.toString(), sensebuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: COpaquePointer?, persist: Boolean): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(keylength.toInt(), (key?.value ?: 0L).toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: MutPtr<UByte>, persist: Boolean): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey(keylength.toInt(), key.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: COpaquePointer?, persist: Boolean): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA((initiatorname?.value ?: 0L).toString(), initiatorportnumber.toInt(), (authinfo?.value ?: 0L).toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), authinfo.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: COpaquePointer?, persist: Boolean): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW((initiatorname?.value ?: 0L).toString(), initiatorportnumber.toInt(), (authinfo?.value ?: 0L).toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), authinfo.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(sharedsecretlength.toInt(), (sharedsecret?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret(sharedsecretlength.toInt(), sharedsecret.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA((initiatornodename?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameA(initiatornodename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIScsiInitiatorNodeNameW(initiatornodename: Pcwstr): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW((initiatornodename?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW(initiatornodename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: COpaquePointer?): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength.toInt(), (sharedsecret?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength.toInt(), sharedsecret.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIScsiTunnelModeOuterAddressA(initiatorname: Pcstr, initiatorportnumber: UInt, destinationaddress: Pcstr, outermodeaddress: Pcstr, persist: Boolean): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA((initiatorname?.value ?: 0L).toString(), initiatorportnumber.toInt(), (destinationaddress?.value ?: 0L).toString(), (outermodeaddress?.value ?: 0L).toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressA(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), destinationaddress.rawAddress.toString(), outermodeaddress.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIScsiTunnelModeOuterAddressW(initiatorname: Pcwstr, initiatorportnumber: UInt, destinationaddress: Pcwstr, outermodeaddress: Pcwstr, persist: Boolean): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW((initiatorname?.value ?: 0L).toString(), initiatorportnumber.toInt(), (destinationaddress?.value ?: 0L).toString(), (outermodeaddress?.value ?: 0L).toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressW(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), destinationaddress.rawAddress.toString(), outermodeaddress.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupPersistentIScsiDevices(): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiDevices().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupPersistentIScsiVolumes(): UInt =
-    if (_windowsWin32StorageIscsidiscNapiAvailable) _wasm_windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiVolumes().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -9,22 +9,22 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_system_diagnostics_toolhelp_createToolhelp32Snapshot(uint32_t dwflags, uint32_t th32processid);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32First(void* lphe, uint32_t th32processid, uint64_t th32heapid);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListFirst(void* hsnapshot, void* lphl);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListNext(void* hsnapshot, void* lphl);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32Next(void* lphe);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32First(void* hsnapshot, void* lpme);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32FirstW(void* hsnapshot, void* lpme);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32Next(void* hsnapshot, void* lpme);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32NextW(void* hsnapshot, void* lpme);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32First(void* hsnapshot, void* lppe);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32FirstW(void* hsnapshot, void* lppe);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32Next(void* hsnapshot, void* lppe);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32NextW(void* hsnapshot, void* lppe);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_thread32First(void* hsnapshot, void* lpte);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_thread32Next(void* hsnapshot, void* lpte);
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_toolhelp32ReadProcessMemory(uint32_t th32processid, void* lpbaseaddress, void* lpbuffer, uint64_t cbread, void* lpnumberofbytesread);
+void* windowssysWindowsWin32SystemDiagnosticsToolhelpCreateToolhelp32Snapshot(uint32_t dwflags, uint32_t th32processid);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32First(void* lphe, uint32_t th32processid, uint64_t th32heapid);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListFirst(void* hsnapshot, void* lphl);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListNext(void* hsnapshot, void* lphl);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32Next(void* lphe);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpModule32First(void* hsnapshot, void* lpme);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpModule32FirstW(void* hsnapshot, void* lpme);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpModule32Next(void* hsnapshot, void* lpme);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpModule32NextW(void* hsnapshot, void* lpme);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32First(void* hsnapshot, void* lppe);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32FirstW(void* hsnapshot, void* lppe);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32Next(void* hsnapshot, void* lppe);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32NextW(void* hsnapshot, void* lppe);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpThread32First(void* hsnapshot, void* lpte);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpThread32Next(void* hsnapshot, void* lpte);
+int32_t windowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp32ReadProcessMemory(uint32_t th32processid, void* lpbaseaddress, void* lpbuffer, uint64_t cbread, void* lpnumberofbytesread);
 
 #ifdef __cplusplus
 }

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1adjustWindowRect(JNIEnv* km_env, jclass km_clazz, jlong lprect, jint dwstyle, jint bmenu) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect(JNIEnv* km_env, jclass km_clazz, jlong lprect, jint dwstyle, jint bmenu) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1adjustWindowRectEx(JNIEnv* km_env, jclass km_clazz, jlong lprect, jint dwstyle, jint bmenu, jint dwexstyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx(JNIEnv* km_env, jclass km_clazz, jlong lprect, jint dwstyle, jint bmenu, jint dwexstyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1allowSetForegroundWindow(JNIEnv* km_env, jclass km_clazz, jint dwprocessid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow(JNIEnv* km_env, jclass km_clazz, jint dwprocessid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1animateWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwtime, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAnimateWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwtime, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1anyPopup(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAnyPopup(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -150,7 +150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1appendMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jlong uidnewitem, jlong lpnewitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAppendMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jlong uidnewitem, jlong lpnewitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -178,7 +178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1appendMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jlong uidnewitem, jlong lpnewitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingAppendMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jlong uidnewitem, jlong lpnewitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -206,7 +206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1arrangeIconicWindows(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingArrangeIconicWindows(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -231,7 +231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1beginDeferWindowPos(JNIEnv* km_env, jclass km_clazz, jint nnumwindows) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingBeginDeferWindowPos(JNIEnv* km_env, jclass km_clazz, jint nnumwindows) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -256,7 +256,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1bringWindowToTop(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingBringWindowToTop(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -281,7 +281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1calculatePopupWindowPosition(JNIEnv* km_env, jclass km_clazz, jlong anchorpoint, jlong windowsize, jint flags, jlong excluderect, jlong popupwindowposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition(JNIEnv* km_env, jclass km_clazz, jlong anchorpoint, jlong windowsize, jint flags, jlong excluderect, jlong popupwindowposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -310,7 +310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1callMsgFilterA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jint ncode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jint ncode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -336,7 +336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1callMsgFilterW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jint ncode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jint ncode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -362,7 +362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1callNextHookEx(JNIEnv* km_env, jclass km_clazz, jlong hhk, jint ncode, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCallNextHookEx(JNIEnv* km_env, jclass km_clazz, jlong hhk, jint ncode, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -390,7 +390,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1callWindowProcA(JNIEnv* km_env, jclass km_clazz, jlong lpprevwndfunc, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCallWindowProcA(JNIEnv* km_env, jclass km_clazz, jlong lpprevwndfunc, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -419,7 +419,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1callWindowProcW(JNIEnv* km_env, jclass km_clazz, jlong lpprevwndfunc, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCallWindowProcW(JNIEnv* km_env, jclass km_clazz, jlong lpprevwndfunc, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -448,7 +448,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1cancelShutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCancelShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -472,7 +472,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1cascadeWindows(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint whow, jlong lprect, jint ckids, jlong lpkids) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCascadeWindows(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint whow, jlong lprect, jint ckids, jlong lpkids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -501,7 +501,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1changeMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint cmd, jlong lpsznewitem, jint cmdinsert, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingChangeMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint cmd, jlong lpsznewitem, jint cmdinsert, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1changeMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint cmd, jlong lpsznewitem, jint cmdinsert, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingChangeMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint cmd, jlong lpsznewitem, jint cmdinsert, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -559,7 +559,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1changeWindowMessageFilter(JNIEnv* km_env, jclass km_clazz, jint message, jint dwflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(JNIEnv* km_env, jclass km_clazz, jint message, jint dwflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -585,7 +585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1changeWindowMessageFilterEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint message, jint action, jlong pchangefilterstruct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint message, jint action, jlong pchangefilterstruct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -613,7 +613,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charLowerA(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharLowerA(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -638,7 +638,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charLowerBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -664,7 +664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charLowerBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -690,7 +690,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charLowerW(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharLowerW(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -715,7 +715,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charNextA(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharNextA(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -740,7 +740,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charNextExA(JNIEnv* km_env, jclass km_clazz, jshort codepage, jlong lpcurrentchar, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharNextExA(JNIEnv* km_env, jclass km_clazz, jshort codepage, jlong lpcurrentchar, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -767,7 +767,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charNextW(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharNextW(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -792,7 +792,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charPrevA(JNIEnv* km_env, jclass km_clazz, jlong lpszstart, jlong lpszcurrent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharPrevA(JNIEnv* km_env, jclass km_clazz, jlong lpszstart, jlong lpszcurrent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -818,7 +818,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charPrevExA(JNIEnv* km_env, jclass km_clazz, jshort codepage, jlong lpstart, jlong lpcurrentchar, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharPrevExA(JNIEnv* km_env, jclass km_clazz, jshort codepage, jlong lpstart, jlong lpcurrentchar, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -846,7 +846,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charPrevW(JNIEnv* km_env, jclass km_clazz, jlong lpszstart, jlong lpszcurrent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharPrevW(JNIEnv* km_env, jclass km_clazz, jlong lpszstart, jlong lpszcurrent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -872,7 +872,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charToOemA(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharToOemA(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -898,7 +898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charToOemBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -925,7 +925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charToOemBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -952,7 +952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charToOemW(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharToOemW(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -978,7 +978,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charUpperA(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharUpperA(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1003,7 +1003,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charUpperBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1029,7 +1029,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charUpperBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jint cchlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1055,7 +1055,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1charUpperW(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCharUpperW(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1080,7 +1080,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1checkMenuItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uidcheckitem, jint ucheck) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCheckMenuItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uidcheckitem, jint ucheck) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1107,7 +1107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1checkMenuRadioItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint first, jint last, jint check, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCheckMenuRadioItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint first, jint last, jint check, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1136,7 +1136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1clipCursor(JNIEnv* km_env, jclass km_clazz, jlong lprect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingClipCursor(JNIEnv* km_env, jclass km_clazz, jlong lprect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1161,7 +1161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1closeWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCloseWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1186,7 +1186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1copyAcceleratorTableA(JNIEnv* km_env, jclass km_clazz, jlong haccelsrc, jlong lpacceldst, jint caccelentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA(JNIEnv* km_env, jclass km_clazz, jlong haccelsrc, jlong lpacceldst, jint caccelentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1213,7 +1213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1copyAcceleratorTableW(JNIEnv* km_env, jclass km_clazz, jlong haccelsrc, jlong lpacceldst, jint caccelentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW(JNIEnv* km_env, jclass km_clazz, jlong haccelsrc, jlong lpacceldst, jint caccelentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1240,7 +1240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1copyIcon(JNIEnv* km_env, jclass km_clazz, jlong hicon) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCopyIcon(JNIEnv* km_env, jclass km_clazz, jlong hicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1265,7 +1265,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1copyImage(JNIEnv* km_env, jclass km_clazz, jlong h, jint type, jint cx, jint cy, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCopyImage(JNIEnv* km_env, jclass km_clazz, jlong h, jint type, jint cx, jint cy, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1294,7 +1294,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createAcceleratorTableA(JNIEnv* km_env, jclass km_clazz, jlong paccel, jint caccel) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA(JNIEnv* km_env, jclass km_clazz, jlong paccel, jint caccel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1320,7 +1320,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createAcceleratorTableW(JNIEnv* km_env, jclass km_clazz, jlong paccel, jint caccel) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW(JNIEnv* km_env, jclass km_clazz, jlong paccel, jint caccel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1346,7 +1346,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createCaret(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hbitmap, jint nwidth, jint nheight) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateCaret(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hbitmap, jint nwidth, jint nheight) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1374,7 +1374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createCursor(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint xhotspot, jint yhotspot, jint nwidth, jint nheight, jlong pvandplane, jlong pvxorplane) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateCursor(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint xhotspot, jint yhotspot, jint nwidth, jint nheight, jlong pvandplane, jlong pvxorplane) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1405,7 +1405,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createDialogIndirectParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1434,7 +1434,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createDialogIndirectParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1463,7 +1463,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createDialogParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1492,7 +1492,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createDialogParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1521,7 +1521,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createIcon(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint nwidth, jint nheight, jbyte cplanes, jbyte cbitspixel, jlong lpbandbits, jlong lpbxorbits) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateIcon(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint nwidth, jint nheight, jbyte cplanes, jbyte cbitspixel, jlong lpbandbits, jlong lpbxorbits) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1552,7 +1552,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createIconFromResource(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint dwressize, jint ficon, jint dwver) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint dwressize, jint ficon, jint dwver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1580,7 +1580,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createIconFromResourceEx(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint dwressize, jint ficon, jint dwver, jint cxdesired, jint cydesired, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint dwressize, jint ficon, jint dwver, jint cxdesired, jint cydesired, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1611,7 +1611,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createIconIndirect(JNIEnv* km_env, jclass km_clazz, jlong piconinfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect(JNIEnv* km_env, jclass km_clazz, jlong piconinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1636,7 +1636,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createMDIWindowA(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hinstance, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowA(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hinstance, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1670,7 +1670,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createMDIWindowW(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hinstance, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowW(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hinstance, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1704,7 +1704,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createMenu(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateMenu(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1728,7 +1728,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createPopupMenu(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1752,7 +1752,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createResourceIndexer(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jlong extensiondllpath, jlong ppresourceindexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jlong extensiondllpath, jlong ppresourceindexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1779,7 +1779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createWindowExA(JNIEnv* km_env, jclass km_clazz, jint dwexstyle, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hmenu, jlong hinstance, jlong lpparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateWindowExA(JNIEnv* km_env, jclass km_clazz, jint dwexstyle, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hmenu, jlong hinstance, jlong lpparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1815,7 +1815,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1createWindowExW(JNIEnv* km_env, jclass km_clazz, jint dwexstyle, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hmenu, jlong hinstance, jlong lpparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingCreateWindowExW(JNIEnv* km_env, jclass km_clazz, jint dwexstyle, jlong lpclassname, jlong lpwindowname, jint dwstyle, jint x, jint y, jint nwidth, jint nheight, jlong hwndparent, jlong hmenu, jlong hinstance, jlong lpparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1851,7 +1851,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defDlgProcA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefDlgProcA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1879,7 +1879,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defDlgProcW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefDlgProcW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1907,7 +1907,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defFrameProcA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndmdiclient, jint umsg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefFrameProcA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndmdiclient, jint umsg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1936,7 +1936,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defFrameProcW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndmdiclient, jint umsg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefFrameProcW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndmdiclient, jint umsg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1965,7 +1965,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defMDIChildProcA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint umsg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint umsg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1993,7 +1993,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defMDIChildProcW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint umsg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint umsg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2021,7 +2021,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defWindowProcA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefWindowProcA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2049,7 +2049,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1defWindowProcW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDefWindowProcW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2077,7 +2077,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1deferWindowPos(JNIEnv* km_env, jclass km_clazz, jlong hwinposinfo, jlong hwnd, jlong hwndinsertafter, jint x, jint y, jint cx, jint cy, jint uflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDeferWindowPos(JNIEnv* km_env, jclass km_clazz, jlong hwinposinfo, jlong hwnd, jlong hwndinsertafter, jint x, jint y, jint cx, jint cy, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2109,7 +2109,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1deleteMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDeleteMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2136,7 +2136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1deregisterShellHookWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDeregisterShellHookWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2161,7 +2161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyAcceleratorTable(JNIEnv* km_env, jclass km_clazz, jlong haccel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyAcceleratorTable(JNIEnv* km_env, jclass km_clazz, jlong haccel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2186,7 +2186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyCaret(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyCaret(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2210,7 +2210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyCursor(JNIEnv* km_env, jclass km_clazz, jlong hcursor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyCursor(JNIEnv* km_env, jclass km_clazz, jlong hcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2235,7 +2235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyIcon(JNIEnv* km_env, jclass km_clazz, jlong hicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyIcon(JNIEnv* km_env, jclass km_clazz, jlong hicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2260,7 +2260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyIndexedResults(JNIEnv* km_env, jclass km_clazz, jlong resourceuri, jint qualifiercount, jlong qualifiers) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults(JNIEnv* km_env, jclass km_clazz, jlong resourceuri, jint qualifiercount, jlong qualifiers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2283,7 +2283,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2308,7 +2308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyResourceIndexer(JNIEnv* km_env, jclass km_clazz, jlong resourceindexer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer(JNIEnv* km_env, jclass km_clazz, jlong resourceindexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2329,7 +2329,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1destroyWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDestroyWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2354,7 +2354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dialogBoxIndirectParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong hdialogtemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong hdialogtemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2383,7 +2383,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dialogBoxIndirectParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong hdialogtemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong hdialogtemplate, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2412,7 +2412,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dialogBoxParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2441,7 +2441,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dialogBoxParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptemplatename, jlong hwndparent, jlong lpdialogfunc, jlong dwinitparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2470,7 +2470,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1disableProcessWindowsGhosting(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDisableProcessWindowsGhosting(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2490,7 +2490,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dispatchMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDispatchMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2515,7 +2515,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dispatchMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDispatchMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2540,7 +2540,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1dragObject(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwndfrom, jint fmt, jlong data, jlong hcur) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDragObject(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwndfrom, jint fmt, jlong data, jlong hcur) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2569,7 +2569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1drawIcon(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint x, jint y, jlong hicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDrawIcon(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint x, jint y, jlong hicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2597,7 +2597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1drawIconEx(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint xleft, jint ytop, jlong hicon, jint cxwidth, jint cywidth, jint istepifanicur, jlong hbrflickerfreedraw, jint diflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDrawIconEx(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint xleft, jint ytop, jlong hicon, jint cxwidth, jint cywidth, jint istepifanicur, jlong hbrflickerfreedraw, jint diflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2630,7 +2630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1drawMenuBar(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingDrawMenuBar(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2655,7 +2655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enableMenuItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uidenableitem, jint uenable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnableMenuItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uidenableitem, jint uenable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2682,7 +2682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1endDeferWindowPos(JNIEnv* km_env, jclass km_clazz, jlong hwinposinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEndDeferWindowPos(JNIEnv* km_env, jclass km_clazz, jlong hwinposinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2707,7 +2707,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1endDialog(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong nresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEndDialog(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong nresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2733,7 +2733,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1endMenu(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEndMenu(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2757,7 +2757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumChildWindows(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumChildWindows(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2784,7 +2784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumPropsA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumPropsA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2810,7 +2810,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumPropsExA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumPropsExA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2837,7 +2837,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumPropsExW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumPropsExW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2864,7 +2864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumPropsW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumPropsW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpenumfunc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2890,7 +2890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumThreadWindows(JNIEnv* km_env, jclass km_clazz, jint dwthreadid, jlong lpfn, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumThreadWindows(JNIEnv* km_env, jclass km_clazz, jint dwthreadid, jlong lpfn, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2917,7 +2917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1enumWindows(JNIEnv* km_env, jclass km_clazz, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingEnumWindows(JNIEnv* km_env, jclass km_clazz, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2943,7 +2943,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1findWindowA(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingFindWindowA(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2969,7 +2969,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1findWindowExA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwndchildafter, jlong lpszclass, jlong lpszwindow) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingFindWindowExA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwndchildafter, jlong lpszclass, jlong lpszwindow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2997,7 +2997,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1findWindowExW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwndchildafter, jlong lpszclass, jlong lpszwindow) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingFindWindowExW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwndchildafter, jlong lpszclass, jlong lpszwindow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3025,7 +3025,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1findWindowW(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingFindWindowW(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong lpwindowname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3051,7 +3051,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1flashWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint binvert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingFlashWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint binvert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3077,7 +3077,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1flashWindowEx(JNIEnv* km_env, jclass km_clazz, jlong pfwi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingFlashWindowEx(JNIEnv* km_env, jclass km_clazz, jlong pfwi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3102,7 +3102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getAltTabInfoA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint iitem, jlong pati, jlong pszitemtext, jint cchitemtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint iitem, jlong pati, jlong pszitemtext, jint cchitemtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3131,7 +3131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getAltTabInfoW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint iitem, jlong pati, jlong pszitemtext, jint cchitemtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint iitem, jlong pati, jlong pszitemtext, jint cchitemtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3160,7 +3160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getAncestor(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint gaflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetAncestor(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint gaflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3186,7 +3186,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getCaretBlinkTime(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3210,7 +3210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getCaretPos(JNIEnv* km_env, jclass km_clazz, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetCaretPos(JNIEnv* km_env, jclass km_clazz, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3235,7 +3235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassInfoA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpclassname, jlong lpwndclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassInfoA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpclassname, jlong lpwndclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3262,7 +3262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassInfoExA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpszclass, jlong lpwcx) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpszclass, jlong lpwcx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3289,7 +3289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassInfoExW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpszclass, jlong lpwcx) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpszclass, jlong lpwcx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3316,7 +3316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassInfoW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpclassname, jlong lpwndclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassInfoW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpclassname, jlong lpwndclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3343,7 +3343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3369,7 +3369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3395,7 +3395,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3421,7 +3421,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3447,7 +3447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassNameA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpclassname, jint nmaxcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassNameA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpclassname, jint nmaxcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3474,7 +3474,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassNameW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpclassname, jint nmaxcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassNameW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpclassname, jint nmaxcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3501,7 +3501,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClassWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClassWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3527,7 +3527,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClientRect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lprect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClientRect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lprect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3553,7 +3553,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getClipCursor(JNIEnv* km_env, jclass km_clazz, jlong lprect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetClipCursor(JNIEnv* km_env, jclass km_clazz, jlong lprect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3578,7 +3578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getCursor(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetCursor(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3602,7 +3602,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getCursorInfo(JNIEnv* km_env, jclass km_clazz, jlong pci) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetCursorInfo(JNIEnv* km_env, jclass km_clazz, jlong pci) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3627,7 +3627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getCursorPos(JNIEnv* km_env, jclass km_clazz, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetCursorPos(JNIEnv* km_env, jclass km_clazz, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3652,7 +3652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDesktopWindow(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDesktopWindow(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3676,7 +3676,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDialogBaseUnits(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3700,7 +3700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDlgCtrlID(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDlgCtrlID(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3725,7 +3725,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDlgItem(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDlgItem(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3751,7 +3751,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDlgItemInt(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lptranslated, jint bsigned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lptranslated, jint bsigned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3779,7 +3779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDlgItemTextA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring, jint cchmax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring, jint cchmax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3807,7 +3807,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getDlgItemTextW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring, jint cchmax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring, jint cchmax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3835,7 +3835,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getForegroundWindow(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3859,7 +3859,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getGUIThreadInfo(JNIEnv* km_env, jclass km_clazz, jint idthread, jlong pgui) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo(JNIEnv* km_env, jclass km_clazz, jint idthread, jlong pgui) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3885,7 +3885,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getIconInfo(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong piconinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetIconInfo(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong piconinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3911,7 +3911,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getIconInfoExA(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong piconinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong piconinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3937,7 +3937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getIconInfoExW(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong piconinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong piconinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3963,7 +3963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getInputState(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetInputState(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3987,7 +3987,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getLastActivePopup(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4012,7 +4012,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getLayeredWindowAttributes(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pcrkey, jlong pbalpha, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pcrkey, jlong pbalpha, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4040,7 +4040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenu(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenu(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4065,7 +4065,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuBarInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jint iditem, jlong pmbi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jint iditem, jlong pmbi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4093,7 +4093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuCheckMarkDimensions(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4117,7 +4117,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuDefaultItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint fbypos, jint gmdiflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint fbypos, jint gmdiflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4144,7 +4144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuInfo(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuInfo(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4170,7 +4170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuItemCount(JNIEnv* km_env, jclass km_clazz, jlong hmenu) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuItemCount(JNIEnv* km_env, jclass km_clazz, jlong hmenu) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4195,7 +4195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuItemID(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint npos) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuItemID(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint npos) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4221,7 +4221,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuItemInfoA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmii) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmii) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4249,7 +4249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuItemInfoW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmii) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmii) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4277,7 +4277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuItemRect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hmenu, jint uitem, jlong lprcitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hmenu, jint uitem, jlong lprcitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4305,7 +4305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuState(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uid, jint uflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuState(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uid, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4332,7 +4332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuStringA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uiditem, jlong lpstring, jint cchmax, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuStringA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uiditem, jlong lpstring, jint cchmax, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4361,7 +4361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMenuStringW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uiditem, jlong lpstring, jint cchmax, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMenuStringW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uiditem, jlong lpstring, jint cchmax, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4390,7 +4390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4418,7 +4418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMessageExtraInfo(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4442,7 +4442,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMessagePos(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMessagePos(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4466,7 +4466,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMessageTime(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMessageTime(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4490,7 +4490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4518,7 +4518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getNextDlgGroupItem(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong hctl, jint bprevious) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetNextDlgGroupItem(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong hctl, jint bprevious) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4545,7 +4545,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getNextDlgTabItem(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong hctl, jint bprevious) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetNextDlgTabItem(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong hctl, jint bprevious) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4572,7 +4572,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getParent(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetParent(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4597,7 +4597,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getPhysicalCursorPos(JNIEnv* km_env, jclass km_clazz, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos(JNIEnv* km_env, jclass km_clazz, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4622,7 +4622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getProcessDefaultLayout(JNIEnv* km_env, jclass km_clazz, jlong pdwdefaultlayout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout(JNIEnv* km_env, jclass km_clazz, jlong pdwdefaultlayout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4647,7 +4647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getPropA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetPropA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4673,7 +4673,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getPropW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetPropW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4699,7 +4699,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getQueueStatus(JNIEnv* km_env, jclass km_clazz, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetQueueStatus(JNIEnv* km_env, jclass km_clazz, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4724,7 +4724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getScrollBarInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jlong psbi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jlong psbi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4751,7 +4751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getScrollInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nbar, jlong lpsi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetScrollInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nbar, jlong lpsi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4778,7 +4778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getScrollPos(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nbar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetScrollPos(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nbar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4804,7 +4804,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getScrollRange(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nbar, jlong lpminpos, jlong lpmaxpos) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetScrollRange(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nbar, jlong lpminpos, jlong lpmaxpos) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4832,7 +4832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getShellWindow(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetShellWindow(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4856,7 +4856,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getSubMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint npos) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetSubMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint npos) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4882,7 +4882,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getSystemMenu(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint brevert) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetSystemMenu(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint brevert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4908,7 +4908,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getSystemMetrics(JNIEnv* km_env, jclass km_clazz, jint nindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(JNIEnv* km_env, jclass km_clazz, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4933,7 +4933,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getTitleBarInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pti) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pti) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4959,7 +4959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getTopWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetTopWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4984,7 +4984,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ucmd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ucmd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5010,7 +5010,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowDisplayAffinity(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pdwaffinity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pdwaffinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5036,7 +5036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pwi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowInfo(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pwi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5062,7 +5062,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5088,7 +5088,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5114,7 +5114,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5140,7 +5140,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5166,7 +5166,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowModuleFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszfilename, jint cchfilenamemax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszfilename, jint cchfilenamemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5193,7 +5193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowModuleFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszfilename, jint cchfilenamemax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszfilename, jint cchfilenamemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5220,7 +5220,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowPlacement(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwndpl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwndpl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5246,7 +5246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowRect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lprect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowRect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lprect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5272,7 +5272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowTextA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jint nmaxcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowTextA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jint nmaxcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5299,7 +5299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowTextLengthA(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthA(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5324,7 +5324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowTextLengthW(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthW(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5349,7 +5349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowTextW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jint nmaxcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowTextW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jint nmaxcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5376,7 +5376,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowThreadProcessId(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpdwprocessid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpdwprocessid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5402,7 +5402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1getWindowWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingGetWindowWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5428,7 +5428,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1hideCaret(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingHideCaret(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5453,7 +5453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1hiliteMenuItem(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hmenu, jint uidhiliteitem, jint uhilite) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingHiliteMenuItem(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hmenu, jint uidhiliteitem, jint uhilite) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5481,7 +5481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1inSendMessage(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInSendMessage(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5505,7 +5505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1inSendMessageEx(JNIEnv* km_env, jclass km_clazz, jlong lpreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx(JNIEnv* km_env, jclass km_clazz, jlong lpreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5530,7 +5530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1indexFilePath(JNIEnv* km_env, jclass km_clazz, jlong resourceindexer, jlong filepath, jlong ppresourceuri, jlong pqualifiercount, jlong ppqualifiers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIndexFilePath(JNIEnv* km_env, jclass km_clazz, jlong resourceindexer, jlong filepath, jlong ppresourceuri, jlong pqualifiercount, jlong ppqualifiers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5559,7 +5559,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1inheritWindowMonitor(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndinherit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInheritWindowMonitor(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndinherit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5585,7 +5585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1insertMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInsertMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5614,7 +5614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1insertMenuItemA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5642,7 +5642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1insertMenuItemW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbyposition, jlong lpmi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5670,7 +5670,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1insertMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInsertMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5699,7 +5699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1internalGetWindowText(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pstring, jint cchmaxcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingInternalGetWindowText(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pstring, jint cchmaxcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5726,7 +5726,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharAlphaA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5751,7 +5751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharAlphaNumericA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5776,7 +5776,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharAlphaNumericW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5801,7 +5801,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharAlphaW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5826,7 +5826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharLowerA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharLowerA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5851,7 +5851,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharUpperA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharUpperA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5876,7 +5876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isCharUpperW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsCharUpperW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5901,7 +5901,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isChild(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsChild(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5927,7 +5927,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isDialogMessageA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong lpmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5953,7 +5953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isDialogMessageW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong lpmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5979,7 +5979,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isGUIThread(JNIEnv* km_env, jclass km_clazz, jint bconvert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsGUIThread(JNIEnv* km_env, jclass km_clazz, jint bconvert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6004,7 +6004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isHungAppWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsHungAppWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6029,7 +6029,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isIconic(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsIconic(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6054,7 +6054,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6079,7 +6079,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isProcessDPIAware(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6103,7 +6103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6128,7 +6128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isWindowArranged(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsWindowArranged(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6153,7 +6153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isWindowUnicode(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsWindowUnicode(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6178,7 +6178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isWindowVisible(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsWindowVisible(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6203,7 +6203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isWow64Message(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsWow64Message(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6227,7 +6227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1isZoomed(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingIsZoomed(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6252,7 +6252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1killTimer(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong uidevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingKillTimer(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong uidevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6278,7 +6278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadAcceleratorsA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptablename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6304,7 +6304,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadAcceleratorsW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptablename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lptablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6330,7 +6330,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadCursorA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpcursorname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadCursorA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpcursorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6356,7 +6356,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadCursorFromFileA(JNIEnv* km_env, jclass km_clazz, jlong lpfilename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileA(JNIEnv* km_env, jclass km_clazz, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6381,7 +6381,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadCursorFromFileW(JNIEnv* km_env, jclass km_clazz, jlong lpfilename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileW(JNIEnv* km_env, jclass km_clazz, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6406,7 +6406,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadCursorW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpcursorname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadCursorW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpcursorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6432,7 +6432,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadIconA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpiconname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadIconA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpiconname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6458,7 +6458,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadIconW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpiconname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadIconW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpiconname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6484,7 +6484,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadImageA(JNIEnv* km_env, jclass km_clazz, jlong hinst, jlong name, jint type, jint cx, jint cy, jint fuload) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadImageA(JNIEnv* km_env, jclass km_clazz, jlong hinst, jlong name, jint type, jint cx, jint cy, jint fuload) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6514,7 +6514,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadImageW(JNIEnv* km_env, jclass km_clazz, jlong hinst, jlong name, jint type, jint cx, jint cy, jint fuload) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadImageW(JNIEnv* km_env, jclass km_clazz, jlong hinst, jlong name, jint type, jint cx, jint cy, jint fuload) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6544,7 +6544,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadMenuA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpmenuname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadMenuA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpmenuname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6570,7 +6570,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadMenuIndirectA(JNIEnv* km_env, jclass km_clazz, jlong lpmenutemplate) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA(JNIEnv* km_env, jclass km_clazz, jlong lpmenutemplate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6595,7 +6595,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadMenuIndirectW(JNIEnv* km_env, jclass km_clazz, jlong lpmenutemplate) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW(JNIEnv* km_env, jclass km_clazz, jlong lpmenutemplate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6620,7 +6620,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadMenuW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpmenuname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadMenuW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jlong lpmenuname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6646,7 +6646,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadStringA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint uid, jlong lpbuffer, jint cchbuffermax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadStringA(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint uid, jlong lpbuffer, jint cchbuffermax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6674,7 +6674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1loadStringW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint uid, jlong lpbuffer, jint cchbuffermax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLoadStringW(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint uid, jlong lpbuffer, jint cchbuffermax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6702,7 +6702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1lockSetForegroundWindow(JNIEnv* km_env, jclass km_clazz, jint ulockcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(JNIEnv* km_env, jclass km_clazz, jint ulockcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6727,7 +6727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1logicalToPhysicalPoint(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6753,7 +6753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1lookupIconIdFromDirectory(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint ficon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint ficon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6779,7 +6779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1lookupIconIdFromDirectoryEx(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint ficon, jint cxdesired, jint cydesired, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx(JNIEnv* km_env, jclass km_clazz, jlong presbits, jint ficon, jint cxdesired, jint cydesired, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6808,7 +6808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mapDialogRect(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong lprect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMapDialogRect(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jlong lprect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6834,7 +6834,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1messageBoxA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMessageBoxA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6862,7 +6862,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1messageBoxExA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype, jshort wlanguageid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMessageBoxExA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype, jshort wlanguageid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6891,7 +6891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1messageBoxExW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype, jshort wlanguageid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMessageBoxExW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype, jshort wlanguageid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6920,7 +6920,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1messageBoxIndirectA(JNIEnv* km_env, jclass km_clazz, jlong lpmbp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA(JNIEnv* km_env, jclass km_clazz, jlong lpmbp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6945,7 +6945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1messageBoxIndirectW(JNIEnv* km_env, jclass km_clazz, jlong lpmbp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW(JNIEnv* km_env, jclass km_clazz, jlong lpmbp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6970,7 +6970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1messageBoxW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMessageBoxW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lptext, jlong lpcaption, jint utype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6998,7 +6998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1modifyMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmnu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingModifyMenuA(JNIEnv* km_env, jclass km_clazz, jlong hmnu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7027,7 +7027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1modifyMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmnu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingModifyMenuW(JNIEnv* km_env, jclass km_clazz, jlong hmnu, jint uposition, jint uflags, jlong uidnewitem, jlong lpnewitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7056,7 +7056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1moveWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint x, jint y, jint nwidth, jint nheight, jint brepaint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMoveWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint x, jint y, jint nwidth, jint nheight, jint brepaint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7086,7 +7086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateConfig(JNIEnv* km_env, jclass km_clazz, jint platformversion, jlong defaultqualifiers, jlong outputxmlfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig(JNIEnv* km_env, jclass km_clazz, jint platformversion, jlong defaultqualifiers, jlong outputxmlfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7113,7 +7113,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateConfigInMemory(JNIEnv* km_env, jclass km_clazz, jint platformversion, jlong defaultqualifiers, jlong outputxmldata, jlong outputxmlsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory(JNIEnv* km_env, jclass km_clazz, jint platformversion, jlong defaultqualifiers, jlong outputxmldata, jlong outputxmlsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7141,7 +7141,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateResourceIndexer(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong indexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong indexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7170,7 +7170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateResourceIndexerFromPreviousPriData(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong pridata, jint prisize, jlong indexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong pridata, jint prisize, jlong indexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7200,7 +7200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateResourceIndexerFromPreviousPriFile(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong prifile, jlong indexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong prifile, jlong indexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7229,7 +7229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateResourceIndexerFromPreviousSchemaData(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong schemaxmldata, jint schemaxmlsize, jlong indexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong schemaxmldata, jint schemaxmlsize, jlong indexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7259,7 +7259,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateResourceIndexerFromPreviousSchemaFile(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong schemafile, jlong indexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile(JNIEnv* km_env, jclass km_clazz, jlong projectroot, jint platformversion, jlong defaultqualifiers, jlong schemafile, jlong indexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7288,7 +7288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmCreateResourceIndexerWithFlags(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong projectroot, jint platformversion, jlong defaultqualifiers, jint flags, jlong indexer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags(JNIEnv* km_env, jclass km_clazz, jlong packagefamilyname, jlong projectroot, jint platformversion, jlong defaultqualifiers, jint flags, jlong indexer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7318,7 +7318,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmDumpPriDataInMemory(JNIEnv* km_env, jclass km_clazz, jlong inputpridata, jint inputprisize, jlong schemapridata, jint schemaprisize, jint dumptype, jlong outputxmldata, jlong outputxmlsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory(JNIEnv* km_env, jclass km_clazz, jlong inputpridata, jint inputprisize, jlong schemapridata, jint schemaprisize, jint dumptype, jlong outputxmldata, jlong outputxmlsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7349,7 +7349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmDumpPriFile(JNIEnv* km_env, jclass km_clazz, jlong indexfilename, jlong schemaprifile, jint dumptype, jlong outputxmlfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile(JNIEnv* km_env, jclass km_clazz, jlong indexfilename, jlong schemaprifile, jint dumptype, jlong outputxmlfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7377,7 +7377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmDumpPriFileInMemory(JNIEnv* km_env, jclass km_clazz, jlong indexfilename, jlong schemaprifile, jint dumptype, jlong outputxmldata, jlong outputxmlsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory(JNIEnv* km_env, jclass km_clazz, jlong indexfilename, jlong schemaprifile, jint dumptype, jlong outputxmldata, jlong outputxmlsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7406,7 +7406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7431,7 +7431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1mrmGetPriFileContentChecksum(JNIEnv* km_env, jclass km_clazz, jlong prifile, jlong checksum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum(JNIEnv* km_env, jclass km_clazz, jlong prifile, jlong checksum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7457,7 +7457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1msgWaitForMultipleObjects(JNIEnv* km_env, jclass km_clazz, jint ncount, jlong phandles, jint fwaitall, jint dwmilliseconds, jint dwwakemask) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects(JNIEnv* km_env, jclass km_clazz, jint ncount, jlong phandles, jint fwaitall, jint dwmilliseconds, jint dwwakemask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7486,7 +7486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1msgWaitForMultipleObjectsEx(JNIEnv* km_env, jclass km_clazz, jint ncount, jlong phandles, jint dwmilliseconds, jint dwwakemask, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx(JNIEnv* km_env, jclass km_clazz, jint ncount, jlong phandles, jint dwmilliseconds, jint dwwakemask, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7515,7 +7515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1oemToCharA(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingOemToCharA(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7541,7 +7541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1oemToCharBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffA(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7568,7 +7568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1oemToCharBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffW(JNIEnv* km_env, jclass km_clazz, jlong lpszsrc, jlong lpszdst, jint cchdstlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7595,7 +7595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1oemToCharW(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingOemToCharW(JNIEnv* km_env, jclass km_clazz, jlong psrc, jlong pdst) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7621,7 +7621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1openIcon(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingOpenIcon(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7646,7 +7646,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1peekMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax, jint wremovemsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPeekMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax, jint wremovemsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7675,7 +7675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1peekMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax, jint wremovemsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPeekMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpmsg, jlong hwnd, jint wmsgfiltermin, jint wmsgfiltermax, jint wremovemsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7704,7 +7704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1physicalToLogicalPoint(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7730,7 +7730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1postMessageA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPostMessageA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7758,7 +7758,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1postMessageW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPostMessageW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7786,7 +7786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1postQuitMessage(JNIEnv* km_env, jclass km_clazz, jint nexitcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPostQuitMessage(JNIEnv* km_env, jclass km_clazz, jint nexitcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7807,7 +7807,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1postThreadMessageA(JNIEnv* km_env, jclass km_clazz, jint idthread, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA(JNIEnv* km_env, jclass km_clazz, jint idthread, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7835,7 +7835,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1postThreadMessageW(JNIEnv* km_env, jclass km_clazz, jint idthread, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(JNIEnv* km_env, jclass km_clazz, jint idthread, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7863,7 +7863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1privateExtractIconsA(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jint niconindex, jint cxicon, jint cyicon, jlong phicon, jlong piconid, jint nicons, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jint niconindex, jint cxicon, jint cyicon, jlong phicon, jlong piconid, jint nicons, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7895,7 +7895,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1privateExtractIconsW(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jint niconindex, jint cxicon, jint cyicon, jlong phicon, jlong piconid, jint nicons, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jint niconindex, jint cxicon, jint cyicon, jlong phicon, jlong piconid, jint nicons, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7927,7 +7927,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1realGetWindowClassA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptszclassname, jint cchclassnamemax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptszclassname, jint cchclassnamemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7954,7 +7954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1realGetWindowClassW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptszclassname, jint cchclassnamemax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ptszclassname, jint cchclassnamemax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7981,7 +7981,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerClassA(JNIEnv* km_env, jclass km_clazz, jlong lpwndclass) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterClassA(JNIEnv* km_env, jclass km_clazz, jlong lpwndclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8006,7 +8006,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerClassExA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterClassExA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8031,7 +8031,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerClassExW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterClassExW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8056,7 +8056,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerClassW(JNIEnv* km_env, jclass km_clazz, jlong lpwndclass) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterClassW(JNIEnv* km_env, jclass km_clazz, jlong lpwndclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8081,7 +8081,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerDeviceNotificationA(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong notificationfilter, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong notificationfilter, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8108,7 +8108,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerDeviceNotificationW(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong notificationfilter, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong notificationfilter, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8135,7 +8135,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerForTooltipDismissNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint tdflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterForTooltipDismissNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint tdflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8161,7 +8161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerShellHookWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterShellHookWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8186,7 +8186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerWindowMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageA(JNIEnv* km_env, jclass km_clazz, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8211,7 +8211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1registerWindowMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageW(JNIEnv* km_env, jclass km_clazz, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8236,7 +8236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1removeMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRemoveMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8263,7 +8263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1removePropA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRemovePropA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8289,7 +8289,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1removePropW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingRemovePropW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8315,7 +8315,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1replyMessage(JNIEnv* km_env, jclass km_clazz, jlong lresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingReplyMessage(JNIEnv* km_env, jclass km_clazz, jlong lresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8340,7 +8340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1scrollDC(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint dx, jint dy, jlong lprcscroll, jlong lprcclip, jlong hrgnupdate, jlong lprcupdate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingScrollDC(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint dx, jint dy, jlong lprcscroll, jlong lprcclip, jlong hrgnupdate, jlong lprcupdate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8371,7 +8371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1scrollWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint xamount, jint yamount, jlong lprect, jlong lpcliprect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingScrollWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint xamount, jint yamount, jlong lprect, jlong lpcliprect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8400,7 +8400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1scrollWindowEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dx, jint dy, jlong prcscroll, jlong prcclip, jlong hrgnupdate, jlong prcupdate, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingScrollWindowEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dx, jint dy, jlong prcscroll, jlong prcclip, jlong hrgnupdate, jlong prcupdate, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8432,7 +8432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendDlgItemMessageA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8461,7 +8461,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendDlgItemMessageW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8490,7 +8490,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendMessageA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendMessageA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8518,7 +8518,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendMessageCallbackA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jlong lpresultcallback, jlong dwdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jlong lpresultcallback, jlong dwdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8548,7 +8548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendMessageCallbackW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jlong lpresultcallback, jlong dwdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jlong lpresultcallback, jlong dwdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8578,7 +8578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendMessageTimeoutA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jint fuflags, jint utimeout, jlong lpdwresult) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jint fuflags, jint utimeout, jlong lpdwresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8609,7 +8609,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendMessageTimeoutW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jint fuflags, jint utimeout, jlong lpdwresult) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam, jint fuflags, jint utimeout, jlong lpdwresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8640,7 +8640,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendMessageW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendMessageW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8668,7 +8668,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendNotifyMessageA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8696,7 +8696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1sendNotifyMessageW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint msg, jlong wparam, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8724,7 +8724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setAdditionalForegroundBoostProcesses(JNIEnv* km_env, jclass km_clazz, jlong toplevelwindow, jint processhandlecount, jlong processhandlearray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses(JNIEnv* km_env, jclass km_clazz, jlong toplevelwindow, jint processhandlecount, jlong processhandlearray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8751,7 +8751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setCaretBlinkTime(JNIEnv* km_env, jclass km_clazz, jint umseconds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime(JNIEnv* km_env, jclass km_clazz, jint umseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8776,7 +8776,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setCaretPos(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetCaretPos(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8802,7 +8802,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setClassLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetClassLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8829,7 +8829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setClassLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8856,7 +8856,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setClassLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8883,7 +8883,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setClassLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetClassLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8910,7 +8910,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setClassWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jshort wnewword) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetClassWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jshort wnewword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8937,7 +8937,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setCoalescableTimer(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong nidevent, jint uelapse, jlong lptimerfunc, jint utolerancedelay) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetCoalescableTimer(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong nidevent, jint uelapse, jlong lptimerfunc, jint utolerancedelay) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8966,7 +8966,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setCursor(JNIEnv* km_env, jclass km_clazz, jlong hcursor) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetCursor(JNIEnv* km_env, jclass km_clazz, jlong hcursor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8991,7 +8991,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setCursorPos(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetCursorPos(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9017,7 +9017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setDebugErrorLevel(JNIEnv* km_env, jclass km_clazz, jint dwlevel) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetDebugErrorLevel(JNIEnv* km_env, jclass km_clazz, jint dwlevel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9038,7 +9038,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setDlgItemInt(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jint uvalue, jint bsigned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetDlgItemInt(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jint uvalue, jint bsigned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9066,7 +9066,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setDlgItemTextA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextA(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9093,7 +9093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setDlgItemTextW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextW(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint niddlgitem, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9120,7 +9120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setForegroundWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetForegroundWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9145,7 +9145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setLayeredWindowAttributes(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint crkey, jbyte balpha, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetLayeredWindowAttributes(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint crkey, jbyte balpha, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9173,7 +9173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMenu(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hmenu) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMenu(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hmenu) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9199,7 +9199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMenuDefaultItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uitem, jint fbypos) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uitem, jint fbypos) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9226,7 +9226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMenuInfo(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMenuInfo(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9252,7 +9252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMenuItemBitmaps(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags, jlong hbitmapunchecked, jlong hbitmapchecked) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uposition, jint uflags, jlong hbitmapunchecked, jlong hbitmapchecked) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9281,7 +9281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMenuItemInfoA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbypositon, jlong lpmii) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbypositon, jlong lpmii) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9309,7 +9309,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMenuItemInfoW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbypositon, jlong lpmii) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint item, jint fbypositon, jlong lpmii) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9337,7 +9337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMessageExtraInfo(JNIEnv* km_env, jclass km_clazz, jlong lparam) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo(JNIEnv* km_env, jclass km_clazz, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9362,7 +9362,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setMessageQueue(JNIEnv* km_env, jclass km_clazz, jint cmessagesmax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetMessageQueue(JNIEnv* km_env, jclass km_clazz, jint cmessagesmax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9387,7 +9387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setParent(JNIEnv* km_env, jclass km_clazz, jlong hwndchild, jlong hwndnewparent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetParent(JNIEnv* km_env, jclass km_clazz, jlong hwndchild, jlong hwndnewparent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9413,7 +9413,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setPhysicalCursorPos(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos(JNIEnv* km_env, jclass km_clazz, jint x, jint y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9439,7 +9439,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setProcessDPIAware(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9463,7 +9463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setProcessDefaultLayout(JNIEnv* km_env, jclass km_clazz, jint dwdefaultlayout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout(JNIEnv* km_env, jclass km_clazz, jint dwdefaultlayout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9488,7 +9488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setPropA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jlong hdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetPropA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jlong hdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9515,7 +9515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setPropW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jlong hdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetPropW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring, jlong hdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9542,7 +9542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setSystemCursor(JNIEnv* km_env, jclass km_clazz, jlong hcur, jint id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetSystemCursor(JNIEnv* km_env, jclass km_clazz, jlong hcur, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9568,7 +9568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setTimer(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong nidevent, jint uelapse, jlong lptimerfunc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetTimer(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong nidevent, jint uelapse, jlong lptimerfunc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9596,7 +9596,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowDisplayAffinity(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwaffinity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowDisplayAffinity(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwaffinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9622,7 +9622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowLongA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9649,7 +9649,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9676,7 +9676,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jlong dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9703,7 +9703,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowLongW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jint dwnewlong) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9730,7 +9730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowPlacement(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwndpl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpwndpl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9756,7 +9756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowPos(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndinsertafter, jint x, jint y, jint cx, jint cy, jint uflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowPos(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hwndinsertafter, jint x, jint y, jint cx, jint cy, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9787,7 +9787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowTextA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowTextA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9813,7 +9813,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowTextW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowTextW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lpstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9839,7 +9839,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jshort wnewword) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowWord(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint nindex, jshort wnewword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9866,7 +9866,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowsHookA(JNIEnv* km_env, jclass km_clazz, jint nfiltertype, jlong pfnfilterproc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookA(JNIEnv* km_env, jclass km_clazz, jint nfiltertype, jlong pfnfilterproc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9892,7 +9892,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowsHookExA(JNIEnv* km_env, jclass km_clazz, jint idhook, jlong lpfn, jlong hmod, jint dwthreadid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExA(JNIEnv* km_env, jclass km_clazz, jint idhook, jlong lpfn, jlong hmod, jint dwthreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9920,7 +9920,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowsHookExW(JNIEnv* km_env, jclass km_clazz, jint idhook, jlong lpfn, jlong hmod, jint dwthreadid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExW(JNIEnv* km_env, jclass km_clazz, jint idhook, jlong lpfn, jlong hmod, jint dwthreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9948,7 +9948,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1setWindowsHookW(JNIEnv* km_env, jclass km_clazz, jint nfiltertype, jlong pfnfilterproc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookW(JNIEnv* km_env, jclass km_clazz, jint nfiltertype, jlong pfnfilterproc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9974,7 +9974,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_w
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1showCaret(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingShowCaret(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9999,7 +9999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1showCursor(JNIEnv* km_env, jclass km_clazz, jint bshow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingShowCursor(JNIEnv* km_env, jclass km_clazz, jint bshow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10024,7 +10024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1showOwnedPopups(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint fshow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingShowOwnedPopups(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint fshow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10050,7 +10050,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1showWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ncmdshow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingShowWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ncmdshow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10076,7 +10076,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1showWindowAsync(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ncmdshow) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingShowWindowAsync(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint ncmdshow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10102,7 +10102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1soundSentry(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSoundSentry(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10126,7 +10126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1switchToThisWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint funknown) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint funknown) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10148,7 +10148,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1systemParametersInfoA(JNIEnv* km_env, jclass km_clazz, jint uiaction, jint uiparam, jlong pvparam, jint fwinini) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA(JNIEnv* km_env, jclass km_clazz, jint uiaction, jint uiparam, jlong pvparam, jint fwinini) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10176,7 +10176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1systemParametersInfoW(JNIEnv* km_env, jclass km_clazz, jint uiaction, jint uiparam, jlong pvparam, jint fwinini) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW(JNIEnv* km_env, jclass km_clazz, jint uiaction, jint uiparam, jlong pvparam, jint fwinini) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10204,7 +10204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1tileWindows(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint whow, jlong lprect, jint ckids, jlong lpkids) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTileWindows(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint whow, jlong lprect, jint ckids, jlong lpkids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10233,7 +10233,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1trackPopupMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jint x, jint y, jint nreserved, jlong hwnd, jlong prcrect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jint x, jint y, jint nreserved, jlong hwnd, jlong prcrect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10264,7 +10264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1trackPopupMenuEx(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jint x, jint y, jlong hwnd, jlong lptpm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx(JNIEnv* km_env, jclass km_clazz, jlong hmenu, jint uflags, jint x, jint y, jlong hwnd, jlong lptpm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10294,7 +10294,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1translateAcceleratorA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hacctable, jlong lpmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hacctable, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10321,7 +10321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1translateAcceleratorW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hacctable, jlong lpmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hacctable, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10348,7 +10348,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1translateMDISysAccel(JNIEnv* km_env, jclass km_clazz, jlong hwndclient, jlong lpmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel(JNIEnv* km_env, jclass km_clazz, jlong hwndclient, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10374,7 +10374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1translateMessage(JNIEnv* km_env, jclass km_clazz, jlong lpmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingTranslateMessage(JNIEnv* km_env, jclass km_clazz, jlong lpmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10399,7 +10399,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1unhookWindowsHook(JNIEnv* km_env, jclass km_clazz, jint ncode, jlong pfnfilterproc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHook(JNIEnv* km_env, jclass km_clazz, jint ncode, jlong pfnfilterproc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10425,7 +10425,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1unhookWindowsHookEx(JNIEnv* km_env, jclass km_clazz, jlong hhk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHookEx(JNIEnv* km_env, jclass km_clazz, jlong hhk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10450,7 +10450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1unregisterClassA(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong hinstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUnregisterClassA(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong hinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10476,7 +10476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1unregisterClassW(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong hinstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUnregisterClassW(JNIEnv* km_env, jclass km_clazz, jlong lpclassname, jlong hinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10502,7 +10502,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1unregisterDeviceNotification(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10527,7 +10527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1updateLayeredWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hdcdst, jlong pptdst, jlong psize, jlong hdcsrc, jlong pptsrc, jint crkey, jlong pblend, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hdcdst, jlong pptdst, jlong psize, jlong hdcsrc, jlong pptsrc, jint crkey, jlong pblend, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10560,7 +10560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1updateLayeredWindowIndirect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pulwinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pulwinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10586,7 +10586,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1waitMessage(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingWaitMessage(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10610,7 +10610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1wsprintfA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingWsprintfA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10642,7 +10642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1wsprintfW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingWsprintfW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10674,7 +10674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1wvsprintfA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong arglist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingWvsprintfA(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong arglist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10701,7 +10701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_wi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssys_1windows_1win32_1ui_1windowsandmessaging_1wvsprintfW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong arglist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_windowsandmessaging_WindowsWin32UiWindowsandmessagingJniBridge_windowssysWindowsWin32UiWindowsandmessagingWvsprintfW(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong arglist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

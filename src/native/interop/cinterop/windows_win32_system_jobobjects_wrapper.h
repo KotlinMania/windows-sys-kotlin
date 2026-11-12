@@ -9,20 +9,20 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_jobobjects_assignProcessToJobObject(void* hjob, void* hprocess);
-void* windowssys_windows_win32_system_jobobjects_createJobObjectA(void* lpjobattributes, void* lpname);
-void* windowssys_windows_win32_system_jobobjects_createJobObjectW(void* lpjobattributes, void* lpname);
-int32_t windowssys_windows_win32_system_jobobjects_createJobSet(uint32_t numjob, void* userjobset, uint32_t flags);
-void windowssys_windows_win32_system_jobobjects_freeMemoryJobObject(void* buffer);
-int32_t windowssys_windows_win32_system_jobobjects_isProcessInJob(void* processhandle, void* jobhandle, void* result);
-void* windowssys_windows_win32_system_jobobjects_openJobObjectA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname);
-void* windowssys_windows_win32_system_jobobjects_openJobObjectW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname);
-int32_t windowssys_windows_win32_system_jobobjects_queryInformationJobObject(void* hjob, int32_t jobobjectinformationclass, void* lpjobobjectinformation, uint32_t cbjobobjectinformationlength, void* lpreturnlength);
-uint32_t windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject(void* hjob, void* volumename, void* infoblocks, void* infoblockcount);
-int32_t windowssys_windows_win32_system_jobobjects_setInformationJobObject(void* hjob, int32_t jobobjectinformationclass, void* lpjobobjectinformation, uint32_t cbjobobjectinformationlength);
-uint32_t windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject(void* hjob, void* ioratecontrolinfo);
-int32_t windowssys_windows_win32_system_jobobjects_terminateJobObject(void* hjob, uint32_t uexitcode);
-int32_t windowssys_windows_win32_system_jobobjects_userHandleGrantAccess(void* huserhandle, void* hjob, int32_t bgrant);
+int32_t windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject(void* hjob, void* hprocess);
+void* windowssysWindowsWin32SystemJobobjectsCreateJobObjectA(void* lpjobattributes, void* lpname);
+void* windowssysWindowsWin32SystemJobobjectsCreateJobObjectW(void* lpjobattributes, void* lpname);
+int32_t windowssysWindowsWin32SystemJobobjectsCreateJobSet(uint32_t numjob, void* userjobset, uint32_t flags);
+void windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject(void* buffer);
+int32_t windowssysWindowsWin32SystemJobobjectsIsProcessInJob(void* processhandle, void* jobhandle, void* result);
+void* windowssysWindowsWin32SystemJobobjectsOpenJobObjectA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname);
+void* windowssysWindowsWin32SystemJobobjectsOpenJobObjectW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname);
+int32_t windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject(void* hjob, int32_t jobobjectinformationclass, void* lpjobobjectinformation, uint32_t cbjobobjectinformationlength, void* lpreturnlength);
+uint32_t windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject(void* hjob, void* volumename, void* infoblocks, void* infoblockcount);
+int32_t windowssysWindowsWin32SystemJobobjectsSetInformationJobObject(void* hjob, int32_t jobobjectinformationclass, void* lpjobobjectinformation, uint32_t cbjobobjectinformationlength);
+uint32_t windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject(void* hjob, void* ioratecontrolinfo);
+int32_t windowssysWindowsWin32SystemJobobjectsTerminateJobObject(void* hjob, uint32_t uexitcode);
+int32_t windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess(void* huserhandle, void* hjob, int32_t bgrant);
 
 #ifdef __cplusplus
 }

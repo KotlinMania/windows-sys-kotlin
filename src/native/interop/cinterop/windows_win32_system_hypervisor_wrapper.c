@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix(void* vmsavedstatedumphandle, uint32_t vpid, uint64_t virtualaddress, void* fixbuffer, uint32_t fixbuffersize) {
+int32_t windowssysWindowsWin32SystemHypervisorApplyGuestMemoryFix(void* vmsavedstatedumphandle, uint32_t vpid, uint64_t virtualaddress, void* fixbuffer, uint32_t fixbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix(void* vms
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileReplayLog(void* vmrsfile) {
+int32_t windowssysWindowsWin32SystemHypervisorApplyPendingSavedStateFileReplayLog(void* vmrsfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileRep
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_callStackUnwind(void* vmsavedstatedumphandle, uint32_t vpid, void* imageinfo, uint32_t imageinfocount, uint32_t framecount, void* callstack) {
+int32_t windowssysWindowsWin32SystemHypervisorCallStackUnwind(void* vmsavedstatedumphandle, uint32_t vpid, void* imageinfo, uint32_t imageinfocount, uint32_t framecount, void* callstack) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -90,7 +90,7 @@ int32_t windowssys_windows_win32_system_hypervisor_callStackUnwind(void* vmsaved
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInType(void* vmsavedstatedumphandle, uint32_t vpid, void* arg_2_typename, void* fieldname, void* offset, void* found) {
+int32_t windowssysWindowsWin32SystemHypervisorFindSavedStateSymbolFieldInType(void* vmsavedstatedumphandle, uint32_t vpid, void* arg2Typename, void* fieldname, void* offset, void* found) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -101,14 +101,14 @@ int32_t windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInTy
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, fieldname, offset, found);
+        return km_fn_ptr(vmsavedstatedumphandle, vpid, arg2Typename, fieldname, offset, found);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
-    (void)arg_2_typename;
+    (void)arg2Typename;
     (void)fieldname;
     (void)offset;
     (void)found;
@@ -117,7 +117,7 @@ int32_t windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInTy
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel(void* vmsavedstatedumphandle, uint32_t vpid, uint8_t virtualtrustlevel) {
+int32_t windowssysWindowsWin32SystemHypervisorForceActiveVirtualTrustLevel(void* vmsavedstatedumphandle, uint32_t vpid, uint8_t virtualtrustlevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_forceArchitecture(void* vmsavedstatedumphandle, uint32_t vpid, int32_t architecture) {
+int32_t windowssysWindowsWin32SystemHypervisorForceArchitecture(void* vmsavedstatedumphandle, uint32_t vpid, int32_t architecture) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_win32_system_hypervisor_forceArchitecture(void* vmsav
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_forceNestedHostMode(void* vmsavedstatedumphandle, uint32_t vpid, int32_t hostmode, void* oldmode) {
+int32_t windowssysWindowsWin32SystemHypervisorForceNestedHostMode(void* vmsavedstatedumphandle, uint32_t vpid, int32_t hostmode, void* oldmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -190,7 +190,7 @@ int32_t windowssys_windows_win32_system_hypervisor_forceNestedHostMode(void* vms
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_forcePagingMode(void* vmsavedstatedumphandle, uint32_t vpid, int32_t pagingmode) {
+int32_t windowssysWindowsWin32SystemHypervisorForcePagingMode(void* vmsavedstatedumphandle, uint32_t vpid, int32_t pagingmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_system_hypervisor_forcePagingMode(void* vmsaved
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel(void* vmsavedstatedumphandle, uint32_t vpid, void* virtualtrustlevel) {
+int32_t windowssysWindowsWin32SystemHypervisorGetActiveVirtualTrustLevel(void* vmsavedstatedumphandle, uint32_t vpid, void* virtualtrustlevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -238,7 +238,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getArchitecture(void* vmsavedstatedumphandle, uint32_t vpid, void* architecture) {
+int32_t windowssysWindowsWin32SystemHypervisorGetArchitecture(void* vmsavedstatedumphandle, uint32_t vpid, void* architecture) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -262,7 +262,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getArchitecture(void* vmsaved
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels(void* vmsavedstatedumphandle, uint32_t vpid, void* virtualtrustlevels) {
+int32_t windowssysWindowsWin32SystemHypervisorGetEnabledVirtualTrustLevels(void* vmsavedstatedumphandle, uint32_t vpid, void* virtualtrustlevels) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -286,7 +286,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLevels(void* vmsavedstatedumphandle, void* virtualtrustlevels) {
+int32_t windowssysWindowsWin32SystemHypervisorGetGuestEnabledVirtualTrustLevels(void* vmsavedstatedumphandle, void* virtualtrustlevels) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getGuestOsInfo(void* vmsavedstatedumphandle, uint8_t virtualtrustlevel, void* guestosinfo) {
+int32_t windowssysWindowsWin32SystemHypervisorGetGuestOsInfo(void* vmsavedstatedumphandle, uint8_t virtualtrustlevel, void* guestosinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -333,7 +333,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getGuestOsInfo(void* vmsaveds
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks(void* vmsavedstatedumphandle, void* memorychunkpagesize, void* memorychunks, void* memorychunkcount) {
+int32_t windowssysWindowsWin32SystemHypervisorGetGuestPhysicalMemoryChunks(void* vmsavedstatedumphandle, void* memorychunkpagesize, void* memorychunks, void* memorychunkcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -358,7 +358,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize(void* vmsavedstatedumphandle, void* guestrawsavedmemorysize) {
+int32_t windowssysWindowsWin32SystemHypervisorGetGuestRawSavedMemorySize(void* vmsavedstatedumphandle, void* guestrawsavedmemorysize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -381,7 +381,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit(void* vmsavedstatedumphandle, void* memoryblockcachelimit) {
+int32_t windowssysWindowsWin32SystemHypervisorGetMemoryBlockCacheLimit(void* vmsavedstatedumphandle, void* memoryblockcachelimit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -404,7 +404,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode(void* vmsavedstatedumphandle, uint32_t vpid, void* enabled) {
+int32_t windowssysWindowsWin32SystemHypervisorGetNestedVirtualizationMode(void* vmsavedstatedumphandle, uint32_t vpid, void* enabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getPagingMode(void* vmsavedstatedumphandle, uint32_t vpid, void* pagingmode) {
+int32_t windowssysWindowsWin32SystemHypervisorGetPagingMode(void* vmsavedstatedumphandle, uint32_t vpid, void* pagingmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -452,7 +452,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getPagingMode(void* vmsavedst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getRegisterValue(void* vmsavedstatedumphandle, uint32_t vpid, uint32_t registerid, void* registervalue) {
+int32_t windowssysWindowsWin32SystemHypervisorGetRegisterValue(void* vmsavedstatedumphandle, uint32_t vpid, uint32_t registerid, void* registervalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -477,7 +477,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getRegisterValue(void* vmsave
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo(void* vmsavedstatedumphandle, uint32_t vpid, void* arg_2_typename, void* typefieldinfomap) {
+int32_t windowssysWindowsWin32SystemHypervisorGetSavedStateSymbolFieldInfo(void* vmsavedstatedumphandle, uint32_t vpid, void* arg2Typename, void* typefieldinfomap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -488,21 +488,21 @@ int32_t windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo(
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, typefieldinfomap);
+        return km_fn_ptr(vmsavedstatedumphandle, vpid, arg2Typename, typefieldinfomap);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
-    (void)arg_2_typename;
+    (void)arg2Typename;
     (void)typefieldinfomap;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-void* windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHandle(void* vmsavedstatedumphandle) {
+void* windowssysWindowsWin32SystemHypervisorGetSavedStateSymbolProviderHandle(void* vmsavedstatedumphandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -524,7 +524,7 @@ void* windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize(void* vmsavedstatedumphandle, uint32_t vpid, void* arg_2_typename, void* size) {
+int32_t windowssysWindowsWin32SystemHypervisorGetSavedStateSymbolTypeSize(void* vmsavedstatedumphandle, uint32_t vpid, void* arg2Typename, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -535,21 +535,21 @@ int32_t windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize(v
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, size);
+        return km_fn_ptr(vmsavedstatedumphandle, vpid, arg2Typename, size);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
-    (void)arg_2_typename;
+    (void)arg2Typename;
     (void)size;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_getVpCount(void* vmsavedstatedumphandle, void* vpcount) {
+int32_t windowssysWindowsWin32SystemHypervisorGetVpCount(void* vmsavedstatedumphandle, void* vpcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -572,7 +572,7 @@ int32_t windowssys_windows_win32_system_hypervisor_getVpCount(void* vmsavedstate
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSavedMemoryOffset(void* vmsavedstatedumphandle, uint64_t physicaladdress, void* rawsavedmemoryoffset) {
+int32_t windowssysWindowsWin32SystemHypervisorGuestPhysicalAddressToRawSavedMemoryOffset(void* vmsavedstatedumphandle, uint64_t physicaladdress, void* rawsavedmemoryoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ int32_t windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSave
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysicalAddress(void* vmsavedstatedumphandle, uint32_t vpid, uint64_t virtualaddress, void* physicaladdress, void* unmappedregionsize) {
+int32_t windowssysWindowsWin32SystemHypervisorGuestVirtualAddressToPhysicalAddress(void* vmsavedstatedumphandle, uint32_t vpid, uint64_t virtualaddress, void* physicaladdress, void* unmappedregionsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ int32_t windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysical
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance(void* devicehosthandle, int32_t devicetype, void* deviceclassid, void* deviceinstanceid, void* deviceinterface, void* devicecontext, void* devicehandle) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvCreateDeviceInstance(void* devicehosthandle, int32_t devicetype, void* deviceclassid, void* deviceinstanceid, void* deviceinterface, void* devicecontext, void* devicehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -650,7 +650,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture(void* requestor, uint64_t guestphysicaladdress, uint32_t bytecount, int32_t writeprotected, void* mappedaddress) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvCreateGuestMemoryAperture(void* requestor, uint64_t guestphysicaladdress, uint32_t bytecount, int32_t writeprotected, void* mappedaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -676,7 +676,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRange(void* requestor, int32_t barindex, uint64_t offsetinpages, uint64_t lengthinpages, int32_t mappingflags, void* sectionhandle, uint64_t sectionoffsetinpages) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvCreateSectionBackedMmioRange(void* requestor, int32_t barindex, uint64_t offsetinpages, uint64_t lengthinpages, int32_t mappingflags, void* sectionhandle, uint64_t sectionoffsetinpages) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t, uint64_t, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -704,7 +704,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt(void* requestor, uint64_t msiaddress, uint32_t msidata) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvDeliverGuestInterrupt(void* requestor, uint64_t msiaddress, uint32_t msidata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -728,7 +728,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture(void* requestor, void* mappedaddress) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvDestroyGuestMemoryAperture(void* requestor, void* mappedaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -751,7 +751,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRange(void* requestor, int32_t barindex, uint64_t offsetinpages) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvDestroySectionBackedMmioRange(void* requestor, int32_t barindex, uint64_t offsetinpages) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -775,7 +775,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost(void* computesystem, void* devicehosthandle) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvInitializeDeviceHost(void* computesystem, void* devicehosthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -798,7 +798,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx(void* computesystem, int32_t flags, void* devicehosthandle) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvInitializeDeviceHostEx(void* computesystem, int32_t flags, void* devicehosthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory(void* requestor, uint64_t guestphysicaladdress, uint32_t bytecount, void* buffer) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvReadGuestMemory(void* requestor, uint64_t guestphysicaladdress, uint32_t bytecount, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -847,7 +847,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory(void* requ
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell(void* requestor, int32_t barindex, uint64_t baroffset, uint64_t triggervalue, uint64_t flags, void* doorbellevent) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvRegisterDoorbell(void* requestor, int32_t barindex, uint64_t baroffset, uint64_t triggervalue, uint64_t flags, void* doorbellevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t, uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -874,7 +874,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell(void* req
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost(void* devicehosthandle) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvTeardownDeviceHost(void* devicehosthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost(void* d
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell(void* requestor, int32_t barindex, uint64_t baroffset, uint64_t triggervalue, uint64_t flags) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvUnregisterDoorbell(void* requestor, int32_t barindex, uint64_t baroffset, uint64_t triggervalue, uint64_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -922,7 +922,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell(void* r
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory(void* requestor, uint64_t guestphysicaladdress, uint32_t bytecount, void* buffer) {
+int32_t windowssysWindowsWin32SystemHypervisorHdvWriteGuestMemory(void* requestor, uint64_t guestphysicaladdress, uint32_t bytecount, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -947,7 +947,7 @@ int32_t windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory(void* req
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_inKernelSpace(void* vmsavedstatedumphandle, uint32_t vpid, void* inkernelspace) {
+int32_t windowssysWindowsWin32SystemHypervisorInKernelSpace(void* vmsavedstatedumphandle, uint32_t vpid, void* inkernelspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -971,7 +971,7 @@ int32_t windowssys_windows_win32_system_hypervisor_inKernelSpace(void* vmsavedst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnabled(void* vmsavedstatedumphandle, uint32_t vpid, void* activevirtualtrustlevelenabled) {
+int32_t windowssysWindowsWin32SystemHypervisorIsActiveVirtualTrustLevelEnabled(void* vmsavedstatedumphandle, uint32_t vpid, void* activevirtualtrustlevelenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -995,7 +995,7 @@ int32_t windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnab
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled(void* vmsavedstatedumphandle, void* enabled) {
+int32_t windowssysWindowsWin32SystemHypervisorIsNestedVirtualizationEnabled(void* vmsavedstatedumphandle, void* enabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1018,7 +1018,7 @@ int32_t windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateFile(void* vmrsfile, void* vmsavedstatedumphandle) {
+int32_t windowssysWindowsWin32SystemHypervisorLoadSavedStateFile(void* vmrsfile, void* vmsavedstatedumphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1041,7 +1041,7 @@ int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateFile(void* vmrs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateFiles(void* binfile, void* vsvfile, void* vmsavedstatedumphandle) {
+int32_t windowssysWindowsWin32SystemHypervisorLoadSavedStateFiles(void* binfile, void* vsvfile, void* vmsavedstatedumphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1065,7 +1065,7 @@ int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateFiles(void* bin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols(void* vmsavedstatedumphandle, void* imagename, void* modulename, uint64_t baseaddress, uint32_t sizeofbase) {
+int32_t windowssysWindowsWin32SystemHypervisorLoadSavedStateModuleSymbols(void* vmsavedstatedumphandle, void* imagename, void* modulename, uint64_t baseaddress, uint32_t sizeofbase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1091,7 @@ int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx(void* vmsavedstatedumphandle, void* imagename, uint32_t imagetimestamp, void* modulename, uint64_t baseaddress, uint32_t sizeofbase) {
+int32_t windowssysWindowsWin32SystemHypervisorLoadSavedStateModuleSymbolsEx(void* vmsavedstatedumphandle, void* imagename, uint32_t imagetimestamp, void* modulename, uint64_t baseaddress, uint32_t sizeofbase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1118,7 +1118,7 @@ int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider(void* vmsavedstatedumphandle, void* usersymbols, int32_t force) {
+int32_t windowssysWindowsWin32SystemHypervisorLoadSavedStateSymbolProvider(void* vmsavedstatedumphandle, void* usersymbols, int32_t force) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1142,7 +1142,7 @@ int32_t windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_locateSavedStateFiles(void* vmname, void* snapshotname, void* binpath, void* vsvpath, void* vmrspath) {
+int32_t windowssysWindowsWin32SystemHypervisorLocateSavedStateFiles(void* vmname, void* snapshotname, void* binpath, void* vsvpath, void* vmrspath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1168,7 +1168,7 @@ int32_t windowssys_windows_win32_system_hypervisor_locateSavedStateFiles(void* v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress(void* vmsavedstatedumphandle, uint64_t physicaladdress, void* buffer, uint32_t buffersize, void* bytesread) {
+int32_t windowssysWindowsWin32SystemHypervisorReadGuestPhysicalAddress(void* vmsavedstatedumphandle, uint64_t physicaladdress, void* buffer, uint32_t buffersize, void* bytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1194,7 +1194,7 @@ int32_t windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory(void* vmsavedstatedumphandle, uint64_t rawsavedmemoryoffset, void* buffer, uint32_t buffersize, void* bytesread) {
+int32_t windowssysWindowsWin32SystemHypervisorReadGuestRawSavedMemory(void* vmsavedstatedumphandle, uint64_t rawsavedmemoryoffset, void* buffer, uint32_t buffersize, void* bytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1220,7 +1220,7 @@ int32_t windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable(void* vmsavedstatedumphandle, uint32_t vpid, void* globalname, void* buffer, uint32_t buffersize) {
+int32_t windowssysWindowsWin32SystemHypervisorReadSavedStateGlobalVariable(void* vmsavedstatedumphandle, uint32_t vpid, void* globalname, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1246,7 +1246,7 @@ int32_t windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles(void* vmsavedstatedumphandle) {
+int32_t windowssysWindowsWin32SystemHypervisorReleaseSavedStateFiles(void* vmsavedstatedumphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1268,7 +1268,7 @@ int32_t windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvider(void* vmsavedstatedumphandle) {
+int32_t windowssysWindowsWin32SystemHypervisorReleaseSavedStateSymbolProvider(void* vmsavedstatedumphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1290,7 +1290,7 @@ int32_t windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvid
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariableAddress(void* vmsavedstatedumphandle, uint32_t vpid, void* globalname, void* virtualaddress, void* size) {
+int32_t windowssysWindowsWin32SystemHypervisorResolveSavedStateGlobalVariableAddress(void* vmsavedstatedumphandle, uint32_t vpid, void* globalname, void* virtualaddress, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1316,7 +1316,7 @@ int32_t windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariab
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages(void* vmsavedstatedumphandle, uint32_t vpid, uint64_t startaddress, uint64_t endaddress, void* callbackcontext, void* foundimagecallback, void* standaloneaddress, uint32_t standaloneaddresscount) {
+int32_t windowssysWindowsWin32SystemHypervisorScanMemoryForDosImages(void* vmsavedstatedumphandle, uint32_t vpid, uint64_t startaddress, uint64_t endaddress, void* callbackcontext, void* foundimagecallback, void* standaloneaddress, uint32_t standaloneaddresscount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1345,7 +1345,7 @@ int32_t windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit(void* vmsavedstatedumphandle, uint64_t memoryblockcachelimit) {
+int32_t windowssysWindowsWin32SystemHypervisorSetMemoryBlockCacheLimit(void* vmsavedstatedumphandle, uint64_t memoryblockcachelimit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1368,7 +1368,7 @@ int32_t windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDebugInfoCallback(void* vmsavedstatedumphandle, void* callback) {
+int32_t windowssysWindowsWin32SystemHypervisorSetSavedStateSymbolProviderDebugInfoCallback(void* vmsavedstatedumphandle, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1391,7 +1391,7 @@ int32_t windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration(void* migrationhandle, void* partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvAcceptPartitionMigration(void* migrationhandle, void* partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1414,7 +1414,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange(int64_t partition, void* gparanges, uint32_t gparangescount, int32_t advice, void* advicebuffer, uint32_t advicebuffersizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvAdviseGpaRange(int64_t partition, void* gparanges, uint32_t gparangescount, int32_t advice, void* advicebuffer, uint32_t advicebuffersizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1441,7 +1441,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange(int64_t par
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource(void* providerid, int32_t flags, void* resourcedescriptor, uint32_t resourcedescriptorsizeinbytes, void* vpciresource) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvAllocateVpciResource(void* providerid, int32_t flags, void* resourcedescriptor, uint32_t resourcedescriptorsizeinbytes, void* vpciresource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1467,7 +1467,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCancelPartitionMigration(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1489,7 +1489,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration(i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor(int64_t partition, uint32_t vpindex, uint32_t flags) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCancelRunVirtualProcessor(int64_t partition, uint32_t vpindex, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1513,7 +1513,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCompletePartitionMigration(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1535,7 +1535,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort(int64_t partition, void* parameters, void* eventhandle, void* porthandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCreateNotificationPort(int64_t partition, void* parameters, void* eventhandle, void* porthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1560,7 +1560,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCreatePartition(void* partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCreatePartition(void* partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1582,7 +1582,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCreatePartition(void* part
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCreateTrigger(int64_t partition, void* parameters, void* triggerhandle, void* eventhandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCreateTrigger(int64_t partition, void* parameters, void* triggerhandle, void* eventhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1607,7 +1607,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCreateTrigger(int64_t part
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor(int64_t partition, uint32_t vpindex, uint32_t flags) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor(int64_t partition, uint32_t vpindex, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1631,7 +1631,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2(int64_t partition, uint32_t vpindex, void* properties, uint32_t propertycount) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor2(int64_t partition, uint32_t vpindex, void* properties, uint32_t propertycount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1656,7 +1656,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice(int64_t partition, uint64_t logicaldeviceid, void* vpciresource, int32_t flags, void* notificationeventhandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvCreateVpciDevice(int64_t partition, uint64_t logicaldeviceid, void* vpciresource, int32_t flags, void* notificationeventhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1682,7 +1682,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice(int64_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort(int64_t partition, void* porthandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvDeleteNotificationPort(int64_t partition, void* porthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1705,7 +1705,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvDeletePartition(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvDeletePartition(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1727,7 +1727,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvDeletePartition(int64_t pa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger(int64_t partition, void* triggerhandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvDeleteTrigger(int64_t partition, void* triggerhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1750,7 +1750,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger(int64_t part
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor(int64_t partition, uint32_t vpindex) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvDeleteVirtualProcessor(int64_t partition, uint32_t vpindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1773,7 +1773,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice(int64_t partition, uint64_t logicaldeviceid) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvDeleteVpciDevice(int64_t partition, uint64_t logicaldeviceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1796,7 +1796,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice(int64_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator(void* callbacks, void* emulator) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvEmulatorCreateEmulator(void* callbacks, void* emulator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1819,7 +1819,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator(void* emulator) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvEmulatorDestroyEmulator(void* emulator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1841,7 +1841,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation(void* emulator, void* context, void* vpcontext, void* ioinstructioncontext, void* emulatorreturnstatus) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvEmulatorTryIoEmulation(void* emulator, void* context, void* vpcontext, void* ioinstructioncontext, void* emulatorreturnstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1867,7 +1867,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation(void* emulator, void* context, void* vpcontext, void* mmioinstructioncontext, void* emulatorreturnstatus) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvEmulatorTryMmioEmulation(void* emulator, void* context, void* vpcontext, void* mmioinstructioncontext, void* emulatorreturnstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1893,7 +1893,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetCapability(int32_t capabilitycode, void* capabilitybuffer, uint32_t capabilitybuffersizeinbytes, void* writtensizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetCapability(int32_t capabilitycode, void* capabilitybuffer, uint32_t capabilitybuffersizeinbytes, void* writtensizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1918,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetCapability(int32_t capa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet(int64_t partition, uint64_t destination, int32_t destinationmode, void* targetvps, uint32_t vpcount, void* targetvpcount) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetInterruptTargetVpSet(int64_t partition, uint64_t destination, int32_t destinationmode, void* targetvps, uint32_t vpcount, void* targetvpcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1945,7 +1945,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters(int64_t partition, int32_t counterset, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetPartitionCounters(int64_t partition, int32_t counterset, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1971,7 +1971,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty(int64_t partition, int32_t propertycode, void* propertybuffer, uint32_t propertybuffersizeinbytes, void* writtensizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetPartitionProperty(int64_t partition, int32_t propertycode, void* propertybuffer, uint32_t propertybuffersizeinbytes, void* writtensizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1997,7 +1997,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters(int64_t partition, uint32_t vpindex, int32_t counterset, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorCounters(int64_t partition, uint32_t vpindex, int32_t counterset, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2024,7 +2024,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounter
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput(int64_t partition, uint32_t vpindex, uint32_t eax, uint32_t ecx, void* cpuidoutput) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorCpuidOutput(int64_t partition, uint32_t vpindex, uint32_t eax, uint32_t ecx, void* cpuidoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2050,7 +2050,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize, void* writtensize) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorInterruptControllerState(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize, void* writtensize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2076,7 +2076,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterru
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize, void* writtensize) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorInterruptControllerState2(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize, void* writtensize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2102,7 +2102,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterru
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters(int64_t partition, uint32_t vpindex, void* registernames, uint32_t registercount, void* registervalues) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorRegisters(int64_t partition, uint32_t vpindex, void* registernames, uint32_t registercount, void* registervalues) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2128,7 +2128,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegiste
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState(int64_t partition, uint32_t vpindex, int32_t statetype, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorState(int64_t partition, uint32_t vpindex, int32_t statetype, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2155,7 +2155,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState(i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState(int64_t partition, uint32_t vpindex, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorXsaveState(int64_t partition, uint32_t vpindex, void* buffer, uint32_t buffersizeinbytes, void* byteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2181,7 +2181,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget(int64_t partition, uint64_t logicaldeviceid, uint32_t arg_2_index, uint32_t multimessagenumber, void* target, uint32_t targetsizeinbytes, void* byteswritten) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVpciDeviceInterruptTarget(int64_t partition, uint64_t logicaldeviceid, uint32_t arg2Index, uint32_t multimessagenumber, void* target, uint32_t targetsizeinbytes, void* byteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2192,14 +2192,14 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarg
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(partition, logicaldeviceid, arg_2_index, multimessagenumber, target, targetsizeinbytes, byteswritten);
+        return km_fn_ptr(partition, logicaldeviceid, arg2Index, multimessagenumber, target, targetsizeinbytes, byteswritten);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)partition;
     (void)logicaldeviceid;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)multimessagenumber;
     (void)target;
     (void)targetsizeinbytes;
@@ -2209,7 +2209,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarg
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification(int64_t partition, uint64_t logicaldeviceid, void* notification, uint32_t notificationsizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVpciDeviceNotification(int64_t partition, uint64_t logicaldeviceid, void* notification, uint32_t notificationsizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2234,7 +2234,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty(int64_t partition, uint64_t logicaldeviceid, int32_t propertycode, void* propertybuffer, uint32_t propertybuffersizeinbytes, void* writtensizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvGetVpciDeviceProperty(int64_t partition, uint64_t logicaldeviceid, int32_t propertycode, void* propertybuffer, uint32_t propertybuffersizeinbytes, void* writtensizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2261,7 +2261,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvMapGpaRange(int64_t partition, void* sourceaddress, uint64_t guestaddress, uint64_t sizeinbytes, int32_t flags) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvMapGpaRange(int64_t partition, void* sourceaddress, uint64_t guestaddress, uint64_t sizeinbytes, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2287,7 +2287,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvMapGpaRange(int64_t partit
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2(int64_t partition, void* process, void* sourceaddress, uint64_t guestaddress, uint64_t sizeinbytes, int32_t flags) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvMapGpaRange2(int64_t partition, void* process, void* sourceaddress, uint64_t guestaddress, uint64_t sizeinbytes, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2314,7 +2314,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2(int64_t parti
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint32_t arg_2_index, uint32_t messagecount, void* target, void* msiaddress, void* msidata) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvMapVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint32_t arg2Index, uint32_t messagecount, void* target, void* msiaddress, void* msidata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2325,14 +2325,14 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(int
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(partition, logicaldeviceid, arg_2_index, messagecount, target, msiaddress, msidata);
+        return km_fn_ptr(partition, logicaldeviceid, arg2Index, messagecount, target, msiaddress, msidata);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)partition;
     (void)logicaldeviceid;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)messagecount;
     (void)target;
     (void)msiaddress;
@@ -2342,7 +2342,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges(int64_t partition, uint64_t logicaldeviceid, void* mappingcount, void* mappings) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvMapVpciDeviceMmioRanges(int64_t partition, uint64_t logicaldeviceid, void* mappingcount, void* mappings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2367,7 +2367,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage(int64_t partition, uint32_t vpindex, uint32_t sintindex, void* message, uint32_t messagesizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvPostVirtualProcessorSynicMessage(int64_t partition, uint32_t vpindex, uint32_t sintindex, void* message, uint32_t messagesizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2393,7 +2393,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicM
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap(int64_t partition, uint64_t guestaddress, uint64_t rangesizeinbytes, void* bitmap, uint32_t bitmapsizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvQueryGpaRangeDirtyBitmap(int64_t partition, uint64_t guestaddress, uint64_t rangesizeinbytes, void* bitmap, uint32_t bitmapsizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2419,7 +2419,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap(i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister(int64_t partition, uint64_t logicaldeviceid, void* arg_2_register, void* data) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvReadVpciDeviceRegister(int64_t partition, uint64_t logicaldeviceid, void* arg2Register, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2430,21 +2430,21 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister(int
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(partition, logicaldeviceid, arg_2_register, data);
+        return km_fn_ptr(partition, logicaldeviceid, arg2Register, data);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)partition;
     (void)logicaldeviceid;
-    (void)arg_2_register;
+    (void)arg2Register;
     (void)data;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent(int64_t partition, void* matchdata, void* eventhandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvRegisterPartitionDoorbellEvent(int64_t partition, void* matchdata, void* eventhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2468,7 +2468,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellE
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt(int64_t partition, void* interrupt, uint32_t interruptcontrolsize) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvRequestInterrupt(int64_t partition, void* interrupt, uint32_t interruptcontrolsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2492,7 +2492,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt(int64_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint64_t msiaddress, uint32_t msidata) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvRequestVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint64_t msiaddress, uint32_t msidata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2517,7 +2517,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvResetPartition(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvResetPartition(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2539,7 +2539,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvResetPartition(int64_t par
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvResumePartitionTime(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2561,7 +2561,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint64_t msiaddress, uint32_t msidata, void* target) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvRetargetVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint64_t msiaddress, uint32_t msidata, void* target) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2587,7 +2587,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrup
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor(int64_t partition, uint32_t vpindex, void* exitcontext, uint32_t exitcontextsizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvRunVirtualProcessor(int64_t partition, uint32_t vpindex, void* exitcontext, uint32_t exitcontextsizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2612,7 +2612,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty(int64_t partition, void* porthandle, int32_t propertycode, uint64_t propertyvalue) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetNotificationPortProperty(int64_t partition, void* porthandle, int32_t propertycode, uint64_t propertyvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2637,7 +2637,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortPropert
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty(int64_t partition, int32_t propertycode, void* propertybuffer, uint32_t propertybuffersizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetPartitionProperty(int64_t partition, int32_t propertycode, void* propertybuffer, uint32_t propertybuffersizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2662,7 +2662,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorInterruptControllerState(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2687,7 +2687,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterru
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorInterruptControllerState2(int64_t partition, uint32_t vpindex, void* state, uint32_t statesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2712,7 +2712,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterru
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters(int64_t partition, uint32_t vpindex, void* registernames, uint32_t registercount, void* registervalues) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorRegisters(int64_t partition, uint32_t vpindex, void* registernames, uint32_t registercount, void* registervalues) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2738,7 +2738,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegiste
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState(int64_t partition, uint32_t vpindex, int32_t statetype, void* buffer, uint32_t buffersizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorState(int64_t partition, uint32_t vpindex, int32_t statetype, void* buffer, uint32_t buffersizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2764,7 +2764,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState(i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState(int64_t partition, uint32_t vpindex, void* buffer, uint32_t buffersizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorXsaveState(int64_t partition, uint32_t vpindex, void* buffer, uint32_t buffersizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2789,7 +2789,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState(int64_t partition, uint64_t logicaldeviceid, int32_t powerstate) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetVpciDevicePowerState(int64_t partition, uint64_t logicaldeviceid, int32_t powerstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2813,7 +2813,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSetupPartition(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSetupPartition(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2835,7 +2835,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSetupPartition(int64_t par
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration(int64_t partition, void* migrationhandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvStartPartitionMigration(int64_t partition, void* migrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2858,7 +2858,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime(int64_t partition) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvSuspendPartitionTime(int64_t partition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2880,7 +2880,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvTranslateGva(int64_t partition, uint32_t vpindex, uint64_t gva, int32_t translateflags, void* translationresult, void* gpa) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvTranslateGva(int64_t partition, uint32_t vpindex, uint64_t gva, int32_t translateflags, void* translationresult, void* gpa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2907,7 +2907,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvTranslateGva(int64_t parti
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange(int64_t partition, uint64_t guestaddress, uint64_t sizeinbytes) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvUnmapGpaRange(int64_t partition, uint64_t guestaddress, uint64_t sizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2931,7 +2931,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange(int64_t part
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint32_t arg_2_index) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceInterrupt(int64_t partition, uint64_t logicaldeviceid, uint32_t arg2Index) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2942,20 +2942,20 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt(i
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(partition, logicaldeviceid, arg_2_index);
+        return km_fn_ptr(partition, logicaldeviceid, arg2Index);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)partition;
     (void)logicaldeviceid;
-    (void)arg_2_index;
+    (void)arg2Index;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges(int64_t partition, uint64_t logicaldeviceid) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceMmioRanges(int64_t partition, uint64_t logicaldeviceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2978,7 +2978,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent(int64_t partition, void* matchdata) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvUnregisterPartitionDoorbellEvent(int64_t partition, void* matchdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3001,7 +3001,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbel
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters(int64_t partition, void* parameters, void* triggerhandle) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvUpdateTriggerParameters(int64_t partition, void* parameters, void* triggerhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3025,7 +3025,7 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister(int64_t partition, uint64_t logicaldeviceid, void* arg_2_register, void* data) {
+int32_t windowssysWindowsWin32SystemHypervisorWHvWriteVpciDeviceRegister(int64_t partition, uint64_t logicaldeviceid, void* arg2Register, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3036,14 +3036,14 @@ int32_t windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister(in
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(partition, logicaldeviceid, arg_2_register, data);
+        return km_fn_ptr(partition, logicaldeviceid, arg2Register, data);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)partition;
     (void)logicaldeviceid;
-    (void)arg_2_register;
+    (void)arg2Register;
     (void)data;
     errno = ENOSYS;
     return -1;

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstyle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dpicontexta = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dpicontextb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqua
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -236,7 +236,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForPr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiForMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDpiForMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dpitype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -267,7 +267,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiForMonitor_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiForSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDpiForSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -290,7 +290,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiForSystem_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiForWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDpiForWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiForWindow_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -340,7 +340,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetProcessDpiAwareness_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -367,7 +367,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetSystemDpiForProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -392,7 +392,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dpi = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -442,7 +442,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContex
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -465,7 +465,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -490,7 +490,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContex
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -515,7 +515,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -567,7 +567,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_openThemeDataForDpi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiOpenThemeDataForDpi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclasslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -596,7 +596,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_openThemeDataForDpi_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -623,7 +623,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mask = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -652,7 +652,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mask = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -681,7 +681,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSetProcessDpiAwareness_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t value = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -706,7 +706,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -731,7 +731,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dpicontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -756,7 +756,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContex
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t value = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiparam = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -815,35 +815,35 @@ static Napi::Value windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi_
 }
 
 static void register_windows_win32_ui_hidpi_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDpiForMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDpiForMonitor_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDpiForSystem", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDpiForSystem_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDpiForWindow", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDpiForWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_openThemeDataForDpi", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_openThemeDataForDpi_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior_napi));
-    exports.Set("windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi", Napi::Function::New(env, windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi", Napi::Function::New(env, windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual", Napi::Function::New(env, windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling", Napi::Function::New(env, windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDpiForMonitor", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDpiForMonitor_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDpiForSystem", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDpiForSystem_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDpiForWindow", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDpiForWindow_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetProcessDpiAwareness", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetProcessDpiAwareness_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetSystemDpiForProcess", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetSystemDpiForProcess_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI", Napi::Function::New(env, windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiOpenThemeDataForDpi", Napi::Function::New(env, windowssysWindowsWin32UiHidpiOpenThemeDataForDpi_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI", Napi::Function::New(env, windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSetProcessDpiAwareness", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSetProcessDpiAwareness_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior_napi));
+    exports.Set("windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi", Napi::Function::New(env, windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_hidpi_napi, nullptr };

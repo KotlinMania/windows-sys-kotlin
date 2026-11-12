@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock(void* lock, bool fwrite, void* lockstate) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisAcquireReadWriteLock(void* lock, bool fwrite, void* lockstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag(void* virtualaddress, uint32_t length, uint32_t tag) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisAllocateMemoryWithTag(void* virtualaddress, uint32_t length, uint32_t tag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag(
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer(void* timer, void* timercancelled) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCancelTimer(void* timer, void* timercancelled) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer(void* timer, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty(void* ndisvchandle, void* protocolpartycontext, void* callparameters, void* ndispartyhandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClAddParty(void* ndisvchandle, void* protocolpartycontext, void* callparameters, void* ndispartyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty(void* ndisv
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily(void* ndisafhandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClCloseAddressFamily(void* ndisafhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall(void* ndisvchandle, void* ndispartyhandle, void* buffer, uint32_t size) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClCloseCall(void* ndisvchandle, void* ndispartyhandle, void* buffer, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall(void* ndis
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap(void* ndissaphandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClDeregisterSap(void* ndissaphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -178,7 +178,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty(void* ndispartyhandle, void* buffer, uint32_t size) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClDropParty(void* ndispartyhandle, void* buffer, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty(void* ndis
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete(int32_t status, void* ndisvchandle, void* callparameters) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisClIncomingCallComplete(int32_t status, void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall(void* ndisvchandle, void* callparameters, void* protocolpartycontext, void* ndispartyhandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClMakeCall(void* ndisvchandle, void* callparameters, void* protocolpartycontext, void* ndispartyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall(void* ndisv
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS(void* ndisvchandle, void* callparameters) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClModifyCallQoS(void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -273,7 +273,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap(void* ndisafhandle, void* protocolsapcontext, void* sap, void* ndissaphandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisClRegisterSap(void* ndisafhandle, void* protocolsapcontext, void* sap, void* ndissaphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -298,7 +298,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap(void* nd
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration(void* configurationhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCloseConfiguration(void* configurationhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -319,7 +319,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration(void* 
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile(void* filehandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCloseFile(void* filehandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile(void* filehandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc(void* ndisvchandle, void* callparameters) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCmActivateVc(void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc(void* ndi
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete(int32_t status, void* ndispartyhandle, void* callmgrpartycontext, void* callparameters) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmAddPartyComplete(int32_t status, void* ndispartyhandle, void* callmgrpartycontext, void* callparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -387,7 +387,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete(int32_
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete(int32_t status, void* ndisafhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseAddressFamilyComplete(int32_t status, void* ndisafhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyCompl
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete(int32_t status, void* ndisvchandle, void* ndispartyhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseCallComplete(int32_t status, void* ndisvchandle, void* ndispartyhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete(int32
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc(void* ndisvchandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCmDeactivateVc(void* ndisvchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -454,7 +454,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc(void* n
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete(int32_t status, void* ndissaphandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmDeregisterSapComplete(int32_t status, void* ndissaphandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete(i
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected(void* ndisvchandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchCallConnected(void* ndisvchandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -497,7 +497,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall(void* ndissaphandle, void* ndisvchandle, void* callparameters) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCall(void* ndissaphandle, void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -521,7 +521,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange(void* ndisvchandle, void* callparameters) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCallQoSChange(void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -543,7 +543,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoS
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall(int32_t closestatus, void* ndisvchandle, void* buffer, uint32_t size) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCloseCall(int32_t closestatus, void* ndisvchandle, void* buffer, uint32_t size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -567,7 +567,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCa
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty(int32_t dropstatus, void* ndispartyhandle, void* buffer, uint32_t size) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingDropParty(int32_t dropstatus, void* ndispartyhandle, void* buffer, uint32_t size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -591,7 +591,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropPar
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete(int32_t status, void* ndispartyhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmDropPartyComplete(int32_t status, void* ndispartyhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -613,7 +613,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete(int32
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete(int32_t status, void* ndisvchandle, void* ndispartyhandle, void* callmgrpartycontext, void* callparameters) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmMakeCallComplete(int32_t status, void* ndisvchandle, void* ndispartyhandle, void* callmgrpartycontext, void* callparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -638,7 +638,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete(int32_
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete(int32_t status, void* ndisvchandle, void* callparameters) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmModifyCallQoSComplete(int32_t status, void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -661,7 +661,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete(i
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete(int32_t status, void* ndisafhandle, void* callmgrafcontext) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmOpenAddressFamilyComplete(int32_t status, void* ndisafhandle, void* callmgrafcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -684,7 +684,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComple
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete(int32_t status, void* ndissaphandle, void* callmgrsapcontext) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCmRegisterSapComplete(int32_t status, void* ndissaphandle, void* callmgrsapcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -707,7 +707,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete(int
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName(void* ndisvchandle, void* baseinstancename, void* vcinstancename) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCoAssignInstanceName(void* ndisvchandle, void* baseinstancename, void* vcinstancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -731,7 +731,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc(void* ndisbindinghandle, void* ndisafhandle, void* protocolvccontext, void* ndisvchandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCoCreateVc(void* ndisbindinghandle, void* ndisafhandle, void* protocolvccontext, void* ndisvchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -756,7 +756,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc(void* ndisb
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc(void* ndisvchandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCoDeleteVc(void* ndisvchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -778,7 +778,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc(void* ndisv
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId(void* ndisvchandle, void* tapicallid) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisCoGetTapiCallId(void* ndisvchandle, void* tapicallid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -801,7 +801,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId(void* 
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer(void* status, void* ndisdmahandle, void* buffer, uint32_t offset, uint32_t length, bool writetodevice) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCompleteDmaTransfer(void* status, void* ndisdmahandle, void* buffer, uint32_t offset, uint32_t length, bool writetodevice) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -827,7 +827,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer(void*
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer(void* status, void* buffer, void* poolhandle, void* memorydescriptor, uint32_t offset, uint32_t length) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisCopyBuffer(void* status, void* buffer, void* poolhandle, void* memorydescriptor, uint32_t offset, uint32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -853,7 +853,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer(void* status, 
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack(void) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisDeregisterTdiCallBack(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -873,7 +873,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack(voi
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory(void* virtualaddress, uint32_t length, uint32_t memoryflags) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisFreeMemory(void* virtualaddress, uint32_t length, uint32_t memoryflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory(void* virtuala
 #endif
 }
 
-uint8_t windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId(void) {
+uint8_t windowssysWindowsWdkNetworkmanagementNdisNdisGeneratePartialCancelId(void) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ uint8_t windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelI
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts(void* pidlecount, void* pkernelanduser, void* pindex) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCounts(void* pidlecount, void* pkernelanduser, void* pindex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +940,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage(void* pcpuusage) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCpuUsage(void* pcpuusage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -961,7 +961,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsa
 #endif
 }
 
-void* windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress(void* ndisroutinename) {
+void* windowssysWindowsWdkNetworkmanagementNdisNdisGetRoutineAddress(void* ndisroutinename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -983,7 +983,7 @@ void* windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment(void) {
+uint32_t windowssysWindowsWdkNetworkmanagementNdisNdisGetSharedDataAlignment(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1004,7 +1004,7 @@ uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignmen
 #endif
 }
 
-uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion(void) {
+uint32_t windowssysWindowsWdkNetworkmanagementNdisNdisGetVersion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1025,7 +1025,7 @@ uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion(void) {
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport(void* driverhandle, void* protocolhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisIMAssociateMiniport(void* driverhandle, void* protocolhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1047,7 +1047,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance(void* driverhandle, void* deviceinstance) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisIMCancelInitializeDeviceInstance(void* driverhandle, void* deviceinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1070,7 +1070,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDevi
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance(void* ndisminiporthandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisIMDeInitializeDeviceInstance(void* ndisminiporthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1092,7 +1092,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceIn
 #endif
 }
 
-void* windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext(void* ndisbindinghandle) {
+void* windowssysWindowsWdkNetworkmanagementNdisNdisIMGetBindingContext(void* ndisbindinghandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1114,7 @@ void* windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx(void* driverhandle, void* driverinstance, void* devicecontext) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisIMInitializeDeviceInstanceEx(void* driverhandle, void* driverinstance, void* devicecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1138,7 +1138,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInst
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent(void* event) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisInitializeEvent(void* event) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent(void* eve
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock(void* lock) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisInitializeReadWriteLock(void* lock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1180,7 +1180,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock(v
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString(void* destination, void* source) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisInitializeString(void* destination, void* source) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1202,7 +1202,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString(void* de
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer(void* timer, void* timerfunction, void* functioncontext) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisInitializeTimer(void* timer, void* timerfunction, void* functioncontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1225,7 +1225,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer(void* tim
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory(void* miniportadapterhandle, uint32_t length, bool cached, void* virtualaddress, void* physicaladdress) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemory(void* miniportadapterhandle, uint32_t length, bool cached, void* virtualaddress, void* physicaladdress) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1250,7 +1250,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync(void* miniportadapterhandle, uint32_t length, bool cached, void* context) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemoryAsync(void* miniportadapterhandle, uint32_t length, bool cached, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1275,7 +1275,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryA
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer(void* timer, void* timercancelled) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMCancelTimer(void* timer, void* timercancelled) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer(void* timer,
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog(void* loghandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMCloseLog(void* loghandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1318,7 +1318,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog(void* loghandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc(void* ndisvchandle, void* callparameters) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMCmActivateVc(void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1341,7 +1341,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc(void* nd
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc(void* miniportadapterhandle, void* ndisafhandle, void* miniportvccontext, void* ndisvchandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMCmCreateVc(void* miniportadapterhandle, void* ndisafhandle, void* miniportvccontext, void* ndisvchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1366,7 +1366,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc(void* mini
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc(void* ndisvchandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeactivateVc(void* ndisvchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1388,7 +1388,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc(void* ndisvchandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeleteVc(void* ndisvchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1410,7 +1410,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc(void* ndis
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily(void* miniportadapterhandle, void* addressfamily, void* cmcharacteristics, uint32_t sizeofcmcharacteristics) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMCmRegisterAddressFamily(void* miniportadapterhandle, void* addressfamily, void* cmcharacteristics, uint32_t sizeofcmcharacteristics) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFami
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete(int32_t status, void* ndisvchandle, void* callparameters) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMCoActivateVcComplete(int32_t status, void* ndisvchandle, void* callparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1458,7 +1458,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete(int
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete(int32_t status, void* ndisvchandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMCoDeactivateVcComplete(int32_t status, void* ndisvchandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1480,7 +1480,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete(i
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog(void* miniportadapterhandle, uint32_t size, void* loghandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMCreateLog(void* miniportadapterhandle, uint32_t size, void* loghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1504,7 +1504,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog(void* minip
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel(void* miniportdmahandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterDmaChannel(void* miniportdmahandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1525,7 +1525,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel(voi
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange(void* miniportadapterhandle, uint32_t initialport, uint32_t numberofports, void* portoffset) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterIoPortRange(void* miniportadapterhandle, uint32_t initialport, uint32_t numberofports, void* portoffset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1549,7 +1549,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange(vo
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog(void* loghandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMFlushLog(void* loghandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog(void* loghandle
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory(void* miniportadapterhandle, uint32_t length, bool cached, void* virtualaddress, int64_t physicaladdress) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMFreeSharedMemory(void* miniportadapterhandle, uint32_t length, bool cached, void* virtualaddress, int64_t physicaladdress) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, bool, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1595,7 +1595,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory(void* m
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty(void* miniportadapterhandle, void* physicaldeviceobject, void* functionaldeviceobject, void* nextdeviceobject, void* allocatedresources, void* allocatedresourcestranslated) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMGetDeviceProperty(void* miniportadapterhandle, void* physicaldeviceobject, void* functionaldeviceobject, void* nextdeviceobject, void* allocatedresources, void* allocatedresourcestranslated) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1621,7 +1621,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment(void* miniportadapterhandle) {
+uint32_t windowssysWindowsWdkNetworkmanagementNdisNdisMGetDmaAlignment(void* miniportadapterhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1643,7 +1643,7 @@ uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment(void
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer(void* timer, void* miniportadapterhandle, void* timerfunction, void* functioncontext) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMInitializeTimer(void* timer, void* miniportadapterhandle, void* timerfunction, void* functioncontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1667,7 +1667,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer(void* ti
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace(void* virtualaddress, void* miniportadapterhandle, int64_t physicaladdress, uint32_t length) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMMapIoSpace(void* virtualaddress, void* miniportadapterhandle, int64_t physicaladdress, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace(void* virt
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName(void* padapterinstancename, void* miniporthandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMQueryAdapterInstanceName(void* padapterinstancename, void* miniporthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1715,7 +1715,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceN
 #endif
 }
 
-uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter(void* miniportdmahandle) {
+uint32_t windowssysWindowsWdkNetworkmanagementNdisNdisMReadDmaCounter(void* miniportdmahandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1737,7 +1737,7 @@ uint32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel(void* miniportdmahandle, void* miniportadapterhandle, uint32_t dmachannel, bool dma32bitaddresses, void* dmadescription, uint32_t maximumlength) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterDmaChannel(void* miniportdmahandle, void* miniportadapterhandle, uint32_t dmachannel, bool dma32bitaddresses, void* dmadescription, uint32_t maximumlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1764,7 +1764,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange(void* portoffset, void* miniportadapterhandle, uint32_t initialport, uint32_t numberofports) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterIoPortRange(void* portoffset, void* miniportadapterhandle, uint32_t initialport, uint32_t numberofports) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1789,7 +1789,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport(void* miniporthandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMRemoveMiniport(void* miniporthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1811,7 +1811,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport(void* 
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer(void* timer, uint32_t millisecondperiod) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMSetPeriodicTimer(void* timer, uint32_t millisecondperiod) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1833,7 +1833,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer(void* t
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep(uint32_t microsecondstosleep) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMSleep(uint32_t microsecondstosleep) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1854,7 +1854,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep(uint32_t microseco
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace(void* miniportadapterhandle, void* virtualaddress, uint32_t length) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMUnmapIoSpace(void* miniportadapterhandle, void* virtualaddress, uint32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1877,7 +1877,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace(void* minip
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData(void* loghandle, void* logbuffer, uint32_t logbuffersize) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisMWriteLogData(void* loghandle, void* logbuffer, uint32_t logbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1901,7 +1901,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData(void* lo
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile(void* status, void* mappedbuffer, void* filehandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisMapFile(void* status, void* mappedbuffer, void* filehandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1924,7 +1924,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile(void* status, voi
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex(void* status, void* configurationhandle, uint32_t arg_2_index, void* keyname, void* keyhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByIndex(void* status, void* configurationhandle, uint32_t arg2Index, void* keyname, void* keyhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1935,21 +1935,21 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByInd
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(status, configurationhandle, arg_2_index, keyname, keyhandle);
+        km_fn_ptr(status, configurationhandle, arg2Index, keyname, keyhandle);
         return;
     }
     errno = ENOSYS;
 #else
     (void)status;
     (void)configurationhandle;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)keyname;
     (void)keyhandle;
     errno = ENOSYS;
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName(void* status, void* configurationhandle, void* subkeyname, void* subkeyhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByName(void* status, void* configurationhandle, void* subkeyname, void* subkeyhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1973,7 +1973,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByNam
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile(void* status, void* filehandle, void* filelength, void* filename, int64_t highestacceptableaddress) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisOpenFile(void* status, void* filehandle, void* filelength, void* filename, int64_t highestacceptableaddress) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1998,7 +1998,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile(void* status, vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName(void* padapterinstancename, void* ndisbindinghandle) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisQueryAdapterInstanceName(void* padapterinstancename, void* ndisbindinghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2021,7 +2021,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceNa
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName(void* padapterinstancename, void* bindingcontext) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisQueryBindInstanceName(void* padapterinstancename, void* bindingcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2044,7 +2044,7 @@ int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName(
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings(void* ndisprotocolhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisReEnumerateProtocolBindings(void* ndisprotocolhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2065,7 +2065,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindin
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration(void* status, void* parametervalue, void* configurationhandle, void* keyword, int32_t parametertype) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisReadConfiguration(void* status, void* parametervalue, void* configurationhandle, void* keyword, int32_t parametertype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2090,7 +2090,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration(void* s
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress(void* status, void* networkaddress, void* networkaddresslength, void* configurationhandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisReadNetworkAddress(void* status, void* networkaddress, void* networkaddresslength, void* configurationhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2114,7 +2114,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress(void* 
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack(void* registercallback, void* pnphandler) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisRegisterTdiCallBack(void* registercallback, void* pnphandler) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2136,7 +2136,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack(void*
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock(void* lock, void* lockstate) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisReleaseReadWriteLock(void* lock, void* lockstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2158,7 +2158,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock(void
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent(void* event) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisResetEvent(void* event) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2179,7 +2179,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent(void* event) {
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent(void* event) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisSetEvent(void* event) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2200,7 +2200,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent(void* event) {
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer(void* ndistimer, uint32_t millisecondsperiod) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisSetPeriodicTimer(void* ndistimer, uint32_t millisecondsperiod) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2222,7 +2222,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer(void* nd
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer(void* timer, uint32_t millisecondstodelay) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisSetTimer(void* timer, uint32_t millisecondstodelay) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2244,7 +2244,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer(void* timer, uin
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx(void* ndistimer, uint32_t millisecondstodelay, void* functioncontext) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisSetTimerEx(void* ndistimer, uint32_t millisecondstodelay, void* functioncontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2267,7 +2267,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx(void* ndistime
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer(void* status, void* ndisdmahandle, void* buffer, uint32_t offset, uint32_t length, bool writetodevice) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisSetupDmaTransfer(void* status, void* ndisdmahandle, void* buffer, uint32_t offset, uint32_t length, bool writetodevice) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2293,7 +2293,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer(void* st
 #endif
 }
 
-int8_t windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount(void) {
+int8_t windowssysWindowsWdkNetworkmanagementNdisNdisSystemProcessorCount(void) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2314,7 +2314,7 @@ int8_t windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount(vo
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile(void* filehandle) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisUnmapFile(void* filehandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2335,7 +2335,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile(void* filehandl
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory(void* ndisadapterhandle, uint32_t length, void* virtualaddress, int64_t physicaladdress) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisUpdateSharedMemory(void* ndisadapterhandle, uint32_t length, void* virtualaddress, int64_t physicaladdress) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2359,7 +2359,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent(void* event, uint32_t mstowait) {
+bool windowssysWindowsWdkNetworkmanagementNdisNdisWaitEvent(void* event, uint32_t mstowait) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2382,7 +2382,7 @@ bool windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent(void* event, ui
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration(void* status, void* configurationhandle, void* keyword, void* parametervalue) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisWriteConfiguration(void* status, void* configurationhandle, void* keyword, void* parametervalue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2406,7 +2406,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration(void* 
 #endif
 }
 
-void windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry(void* ndisadapterhandle, uint32_t errorcode, uint32_t numberoferrorvalues, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWdkNetworkmanagementNdisNdisWriteErrorLogEntry(void* ndisadapterhandle, uint32_t errorcode, uint32_t numberoferrorvalues, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(void*, uint32_t, uint32_t, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -2440,7 +2440,7 @@ void windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry(void* loghandle, int32_t eventcode, uint32_t uniqueeventvalue, uint16_t numstrings, void* stringslist, uint32_t datasize, void* data) {
+int32_t windowssysWindowsWdkNetworkmanagementNdisNdisWriteEventLogEntry(void* loghandle, int32_t eventcode, uint32_t uniqueeventvalue, uint16_t numstrings, void* stringslist, uint32_t datasize, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint16_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

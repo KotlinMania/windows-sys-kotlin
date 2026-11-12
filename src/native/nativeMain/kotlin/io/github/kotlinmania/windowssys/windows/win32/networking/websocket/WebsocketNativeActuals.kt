@@ -2,63 +2,65 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.websocket
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketAbortHandle
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketCompleteAction
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketDeleteHandle
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketGetAction
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketReceive
-import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssys_windows_win32_networking_websocket_webSocketSend
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketReceive
+import io.github.kotlinmania.windowssys.windows.win32.networking.websocket.cinterop.windowssysWindowsWin32NetworkingWebsocketWebSocketSend
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun webSocketAbortHandle(hwebsocket: WebSocketHandle) {
-    windowssys_windows_win32_networking_websocket_webSocketAbortHandle(hwebsocket?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle(hwebsocket.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun webSocketBeginClientHandshake(hwebsocket: WebSocketHandle, pszsubprotocols: COpaquePointer?, ulsubprotocolcount: UInt, pszextensions: COpaquePointer?, ulextensioncount: UInt, pinitialheaders: COpaquePointer?, ulinitialheadercount: UInt, padditionalheaders: COpaquePointer?, puladditionalheadercount: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake(hwebsocket?.value?.toCPointer<ByteVar>(), pszsubprotocols?.value?.toCPointer<ByteVar>(), ulsubprotocolcount, pszextensions?.value?.toCPointer<ByteVar>(), ulextensioncount, pinitialheaders?.value?.toCPointer<ByteVar>(), ulinitialheadercount, padditionalheaders?.value?.toCPointer<ByteVar>(), puladditionalheadercount?.value?.toCPointer<ByteVar>())
+public actual fun webSocketBeginClientHandshake(hwebsocket: WebSocketHandle, pszsubprotocols: ConstPtr<Pcstr>, ulsubprotocolcount: UInt, pszextensions: ConstPtr<Pcstr>, ulextensioncount: UInt, pinitialheaders: ConstPtr<WebSocketHttpHeader>, ulinitialheadercount: UInt, padditionalheaders: MutPtr<MutPtr<WebSocketHttpHeader>>, puladditionalheadercount: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake(hwebsocket.rawAddress.toCPointer<ByteVar>(), pszsubprotocols.rawAddress.toCPointer<ByteVar>(), ulsubprotocolcount, pszextensions.rawAddress.toCPointer<ByteVar>(), ulextensioncount, pinitialheaders.rawAddress.toCPointer<ByteVar>(), ulinitialheadercount, padditionalheaders.rawAddress.toCPointer<ByteVar>(), puladditionalheadercount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketBeginServerHandshake(hwebsocket: WebSocketHandle, pszsubprotocolselected: Pcstr, pszextensionselected: COpaquePointer?, ulextensionselectedcount: UInt, prequestheaders: COpaquePointer?, ulrequestheadercount: UInt, presponseheaders: COpaquePointer?, pulresponseheadercount: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake(hwebsocket?.value?.toCPointer<ByteVar>(), pszsubprotocolselected?.value?.toCPointer<ByteVar>(), pszextensionselected?.value?.toCPointer<ByteVar>(), ulextensionselectedcount, prequestheaders?.value?.toCPointer<ByteVar>(), ulrequestheadercount, presponseheaders?.value?.toCPointer<ByteVar>(), pulresponseheadercount?.value?.toCPointer<ByteVar>())
+public actual fun webSocketBeginServerHandshake(hwebsocket: WebSocketHandle, pszsubprotocolselected: Pcstr, pszextensionselected: ConstPtr<Pcstr>, ulextensionselectedcount: UInt, prequestheaders: ConstPtr<WebSocketHttpHeader>, ulrequestheadercount: UInt, presponseheaders: MutPtr<MutPtr<WebSocketHttpHeader>>, pulresponseheadercount: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake(hwebsocket.rawAddress.toCPointer<ByteVar>(), pszsubprotocolselected.rawAddress.toCPointer<ByteVar>(), pszextensionselected.rawAddress.toCPointer<ByteVar>(), ulextensionselectedcount, prequestheaders.rawAddress.toCPointer<ByteVar>(), ulrequestheadercount, presponseheaders.rawAddress.toCPointer<ByteVar>(), pulresponseheadercount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketCompleteAction(hwebsocket: WebSocketHandle, pvactioncontext: COpaquePointer?, ulbytestransferred: UInt) {
-    windowssys_windows_win32_networking_websocket_webSocketCompleteAction(hwebsocket?.value?.toCPointer<ByteVar>(), pvactioncontext?.value?.toCPointer<ByteVar>(), ulbytestransferred)
+public actual fun webSocketCompleteAction(hwebsocket: WebSocketHandle, pvactioncontext: ConstPtr<CVoid>, ulbytestransferred: UInt) {
+    windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction(hwebsocket.rawAddress.toCPointer<ByteVar>(), pvactioncontext.rawAddress.toCPointer<ByteVar>(), ulbytestransferred)
 }
 
-public actual fun webSocketCreateClientHandle(pproperties: COpaquePointer?, ulpropertycount: UInt, phwebsocket: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle(pproperties?.value?.toCPointer<ByteVar>(), ulpropertycount, phwebsocket?.value?.toCPointer<ByteVar>())
+public actual fun webSocketCreateClientHandle(pproperties: ConstPtr<WebSocketProperty>, ulpropertycount: UInt, phwebsocket: MutPtr<WebSocketHandle>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle(pproperties.rawAddress.toCPointer<ByteVar>(), ulpropertycount, phwebsocket.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketCreateServerHandle(pproperties: COpaquePointer?, ulpropertycount: UInt, phwebsocket: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle(pproperties?.value?.toCPointer<ByteVar>(), ulpropertycount, phwebsocket?.value?.toCPointer<ByteVar>())
+public actual fun webSocketCreateServerHandle(pproperties: ConstPtr<WebSocketProperty>, ulpropertycount: UInt, phwebsocket: MutPtr<WebSocketHandle>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle(pproperties.rawAddress.toCPointer<ByteVar>(), ulpropertycount, phwebsocket.rawAddress.toCPointer<ByteVar>())
 
 public actual fun webSocketDeleteHandle(hwebsocket: WebSocketHandle) {
-    windowssys_windows_win32_networking_websocket_webSocketDeleteHandle(hwebsocket?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle(hwebsocket.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun webSocketEndClientHandshake(hwebsocket: WebSocketHandle, presponseheaders: COpaquePointer?, ulreponseheadercount: UInt, pulselectedextensions: COpaquePointer?, pulselectedextensioncount: COpaquePointer?, pulselectedsubprotocol: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake(hwebsocket?.value?.toCPointer<ByteVar>(), presponseheaders?.value?.toCPointer<ByteVar>(), ulreponseheadercount, pulselectedextensions?.value?.toCPointer<ByteVar>(), pulselectedextensioncount?.value?.toCPointer<ByteVar>(), pulselectedsubprotocol?.value?.toCPointer<ByteVar>())
+public actual fun webSocketEndClientHandshake(hwebsocket: WebSocketHandle, presponseheaders: ConstPtr<WebSocketHttpHeader>, ulreponseheadercount: UInt, pulselectedextensions: MutPtr<UInt>, pulselectedextensioncount: MutPtr<UInt>, pulselectedsubprotocol: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake(hwebsocket.rawAddress.toCPointer<ByteVar>(), presponseheaders.rawAddress.toCPointer<ByteVar>(), ulreponseheadercount, pulselectedextensions.rawAddress.toCPointer<ByteVar>(), pulselectedextensioncount.rawAddress.toCPointer<ByteVar>(), pulselectedsubprotocol.rawAddress.toCPointer<ByteVar>())
 
 public actual fun webSocketEndServerHandshake(hwebsocket: WebSocketHandle): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake(hwebsocket?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake(hwebsocket.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketGetAction(hwebsocket: WebSocketHandle, eactionqueue: WebSocketActionQueue, pdatabuffers: COpaquePointer?, puldatabuffercount: COpaquePointer?, paction: COpaquePointer?, pbuffertype: COpaquePointer?, pvapplicationcontext: COpaquePointer?, pvactioncontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketGetAction(hwebsocket?.value?.toCPointer<ByteVar>(), eactionqueue, pdatabuffers?.value?.toCPointer<ByteVar>(), puldatabuffercount?.value?.toCPointer<ByteVar>(), paction?.value?.toCPointer<ByteVar>(), pbuffertype?.value?.toCPointer<ByteVar>(), pvapplicationcontext?.value?.toCPointer<ByteVar>(), pvactioncontext?.value?.toCPointer<ByteVar>())
+public actual fun webSocketGetAction(hwebsocket: WebSocketHandle, eactionqueue: WebSocketActionQueue, pdatabuffers: MutPtr<WebSocketBuffer>, puldatabuffercount: MutPtr<UInt>, paction: MutPtr<WebSocketAction>, pbuffertype: MutPtr<WebSocketBufferType>, pvapplicationcontext: MutPtr<MutPtr<CVoid>>, pvactioncontext: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction(hwebsocket.rawAddress.toCPointer<ByteVar>(), eactionqueue, pdatabuffers.rawAddress.toCPointer<ByteVar>(), puldatabuffercount.rawAddress.toCPointer<ByteVar>(), paction.rawAddress.toCPointer<ByteVar>(), pbuffertype.rawAddress.toCPointer<ByteVar>(), pvapplicationcontext.rawAddress.toCPointer<ByteVar>(), pvactioncontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketGetGlobalProperty(etype: WebSocketPropertyType, pvvalue: COpaquePointer?, ulsize: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty(etype, pvvalue?.value?.toCPointer<ByteVar>(), ulsize?.value?.toCPointer<ByteVar>())
+public actual fun webSocketGetGlobalProperty(etype: WebSocketPropertyType, pvvalue: MutPtr<CVoid>, ulsize: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty(etype, pvvalue.rawAddress.toCPointer<ByteVar>(), ulsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketReceive(hwebsocket: WebSocketHandle, pbuffer: COpaquePointer?, pvcontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketReceive(hwebsocket?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>())
+public actual fun webSocketReceive(hwebsocket: WebSocketHandle, pbuffer: ConstPtr<WebSocketBuffer>, pvcontext: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketReceive(hwebsocket.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), pvcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webSocketSend(hwebsocket: WebSocketHandle, buffertype: WebSocketBufferType, pbuffer: COpaquePointer?, context: COpaquePointer?): Hresult =
-    windowssys_windows_win32_networking_websocket_webSocketSend(hwebsocket?.value?.toCPointer<ByteVar>(), buffertype, pbuffer?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
+public actual fun webSocketSend(hwebsocket: WebSocketHandle, buffertype: WebSocketBufferType, pbuffer: ConstPtr<WebSocketBuffer>, context: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32NetworkingWebsocketWebSocketSend(hwebsocket.rawAddress.toCPointer<ByteVar>(), buffertype, pbuffer.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())

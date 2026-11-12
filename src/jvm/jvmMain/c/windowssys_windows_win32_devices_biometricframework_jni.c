@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAcquireFocus(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAcquireFocus(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -43,7 +43,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAsyncEnumBiometricUnits(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAsyncEnumDatabases(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAsyncEnumServiceProviders(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAsyncMonitorFrameworkChanges(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint changetypes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint changetypes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAsyncOpenFramework(JNIEnv* km_env, jclass km_clazz, jint notificationmethod, jlong targetwindow, jint messagecode, jlong callbackroutine, jlong userdata, jint asynchronousopen, jlong frameworkhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenFramework(JNIEnv* km_env, jclass km_clazz, jint notificationmethod, jlong targetwindow, jint messagecode, jlong callbackroutine, jlong userdata, jint asynchronousopen, jlong frameworkhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -178,7 +178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioAsyncOpenSession(JNIEnv* km_env, jclass km_clazz, jint factor, jint pooltype, jint flags, jlong unitarray, jlong unitcount, jlong databaseid, jint notificationmethod, jlong targetwindow, jint messagecode, jlong callbackroutine, jlong userdata, jint asynchronousopen, jlong sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenSession(JNIEnv* km_env, jclass km_clazz, jint factor, jint pooltype, jint flags, jlong unitarray, jlong unitcount, jlong databaseid, jint notificationmethod, jlong targetwindow, jint messagecode, jlong callbackroutine, jlong userdata, jint asynchronousopen, jlong sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -215,7 +215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioCancel(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioCaptureSample(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte purpose, jbyte flags, jlong unitid, jlong sample, jlong samplesize, jlong rejectdetail) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSample(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte purpose, jbyte flags, jlong unitid, jlong sample, jlong samplesize, jlong rejectdetail) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -271,7 +271,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioCaptureSampleWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte purpose, jbyte flags, jlong capturecallback, jlong capturecallbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSampleWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte purpose, jbyte flags, jlong capturecallback, jlong capturecallbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -300,7 +300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioCloseFramework(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseFramework(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -325,7 +325,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioCloseSession(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -350,7 +350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioControlUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jint component, jint controlcode, jlong sendbuffer, jlong sendbuffersize, jlong receivebuffer, jlong receivebuffersize, jlong receivedatasize, jlong operationstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jint component, jint controlcode, jlong sendbuffer, jlong sendbuffersize, jlong receivebuffer, jlong receivebuffersize, jlong receivedatasize, jlong operationstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -384,7 +384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioControlUnitPrivileged(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jint component, jint controlcode, jlong sendbuffer, jlong sendbuffersize, jlong receivebuffer, jlong receivebuffersize, jlong receivedatasize, jlong operationstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnitPrivileged(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jint component, jint controlcode, jlong sendbuffer, jlong sendbuffersize, jlong receivebuffer, jlong receivebuffersize, jlong receivedatasize, jlong operationstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -418,7 +418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioDeleteTemplate(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jlong identity, jbyte subfactor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioDeleteTemplate(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jlong identity, jbyte subfactor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -446,7 +446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnrollBegin(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte subfactor, jint unitid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte subfactor, jint unitid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -473,7 +473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnrollCapture(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong rejectdetail) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCapture(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong rejectdetail) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnrollCaptureWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong enrollcallback, jlong enrollcallbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCaptureWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong enrollcallback, jlong enrollcallbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -526,7 +526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnrollCommit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jlong isnewtemplate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCommit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jlong isnewtemplate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -553,7 +553,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnrollDiscard(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollDiscard(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -578,7 +578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnrollSelect(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong selectorvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong selectorvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -604,7 +604,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnumBiometricUnits(JNIEnv* km_env, jclass km_clazz, jint factor, jlong unitschemaarray, jlong unitcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumBiometricUnits(JNIEnv* km_env, jclass km_clazz, jint factor, jlong unitschemaarray, jlong unitcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -631,7 +631,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnumDatabases(JNIEnv* km_env, jclass km_clazz, jint factor, jlong storageschemaarray, jlong storagecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumDatabases(JNIEnv* km_env, jclass km_clazz, jint factor, jlong storageschemaarray, jlong storagecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -658,7 +658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnumEnrollments(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jlong identity, jlong subfactorarray, jlong subfactorcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumEnrollments(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jlong identity, jlong subfactorarray, jlong subfactorcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -687,7 +687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioEnumServiceProviders(JNIEnv* km_env, jclass km_clazz, jint factor, jlong bspschemaarray, jlong bspcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumServiceProviders(JNIEnv* km_env, jclass km_clazz, jint factor, jlong bspschemaarray, jlong bspcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -714,7 +714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioFree(JNIEnv* km_env, jclass km_clazz, jlong address) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioFree(JNIEnv* km_env, jclass km_clazz, jlong address) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -739,7 +739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioGetDomainLogonSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetDomainLogonSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -761,7 +761,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioGetEnabledSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnabledSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -783,7 +783,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioGetEnrolledFactors(JNIEnv* km_env, jclass km_clazz, jlong accountowner, jlong enrolledfactors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnrolledFactors(JNIEnv* km_env, jclass km_clazz, jlong accountowner, jlong enrolledfactors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -809,7 +809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioGetLogonSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetLogonSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -831,7 +831,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioGetProperty(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint propertytype, jint propertyid, jint unitid, jlong identity, jbyte subfactor, jlong propertybuffer, jlong propertybuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetProperty(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint propertytype, jint propertyid, jint unitid, jlong identity, jbyte subfactor, jlong propertybuffer, jlong propertybuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -863,7 +863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioIdentify(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong unitid, jlong identity, jlong subfactor, jlong rejectdetail) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentify(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong unitid, jlong identity, jlong subfactor, jlong rejectdetail) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -892,7 +892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioIdentifyWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identifycallback, jlong identifycallbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentifyWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identifycallback, jlong identifycallbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -919,7 +919,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioImproveBegin(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveBegin(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -945,7 +945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioImproveEnd(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -970,7 +970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioLocateSensor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong unitid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong unitid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -996,7 +996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioLocateSensorWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong locatecallback, jlong locatecallbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensorWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong locatecallback, jlong locatecallbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1023,7 +1023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioLockUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLockUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1049,7 +1049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioLogonIdentifiedUser(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1074,7 +1074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioMonitorPresence(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1100,7 +1100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioOpenSession(JNIEnv* km_env, jclass km_clazz, jint factor, jint pooltype, jint flags, jlong unitarray, jlong unitcount, jlong databaseid, jlong sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioOpenSession(JNIEnv* km_env, jclass km_clazz, jint factor, jint pooltype, jint flags, jlong unitarray, jlong unitcount, jlong databaseid, jlong sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1131,7 +1131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioRegisterEventMonitor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint eventmask, jlong eventcallback, jlong eventcallbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioRegisterEventMonitor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint eventmask, jlong eventcallback, jlong eventcallbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1159,7 +1159,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioReleaseFocus(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioReleaseFocus(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1183,7 +1183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioRemoveAllCredentials(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1207,7 +1207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioRemoveAllDomainCredentials(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1231,7 +1231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioSetCredential(JNIEnv* km_env, jclass km_clazz, jint type, jlong credential, jlong credentialsize, jint format) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioSetCredential(JNIEnv* km_env, jclass km_clazz, jint type, jlong credential, jlong credentialsize, jint format) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1259,7 +1259,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioSetProperty(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint propertytype, jint propertyid, jint unitid, jlong identity, jbyte subfactor, jlong propertybuffer, jlong propertybuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioSetProperty(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint propertytype, jint propertyid, jint unitid, jlong identity, jbyte subfactor, jlong propertybuffer, jlong propertybuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1291,7 +1291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioUnlockUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioUnlockUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1317,7 +1317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioUnregisterEventMonitor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1342,7 +1342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioVerify(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jbyte subfactor, jlong unitid, jlong match, jlong rejectdetail) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioVerify(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jbyte subfactor, jlong unitid, jlong match, jlong rejectdetail) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1372,7 +1372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioVerifyWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jbyte subfactor, jlong verifycallback, jlong verifycallbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioVerifyWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jbyte subfactor, jlong verifycallback, jlong verifycallbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1401,7 +1401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssys_1windows_1win32_1devices_1biometricframework_1winBioWait(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioWait(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

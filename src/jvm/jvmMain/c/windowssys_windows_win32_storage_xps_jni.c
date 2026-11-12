@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1abortDoc(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsAbortDoc(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1deviceCapabilitiesA(JNIEnv* km_env, jclass km_clazz, jlong pdevice, jlong pport, jshort fwcapability, jlong poutput, jlong pdevmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsDeviceCapabilitiesA(JNIEnv* km_env, jclass km_clazz, jlong pdevice, jlong pport, jshort fwcapability, jlong poutput, jlong pdevmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1deviceCapabilitiesW(JNIEnv* km_env, jclass km_clazz, jlong pdevice, jlong pport, jshort fwcapability, jlong poutput, jlong pdevmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsDeviceCapabilitiesW(JNIEnv* km_env, jclass km_clazz, jlong pdevice, jlong pport, jshort fwcapability, jlong poutput, jlong pdevmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -102,7 +102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1endDoc(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsEndDoc(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1endPage(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsEndPage(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1escape(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint iescape, jint cjin, jlong pvin, jlong pvout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsEscape(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint iescape, jint cjin, jlong pvin, jlong pvout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -181,7 +181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1extEscape(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint iescape, jint cjinput, jlong lpindata, jint cjoutput, jlong lpoutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsExtEscape(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint iescape, jint cjinput, jlong lpindata, jint cjoutput, jlong lpoutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1printWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hdcblt, jint nflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsPrintWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong hdcblt, jint nflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -238,7 +238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1setAbortProc(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong proc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsSetAbortProc(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong proc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1startDocA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsStartDocA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -290,7 +290,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1startDocW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsStartDocW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -316,7 +316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssys_1windows_1win32_1storage_1xps_1startPage(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_xps_WindowsWin32StorageXpsJniBridge_windowssysWindowsWin32StorageXpsStartPage(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

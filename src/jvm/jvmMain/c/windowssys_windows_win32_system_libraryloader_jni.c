@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1addDllDirectory(JNIEnv* km_env, jclass km_clazz, jlong newdirectory) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderAddDllDirectory(JNIEnv* km_env, jclass km_clazz, jlong newdirectory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1beginUpdateResourceA(JNIEnv* km_env, jclass km_clazz, jlong pfilename, jint bdeleteexistingresources) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderBeginUpdateResourceA(JNIEnv* km_env, jclass km_clazz, jlong pfilename, jint bdeleteexistingresources) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1beginUpdateResourceW(JNIEnv* km_env, jclass km_clazz, jlong pfilename, jint bdeleteexistingresources) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderBeginUpdateResourceW(JNIEnv* km_env, jclass km_clazz, jlong pfilename, jint bdeleteexistingresources) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1disableThreadLibraryCalls(JNIEnv* km_env, jclass km_clazz, jlong hlibmodule) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderDisableThreadLibraryCalls(JNIEnv* km_env, jclass km_clazz, jlong hlibmodule) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1endUpdateResourceA(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jint fdiscard) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEndUpdateResourceA(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jint fdiscard) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1endUpdateResourceW(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jint fdiscard) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEndUpdateResourceW(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jint fdiscard) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceLanguagesA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -202,7 +202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceLanguagesExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -233,7 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceLanguagesExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceLanguagesW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceNamesA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceNamesExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -351,7 +351,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceNamesExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -381,7 +381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceNamesW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -409,7 +409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceTypesA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -436,7 +436,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceTypesExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -465,7 +465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceTypesExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam, jint dwflags, jshort langid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -494,7 +494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1enumResourceTypesW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpenumfunc, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -521,7 +521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1findResourceA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpname, jlong lptype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderFindResourceA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpname, jlong lptype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -548,7 +548,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1findResourceExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jshort wlanguage) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderFindResourceExA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jshort wlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -576,7 +576,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1findResourceExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jshort wlanguage) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderFindResourceExW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lptype, jlong lpname, jshort wlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -604,7 +604,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1findResourceW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpname, jlong lptype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderFindResourceW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpname, jlong lptype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -631,7 +631,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1freeLibraryAndExitThread(JNIEnv* km_env, jclass km_clazz, jlong hlibmodule, jint dwexitcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderFreeLibraryAndExitThread(JNIEnv* km_env, jclass km_clazz, jlong hlibmodule, jint dwexitcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -653,7 +653,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1freeResource(JNIEnv* km_env, jclass km_clazz, jlong hresdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderFreeResource(JNIEnv* km_env, jclass km_clazz, jlong hresdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -678,7 +678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getDllDirectoryA(JNIEnv* km_env, jclass km_clazz, jint nbufferlength, jlong lpbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetDllDirectoryA(JNIEnv* km_env, jclass km_clazz, jint nbufferlength, jlong lpbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -704,7 +704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getDllDirectoryW(JNIEnv* km_env, jclass km_clazz, jint nbufferlength, jlong lpbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetDllDirectoryW(JNIEnv* km_env, jclass km_clazz, jint nbufferlength, jlong lpbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -730,7 +730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getModuleFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetModuleFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -757,7 +757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getModuleFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetModuleFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -784,7 +784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getModuleHandleA(JNIEnv* km_env, jclass km_clazz, jlong lpmodulename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetModuleHandleA(JNIEnv* km_env, jclass km_clazz, jlong lpmodulename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -809,7 +809,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getModuleHandleExA(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpmodulename, jlong phmodule) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpmodulename, jlong phmodule) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -836,7 +836,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getModuleHandleExW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpmodulename, jlong phmodule) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpmodulename, jlong phmodule) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -863,7 +863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1getModuleHandleW(JNIEnv* km_env, jclass km_clazz, jlong lpmodulename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderGetModuleHandleW(JNIEnv* km_env, jclass km_clazz, jlong lpmodulename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -888,7 +888,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadLibraryA(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadLibraryA(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -913,7 +913,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadLibraryExA(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename, jlong hfile, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadLibraryExA(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename, jlong hfile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -940,7 +940,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadLibraryExW(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename, jlong hfile, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadLibraryExW(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename, jlong hfile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -967,7 +967,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadLibraryW(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadLibraryW(JNIEnv* km_env, jclass km_clazz, jlong lplibfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -992,7 +992,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadModule(JNIEnv* km_env, jclass km_clazz, jlong lpmodulename, jlong lpparameterblock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadModule(JNIEnv* km_env, jclass km_clazz, jlong lpmodulename, jlong lpparameterblock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1018,7 +1018,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadPackagedLibrary(JNIEnv* km_env, jclass km_clazz, jlong lpwlibfilename, jint reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadPackagedLibrary(JNIEnv* km_env, jclass km_clazz, jlong lpwlibfilename, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1044,7 +1044,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1loadResource(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong hresinfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLoadResource(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong hresinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1070,7 +1070,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1lockResource(JNIEnv* km_env, jclass km_clazz, jlong hresdata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderLockResource(JNIEnv* km_env, jclass km_clazz, jlong hresdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1095,7 +1095,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1queryOptionalDelayLoadedAPI(JNIEnv* km_env, jclass km_clazz, jlong hparentmodule, jlong lpdllname, jlong lpprocname, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI(JNIEnv* km_env, jclass km_clazz, jlong hparentmodule, jlong lpdllname, jlong lpprocname, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1123,7 +1123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1removeDllDirectory(JNIEnv* km_env, jclass km_clazz, jlong cookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory(JNIEnv* km_env, jclass km_clazz, jlong cookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1148,7 +1148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1setDefaultDllDirectories(JNIEnv* km_env, jclass km_clazz, jint directoryflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories(JNIEnv* km_env, jclass km_clazz, jint directoryflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1173,7 +1173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1setDllDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong lppathname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong lppathname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1198,7 +1198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1setDllDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong lppathname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong lppathname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1223,7 +1223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1sizeofResource(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong hresinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderSizeofResource(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong hresinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1249,7 +1249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1updateResourceA(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jlong lptype, jlong lpname, jshort wlanguage, jlong lpdata, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderUpdateResourceA(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jlong lptype, jlong lpname, jshort wlanguage, jlong lpdata, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1279,7 +1279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssys_1windows_1win32_1system_1libraryloader_1updateResourceW(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jlong lptype, jlong lpname, jshort wlanguage, jlong lpdata, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_libraryloader_WindowsWin32SystemLibraryloaderJniBridge_windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(JNIEnv* km_env, jclass km_clazz, jlong hupdate, jlong lptype, jlong lpname, jshort wlanguage, jlong lpdata, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

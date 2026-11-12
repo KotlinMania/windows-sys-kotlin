@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsAddLogContainer(void* plfolog, void* pcbcontainer, void* puszcontainerpath) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsAddLogContainer(void* plfolog, void* pcbcontainer, void* puszcontainerpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsAddLogContainer(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsAddLogContainerSet(void* plfolog, uint16_t ccontainers, void* pcbcontainer, void* rguszcontainerpath) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsAddLogContainerSet(void* plfolog, uint16_t ccontainers, void* pcbcontainer, void* rguszcontainerpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsAddLogContainerSet(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsAdvanceLogBase(void* pvmarshalcontext, void* plsnbase, uint32_t fflags) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsAdvanceLogBase(void* pvmarshalcontext, void* plsnbase, uint32_t fflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsAdvanceLogBase(void* pv
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsAlignReservedLog(void* pvmarshalcontext, uint32_t crecords, void* rgcbreservation, void* pcbalignreservation) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsAlignReservedLog(void* pvmarshalcontext, uint32_t crecords, void* rgcbreservation, void* pcbalignreservation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsAlignReservedLog(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsAllocReservedLog(void* pvmarshalcontext, uint32_t crecords, void* pcbadjustment) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsAllocReservedLog(void* pvmarshalcontext, uint32_t crecords, void* pcbadjustment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -137,7 +137,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsAllocReservedLog(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsCloseAndResetLogFile(void* plfolog) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsCloseAndResetLogFile(void* plfolog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsCloseAndResetLogFile(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsCloseLogFileObject(void* plfolog) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsCloseLogFileObject(void* plfolog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -181,7 +181,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsCloseLogFileObject(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsCreateLogFile(void* pplfolog, void* puszlogfilename, uint32_t fdesiredaccess, uint32_t dwsharemode, void* psdlogfile, uint32_t fcreatedisposition, uint32_t fcreateoptions, uint32_t fflagsandattributes, uint32_t flogoptionflag, void* pvcontext, uint32_t cbcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsCreateLogFile(void* pplfolog, void* puszlogfilename, uint32_t fdesiredaccess, uint32_t dwsharemode, void* psdlogfile, uint32_t fcreatedisposition, uint32_t fcreateoptions, uint32_t fflagsandattributes, uint32_t flogoptionflag, void* pvcontext, uint32_t cbcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -213,7 +213,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsCreateLogFile(void* ppl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsCreateScanContext(void* plfolog, uint32_t cfromcontainer, uint32_t ccontainers, uint8_t escanmode, void* pcxscan) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsCreateScanContext(void* plfolog, uint32_t cfromcontainer, uint32_t ccontainers, uint8_t escanmode, void* pcxscan) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -239,7 +239,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsCreateScanContext(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsDeleteLogByPointer(void* plfolog) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsDeleteLogByPointer(void* plfolog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -261,7 +261,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsDeleteLogByPointer(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsDeleteLogFile(void* puszlogfilename, void* pvreserved, uint32_t flogoptionflag, void* pvcontext, uint32_t cbcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsDeleteLogFile(void* puszlogfilename, void* pvreserved, uint32_t flogoptionflag, void* pvcontext, uint32_t cbcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsDeleteLogFile(void* pus
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsDeleteMarshallingArea(void* pvmarshalcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsDeleteMarshallingArea(void* pvmarshalcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsDeleteMarshallingArea(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_clfsFinalize(void) {
+void windowssysWindowsWdkSystemSystemservicesClfsFinalize(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -329,7 +329,7 @@ void windowssys_windows_wdk_system_systemservices_clfsFinalize(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsFlushBuffers(void* pvmarshalcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsFlushBuffers(void* pvmarshalcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsFlushBuffers(void* pvma
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsFlushToLsn(void* pvmarshalcontext, void* plsnflush, void* plsnlastflushed) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsFlushToLsn(void* pvmarshalcontext, void* plsnflush, void* plsnlastflushed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -375,7 +375,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsFlushToLsn(void* pvmars
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsFreeReservedLog(void* pvmarshalcontext, uint32_t crecords, void* pcbadjustment) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsFreeReservedLog(void* pvmarshalcontext, uint32_t crecords, void* pcbadjustment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -399,7 +399,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsFreeReservedLog(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsGetContainerName(void* plfolog, uint32_t cidlogicalcontainer, void* puszcontainername, void* pcactuallencontainername) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsGetContainerName(void* plfolog, uint32_t cidlogicalcontainer, void* puszcontainername, void* pcactuallencontainername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -424,7 +424,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsGetContainerName(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsGetIoStatistics(void* plfolog, void* pvstatsbuffer, uint32_t cbstatsbuffer, int32_t estatsclass, void* pcbstatswritten) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsGetIoStatistics(void* plfolog, void* pvstatsbuffer, uint32_t cbstatsbuffer, int32_t estatsclass, void* pcbstatswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -450,7 +450,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsGetIoStatistics(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsGetLogFileInformation(void* plfolog, void* pinfobuffer, void* pcbinfobuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsGetLogFileInformation(void* plfolog, void* pinfobuffer, void* pcbinfobuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -474,7 +474,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsGetLogFileInformation(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsInitialize(void) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsInitialize(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -495,7 +495,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsInitialize(void) {
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_clfsLsnBlockOffset(void* plsn) {
+uint32_t windowssysWindowsWdkSystemSystemservicesClfsLsnBlockOffset(void* plsn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -517,7 +517,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_clfsLsnBlockOffset(void* p
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_clfsLsnContainer(void* plsn) {
+uint32_t windowssysWindowsWdkSystemSystemservicesClfsLsnContainer(void* plsn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -539,7 +539,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_clfsLsnContainer(void* pls
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsLsnDifference(void* plsnstart, void* plsnfinish, uint32_t cbcontainer, uint32_t cbmaxblock, void* pcbdifference) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsLsnDifference(void* plsnstart, void* plsnfinish, uint32_t cbcontainer, uint32_t cbmaxblock, void* pcbdifference) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -565,7 +565,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsLsnDifference(void* pls
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_clfsLsnEqual(void* plsn1, void* plsn2) {
+bool windowssysWindowsWdkSystemSystemservicesClfsLsnEqual(void* plsn1, void* plsn2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ bool windowssys_windows_wdk_system_systemservices_clfsLsnEqual(void* plsn1, void
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_clfsLsnGreater(void* plsn1, void* plsn2) {
+bool windowssysWindowsWdkSystemSystemservicesClfsLsnGreater(void* plsn1, void* plsn2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ bool windowssys_windows_wdk_system_systemservices_clfsLsnGreater(void* plsn1, vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_clfsLsnInvalid(void* plsn) {
+bool windowssysWindowsWdkSystemSystemservicesClfsLsnInvalid(void* plsn) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ bool windowssys_windows_wdk_system_systemservices_clfsLsnInvalid(void* plsn) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_clfsLsnLess(void* plsn1, void* plsn2) {
+bool windowssysWindowsWdkSystemSystemservicesClfsLsnLess(void* plsn1, void* plsn2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -656,7 +656,7 @@ bool windowssys_windows_wdk_system_systemservices_clfsLsnLess(void* plsn1, void*
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_clfsLsnNull(void* plsn) {
+bool windowssysWindowsWdkSystemSystemservicesClfsLsnNull(void* plsn) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -678,7 +678,7 @@ bool windowssys_windows_wdk_system_systemservices_clfsLsnNull(void* plsn) {
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_clfsLsnRecordSequence(void* plsn) {
+uint32_t windowssysWindowsWdkSystemSystemservicesClfsLsnRecordSequence(void* plsn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -700,7 +700,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_clfsLsnRecordSequence(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtDeregisterManagedClient(void* clientcookie) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtDeregisterManagedClient(void* clientcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtDeregisterManagedCl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtHandleLogFileFull(void* client) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtHandleLogFileFull(void* client) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -744,7 +744,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtHandleLogFileFull(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtInstallPolicy(void* logfile, void* policy, uint32_t policylength) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtInstallPolicy(void* logfile, void* policy, uint32_t policylength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -768,7 +768,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtInstallPolicy(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtQueryPolicy(void* logfile, int32_t policytype, void* policy, void* policylength) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtQueryPolicy(void* logfile, int32_t policytype, void* policy, void* policylength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -793,7 +793,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtQueryPolicy(void* l
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtRegisterManagedClient(void* logfile, void* registrationdata, void* clientcookie) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtRegisterManagedClient(void* logfile, void* registrationdata, void* clientcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -817,7 +817,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtRegisterManagedClie
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtRemovePolicy(void* logfile, int32_t policytype) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtRemovePolicy(void* logfile, int32_t policytype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -840,7 +840,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtRemovePolicy(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtSetLogFileSize(void* logfile, void* newsizeincontainers, void* resultingsizeincontainers, void* completionroutine, void* completionroutinedata) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtSetLogFileSize(void* logfile, void* newsizeincontainers, void* resultingsizeincontainers, void* completionroutine, void* completionroutinedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -866,7 +866,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtSetLogFileSize(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtSetLogFileSizeAsClient(void* logfile, void* clientcookie, void* newsizeincontainers, void* resultingsizeincontainers, void* completionroutine, void* completionroutinedata) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtSetLogFileSizeAsClient(void* logfile, void* clientcookie, void* newsizeincontainers, void* resultingsizeincontainers, void* completionroutine, void* completionroutinedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -893,7 +893,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtSetLogFileSizeAsCli
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtTailAdvanceFailure(void* client, int32_t reason) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsMgmtTailAdvanceFailure(void* client, int32_t reason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsMgmtTailAdvanceFailure(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsQueryLogFileInformation(void* plfolog, int32_t einformationclass, void* pinfoinputbuffer, uint32_t cbinfoinputbuffer, void* pinfobuffer, void* pcbinfobuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsQueryLogFileInformation(void* plfolog, int32_t einformationclass, void* pinfoinputbuffer, uint32_t cbinfoinputbuffer, void* pinfobuffer, void* pcbinfobuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsQueryLogFileInformation
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsReadLogRecord(void* pvmarshalcontext, void* plsnfirst, int32_t pecontextmode, void* ppvreadbuffer, void* pcbreadbuffer, void* perecordtype, void* plsnundonext, void* plsnprevious, void* ppvreadcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsReadLogRecord(void* pvmarshalcontext, void* plsnfirst, int32_t pecontextmode, void* ppvreadbuffer, void* pcbreadbuffer, void* perecordtype, void* plsnundonext, void* plsnprevious, void* ppvreadcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -973,7 +973,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsReadLogRecord(void* pvm
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsReadNextLogRecord(void* pvreadcontext, void* ppvbuffer, void* pcbbuffer, void* perecordtype, void* plsnuser, void* plsnundonext, void* plsnprevious, void* plsnrecord) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsReadNextLogRecord(void* pvreadcontext, void* ppvbuffer, void* pcbbuffer, void* perecordtype, void* plsnuser, void* plsnundonext, void* plsnprevious, void* plsnrecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1002,7 +1002,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsReadNextLogRecord(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsReadPreviousRestartArea(void* pvreadcontext, void* ppvrestartbuffer, void* pcbrestartbuffer, void* plsnrestart) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsReadPreviousRestartArea(void* pvreadcontext, void* ppvrestartbuffer, void* pcbrestartbuffer, void* plsnrestart) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1027,7 +1027,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsReadPreviousRestartArea
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsReadRestartArea(void* pvmarshalcontext, void* ppvrestartbuffer, void* pcbrestartbuffer, void* plsn, void* ppvreadcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsReadRestartArea(void* pvmarshalcontext, void* ppvrestartbuffer, void* pcbrestartbuffer, void* plsn, void* ppvreadcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1053,7 +1053,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsReadRestartArea(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsRemoveLogContainer(void* plfolog, void* puszcontainerpath, bool fforce) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsRemoveLogContainer(void* plfolog, void* puszcontainerpath, bool fforce) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1077,7 +1077,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsRemoveLogContainer(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsRemoveLogContainerSet(void* plfolog, uint16_t ccontainers, void* rgwszcontainerpath, bool fforce) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsRemoveLogContainerSet(void* plfolog, uint16_t ccontainers, void* rgwszcontainerpath, bool fforce) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1102,7 +1102,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsRemoveLogContainerSet(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsReserveAndAppendLog(void* pvmarshalcontext, void* rgwriteentries, uint32_t cwriteentries, void* plsnundonext, void* plsnprevious, uint32_t creserverecords, void* rgcbreservation, uint32_t fflags, void* plsn) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsReserveAndAppendLog(void* pvmarshalcontext, void* rgwriteentries, uint32_t cwriteentries, void* plsnundonext, void* plsnprevious, uint32_t creserverecords, void* rgcbreservation, uint32_t fflags, void* plsn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1132,7 +1132,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsReserveAndAppendLog(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsReserveAndAppendLogAligned(void* pvmarshalcontext, void* rgwriteentries, uint32_t cwriteentries, uint32_t cbentryalignment, void* plsnundonext, void* plsnprevious, uint32_t creserverecords, void* rgcbreservation, uint32_t fflags, void* plsn) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsReserveAndAppendLogAligned(void* pvmarshalcontext, void* rgwriteentries, uint32_t cwriteentries, uint32_t cbentryalignment, void* plsnundonext, void* plsnprevious, uint32_t creserverecords, void* rgcbreservation, uint32_t fflags, void* plsn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1163,7 +1163,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsReserveAndAppendLogAlig
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsScanLogContainers(void* pcxscan, uint8_t escanmode) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsScanLogContainers(void* pcxscan, uint8_t escanmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1186,7 +1186,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsScanLogContainers(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsSetArchiveTail(void* plfolog, void* plsnarchivetail) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsSetArchiveTail(void* plfolog, void* plsnarchivetail) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1209,7 +1209,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsSetArchiveTail(void* pl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsSetEndOfLog(void* plfolog, void* plsnend) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsSetEndOfLog(void* plfolog, void* plsnend) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1232,7 +1232,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsSetEndOfLog(void* plfol
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsSetLogFileInformation(void* plfolog, int32_t einformationclass, void* pinfobuffer, uint32_t cbbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsSetLogFileInformation(void* plfolog, int32_t einformationclass, void* pinfobuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1257,7 +1257,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsSetLogFileInformation(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsTerminateReadLog(void* pvcursorcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsTerminateReadLog(void* pvcursorcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1279,7 +1279,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsTerminateReadLog(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_clfsWriteRestartArea(void* pvmarshalcontext, void* pvrestartbuffer, uint32_t cbrestartbuffer, void* plsnbase, uint32_t fflags, void* pcbwritten, void* plsnnext) {
+int32_t windowssysWindowsWdkSystemSystemservicesClfsWriteRestartArea(void* pvmarshalcontext, void* pvrestartbuffer, uint32_t cbrestartbuffer, void* plsnbase, uint32_t fflags, void* pcbwritten, void* plsnnext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1307,7 +1307,7 @@ int32_t windowssys_windows_wdk_system_systemservices_clfsWriteRestartArea(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_cmCallbackGetKeyObjectID(void* cookie, void* object, void* objectid, void* objectname) {
+int32_t windowssysWindowsWdkSystemSystemservicesCmCallbackGetKeyObjectID(void* cookie, void* object, void* objectid, void* objectname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1332,7 +1332,7 @@ int32_t windowssys_windows_wdk_system_systemservices_cmCallbackGetKeyObjectID(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_cmCallbackGetKeyObjectIDEx(void* cookie, void* object, void* objectid, void* objectname, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesCmCallbackGetKeyObjectIDEx(void* cookie, void* object, void* objectid, void* objectname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1358,7 +1358,7 @@ int32_t windowssys_windows_wdk_system_systemservices_cmCallbackGetKeyObjectIDEx(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_cmCallbackReleaseKeyObjectIDEx(void* objectname) {
+void windowssysWindowsWdkSystemSystemservicesCmCallbackReleaseKeyObjectIDEx(void* objectname) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1379,7 +1379,7 @@ void windowssys_windows_wdk_system_systemservices_cmCallbackReleaseKeyObjectIDEx
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_cmGetBoundTransaction(void* cookie, void* object) {
+void* windowssysWindowsWdkSystemSystemservicesCmGetBoundTransaction(void* cookie, void* object) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1402,7 +1402,7 @@ void* windowssys_windows_wdk_system_systemservices_cmGetBoundTransaction(void* c
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_cmGetCallbackVersion(void* major, void* minor) {
+void windowssysWindowsWdkSystemSystemservicesCmGetCallbackVersion(void* major, void* minor) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1424,7 +1424,7 @@ void windowssys_windows_wdk_system_systemservices_cmGetCallbackVersion(void* maj
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_cmRegisterCallback(void* function, void* context, void* cookie) {
+int32_t windowssysWindowsWdkSystemSystemservicesCmRegisterCallback(void* function, void* context, void* cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1448,7 +1448,7 @@ int32_t windowssys_windows_wdk_system_systemservices_cmRegisterCallback(void* fu
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_cmRegisterCallbackEx(void* function, void* altitude, void* driver, void* context, void* cookie, void* reserved) {
+int32_t windowssysWindowsWdkSystemSystemservicesCmRegisterCallbackEx(void* function, void* altitude, void* driver, void* context, void* cookie, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1475,7 +1475,7 @@ int32_t windowssys_windows_wdk_system_systemservices_cmRegisterCallbackEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_cmSetCallbackObjectContext(void* object, void* cookie, void* newcontext, void* oldcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesCmSetCallbackObjectContext(void* object, void* cookie, void* newcontext, void* oldcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1500,7 +1500,7 @@ int32_t windowssys_windows_wdk_system_systemservices_cmSetCallbackObjectContext(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_cmUnRegisterCallback(int64_t cookie) {
+int32_t windowssysWindowsWdkSystemSystemservicesCmUnRegisterCallback(int64_t cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1522,7 +1522,7 @@ int32_t windowssys_windows_wdk_system_systemservices_cmUnRegisterCallback(int64_
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_dbgBreakPointWithStatus(uint32_t status) {
+void windowssysWindowsWdkSystemSystemservicesDbgBreakPointWithStatus(uint32_t status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1543,7 +1543,7 @@ void windowssys_windows_wdk_system_systemservices_dbgBreakPointWithStatus(uint32
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_dbgPrint(void* format, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWdkSystemSystemservicesDbgPrint(void* format, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -1576,7 +1576,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_dbgPrint(void* format, int
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_dbgPrintEx(uint32_t componentid, uint32_t level, void* format, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWdkSystemSystemservicesDbgPrintEx(uint32_t componentid, uint32_t level, void* format, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(uint32_t, uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -1611,7 +1611,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_dbgPrintEx(uint32_t compon
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_dbgPrintReturnControlC(void* format, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWdkSystemSystemservicesDbgPrintReturnControlC(void* format, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_dbgPrintReturnControlC(voi
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_dbgPrompt(void* prompt, void* response, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesDbgPrompt(void* prompt, void* response, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1668,7 +1668,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_dbgPrompt(void* prompt, vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_dbgQueryDebugFilterState(uint32_t componentid, uint32_t level) {
+int32_t windowssysWindowsWdkSystemSystemservicesDbgQueryDebugFilterState(uint32_t componentid, uint32_t level) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1691,7 +1691,7 @@ int32_t windowssys_windows_wdk_system_systemservices_dbgQueryDebugFilterState(ui
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_dbgSetDebugFilterState(uint32_t componentid, uint32_t level, bool state) {
+int32_t windowssysWindowsWdkSystemSystemservicesDbgSetDebugFilterState(uint32_t componentid, uint32_t level, bool state) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1715,7 +1715,7 @@ int32_t windowssys_windows_wdk_system_systemservices_dbgSetDebugFilterState(uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_dbgSetDebugPrintCallback(void* debugprintcallback, bool enable) {
+int32_t windowssysWindowsWdkSystemSystemservicesDbgSetDebugPrintCallback(void* debugprintcallback, bool enable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1738,7 +1738,7 @@ int32_t windowssys_windows_wdk_system_systemservices_dbgSetDebugPrintCallback(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwActivityIdControl(uint32_t controlcode, void* activityid) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwActivityIdControl(uint32_t controlcode, void* activityid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1761,7 +1761,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwActivityIdControl(uint32
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_etwEventEnabled(int64_t reghandle, void* eventdescriptor) {
+bool windowssysWindowsWdkSystemSystemservicesEtwEventEnabled(int64_t reghandle, void* eventdescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1784,7 +1784,7 @@ bool windowssys_windows_wdk_system_systemservices_etwEventEnabled(int64_t reghan
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_etwProviderEnabled(int64_t reghandle, uint8_t level, uint64_t keyword) {
+bool windowssysWindowsWdkSystemSystemservicesEtwProviderEnabled(int64_t reghandle, uint8_t level, uint64_t keyword) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, uint8_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1808,7 +1808,7 @@ bool windowssys_windows_wdk_system_systemservices_etwProviderEnabled(int64_t reg
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwRegister(void* providerid, void* enablecallback, void* callbackcontext, void* reghandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwRegister(void* providerid, void* enablecallback, void* callbackcontext, void* reghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1833,7 +1833,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwRegister(void* provideri
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwSetInformation(int64_t reghandle, int32_t informationclass, void* eventinformation, uint32_t informationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwSetInformation(int64_t reghandle, int32_t informationclass, void* eventinformation, uint32_t informationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1858,7 +1858,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwSetInformation(int64_t r
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwUnregister(int64_t reghandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwUnregister(int64_t reghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1880,7 +1880,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwUnregister(int64_t regha
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwWrite(int64_t reghandle, void* eventdescriptor, void* activityid, uint32_t userdatacount, void* userdata) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwWrite(int64_t reghandle, void* eventdescriptor, void* activityid, uint32_t userdatacount, void* userdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1906,7 +1906,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwWrite(int64_t reghandle,
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwWriteEx(int64_t reghandle, void* eventdescriptor, uint64_t filter, uint32_t flags, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwWriteEx(int64_t reghandle, void* eventdescriptor, uint64_t filter, uint32_t flags, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1935,7 +1935,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwWriteEx(int64_t reghandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwWriteString(int64_t reghandle, uint8_t level, uint64_t keyword, void* activityid, void* string) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwWriteString(int64_t reghandle, uint8_t level, uint64_t keyword, void* activityid, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint8_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1961,7 +1961,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwWriteString(int64_t regh
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_etwWriteTransfer(int64_t reghandle, void* eventdescriptor, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
+int32_t windowssysWindowsWdkSystemSystemservicesEtwWriteTransfer(int64_t reghandle, void* eventdescriptor, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1988,7 +1988,7 @@ int32_t windowssys_windows_wdk_system_systemservices_etwWriteTransfer(int64_t re
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exAcquireFastMutex(void* fastmutex) {
+void windowssysWindowsWdkSystemSystemservicesExAcquireFastMutex(void* fastmutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2009,7 +2009,7 @@ void windowssys_windows_wdk_system_systemservices_exAcquireFastMutex(void* fastm
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exAcquireFastMutexUnsafe(void* fastmutex) {
+void windowssysWindowsWdkSystemSystemservicesExAcquireFastMutexUnsafe(void* fastmutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2030,7 +2030,7 @@ void windowssys_windows_wdk_system_systemservices_exAcquireFastMutexUnsafe(void*
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exAcquirePushLockExclusiveEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesExAcquirePushLockExclusiveEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2052,7 +2052,7 @@ void windowssys_windows_wdk_system_systemservices_exAcquirePushLockExclusiveEx(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exAcquirePushLockSharedEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesExAcquirePushLockSharedEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2074,7 +2074,7 @@ void windowssys_windows_wdk_system_systemservices_exAcquirePushLockSharedEx(void
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireResourceExclusiveLite(void* resource, bool wait) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireResourceExclusiveLite(void* resource, bool wait) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2097,7 +2097,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireResourceExclusiveLite
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireResourceSharedLite(void* resource, bool wait) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireResourceSharedLite(void* resource, bool wait) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2120,7 +2120,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireResourceSharedLite(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtection(void* runref) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtection(void* runref) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2142,7 +2142,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtection(voi
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtectionCacheAware(int64_t runrefcacheaware) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionCacheAware(int64_t runrefcacheaware) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2164,7 +2164,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtectionCach
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtectionCacheAwareEx(int64_t runrefcacheaware, uint32_t count) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionCacheAwareEx(int64_t runrefcacheaware, uint32_t count) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2187,7 +2187,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtectionCach
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtectionEx(void* runref, uint32_t count) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionEx(void* runref, uint32_t count) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2210,7 +2210,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireRundownProtectionEx(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireSharedStarveExclusive(void* resource, bool wait) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireSharedStarveExclusive(void* resource, bool wait) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2233,7 +2233,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireSharedStarveExclusive
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exAcquireSharedWaitForExclusive(void* resource, bool wait) {
+bool windowssysWindowsWdkSystemSystemservicesExAcquireSharedWaitForExclusive(void* resource, bool wait) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2256,7 +2256,7 @@ bool windowssys_windows_wdk_system_systemservices_exAcquireSharedWaitForExclusiv
 #endif
 }
 
-uint8_t windowssys_windows_wdk_system_systemservices_exAcquireSpinLockExclusive(void* spinlock) {
+uint8_t windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockExclusive(void* spinlock) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2278,7 +2278,7 @@ uint8_t windowssys_windows_wdk_system_systemservices_exAcquireSpinLockExclusive(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exAcquireSpinLockExclusiveAtDpcLevel(void* spinlock) {
+void windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockExclusiveAtDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2299,7 +2299,7 @@ void windowssys_windows_wdk_system_systemservices_exAcquireSpinLockExclusiveAtDp
 #endif
 }
 
-uint8_t windowssys_windows_wdk_system_systemservices_exAcquireSpinLockShared(void* spinlock) {
+uint8_t windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockShared(void* spinlock) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2321,7 +2321,7 @@ uint8_t windowssys_windows_wdk_system_systemservices_exAcquireSpinLockShared(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exAcquireSpinLockSharedAtDpcLevel(void* spinlock) {
+void windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockSharedAtDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2342,7 +2342,7 @@ void windowssys_windows_wdk_system_systemservices_exAcquireSpinLockSharedAtDpcLe
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_exAllocateCacheAwareRundownProtection(int32_t pooltype, uint32_t pooltag) {
+int64_t windowssysWindowsWdkSystemSystemservicesExAllocateCacheAwareRundownProtection(int32_t pooltype, uint32_t pooltag) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2365,7 +2365,7 @@ int64_t windowssys_windows_wdk_system_systemservices_exAllocateCacheAwareRundown
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePool(int32_t pooltype, uint64_t numberofbytes) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePool(int32_t pooltype, uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2388,7 +2388,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePool(int32_t poolty
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePool2(uint64_t flags, uint64_t numberofbytes, uint32_t tag) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePool2(uint64_t flags, uint64_t numberofbytes, uint32_t tag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2412,7 +2412,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePool2(uint64_t flag
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePool3(uint64_t flags, uint64_t numberofbytes, uint32_t tag, void* extendedparameters, uint32_t extendedparameterscount) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePool3(uint64_t flags, uint64_t numberofbytes, uint32_t tag, void* extendedparameters, uint32_t extendedparameterscount) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2438,7 +2438,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePool3(uint64_t flag
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithQuota(int32_t pooltype, uint64_t numberofbytes) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithQuota(int32_t pooltype, uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2461,7 +2461,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithQuota(int32
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithQuotaTag(int32_t pooltype, uint64_t numberofbytes, uint32_t tag) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithQuotaTag(int32_t pooltype, uint64_t numberofbytes, uint32_t tag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2485,7 +2485,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithQuotaTag(in
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithTag(int32_t pooltype, uint64_t numberofbytes, uint32_t tag) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithTag(int32_t pooltype, uint64_t numberofbytes, uint32_t tag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2509,7 +2509,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithTag(int32_t
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithTagPriority(int32_t pooltype, uint64_t numberofbytes, uint32_t tag, int32_t priority) {
+void* windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithTagPriority(int32_t pooltype, uint64_t numberofbytes, uint32_t tag, int32_t priority) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint64_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2534,7 +2534,7 @@ void* windowssys_windows_wdk_system_systemservices_exAllocatePoolWithTagPriority
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_exAllocateTimer(void* callback, void* callbackcontext, uint32_t attributes) {
+int64_t windowssysWindowsWdkSystemSystemservicesExAllocateTimer(void* callback, void* callbackcontext, uint32_t attributes) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2558,7 +2558,7 @@ int64_t windowssys_windows_wdk_system_systemservices_exAllocateTimer(void* callb
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exCancelTimer(int64_t timer, void* parameters) {
+bool windowssysWindowsWdkSystemSystemservicesExCancelTimer(int64_t timer, void* parameters) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2581,7 +2581,7 @@ bool windowssys_windows_wdk_system_systemservices_exCancelTimer(int64_t timer, v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exCleanupRundownProtectionCacheAware(int64_t runrefcacheaware) {
+void windowssysWindowsWdkSystemSystemservicesExCleanupRundownProtectionCacheAware(int64_t runrefcacheaware) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2602,7 +2602,7 @@ void windowssys_windows_wdk_system_systemservices_exCleanupRundownProtectionCach
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exConvertExclusiveToSharedLite(void* resource) {
+void windowssysWindowsWdkSystemSystemservicesExConvertExclusiveToSharedLite(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2623,7 +2623,7 @@ void windowssys_windows_wdk_system_systemservices_exConvertExclusiveToSharedLite
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exCreateCallback(void* callbackobject, void* objectattributes, bool create, bool allowmultiplecallbacks) {
+int32_t windowssysWindowsWdkSystemSystemservicesExCreateCallback(void* callbackobject, void* objectattributes, bool create, bool allowmultiplecallbacks) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2648,7 +2648,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exCreateCallback(void* call
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exCreatePool(uint32_t flags, uint64_t tag, void* params, void* poolhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesExCreatePool(uint32_t flags, uint64_t tag, void* params, void* poolhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2673,7 +2673,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exCreatePool(uint32_t flags
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exDeleteResourceLite(void* resource) {
+int32_t windowssysWindowsWdkSystemSystemservicesExDeleteResourceLite(void* resource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2695,7 +2695,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exDeleteResourceLite(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exDeleteTimer(int64_t timer, bool cancel, bool wait, void* parameters) {
+bool windowssysWindowsWdkSystemSystemservicesExDeleteTimer(int64_t timer, bool cancel, bool wait, void* parameters) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, bool, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2720,7 +2720,7 @@ bool windowssys_windows_wdk_system_systemservices_exDeleteTimer(int64_t timer, b
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exDestroyPool(void* poolhandle) {
+void windowssysWindowsWdkSystemSystemservicesExDestroyPool(void* poolhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2741,7 +2741,7 @@ void windowssys_windows_wdk_system_systemservices_exDestroyPool(void* poolhandle
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exEnterCriticalRegionAndAcquireResourceExclusive(void* resource) {
+void* windowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireResourceExclusive(void* resource) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2763,7 +2763,7 @@ void* windowssys_windows_wdk_system_systemservices_exEnterCriticalRegionAndAcqui
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exEnterCriticalRegionAndAcquireResourceShared(void* resource) {
+void* windowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireResourceShared(void* resource) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2785,7 +2785,7 @@ void* windowssys_windows_wdk_system_systemservices_exEnterCriticalRegionAndAcqui
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exEnterCriticalRegionAndAcquireSharedWaitForExclusive(void* resource) {
+void* windowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireSharedWaitForExclusive(void* resource) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2807,7 +2807,7 @@ void* windowssys_windows_wdk_system_systemservices_exEnterCriticalRegionAndAcqui
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exEnumerateSystemFirmwareTables(uint32_t firmwaretableprovidersignature, void* firmwaretablebuffer, uint32_t bufferlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesExEnumerateSystemFirmwareTables(uint32_t firmwaretableprovidersignature, void* firmwaretablebuffer, uint32_t bufferlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2832,7 +2832,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exEnumerateSystemFirmwareTa
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exExtendZone(void* zone, void* segment, uint32_t segmentsize) {
+int32_t windowssysWindowsWdkSystemSystemservicesExExtendZone(void* zone, void* segment, uint32_t segmentsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2856,7 +2856,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exExtendZone(void* zone, vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exFreeCacheAwareRundownProtection(int64_t runrefcacheaware) {
+void windowssysWindowsWdkSystemSystemservicesExFreeCacheAwareRundownProtection(int64_t runrefcacheaware) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2877,7 +2877,7 @@ void windowssys_windows_wdk_system_systemservices_exFreeCacheAwareRundownProtect
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exFreePool(void* p) {
+void windowssysWindowsWdkSystemSystemservicesExFreePool(void* p) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2898,7 +2898,7 @@ void windowssys_windows_wdk_system_systemservices_exFreePool(void* p) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exFreePool2(void* p, uint32_t tag, void* extendedparameters, uint32_t extendedparameterscount) {
+void windowssysWindowsWdkSystemSystemservicesExFreePool2(void* p, uint32_t tag, void* extendedparameters, uint32_t extendedparameterscount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2922,7 +2922,7 @@ void windowssys_windows_wdk_system_systemservices_exFreePool2(void* p, uint32_t 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exFreePoolWithTag(void* p, uint32_t tag) {
+void windowssysWindowsWdkSystemSystemservicesExFreePoolWithTag(void* p, uint32_t tag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2944,7 +2944,7 @@ void windowssys_windows_wdk_system_systemservices_exFreePoolWithTag(void* p, uin
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exGetExclusiveWaiterCount(void* resource) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExGetExclusiveWaiterCount(void* resource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2966,7 +2966,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exGetExclusiveWaiterCount(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exGetFirmwareEnvironmentVariable(void* variablename, void* vendorguid, void* value, void* valuelength, void* attributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesExGetFirmwareEnvironmentVariable(void* variablename, void* vendorguid, void* value, void* valuelength, void* attributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2992,7 +2992,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exGetFirmwareEnvironmentVar
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exGetFirmwareType(void) {
+int32_t windowssysWindowsWdkSystemSystemservicesExGetFirmwareType(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3013,7 +3013,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exGetFirmwareType(void) {
 #endif
 }
 
-int8_t windowssys_windows_wdk_system_systemservices_exGetPreviousMode(void) {
+int8_t windowssysWindowsWdkSystemSystemservicesExGetPreviousMode(void) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3034,7 +3034,7 @@ int8_t windowssys_windows_wdk_system_systemservices_exGetPreviousMode(void) {
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exGetSharedWaiterCount(void* resource) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExGetSharedWaiterCount(void* resource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3056,7 +3056,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exGetSharedWaiterCount(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exGetSystemFirmwareTable(uint32_t firmwaretableprovidersignature, uint32_t firmwaretableid, void* firmwaretablebuffer, uint32_t bufferlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesExGetSystemFirmwareTable(uint32_t firmwaretableprovidersignature, uint32_t firmwaretableid, void* firmwaretablebuffer, uint32_t bufferlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3082,7 +3082,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exGetSystemFirmwareTable(ui
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exInitializePushLock(void* pushlock) {
+void windowssysWindowsWdkSystemSystemservicesExInitializePushLock(void* pushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3103,7 +3103,7 @@ void windowssys_windows_wdk_system_systemservices_exInitializePushLock(void* pus
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exInitializeResourceLite(void* resource) {
+int32_t windowssysWindowsWdkSystemSystemservicesExInitializeResourceLite(void* resource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3125,7 +3125,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exInitializeResourceLite(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exInitializeRundownProtection(void* runref) {
+void windowssysWindowsWdkSystemSystemservicesExInitializeRundownProtection(void* runref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3146,7 +3146,7 @@ void windowssys_windows_wdk_system_systemservices_exInitializeRundownProtection(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exInitializeRundownProtectionCacheAware(int64_t runrefcacheaware, uint64_t runrefsize) {
+void windowssysWindowsWdkSystemSystemservicesExInitializeRundownProtectionCacheAware(int64_t runrefcacheaware, uint64_t runrefsize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3168,7 +3168,7 @@ void windowssys_windows_wdk_system_systemservices_exInitializeRundownProtectionC
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exInitializeRundownProtectionCacheAwareEx(int64_t runrefcacheaware, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesExInitializeRundownProtectionCacheAwareEx(int64_t runrefcacheaware, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3190,7 +3190,7 @@ void windowssys_windows_wdk_system_systemservices_exInitializeRundownProtectionC
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exInitializeZone(void* zone, uint32_t blocksize, void* initialsegment, uint32_t initialsegmentsize) {
+int32_t windowssysWindowsWdkSystemSystemservicesExInitializeZone(void* zone, uint32_t blocksize, void* initialsegment, uint32_t initialsegmentsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3215,7 +3215,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exInitializeZone(void* zone
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_exInterlockedAddLargeInteger(void* addend, int64_t increment, void* lock) {
+int64_t windowssysWindowsWdkSystemSystemservicesExInterlockedAddLargeInteger(void* addend, int64_t increment, void* lock) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3239,7 +3239,7 @@ int64_t windowssys_windows_wdk_system_systemservices_exInterlockedAddLargeIntege
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exInterlockedExtendZone(void* zone, void* segment, uint32_t segmentsize, void* lock) {
+int32_t windowssysWindowsWdkSystemSystemservicesExInterlockedExtendZone(void* zone, void* segment, uint32_t segmentsize, void* lock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3264,7 +3264,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exInterlockedExtendZone(voi
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exIsManufacturingModeEnabled(void) {
+bool windowssysWindowsWdkSystemSystemservicesExIsManufacturingModeEnabled(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3285,7 +3285,7 @@ bool windowssys_windows_wdk_system_systemservices_exIsManufacturingModeEnabled(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exIsProcessorFeaturePresent(uint32_t processorfeature) {
+bool windowssysWindowsWdkSystemSystemservicesExIsProcessorFeaturePresent(uint32_t processorfeature) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3307,7 +3307,7 @@ bool windowssys_windows_wdk_system_systemservices_exIsProcessorFeaturePresent(ui
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exIsResourceAcquiredExclusiveLite(void* resource) {
+bool windowssysWindowsWdkSystemSystemservicesExIsResourceAcquiredExclusiveLite(void* resource) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3329,7 +3329,7 @@ bool windowssys_windows_wdk_system_systemservices_exIsResourceAcquiredExclusiveL
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exIsResourceAcquiredSharedLite(void* resource) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExIsResourceAcquiredSharedLite(void* resource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3351,7 +3351,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exIsResourceAcquiredShared
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exIsSoftBoot(void) {
+bool windowssysWindowsWdkSystemSystemservicesExIsSoftBoot(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3372,7 +3372,7 @@ bool windowssys_windows_wdk_system_systemservices_exIsSoftBoot(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exLocalTimeToSystemTime(void* localtime, void* systemtime) {
+void windowssysWindowsWdkSystemSystemservicesExLocalTimeToSystemTime(void* localtime, void* systemtime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3394,7 +3394,7 @@ void windowssys_windows_wdk_system_systemservices_exLocalTimeToSystemTime(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exNotifyCallback(void* callbackobject, void* argument1, void* argument2) {
+void windowssysWindowsWdkSystemSystemservicesExNotifyCallback(void* callbackobject, void* argument1, void* argument2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3417,7 +3417,7 @@ void windowssys_windows_wdk_system_systemservices_exNotifyCallback(void* callbac
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime) {
+void windowssysWindowsWdkSystemSystemservicesExQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3440,7 +3440,7 @@ void windowssys_windows_wdk_system_systemservices_exQueryTimerResolution(void* m
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exQueueWorkItem(void* workitem, int32_t queuetype) {
+void windowssysWindowsWdkSystemSystemservicesExQueueWorkItem(void* workitem, int32_t queuetype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3462,7 +3462,7 @@ void windowssys_windows_wdk_system_systemservices_exQueueWorkItem(void* workitem
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exRaiseAccessViolation(void) {
+void windowssysWindowsWdkSystemSystemservicesExRaiseAccessViolation(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3482,7 +3482,7 @@ void windowssys_windows_wdk_system_systemservices_exRaiseAccessViolation(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exRaiseDatatypeMisalignment(void) {
+void windowssysWindowsWdkSystemSystemservicesExRaiseDatatypeMisalignment(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3502,7 +3502,7 @@ void windowssys_windows_wdk_system_systemservices_exRaiseDatatypeMisalignment(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exRaiseStatus(int32_t status) {
+void windowssysWindowsWdkSystemSystemservicesExRaiseStatus(int32_t status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3523,7 +3523,7 @@ void windowssys_windows_wdk_system_systemservices_exRaiseStatus(int32_t status) 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReInitializeRundownProtection(void* runref) {
+void windowssysWindowsWdkSystemSystemservicesExReInitializeRundownProtection(void* runref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3544,7 +3544,7 @@ void windowssys_windows_wdk_system_systemservices_exReInitializeRundownProtectio
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReInitializeRundownProtectionCacheAware(int64_t runrefcacheaware) {
+void windowssysWindowsWdkSystemSystemservicesExReInitializeRundownProtectionCacheAware(int64_t runrefcacheaware) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3565,7 +3565,7 @@ void windowssys_windows_wdk_system_systemservices_exReInitializeRundownProtectio
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_exRegisterCallback(int64_t callbackobject, void* callbackfunction, void* callbackcontext) {
+void* windowssysWindowsWdkSystemSystemservicesExRegisterCallback(int64_t callbackobject, void* callbackfunction, void* callbackcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3589,7 +3589,7 @@ void* windowssys_windows_wdk_system_systemservices_exRegisterCallback(int64_t ca
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exReinitializeResourceLite(void* resource) {
+int32_t windowssysWindowsWdkSystemSystemservicesExReinitializeResourceLite(void* resource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3611,7 +3611,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exReinitializeResourceLite(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseFastMutex(void* fastmutex) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseFastMutex(void* fastmutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3632,7 +3632,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseFastMutex(void* fastm
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseFastMutexUnsafe(void* fastmutex) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseFastMutexUnsafe(void* fastmutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3653,7 +3653,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseFastMutexUnsafe(void*
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleasePushLockExclusiveEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesExReleasePushLockExclusiveEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3675,7 +3675,7 @@ void windowssys_windows_wdk_system_systemservices_exReleasePushLockExclusiveEx(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleasePushLockSharedEx(void* pushlock, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesExReleasePushLockSharedEx(void* pushlock, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3697,7 +3697,7 @@ void windowssys_windows_wdk_system_systemservices_exReleasePushLockSharedEx(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseResourceAndLeaveCriticalRegion(void* resource) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseResourceAndLeaveCriticalRegion(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3718,7 +3718,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseResourceAndLeaveCriti
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseResourceForThreadLite(void* resource, uint64_t resourcethreadid) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseResourceForThreadLite(void* resource, uint64_t resourcethreadid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3740,7 +3740,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseResourceForThreadLite
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseResourceLite(void* resource) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseResourceLite(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3761,7 +3761,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseResourceLite(void* re
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtection(void* runref) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtection(void* runref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3782,7 +3782,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtection(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtectionCacheAware(int64_t runrefcacheaware) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtectionCacheAware(int64_t runrefcacheaware) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3803,7 +3803,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtectionCach
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtectionCacheAwareEx(int64_t runref, uint32_t count) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtectionCacheAwareEx(int64_t runref, uint32_t count) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3825,7 +3825,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtectionCach
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtectionEx(void* runref, uint32_t count) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtectionEx(void* runref, uint32_t count) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3847,7 +3847,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseRundownProtectionEx(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockExclusive(void* spinlock, uint8_t oldirql) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockExclusive(void* spinlock, uint8_t oldirql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3869,7 +3869,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockExclusive(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockExclusiveFromDpcLevel(void* spinlock) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockExclusiveFromDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3890,7 +3890,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockExclusiveFrom
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockShared(void* spinlock, uint8_t oldirql) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockShared(void* spinlock, uint8_t oldirql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3912,7 +3912,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockShared(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockSharedFromDpcLevel(void* spinlock) {
+void windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockSharedFromDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3933,7 +3933,7 @@ void windowssys_windows_wdk_system_systemservices_exReleaseSpinLockSharedFromDpc
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exRundownCompleted(void* runref) {
+void windowssysWindowsWdkSystemSystemservicesExRundownCompleted(void* runref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3954,7 +3954,7 @@ void windowssys_windows_wdk_system_systemservices_exRundownCompleted(void* runre
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exRundownCompletedCacheAware(int64_t runrefcacheaware) {
+void windowssysWindowsWdkSystemSystemservicesExRundownCompletedCacheAware(int64_t runrefcacheaware) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3975,7 +3975,7 @@ void windowssys_windows_wdk_system_systemservices_exRundownCompletedCacheAware(i
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exSecurePoolUpdate(void* securepoolhandle, uint32_t tag, void* allocation, uint64_t cookie, uint64_t offset, uint64_t size, void* buffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesExSecurePoolUpdate(void* securepoolhandle, uint32_t tag, void* allocation, uint64_t cookie, uint64_t offset, uint64_t size, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t, uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4003,7 +4003,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exSecurePoolUpdate(void* se
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exSecurePoolValidate(void* securepoolhandle, uint32_t tag, void* allocation, uint64_t cookie) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExSecurePoolValidate(void* securepoolhandle, uint32_t tag, void* allocation, uint64_t cookie) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4028,7 +4028,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exSecurePoolValidate(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exSetFirmwareEnvironmentVariable(void* variablename, void* vendorguid, void* value, uint32_t valuelength, uint32_t attributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesExSetFirmwareEnvironmentVariable(void* variablename, void* vendorguid, void* value, uint32_t valuelength, uint32_t attributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4054,7 +4054,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exSetFirmwareEnvironmentVar
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exSetResourceOwnerPointer(void* resource, void* ownerpointer) {
+void windowssysWindowsWdkSystemSystemservicesExSetResourceOwnerPointer(void* resource, void* ownerpointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4076,7 +4076,7 @@ void windowssys_windows_wdk_system_systemservices_exSetResourceOwnerPointer(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exSetResourceOwnerPointerEx(void* resource, void* ownerpointer, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesExSetResourceOwnerPointerEx(void* resource, void* ownerpointer, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4099,7 +4099,7 @@ void windowssys_windows_wdk_system_systemservices_exSetResourceOwnerPointerEx(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exSetTimer(int64_t timer, int64_t duetime, int64_t period, void* parameters) {
+bool windowssysWindowsWdkSystemSystemservicesExSetTimer(int64_t timer, int64_t duetime, int64_t period, void* parameters) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4124,7 +4124,7 @@ bool windowssys_windows_wdk_system_systemservices_exSetTimer(int64_t timer, int6
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exSetTimerResolution(uint32_t desiredtime, bool setresolution) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExSetTimerResolution(uint32_t desiredtime, bool setresolution) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4147,7 +4147,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exSetTimerResolution(uint3
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_exSizeOfRundownProtectionCacheAware(void) {
+uint64_t windowssysWindowsWdkSystemSystemservicesExSizeOfRundownProtectionCacheAware(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4168,7 +4168,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_exSizeOfRundownProtectionC
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exSystemTimeToLocalTime(void* systemtime, void* localtime) {
+void windowssysWindowsWdkSystemSystemservicesExSystemTimeToLocalTime(void* systemtime, void* localtime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4190,7 +4190,7 @@ void windowssys_windows_wdk_system_systemservices_exSystemTimeToLocalTime(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exTryAcquireSpinLockExclusiveAtDpcLevel(void* spinlock) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExTryAcquireSpinLockExclusiveAtDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4212,7 +4212,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exTryAcquireSpinLockExclus
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exTryAcquireSpinLockSharedAtDpcLevel(void* spinlock) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExTryAcquireSpinLockSharedAtDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4234,7 +4234,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exTryAcquireSpinLockShared
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_exTryConvertSharedSpinLockExclusive(void* spinlock) {
+uint32_t windowssysWindowsWdkSystemSystemservicesExTryConvertSharedSpinLockExclusive(void* spinlock) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4256,7 +4256,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_exTryConvertSharedSpinLock
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exTryToAcquireFastMutex(void* fastmutex) {
+bool windowssysWindowsWdkSystemSystemservicesExTryToAcquireFastMutex(void* fastmutex) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4278,7 +4278,7 @@ bool windowssys_windows_wdk_system_systemservices_exTryToAcquireFastMutex(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exUnregisterCallback(void* callbackregistration) {
+void windowssysWindowsWdkSystemSystemservicesExUnregisterCallback(void* callbackregistration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4299,7 +4299,7 @@ void windowssys_windows_wdk_system_systemservices_exUnregisterCallback(void* cal
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_exUuidCreate(void* uuid) {
+int32_t windowssysWindowsWdkSystemSystemservicesExUuidCreate(void* uuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4321,7 +4321,7 @@ int32_t windowssys_windows_wdk_system_systemservices_exUuidCreate(void* uuid) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_exVerifySuite(int32_t suitetype) {
+bool windowssysWindowsWdkSystemSystemservicesExVerifySuite(int32_t suitetype) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4343,7 +4343,7 @@ bool windowssys_windows_wdk_system_systemservices_exVerifySuite(int32_t suitetyp
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exWaitForRundownProtectionRelease(void* runref) {
+void windowssysWindowsWdkSystemSystemservicesExWaitForRundownProtectionRelease(void* runref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4364,7 +4364,7 @@ void windowssys_windows_wdk_system_systemservices_exWaitForRundownProtectionRele
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_exWaitForRundownProtectionReleaseCacheAware(int64_t runref) {
+void windowssysWindowsWdkSystemSystemservicesExWaitForRundownProtectionReleaseCacheAware(int64_t runref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4385,7 +4385,7 @@ void windowssys_windows_wdk_system_systemservices_exWaitForRundownProtectionRele
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_fsRtlIsTotalDeviceFailure(int32_t status) {
+bool windowssysWindowsWdkSystemSystemservicesFsRtlIsTotalDeviceFailure(int32_t status) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4407,7 +4407,7 @@ bool windowssys_windows_wdk_system_systemservices_fsRtlIsTotalDeviceFailure(int3
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_halAcquireDisplayOwnership(void* resetdisplayparameters) {
+void windowssysWindowsWdkSystemSystemservicesHalAcquireDisplayOwnership(void* resetdisplayparameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4428,7 +4428,7 @@ void windowssys_windows_wdk_system_systemservices_halAcquireDisplayOwnership(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_halAllocateCommonBuffer(void* adapterobject, uint32_t length, void* logicaladdress, bool cacheenabled) {
+void* windowssysWindowsWdkSystemSystemservicesHalAllocateCommonBuffer(void* adapterobject, uint32_t length, void* logicaladdress, bool cacheenabled) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4453,7 +4453,7 @@ void* windowssys_windows_wdk_system_systemservices_halAllocateCommonBuffer(void*
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_halAllocateCrashDumpRegisters(void* adapterobject, void* numberofmapregisters) {
+void* windowssysWindowsWdkSystemSystemservicesHalAllocateCrashDumpRegisters(void* adapterobject, void* numberofmapregisters) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4476,7 +4476,7 @@ void* windowssys_windows_wdk_system_systemservices_halAllocateCrashDumpRegisters
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_halAllocateHardwareCounters(void* groupaffinty, uint32_t groupcount, void* resourcelist, void* countersethandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesHalAllocateHardwareCounters(void* groupaffinty, uint32_t groupcount, void* resourcelist, void* countersethandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4501,7 +4501,7 @@ int32_t windowssys_windows_wdk_system_systemservices_halAllocateHardwareCounters
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_halAssignSlotResources(void* registrypath, void* driverclassname, void* driverobject, void* deviceobject, int32_t bustype, uint32_t busnumber, uint32_t slotnumber, void* allocatedresources) {
+int32_t windowssysWindowsWdkSystemSystemservicesHalAssignSlotResources(void* registrypath, void* driverclassname, void* driverobject, void* deviceobject, int32_t bustype, uint32_t busnumber, uint32_t slotnumber, void* allocatedresources) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4530,7 +4530,7 @@ int32_t windowssys_windows_wdk_system_systemservices_halAssignSlotResources(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_halBugCheckSystem(void* errorsource, void* errorrecord) {
+void windowssysWindowsWdkSystemSystemservicesHalBugCheckSystem(void* errorsource, void* errorrecord) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4552,7 +4552,7 @@ void windowssys_windows_wdk_system_systemservices_halBugCheckSystem(void* errors
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_halDmaAllocateCrashDumpRegistersEx(void* adapter, uint32_t numberofmapregisters, int32_t type, void* mapregisterbase, void* mapregistersavailable) {
+int32_t windowssysWindowsWdkSystemSystemservicesHalDmaAllocateCrashDumpRegistersEx(void* adapter, uint32_t numberofmapregisters, int32_t type, void* mapregisterbase, void* mapregistersavailable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4578,7 +4578,7 @@ int32_t windowssys_windows_wdk_system_systemservices_halDmaAllocateCrashDumpRegi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_halDmaFreeCrashDumpRegistersEx(void* adapter, int32_t type) {
+int32_t windowssysWindowsWdkSystemSystemservicesHalDmaFreeCrashDumpRegistersEx(void* adapter, int32_t type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4601,7 +4601,7 @@ int32_t windowssys_windows_wdk_system_systemservices_halDmaFreeCrashDumpRegister
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_halExamineMBR(void* deviceobject, uint32_t sectorsize, uint32_t mbrtypeidentifier, void* buffer) {
+void windowssysWindowsWdkSystemSystemservicesHalExamineMBR(void* deviceobject, uint32_t sectorsize, uint32_t mbrtypeidentifier, void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4625,7 +4625,7 @@ void windowssys_windows_wdk_system_systemservices_halExamineMBR(void* deviceobje
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_halFreeCommonBuffer(void* adapterobject, uint32_t length, int64_t logicaladdress, void* virtualaddress, bool cacheenabled) {
+void windowssysWindowsWdkSystemSystemservicesHalFreeCommonBuffer(void* adapterobject, uint32_t length, int64_t logicaladdress, void* virtualaddress, bool cacheenabled) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4650,7 +4650,7 @@ void windowssys_windows_wdk_system_systemservices_halFreeCommonBuffer(void* adap
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_halFreeHardwareCounters(void* countersethandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesHalFreeHardwareCounters(void* countersethandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4672,7 +4672,7 @@ int32_t windowssys_windows_wdk_system_systemservices_halFreeHardwareCounters(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_halGetAdapter(void* devicedescription, void* numberofmapregisters) {
+void* windowssysWindowsWdkSystemSystemservicesHalGetAdapter(void* devicedescription, void* numberofmapregisters) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4695,7 +4695,7 @@ void* windowssys_windows_wdk_system_systemservices_halGetAdapter(void* devicedes
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_halGetBusData(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesHalGetBusData(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4721,7 +4721,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_halGetBusData(int32_t busd
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_halGetBusDataByOffset(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t offset, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesHalGetBusDataByOffset(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t offset, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4748,7 +4748,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_halGetBusDataByOffset(int3
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_halGetInterruptVector(int32_t interfacetype, uint32_t busnumber, uint32_t businterruptlevel, uint32_t businterruptvector, void* irql, void* affinity) {
+uint32_t windowssysWindowsWdkSystemSystemservicesHalGetInterruptVector(int32_t interfacetype, uint32_t busnumber, uint32_t businterruptlevel, uint32_t businterruptvector, void* irql, void* affinity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4775,7 +4775,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_halGetInterruptVector(int3
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_halMakeBeep(uint32_t frequency) {
+bool windowssysWindowsWdkSystemSystemservicesHalMakeBeep(uint32_t frequency) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4797,7 +4797,7 @@ bool windowssys_windows_wdk_system_systemservices_halMakeBeep(uint32_t frequency
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_halReadDmaCounter(void* adapterobject) {
+uint32_t windowssysWindowsWdkSystemSystemservicesHalReadDmaCounter(void* adapterobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4819,7 +4819,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_halReadDmaCounter(void* ad
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_halSetBusData(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesHalSetBusData(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4845,7 +4845,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_halSetBusData(int32_t busd
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_halSetBusDataByOffset(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t offset, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesHalSetBusDataByOffset(int32_t busdatatype, uint32_t busnumber, uint32_t slotnumber, void* buffer, uint32_t offset, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4872,7 +4872,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_halSetBusDataByOffset(int3
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_halTranslateBusAddress(int32_t interfacetype, uint32_t busnumber, int64_t busaddress, void* addressspace, void* translatedaddress) {
+bool windowssysWindowsWdkSystemSystemservicesHalTranslateBusAddress(int32_t interfacetype, uint32_t busnumber, int64_t busaddress, void* addressspace, void* translatedaddress) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4898,7 +4898,7 @@ bool windowssys_windows_wdk_system_systemservices_halTranslateBusAddress(int32_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_hvlRegisterWheaErrorNotification(void* callback) {
+int32_t windowssysWindowsWdkSystemSystemservicesHvlRegisterWheaErrorNotification(void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4920,7 +4920,7 @@ int32_t windowssys_windows_wdk_system_systemservices_hvlRegisterWheaErrorNotific
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_hvlUnregisterWheaErrorNotification(void* callback) {
+int32_t windowssysWindowsWdkSystemSystemservicesHvlUnregisterWheaErrorNotification(void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4942,7 +4942,7 @@ int32_t windowssys_windows_wdk_system_systemservices_hvlUnregisterWheaErrorNotif
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioAcquireCancelSpinLock(void* irql) {
+void windowssysWindowsWdkSystemSystemservicesIoAcquireCancelSpinLock(void* irql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4963,7 +4963,7 @@ void windowssys_windows_wdk_system_systemservices_ioAcquireCancelSpinLock(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAcquireKsrPersistentMemory(void* driverobject, void* physicaldeviceobject, void* buffer, void* size) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAcquireKsrPersistentMemory(void* driverobject, void* physicaldeviceobject, void* buffer, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4988,7 +4988,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAcquireKsrPersistentMemor
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAcquireKsrPersistentMemoryEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* datatag, void* dataversion, void* buffer, void* size) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAcquireKsrPersistentMemoryEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* datatag, void* dataversion, void* buffer, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5016,7 +5016,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAcquireKsrPersistentMemor
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAcquireRemoveLockEx(void* removelock, void* tag, void* file, uint32_t line, uint32_t remlocksize) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAcquireRemoveLockEx(void* removelock, void* tag, void* file, uint32_t line, uint32_t remlocksize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5042,7 +5042,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAcquireRemoveLockEx(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAllocateDriverObjectExtension(void* driverobject, void* clientidentificationaddress, uint32_t driverobjectextensionsize, void* driverobjectextension) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAllocateDriverObjectExtension(void* driverobject, void* clientidentificationaddress, uint32_t driverobjectextensionsize, void* driverobjectextension) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5067,7 +5067,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAllocateDriverObjectExten
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioAllocateErrorLogEntry(void* ioobject, uint8_t entrysize) {
+void* windowssysWindowsWdkSystemSystemservicesIoAllocateErrorLogEntry(void* ioobject, uint8_t entrysize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5090,7 +5090,7 @@ void* windowssys_windows_wdk_system_systemservices_ioAllocateErrorLogEntry(void*
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioAllocateIrp(int8_t stacksize, bool chargequota) {
+void* windowssysWindowsWdkSystemSystemservicesIoAllocateIrp(int8_t stacksize, bool chargequota) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int8_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -5113,7 +5113,7 @@ void* windowssys_windows_wdk_system_systemservices_ioAllocateIrp(int8_t stacksiz
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioAllocateIrpEx(void* deviceobject, int8_t stacksize, bool chargequota) {
+void* windowssysWindowsWdkSystemSystemservicesIoAllocateIrpEx(void* deviceobject, int8_t stacksize, bool chargequota) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int8_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -5137,7 +5137,7 @@ void* windowssys_windows_wdk_system_systemservices_ioAllocateIrpEx(void* deviceo
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioAllocateMdl(void* virtualaddress, uint32_t length, bool secondarybuffer, bool chargequota, void* irp) {
+void* windowssysWindowsWdkSystemSystemservicesIoAllocateMdl(void* virtualaddress, uint32_t length, bool secondarybuffer, bool chargequota, void* irp) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, bool, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5163,7 +5163,7 @@ void* windowssys_windows_wdk_system_systemservices_ioAllocateMdl(void* virtualad
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAllocateSfioStreamIdentifier(void* fileobject, uint32_t length, void* signature, void* streamidentifier) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAllocateSfioStreamIdentifier(void* fileobject, uint32_t length, void* signature, void* streamidentifier) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5188,7 +5188,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAllocateSfioStreamIdentif
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_ioAllocateWorkItem(void* deviceobject) {
+int64_t windowssysWindowsWdkSystemSystemservicesIoAllocateWorkItem(void* deviceobject) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5210,7 +5210,7 @@ int64_t windowssys_windows_wdk_system_systemservices_ioAllocateWorkItem(void* de
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAssignResources(void* registrypath, void* driverclassname, void* driverobject, void* deviceobject, void* requestedresources, void* allocatedresources) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAssignResources(void* registrypath, void* driverclassname, void* driverobject, void* deviceobject, void* requestedresources, void* allocatedresources) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5237,7 +5237,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAssignResources(void* reg
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAttachDevice(void* sourcedevice, void* targetdevice, void* attacheddevice) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAttachDevice(void* sourcedevice, void* targetdevice, void* attacheddevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5261,7 +5261,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAttachDevice(void* source
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAttachDeviceByPointer(void* sourcedevice, void* targetdevice) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAttachDeviceByPointer(void* sourcedevice, void* targetdevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5284,7 +5284,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAttachDeviceByPointer(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioAttachDeviceToDeviceStack(void* sourcedevice, void* targetdevice) {
+void* windowssysWindowsWdkSystemSystemservicesIoAttachDeviceToDeviceStack(void* sourcedevice, void* targetdevice) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5307,7 +5307,7 @@ void* windowssys_windows_wdk_system_systemservices_ioAttachDeviceToDeviceStack(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioAttachDeviceToDeviceStackSafe(void* sourcedevice, void* targetdevice, void* attachedtodeviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoAttachDeviceToDeviceStackSafe(void* sourcedevice, void* targetdevice, void* attachedtodeviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5331,7 +5331,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioAttachDeviceToDeviceStack
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioBuildAsynchronousFsdRequest(uint32_t majorfunction, void* deviceobject, void* buffer, uint32_t length, void* startingoffset, void* iostatusblock) {
+void* windowssysWindowsWdkSystemSystemservicesIoBuildAsynchronousFsdRequest(uint32_t majorfunction, void* deviceobject, void* buffer, uint32_t length, void* startingoffset, void* iostatusblock) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5358,7 +5358,7 @@ void* windowssys_windows_wdk_system_systemservices_ioBuildAsynchronousFsdRequest
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioBuildDeviceIoControlRequest(uint32_t iocontrolcode, void* deviceobject, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, bool internaldeviceiocontrol, void* event, void* iostatusblock) {
+void* windowssysWindowsWdkSystemSystemservicesIoBuildDeviceIoControlRequest(uint32_t iocontrolcode, void* deviceobject, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, bool internaldeviceiocontrol, void* event, void* iostatusblock) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, uint32_t, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5388,7 +5388,7 @@ void* windowssys_windows_wdk_system_systemservices_ioBuildDeviceIoControlRequest
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioBuildPartialMdl(void* sourcemdl, void* targetmdl, void* virtualaddress, uint32_t length) {
+void windowssysWindowsWdkSystemSystemservicesIoBuildPartialMdl(void* sourcemdl, void* targetmdl, void* virtualaddress, uint32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5412,7 +5412,7 @@ void windowssys_windows_wdk_system_systemservices_ioBuildPartialMdl(void* source
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioBuildSynchronousFsdRequest(uint32_t majorfunction, void* deviceobject, void* buffer, uint32_t length, void* startingoffset, void* event, void* iostatusblock) {
+void* windowssysWindowsWdkSystemSystemservicesIoBuildSynchronousFsdRequest(uint32_t majorfunction, void* deviceobject, void* buffer, uint32_t length, void* startingoffset, void* event, void* iostatusblock) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5440,7 +5440,7 @@ void* windowssys_windows_wdk_system_systemservices_ioBuildSynchronousFsdRequest(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioCancelFileOpen(void* deviceobject, void* fileobject) {
+void windowssysWindowsWdkSystemSystemservicesIoCancelFileOpen(void* deviceobject, void* fileobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5462,7 +5462,7 @@ void windowssys_windows_wdk_system_systemservices_ioCancelFileOpen(void* deviceo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioCancelIrp(void* irp) {
+bool windowssysWindowsWdkSystemSystemservicesIoCancelIrp(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5484,7 +5484,7 @@ bool windowssys_windows_wdk_system_systemservices_ioCancelIrp(void* irp) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCheckLinkShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCheckLinkShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5511,7 +5511,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCheckLinkShareAccess(uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCheckShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, bool update) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCheckShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, bool update) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -5537,7 +5537,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCheckShareAccess(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCheckShareAccessEx(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, bool update, void* writepermission) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCheckShareAccessEx(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, bool update, void* writepermission) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5564,7 +5564,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCheckShareAccessEx(uint32
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioCleanupIrp(void* irp) {
+void windowssysWindowsWdkSystemSystemservicesIoCleanupIrp(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5585,7 +5585,7 @@ void windowssys_windows_wdk_system_systemservices_ioCleanupIrp(void* irp) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioClearActivityIdThread(void* originalid) {
+void windowssysWindowsWdkSystemSystemservicesIoClearActivityIdThread(void* originalid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5606,7 +5606,7 @@ void windowssys_windows_wdk_system_systemservices_ioClearActivityIdThread(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioClearIrpExtraCreateParameter(void* irp) {
+void windowssysWindowsWdkSystemSystemservicesIoClearIrpExtraCreateParameter(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5627,7 +5627,7 @@ void windowssys_windows_wdk_system_systemservices_ioClearIrpExtraCreateParameter
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioConnectInterrupt(void* interruptobject, void* serviceroutine, void* servicecontext, void* spinlock, uint32_t vector, uint8_t irql, uint8_t synchronizeirql, int32_t interruptmode, bool sharevector, uint64_t processorenablemask, bool floatingsave) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoConnectInterrupt(void* interruptobject, void* serviceroutine, void* servicecontext, void* spinlock, uint32_t vector, uint8_t irql, uint8_t synchronizeirql, int32_t interruptmode, bool sharevector, uint64_t processorenablemask, bool floatingsave) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint8_t, uint8_t, int32_t, bool, uint64_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -5659,7 +5659,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioConnectInterrupt(void* in
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioConnectInterruptEx(void* parameters) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoConnectInterruptEx(void* parameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5681,7 +5681,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioConnectInterruptEx(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioCreateController(uint32_t size) {
+void* windowssysWindowsWdkSystemSystemservicesIoCreateController(uint32_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5703,7 +5703,7 @@ void* windowssys_windows_wdk_system_systemservices_ioCreateController(uint32_t s
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateDevice(void* driverobject, uint32_t deviceextensionsize, void* devicename, uint32_t devicetype, uint32_t devicecharacteristics, bool exclusive, void* deviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateDevice(void* driverobject, uint32_t deviceextensionsize, void* devicename, uint32_t devicetype, uint32_t devicecharacteristics, bool exclusive, void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5731,7 +5731,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateDevice(void* driver
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateDisk(void* deviceobject, void* disk) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateDisk(void* deviceobject, void* disk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5754,7 +5754,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateDisk(void* deviceob
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t disposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, int32_t createfiletype, void* internalparameters, uint32_t options) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t disposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, int32_t createfiletype, void* internalparameters, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5789,7 +5789,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateFile(void* filehand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateFileEx(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t disposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, int32_t createfiletype, void* internalparameters, uint32_t options, void* drivercontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateFileEx(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t disposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, int32_t createfiletype, void* internalparameters, uint32_t options, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5825,7 +5825,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateFileEx(void* fileha
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateFileSpecifyDeviceObjectHint(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t disposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, int32_t createfiletype, void* internalparameters, uint32_t options, void* deviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateFileSpecifyDeviceObjectHint(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t disposition, uint32_t createoptions, void* eabuffer, uint32_t ealength, int32_t createfiletype, void* internalparameters, uint32_t options, void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5861,7 +5861,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateFileSpecifyDeviceOb
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioCreateNotificationEvent(void* eventname, void* eventhandle) {
+void* windowssysWindowsWdkSystemSystemservicesIoCreateNotificationEvent(void* eventname, void* eventhandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5884,7 +5884,7 @@ void* windowssys_windows_wdk_system_systemservices_ioCreateNotificationEvent(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateSymbolicLink(void* symboliclinkname, void* devicename) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateSymbolicLink(void* symboliclinkname, void* devicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5907,7 +5907,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateSymbolicLink(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioCreateSynchronizationEvent(void* eventname, void* eventhandle) {
+void* windowssysWindowsWdkSystemSystemservicesIoCreateSynchronizationEvent(void* eventname, void* eventhandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5930,7 +5930,7 @@ void* windowssys_windows_wdk_system_systemservices_ioCreateSynchronizationEvent(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateSystemThread(void* ioobject, void* threadhandle, uint32_t desiredaccess, void* objectattributes, void* processhandle, void* clientid, void* startroutine, void* startcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateSystemThread(void* ioobject, void* threadhandle, uint32_t desiredaccess, void* objectattributes, void* processhandle, void* clientid, void* startroutine, void* startcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5959,7 +5959,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateSystemThread(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCreateUnprotectedSymbolicLink(void* symboliclinkname, void* devicename) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCreateUnprotectedSymbolicLink(void* symboliclinkname, void* devicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5982,7 +5982,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCreateUnprotectedSymbolic
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCsqInitialize(void* csq, void* csqinsertirp, void* csqremoveirp, void* csqpeeknextirp, void* csqacquirelock, void* csqreleaselock, void* csqcompletecanceledirp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCsqInitialize(void* csq, void* csqinsertirp, void* csqremoveirp, void* csqpeeknextirp, void* csqacquirelock, void* csqreleaselock, void* csqcompletecanceledirp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6010,7 +6010,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCsqInitialize(void* csq, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCsqInitializeEx(void* csq, void* csqinsertirp, void* csqremoveirp, void* csqpeeknextirp, void* csqacquirelock, void* csqreleaselock, void* csqcompletecanceledirp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCsqInitializeEx(void* csq, void* csqinsertirp, void* csqremoveirp, void* csqpeeknextirp, void* csqacquirelock, void* csqreleaselock, void* csqcompletecanceledirp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6038,7 +6038,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCsqInitializeEx(void* csq
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioCsqInsertIrp(void* csq, void* irp, void* context) {
+void windowssysWindowsWdkSystemSystemservicesIoCsqInsertIrp(void* csq, void* irp, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6061,7 +6061,7 @@ void windowssys_windows_wdk_system_systemservices_ioCsqInsertIrp(void* csq, void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioCsqInsertIrpEx(void* csq, void* irp, void* context, void* insertcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoCsqInsertIrpEx(void* csq, void* irp, void* context, void* insertcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6086,7 +6086,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioCsqInsertIrpEx(void* csq,
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioCsqRemoveIrp(void* csq, void* context) {
+void* windowssysWindowsWdkSystemSystemservicesIoCsqRemoveIrp(void* csq, void* context) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6109,7 +6109,7 @@ void* windowssys_windows_wdk_system_systemservices_ioCsqRemoveIrp(void* csq, voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioCsqRemoveNextIrp(void* csq, void* peekcontext) {
+void* windowssysWindowsWdkSystemSystemservicesIoCsqRemoveNextIrp(void* csq, void* peekcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6132,7 +6132,7 @@ void* windowssys_windows_wdk_system_systemservices_ioCsqRemoveNextIrp(void* csq,
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioDecrementKeepAliveCount(void* fileobject, int64_t process) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoDecrementKeepAliveCount(void* fileobject, int64_t process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6155,7 +6155,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioDecrementKeepAliveCount(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioDeleteController(void* controllerobject) {
+void windowssysWindowsWdkSystemSystemservicesIoDeleteController(void* controllerobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6176,7 +6176,7 @@ void windowssys_windows_wdk_system_systemservices_ioDeleteController(void* contr
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioDeleteDevice(void* deviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoDeleteDevice(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6197,7 +6197,7 @@ void windowssys_windows_wdk_system_systemservices_ioDeleteDevice(void* deviceobj
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioDeleteSymbolicLink(void* symboliclinkname) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoDeleteSymbolicLink(void* symboliclinkname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6219,7 +6219,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioDeleteSymbolicLink(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioDetachDevice(void* targetdevice) {
+void windowssysWindowsWdkSystemSystemservicesIoDetachDevice(void* targetdevice) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6240,7 +6240,7 @@ void windowssys_windows_wdk_system_systemservices_ioDetachDevice(void* targetdev
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioDisconnectInterrupt(int64_t interruptobject) {
+void windowssysWindowsWdkSystemSystemservicesIoDisconnectInterrupt(int64_t interruptobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6261,7 +6261,7 @@ void windowssys_windows_wdk_system_systemservices_ioDisconnectInterrupt(int64_t 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioDisconnectInterruptEx(void* parameters) {
+void windowssysWindowsWdkSystemSystemservicesIoDisconnectInterruptEx(void* parameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6282,7 +6282,7 @@ void windowssys_windows_wdk_system_systemservices_ioDisconnectInterruptEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioEnumerateKsrPersistentMemoryEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* callback, void* callbackcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoEnumerateKsrPersistentMemoryEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* callback, void* callbackcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6308,7 +6308,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioEnumerateKsrPersistentMem
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioFlushAdapterBuffers(void* adapterobject, void* mdl, void* mapregisterbase, void* currentva, uint32_t length, bool writetodevice) {
+bool windowssysWindowsWdkSystemSystemservicesIoFlushAdapterBuffers(void* adapterobject, void* mdl, void* mapregisterbase, void* currentva, uint32_t length, bool writetodevice) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -6335,7 +6335,7 @@ bool windowssys_windows_wdk_system_systemservices_ioFlushAdapterBuffers(void* ad
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioForwardIrpSynchronously(void* deviceobject, void* irp) {
+bool windowssysWindowsWdkSystemSystemservicesIoForwardIrpSynchronously(void* deviceobject, void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6358,7 +6358,7 @@ bool windowssys_windows_wdk_system_systemservices_ioForwardIrpSynchronously(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeAdapterChannel(void* adapterobject) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeAdapterChannel(void* adapterobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6379,7 +6379,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeAdapterChannel(void* ada
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeController(void* controllerobject) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeController(void* controllerobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6400,7 +6400,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeController(void* control
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeErrorLogEntry(void* elentry) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeErrorLogEntry(void* elentry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6421,7 +6421,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeErrorLogEntry(void* elen
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeIrp(void* irp) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeIrp(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6442,7 +6442,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeIrp(void* irp) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioFreeKsrPersistentMemory(void* datahandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoFreeKsrPersistentMemory(void* datahandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6464,7 +6464,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioFreeKsrPersistentMemory(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeMapRegisters(void* adapterobject, void* mapregisterbase, uint32_t numberofmapregisters) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeMapRegisters(void* adapterobject, void* mapregisterbase, uint32_t numberofmapregisters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6487,7 +6487,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeMapRegisters(void* adapt
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeMdl(void* mdl) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeMdl(void* mdl) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6508,7 +6508,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeMdl(void* mdl) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioFreeSfioStreamIdentifier(void* fileobject, void* signature) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoFreeSfioStreamIdentifier(void* fileobject, void* signature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6531,7 +6531,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioFreeSfioStreamIdentifier(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioFreeWorkItem(int64_t ioworkitem) {
+void windowssysWindowsWdkSystemSystemservicesIoFreeWorkItem(int64_t ioworkitem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6552,7 +6552,7 @@ void windowssys_windows_wdk_system_systemservices_ioFreeWorkItem(int64_t ioworki
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetActivityIdIrp(void* irp, void* guid) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetActivityIdIrp(void* irp, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6575,7 +6575,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetActivityIdIrp(void* ir
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetActivityIdThread(void) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetActivityIdThread(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -6596,7 +6596,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetActivityIdThread(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetAffinityInterrupt(int64_t interruptobject, void* groupaffinity) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetAffinityInterrupt(int64_t interruptobject, void* groupaffinity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6619,7 +6619,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetAffinityInterrupt(int6
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetAttachedDeviceReference(void* deviceobject) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetAttachedDeviceReference(void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6641,7 +6641,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetAttachedDeviceReference(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetBootDiskInformation(void* bootdiskinformation, uint32_t size) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetBootDiskInformation(void* bootdiskinformation, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6664,7 +6664,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetBootDiskInformation(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetBootDiskInformationLite(void* bootdiskinformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetBootDiskInformationLite(void* bootdiskinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6686,7 +6686,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetBootDiskInformationLit
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetConfigurationInformation(void) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetConfigurationInformation(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -6707,7 +6707,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetConfigurationInformation
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetContainerInformation(int32_t informationclass, void* containerobject, void* buffer, uint32_t bufferlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetContainerInformation(int32_t informationclass, void* containerobject, void* buffer, uint32_t bufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6732,7 +6732,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetContainerInformation(i
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_ioGetCurrentProcess(void) {
+int64_t windowssysWindowsWdkSystemSystemservicesIoGetCurrentProcess(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -6753,7 +6753,7 @@ int64_t windowssys_windows_wdk_system_systemservices_ioGetCurrentProcess(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceDirectory(void* physicaldeviceobject, int32_t directorytype, uint32_t flags, void* reserved, void* devicedirectoryhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceDirectory(void* physicaldeviceobject, int32_t directorytype, uint32_t flags, void* reserved, void* devicedirectoryhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6779,7 +6779,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceDirectory(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceInterfaceAlias(void* symboliclinkname, void* aliasinterfaceclassguid, void* aliassymboliclinkname) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfaceAlias(void* symboliclinkname, void* aliasinterfaceclassguid, void* aliassymboliclinkname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6803,7 +6803,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceInterfaceAlias(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceInterfacePropertyData(void* symboliclinkname, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t size, void* data, void* requiredsize, void* type) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfacePropertyData(void* symboliclinkname, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t size, void* data, void* requiredsize, void* type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6832,7 +6832,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceInterfacePropert
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceInterfaces(void* interfaceclassguid, void* physicaldeviceobject, uint32_t flags, void* symboliclinklist) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfaces(void* interfaceclassguid, void* physicaldeviceobject, uint32_t flags, void* symboliclinklist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6857,7 +6857,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceInterfaces(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceNumaNode(void* pdo, void* nodenumber) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceNumaNode(void* pdo, void* nodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6880,7 +6880,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceNumaNode(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceObjectPointer(void* objectname, uint32_t desiredaccess, void* fileobject, void* deviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceObjectPointer(void* objectname, uint32_t desiredaccess, void* fileobject, void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6905,7 +6905,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceObjectPointer(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceProperty(void* deviceobject, int32_t deviceproperty, uint32_t bufferlength, void* propertybuffer, void* resultlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDeviceProperty(void* deviceobject, int32_t deviceproperty, uint32_t bufferlength, void* propertybuffer, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6931,7 +6931,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDeviceProperty(void* d
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDevicePropertyData(void* pdo, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t size, void* data, void* requiredsize, void* type) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDevicePropertyData(void* pdo, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t size, void* data, void* requiredsize, void* type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6960,7 +6960,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDevicePropertyData(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetDmaAdapter(void* physicaldeviceobject, void* devicedescription, void* numberofmapregisters) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetDmaAdapter(void* physicaldeviceobject, void* devicedescription, void* numberofmapregisters) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6984,7 +6984,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetDmaAdapter(void* physica
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetDriverDirectory(void* driverobject, int32_t directorytype, uint32_t flags, void* driverdirectoryhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetDriverDirectory(void* driverobject, int32_t directorytype, uint32_t flags, void* driverdirectoryhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7009,7 +7009,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetDriverDirectory(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetDriverObjectExtension(void* driverobject, void* clientidentificationaddress) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetDriverObjectExtension(void* driverobject, void* clientidentificationaddress) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7032,7 +7032,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetDriverObjectExtension(vo
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetFileObjectGenericMapping(void) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetFileObjectGenericMapping(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7053,7 +7053,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetFileObjectGenericMapping
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetFsZeroingOffset(void* irp, void* zeroingoffset) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetFsZeroingOffset(void* irp, void* zeroingoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7076,7 +7076,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetFsZeroingOffset(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetInitialStack(void) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetInitialStack(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7097,7 +7097,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetInitialStack(void) {
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_ioGetInitiatorProcess(void* fileobject) {
+int64_t windowssysWindowsWdkSystemSystemservicesIoGetInitiatorProcess(void* fileobject) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7119,7 +7119,7 @@ int64_t windowssys_windows_wdk_system_systemservices_ioGetInitiatorProcess(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetIoAttributionHandle(void* irp, void* ioattributionhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetIoAttributionHandle(void* irp, void* ioattributionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7142,7 +7142,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetIoAttributionHandle(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetIoPriorityHint(void* irp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetIoPriorityHint(void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7164,7 +7164,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetIoPriorityHint(void* i
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetIommuInterface(uint32_t version, void* interfaceout) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetIommuInterface(uint32_t version, void* interfaceout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7187,7 +7187,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetIommuInterface(uint32_
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetIommuInterfaceEx(uint32_t version, uint64_t flags, void* interfaceout) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetIommuInterfaceEx(uint32_t version, uint64_t flags, void* interfaceout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7211,7 +7211,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetIommuInterfaceEx(uint3
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetIrpExtraCreateParameter(void* irp, void* extracreateparameter) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetIrpExtraCreateParameter(void* irp, void* extracreateparameter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7234,7 +7234,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetIrpExtraCreateParamete
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioGetPagingIoPriority(void* irp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoGetPagingIoPriority(void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7256,7 +7256,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioGetPagingIoPriority(void*
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetRelatedDeviceObject(void* fileobject) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetRelatedDeviceObject(void* fileobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7278,7 +7278,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetRelatedDeviceObject(void
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetSfioStreamIdentifier(void* fileobject, void* signature) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetSfioStreamIdentifier(void* fileobject, void* signature) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7301,7 +7301,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetSfioStreamIdentifier(voi
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_ioGetSilo(void* fileobject) {
+int64_t windowssysWindowsWdkSystemSystemservicesIoGetSilo(void* fileobject) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7323,7 +7323,7 @@ int64_t windowssys_windows_wdk_system_systemservices_ioGetSilo(void* fileobject)
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetSiloParameters(void* fileobject) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetSiloParameters(void* fileobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7345,7 +7345,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetSiloParameters(void* fil
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioGetStackLimits(void* lowlimit, void* highlimit) {
+void windowssysWindowsWdkSystemSystemservicesIoGetStackLimits(void* lowlimit, void* highlimit) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7367,7 +7367,7 @@ void windowssys_windows_wdk_system_systemservices_ioGetStackLimits(void* lowlimi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetTopLevelIrp(void) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetTopLevelIrp(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7388,7 +7388,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetTopLevelIrp(void) {
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioGetTransactionParameterBlock(void* fileobject) {
+void* windowssysWindowsWdkSystemSystemservicesIoGetTransactionParameterBlock(void* fileobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7410,7 +7410,7 @@ void* windowssys_windows_wdk_system_systemservices_ioGetTransactionParameterBloc
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioIncrementKeepAliveCount(void* fileobject, int64_t process) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoIncrementKeepAliveCount(void* fileobject, int64_t process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7433,7 +7433,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioIncrementKeepAliveCount(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioInitializeIrp(void* irp, uint16_t packetsize, int8_t stacksize) {
+void windowssysWindowsWdkSystemSystemservicesIoInitializeIrp(void* irp, uint16_t packetsize, int8_t stacksize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint16_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7456,7 +7456,7 @@ void windowssys_windows_wdk_system_systemservices_ioInitializeIrp(void* irp, uin
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioInitializeIrpEx(void* irp, void* deviceobject, uint16_t packetsize, int8_t stacksize) {
+void windowssysWindowsWdkSystemSystemservicesIoInitializeIrpEx(void* irp, void* deviceobject, uint16_t packetsize, int8_t stacksize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint16_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7480,7 +7480,7 @@ void windowssys_windows_wdk_system_systemservices_ioInitializeIrpEx(void* irp, v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioInitializeRemoveLockEx(void* lock, uint32_t allocatetag, uint32_t maxlockedminutes, uint32_t highwatermark, uint32_t remlocksize) {
+void windowssysWindowsWdkSystemSystemservicesIoInitializeRemoveLockEx(void* lock, uint32_t allocatetag, uint32_t maxlockedminutes, uint32_t highwatermark, uint32_t remlocksize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7505,7 +7505,7 @@ void windowssys_windows_wdk_system_systemservices_ioInitializeRemoveLockEx(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioInitializeTimer(void* deviceobject, void* timerroutine, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoInitializeTimer(void* deviceobject, void* timerroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7529,7 +7529,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioInitializeTimer(void* dev
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioInitializeWorkItem(void* ioobject, int64_t ioworkitem) {
+void windowssysWindowsWdkSystemSystemservicesIoInitializeWorkItem(void* ioobject, int64_t ioworkitem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7551,7 +7551,7 @@ void windowssys_windows_wdk_system_systemservices_ioInitializeWorkItem(void* ioo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioInvalidateDeviceRelations(void* deviceobject, int32_t type) {
+void windowssysWindowsWdkSystemSystemservicesIoInvalidateDeviceRelations(void* deviceobject, int32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7573,7 +7573,7 @@ void windowssys_windows_wdk_system_systemservices_ioInvalidateDeviceRelations(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioInvalidateDeviceState(void* physicaldeviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoInvalidateDeviceState(void* physicaldeviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7594,7 +7594,7 @@ void windowssys_windows_wdk_system_systemservices_ioInvalidateDeviceState(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioIs32bitProcess(void* irp) {
+bool windowssysWindowsWdkSystemSystemservicesIoIs32bitProcess(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7616,7 +7616,7 @@ bool windowssys_windows_wdk_system_systemservices_ioIs32bitProcess(void* irp) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioIsFileObjectIgnoringSharing(void* fileobject) {
+bool windowssysWindowsWdkSystemSystemservicesIoIsFileObjectIgnoringSharing(void* fileobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7638,7 +7638,7 @@ bool windowssys_windows_wdk_system_systemservices_ioIsFileObjectIgnoringSharing(
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioIsFileOriginRemote(void* fileobject) {
+bool windowssysWindowsWdkSystemSystemservicesIoIsFileOriginRemote(void* fileobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7660,7 +7660,7 @@ bool windowssys_windows_wdk_system_systemservices_ioIsFileOriginRemote(void* fil
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioIsInitiator32bitProcess(void* irp) {
+bool windowssysWindowsWdkSystemSystemservicesIoIsInitiator32bitProcess(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7682,7 +7682,7 @@ bool windowssys_windows_wdk_system_systemservices_ioIsInitiator32bitProcess(void
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_ioIsValidIrpStatus(int32_t status) {
+uint32_t windowssysWindowsWdkSystemSystemservicesIoIsValidIrpStatus(int32_t status) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7704,7 +7704,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_ioIsValidIrpStatus(int32_t
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioIsWdmVersionAvailable(uint8_t majorversion, uint8_t minorversion) {
+bool windowssysWindowsWdkSystemSystemservicesIoIsWdmVersionAvailable(uint8_t majorversion, uint8_t minorversion) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint8_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7727,7 +7727,7 @@ bool windowssys_windows_wdk_system_systemservices_ioIsWdmVersionAvailable(uint8_
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioMakeAssociatedIrp(void* irp, int8_t stacksize) {
+void* windowssysWindowsWdkSystemSystemservicesIoMakeAssociatedIrp(void* irp, int8_t stacksize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7750,7 +7750,7 @@ void* windowssys_windows_wdk_system_systemservices_ioMakeAssociatedIrp(void* irp
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioMakeAssociatedIrpEx(void* irp, void* deviceobject, int8_t stacksize) {
+void* windowssysWindowsWdkSystemSystemservicesIoMakeAssociatedIrpEx(void* irp, void* deviceobject, int8_t stacksize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7774,7 +7774,7 @@ void* windowssys_windows_wdk_system_systemservices_ioMakeAssociatedIrpEx(void* i
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_ioMapTransfer(void* adapterobject, void* mdl, void* mapregisterbase, void* currentva, void* length, bool writetodevice) {
+int64_t windowssysWindowsWdkSystemSystemservicesIoMapTransfer(void* adapterobject, void* mdl, void* mapregisterbase, void* currentva, void* length, bool writetodevice) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -7801,7 +7801,7 @@ int64_t windowssys_windows_wdk_system_systemservices_ioMapTransfer(void* adapter
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioOpenDeviceInterfaceRegistryKey(void* symboliclinkname, uint32_t desiredaccess, void* deviceinterfaceregkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoOpenDeviceInterfaceRegistryKey(void* symboliclinkname, uint32_t desiredaccess, void* deviceinterfaceregkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7825,7 +7825,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioOpenDeviceInterfaceRegist
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioOpenDeviceRegistryKey(void* deviceobject, uint32_t devinstkeytype, uint32_t desiredaccess, void* deviceregkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoOpenDeviceRegistryKey(void* deviceobject, uint32_t devinstkeytype, uint32_t desiredaccess, void* deviceregkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7850,7 +7850,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioOpenDeviceRegistryKey(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioOpenDriverRegistryKey(void* driverobject, int32_t regkeytype, uint32_t desiredaccess, uint32_t flags, void* driverregkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoOpenDriverRegistryKey(void* driverobject, int32_t regkeytype, uint32_t desiredaccess, uint32_t flags, void* driverregkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7876,7 +7876,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioOpenDriverRegistryKey(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioPropagateActivityIdToThread(void* irp, void* propagatedid, void* originalid) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoPropagateActivityIdToThread(void* irp, void* propagatedid, void* originalid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7900,7 +7900,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioPropagateActivityIdToThre
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioQueryDeviceDescription(void* bustype, void* busnumber, void* controllertype, void* controllernumber, void* peripheraltype, void* peripheralnumber, void* calloutroutine, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoQueryDeviceDescription(void* bustype, void* busnumber, void* controllertype, void* controllernumber, void* peripheraltype, void* peripheralnumber, void* calloutroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7929,7 +7929,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioQueryDeviceDescription(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioQueryFullDriverPath(void* driverobject, void* fullpath) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoQueryFullDriverPath(void* driverobject, void* fullpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7952,7 +7952,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioQueryFullDriverPath(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioQueryInformationByName(void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, uint32_t options, void* drivercontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoQueryInformationByName(void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, uint32_t options, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7980,7 +7980,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioQueryInformationByName(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioQueryKsrPersistentMemorySize(void* driverobject, void* physicaldeviceobject, void* buffersize) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoQueryKsrPersistentMemorySize(void* driverobject, void* physicaldeviceobject, void* buffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8004,7 +8004,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioQueryKsrPersistentMemoryS
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioQueryKsrPersistentMemorySizeEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* datatag, void* dataversion, void* buffersize) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoQueryKsrPersistentMemorySizeEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* datatag, void* dataversion, void* buffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8031,7 +8031,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioQueryKsrPersistentMemoryS
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioQueueWorkItem(int64_t ioworkitem, void* workerroutine, int32_t queuetype, void* context) {
+void windowssysWindowsWdkSystemSystemservicesIoQueueWorkItem(int64_t ioworkitem, void* workerroutine, int32_t queuetype, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8055,7 +8055,7 @@ void windowssys_windows_wdk_system_systemservices_ioQueueWorkItem(int64_t iowork
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioQueueWorkItemEx(int64_t ioworkitem, void* workerroutine, int32_t queuetype, void* context) {
+void windowssysWindowsWdkSystemSystemservicesIoQueueWorkItemEx(int64_t ioworkitem, void* workerroutine, int32_t queuetype, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8079,7 +8079,7 @@ void windowssys_windows_wdk_system_systemservices_ioQueueWorkItemEx(int64_t iowo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioRaiseHardError(void* irp, void* vpb, void* realdeviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoRaiseHardError(void* irp, void* vpb, void* realdeviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8102,7 +8102,7 @@ void windowssys_windows_wdk_system_systemservices_ioRaiseHardError(void* irp, vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioRaiseInformationalHardError(int32_t errorstatus, void* string, int64_t thread) {
+bool windowssysWindowsWdkSystemSystemservicesIoRaiseInformationalHardError(int32_t errorstatus, void* string, int64_t thread) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8126,7 +8126,7 @@ bool windowssys_windows_wdk_system_systemservices_ioRaiseInformationalHardError(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReadDiskSignature(void* deviceobject, uint32_t bytespersector, void* signature) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReadDiskSignature(void* deviceobject, uint32_t bytespersector, void* signature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8150,7 +8150,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReadDiskSignature(void* d
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReadPartitionTable(void* deviceobject, uint32_t sectorsize, bool returnrecognizedpartitions, void* partitionbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReadPartitionTable(void* deviceobject, uint32_t sectorsize, bool returnrecognizedpartitions, void* partitionbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8175,7 +8175,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReadPartitionTable(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReadPartitionTableEx(void* deviceobject, void* drivelayout) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReadPartitionTableEx(void* deviceobject, void* drivelayout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8198,7 +8198,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReadPartitionTableEx(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRecordIoAttribution(void* opaquehandle, void* attributioninformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRecordIoAttribution(void* opaquehandle, void* attributioninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8221,7 +8221,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRecordIoAttribution(void*
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioRegisterBootDriverCallback(void* callbackfunction, void* callbackcontext) {
+void* windowssysWindowsWdkSystemSystemservicesIoRegisterBootDriverCallback(void* callbackfunction, void* callbackcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8244,7 +8244,7 @@ void* windowssys_windows_wdk_system_systemservices_ioRegisterBootDriverCallback(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRegisterContainerNotification(int32_t notificationclass, void* callbackfunction, void* notificationinformation, uint32_t notificationinformationlength, void* callbackregistration) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRegisterContainerNotification(int32_t notificationclass, void* callbackfunction, void* notificationinformation, uint32_t notificationinformationlength, void* callbackregistration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8270,7 +8270,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRegisterContainerNotifica
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRegisterDeviceInterface(void* physicaldeviceobject, void* interfaceclassguid, void* referencestring, void* symboliclinkname) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRegisterDeviceInterface(void* physicaldeviceobject, void* interfaceclassguid, void* referencestring, void* symboliclinkname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8295,7 +8295,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRegisterDeviceInterface(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRegisterLastChanceShutdownNotification(void* deviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRegisterLastChanceShutdownNotification(void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8317,7 +8317,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRegisterLastChanceShutdow
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRegisterPlugPlayNotification(int32_t eventcategory, uint32_t eventcategoryflags, void* eventcategorydata, void* driverobject, void* callbackroutine, void* context, void* notificationentry) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRegisterPlugPlayNotification(int32_t eventcategory, uint32_t eventcategoryflags, void* eventcategorydata, void* driverobject, void* callbackroutine, void* context, void* notificationentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8345,7 +8345,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRegisterPlugPlayNotificat
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRegisterShutdownNotification(void* deviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRegisterShutdownNotification(void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8367,7 +8367,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRegisterShutdownNotificat
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioReleaseCancelSpinLock(uint8_t irql) {
+void windowssysWindowsWdkSystemSystemservicesIoReleaseCancelSpinLock(uint8_t irql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8388,7 +8388,7 @@ void windowssys_windows_wdk_system_systemservices_ioReleaseCancelSpinLock(uint8_
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioReleaseRemoveLockAndWaitEx(void* removelock, void* tag, uint32_t remlocksize) {
+void windowssysWindowsWdkSystemSystemservicesIoReleaseRemoveLockAndWaitEx(void* removelock, void* tag, uint32_t remlocksize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8411,7 +8411,7 @@ void windowssys_windows_wdk_system_systemservices_ioReleaseRemoveLockAndWaitEx(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioReleaseRemoveLockEx(void* removelock, void* tag, uint32_t remlocksize) {
+void windowssysWindowsWdkSystemSystemservicesIoReleaseRemoveLockEx(void* removelock, void* tag, uint32_t remlocksize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8434,7 +8434,7 @@ void windowssys_windows_wdk_system_systemservices_ioReleaseRemoveLockEx(void* re
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioRemoveLinkShareAccess(void* fileobject, void* shareaccess, void* linkshareaccess) {
+void windowssysWindowsWdkSystemSystemservicesIoRemoveLinkShareAccess(void* fileobject, void* shareaccess, void* linkshareaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8457,7 +8457,7 @@ void windowssys_windows_wdk_system_systemservices_ioRemoveLinkShareAccess(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioRemoveLinkShareAccessEx(void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
+void windowssysWindowsWdkSystemSystemservicesIoRemoveLinkShareAccessEx(void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8481,7 +8481,7 @@ void windowssys_windows_wdk_system_systemservices_ioRemoveLinkShareAccessEx(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioRemoveShareAccess(void* fileobject, void* shareaccess) {
+void windowssysWindowsWdkSystemSystemservicesIoRemoveShareAccess(void* fileobject, void* shareaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8503,7 +8503,7 @@ void windowssys_windows_wdk_system_systemservices_ioRemoveShareAccess(void* file
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReplacePartitionUnit(void* targetpdo, void* sparepdo, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReplacePartitionUnit(void* targetpdo, void* sparepdo, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8527,7 +8527,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReplacePartitionUnit(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReportDetectedDevice(void* driverobject, int32_t legacybustype, uint32_t busnumber, uint32_t slotnumber, void* resourcelist, void* resourcerequirements, bool resourceassigned, void* deviceobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReportDetectedDevice(void* driverobject, int32_t legacybustype, uint32_t busnumber, uint32_t slotnumber, void* resourcelist, void* resourcerequirements, bool resourceassigned, void* deviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8556,7 +8556,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReportDetectedDevice(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioReportInterruptActive(void* parameters) {
+void windowssysWindowsWdkSystemSystemservicesIoReportInterruptActive(void* parameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8577,7 +8577,7 @@ void windowssys_windows_wdk_system_systemservices_ioReportInterruptActive(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioReportInterruptInactive(void* parameters) {
+void windowssysWindowsWdkSystemSystemservicesIoReportInterruptInactive(void* parameters) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8598,7 +8598,7 @@ void windowssys_windows_wdk_system_systemservices_ioReportInterruptInactive(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReportResourceForDetection(void* driverobject, void* driverlist, uint32_t driverlistsize, void* deviceobject, void* devicelist, uint32_t devicelistsize, void* conflictdetected) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReportResourceForDetection(void* driverobject, void* driverlist, uint32_t driverlistsize, void* deviceobject, void* devicelist, uint32_t devicelistsize, void* conflictdetected) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8626,7 +8626,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReportResourceForDetectio
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReportResourceUsage(void* driverclassname, void* driverobject, void* driverlist, uint32_t driverlistsize, void* deviceobject, void* devicelist, uint32_t devicelistsize, bool overrideconflict, void* conflictdetected) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReportResourceUsage(void* driverclassname, void* driverobject, void* driverlist, uint32_t driverlistsize, void* deviceobject, void* devicelist, uint32_t devicelistsize, bool overrideconflict, void* conflictdetected) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8656,7 +8656,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReportResourceUsage(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReportRootDevice(void* driverobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReportRootDevice(void* driverobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8678,7 +8678,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReportRootDevice(void* dr
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReportTargetDeviceChange(void* physicaldeviceobject, void* notificationstructure) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReportTargetDeviceChange(void* physicaldeviceobject, void* notificationstructure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8701,7 +8701,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReportTargetDeviceChange(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReportTargetDeviceChangeAsynchronous(void* physicaldeviceobject, void* notificationstructure, void* callback, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReportTargetDeviceChangeAsynchronous(void* physicaldeviceobject, void* notificationstructure, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8726,7 +8726,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReportTargetDeviceChangeA
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioRequestDeviceEject(void* physicaldeviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoRequestDeviceEject(void* physicaldeviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8747,7 +8747,7 @@ void windowssys_windows_wdk_system_systemservices_ioRequestDeviceEject(void* phy
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioRequestDeviceEjectEx(void* physicaldeviceobject, void* callback, void* context, void* driverobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoRequestDeviceEjectEx(void* physicaldeviceobject, void* callback, void* context, void* driverobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8772,7 +8772,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioRequestDeviceEjectEx(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReserveKsrPersistentMemory(void* driverobject, void* physicaldeviceobject, uint64_t size, uint32_t flags, void* datahandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReserveKsrPersistentMemory(void* driverobject, void* physicaldeviceobject, uint64_t size, uint32_t flags, void* datahandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8798,7 +8798,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReserveKsrPersistentMemor
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioReserveKsrPersistentMemoryEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* datatag, uint32_t dataversion, uint64_t size, uint32_t flags, void* datahandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoReserveKsrPersistentMemoryEx(void* driverobject, void* physicaldeviceobject, void* physicaldeviceid, void* datatag, uint32_t dataversion, uint64_t size, uint32_t flags, void* datahandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8827,7 +8827,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioReserveKsrPersistentMemor
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioReuseIrp(void* irp, int32_t iostatus) {
+void windowssysWindowsWdkSystemSystemservicesIoReuseIrp(void* irp, int32_t iostatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8849,7 +8849,7 @@ void windowssys_windows_wdk_system_systemservices_ioReuseIrp(void* irp, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetActivityIdIrp(void* irp, void* guid) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetActivityIdIrp(void* irp, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8872,7 +8872,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetActivityIdIrp(void* ir
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_ioSetActivityIdThread(void* activityid) {
+void* windowssysWindowsWdkSystemSystemservicesIoSetActivityIdThread(void* activityid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8894,7 +8894,7 @@ void* windowssys_windows_wdk_system_systemservices_ioSetActivityIdThread(void* a
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetCompletionRoutineEx(void* deviceobject, void* irp, void* completionroutine, void* context, bool invokeonsuccess, bool invokeonerror, bool invokeoncancel) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetCompletionRoutineEx(void* deviceobject, void* irp, void* completionroutine, void* context, bool invokeonsuccess, bool invokeonerror, bool invokeoncancel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8922,7 +8922,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetCompletionRoutineEx(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetDeviceInterfacePropertyData(void* symboliclinkname, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t type, uint32_t size, void* data) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetDeviceInterfacePropertyData(void* symboliclinkname, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t type, uint32_t size, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8950,7 +8950,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetDeviceInterfacePropert
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetDeviceInterfaceState(void* symboliclinkname, bool enable) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetDeviceInterfaceState(void* symboliclinkname, bool enable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8973,7 +8973,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetDeviceInterfaceState(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetDevicePropertyData(void* pdo, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t type, uint32_t size, void* data) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetDevicePropertyData(void* pdo, void* propertykey, uint32_t lcid, uint32_t flags, uint32_t type, uint32_t size, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9001,7 +9001,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetDevicePropertyData(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetFileObjectIgnoreSharing(void* fileobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetFileObjectIgnoreSharing(void* fileobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9023,7 +9023,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetFileObjectIgnoreSharin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetFileOrigin(void* fileobject, bool remote) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetFileOrigin(void* fileobject, bool remote) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -9046,7 +9046,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetFileOrigin(void* fileo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetFsZeroingOffset(void* irp, uint32_t zeroingoffset) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetFsZeroingOffset(void* irp, uint32_t zeroingoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9069,7 +9069,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetFsZeroingOffset(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetFsZeroingOffsetRequired(void* irp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetFsZeroingOffsetRequired(void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9091,7 +9091,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetFsZeroingOffsetRequire
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetHardErrorOrVerifyDevice(void* irp, void* deviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoSetHardErrorOrVerifyDevice(void* irp, void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9113,7 +9113,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetHardErrorOrVerifyDevice(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetIoAttributionIrp(void* irp, void* attributionsource, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetIoAttributionIrp(void* irp, void* attributionsource, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9137,7 +9137,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetIoAttributionIrp(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetIoPriorityHint(void* irp, int32_t priorityhint) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetIoPriorityHint(void* irp, int32_t priorityhint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9160,7 +9160,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetIoPriorityHint(void* i
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetIrpExtraCreateParameter(void* irp, void* extracreateparameter) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetIrpExtraCreateParameter(void* irp, void* extracreateparameter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9183,7 +9183,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetIrpExtraCreateParamete
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetLinkShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
+void windowssysWindowsWdkSystemSystemservicesIoSetLinkShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9209,7 +9209,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetLinkShareAccess(uint32_t 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetMasterIrpStatus(void* masterirp, int32_t status) {
+void windowssysWindowsWdkSystemSystemservicesIoSetMasterIrpStatus(void* masterirp, int32_t status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9231,7 +9231,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetMasterIrpStatus(void* mas
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetPartitionInformation(void* deviceobject, uint32_t sectorsize, uint32_t partitionnumber, uint32_t partitiontype) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetPartitionInformation(void* deviceobject, uint32_t sectorsize, uint32_t partitionnumber, uint32_t partitiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9256,7 +9256,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetPartitionInformation(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetPartitionInformationEx(void* deviceobject, uint32_t partitionnumber, void* partitioninfo) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetPartitionInformationEx(void* deviceobject, uint32_t partitionnumber, void* partitioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9280,7 +9280,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetPartitionInformationEx
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess) {
+void windowssysWindowsWdkSystemSystemservicesIoSetShareAccess(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9304,7 +9304,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetShareAccess(uint32_t desi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetShareAccessEx(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, void* writepermission) {
+void windowssysWindowsWdkSystemSystemservicesIoSetShareAccessEx(uint32_t desiredaccess, uint32_t desiredshareaccess, void* fileobject, void* shareaccess, void* writepermission) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9329,7 +9329,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetShareAccessEx(uint32_t de
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetStartIoAttributes(void* deviceobject, bool deferredstartio, bool noncancelable) {
+void windowssysWindowsWdkSystemSystemservicesIoSetStartIoAttributes(void* deviceobject, bool deferredstartio, bool noncancelable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -9352,7 +9352,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetStartIoAttributes(void* d
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSetSystemPartition(void* volumenamestring) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSetSystemPartition(void* volumenamestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9374,7 +9374,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSetSystemPartition(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioSetThreadHardErrorMode(bool enableharderrors) {
+bool windowssysWindowsWdkSystemSystemservicesIoSetThreadHardErrorMode(bool enableharderrors) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -9396,7 +9396,7 @@ bool windowssys_windows_wdk_system_systemservices_ioSetThreadHardErrorMode(bool 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioSetTopLevelIrp(void* irp) {
+void windowssysWindowsWdkSystemSystemservicesIoSetTopLevelIrp(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9417,7 +9417,7 @@ void windowssys_windows_wdk_system_systemservices_ioSetTopLevelIrp(void* irp) {
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_ioSizeOfIrpEx(void* deviceobject, int8_t stacksize) {
+uint16_t windowssysWindowsWdkSystemSystemservicesIoSizeOfIrpEx(void* deviceobject, int8_t stacksize) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9440,7 +9440,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_ioSizeOfIrpEx(void* device
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_ioSizeofWorkItem(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesIoSizeofWorkItem(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9461,7 +9461,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_ioSizeofWorkItem(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioStartNextPacket(void* deviceobject, bool cancelable) {
+void windowssysWindowsWdkSystemSystemservicesIoStartNextPacket(void* deviceobject, bool cancelable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -9483,7 +9483,7 @@ void windowssys_windows_wdk_system_systemservices_ioStartNextPacket(void* device
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioStartNextPacketByKey(void* deviceobject, bool cancelable, uint32_t key) {
+void windowssysWindowsWdkSystemSystemservicesIoStartNextPacketByKey(void* deviceobject, bool cancelable, uint32_t key) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9506,7 +9506,7 @@ void windowssys_windows_wdk_system_systemservices_ioStartNextPacketByKey(void* d
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioStartTimer(void* deviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoStartTimer(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9527,7 +9527,7 @@ void windowssys_windows_wdk_system_systemservices_ioStartTimer(void* deviceobjec
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioStopTimer(void* deviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoStopTimer(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9548,7 +9548,7 @@ void windowssys_windows_wdk_system_systemservices_ioStopTimer(void* deviceobject
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioSynchronousCallDriver(void* deviceobject, void* irp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoSynchronousCallDriver(void* deviceobject, void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9571,7 +9571,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioSynchronousCallDriver(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioTransferActivityId(void* activityid, void* relatedactivityid) {
+void windowssysWindowsWdkSystemSystemservicesIoTransferActivityId(void* activityid, void* relatedactivityid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9593,7 +9593,7 @@ void windowssys_windows_wdk_system_systemservices_ioTransferActivityId(void* act
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioTranslateBusAddress(int32_t interfacetype, uint32_t busnumber, int64_t busaddress, void* addressspace, void* translatedaddress) {
+bool windowssysWindowsWdkSystemSystemservicesIoTranslateBusAddress(int32_t interfacetype, uint32_t busnumber, int64_t busaddress, void* addressspace, void* translatedaddress) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9619,7 +9619,7 @@ bool windowssys_windows_wdk_system_systemservices_ioTranslateBusAddress(int32_t 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_ioTryQueueWorkItem(int64_t ioworkitem, void* workerroutine, int32_t queuetype, void* context) {
+bool windowssysWindowsWdkSystemSystemservicesIoTryQueueWorkItem(int64_t ioworkitem, void* workerroutine, int32_t queuetype, void* context) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9644,7 +9644,7 @@ bool windowssys_windows_wdk_system_systemservices_ioTryQueueWorkItem(int64_t iow
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUninitializeWorkItem(int64_t ioworkitem) {
+void windowssysWindowsWdkSystemSystemservicesIoUninitializeWorkItem(int64_t ioworkitem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9665,7 +9665,7 @@ void windowssys_windows_wdk_system_systemservices_ioUninitializeWorkItem(int64_t
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUnregisterBootDriverCallback(void* callbackhandle) {
+void windowssysWindowsWdkSystemSystemservicesIoUnregisterBootDriverCallback(void* callbackhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9686,7 +9686,7 @@ void windowssys_windows_wdk_system_systemservices_ioUnregisterBootDriverCallback
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUnregisterContainerNotification(void* callbackregistration) {
+void windowssysWindowsWdkSystemSystemservicesIoUnregisterContainerNotification(void* callbackregistration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9707,7 +9707,7 @@ void windowssys_windows_wdk_system_systemservices_ioUnregisterContainerNotificat
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioUnregisterPlugPlayNotification(void* notificationentry) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoUnregisterPlugPlayNotification(void* notificationentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9729,7 +9729,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioUnregisterPlugPlayNotific
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioUnregisterPlugPlayNotificationEx(void* notificationentry) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoUnregisterPlugPlayNotificationEx(void* notificationentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9751,7 +9751,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioUnregisterPlugPlayNotific
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUnregisterShutdownNotification(void* deviceobject) {
+void windowssysWindowsWdkSystemSystemservicesIoUnregisterShutdownNotification(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9772,7 +9772,7 @@ void windowssys_windows_wdk_system_systemservices_ioUnregisterShutdownNotificati
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUpdateLinkShareAccess(void* fileobject, void* shareaccess, void* linkshareaccess) {
+void windowssysWindowsWdkSystemSystemservicesIoUpdateLinkShareAccess(void* fileobject, void* shareaccess, void* linkshareaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9795,7 +9795,7 @@ void windowssys_windows_wdk_system_systemservices_ioUpdateLinkShareAccess(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUpdateLinkShareAccessEx(void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
+void windowssysWindowsWdkSystemSystemservicesIoUpdateLinkShareAccessEx(void* fileobject, void* shareaccess, void* linkshareaccess, uint32_t ioshareaccessflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9819,7 +9819,7 @@ void windowssys_windows_wdk_system_systemservices_ioUpdateLinkShareAccessEx(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioUpdateShareAccess(void* fileobject, void* shareaccess) {
+void windowssysWindowsWdkSystemSystemservicesIoUpdateShareAccess(void* fileobject, void* shareaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9841,7 +9841,7 @@ void windowssys_windows_wdk_system_systemservices_ioUpdateShareAccess(void* file
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioValidateDeviceIoControlAccess(void* irp, uint32_t requiredaccess) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoValidateDeviceIoControlAccess(void* irp, uint32_t requiredaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9864,7 +9864,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioValidateDeviceIoControlAc
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioVerifyPartitionTable(void* deviceobject, bool fixerrors) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoVerifyPartitionTable(void* deviceobject, bool fixerrors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -9887,7 +9887,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioVerifyPartitionTable(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceNameToGuid(void* volumedevicename, void* guid) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceNameToGuid(void* volumedevicename, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9910,7 +9910,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceNameToGuid(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceNameToGuidPath(void* volumedevicename, void* guidpath) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceNameToGuidPath(void* volumedevicename, void* guidpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9933,7 +9933,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceNameToGuidPat
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceToDosName(void* volumedeviceobject, void* dosname) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToDosName(void* volumedeviceobject, void* dosname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9956,7 +9956,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceToDosName(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceToGuid(void* volumedeviceobject, void* guid) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToGuid(void* volumedeviceobject, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9979,7 +9979,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceToGuid(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceToGuidPath(void* volumedeviceobject, void* guidpath) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToGuidPath(void* volumedeviceobject, void* guidpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10002,7 +10002,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioVolumeDeviceToGuidPath(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIAllocateInstanceIds(void* guid, uint32_t instancecount, void* firstinstanceid) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIAllocateInstanceIds(void* guid, uint32_t instancecount, void* firstinstanceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10026,7 +10026,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIAllocateInstanceIds(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIDeviceObjectToInstanceName(void* datablockobject, void* deviceobject, void* instancename) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIDeviceObjectToInstanceName(void* datablockobject, void* deviceobject, void* instancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10050,7 +10050,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIDeviceObjectToInstance
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIExecuteMethod(void* datablockobject, void* instancename, uint32_t methodid, uint32_t inbuffersize, void* outbuffersize, void* inoutbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIExecuteMethod(void* datablockobject, void* instancename, uint32_t methodid, uint32_t inbuffersize, void* outbuffersize, void* inoutbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10077,7 +10077,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIExecuteMethod(void* da
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIHandleToInstanceName(void* datablockobject, void* filehandle, void* instancename) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIHandleToInstanceName(void* datablockobject, void* filehandle, void* instancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10101,7 +10101,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIHandleToInstanceName(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIOpenBlock(void* guid, uint32_t desiredaccess, void* datablockobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIOpenBlock(void* guid, uint32_t desiredaccess, void* datablockobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10125,7 +10125,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIOpenBlock(void* guid, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIQueryAllData(void* datablockobject, void* inoutbuffersize, void* outbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIQueryAllData(void* datablockobject, void* inoutbuffersize, void* outbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10149,7 +10149,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIQueryAllData(void* dat
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIQueryAllDataMultiple(void* datablockobjectlist, uint32_t objectcount, void* inoutbuffersize, void* outbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIQueryAllDataMultiple(void* datablockobjectlist, uint32_t objectcount, void* inoutbuffersize, void* outbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10174,7 +10174,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIQueryAllDataMultiple(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIQuerySingleInstance(void* datablockobject, void* instancename, void* inoutbuffersize, void* outbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIQuerySingleInstance(void* datablockobject, void* instancename, void* inoutbuffersize, void* outbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10199,7 +10199,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIQuerySingleInstance(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIQuerySingleInstanceMultiple(void* datablockobjectlist, void* instancenames, uint32_t objectcount, void* inoutbuffersize, void* outbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIQuerySingleInstanceMultiple(void* datablockobjectlist, void* instancenames, uint32_t objectcount, void* inoutbuffersize, void* outbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10225,7 +10225,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIQuerySingleInstanceMul
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIRegistrationControl(void* deviceobject, uint32_t action) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIRegistrationControl(void* deviceobject, uint32_t action) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10248,7 +10248,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIRegistrationControl(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMISetNotificationCallback(void* object, void* callback, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMISetNotificationCallback(void* object, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10272,7 +10272,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMISetNotificationCallbac
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMISetSingleInstance(void* datablockobject, void* instancename, uint32_t version, uint32_t valuebuffersize, void* valuebuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMISetSingleInstance(void* datablockobject, void* instancename, uint32_t version, uint32_t valuebuffersize, void* valuebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10298,7 +10298,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMISetSingleInstance(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMISetSingleItem(void* datablockobject, void* instancename, uint32_t dataitemid, uint32_t version, uint32_t valuebuffersize, void* valuebuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMISetSingleItem(void* datablockobject, void* instancename, uint32_t dataitemid, uint32_t version, uint32_t valuebuffersize, void* valuebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10325,7 +10325,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMISetSingleItem(void* da
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMISuggestInstanceName(void* physicaldeviceobject, void* symboliclinkname, bool combinenames, void* suggestedinstancename) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMISuggestInstanceName(void* physicaldeviceobject, void* symboliclinkname, bool combinenames, void* suggestedinstancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10350,7 +10350,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMISuggestInstanceName(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWMIWriteEvent(void* wnodeeventitem) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWMIWriteEvent(void* wnodeeventitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10372,7 +10372,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWMIWriteEvent(void* wnode
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_ioWithinStackLimits(uint64_t regionstart, uint64_t regionsize) {
+uint32_t windowssysWindowsWdkSystemSystemservicesIoWithinStackLimits(uint64_t regionstart, uint64_t regionsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10395,7 +10395,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_ioWithinStackLimits(uint64
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_ioWriteErrorLogEntry(void* elentry) {
+void windowssysWindowsWdkSystemSystemservicesIoWriteErrorLogEntry(void* elentry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10416,7 +10416,7 @@ void windowssys_windows_wdk_system_systemservices_ioWriteErrorLogEntry(void* ele
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWriteKsrPersistentMemory(void* datahandle, void* buffer, uint64_t size) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWriteKsrPersistentMemory(void* datahandle, void* buffer, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10440,7 +10440,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWriteKsrPersistentMemory(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWritePartitionTable(void* deviceobject, uint32_t sectorsize, uint32_t sectorspertrack, uint32_t numberofheads, void* partitionbuffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWritePartitionTable(void* deviceobject, uint32_t sectorsize, uint32_t sectorspertrack, uint32_t numberofheads, void* partitionbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10466,7 +10466,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWritePartitionTable(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ioWritePartitionTableEx(void* deviceobject, void* drivelayout) {
+int32_t windowssysWindowsWdkSystemSystemservicesIoWritePartitionTableEx(void* deviceobject, void* drivelayout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10489,7 +10489,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ioWritePartitionTableEx(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_iofCallDriver(void* deviceobject, void* irp) {
+int32_t windowssysWindowsWdkSystemSystemservicesIofCallDriver(void* deviceobject, void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10512,7 +10512,7 @@ int32_t windowssys_windows_wdk_system_systemservices_iofCallDriver(void* deviceo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_iofCompleteRequest(void* irp, int8_t priorityboost) {
+void windowssysWindowsWdkSystemSystemservicesIofCompleteRequest(void* irp, int8_t priorityboost) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10534,7 +10534,7 @@ void windowssys_windows_wdk_system_systemservices_iofCompleteRequest(void* irp, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_kdChangeOption(int32_t option, uint32_t inbufferbytes, void* inbuffer, uint32_t outbufferbytes, void* outbuffer, void* outbufferneeded) {
+int32_t windowssysWindowsWdkSystemSystemservicesKdChangeOption(int32_t option, uint32_t inbufferbytes, void* inbuffer, uint32_t outbufferbytes, void* outbuffer, void* outbufferneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10561,7 +10561,7 @@ int32_t windowssys_windows_wdk_system_systemservices_kdChangeOption(int32_t opti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_kdDisableDebugger(void) {
+int32_t windowssysWindowsWdkSystemSystemservicesKdDisableDebugger(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10582,7 +10582,7 @@ int32_t windowssys_windows_wdk_system_systemservices_kdDisableDebugger(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_kdEnableDebugger(void) {
+int32_t windowssysWindowsWdkSystemSystemservicesKdEnableDebugger(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10603,7 +10603,7 @@ int32_t windowssys_windows_wdk_system_systemservices_kdEnableDebugger(void) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_kdRefreshDebuggerNotPresent(void) {
+bool windowssysWindowsWdkSystemSystemservicesKdRefreshDebuggerNotPresent(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10624,7 +10624,7 @@ bool windowssys_windows_wdk_system_systemservices_kdRefreshDebuggerNotPresent(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keAcquireGuardedMutex(void* mutex) {
+void windowssysWindowsWdkSystemSystemservicesKeAcquireGuardedMutex(void* mutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10645,7 +10645,7 @@ void windowssys_windows_wdk_system_systemservices_keAcquireGuardedMutex(void* mu
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keAcquireGuardedMutexUnsafe(void* fastmutex) {
+void windowssysWindowsWdkSystemSystemservicesKeAcquireGuardedMutexUnsafe(void* fastmutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10666,7 +10666,7 @@ void windowssys_windows_wdk_system_systemservices_keAcquireGuardedMutexUnsafe(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keAcquireInStackQueuedSpinLock(void* spinlock, void* lockhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLock(void* spinlock, void* lockhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10688,7 +10688,7 @@ void windowssys_windows_wdk_system_systemservices_keAcquireInStackQueuedSpinLock
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keAcquireInStackQueuedSpinLockAtDpcLevel(void* spinlock, void* lockhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLockAtDpcLevel(void* spinlock, void* lockhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10710,7 +10710,7 @@ void windowssys_windows_wdk_system_systemservices_keAcquireInStackQueuedSpinLock
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keAcquireInStackQueuedSpinLockForDpc(void* spinlock, void* lockhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLockForDpc(void* spinlock, void* lockhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10732,7 +10732,7 @@ void windowssys_windows_wdk_system_systemservices_keAcquireInStackQueuedSpinLock
 #endif
 }
 
-uint8_t windowssys_windows_wdk_system_systemservices_keAcquireInterruptSpinLock(int64_t interrupt) {
+uint8_t windowssysWindowsWdkSystemSystemservicesKeAcquireInterruptSpinLock(int64_t interrupt) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10754,7 +10754,7 @@ uint8_t windowssys_windows_wdk_system_systemservices_keAcquireInterruptSpinLock(
 #endif
 }
 
-uint8_t windowssys_windows_wdk_system_systemservices_keAcquireSpinLockForDpc(void* spinlock) {
+uint8_t windowssysWindowsWdkSystemSystemservicesKeAcquireSpinLockForDpc(void* spinlock) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10776,7 +10776,7 @@ uint8_t windowssys_windows_wdk_system_systemservices_keAcquireSpinLockForDpc(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keAddTriageDumpDataBlock(void* ktriagedumpdataarray, void* address, uint64_t size) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeAddTriageDumpDataBlock(void* ktriagedumpdataarray, void* address, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10800,7 +10800,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keAddTriageDumpDataBlock(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keAreAllApcsDisabled(void) {
+bool windowssysWindowsWdkSystemSystemservicesKeAreAllApcsDisabled(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10821,7 +10821,7 @@ bool windowssys_windows_wdk_system_systemservices_keAreAllApcsDisabled(void) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keAreApcsDisabled(void) {
+bool windowssysWindowsWdkSystemSystemservicesKeAreApcsDisabled(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10842,7 +10842,7 @@ bool windowssys_windows_wdk_system_systemservices_keAreApcsDisabled(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keBugCheck(uint32_t bugcheckcode) {
+void windowssysWindowsWdkSystemSystemservicesKeBugCheck(uint32_t bugcheckcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10863,7 +10863,7 @@ void windowssys_windows_wdk_system_systemservices_keBugCheck(uint32_t bugcheckco
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keBugCheckEx(uint32_t bugcheckcode, uint64_t bugcheckparameter1, uint64_t bugcheckparameter2, uint64_t bugcheckparameter3, uint64_t bugcheckparameter4) {
+void windowssysWindowsWdkSystemSystemservicesKeBugCheckEx(uint32_t bugcheckcode, uint64_t bugcheckparameter1, uint64_t bugcheckparameter2, uint64_t bugcheckparameter3, uint64_t bugcheckparameter4) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint64_t, uint64_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10888,7 +10888,7 @@ void windowssys_windows_wdk_system_systemservices_keBugCheckEx(uint32_t bugcheck
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keCancelTimer(void* param0) {
+bool windowssysWindowsWdkSystemSystemservicesKeCancelTimer(void* param0) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10910,7 +10910,7 @@ bool windowssys_windows_wdk_system_systemservices_keCancelTimer(void* param0) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keClearEvent(void* event) {
+void windowssysWindowsWdkSystemSystemservicesKeClearEvent(void* event) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10931,7 +10931,7 @@ void windowssys_windows_wdk_system_systemservices_keClearEvent(void* event) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keConvertAuxiliaryCounterToPerformanceCounter(uint64_t auxiliarycountervalue, void* performancecountervalue, void* conversionerror) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeConvertAuxiliaryCounterToPerformanceCounter(uint64_t auxiliarycountervalue, void* performancecountervalue, void* conversionerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10955,7 +10955,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keConvertAuxiliaryCounterTo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keConvertPerformanceCounterToAuxiliaryCounter(uint64_t performancecountervalue, void* auxiliarycountervalue, void* conversionerror) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeConvertPerformanceCounterToAuxiliaryCounter(uint64_t performancecountervalue, void* auxiliarycountervalue, void* conversionerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10979,7 +10979,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keConvertPerformanceCounter
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keDelayExecutionThread(int8_t waitmode, bool alertable, void* interval) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeDelayExecutionThread(int8_t waitmode, bool alertable, void* interval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11003,7 +11003,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keDelayExecutionThread(int8
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keDeregisterBoundCallback(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeDeregisterBoundCallback(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11025,7 +11025,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keDeregisterBoundCallback(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keDeregisterBugCheckCallback(void* callbackrecord) {
+bool windowssysWindowsWdkSystemSystemservicesKeDeregisterBugCheckCallback(void* callbackrecord) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11047,7 +11047,7 @@ bool windowssys_windows_wdk_system_systemservices_keDeregisterBugCheckCallback(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keDeregisterBugCheckReasonCallback(void* callbackrecord) {
+bool windowssysWindowsWdkSystemSystemservicesKeDeregisterBugCheckReasonCallback(void* callbackrecord) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11069,7 +11069,7 @@ bool windowssys_windows_wdk_system_systemservices_keDeregisterBugCheckReasonCall
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keDeregisterNmiCallback(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeDeregisterNmiCallback(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11091,7 +11091,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keDeregisterNmiCallback(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keDeregisterProcessorChangeCallback(void* callbackhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeDeregisterProcessorChangeCallback(void* callbackhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11112,7 +11112,7 @@ void windowssys_windows_wdk_system_systemservices_keDeregisterProcessorChangeCal
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keEnterCriticalRegion(void) {
+void windowssysWindowsWdkSystemSystemservicesKeEnterCriticalRegion(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11132,7 +11132,7 @@ void windowssys_windows_wdk_system_systemservices_keEnterCriticalRegion(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keEnterGuardedRegion(void) {
+void windowssysWindowsWdkSystemSystemservicesKeEnterGuardedRegion(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11152,7 +11152,7 @@ void windowssys_windows_wdk_system_systemservices_keEnterGuardedRegion(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keExpandKernelStackAndCallout(void* callout, void* parameter, uint64_t size) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeExpandKernelStackAndCallout(void* callout, void* parameter, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11176,7 +11176,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keExpandKernelStackAndCallo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keExpandKernelStackAndCalloutEx(void* callout, void* parameter, uint64_t size, bool wait, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeExpandKernelStackAndCalloutEx(void* callout, void* parameter, uint64_t size, bool wait, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11202,7 +11202,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keExpandKernelStackAndCallo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keFlushIoBuffers(void* mdl, bool readoperation, bool dmaoperation) {
+void windowssysWindowsWdkSystemSystemservicesKeFlushIoBuffers(void* mdl, bool readoperation, bool dmaoperation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11225,7 +11225,7 @@ void windowssys_windows_wdk_system_systemservices_keFlushIoBuffers(void* mdl, bo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keFlushQueuedDpcs(void) {
+void windowssysWindowsWdkSystemSystemservicesKeFlushQueuedDpcs(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11245,7 +11245,7 @@ void windowssys_windows_wdk_system_systemservices_keFlushQueuedDpcs(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keFlushWriteBuffer(void) {
+void windowssysWindowsWdkSystemSystemservicesKeFlushWriteBuffer(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11265,7 +11265,7 @@ void windowssys_windows_wdk_system_systemservices_keFlushWriteBuffer(void) {
 #endif
 }
 
-uint8_t windowssys_windows_wdk_system_systemservices_keGetCurrentIrql(void) {
+uint8_t windowssysWindowsWdkSystemSystemservicesKeGetCurrentIrql(void) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11286,7 +11286,7 @@ uint8_t windowssys_windows_wdk_system_systemservices_keGetCurrentIrql(void) {
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_keGetCurrentNodeNumber(void) {
+uint16_t windowssysWindowsWdkSystemSystemservicesKeGetCurrentNodeNumber(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11307,7 +11307,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_keGetCurrentNodeNumber(voi
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keGetCurrentProcessorNumberEx(void* procnumber) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeGetCurrentProcessorNumberEx(void* procnumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11329,7 +11329,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keGetCurrentProcessorNumbe
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keGetProcessorIndexFromNumber(void* procnumber) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeGetProcessorIndexFromNumber(void* procnumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11351,7 +11351,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keGetProcessorIndexFromNum
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keGetProcessorNumberFromIndex(uint32_t procindex, void* procnumber) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeGetProcessorNumberFromIndex(uint32_t procindex, void* procnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11374,7 +11374,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keGetProcessorNumberFromInd
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keGetRecommendedSharedDataAlignment(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeGetRecommendedSharedDataAlignment(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11395,7 +11395,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keGetRecommendedSharedData
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keInitializeCrashDumpHeader(uint32_t dumptype, uint32_t flags, void* buffer, uint32_t buffersize, void* bufferneeded) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeInitializeCrashDumpHeader(uint32_t dumptype, uint32_t flags, void* buffer, uint32_t buffersize, void* bufferneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11421,7 +11421,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keInitializeCrashDumpHeader
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeDeviceQueue(void* devicequeue) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeDeviceQueue(void* devicequeue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11442,7 +11442,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeDeviceQueue(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeDpc(void* dpc, void* deferredroutine, void* deferredcontext) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeDpc(void* dpc, void* deferredroutine, void* deferredcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11465,7 +11465,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeDpc(void* dpc, voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeEvent(void* event, int32_t type, bool state) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeEvent(void* event, int32_t type, bool state) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11488,7 +11488,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeEvent(void* event,
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeGuardedMutex(void* mutex) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeGuardedMutex(void* mutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11509,7 +11509,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeGuardedMutex(void*
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeMutex(void* mutex, uint32_t level) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeMutex(void* mutex, uint32_t level) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11531,7 +11531,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeMutex(void* mutex,
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeSemaphore(void* semaphore, int32_t count, int32_t limit) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeSemaphore(void* semaphore, int32_t count, int32_t limit) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11554,7 +11554,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeSemaphore(void* se
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeSpinLock(void* spinlock) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeSpinLock(void* spinlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11575,7 +11575,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeSpinLock(void* spi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeThreadedDpc(void* dpc, void* deferredroutine, void* deferredcontext) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeThreadedDpc(void* dpc, void* deferredroutine, void* deferredcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11598,7 +11598,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeThreadedDpc(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeTimer(void* timer) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeTimer(void* timer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11619,7 +11619,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeTimer(void* timer)
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInitializeTimerEx(void* timer, int32_t type) {
+void windowssysWindowsWdkSystemSystemservicesKeInitializeTimerEx(void* timer, int32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11641,7 +11641,7 @@ void windowssys_windows_wdk_system_systemservices_keInitializeTimerEx(void* time
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keInitializeTriageDumpDataArray(void* ktriagedumpdataarray, uint32_t size) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeInitializeTriageDumpDataArray(void* ktriagedumpdataarray, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11664,7 +11664,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keInitializeTriageDumpDataA
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keInsertByKeyDeviceQueue(void* devicequeue, void* devicequeueentry, uint32_t sortkey) {
+bool windowssysWindowsWdkSystemSystemservicesKeInsertByKeyDeviceQueue(void* devicequeue, void* devicequeueentry, uint32_t sortkey) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11688,7 +11688,7 @@ bool windowssys_windows_wdk_system_systemservices_keInsertByKeyDeviceQueue(void*
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keInsertDeviceQueue(void* devicequeue, void* devicequeueentry) {
+bool windowssysWindowsWdkSystemSystemservicesKeInsertDeviceQueue(void* devicequeue, void* devicequeueentry) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11711,7 +11711,7 @@ bool windowssys_windows_wdk_system_systemservices_keInsertDeviceQueue(void* devi
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keInsertQueueDpc(void* dpc, void* systemargument1, void* systemargument2) {
+bool windowssysWindowsWdkSystemSystemservicesKeInsertQueueDpc(void* dpc, void* systemargument1, void* systemargument2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11735,7 +11735,7 @@ bool windowssys_windows_wdk_system_systemservices_keInsertQueueDpc(void* dpc, vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keInvalidateAllCaches(void) {
+bool windowssysWindowsWdkSystemSystemservicesKeInvalidateAllCaches(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11756,7 +11756,7 @@ bool windowssys_windows_wdk_system_systemservices_keInvalidateAllCaches(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keInvalidateRangeAllCaches(void* baseaddress, uint32_t length) {
+void windowssysWindowsWdkSystemSystemservicesKeInvalidateRangeAllCaches(void* baseaddress, uint32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11778,7 +11778,7 @@ void windowssys_windows_wdk_system_systemservices_keInvalidateRangeAllCaches(voi
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keIpiGenericCall(void* broadcastfunction, uint64_t context) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeIpiGenericCall(void* broadcastfunction, uint64_t context) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11801,7 +11801,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keIpiGenericCall(void* bro
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keIsExecutingDpc(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeIsExecutingDpc(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11822,7 +11822,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keIsExecutingDpc(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keLeaveCriticalRegion(void) {
+void windowssysWindowsWdkSystemSystemservicesKeLeaveCriticalRegion(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11842,7 +11842,7 @@ void windowssys_windows_wdk_system_systemservices_keLeaveCriticalRegion(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keLeaveGuardedRegion(void) {
+void windowssysWindowsWdkSystemSystemservicesKeLeaveGuardedRegion(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11862,7 +11862,7 @@ void windowssys_windows_wdk_system_systemservices_keLeaveGuardedRegion(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_kePulseEvent(void* event, int32_t increment, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesKePulseEvent(void* event, int32_t increment, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11886,7 +11886,7 @@ int32_t windowssys_windows_wdk_system_systemservices_kePulseEvent(void* event, i
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_keQueryActiveGroupCount(void) {
+uint16_t windowssysWindowsWdkSystemSystemservicesKeQueryActiveGroupCount(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11907,7 +11907,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_keQueryActiveGroupCount(vo
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryActiveProcessorCount(void* activeprocessors) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessorCount(void* activeprocessors) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11929,7 +11929,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryActiveProcessorCoun
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryActiveProcessorCountEx(uint16_t groupnumber) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessorCountEx(uint16_t groupnumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11951,7 +11951,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryActiveProcessorCoun
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keQueryActiveProcessors(void) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessors(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11972,7 +11972,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keQueryActiveProcessors(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keQueryAuxiliaryCounterFrequency(void* auxiliarycounterfrequency) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeQueryAuxiliaryCounterFrequency(void* auxiliarycounterfrequency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11994,7 +11994,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keQueryAuxiliaryCounterFreq
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keQueryDpcWatchdogInformation(void* watchdoginformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeQueryDpcWatchdogInformation(void* watchdoginformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12016,7 +12016,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keQueryDpcWatchdogInformati
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keQueryGroupAffinity(uint16_t groupnumber) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeQueryGroupAffinity(uint16_t groupnumber) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12038,7 +12038,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keQueryGroupAffinity(uint1
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keQueryHardwareCounterConfiguration(void* counterarray, uint32_t maximumcount, void* count) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeQueryHardwareCounterConfiguration(void* counterarray, uint32_t maximumcount, void* count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12062,7 +12062,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keQueryHardwareCounterConfi
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_keQueryHighestNodeNumber(void) {
+uint16_t windowssysWindowsWdkSystemSystemservicesKeQueryHighestNodeNumber(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12083,7 +12083,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_keQueryHighestNodeNumber(v
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keQueryInterruptTimePrecise(void* qpctimestamp) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeQueryInterruptTimePrecise(void* qpctimestamp) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12105,7 +12105,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keQueryInterruptTimePrecis
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keQueryLogicalProcessorRelationship(void* processornumber, int32_t relationshiptype, void* information, void* length) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeQueryLogicalProcessorRelationship(void* processornumber, int32_t relationshiptype, void* information, void* length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12130,7 +12130,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keQueryLogicalProcessorRela
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_keQueryMaximumGroupCount(void) {
+uint16_t windowssysWindowsWdkSystemSystemservicesKeQueryMaximumGroupCount(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12151,7 +12151,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_keQueryMaximumGroupCount(v
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryMaximumProcessorCount(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryMaximumProcessorCount(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12172,7 +12172,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryMaximumProcessorCou
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryMaximumProcessorCountEx(uint16_t groupnumber) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryMaximumProcessorCountEx(uint16_t groupnumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12194,7 +12194,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryMaximumProcessorCou
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keQueryNodeActiveAffinity(uint16_t nodenumber, void* affinity, void* count) {
+void windowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveAffinity(uint16_t nodenumber, void* affinity, void* count) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12217,7 +12217,7 @@ void windowssys_windows_wdk_system_systemservices_keQueryNodeActiveAffinity(uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keQueryNodeActiveAffinity2(uint16_t nodenumber, void* groupaffinities, uint16_t groupaffinitiescount, void* groupaffinitiesrequired) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveAffinity2(uint16_t nodenumber, void* groupaffinities, uint16_t groupaffinitiescount, void* groupaffinitiesrequired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12242,7 +12242,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keQueryNodeActiveAffinity2(
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryNodeActiveProcessorCount(uint16_t nodenumber) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveProcessorCount(uint16_t nodenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12264,7 +12264,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryNodeActiveProcessor
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_keQueryNodeMaximumProcessorCount(uint16_t nodenumber) {
+uint16_t windowssysWindowsWdkSystemSystemservicesKeQueryNodeMaximumProcessorCount(uint16_t nodenumber) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12286,7 +12286,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_keQueryNodeMaximumProcesso
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_keQueryPerformanceCounter(void* performancefrequency) {
+int64_t windowssysWindowsWdkSystemSystemservicesKeQueryPerformanceCounter(void* performancefrequency) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12308,7 +12308,7 @@ int64_t windowssys_windows_wdk_system_systemservices_keQueryPerformanceCounter(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keQueryPriorityThread(int64_t thread) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeQueryPriorityThread(int64_t thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12330,7 +12330,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keQueryPriorityThread(int64
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryRuntimeThread(int64_t thread, void* usertime) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryRuntimeThread(int64_t thread, void* usertime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12353,7 +12353,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryRuntimeThread(int64
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keQuerySystemTimePrecise(void* currenttime) {
+void windowssysWindowsWdkSystemSystemservicesKeQuerySystemTimePrecise(void* currenttime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12374,7 +12374,7 @@ void windowssys_windows_wdk_system_systemservices_keQuerySystemTimePrecise(void*
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keQueryTimeIncrement(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeQueryTimeIncrement(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12395,7 +12395,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keQueryTimeIncrement(void)
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keQueryTotalCycleTimeThread(int64_t thread, void* cycletimestamp) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeQueryTotalCycleTimeThread(int64_t thread, void* cycletimestamp) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12418,7 +12418,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keQueryTotalCycleTimeThrea
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keQueryUnbiasedInterruptTime(void) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeQueryUnbiasedInterruptTime(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12439,7 +12439,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keQueryUnbiasedInterruptTi
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keQueryUnbiasedInterruptTimePrecise(void* qpctimestamp) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeQueryUnbiasedInterruptTimePrecise(void* qpctimestamp) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12461,7 +12461,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keQueryUnbiasedInterruptTi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keReadStateEvent(void* event) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeReadStateEvent(void* event) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12483,7 +12483,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keReadStateEvent(void* even
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keReadStateMutex(void* mutex) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeReadStateMutex(void* mutex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12505,7 +12505,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keReadStateMutex(void* mute
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keReadStateSemaphore(void* semaphore) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeReadStateSemaphore(void* semaphore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12527,7 +12527,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keReadStateSemaphore(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keReadStateTimer(void* timer) {
+bool windowssysWindowsWdkSystemSystemservicesKeReadStateTimer(void* timer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12549,7 +12549,7 @@ bool windowssys_windows_wdk_system_systemservices_keReadStateTimer(void* timer) 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_keRegisterBoundCallback(void* callbackroutine) {
+void* windowssysWindowsWdkSystemSystemservicesKeRegisterBoundCallback(void* callbackroutine) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12571,7 +12571,7 @@ void* windowssys_windows_wdk_system_systemservices_keRegisterBoundCallback(void*
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keRegisterBugCheckCallback(void* callbackrecord, void* callbackroutine, void* buffer, uint32_t length, void* component) {
+bool windowssysWindowsWdkSystemSystemservicesKeRegisterBugCheckCallback(void* callbackrecord, void* callbackroutine, void* buffer, uint32_t length, void* component) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12597,7 +12597,7 @@ bool windowssys_windows_wdk_system_systemservices_keRegisterBugCheckCallback(voi
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keRegisterBugCheckReasonCallback(void* callbackrecord, void* callbackroutine, int32_t reason, void* component) {
+bool windowssysWindowsWdkSystemSystemservicesKeRegisterBugCheckReasonCallback(void* callbackrecord, void* callbackroutine, int32_t reason, void* component) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12622,7 +12622,7 @@ bool windowssys_windows_wdk_system_systemservices_keRegisterBugCheckReasonCallba
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_keRegisterNmiCallback(void* callbackroutine, void* context) {
+void* windowssysWindowsWdkSystemSystemservicesKeRegisterNmiCallback(void* callbackroutine, void* context) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12645,7 +12645,7 @@ void* windowssys_windows_wdk_system_systemservices_keRegisterNmiCallback(void* c
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_keRegisterProcessorChangeCallback(void* callbackfunction, void* callbackcontext, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesKeRegisterProcessorChangeCallback(void* callbackfunction, void* callbackcontext, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12669,7 +12669,7 @@ void* windowssys_windows_wdk_system_systemservices_keRegisterProcessorChangeCall
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseGuardedMutex(void* mutex) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseGuardedMutex(void* mutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12690,7 +12690,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseGuardedMutex(void* mu
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseGuardedMutexUnsafe(void* fastmutex) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseGuardedMutexUnsafe(void* fastmutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12711,7 +12711,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseGuardedMutexUnsafe(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseInStackQueuedSpinLock(void* lockhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLock(void* lockhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12732,7 +12732,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseInStackQueuedSpinLock
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseInStackQueuedSpinLockForDpc(void* lockhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLockForDpc(void* lockhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12753,7 +12753,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseInStackQueuedSpinLock
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseInStackQueuedSpinLockFromDpcLevel(void* lockhandle) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLockFromDpcLevel(void* lockhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12774,7 +12774,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseInStackQueuedSpinLock
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseInterruptSpinLock(int64_t interrupt, uint8_t oldirql) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseInterruptSpinLock(int64_t interrupt, uint8_t oldirql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12796,7 +12796,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseInterruptSpinLock(int
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keReleaseMutex(void* mutex, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeReleaseMutex(void* mutex, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12819,7 +12819,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keReleaseMutex(void* mutex,
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keReleaseSemaphore(void* semaphore, int32_t increment, int32_t adjustment, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeReleaseSemaphore(void* semaphore, int32_t increment, int32_t adjustment, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12844,7 +12844,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keReleaseSemaphore(void* se
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keReleaseSpinLockForDpc(void* spinlock, uint8_t oldirql) {
+void windowssysWindowsWdkSystemSystemservicesKeReleaseSpinLockForDpc(void* spinlock, uint8_t oldirql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12866,7 +12866,7 @@ void windowssys_windows_wdk_system_systemservices_keReleaseSpinLockForDpc(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_keRemoveByKeyDeviceQueue(void* devicequeue, uint32_t sortkey) {
+void* windowssysWindowsWdkSystemSystemservicesKeRemoveByKeyDeviceQueue(void* devicequeue, uint32_t sortkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12889,7 +12889,7 @@ void* windowssys_windows_wdk_system_systemservices_keRemoveByKeyDeviceQueue(void
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_keRemoveByKeyDeviceQueueIfBusy(void* devicequeue, uint32_t sortkey) {
+void* windowssysWindowsWdkSystemSystemservicesKeRemoveByKeyDeviceQueueIfBusy(void* devicequeue, uint32_t sortkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12912,7 +12912,7 @@ void* windowssys_windows_wdk_system_systemservices_keRemoveByKeyDeviceQueueIfBus
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_keRemoveDeviceQueue(void* devicequeue) {
+void* windowssysWindowsWdkSystemSystemservicesKeRemoveDeviceQueue(void* devicequeue) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12934,7 +12934,7 @@ void* windowssys_windows_wdk_system_systemservices_keRemoveDeviceQueue(void* dev
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keRemoveEntryDeviceQueue(void* devicequeue, void* devicequeueentry) {
+bool windowssysWindowsWdkSystemSystemservicesKeRemoveEntryDeviceQueue(void* devicequeue, void* devicequeueentry) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12957,7 +12957,7 @@ bool windowssys_windows_wdk_system_systemservices_keRemoveEntryDeviceQueue(void*
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keRemoveQueueDpc(void* dpc) {
+bool windowssysWindowsWdkSystemSystemservicesKeRemoveQueueDpc(void* dpc) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12979,7 +12979,7 @@ bool windowssys_windows_wdk_system_systemservices_keRemoveQueueDpc(void* dpc) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keRemoveQueueDpcEx(void* dpc, bool waitifactive) {
+bool windowssysWindowsWdkSystemSystemservicesKeRemoveQueueDpcEx(void* dpc, bool waitifactive) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -13002,7 +13002,7 @@ bool windowssys_windows_wdk_system_systemservices_keRemoveQueueDpcEx(void* dpc, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keResetEvent(void* event) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeResetEvent(void* event) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13024,7 +13024,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keResetEvent(void* event) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keRestoreExtendedProcessorState(void* xstatesave) {
+void windowssysWindowsWdkSystemSystemservicesKeRestoreExtendedProcessorState(void* xstatesave) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13045,7 +13045,7 @@ void windowssys_windows_wdk_system_systemservices_keRestoreExtendedProcessorStat
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keRevertToUserAffinityThread(void) {
+void windowssysWindowsWdkSystemSystemservicesKeRevertToUserAffinityThread(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -13065,7 +13065,7 @@ void windowssys_windows_wdk_system_systemservices_keRevertToUserAffinityThread(v
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keRevertToUserAffinityThreadEx(uint64_t affinity) {
+void windowssysWindowsWdkSystemSystemservicesKeRevertToUserAffinityThreadEx(uint64_t affinity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13086,7 +13086,7 @@ void windowssys_windows_wdk_system_systemservices_keRevertToUserAffinityThreadEx
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keRevertToUserGroupAffinityThread(void* previousaffinity) {
+void windowssysWindowsWdkSystemSystemservicesKeRevertToUserGroupAffinityThread(void* previousaffinity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13107,7 +13107,7 @@ void windowssys_windows_wdk_system_systemservices_keRevertToUserGroupAffinityThr
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keSaveExtendedProcessorState(uint64_t mask, void* xstatesave) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeSaveExtendedProcessorState(uint64_t mask, void* xstatesave) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13130,7 +13130,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keSaveExtendedProcessorStat
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keSetBasePriorityThread(int64_t thread, int32_t increment) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeSetBasePriorityThread(int64_t thread, int32_t increment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13153,7 +13153,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keSetBasePriorityThread(int
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keSetCoalescableTimer(void* timer, int64_t duetime, uint32_t period, uint32_t tolerabledelay, void* dpc) {
+bool windowssysWindowsWdkSystemSystemservicesKeSetCoalescableTimer(void* timer, int64_t duetime, uint32_t period, uint32_t tolerabledelay, void* dpc) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13179,7 +13179,7 @@ bool windowssys_windows_wdk_system_systemservices_keSetCoalescableTimer(void* ti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keSetEvent(void* event, int32_t increment, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeSetEvent(void* event, int32_t increment, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -13203,7 +13203,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keSetEvent(void* event, int
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keSetHardwareCounterConfiguration(void* counterarray, uint32_t count) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeSetHardwareCounterConfiguration(void* counterarray, uint32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13226,7 +13226,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keSetHardwareCounterConfigu
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keSetImportanceDpc(void* dpc, int32_t importance) {
+void windowssysWindowsWdkSystemSystemservicesKeSetImportanceDpc(void* dpc, int32_t importance) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13248,7 +13248,7 @@ void windowssys_windows_wdk_system_systemservices_keSetImportanceDpc(void* dpc, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keSetPriorityThread(int64_t thread, int32_t priority) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeSetPriorityThread(int64_t thread, int32_t priority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13271,7 +13271,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keSetPriorityThread(int64_t
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keSetSystemAffinityThread(uint64_t affinity) {
+void windowssysWindowsWdkSystemSystemservicesKeSetSystemAffinityThread(uint64_t affinity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13292,7 +13292,7 @@ void windowssys_windows_wdk_system_systemservices_keSetSystemAffinityThread(uint
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_keSetSystemAffinityThreadEx(uint64_t affinity) {
+uint64_t windowssysWindowsWdkSystemSystemservicesKeSetSystemAffinityThreadEx(uint64_t affinity) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13314,7 +13314,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_keSetSystemAffinityThreadE
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keSetSystemGroupAffinityThread(void* affinity, void* previousaffinity) {
+void windowssysWindowsWdkSystemSystemservicesKeSetSystemGroupAffinityThread(void* affinity, void* previousaffinity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13336,7 +13336,7 @@ void windowssys_windows_wdk_system_systemservices_keSetSystemGroupAffinityThread
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keSetTargetProcessorDpc(void* dpc, int8_t number) {
+void windowssysWindowsWdkSystemSystemservicesKeSetTargetProcessorDpc(void* dpc, int8_t number) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13358,7 +13358,7 @@ void windowssys_windows_wdk_system_systemservices_keSetTargetProcessorDpc(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keSetTargetProcessorDpcEx(void* dpc, void* procnumber) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeSetTargetProcessorDpcEx(void* dpc, void* procnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13381,7 +13381,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keSetTargetProcessorDpcEx(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keSetTimer(void* timer, int64_t duetime, void* dpc) {
+bool windowssysWindowsWdkSystemSystemservicesKeSetTimer(void* timer, int64_t duetime, void* dpc) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13405,7 +13405,7 @@ bool windowssys_windows_wdk_system_systemservices_keSetTimer(void* timer, int64_
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keSetTimerEx(void* timer, int64_t duetime, int32_t period, void* dpc) {
+bool windowssysWindowsWdkSystemSystemservicesKeSetTimerEx(void* timer, int64_t duetime, int32_t period, void* dpc) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13430,7 +13430,7 @@ bool windowssys_windows_wdk_system_systemservices_keSetTimerEx(void* timer, int6
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_keShouldYieldProcessor(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesKeShouldYieldProcessor(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -13451,7 +13451,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_keShouldYieldProcessor(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_keStallExecutionProcessor(uint32_t microseconds) {
+void windowssysWindowsWdkSystemSystemservicesKeStallExecutionProcessor(uint32_t microseconds) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13472,7 +13472,7 @@ void windowssys_windows_wdk_system_systemservices_keStallExecutionProcessor(uint
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keSynchronizeExecution(int64_t interrupt, void* synchronizeroutine, void* synchronizecontext) {
+bool windowssysWindowsWdkSystemSystemservicesKeSynchronizeExecution(int64_t interrupt, void* synchronizeroutine, void* synchronizecontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13496,7 +13496,7 @@ bool windowssys_windows_wdk_system_systemservices_keSynchronizeExecution(int64_t
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keTestSpinLock(void* spinlock) {
+bool windowssysWindowsWdkSystemSystemservicesKeTestSpinLock(void* spinlock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13518,7 +13518,7 @@ bool windowssys_windows_wdk_system_systemservices_keTestSpinLock(void* spinlock)
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keTryToAcquireGuardedMutex(void* mutex) {
+bool windowssysWindowsWdkSystemSystemservicesKeTryToAcquireGuardedMutex(void* mutex) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13540,7 +13540,7 @@ bool windowssys_windows_wdk_system_systemservices_keTryToAcquireGuardedMutex(voi
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_keTryToAcquireSpinLockAtDpcLevel(void* spinlock) {
+bool windowssysWindowsWdkSystemSystemservicesKeTryToAcquireSpinLockAtDpcLevel(void* spinlock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13562,7 +13562,7 @@ bool windowssys_windows_wdk_system_systemservices_keTryToAcquireSpinLockAtDpcLev
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keWaitForMultipleObjects(uint32_t count, void* object, int32_t waittype, int32_t waitreason, int8_t waitmode, bool alertable, void* timeout, void* waitblockarray) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeWaitForMultipleObjects(uint32_t count, void* object, int32_t waittype, int32_t waitreason, int8_t waitmode, bool alertable, void* timeout, void* waitblockarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t, int8_t, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13591,7 +13591,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keWaitForMultipleObjects(ui
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_keWaitForSingleObject(void* object, int32_t waitreason, int8_t waitmode, bool alertable, void* timeout) {
+int32_t windowssysWindowsWdkSystemSystemservicesKeWaitForSingleObject(void* object, int32_t waitreason, int8_t waitmode, bool alertable, void* timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int8_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13617,7 +13617,7 @@ int32_t windowssys_windows_wdk_system_systemservices_keWaitForSingleObject(void*
 #endif
 }
 
-uint8_t windowssys_windows_wdk_system_systemservices_kfRaiseIrql(uint8_t newirql) {
+uint8_t windowssysWindowsWdkSystemSystemservicesKfRaiseIrql(uint8_t newirql) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13639,7 +13639,7 @@ uint8_t windowssys_windows_wdk_system_systemservices_kfRaiseIrql(uint8_t newirql
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmAddPhysicalMemory(void* startaddress, void* numberofbytes) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmAddPhysicalMemory(void* startaddress, void* numberofbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13662,7 +13662,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmAddPhysicalMemory(void* s
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmAddVerifierSpecialThunks(uint64_t entryroutine, void* thunkbuffer, uint32_t thunkbuffersize) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmAddVerifierSpecialThunks(uint64_t entryroutine, void* thunkbuffer, uint32_t thunkbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13686,7 +13686,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmAddVerifierSpecialThunks(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmAddVerifierThunks(void* thunkbuffer, uint32_t thunkbuffersize) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmAddVerifierThunks(void* thunkbuffer, uint32_t thunkbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13709,7 +13709,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmAddVerifierThunks(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmAdvanceMdl(void* mdl, uint32_t numberofbytes) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmAdvanceMdl(void* mdl, uint32_t numberofbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13732,7 +13732,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmAdvanceMdl(void* mdl, uin
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemory(uint64_t numberofbytes, int64_t highestacceptableaddress) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemory(uint64_t numberofbytes, int64_t highestacceptableaddress) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13755,7 +13755,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemory(ui
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemoryEx(void* numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, uint32_t preferrednode, uint32_t protect, void* partitionobject, uint32_t tag, uint32_t flags, void* baseaddress) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemoryEx(void* numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, uint32_t preferrednode, uint32_t protect, void* partitionobject, uint32_t tag, uint32_t flags, void* baseaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, int64_t, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13786,7 +13786,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemoryE
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemorySpecifyCache(uint64_t numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, int32_t cachetype) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemorySpecifyCache(uint64_t numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, int32_t cachetype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, int64_t, int64_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13812,7 +13812,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemorySpe
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemorySpecifyCacheNode(uint64_t numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, int32_t cachetype, uint32_t preferrednode) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemorySpecifyCacheNode(uint64_t numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, int32_t cachetype, uint32_t preferrednode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, int64_t, int64_t, int64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13839,7 +13839,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousMemorySpe
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousNodeMemory(uint64_t numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, uint32_t protect, uint32_t preferrednode) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousNodeMemory(uint64_t numberofbytes, int64_t lowestacceptableaddress, int64_t highestacceptableaddress, int64_t boundaryaddressmultiple, uint32_t protect, uint32_t preferrednode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, int64_t, int64_t, int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13866,7 +13866,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateContiguousNodeMemor
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateMappingAddress(uint64_t numberofbytes, uint32_t pooltag) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateMappingAddress(uint64_t numberofbytes, uint32_t pooltag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13889,7 +13889,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateMappingAddress(uint
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateMappingAddressEx(uint64_t numberofbytes, uint32_t pooltag, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateMappingAddressEx(uint64_t numberofbytes, uint32_t pooltag, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13913,7 +13913,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateMappingAddressEx(ui
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmAllocateMdlForIoSpace(void* physicaladdresslist, uint64_t numberofentries, void* newmdl) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmAllocateMdlForIoSpace(void* physicaladdresslist, uint64_t numberofentries, void* newmdl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13937,7 +13937,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmAllocateMdlForIoSpace(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateNodePagesForMdlEx(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes, int32_t cachetype, uint32_t idealnode, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateNodePagesForMdlEx(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes, int32_t cachetype, uint32_t idealnode, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, uint64_t, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13965,7 +13965,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateNodePagesForMdlEx(i
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocateNonCachedMemory(uint64_t numberofbytes) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocateNonCachedMemory(uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13987,7 +13987,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocateNonCachedMemory(uin
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocatePagesForMdl(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocatePagesForMdl(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14012,7 +14012,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocatePagesForMdl(int64_t
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocatePagesForMdlEx(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes, int32_t cachetype, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocatePagesForMdlEx(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes, int32_t cachetype, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, uint64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14039,7 +14039,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocatePagesForMdlEx(int64
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmAllocatePartitionNodePagesForMdlEx(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes, int32_t cachetype, uint32_t idealnode, uint32_t flags, void* partitionobject) {
+void* windowssysWindowsWdkSystemSystemservicesMmAllocatePartitionNodePagesForMdlEx(int64_t lowaddress, int64_t highaddress, int64_t skipbytes, uint64_t totalbytes, int32_t cachetype, uint32_t idealnode, uint32_t flags, void* partitionobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, uint64_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14068,7 +14068,7 @@ void* windowssys_windows_wdk_system_systemservices_mmAllocatePartitionNodePagesF
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_mmAreMdlPagesCached(void* memorydescriptorlist) {
+uint32_t windowssysWindowsWdkSystemSystemservicesMmAreMdlPagesCached(void* memorydescriptorlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14090,7 +14090,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_mmAreMdlPagesCached(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmBuildMdlForNonPagedPool(void* memorydescriptorlist) {
+void windowssysWindowsWdkSystemSystemservicesMmBuildMdlForNonPagedPool(void* memorydescriptorlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14111,7 +14111,7 @@ void windowssys_windows_wdk_system_systemservices_mmBuildMdlForNonPagedPool(void
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmCreateMdl(void* memorydescriptorlist, void* base, uint64_t length) {
+void* windowssysWindowsWdkSystemSystemservicesMmCreateMdl(void* memorydescriptorlist, void* base, uint64_t length) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14135,7 +14135,7 @@ void* windowssys_windows_wdk_system_systemservices_mmCreateMdl(void* memorydescr
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmCreateMirror(void) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmCreateMirror(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -14156,7 +14156,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmCreateMirror(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmFreeContiguousMemory(void* baseaddress) {
+void windowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemory(void* baseaddress) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14177,7 +14177,7 @@ void windowssys_windows_wdk_system_systemservices_mmFreeContiguousMemory(void* b
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmFreeContiguousMemorySpecifyCache(void* baseaddress, uint64_t numberofbytes, int32_t cachetype) {
+void windowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemorySpecifyCache(void* baseaddress, uint64_t numberofbytes, int32_t cachetype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14200,7 +14200,7 @@ void windowssys_windows_wdk_system_systemservices_mmFreeContiguousMemorySpecifyC
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmFreeMappingAddress(void* baseaddress, uint32_t pooltag) {
+void windowssysWindowsWdkSystemSystemservicesMmFreeMappingAddress(void* baseaddress, uint32_t pooltag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14222,7 +14222,7 @@ void windowssys_windows_wdk_system_systemservices_mmFreeMappingAddress(void* bas
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmFreeNonCachedMemory(void* baseaddress, uint64_t numberofbytes) {
+void windowssysWindowsWdkSystemSystemservicesMmFreeNonCachedMemory(void* baseaddress, uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14244,7 +14244,7 @@ void windowssys_windows_wdk_system_systemservices_mmFreeNonCachedMemory(void* ba
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmFreePagesFromMdl(void* memorydescriptorlist) {
+void windowssysWindowsWdkSystemSystemservicesMmFreePagesFromMdl(void* memorydescriptorlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14265,7 +14265,7 @@ void windowssys_windows_wdk_system_systemservices_mmFreePagesFromMdl(void* memor
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmFreePagesFromMdlEx(void* memorydescriptorlist, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesMmFreePagesFromMdlEx(void* memorydescriptorlist, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14287,7 +14287,7 @@ void windowssys_windows_wdk_system_systemservices_mmFreePagesFromMdlEx(void* mem
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmGetCacheAttribute(int64_t physicaladdress, void* cachetype) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmGetCacheAttribute(int64_t physicaladdress, void* cachetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14310,7 +14310,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmGetCacheAttribute(int64_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmGetCacheAttributeEx(int64_t physicaladdress, uint32_t flags, void* cachetype) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmGetCacheAttributeEx(int64_t physicaladdress, uint32_t flags, void* cachetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14334,7 +14334,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmGetCacheAttributeEx(int64
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_mmGetPhysicalAddress(void* baseaddress) {
+int64_t windowssysWindowsWdkSystemSystemservicesMmGetPhysicalAddress(void* baseaddress) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14356,7 +14356,7 @@ int64_t windowssys_windows_wdk_system_systemservices_mmGetPhysicalAddress(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmGetPhysicalMemoryRanges(void) {
+void* windowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRanges(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -14377,7 +14377,7 @@ void* windowssys_windows_wdk_system_systemservices_mmGetPhysicalMemoryRanges(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmGetPhysicalMemoryRangesEx(void* partitionobject) {
+void* windowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRangesEx(void* partitionobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14399,7 +14399,7 @@ void* windowssys_windows_wdk_system_systemservices_mmGetPhysicalMemoryRangesEx(v
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmGetPhysicalMemoryRangesEx2(void* partitionobject, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRangesEx2(void* partitionobject, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14422,7 +14422,7 @@ void* windowssys_windows_wdk_system_systemservices_mmGetPhysicalMemoryRangesEx2(
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmGetSystemRoutineAddress(void* systemroutinename) {
+void* windowssysWindowsWdkSystemSystemservicesMmGetSystemRoutineAddress(void* systemroutinename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14444,7 +14444,7 @@ void* windowssys_windows_wdk_system_systemservices_mmGetSystemRoutineAddress(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmGetVirtualForPhysical(int64_t physicaladdress) {
+void* windowssysWindowsWdkSystemSystemservicesMmGetVirtualForPhysical(int64_t physicaladdress) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14466,7 +14466,7 @@ void* windowssys_windows_wdk_system_systemservices_mmGetVirtualForPhysical(int64
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_mmIsAddressValid(void* virtualaddress) {
+bool windowssysWindowsWdkSystemSystemservicesMmIsAddressValid(void* virtualaddress) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14488,7 +14488,7 @@ bool windowssys_windows_wdk_system_systemservices_mmIsAddressValid(void* virtual
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_mmIsDriverSuspectForVerifier(void* driverobject) {
+uint32_t windowssysWindowsWdkSystemSystemservicesMmIsDriverSuspectForVerifier(void* driverobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14510,7 +14510,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_mmIsDriverSuspectForVerifi
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_mmIsDriverVerifying(void* driverobject) {
+uint32_t windowssysWindowsWdkSystemSystemservicesMmIsDriverVerifying(void* driverobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14532,7 +14532,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_mmIsDriverVerifying(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_mmIsDriverVerifyingByAddress(void* addresswithinsection) {
+uint32_t windowssysWindowsWdkSystemSystemservicesMmIsDriverVerifyingByAddress(void* addresswithinsection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14554,7 +14554,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_mmIsDriverVerifyingByAddre
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_mmIsIoSpaceActive(int64_t startaddress, uint64_t numberofbytes) {
+uint32_t windowssysWindowsWdkSystemSystemservicesMmIsIoSpaceActive(int64_t startaddress, uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14577,7 +14577,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_mmIsIoSpaceActive(int64_t 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_mmIsNonPagedSystemAddressValid(void* virtualaddress) {
+bool windowssysWindowsWdkSystemSystemservicesMmIsNonPagedSystemAddressValid(void* virtualaddress) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14599,7 +14599,7 @@ bool windowssys_windows_wdk_system_systemservices_mmIsNonPagedSystemAddressValid
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_mmIsThisAnNtAsSystem(void) {
+bool windowssysWindowsWdkSystemSystemservicesMmIsThisAnNtAsSystem(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -14620,7 +14620,7 @@ bool windowssys_windows_wdk_system_systemservices_mmIsThisAnNtAsSystem(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmIsVerifierEnabled(void* verifierflags) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmIsVerifierEnabled(void* verifierflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14642,7 +14642,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmIsVerifierEnabled(void* v
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmLockPagableDataSection(void* addresswithinsection) {
+void* windowssysWindowsWdkSystemSystemservicesMmLockPagableDataSection(void* addresswithinsection) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14664,7 +14664,7 @@ void* windowssys_windows_wdk_system_systemservices_mmLockPagableDataSection(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmLockPagableSectionByHandle(void* imagesectionhandle) {
+void windowssysWindowsWdkSystemSystemservicesMmLockPagableSectionByHandle(void* imagesectionhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14685,7 +14685,7 @@ void windowssys_windows_wdk_system_systemservices_mmLockPagableSectionByHandle(v
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmMapIoSpace(int64_t physicaladdress, uint64_t numberofbytes, int32_t cachetype) {
+void* windowssysWindowsWdkSystemSystemservicesMmMapIoSpace(int64_t physicaladdress, uint64_t numberofbytes, int32_t cachetype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14709,7 +14709,7 @@ void* windowssys_windows_wdk_system_systemservices_mmMapIoSpace(int64_t physical
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmMapIoSpaceEx(int64_t physicaladdress, uint64_t numberofbytes, uint32_t protect) {
+void* windowssysWindowsWdkSystemSystemservicesMmMapIoSpaceEx(int64_t physicaladdress, uint64_t numberofbytes, uint32_t protect) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14733,7 +14733,7 @@ void* windowssys_windows_wdk_system_systemservices_mmMapIoSpaceEx(int64_t physic
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmMapLockedPages(void* memorydescriptorlist, int8_t accessmode) {
+void* windowssysWindowsWdkSystemSystemservicesMmMapLockedPages(void* memorydescriptorlist, int8_t accessmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14756,7 +14756,7 @@ void* windowssys_windows_wdk_system_systemservices_mmMapLockedPages(void* memory
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmMapLockedPagesSpecifyCache(void* memorydescriptorlist, int8_t accessmode, int32_t cachetype, void* requestedaddress, uint32_t bugcheckonfailure, uint32_t priority) {
+void* windowssysWindowsWdkSystemSystemservicesMmMapLockedPagesSpecifyCache(void* memorydescriptorlist, int8_t accessmode, int32_t cachetype, void* requestedaddress, uint32_t bugcheckonfailure, uint32_t priority) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int8_t, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14783,7 +14783,7 @@ void* windowssys_windows_wdk_system_systemservices_mmMapLockedPagesSpecifyCache(
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmMapLockedPagesWithReservedMapping(void* mappingaddress, uint32_t pooltag, void* memorydescriptorlist, int32_t cachetype) {
+void* windowssysWindowsWdkSystemSystemservicesMmMapLockedPagesWithReservedMapping(void* mappingaddress, uint32_t pooltag, void* memorydescriptorlist, int32_t cachetype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14808,7 +14808,7 @@ void* windowssys_windows_wdk_system_systemservices_mmMapLockedPagesWithReservedM
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapMdl(void* memorydescriptorlist, uint32_t protection, void* driverroutine, void* drivercontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapMdl(void* memorydescriptorlist, uint32_t protection, void* driverroutine, void* drivercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14833,7 +14833,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapMdl(void* memorydescri
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapMemoryDumpMdlEx(void* va, uint32_t pagetotal, void* memorydumpmdl, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapMemoryDumpMdlEx(void* va, uint32_t pagetotal, void* memorydumpmdl, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14858,7 +14858,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapMemoryDumpMdlEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapUserAddressesToPage(void* baseaddress, uint64_t numberofbytes, void* pageaddress) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapUserAddressesToPage(void* baseaddress, uint64_t numberofbytes, void* pageaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14882,7 +14882,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapUserAddressesToPage(vo
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmMapVideoDisplay(int64_t physicaladdress, uint64_t numberofbytes, int32_t cachetype) {
+void* windowssysWindowsWdkSystemSystemservicesMmMapVideoDisplay(int64_t physicaladdress, uint64_t numberofbytes, int32_t cachetype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14906,7 +14906,7 @@ void* windowssys_windows_wdk_system_systemservices_mmMapVideoDisplay(int64_t phy
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSessionSpace(void* section, void* mappedbase, void* viewsize) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapViewInSessionSpace(void* section, void* mappedbase, void* viewsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14930,7 +14930,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSessionSpace(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSessionSpaceEx(void* section, void* mappedbase, void* viewsize, void* sectionoffset, uint64_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapViewInSessionSpaceEx(void* section, void* mappedbase, void* viewsize, void* sectionoffset, uint64_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14956,7 +14956,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSessionSpaceEx(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSystemSpace(void* section, void* mappedbase, void* viewsize) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapViewInSystemSpace(void* section, void* mappedbase, void* viewsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14980,7 +14980,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSystemSpace(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSystemSpaceEx(void* section, void* mappedbase, void* viewsize, void* sectionoffset, uint64_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMapViewInSystemSpaceEx(void* section, void* mappedbase, void* viewsize, void* sectionoffset, uint64_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15006,7 +15006,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMapViewInSystemSpaceEx(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmMdlPageContentsState(void* memorydescriptorlist, int32_t state) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmMdlPageContentsState(void* memorydescriptorlist, int32_t state) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15029,7 +15029,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmMdlPageContentsState(void
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmPageEntireDriver(void* addresswithinsection) {
+void* windowssysWindowsWdkSystemSystemservicesMmPageEntireDriver(void* addresswithinsection) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15051,7 +15051,7 @@ void* windowssys_windows_wdk_system_systemservices_mmPageEntireDriver(void* addr
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmProbeAndLockPages(void* memorydescriptorlist, int8_t accessmode, int32_t operation) {
+void windowssysWindowsWdkSystemSystemservicesMmProbeAndLockPages(void* memorydescriptorlist, int8_t accessmode, int32_t operation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int8_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15074,7 +15074,7 @@ void windowssys_windows_wdk_system_systemservices_mmProbeAndLockPages(void* memo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmProbeAndLockProcessPages(void* memorydescriptorlist, int64_t process, int8_t accessmode, int32_t operation) {
+void windowssysWindowsWdkSystemSystemservicesMmProbeAndLockProcessPages(void* memorydescriptorlist, int64_t process, int8_t accessmode, int32_t operation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, int8_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15098,7 +15098,7 @@ void windowssys_windows_wdk_system_systemservices_mmProbeAndLockProcessPages(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmProbeAndLockSelectedPages(void* memorydescriptorlist, void* segmentarray, int8_t accessmode, int32_t operation) {
+void windowssysWindowsWdkSystemSystemservicesMmProbeAndLockSelectedPages(void* memorydescriptorlist, void* segmentarray, int8_t accessmode, int32_t operation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int8_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15122,7 +15122,7 @@ void windowssys_windows_wdk_system_systemservices_mmProbeAndLockSelectedPages(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmProtectDriverSection(void* addresswithinsection, uint64_t size, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmProtectDriverSection(void* addresswithinsection, uint64_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15146,7 +15146,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmProtectDriverSection(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmProtectMdlSystemAddress(void* memorydescriptorlist, uint32_t newprotect) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmProtectMdlSystemAddress(void* memorydescriptorlist, uint32_t newprotect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15169,7 +15169,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmProtectMdlSystemAddress(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmQuerySystemSize(void) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmQuerySystemSize(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -15190,7 +15190,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmQuerySystemSize(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmRemovePhysicalMemory(void* startaddress, void* numberofbytes) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmRemovePhysicalMemory(void* startaddress, void* numberofbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15213,7 +15213,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmRemovePhysicalMemory(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmResetDriverPaging(void* addresswithinsection) {
+void windowssysWindowsWdkSystemSystemservicesMmResetDriverPaging(void* addresswithinsection) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15234,7 +15234,7 @@ void windowssys_windows_wdk_system_systemservices_mmResetDriverPaging(void* addr
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmRotatePhysicalView(void* virtualaddress, void* numberofbytes, void* newmdl, int32_t direction, void* copyfunction, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmRotatePhysicalView(void* virtualaddress, void* numberofbytes, void* newmdl, int32_t direction, void* copyfunction, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15261,7 +15261,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmRotatePhysicalView(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmSecureVirtualMemory(void* address, uint64_t size, uint32_t probemode) {
+void* windowssysWindowsWdkSystemSystemservicesMmSecureVirtualMemory(void* address, uint64_t size, uint32_t probemode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15285,7 +15285,7 @@ void* windowssys_windows_wdk_system_systemservices_mmSecureVirtualMemory(void* a
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_mmSecureVirtualMemoryEx(void* address, uint64_t size, uint32_t probemode, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesMmSecureVirtualMemoryEx(void* address, uint64_t size, uint32_t probemode, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15310,7 +15310,7 @@ void* windowssys_windows_wdk_system_systemservices_mmSecureVirtualMemoryEx(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmSetPermanentCacheAttribute(int64_t startaddress, int64_t numberofbytes, int32_t cachetype, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmSetPermanentCacheAttribute(int64_t startaddress, int64_t numberofbytes, int32_t cachetype, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15335,7 +15335,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmSetPermanentCacheAttribut
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_mmSizeOfMdl(void* base, uint64_t length) {
+uint64_t windowssysWindowsWdkSystemSystemservicesMmSizeOfMdl(void* base, uint64_t length) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15358,7 +15358,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_mmSizeOfMdl(void* base, ui
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnlockPagableImageSection(void* imagesectionhandle) {
+void windowssysWindowsWdkSystemSystemservicesMmUnlockPagableImageSection(void* imagesectionhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15379,7 +15379,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnlockPagableImageSection(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnlockPages(void* memorydescriptorlist) {
+void windowssysWindowsWdkSystemSystemservicesMmUnlockPages(void* memorydescriptorlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15400,7 +15400,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnlockPages(void* memorydesc
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnmapIoSpace(void* baseaddress, uint64_t numberofbytes) {
+void windowssysWindowsWdkSystemSystemservicesMmUnmapIoSpace(void* baseaddress, uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15422,7 +15422,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnmapIoSpace(void* baseaddre
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnmapLockedPages(void* baseaddress, void* memorydescriptorlist) {
+void windowssysWindowsWdkSystemSystemservicesMmUnmapLockedPages(void* baseaddress, void* memorydescriptorlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15444,7 +15444,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnmapLockedPages(void* basea
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnmapReservedMapping(void* baseaddress, uint32_t pooltag, void* memorydescriptorlist) {
+void windowssysWindowsWdkSystemSystemservicesMmUnmapReservedMapping(void* baseaddress, uint32_t pooltag, void* memorydescriptorlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15467,7 +15467,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnmapReservedMapping(void* b
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnmapVideoDisplay(void* baseaddress, uint64_t numberofbytes) {
+void windowssysWindowsWdkSystemSystemservicesMmUnmapVideoDisplay(void* baseaddress, uint64_t numberofbytes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15489,7 +15489,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnmapVideoDisplay(void* base
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmUnmapViewInSessionSpace(void* mappedbase) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmUnmapViewInSessionSpace(void* mappedbase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15511,7 +15511,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmUnmapViewInSessionSpace(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_mmUnmapViewInSystemSpace(void* mappedbase) {
+int32_t windowssysWindowsWdkSystemSystemservicesMmUnmapViewInSystemSpace(void* mappedbase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15533,7 +15533,7 @@ int32_t windowssys_windows_wdk_system_systemservices_mmUnmapViewInSystemSpace(vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_mmUnsecureVirtualMemory(void* securehandle) {
+void windowssysWindowsWdkSystemSystemservicesMmUnsecureVirtualMemory(void* securehandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15554,7 +15554,7 @@ void windowssys_windows_wdk_system_systemservices_mmUnsecureVirtualMemory(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntAllocateLocallyUniqueId(void* luid) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtAllocateLocallyUniqueId(void* luid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15576,7 +15576,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntAllocateLocallyUniqueId(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCommitComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCommitComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15599,7 +15599,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCommitComplete(void* enli
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCommitEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCommitEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15622,7 +15622,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCommitEnlistment(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCommitTransaction(void* transactionhandle, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCommitTransaction(void* transactionhandle, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -15645,7 +15645,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCommitTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCreateEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* resourcemanagerhandle, void* transactionhandle, void* objectattributes, uint32_t createoptions, uint32_t notificationmask, void* enlistmentkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCreateEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* resourcemanagerhandle, void* transactionhandle, void* objectattributes, uint32_t createoptions, uint32_t notificationmask, void* enlistmentkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15674,7 +15674,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCreateEnlistment(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCreateResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* rmguid, void* objectattributes, uint32_t createoptions, void* description) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCreateResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* rmguid, void* objectattributes, uint32_t createoptions, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15702,7 +15702,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCreateResourceManager(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCreateTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle, uint32_t createoptions, uint32_t isolationlevel, uint32_t isolationflags, void* timeout, void* description) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCreateTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle, uint32_t createoptions, uint32_t isolationlevel, uint32_t isolationflags, void* timeout, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15733,7 +15733,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCreateTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntCreateTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, uint32_t createoptions, uint32_t commitstrength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtCreateTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, uint32_t createoptions, uint32_t commitstrength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15760,7 +15760,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntCreateTransactionManager(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntDisplayString(void* string) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtDisplayString(void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15782,7 +15782,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntDisplayString(void* strin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntEnumerateTransactionObject(void* rootobjecthandle, int32_t querytype, void* objectcursor, uint32_t objectcursorlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtEnumerateTransactionObject(void* rootobjecthandle, int32_t querytype, void* objectcursor, uint32_t objectcursorlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15808,7 +15808,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntEnumerateTransactionObjec
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntGetNotificationResourceManager(void* resourcemanagerhandle, void* transactionnotification, uint32_t notificationlength, void* timeout, void* returnlength, uint32_t asynchronous, uint64_t asynchronouscontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtGetNotificationResourceManager(void* resourcemanagerhandle, void* transactionnotification, uint32_t notificationlength, void* timeout, void* returnlength, uint32_t asynchronous, uint64_t asynchronouscontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15836,7 +15836,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntGetNotificationResourceMa
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntLoadDriver(void* driverservicename) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtLoadDriver(void* driverservicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15858,7 +15858,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntLoadDriver(void* driverse
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntMakeTemporaryObject(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtMakeTemporaryObject(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15880,7 +15880,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntMakeTemporaryObject(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntManagePartition(void* targethandle, void* sourcehandle, int32_t partitioninformationclass, void* partitioninformation, uint32_t partitioninformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtManagePartition(void* targethandle, void* sourcehandle, int32_t partitioninformationclass, void* partitioninformation, uint32_t partitioninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15906,7 +15906,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntManagePartition(void* tar
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntOpenEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* resourcemanagerhandle, void* enlistmentguid, void* objectattributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtOpenEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* resourcemanagerhandle, void* enlistmentguid, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15932,7 +15932,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntOpenEnlistment(void* enli
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntOpenResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* resourcemanagerguid, void* objectattributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtOpenResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* resourcemanagerguid, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15958,7 +15958,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntOpenResourceManager(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntOpenTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtOpenTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15984,7 +15984,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntOpenTransaction(void* tra
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntOpenTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, void* tmidentity, uint32_t openoptions) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtOpenTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, void* tmidentity, uint32_t openoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16011,7 +16011,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntOpenTransactionManager(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPowerInformation(int32_t informationlevel, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPowerInformation(int32_t informationlevel, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16037,7 +16037,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPowerInformation(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPrePrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPrePrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16060,7 +16060,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPrePrepareComplete(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPrePrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPrePrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16083,7 +16083,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPrePrepareEnlistment(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16106,7 +16106,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPrepareComplete(void* enl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16129,7 +16129,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPrepareEnlistment(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPropagationComplete(void* resourcemanagerhandle, uint32_t requestcookie, uint32_t bufferlength, void* buffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPropagationComplete(void* resourcemanagerhandle, uint32_t requestcookie, uint32_t bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16154,7 +16154,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPropagationComplete(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntPropagationFailed(void* resourcemanagerhandle, uint32_t requestcookie, int32_t propstatus) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtPropagationFailed(void* resourcemanagerhandle, uint32_t requestcookie, int32_t propstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16178,7 +16178,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntPropagationFailed(void* r
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtQueryInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16204,7 +16204,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationEnlistmen
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtQueryInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16230,7 +16230,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationResourceM
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtQueryInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16256,7 +16256,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationTransacti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationTransactionManager(void* transactionmanagerhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtQueryInformationTransactionManager(void* transactionmanagerhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16282,7 +16282,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntQueryInformationTransacti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntReadOnlyEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtReadOnlyEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16305,7 +16305,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntReadOnlyEnlistment(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRecoverEnlistment(void* enlistmenthandle, void* enlistmentkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRecoverEnlistment(void* enlistmenthandle, void* enlistmentkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16328,7 +16328,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRecoverEnlistment(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRecoverResourceManager(void* resourcemanagerhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRecoverResourceManager(void* resourcemanagerhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16350,7 +16350,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRecoverResourceManager(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRecoverTransactionManager(void* transactionmanagerhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRecoverTransactionManager(void* transactionmanagerhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16372,7 +16372,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRecoverTransactionManager
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRegisterProtocolAddressInformation(void* resourcemanager, void* protocolid, uint32_t protocolinformationsize, void* protocolinformation, uint32_t createoptions) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRegisterProtocolAddressInformation(void* resourcemanager, void* protocolid, uint32_t protocolinformationsize, void* protocolinformation, uint32_t createoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16398,7 +16398,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRegisterProtocolAddressIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRenameTransactionManager(void* logfilename, void* existingtransactionmanagerguid) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRenameTransactionManager(void* logfilename, void* existingtransactionmanagerguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16421,7 +16421,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRenameTransactionManager(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRollbackComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRollbackComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16444,7 +16444,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRollbackComplete(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRollbackEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRollbackEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16467,7 +16467,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRollbackEnlistment(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRollbackTransaction(void* transactionhandle, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRollbackTransaction(void* transactionhandle, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -16490,7 +16490,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRollbackTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntRollforwardTransactionManager(void* transactionmanagerhandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtRollforwardTransactionManager(void* transactionmanagerhandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16513,7 +16513,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntRollforwardTransactionMan
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtSetInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16538,7 +16538,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationEnlistment(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtSetInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16563,7 +16563,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationResourceMan
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtSetInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16588,7 +16588,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationTransaction
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationTransactionManager(void* tmhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtSetInformationTransactionManager(void* tmhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16613,7 +16613,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntSetInformationTransaction
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntSinglePhaseReject(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtSinglePhaseReject(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16636,7 +16636,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntSinglePhaseReject(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_ntUnloadDriver(void* driverservicename) {
+int32_t windowssysWindowsWdkSystemSystemservicesNtUnloadDriver(void* driverservicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16658,7 +16658,7 @@ int32_t windowssys_windows_wdk_system_systemservices_ntUnloadDriver(void* driver
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obCloseHandle(void* handle, int8_t previousmode) {
+int32_t windowssysWindowsWdkSystemSystemservicesObCloseHandle(void* handle, int8_t previousmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16681,7 +16681,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obCloseHandle(void* handle,
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_obDereferenceObjectDeferDelete(void* object) {
+void windowssysWindowsWdkSystemSystemservicesObDereferenceObjectDeferDelete(void* object) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16702,7 +16702,7 @@ void windowssys_windows_wdk_system_systemservices_obDereferenceObjectDeferDelete
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_obDereferenceObjectDeferDeleteWithTag(void* object, uint32_t tag) {
+void windowssysWindowsWdkSystemSystemservicesObDereferenceObjectDeferDeleteWithTag(void* object, uint32_t tag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16724,7 +16724,7 @@ void windowssys_windows_wdk_system_systemservices_obDereferenceObjectDeferDelete
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_obGetFilterVersion(void) {
+uint16_t windowssysWindowsWdkSystemSystemservicesObGetFilterVersion(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -16745,7 +16745,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_obGetFilterVersion(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obGetObjectSecurity(void* object, void* securitydescriptor, void* memoryallocated) {
+int32_t windowssysWindowsWdkSystemSystemservicesObGetObjectSecurity(void* object, void* securitydescriptor, void* memoryallocated) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16769,7 +16769,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obGetObjectSecurity(void* o
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByHandle(void* handle, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, void* object, void* handleinformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesObReferenceObjectByHandle(void* handle, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, void* object, void* handleinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16796,7 +16796,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByHandle(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByHandleWithTag(void* handle, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, uint32_t tag, void* object, void* handleinformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesObReferenceObjectByHandleWithTag(void* handle, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, uint32_t tag, void* object, void* handleinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, int8_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16824,7 +16824,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByHandleWi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByPointer(void* object, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode) {
+int32_t windowssysWindowsWdkSystemSystemservicesObReferenceObjectByPointer(void* object, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16849,7 +16849,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByPointer(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByPointerWithTag(void* object, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, uint32_t tag) {
+int32_t windowssysWindowsWdkSystemSystemservicesObReferenceObjectByPointerWithTag(void* object, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, uint32_t tag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, int8_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16875,7 +16875,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obReferenceObjectByPointerW
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_obReferenceObjectSafe(void* object) {
+bool windowssysWindowsWdkSystemSystemservicesObReferenceObjectSafe(void* object) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16897,7 +16897,7 @@ bool windowssys_windows_wdk_system_systemservices_obReferenceObjectSafe(void* ob
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_obReferenceObjectSafeWithTag(void* object, uint32_t tag) {
+bool windowssysWindowsWdkSystemSystemservicesObReferenceObjectSafeWithTag(void* object, uint32_t tag) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16920,7 +16920,7 @@ bool windowssys_windows_wdk_system_systemservices_obReferenceObjectSafeWithTag(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_obRegisterCallbacks(void* callbackregistration, void* registrationhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesObRegisterCallbacks(void* callbackregistration, void* registrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16943,7 +16943,7 @@ int32_t windowssys_windows_wdk_system_systemservices_obRegisterCallbacks(void* c
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_obReleaseObjectSecurity(void* securitydescriptor, bool memoryallocated) {
+void windowssysWindowsWdkSystemSystemservicesObReleaseObjectSecurity(void* securitydescriptor, bool memoryallocated) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -16965,7 +16965,7 @@ void windowssys_windows_wdk_system_systemservices_obReleaseObjectSecurity(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_obUnRegisterCallbacks(void* registrationhandle) {
+void windowssysWindowsWdkSystemSystemservicesObUnRegisterCallbacks(void* registrationhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16986,7 +16986,7 @@ void windowssys_windows_wdk_system_systemservices_obUnRegisterCallbacks(void* re
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_obfDereferenceObject(void* object) {
+int64_t windowssysWindowsWdkSystemSystemservicesObfDereferenceObject(void* object) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17008,7 +17008,7 @@ int64_t windowssys_windows_wdk_system_systemservices_obfDereferenceObject(void* 
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_obfDereferenceObjectWithTag(void* object, uint32_t tag) {
+int64_t windowssysWindowsWdkSystemSystemservicesObfDereferenceObjectWithTag(void* object, uint32_t tag) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17031,7 +17031,7 @@ int64_t windowssys_windows_wdk_system_systemservices_obfDereferenceObjectWithTag
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_obfReferenceObject(void* object) {
+int64_t windowssysWindowsWdkSystemSystemservicesObfReferenceObject(void* object) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17053,7 +17053,7 @@ int64_t windowssys_windows_wdk_system_systemservices_obfReferenceObject(void* ob
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_obfReferenceObjectWithTag(void* object, uint32_t tag) {
+int64_t windowssysWindowsWdkSystemSystemservicesObfReferenceObjectWithTag(void* object, uint32_t tag) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17076,7 +17076,7 @@ int64_t windowssys_windows_wdk_system_systemservices_obfReferenceObjectWithTag(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_pcwAddInstance(int64_t buffer, void* name, uint32_t id, uint32_t count, void* data) {
+int32_t windowssysWindowsWdkSystemSystemservicesPcwAddInstance(int64_t buffer, void* name, uint32_t id, uint32_t count, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17102,7 +17102,7 @@ int32_t windowssys_windows_wdk_system_systemservices_pcwAddInstance(int64_t buff
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_pcwCloseInstance(int64_t instance) {
+void windowssysWindowsWdkSystemSystemservicesPcwCloseInstance(int64_t instance) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17123,7 +17123,7 @@ void windowssys_windows_wdk_system_systemservices_pcwCloseInstance(int64_t insta
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_pcwCreateInstance(void* instance, int64_t registration, void* name, uint32_t count, void* data) {
+int32_t windowssysWindowsWdkSystemSystemservicesPcwCreateInstance(void* instance, int64_t registration, void* name, uint32_t count, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17149,7 +17149,7 @@ int32_t windowssys_windows_wdk_system_systemservices_pcwCreateInstance(void* ins
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_pcwRegister(void* registration, void* info) {
+int32_t windowssysWindowsWdkSystemSystemservicesPcwRegister(void* registration, void* info) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17172,7 +17172,7 @@ int32_t windowssys_windows_wdk_system_systemservices_pcwRegister(void* registrat
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_pcwUnregister(int64_t registration) {
+void windowssysWindowsWdkSystemSystemservicesPcwUnregister(int64_t registration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17193,7 +17193,7 @@ void windowssys_windows_wdk_system_systemservices_pcwUnregister(int64_t registra
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poCallDriver(void* deviceobject, void* irp) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoCallDriver(void* deviceobject, void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17216,7 +17216,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poCallDriver(void* deviceob
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poClearPowerRequest(void* powerrequest, int32_t type) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoClearPowerRequest(void* powerrequest, int32_t type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17239,7 +17239,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poClearPowerRequest(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poCreatePowerRequest(void* powerrequest, void* deviceobject, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoCreatePowerRequest(void* powerrequest, void* deviceobject, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17263,7 +17263,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poCreatePowerRequest(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poCreateThermalRequest(void* thermalrequest, void* targetdeviceobject, void* policydeviceobject, void* context, uint32_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoCreateThermalRequest(void* thermalrequest, void* targetdeviceobject, void* policydeviceobject, void* context, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17289,7 +17289,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poCreateThermalRequest(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poDeletePowerRequest(void* powerrequest) {
+void windowssysWindowsWdkSystemSystemservicesPoDeletePowerRequest(void* powerrequest) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17310,7 +17310,7 @@ void windowssys_windows_wdk_system_systemservices_poDeletePowerRequest(void* pow
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poDeleteThermalRequest(void* thermalrequest) {
+void windowssysWindowsWdkSystemSystemservicesPoDeleteThermalRequest(void* thermalrequest) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17331,7 +17331,7 @@ void windowssys_windows_wdk_system_systemservices_poDeleteThermalRequest(void* t
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poEndDeviceBusy(void* idlepointer) {
+void windowssysWindowsWdkSystemSystemservicesPoEndDeviceBusy(void* idlepointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17352,7 +17352,7 @@ void windowssys_windows_wdk_system_systemservices_poEndDeviceBusy(void* idlepoin
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxActivateComponent(void* handle, uint32_t component, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesPoFxActivateComponent(void* handle, uint32_t component, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17375,7 +17375,7 @@ void windowssys_windows_wdk_system_systemservices_poFxActivateComponent(void* ha
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxCompleteDevicePowerNotRequired(void* handle) {
+void windowssysWindowsWdkSystemSystemservicesPoFxCompleteDevicePowerNotRequired(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17396,7 +17396,7 @@ void windowssys_windows_wdk_system_systemservices_poFxCompleteDevicePowerNotRequ
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxCompleteDirectedPowerDown(void* handle) {
+void windowssysWindowsWdkSystemSystemservicesPoFxCompleteDirectedPowerDown(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17417,7 +17417,7 @@ void windowssys_windows_wdk_system_systemservices_poFxCompleteDirectedPowerDown(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxCompleteIdleCondition(void* handle, uint32_t component) {
+void windowssysWindowsWdkSystemSystemservicesPoFxCompleteIdleCondition(void* handle, uint32_t component) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17439,7 +17439,7 @@ void windowssys_windows_wdk_system_systemservices_poFxCompleteIdleCondition(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxCompleteIdleState(void* handle, uint32_t component) {
+void windowssysWindowsWdkSystemSystemservicesPoFxCompleteIdleState(void* handle, uint32_t component) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17461,7 +17461,7 @@ void windowssys_windows_wdk_system_systemservices_poFxCompleteIdleState(void* ha
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxIdleComponent(void* handle, uint32_t component, uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesPoFxIdleComponent(void* handle, uint32_t component, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17484,7 +17484,7 @@ void windowssys_windows_wdk_system_systemservices_poFxIdleComponent(void* handle
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxIssueComponentPerfStateChange(void* handle, uint32_t flags, uint32_t component, void* perfchange, void* context) {
+void windowssysWindowsWdkSystemSystemservicesPoFxIssueComponentPerfStateChange(void* handle, uint32_t flags, uint32_t component, void* perfchange, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17509,7 +17509,7 @@ void windowssys_windows_wdk_system_systemservices_poFxIssueComponentPerfStateCha
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxIssueComponentPerfStateChangeMultiple(void* handle, uint32_t flags, uint32_t component, uint32_t perfchangescount, void* perfchanges, void* context) {
+void windowssysWindowsWdkSystemSystemservicesPoFxIssueComponentPerfStateChangeMultiple(void* handle, uint32_t flags, uint32_t component, uint32_t perfchangescount, void* perfchanges, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17535,7 +17535,7 @@ void windowssys_windows_wdk_system_systemservices_poFxIssueComponentPerfStateCha
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxNotifySurprisePowerOn(void* pdo) {
+void windowssysWindowsWdkSystemSystemservicesPoFxNotifySurprisePowerOn(void* pdo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17556,7 +17556,7 @@ void windowssys_windows_wdk_system_systemservices_poFxNotifySurprisePowerOn(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxPowerControl(void* handle, void* powercontrolcode, void* inbuffer, uint64_t inbuffersize, void* outbuffer, uint64_t outbuffersize, void* bytesreturned) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxPowerControl(void* handle, void* powercontrolcode, void* inbuffer, uint64_t inbuffersize, void* outbuffer, uint64_t outbuffersize, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17584,7 +17584,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxPowerControl(void* hand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxPowerOnCrashdumpDevice(void* handle, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxPowerOnCrashdumpDevice(void* handle, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17607,7 +17607,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxPowerOnCrashdumpDevice(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxQueryCurrentComponentPerfState(void* handle, uint32_t flags, uint32_t component, uint32_t setindex, void* currentperf) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxQueryCurrentComponentPerfState(void* handle, uint32_t flags, uint32_t component, uint32_t setindex, void* currentperf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17633,7 +17633,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxQueryCurrentComponentPe
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxRegisterComponentPerfStates(void* handle, uint32_t component, uint64_t flags, void* componentperfstatecallback, void* inputstateinfo, void* outputstateinfo) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxRegisterComponentPerfStates(void* handle, uint32_t component, uint64_t flags, void* componentperfstatecallback, void* inputstateinfo, void* outputstateinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17660,7 +17660,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxRegisterComponentPerfSt
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxRegisterCrashdumpDevice(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxRegisterCrashdumpDevice(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17682,7 +17682,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxRegisterCrashdumpDevice
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxRegisterDevice(void* pdo, void* device, void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxRegisterDevice(void* pdo, void* device, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17706,7 +17706,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxRegisterDevice(void* pd
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxRegisterDripsWatchdogCallback(void* handle, void* callback, bool includechilddevices, void* matchingdriverobject) {
+void windowssysWindowsWdkSystemSystemservicesPoFxRegisterDripsWatchdogCallback(void* handle, void* callback, bool includechilddevices, void* matchingdriverobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17730,7 +17730,7 @@ void windowssys_windows_wdk_system_systemservices_poFxRegisterDripsWatchdogCallb
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxReportDevicePoweredOn(void* handle) {
+void windowssysWindowsWdkSystemSystemservicesPoFxReportDevicePoweredOn(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17751,7 +17751,7 @@ void windowssys_windows_wdk_system_systemservices_poFxReportDevicePoweredOn(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxSetComponentLatency(void* handle, uint32_t component, uint64_t latency) {
+void windowssysWindowsWdkSystemSystemservicesPoFxSetComponentLatency(void* handle, uint32_t component, uint64_t latency) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17774,7 +17774,7 @@ void windowssys_windows_wdk_system_systemservices_poFxSetComponentLatency(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxSetComponentResidency(void* handle, uint32_t component, uint64_t residency) {
+void windowssysWindowsWdkSystemSystemservicesPoFxSetComponentResidency(void* handle, uint32_t component, uint64_t residency) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17797,7 +17797,7 @@ void windowssys_windows_wdk_system_systemservices_poFxSetComponentResidency(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxSetComponentWake(void* handle, uint32_t component, bool wakehint) {
+void windowssysWindowsWdkSystemSystemservicesPoFxSetComponentWake(void* handle, uint32_t component, bool wakehint) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -17820,7 +17820,7 @@ void windowssys_windows_wdk_system_systemservices_poFxSetComponentWake(void* han
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxSetDeviceIdleTimeout(void* handle, uint64_t idletimeout) {
+void windowssysWindowsWdkSystemSystemservicesPoFxSetDeviceIdleTimeout(void* handle, uint64_t idletimeout) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17842,7 +17842,7 @@ void windowssys_windows_wdk_system_systemservices_poFxSetDeviceIdleTimeout(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poFxSetTargetDripsDevicePowerState(void* handle, int32_t targetstate) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoFxSetTargetDripsDevicePowerState(void* handle, int32_t targetstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17865,7 +17865,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poFxSetTargetDripsDevicePow
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxStartDevicePowerManagement(void* handle) {
+void windowssysWindowsWdkSystemSystemservicesPoFxStartDevicePowerManagement(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17886,7 +17886,7 @@ void windowssys_windows_wdk_system_systemservices_poFxStartDevicePowerManagement
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poFxUnregisterDevice(void* handle) {
+void windowssysWindowsWdkSystemSystemservicesPoFxUnregisterDevice(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17907,7 +17907,7 @@ void windowssys_windows_wdk_system_systemservices_poFxUnregisterDevice(void* han
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_poGetSystemWake(void* irp) {
+bool windowssysWindowsWdkSystemSystemservicesPoGetSystemWake(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17929,7 +17929,7 @@ bool windowssys_windows_wdk_system_systemservices_poGetSystemWake(void* irp) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_poGetThermalRequestSupport(void* thermalrequest, int32_t type) {
+bool windowssysWindowsWdkSystemSystemservicesPoGetThermalRequestSupport(void* thermalrequest, int32_t type) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -17952,7 +17952,7 @@ bool windowssys_windows_wdk_system_systemservices_poGetThermalRequestSupport(voi
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_poQueryWatchdogTime(void* pdo, void* secondsremaining) {
+bool windowssysWindowsWdkSystemSystemservicesPoQueryWatchdogTime(void* pdo, void* secondsremaining) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -17975,7 +17975,7 @@ bool windowssys_windows_wdk_system_systemservices_poQueryWatchdogTime(void* pdo,
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_poRegisterDeviceForIdleDetection(void* deviceobject, uint32_t conservationidletime, uint32_t performanceidletime, int32_t state) {
+void* windowssysWindowsWdkSystemSystemservicesPoRegisterDeviceForIdleDetection(void* deviceobject, uint32_t conservationidletime, uint32_t performanceidletime, int32_t state) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18000,7 +18000,7 @@ void* windowssys_windows_wdk_system_systemservices_poRegisterDeviceForIdleDetect
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poRegisterPowerSettingCallback(void* deviceobject, void* settingguid, void* callback, void* context, void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoRegisterPowerSettingCallback(void* deviceobject, void* settingguid, void* callback, void* context, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18026,7 +18026,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poRegisterPowerSettingCallb
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_poRegisterSystemState(void* statehandle, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesPoRegisterSystemState(void* statehandle, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18049,7 +18049,7 @@ void* windowssys_windows_wdk_system_systemservices_poRegisterSystemState(void* s
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poSetDeviceBusyEx(void* idlepointer) {
+void windowssysWindowsWdkSystemSystemservicesPoSetDeviceBusyEx(void* idlepointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18070,7 +18070,7 @@ void windowssys_windows_wdk_system_systemservices_poSetDeviceBusyEx(void* idlepo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poSetHiberRange(void* memorymap, uint32_t flags, void* address, uint64_t length, uint32_t tag) {
+void windowssysWindowsWdkSystemSystemservicesPoSetHiberRange(void* memorymap, uint32_t flags, void* address, uint64_t length, uint32_t tag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18095,7 +18095,7 @@ void windowssys_windows_wdk_system_systemservices_poSetHiberRange(void* memoryma
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poSetPowerRequest(void* powerrequest, int32_t type) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoSetPowerRequest(void* powerrequest, int32_t type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18118,7 +18118,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poSetPowerRequest(void* pow
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poSetSystemState(uint32_t flags) {
+void windowssysWindowsWdkSystemSystemservicesPoSetSystemState(uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18139,7 +18139,7 @@ void windowssys_windows_wdk_system_systemservices_poSetSystemState(uint32_t flag
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poSetSystemWake(void* irp) {
+void windowssysWindowsWdkSystemSystemservicesPoSetSystemWake(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18160,7 +18160,7 @@ void windowssys_windows_wdk_system_systemservices_poSetSystemWake(void* irp) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poSetSystemWakeDevice(void* deviceobject) {
+void windowssysWindowsWdkSystemSystemservicesPoSetSystemWakeDevice(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18181,7 +18181,7 @@ void windowssys_windows_wdk_system_systemservices_poSetSystemWakeDevice(void* de
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poSetThermalActiveCooling(void* thermalrequest, bool engaged) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoSetThermalActiveCooling(void* thermalrequest, bool engaged) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -18204,7 +18204,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poSetThermalActiveCooling(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poSetThermalPassiveCooling(void* thermalrequest, uint8_t throttle) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoSetThermalPassiveCooling(void* thermalrequest, uint8_t throttle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18227,7 +18227,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poSetThermalPassiveCooling(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poStartDeviceBusy(void* idlepointer) {
+void windowssysWindowsWdkSystemSystemservicesPoStartDeviceBusy(void* idlepointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18248,7 +18248,7 @@ void windowssys_windows_wdk_system_systemservices_poStartDeviceBusy(void* idlepo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poStartNextPowerIrp(void* irp) {
+void windowssysWindowsWdkSystemSystemservicesPoStartNextPowerIrp(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18269,7 +18269,7 @@ void windowssys_windows_wdk_system_systemservices_poStartNextPowerIrp(void* irp)
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_poUnregisterPowerSettingCallback(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesPoUnregisterPowerSettingCallback(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18291,7 +18291,7 @@ int32_t windowssys_windows_wdk_system_systemservices_poUnregisterPowerSettingCal
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_poUnregisterSystemState(void* statehandle) {
+void windowssysWindowsWdkSystemSystemservicesPoUnregisterSystemState(void* statehandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18312,7 +18312,7 @@ void windowssys_windows_wdk_system_systemservices_poUnregisterSystemState(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_probeForRead(void* address, uint64_t length, uint32_t alignment) {
+void windowssysWindowsWdkSystemSystemservicesProbeForRead(void* address, uint64_t length, uint32_t alignment) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18335,7 +18335,7 @@ void windowssys_windows_wdk_system_systemservices_probeForRead(void* address, ui
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_probeForWrite(void* address, uint64_t length, uint32_t alignment) {
+void windowssysWindowsWdkSystemSystemservicesProbeForWrite(void* address, uint64_t length, uint32_t alignment) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18358,7 +18358,7 @@ void windowssys_windows_wdk_system_systemservices_probeForWrite(void* address, u
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psAcquireSiloHardReference(int64_t silo) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsAcquireSiloHardReference(int64_t silo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18380,7 +18380,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psAcquireSiloHardReference(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psAllocSiloContextSlot(uint64_t reserved, void* returnedcontextslot) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsAllocSiloContextSlot(uint64_t reserved, void* returnedcontextslot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18403,7 +18403,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psAllocSiloContextSlot(uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psAllocateAffinityToken(void* affinitytoken) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsAllocateAffinityToken(void* affinitytoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18425,7 +18425,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psAllocateAffinityToken(voi
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psAttachSiloToCurrentThread(int64_t silo) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsAttachSiloToCurrentThread(int64_t silo) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18447,7 +18447,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psAttachSiloToCurrentThread
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psCreateSiloContext(int64_t silo, uint32_t size, int32_t pooltype, void* contextcleanupcallback, void* returnedsilocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsCreateSiloContext(int64_t silo, uint32_t size, int32_t pooltype, void* contextcleanupcallback, void* returnedsilocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18473,7 +18473,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psCreateSiloContext(int64_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psCreateSystemThread(void* threadhandle, uint32_t desiredaccess, void* objectattributes, void* processhandle, void* clientid, void* startroutine, void* startcontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsCreateSystemThread(void* threadhandle, uint32_t desiredaccess, void* objectattributes, void* processhandle, void* clientid, void* startroutine, void* startcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18501,7 +18501,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psCreateSystemThread(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psDereferenceSiloContext(void* silocontext) {
+void windowssysWindowsWdkSystemSystemservicesPsDereferenceSiloContext(void* silocontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18522,7 +18522,7 @@ void windowssys_windows_wdk_system_systemservices_psDereferenceSiloContext(void*
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psDetachSiloFromCurrentThread(int64_t previoussilo) {
+void windowssysWindowsWdkSystemSystemservicesPsDetachSiloFromCurrentThread(int64_t previoussilo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18543,7 +18543,7 @@ void windowssys_windows_wdk_system_systemservices_psDetachSiloFromCurrentThread(
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psFreeAffinityToken(int64_t affinitytoken) {
+void windowssysWindowsWdkSystemSystemservicesPsFreeAffinityToken(int64_t affinitytoken) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18564,7 +18564,7 @@ void windowssys_windows_wdk_system_systemservices_psFreeAffinityToken(int64_t af
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psFreeSiloContextSlot(uint32_t contextslot) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsFreeSiloContextSlot(uint32_t contextslot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18586,7 +18586,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psFreeSiloContextSlot(uint3
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetCurrentProcessId(void) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetCurrentProcessId(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18607,7 +18607,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetCurrentProcessId(void) {
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetCurrentServerSilo(void) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSilo(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18628,7 +18628,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetCurrentServerSilo(void
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetCurrentServerSiloName(void) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSiloName(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18649,7 +18649,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetCurrentServerSiloName(vo
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetCurrentSilo(void) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetCurrentSilo(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18670,7 +18670,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetCurrentSilo(void) {
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetCurrentThreadId(void) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadId(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18691,7 +18691,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetCurrentThreadId(void) {
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetCurrentThreadTeb(void) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadTeb(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18712,7 +18712,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetCurrentThreadTeb(void) {
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetEffectiveServerSilo(int64_t silo) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetEffectiveServerSilo(int64_t silo) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18734,7 +18734,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetEffectiveServerSilo(in
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetHostSilo(void) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetHostSilo(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -18755,7 +18755,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetHostSilo(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psGetJobServerSilo(int64_t job, void* serversilo) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsGetJobServerSilo(int64_t job, void* serversilo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18778,7 +18778,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psGetJobServerSilo(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psGetJobSilo(int64_t job, void* silo) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsGetJobSilo(int64_t job, void* silo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18801,7 +18801,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psGetJobSilo(int64_t job, v
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetParentSilo(int64_t job) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetParentSilo(int64_t job) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18823,7 +18823,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetParentSilo(int64_t job
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psGetPermanentSiloContext(int64_t silo, uint32_t contextslot, void* returnedsilocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsGetPermanentSiloContext(int64_t silo, uint32_t contextslot, void* returnedsilocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -18847,7 +18847,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psGetPermanentSiloContext(i
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetProcessCreateTimeQuadPart(int64_t process) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetProcessCreateTimeQuadPart(int64_t process) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18869,7 +18869,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetProcessCreateTimeQuadP
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psGetProcessExitStatus(int64_t process) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsGetProcessExitStatus(int64_t process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18891,7 +18891,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psGetProcessExitStatus(int6
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetProcessId(int64_t process) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetProcessId(int64_t process) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18913,7 +18913,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetProcessId(int64_t proces
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_psGetProcessStartKey(int64_t process) {
+uint64_t windowssysWindowsWdkSystemSystemservicesPsGetProcessStartKey(int64_t process) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18935,7 +18935,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_psGetProcessStartKey(int64
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_psGetServerSiloServiceSessionId(int64_t silo) {
+uint32_t windowssysWindowsWdkSystemSystemservicesPsGetServerSiloServiceSessionId(int64_t silo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18957,7 +18957,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_psGetServerSiloServiceSess
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetSiloContainerId(int64_t silo) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetSiloContainerId(int64_t silo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -18979,7 +18979,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetSiloContainerId(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psGetSiloContext(int64_t silo, uint32_t contextslot, void* returnedsilocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsGetSiloContext(int64_t silo, uint32_t contextslot, void* returnedsilocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19003,7 +19003,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psGetSiloContext(int64_t si
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_psGetSiloMonitorContextSlot(int64_t monitor) {
+uint32_t windowssysWindowsWdkSystemSystemservicesPsGetSiloMonitorContextSlot(int64_t monitor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19025,7 +19025,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_psGetSiloMonitorContextSlo
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetThreadCreateTime(int64_t thread) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetThreadCreateTime(int64_t thread) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19047,7 +19047,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetThreadCreateTime(int64
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psGetThreadExitStatus(int64_t thread) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsGetThreadExitStatus(int64_t thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19069,7 +19069,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psGetThreadExitStatus(int64
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetThreadId(int64_t thread) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetThreadId(int64_t thread) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19091,7 +19091,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetThreadId(int64_t thread)
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetThreadProcessId(int64_t thread) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetThreadProcessId(int64_t thread) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19113,7 +19113,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetThreadProcessId(int64_t 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_psGetThreadProperty(int64_t thread, uint64_t key, uint32_t flags) {
+void* windowssysWindowsWdkSystemSystemservicesPsGetThreadProperty(int64_t thread, uint64_t key, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19137,7 +19137,7 @@ void* windowssys_windows_wdk_system_systemservices_psGetThreadProperty(int64_t t
 #endif
 }
 
-int64_t windowssys_windows_wdk_system_systemservices_psGetThreadServerSilo(int64_t thread) {
+int64_t windowssysWindowsWdkSystemSystemservicesPsGetThreadServerSilo(int64_t thread) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19159,7 +19159,7 @@ int64_t windowssys_windows_wdk_system_systemservices_psGetThreadServerSilo(int64
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_psGetVersion(void* majorversion, void* minorversion, void* buildnumber, void* csdversion) {
+bool windowssysWindowsWdkSystemSystemservicesPsGetVersion(void* majorversion, void* minorversion, void* buildnumber, void* csdversion) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19184,7 +19184,7 @@ bool windowssys_windows_wdk_system_systemservices_psGetVersion(void* majorversio
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psInsertPermanentSiloContext(int64_t silo, uint32_t contextslot, void* silocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsInsertPermanentSiloContext(int64_t silo, uint32_t contextslot, void* silocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19208,7 +19208,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psInsertPermanentSiloContex
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psInsertSiloContext(int64_t silo, uint32_t contextslot, void* silocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsInsertSiloContext(int64_t silo, uint32_t contextslot, void* silocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19232,7 +19232,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psInsertSiloContext(int64_t
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_psIsCurrentThreadInServerSilo(void) {
+bool windowssysWindowsWdkSystemSystemservicesPsIsCurrentThreadInServerSilo(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -19253,7 +19253,7 @@ bool windowssys_windows_wdk_system_systemservices_psIsCurrentThreadInServerSilo(
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_psIsCurrentThreadPrefetching(void) {
+bool windowssysWindowsWdkSystemSystemservicesPsIsCurrentThreadPrefetching(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -19274,7 +19274,7 @@ bool windowssys_windows_wdk_system_systemservices_psIsCurrentThreadPrefetching(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_psIsHostSilo(int64_t silo) {
+bool windowssysWindowsWdkSystemSystemservicesPsIsHostSilo(int64_t silo) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19296,7 +19296,7 @@ bool windowssys_windows_wdk_system_systemservices_psIsHostSilo(int64_t silo) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psMakeSiloContextPermanent(int64_t silo, uint32_t contextslot) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsMakeSiloContextPermanent(int64_t silo, uint32_t contextslot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19319,7 +19319,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psMakeSiloContextPermanent(
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_psQueryTotalCycleTimeProcess(int64_t process, void* cycletimestamp) {
+uint64_t windowssysWindowsWdkSystemSystemservicesPsQueryTotalCycleTimeProcess(int64_t process, void* cycletimestamp) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19342,7 +19342,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_psQueryTotalCycleTimeProce
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psReferenceSiloContext(void* silocontext) {
+void windowssysWindowsWdkSystemSystemservicesPsReferenceSiloContext(void* silocontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19363,7 +19363,7 @@ void windowssys_windows_wdk_system_systemservices_psReferenceSiloContext(void* s
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psRegisterSiloMonitor(void* registration, void* returnedmonitor) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsRegisterSiloMonitor(void* registration, void* returnedmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19386,7 +19386,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psRegisterSiloMonitor(void*
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psReleaseSiloHardReference(int64_t silo) {
+void windowssysWindowsWdkSystemSystemservicesPsReleaseSiloHardReference(int64_t silo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19407,7 +19407,7 @@ void windowssys_windows_wdk_system_systemservices_psReleaseSiloHardReference(int
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psRemoveCreateThreadNotifyRoutine(void* notifyroutine) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsRemoveCreateThreadNotifyRoutine(void* notifyroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19429,7 +19429,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psRemoveCreateThreadNotifyR
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psRemoveLoadImageNotifyRoutine(void* notifyroutine) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsRemoveLoadImageNotifyRoutine(void* notifyroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19451,7 +19451,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psRemoveLoadImageNotifyRout
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psRemoveSiloContext(int64_t silo, uint32_t contextslot, void* removedsilocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsRemoveSiloContext(int64_t silo, uint32_t contextslot, void* removedsilocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19475,7 +19475,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psRemoveSiloContext(int64_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psReplaceSiloContext(int64_t silo, uint32_t contextslot, void* newsilocontext, void* oldsilocontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsReplaceSiloContext(int64_t silo, uint32_t contextslot, void* newsilocontext, void* oldsilocontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19500,7 +19500,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psReplaceSiloContext(int64_
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psRevertToUserMultipleGroupAffinityThread(int64_t affinitytoken) {
+void windowssysWindowsWdkSystemSystemservicesPsRevertToUserMultipleGroupAffinityThread(int64_t affinitytoken) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19521,7 +19521,7 @@ void windowssys_windows_wdk_system_systemservices_psRevertToUserMultipleGroupAff
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetCreateProcessNotifyRoutine(void* notifyroutine, bool arg_1_remove) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutine(void* notifyroutine, bool arg1Remove) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -19532,19 +19532,19 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetCreateProcessNotifyRou
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(notifyroutine, arg_1_remove);
+        return km_fn_ptr(notifyroutine, arg1Remove);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)notifyroutine;
-    (void)arg_1_remove;
+    (void)arg1Remove;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetCreateProcessNotifyRoutineEx(void* notifyroutine, bool arg_1_remove) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutineEx(void* notifyroutine, bool arg1Remove) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -19555,19 +19555,19 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetCreateProcessNotifyRou
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(notifyroutine, arg_1_remove);
+        return km_fn_ptr(notifyroutine, arg1Remove);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)notifyroutine;
-    (void)arg_1_remove;
+    (void)arg1Remove;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetCreateProcessNotifyRoutineEx2(int32_t notifytype, void* notifyinformation, bool arg_2_remove) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutineEx2(int32_t notifytype, void* notifyinformation, bool arg2Remove) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -19578,20 +19578,20 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetCreateProcessNotifyRou
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(notifytype, notifyinformation, arg_2_remove);
+        return km_fn_ptr(notifytype, notifyinformation, arg2Remove);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)notifytype;
     (void)notifyinformation;
-    (void)arg_2_remove;
+    (void)arg2Remove;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetCreateThreadNotifyRoutine(void* notifyroutine) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetCreateThreadNotifyRoutine(void* notifyroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19613,7 +19613,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetCreateThreadNotifyRout
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetCreateThreadNotifyRoutineEx(int32_t notifytype, void* notifyinformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetCreateThreadNotifyRoutineEx(int32_t notifytype, void* notifyinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19636,7 +19636,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetCreateThreadNotifyRout
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_psSetCurrentThreadPrefetching(bool prefetching) {
+bool windowssysWindowsWdkSystemSystemservicesPsSetCurrentThreadPrefetching(bool prefetching) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -19658,7 +19658,7 @@ bool windowssys_windows_wdk_system_systemservices_psSetCurrentThreadPrefetching(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetLoadImageNotifyRoutine(void* notifyroutine) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetLoadImageNotifyRoutine(void* notifyroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19680,7 +19680,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetLoadImageNotifyRoutine
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetLoadImageNotifyRoutineEx(void* notifyroutine, uint64_t flags) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetLoadImageNotifyRoutineEx(void* notifyroutine, uint64_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19703,7 +19703,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetLoadImageNotifyRoutine
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psSetSystemMultipleGroupAffinityThread(void* groupaffinities, uint16_t groupcount, int64_t affinitytoken) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsSetSystemMultipleGroupAffinityThread(void* groupaffinities, uint16_t groupcount, int64_t affinitytoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19727,7 +19727,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psSetSystemMultipleGroupAff
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psStartSiloMonitor(int64_t monitor) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsStartSiloMonitor(int64_t monitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19749,7 +19749,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psStartSiloMonitor(int64_t 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psTerminateServerSilo(int64_t serversilo, int32_t exitstatus) {
+void windowssysWindowsWdkSystemSystemservicesPsTerminateServerSilo(int64_t serversilo, int32_t exitstatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19771,7 +19771,7 @@ void windowssys_windows_wdk_system_systemservices_psTerminateServerSilo(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psTerminateSystemThread(int32_t exitstatus) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsTerminateSystemThread(int32_t exitstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19793,7 +19793,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psTerminateSystemThread(int
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_psUnregisterSiloMonitor(int64_t monitor) {
+void windowssysWindowsWdkSystemSystemservicesPsUnregisterSiloMonitor(int64_t monitor) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19814,7 +19814,7 @@ void windowssys_windows_wdk_system_systemservices_psUnregisterSiloMonitor(int64_
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_psWrapApcWow64Thread(void* apccontext, void* apcroutine) {
+int32_t windowssysWindowsWdkSystemSystemservicesPsWrapApcWow64Thread(void* apccontext, void* apcroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19837,7 +19837,7 @@ int32_t windowssys_windows_wdk_system_systemservices_psWrapApcWow64Thread(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_pshedAllocateMemory(uint32_t size) {
+void* windowssysWindowsWdkSystemSystemservicesPshedAllocateMemory(uint32_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -19859,7 +19859,7 @@ void* windowssys_windows_wdk_system_systemservices_pshedAllocateMemory(uint32_t 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_pshedFreeMemory(void* address) {
+void windowssysWindowsWdkSystemSystemservicesPshedFreeMemory(void* address) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19880,7 +19880,7 @@ void windowssys_windows_wdk_system_systemservices_pshedFreeMemory(void* address)
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_pshedIsSystemWheaEnabled(void) {
+bool windowssysWindowsWdkSystemSystemservicesPshedIsSystemWheaEnabled(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -19901,7 +19901,7 @@ bool windowssys_windows_wdk_system_systemservices_pshedIsSystemWheaEnabled(void)
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_pshedRegisterPlugin(void* packet) {
+int32_t windowssysWindowsWdkSystemSystemservicesPshedRegisterPlugin(void* packet) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19923,7 +19923,7 @@ int32_t windowssys_windows_wdk_system_systemservices_pshedRegisterPlugin(void* p
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_pshedSynchronizeExecution(void* errorsource, void* synchronizeroutine, void* synchronizecontext) {
+bool windowssysWindowsWdkSystemSystemservicesPshedSynchronizeExecution(void* errorsource, void* synchronizeroutine, void* synchronizecontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19947,7 +19947,7 @@ bool windowssys_windows_wdk_system_systemservices_pshedSynchronizeExecution(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_pshedUnregisterPlugin(void* pluginhandle) {
+void windowssysWindowsWdkSystemSystemservicesPshedUnregisterPlugin(void* pluginhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19968,7 +19968,7 @@ void windowssys_windows_wdk_system_systemservices_pshedUnregisterPlugin(void* pl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlAppendUnicodeStringToString(void* destination, void* source) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlAppendUnicodeStringToString(void* destination, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -19991,7 +19991,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlAppendUnicodeStringToStr
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlAppendUnicodeToString(void* destination, void* source) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlAppendUnicodeToString(void* destination, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20014,7 +20014,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlAppendUnicodeToString(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlAreBitsClear(void* bitmapheader, uint32_t startingindex, uint32_t length) {
+bool windowssysWindowsWdkSystemSystemservicesRtlAreBitsClear(void* bitmapheader, uint32_t startingindex, uint32_t length) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20038,7 +20038,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlAreBitsClear(void* bitmaphe
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlAreBitsSet(void* bitmapheader, uint32_t startingindex, uint32_t length) {
+bool windowssysWindowsWdkSystemSystemservicesRtlAreBitsSet(void* bitmapheader, uint32_t startingindex, uint32_t length) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20062,7 +20062,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlAreBitsSet(void* bitmaphead
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlAssert(void* voidfailedassertion, void* voidfilename, uint32_t linenumber, void* mutablemessage) {
+void windowssysWindowsWdkSystemSystemservicesRtlAssert(void* voidfailedassertion, void* voidfilename, uint32_t linenumber, void* mutablemessage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20086,7 +20086,7 @@ void windowssys_windows_wdk_system_systemservices_rtlAssert(void* voidfailedasse
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCheckRegistryKey(uint32_t relativeto, void* path) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCheckRegistryKey(uint32_t relativeto, void* path) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20109,7 +20109,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCheckRegistryKey(uint32_
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlClearAllBits(void* bitmapheader) {
+void windowssysWindowsWdkSystemSystemservicesRtlClearAllBits(void* bitmapheader) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20130,7 +20130,7 @@ void windowssys_windows_wdk_system_systemservices_rtlClearAllBits(void* bitmaphe
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlClearBit(void* bitmapheader, uint32_t bitnumber) {
+void windowssysWindowsWdkSystemSystemservicesRtlClearBit(void* bitmapheader, uint32_t bitnumber) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20152,7 +20152,7 @@ void windowssys_windows_wdk_system_systemservices_rtlClearBit(void* bitmapheader
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlClearBits(void* bitmapheader, uint32_t startingindex, uint32_t numbertoclear) {
+void windowssysWindowsWdkSystemSystemservicesRtlClearBits(void* bitmapheader, uint32_t startingindex, uint32_t numbertoclear) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20175,7 +20175,7 @@ void windowssys_windows_wdk_system_systemservices_rtlClearBits(void* bitmapheade
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_rtlCmDecodeMemIoResource(void* descriptor, void* start) {
+uint64_t windowssysWindowsWdkSystemSystemservicesRtlCmDecodeMemIoResource(void* descriptor, void* start) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20198,7 +20198,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_rtlCmDecodeMemIoResource(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCmEncodeMemIoResource(void* descriptor, uint8_t type, uint64_t length, uint64_t start) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCmEncodeMemIoResource(void* descriptor, uint8_t type, uint64_t length, uint64_t start) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20223,7 +20223,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCmEncodeMemIoResource(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCompareString(void* string1, void* string2, bool caseinsensitive) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCompareString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20247,7 +20247,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCompareString(void* stri
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCompareUnicodeString(void* string1, void* string2, bool caseinsensitive) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCompareUnicodeString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20271,7 +20271,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCompareUnicodeString(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCompareUnicodeStrings(void* string1, uint64_t string1length, void* string2, uint64_t string2length, bool caseinsensitive) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCompareUnicodeStrings(void* string1, uint64_t string1length, void* string2, uint64_t string2length, bool caseinsensitive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint64_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20297,7 +20297,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCompareUnicodeStrings(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlContractHashTable(void* hashtable) {
+bool windowssysWindowsWdkSystemSystemservicesRtlContractHashTable(void* hashtable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20319,7 +20319,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlContractHashTable(void* has
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlCopyBitMap(void* source, void* destination, uint32_t targetbit) {
+void windowssysWindowsWdkSystemSystemservicesRtlCopyBitMap(void* source, void* destination, uint32_t targetbit) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20342,7 +20342,7 @@ void windowssys_windows_wdk_system_systemservices_rtlCopyBitMap(void* source, vo
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlCopyString(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWdkSystemSystemservicesRtlCopyString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20364,7 +20364,7 @@ void windowssys_windows_wdk_system_systemservices_rtlCopyString(void* destinatio
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlCopyUnicodeString(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWdkSystemSystemservicesRtlCopyUnicodeString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20386,7 +20386,7 @@ void windowssys_windows_wdk_system_systemservices_rtlCopyUnicodeString(void* des
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlCreateHashTable(void* hashtable, uint32_t shift, uint32_t flags) {
+bool windowssysWindowsWdkSystemSystemservicesRtlCreateHashTable(void* hashtable, uint32_t shift, uint32_t flags) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20410,7 +20410,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlCreateHashTable(void* hasht
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlCreateHashTableEx(void* hashtable, uint32_t initialsize, uint32_t shift, uint32_t flags) {
+bool windowssysWindowsWdkSystemSystemservicesRtlCreateHashTableEx(void* hashtable, uint32_t initialsize, uint32_t shift, uint32_t flags) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20435,7 +20435,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlCreateHashTableEx(void* has
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCreateRegistryKey(uint32_t relativeto, void* path) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCreateRegistryKey(uint32_t relativeto, void* path) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20458,7 +20458,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCreateRegistryKey(uint32
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlCreateSecurityDescriptor(void* securitydescriptor, uint32_t revision) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlCreateSecurityDescriptor(void* securitydescriptor, uint32_t revision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20481,7 +20481,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlCreateSecurityDescriptor
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlDelete(void* links) {
+void* windowssysWindowsWdkSystemSystemservicesRtlDelete(void* links) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20503,7 +20503,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlDelete(void* links) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlDeleteElementGenericTable(void* table, void* buffer) {
+bool windowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTable(void* table, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20526,7 +20526,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlDeleteElementGenericTable(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlDeleteElementGenericTableAvl(void* table, void* buffer) {
+bool windowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTableAvl(void* table, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20549,7 +20549,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlDeleteElementGenericTableAv
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlDeleteElementGenericTableAvlEx(void* table, void* nodeorparent) {
+void windowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTableAvlEx(void* table, void* nodeorparent) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20571,7 +20571,7 @@ void windowssys_windows_wdk_system_systemservices_rtlDeleteElementGenericTableAv
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlDeleteHashTable(void* hashtable) {
+void windowssysWindowsWdkSystemSystemservicesRtlDeleteHashTable(void* hashtable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20592,7 +20592,7 @@ void windowssys_windows_wdk_system_systemservices_rtlDeleteHashTable(void* hasht
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlDeleteNoSplay(void* links, void* root) {
+void windowssysWindowsWdkSystemSystemservicesRtlDeleteNoSplay(void* links, void* root) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20614,7 +20614,7 @@ void windowssys_windows_wdk_system_systemservices_rtlDeleteNoSplay(void* links, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlDeleteRegistryValue(uint32_t relativeto, void* path, void* valuename) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlDeleteRegistryValue(uint32_t relativeto, void* path, void* valuename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20638,7 +20638,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlDeleteRegistryValue(uint
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_rtlDowncaseUnicodeChar(uint16_t sourcecharacter) {
+uint16_t windowssysWindowsWdkSystemSystemservicesRtlDowncaseUnicodeChar(uint16_t sourcecharacter) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20660,7 +20660,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_rtlDowncaseUnicodeChar(uin
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlEndEnumerationHashTable(void* hashtable, void* enumerator) {
+void windowssysWindowsWdkSystemSystemservicesRtlEndEnumerationHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20682,7 +20682,7 @@ void windowssys_windows_wdk_system_systemservices_rtlEndEnumerationHashTable(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlEndStrongEnumerationHashTable(void* hashtable, void* enumerator) {
+void windowssysWindowsWdkSystemSystemservicesRtlEndStrongEnumerationHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20704,7 +20704,7 @@ void windowssys_windows_wdk_system_systemservices_rtlEndStrongEnumerationHashTab
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlEndWeakEnumerationHashTable(void* hashtable, void* enumerator) {
+void windowssysWindowsWdkSystemSystemservicesRtlEndWeakEnumerationHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20726,7 +20726,7 @@ void windowssys_windows_wdk_system_systemservices_rtlEndWeakEnumerationHashTable
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlEnumerateEntryHashTable(void* hashtable, void* enumerator) {
+void* windowssysWindowsWdkSystemSystemservicesRtlEnumerateEntryHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20749,7 +20749,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlEnumerateEntryHashTable(vo
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTable(void* table, bool restart) {
+void* windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTable(void* table, bool restart) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20772,7 +20772,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTable(void
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableAvl(void* table, bool restart) {
+void* windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableAvl(void* table, bool restart) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20795,7 +20795,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableAvl(v
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableLikeADirectory(void* table, void* matchfunction, void* matchdata, uint32_t nextflag, void* restartkey, void* deletecount, void* buffer) {
+void* windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableLikeADirectory(void* table, void* matchfunction, void* matchdata, uint32_t nextflag, void* restartkey, void* deletecount, void* buffer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20823,7 +20823,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableLikeA
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableWithoutSplaying(void* table, void* restartkey) {
+void* windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableWithoutSplaying(void* table, void* restartkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20846,7 +20846,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableWitho
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableWithoutSplayingAvl(void* table, void* restartkey) {
+void* windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableWithoutSplayingAvl(void* table, void* restartkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20869,7 +20869,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlEnumerateGenericTableWitho
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlEqualString(void* string1, void* string2, bool caseinsensitive) {
+bool windowssysWindowsWdkSystemSystemservicesRtlEqualString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20893,7 +20893,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlEqualString(void* string1, 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlEqualUnicodeString(void* string1, void* string2, bool caseinsensitive) {
+bool windowssysWindowsWdkSystemSystemservicesRtlEqualUnicodeString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -20917,7 +20917,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlEqualUnicodeString(void* st
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlExpandHashTable(void* hashtable) {
+bool windowssysWindowsWdkSystemSystemservicesRtlExpandHashTable(void* hashtable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -20939,7 +20939,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlExpandHashTable(void* hasht
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlExtractBitMap(void* source, void* destination, uint32_t targetbit, uint32_t numberofbits) {
+void windowssysWindowsWdkSystemSystemservicesRtlExtractBitMap(void* source, void* destination, uint32_t targetbit, uint32_t numberofbits) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20963,7 +20963,7 @@ void windowssys_windows_wdk_system_systemservices_rtlExtractBitMap(void* source,
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindClearBits(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindClearBits(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -20987,7 +20987,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindClearBits(void* bit
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindClearBitsAndSet(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindClearBitsAndSet(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21011,7 +21011,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindClearBitsAndSet(voi
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindClearRuns(void* bitmapheader, void* runarray, uint32_t sizeofrunarray, bool locatelongestruns) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindClearRuns(void* bitmapheader, void* runarray, uint32_t sizeofrunarray, bool locatelongestruns) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -21036,7 +21036,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindClearRuns(void* bit
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlFindClosestEncodableLength(uint64_t sourcelength, void* targetlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlFindClosestEncodableLength(uint64_t sourcelength, void* targetlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21059,7 +21059,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlFindClosestEncodableLeng
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindFirstRunClear(void* bitmapheader, void* startingindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindFirstRunClear(void* bitmapheader, void* startingindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21082,7 +21082,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindFirstRunClear(void*
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindLastBackwardRunClear(void* bitmapheader, uint32_t fromindex, void* startingrunindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindLastBackwardRunClear(void* bitmapheader, uint32_t fromindex, void* startingrunindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21106,7 +21106,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindLastBackwardRunClea
 #endif
 }
 
-int8_t windowssys_windows_wdk_system_systemservices_rtlFindLeastSignificantBit(uint64_t set) {
+int8_t windowssysWindowsWdkSystemSystemservicesRtlFindLeastSignificantBit(uint64_t set) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21128,7 +21128,7 @@ int8_t windowssys_windows_wdk_system_systemservices_rtlFindLeastSignificantBit(u
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindLongestRunClear(void* bitmapheader, void* startingindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindLongestRunClear(void* bitmapheader, void* startingindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21151,7 +21151,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindLongestRunClear(voi
 #endif
 }
 
-int8_t windowssys_windows_wdk_system_systemservices_rtlFindMostSignificantBit(uint64_t set) {
+int8_t windowssysWindowsWdkSystemSystemservicesRtlFindMostSignificantBit(uint64_t set) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21173,7 +21173,7 @@ int8_t windowssys_windows_wdk_system_systemservices_rtlFindMostSignificantBit(ui
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindNextForwardRunClear(void* bitmapheader, uint32_t fromindex, void* startingrunindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindNextForwardRunClear(void* bitmapheader, uint32_t fromindex, void* startingrunindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21197,7 +21197,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindNextForwardRunClear
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindSetBits(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindSetBits(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21221,7 +21221,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindSetBits(void* bitma
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlFindSetBitsAndClear(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlFindSetBitsAndClear(void* bitmapheader, uint32_t numbertofind, uint32_t hintindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21245,7 +21245,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlFindSetBitsAndClear(voi
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlFreeUTF8String(void* utf8string) {
+void windowssysWindowsWdkSystemSystemservicesRtlFreeUTF8String(void* utf8string) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21266,7 +21266,7 @@ void windowssys_windows_wdk_system_systemservices_rtlFreeUTF8String(void* utf8st
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlGUIDFromString(void* guidstring, void* guid) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlGUIDFromString(void* guidstring, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21289,7 +21289,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlGUIDFromString(void* gui
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlGenerateClass5Guid(void* namespaceguid, void* buffer, uint32_t buffersize, void* guid) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlGenerateClass5Guid(void* namespaceguid, void* buffer, uint32_t buffersize, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21314,7 +21314,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlGenerateClass5Guid(void*
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlGetActiveConsoleId(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlGetActiveConsoleId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -21335,7 +21335,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlGetActiveConsoleId(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlGetCallersAddress(void* callersaddress, void* callerscaller) {
+void windowssysWindowsWdkSystemSystemservicesRtlGetCallersAddress(void* callersaddress, void* callerscaller) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21357,7 +21357,7 @@ void windowssys_windows_wdk_system_systemservices_rtlGetCallersAddress(void* cal
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_rtlGetConsoleSessionForegroundProcessId(void) {
+uint64_t windowssysWindowsWdkSystemSystemservicesRtlGetConsoleSessionForegroundProcessId(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -21378,7 +21378,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_rtlGetConsoleSessionForegr
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlGetElementGenericTable(void* table, uint32_t i) {
+void* windowssysWindowsWdkSystemSystemservicesRtlGetElementGenericTable(void* table, uint32_t i) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21401,7 +21401,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlGetElementGenericTable(voi
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlGetElementGenericTableAvl(void* table, uint32_t i) {
+void* windowssysWindowsWdkSystemSystemservicesRtlGetElementGenericTableAvl(void* table, uint32_t i) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21424,7 +21424,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlGetElementGenericTableAvl(
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_rtlGetEnabledExtendedFeatures(uint64_t featuremask) {
+uint64_t windowssysWindowsWdkSystemSystemservicesRtlGetEnabledExtendedFeatures(uint64_t featuremask) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21446,7 +21446,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_rtlGetEnabledExtendedFeatu
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlGetNextEntryHashTable(void* hashtable, void* context) {
+void* windowssysWindowsWdkSystemSystemservicesRtlGetNextEntryHashTable(void* hashtable, void* context) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21469,7 +21469,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlGetNextEntryHashTable(void
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlGetNtProductType(void* ntproducttype) {
+bool windowssysWindowsWdkSystemSystemservicesRtlGetNtProductType(void* ntproducttype) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21491,7 +21491,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlGetNtProductType(void* ntpr
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlGetNtSystemRoot(void) {
+void* windowssysWindowsWdkSystemSystemservicesRtlGetNtSystemRoot(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -21512,7 +21512,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlGetNtSystemRoot(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlGetPersistedStateLocation(void* sourceid, void* customvalue, void* defaultpath, int32_t statelocationtype, void* targetpath, uint32_t bufferlengthin, void* bufferlengthout) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlGetPersistedStateLocation(void* sourceid, void* customvalue, void* defaultpath, int32_t statelocationtype, void* targetpath, uint32_t bufferlengthin, void* bufferlengthout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21540,7 +21540,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlGetPersistedStateLocatio
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlGetSuiteMask(void) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlGetSuiteMask(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -21561,7 +21561,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlGetSuiteMask(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlGetVersion(void* lpversioninformation) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlGetVersion(void* lpversioninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21583,7 +21583,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlGetVersion(void* lpversi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlHashUnicodeString(void* string, bool caseinsensitive, uint32_t hashalgorithm, void* hashvalue) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlHashUnicodeString(void* string, bool caseinsensitive, uint32_t hashalgorithm, void* hashvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21608,7 +21608,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlHashUnicodeString(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlInitEnumerationHashTable(void* hashtable, void* enumerator) {
+bool windowssysWindowsWdkSystemSystemservicesRtlInitEnumerationHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21631,7 +21631,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlInitEnumerationHashTable(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlInitStrongEnumerationHashTable(void* hashtable, void* enumerator) {
+bool windowssysWindowsWdkSystemSystemservicesRtlInitStrongEnumerationHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21654,7 +21654,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlInitStrongEnumerationHashTa
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlInitUTF8String(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWdkSystemSystemservicesRtlInitUTF8String(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21676,7 +21676,7 @@ void windowssys_windows_wdk_system_systemservices_rtlInitUTF8String(void* destin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlInitUTF8StringEx(void* destinationstring, void* sourcestring) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlInitUTF8StringEx(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21699,7 +21699,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlInitUTF8StringEx(void* d
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlInitWeakEnumerationHashTable(void* hashtable, void* enumerator) {
+bool windowssysWindowsWdkSystemSystemservicesRtlInitWeakEnumerationHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21722,7 +21722,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlInitWeakEnumerationHashTabl
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlInitializeBitMap(void* bitmapheader, void* bitmapbuffer, uint32_t sizeofbitmap) {
+void windowssysWindowsWdkSystemSystemservicesRtlInitializeBitMap(void* bitmapheader, void* bitmapbuffer, uint32_t sizeofbitmap) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21745,7 +21745,7 @@ void windowssys_windows_wdk_system_systemservices_rtlInitializeBitMap(void* bitm
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlInitializeGenericTable(void* table, void* compareroutine, void* allocateroutine, void* freeroutine, void* tablecontext) {
+void windowssysWindowsWdkSystemSystemservicesRtlInitializeGenericTable(void* table, void* compareroutine, void* allocateroutine, void* freeroutine, void* tablecontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21770,7 +21770,7 @@ void windowssys_windows_wdk_system_systemservices_rtlInitializeGenericTable(void
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlInitializeGenericTableAvl(void* table, void* compareroutine, void* allocateroutine, void* freeroutine, void* tablecontext) {
+void windowssysWindowsWdkSystemSystemservicesRtlInitializeGenericTableAvl(void* table, void* compareroutine, void* allocateroutine, void* freeroutine, void* tablecontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21795,7 +21795,7 @@ void windowssys_windows_wdk_system_systemservices_rtlInitializeGenericTableAvl(v
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTable(void* table, void* buffer, uint32_t buffersize, void* newelement) {
+void* windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTable(void* table, void* buffer, uint32_t buffersize, void* newelement) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21820,7 +21820,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTable(
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTableAvl(void* table, void* buffer, uint32_t buffersize, void* newelement) {
+void* windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableAvl(void* table, void* buffer, uint32_t buffersize, void* newelement) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21845,7 +21845,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTableA
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTableFull(void* table, void* buffer, uint32_t buffersize, void* newelement, void* nodeorparent, int32_t searchresult) {
+void* windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableFull(void* table, void* buffer, uint32_t buffersize, void* newelement, void* nodeorparent, int32_t searchresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21872,7 +21872,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTableF
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTableFullAvl(void* table, void* buffer, uint32_t buffersize, void* newelement, void* nodeorparent, int32_t searchresult) {
+void* windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableFullAvl(void* table, void* buffer, uint32_t buffersize, void* newelement, void* nodeorparent, int32_t searchresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -21899,7 +21899,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlInsertElementGenericTableF
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlInsertEntryHashTable(void* hashtable, void* entry, uint64_t signature, void* context) {
+bool windowssysWindowsWdkSystemSystemservicesRtlInsertEntryHashTable(void* hashtable, void* entry, uint64_t signature, void* context) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21924,7 +21924,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlInsertEntryHashTable(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlInt64ToUnicodeString(uint64_t value, uint32_t base, void* string) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlInt64ToUnicodeString(uint64_t value, uint32_t base, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21948,7 +21948,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlInt64ToUnicodeString(uin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlIntegerToUnicodeString(uint32_t value, uint32_t base, void* string) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlIntegerToUnicodeString(uint32_t value, uint32_t base, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21972,7 +21972,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlIntegerToUnicodeString(u
 #endif
 }
 
-uint64_t windowssys_windows_wdk_system_systemservices_rtlIoDecodeMemIoResource(void* descriptor, void* alignment, void* minimumaddress, void* maximumaddress) {
+uint64_t windowssysWindowsWdkSystemSystemservicesRtlIoDecodeMemIoResource(void* descriptor, void* alignment, void* minimumaddress, void* maximumaddress) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -21997,7 +21997,7 @@ uint64_t windowssys_windows_wdk_system_systemservices_rtlIoDecodeMemIoResource(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlIoEncodeMemIoResource(void* descriptor, uint8_t type, uint64_t length, uint64_t alignment, uint64_t minimumaddress, uint64_t maximumaddress) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlIoEncodeMemIoResource(void* descriptor, uint8_t type, uint64_t length, uint64_t alignment, uint64_t minimumaddress, uint64_t maximumaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, uint64_t, uint64_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22024,7 +22024,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlIoEncodeMemIoResource(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlIsApiSetImplemented(void* apisetname) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlIsApiSetImplemented(void* apisetname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22046,7 +22046,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlIsApiSetImplemented(void
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsGenericTableEmpty(void* table) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsGenericTableEmpty(void* table) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22068,7 +22068,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsGenericTableEmpty(void* t
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsGenericTableEmptyAvl(void* table) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsGenericTableEmptyAvl(void* table) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22090,7 +22090,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsGenericTableEmptyAvl(void
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsMultiSessionSku(void) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsMultiSessionSku(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -22111,7 +22111,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsMultiSessionSku(void) {
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsMultiUsersInSessionSku(void) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsMultiUsersInSessionSku(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -22132,7 +22132,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsMultiUsersInSessionSku(vo
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsNtDdiVersionAvailable(uint32_t version) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsNtDdiVersionAvailable(uint32_t version) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22154,7 +22154,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsNtDdiVersionAvailable(uin
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsServicePackVersionInstalled(uint32_t version) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsServicePackVersionInstalled(uint32_t version) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22176,7 +22176,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsServicePackVersionInstall
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlIsStateSeparationEnabled(void) {
+bool windowssysWindowsWdkSystemSystemservicesRtlIsStateSeparationEnabled(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -22197,7 +22197,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlIsStateSeparationEnabled(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlIsUntrustedObject(void* handle, void* object, void* untrustedobject) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlIsUntrustedObject(void* handle, void* object, void* untrustedobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22221,7 +22221,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlIsUntrustedObject(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlLengthSecurityDescriptor(void* securitydescriptor) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlLengthSecurityDescriptor(void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22243,7 +22243,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlLengthSecurityDescripto
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTable(void* table, void* buffer) {
+void* windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTable(void* table, void* buffer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22266,7 +22266,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTable(
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTableAvl(void* table, void* buffer) {
+void* windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableAvl(void* table, void* buffer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22289,7 +22289,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTableA
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTableFull(void* table, void* buffer, void* nodeorparent, void* searchresult) {
+void* windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableFull(void* table, void* buffer, void* nodeorparent, void* searchresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22314,7 +22314,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTableF
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTableFullAvl(void* table, void* buffer, void* nodeorparent, void* searchresult) {
+void* windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableFullAvl(void* table, void* buffer, void* nodeorparent, void* searchresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22339,7 +22339,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlLookupElementGenericTableF
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlLookupEntryHashTable(void* hashtable, uint64_t signature, void* context) {
+void* windowssysWindowsWdkSystemSystemservicesRtlLookupEntryHashTable(void* hashtable, uint64_t signature, void* context) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22363,7 +22363,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlLookupEntryHashTable(void*
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlLookupFirstMatchingElementGenericTableAvl(void* table, void* buffer, void* restartkey) {
+void* windowssysWindowsWdkSystemSystemservicesRtlLookupFirstMatchingElementGenericTableAvl(void* table, void* buffer, void* restartkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22387,7 +22387,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlLookupFirstMatchingElement
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlMapGenericMask(void* accessmask, void* genericmapping) {
+void windowssysWindowsWdkSystemSystemservicesRtlMapGenericMask(void* accessmask, void* genericmapping) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22409,7 +22409,7 @@ void windowssys_windows_wdk_system_systemservices_rtlMapGenericMask(void* access
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlNormalizeSecurityDescriptor(void* securitydescriptor, uint32_t securitydescriptorlength, void* newsecuritydescriptor, void* newsecuritydescriptorlength, bool checkonly) {
+bool windowssysWindowsWdkSystemSystemservicesRtlNormalizeSecurityDescriptor(void* securitydescriptor, uint32_t securitydescriptorlength, void* newsecuritydescriptor, void* newsecuritydescriptorlength, bool checkonly) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -22435,7 +22435,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlNormalizeSecurityDescriptor
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberGenericTableElements(void* table) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberGenericTableElements(void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22457,7 +22457,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberGenericTableEleme
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberGenericTableElementsAvl(void* table) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberGenericTableElementsAvl(void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22479,7 +22479,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberGenericTableEleme
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfClearBits(void* bitmapheader) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberOfClearBits(void* bitmapheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22501,7 +22501,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfClearBits(void*
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfClearBitsInRange(void* bitmapheader, uint32_t startingindex, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberOfClearBitsInRange(void* bitmapheader, uint32_t startingindex, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22525,7 +22525,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfClearBitsInRang
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfSetBits(void* bitmapheader) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBits(void* bitmapheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22547,7 +22547,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfSetBits(void* b
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfSetBitsInRange(void* bitmapheader, uint32_t startingindex, uint32_t length) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBitsInRange(void* bitmapheader, uint32_t startingindex, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22571,7 +22571,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfSetBitsInRange(
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfSetBitsUlongPtr(uint64_t target) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBitsUlongPtr(uint64_t target) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22593,7 +22593,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlNumberOfSetBitsUlongPtr
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlPrefetchMemoryNonTemporal(void* source, uint64_t length) {
+void windowssysWindowsWdkSystemSystemservicesRtlPrefetchMemoryNonTemporal(void* source, uint64_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22615,7 +22615,7 @@ void windowssys_windows_wdk_system_systemservices_rtlPrefetchMemoryNonTemporal(v
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlPrefixUnicodeString(void* string1, void* string2, bool caseinsensitive) {
+bool windowssysWindowsWdkSystemSystemservicesRtlPrefixUnicodeString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -22639,7 +22639,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlPrefixUnicodeString(void* s
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlQueryRegistryValueWithFallback(void* primaryhandle, void* fallbackhandle, void* valuename, uint32_t valuelength, void* valuetype, void* valuedata, void* resultlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlQueryRegistryValueWithFallback(void* primaryhandle, void* fallbackhandle, void* valuename, uint32_t valuelength, void* valuetype, void* valuedata, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22667,7 +22667,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlQueryRegistryValueWithFa
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlQueryRegistryValues(uint32_t relativeto, void* path, void* querytable, void* context, void* environment) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlQueryRegistryValues(uint32_t relativeto, void* path, void* querytable, void* context, void* environment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22693,7 +22693,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlQueryRegistryValues(uint
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlQueryValidationRunlevel(void* componentname) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlQueryValidationRunlevel(void* componentname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22715,7 +22715,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlQueryValidationRunlevel
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlRealPredecessor(void* links) {
+void* windowssysWindowsWdkSystemSystemservicesRtlRealPredecessor(void* links) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22737,7 +22737,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlRealPredecessor(void* link
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlRealSuccessor(void* links) {
+void* windowssysWindowsWdkSystemSystemservicesRtlRealSuccessor(void* links) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22759,7 +22759,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlRealSuccessor(void* links)
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlRemoveEntryHashTable(void* hashtable, void* entry, void* context) {
+bool windowssysWindowsWdkSystemSystemservicesRtlRemoveEntryHashTable(void* hashtable, void* entry, void* context) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22783,7 +22783,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlRemoveEntryHashTable(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlRunOnceBeginInitialize(void* runonce, uint32_t flags, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlRunOnceBeginInitialize(void* runonce, uint32_t flags, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22807,7 +22807,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlRunOnceBeginInitialize(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlRunOnceComplete(void* runonce, uint32_t flags, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlRunOnceComplete(void* runonce, uint32_t flags, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22831,7 +22831,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlRunOnceComplete(void* ru
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlRunOnceExecuteOnce(void* runonce, void* initfn, void* parameter, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlRunOnceExecuteOnce(void* runonce, void* initfn, void* parameter, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22856,7 +22856,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlRunOnceExecuteOnce(void*
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlRunOnceInitialize(void* runonce) {
+void windowssysWindowsWdkSystemSystemservicesRtlRunOnceInitialize(void* runonce) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22877,7 +22877,7 @@ void windowssys_windows_wdk_system_systemservices_rtlRunOnceInitialize(void* run
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlSetAllBits(void* bitmapheader) {
+void windowssysWindowsWdkSystemSystemservicesRtlSetAllBits(void* bitmapheader) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -22898,7 +22898,7 @@ void windowssys_windows_wdk_system_systemservices_rtlSetAllBits(void* bitmaphead
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlSetBit(void* bitmapheader, uint32_t bitnumber) {
+void windowssysWindowsWdkSystemSystemservicesRtlSetBit(void* bitmapheader, uint32_t bitnumber) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22920,7 +22920,7 @@ void windowssys_windows_wdk_system_systemservices_rtlSetBit(void* bitmapheader, 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlSetBits(void* bitmapheader, uint32_t startingindex, uint32_t numbertoset) {
+void windowssysWindowsWdkSystemSystemservicesRtlSetBits(void* bitmapheader, uint32_t startingindex, uint32_t numbertoset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22943,7 +22943,7 @@ void windowssys_windows_wdk_system_systemservices_rtlSetBits(void* bitmapheader,
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlSetDaclSecurityDescriptor(void* securitydescriptor, bool daclpresent, void* dacl, bool dacldefaulted) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlSetDaclSecurityDescriptor(void* securitydescriptor, bool daclpresent, void* dacl, bool dacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -22968,7 +22968,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlSetDaclSecurityDescripto
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlSetSystemGlobalData(int32_t dataid, void* buffer, uint32_t size) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlSetSystemGlobalData(int32_t dataid, void* buffer, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -22992,7 +22992,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlSetSystemGlobalData(int3
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlSplay(void* links) {
+void* windowssysWindowsWdkSystemSystemservicesRtlSplay(void* links) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23014,7 +23014,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlSplay(void* links) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlStringFromGUID(void* guid, void* guidstring) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlStringFromGUID(void* guid, void* guidstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23037,7 +23037,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlStringFromGUID(void* gui
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlStronglyEnumerateEntryHashTable(void* hashtable, void* enumerator) {
+void* windowssysWindowsWdkSystemSystemservicesRtlStronglyEnumerateEntryHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23060,7 +23060,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlStronglyEnumerateEntryHash
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlSubtreePredecessor(void* links) {
+void* windowssysWindowsWdkSystemSystemservicesRtlSubtreePredecessor(void* links) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23082,7 +23082,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlSubtreePredecessor(void* l
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlSubtreeSuccessor(void* links) {
+void* windowssysWindowsWdkSystemSystemservicesRtlSubtreeSuccessor(void* links) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23104,7 +23104,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlSubtreeSuccessor(void* lin
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlSuffixUnicodeString(void* string1, void* string2, bool caseinsensitive) {
+bool windowssysWindowsWdkSystemSystemservicesRtlSuffixUnicodeString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -23128,7 +23128,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlSuffixUnicodeString(void* s
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlTestBit(void* bitmapheader, uint32_t bitnumber) {
+bool windowssysWindowsWdkSystemSystemservicesRtlTestBit(void* bitmapheader, uint32_t bitnumber) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23151,7 +23151,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlTestBit(void* bitmapheader,
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlTimeFieldsToTime(void* timefields, void* arg_1_time) {
+bool windowssysWindowsWdkSystemSystemservicesRtlTimeFieldsToTime(void* timefields, void* arg1Time) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23162,19 +23162,19 @@ bool windowssys_windows_wdk_system_systemservices_rtlTimeFieldsToTime(void* time
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(timefields, arg_1_time);
+        return km_fn_ptr(timefields, arg1Time);
     }
     errno = ENOSYS;
     return false;
 #else
     (void)timefields;
-    (void)arg_1_time;
+    (void)arg1Time;
     errno = ENOSYS;
     return false;
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlTimeToTimeFields(void* arg_0_time, void* timefields) {
+void windowssysWindowsWdkSystemSystemservicesRtlTimeToTimeFields(void* arg0Time, void* timefields) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23185,18 +23185,18 @@ void windowssys_windows_wdk_system_systemservices_rtlTimeToTimeFields(void* arg_
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(arg_0_time, timefields);
+        km_fn_ptr(arg0Time, timefields);
         return;
     }
     errno = ENOSYS;
 #else
-    (void)arg_0_time;
+    (void)arg0Time;
     (void)timefields;
     errno = ENOSYS;
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUTF8StringToUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUTF8StringToUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -23220,7 +23220,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUTF8StringToUnicodeStrin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUTF8ToUnicodeN(void* unicodestringdestination, uint32_t unicodestringmaxbytecount, void* unicodestringactualbytecount, void* utf8stringsource, uint32_t utf8stringbytecount) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUTF8ToUnicodeN(void* unicodestringdestination, uint32_t unicodestringmaxbytecount, void* unicodestringactualbytecount, void* utf8stringsource, uint32_t utf8stringbytecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23246,7 +23246,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUTF8ToUnicodeN(void* uni
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeStringToInt64(void* string, uint32_t base, void* number, void* endpointer) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToInt64(void* string, uint32_t base, void* number, void* endpointer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23271,7 +23271,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeStringToInt64(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeStringToInteger(void* string, uint32_t base, void* value) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToInteger(void* string, uint32_t base, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23295,7 +23295,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeStringToInteger(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeStringToUTF8String(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToUTF8String(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -23319,7 +23319,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeStringToUTF8Strin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeToUTF8N(void* utf8stringdestination, uint32_t utf8stringmaxbytecount, void* utf8stringactualbytecount, void* unicodestringsource, uint32_t unicodestringbytecount) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUnicodeToUTF8N(void* utf8stringdestination, uint32_t utf8stringmaxbytecount, void* utf8stringactualbytecount, void* unicodestringsource, uint32_t unicodestringbytecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23345,7 +23345,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUnicodeToUTF8N(void* utf
 #endif
 }
 
-uint16_t windowssys_windows_wdk_system_systemservices_rtlUpcaseUnicodeChar(uint16_t sourcecharacter) {
+uint16_t windowssysWindowsWdkSystemSystemservicesRtlUpcaseUnicodeChar(uint16_t sourcecharacter) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23367,7 +23367,7 @@ uint16_t windowssys_windows_wdk_system_systemservices_rtlUpcaseUnicodeChar(uint1
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlUpcaseUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlUpcaseUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -23391,7 +23391,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlUpcaseUnicodeString(void
 #endif
 }
 
-int8_t windowssys_windows_wdk_system_systemservices_rtlUpperChar(int8_t character) {
+int8_t windowssysWindowsWdkSystemSystemservicesRtlUpperChar(int8_t character) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23413,7 +23413,7 @@ int8_t windowssys_windows_wdk_system_systemservices_rtlUpperChar(int8_t characte
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_rtlUpperString(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWdkSystemSystemservicesRtlUpperString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23435,7 +23435,7 @@ void windowssys_windows_wdk_system_systemservices_rtlUpperString(void* destinati
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlValidRelativeSecurityDescriptor(void* securitydescriptorinput, uint32_t securitydescriptorlength, uint32_t requiredinformation) {
+bool windowssysWindowsWdkSystemSystemservicesRtlValidRelativeSecurityDescriptor(void* securitydescriptorinput, uint32_t securitydescriptorlength, uint32_t requiredinformation) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23459,7 +23459,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlValidRelativeSecurityDescri
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_rtlValidSecurityDescriptor(void* securitydescriptor) {
+bool windowssysWindowsWdkSystemSystemservicesRtlValidSecurityDescriptor(void* securitydescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23481,7 +23481,7 @@ bool windowssys_windows_wdk_system_systemservices_rtlValidSecurityDescriptor(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlVerifyVersionInfo(void* versioninfo, uint32_t typemask, uint64_t conditionmask) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlVerifyVersionInfo(void* versioninfo, uint32_t typemask, uint64_t conditionmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23505,7 +23505,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlVerifyVersionInfo(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlVolumeDeviceToDosName(void* volumedeviceobject, void* dosname) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlVolumeDeviceToDosName(void* volumedeviceobject, void* dosname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23528,7 +23528,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlVolumeDeviceToDosName(vo
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlWalkFrameChain(void* callers, uint32_t count, uint32_t flags) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlWalkFrameChain(void* callers, uint32_t count, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23552,7 +23552,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlWalkFrameChain(void* ca
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_rtlWeaklyEnumerateEntryHashTable(void* hashtable, void* enumerator) {
+void* windowssysWindowsWdkSystemSystemservicesRtlWeaklyEnumerateEntryHashTable(void* hashtable, void* enumerator) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23575,7 +23575,7 @@ void* windowssys_windows_wdk_system_systemservices_rtlWeaklyEnumerateEntryHashTa
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_rtlWriteRegistryValue(uint32_t relativeto, void* path, void* valuename, uint32_t valuetype, void* valuedata, uint32_t valuelength) {
+int32_t windowssysWindowsWdkSystemSystemservicesRtlWriteRegistryValue(uint32_t relativeto, void* path, void* valuename, uint32_t valuetype, void* valuedata, uint32_t valuelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23602,7 +23602,7 @@ int32_t windowssys_windows_wdk_system_systemservices_rtlWriteRegistryValue(uint3
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlxAnsiStringToUnicodeSize(void* ansistring) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlxAnsiStringToUnicodeSize(void* ansistring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23624,7 +23624,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlxAnsiStringToUnicodeSiz
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_rtlxUnicodeStringToAnsiSize(void* unicodestring) {
+uint32_t windowssysWindowsWdkSystemSystemservicesRtlxUnicodeStringToAnsiSize(void* unicodestring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23646,7 +23646,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_rtlxUnicodeStringToAnsiSiz
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_seAccessCheck(void* securitydescriptor, void* subjectsecuritycontext, bool subjectcontextlocked, uint32_t desiredaccess, uint32_t previouslygrantedaccess, void* privileges, void* genericmapping, int8_t accessmode, void* grantedaccess, void* accessstatus) {
+bool windowssysWindowsWdkSystemSystemservicesSeAccessCheck(void* securitydescriptor, void* subjectsecuritycontext, bool subjectcontextlocked, uint32_t desiredaccess, uint32_t previouslygrantedaccess, void* privileges, void* genericmapping, int8_t accessmode, void* grantedaccess, void* accessstatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool, uint32_t, uint32_t, void*, void*, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23677,7 +23677,7 @@ bool windowssys_windows_wdk_system_systemservices_seAccessCheck(void* securityde
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seAssignSecurity(void* parentdescriptor, void* explicitdescriptor, void* newdescriptor, bool isdirectoryobject, void* subjectcontext, void* genericmapping, int32_t pooltype) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeAssignSecurity(void* parentdescriptor, void* explicitdescriptor, void* newdescriptor, bool isdirectoryobject, void* subjectcontext, void* genericmapping, int32_t pooltype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, bool, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23705,7 +23705,7 @@ int32_t windowssys_windows_wdk_system_systemservices_seAssignSecurity(void* pare
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seAssignSecurityEx(void* parentdescriptor, void* explicitdescriptor, void* newdescriptor, void* objecttype, bool isdirectoryobject, uint32_t autoinheritflags, void* subjectcontext, void* genericmapping, int32_t pooltype) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeAssignSecurityEx(void* parentdescriptor, void* explicitdescriptor, void* newdescriptor, void* objecttype, bool isdirectoryobject, uint32_t autoinheritflags, void* subjectcontext, void* genericmapping, int32_t pooltype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -23735,7 +23735,7 @@ int32_t windowssys_windows_wdk_system_systemservices_seAssignSecurityEx(void* pa
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_seCaptureSubjectContext(void* subjectcontext) {
+void windowssysWindowsWdkSystemSystemservicesSeCaptureSubjectContext(void* subjectcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23756,7 +23756,7 @@ void windowssys_windows_wdk_system_systemservices_seCaptureSubjectContext(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_seComputeAutoInheritByObjectType(void* objecttype, void* securitydescriptor, void* parentsecuritydescriptor) {
+uint32_t windowssysWindowsWdkSystemSystemservicesSeComputeAutoInheritByObjectType(void* objecttype, void* securitydescriptor, void* parentsecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23780,7 +23780,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_seComputeAutoInheritByObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seDeassignSecurity(void* securitydescriptor) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeDeassignSecurity(void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23802,7 +23802,7 @@ int32_t windowssys_windows_wdk_system_systemservices_seDeassignSecurity(void* se
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seEtwWriteKMCveEvent(void* cveid, void* additionaldetails) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeEtwWriteKMCveEvent(void* cveid, void* additionaldetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23825,7 +23825,7 @@ int32_t windowssys_windows_wdk_system_systemservices_seEtwWriteKMCveEvent(void* 
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_seLockSubjectContext(void* subjectcontext) {
+void windowssysWindowsWdkSystemSystemservicesSeLockSubjectContext(void* subjectcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23846,7 +23846,7 @@ void windowssys_windows_wdk_system_systemservices_seLockSubjectContext(void* sub
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seRegisterImageVerificationCallback(int32_t imagetype, int32_t callbacktype, void* callbackfunction, void* callbackcontext, void* token, void* callbackhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeRegisterImageVerificationCallback(int32_t imagetype, int32_t callbacktype, void* callbackfunction, void* callbackcontext, void* token, void* callbackhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23873,7 +23873,7 @@ int32_t windowssys_windows_wdk_system_systemservices_seRegisterImageVerification
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_seReleaseSubjectContext(void* subjectcontext) {
+void windowssysWindowsWdkSystemSystemservicesSeReleaseSubjectContext(void* subjectcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23894,7 +23894,7 @@ void windowssys_windows_wdk_system_systemservices_seReleaseSubjectContext(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seReportSecurityEvent(uint32_t flags, void* sourcename, void* usersid, void* auditparameters) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeReportSecurityEvent(uint32_t flags, void* sourcename, void* usersid, void* auditparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23919,7 +23919,7 @@ int32_t windowssys_windows_wdk_system_systemservices_seReportSecurityEvent(uint3
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_seSetAuditParameter(void* auditparameters, int32_t type, uint32_t arg_2_index, void* data) {
+int32_t windowssysWindowsWdkSystemSystemservicesSeSetAuditParameter(void* auditparameters, int32_t type, uint32_t arg2Index, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23930,21 +23930,21 @@ int32_t windowssys_windows_wdk_system_systemservices_seSetAuditParameter(void* a
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(auditparameters, type, arg_2_index, data);
+        return km_fn_ptr(auditparameters, type, arg2Index, data);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)auditparameters;
     (void)type;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)data;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_seUnlockSubjectContext(void* subjectcontext) {
+void windowssysWindowsWdkSystemSystemservicesSeUnlockSubjectContext(void* subjectcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23965,7 +23965,7 @@ void windowssys_windows_wdk_system_systemservices_seUnlockSubjectContext(void* s
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_seUnregisterImageVerificationCallback(void* callbackhandle) {
+void windowssysWindowsWdkSystemSystemservicesSeUnregisterImageVerificationCallback(void* callbackhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -23986,7 +23986,7 @@ void windowssys_windows_wdk_system_systemservices_seUnregisterImageVerificationC
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_seValidSecurityDescriptor(uint32_t length, void* securitydescriptor) {
+bool windowssysWindowsWdkSystemSystemservicesSeValidSecurityDescriptor(uint32_t length, void* securitydescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24009,7 +24009,7 @@ bool windowssys_windows_wdk_system_systemservices_seValidSecurityDescriptor(uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmCommitComplete(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmCommitComplete(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24032,7 +24032,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmCommitComplete(void* enli
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmCommitEnlistment(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmCommitEnlistment(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24055,7 +24055,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmCommitEnlistment(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmCommitTransaction(void* transaction, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmCommitTransaction(void* transaction, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -24078,7 +24078,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmCommitTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmCreateEnlistment(void* enlistmenthandle, int8_t previousmode, uint32_t desiredaccess, void* objectattributes, void* resourcemanager, void* transaction, uint32_t createoptions, uint32_t notificationmask, void* enlistmentkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmCreateEnlistment(void* enlistmenthandle, int8_t previousmode, uint32_t desiredaccess, void* objectattributes, void* resourcemanager, void* transaction, uint32_t createoptions, uint32_t notificationmask, void* enlistmentkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int8_t, uint32_t, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24108,7 +24108,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmCreateEnlistment(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmDereferenceEnlistmentKey(void* enlistment, void* lastreference) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmDereferenceEnlistmentKey(void* enlistment, void* lastreference) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24131,7 +24131,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmDereferenceEnlistmentKey(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmEnableCallbacks(void* resourcemanager, void* callbackroutine, void* rmkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmEnableCallbacks(void* resourcemanager, void* callbackroutine, void* rmkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24155,7 +24155,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmEnableCallbacks(void* res
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_tmGetTransactionId(void* transaction, void* transactionid) {
+void windowssysWindowsWdkSystemSystemservicesTmGetTransactionId(void* transaction, void* transactionid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24177,7 +24177,7 @@ void windowssys_windows_wdk_system_systemservices_tmGetTransactionId(void* trans
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmInitializeTransactionManager(void* transactionmanager, void* logfilename, void* tmid, uint32_t createoptions) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmInitializeTransactionManager(void* transactionmanager, void* logfilename, void* tmid, uint32_t createoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24202,7 +24202,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmInitializeTransactionMana
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_tmIsTransactionActive(void* transaction) {
+bool windowssysWindowsWdkSystemSystemservicesTmIsTransactionActive(void* transaction) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24224,7 +24224,7 @@ bool windowssys_windows_wdk_system_systemservices_tmIsTransactionActive(void* tr
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmPrePrepareComplete(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmPrePrepareComplete(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24247,7 +24247,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmPrePrepareComplete(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmPrePrepareEnlistment(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmPrePrepareEnlistment(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24270,7 +24270,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmPrePrepareEnlistment(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmPrepareComplete(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmPrepareComplete(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24293,7 +24293,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmPrepareComplete(void* enl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmPrepareEnlistment(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmPrepareEnlistment(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24316,7 +24316,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmPrepareEnlistment(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmPropagationComplete(void* resourcemanager, uint32_t requestcookie, uint32_t bufferlength, void* buffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmPropagationComplete(void* resourcemanager, uint32_t requestcookie, uint32_t bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24341,7 +24341,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmPropagationComplete(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmPropagationFailed(void* resourcemanager, uint32_t requestcookie, int32_t status) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmPropagationFailed(void* resourcemanager, uint32_t requestcookie, int32_t status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24365,7 +24365,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmPropagationFailed(void* r
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmReadOnlyEnlistment(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmReadOnlyEnlistment(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24388,7 +24388,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmReadOnlyEnlistment(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRecoverEnlistment(void* enlistment, void* enlistmentkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRecoverEnlistment(void* enlistment, void* enlistmentkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24411,7 +24411,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRecoverEnlistment(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRecoverResourceManager(void* resourcemanager) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRecoverResourceManager(void* resourcemanager) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24433,7 +24433,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRecoverResourceManager(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRecoverTransactionManager(void* tm, void* targetvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRecoverTransactionManager(void* tm, void* targetvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24456,7 +24456,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRecoverTransactionManager
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmReferenceEnlistmentKey(void* enlistment, void* key) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmReferenceEnlistmentKey(void* enlistment, void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24479,7 +24479,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmReferenceEnlistmentKey(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRenameTransactionManager(void* logfilename, void* existingtransactionmanagerguid) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRenameTransactionManager(void* logfilename, void* existingtransactionmanagerguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24502,7 +24502,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRenameTransactionManager(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRequestOutcomeEnlistment(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRequestOutcomeEnlistment(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24525,7 +24525,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRequestOutcomeEnlistment(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRollbackComplete(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRollbackComplete(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24548,7 +24548,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRollbackComplete(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRollbackEnlistment(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRollbackEnlistment(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24571,7 +24571,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRollbackEnlistment(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmRollbackTransaction(void* transaction, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmRollbackTransaction(void* transaction, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -24594,7 +24594,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmRollbackTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_tmSinglePhaseReject(void* enlistment, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesTmSinglePhaseReject(void* enlistment, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24617,7 +24617,7 @@ int32_t windowssys_windows_wdk_system_systemservices_tmSinglePhaseReject(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_vslCreateSecureSection(void* handle, int64_t targetprocess, void* mdl, uint32_t devicepageprotection, uint32_t attributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesVslCreateSecureSection(void* handle, int64_t targetprocess, void* mdl, uint32_t devicepageprotection, uint32_t attributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24643,7 +24643,7 @@ int32_t windowssys_windows_wdk_system_systemservices_vslCreateSecureSection(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_vslDeleteSecureSection(void* globalhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesVslDeleteSecureSection(void* globalhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24665,7 +24665,7 @@ int32_t windowssys_windows_wdk_system_systemservices_vslDeleteSecureSection(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaAddErrorSource(void* errorsource, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaAddErrorSource(void* errorsource, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24688,7 +24688,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaAddErrorSource(void* er
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaAddErrorSourceDeviceDriver(void* context, void* configuration, uint32_t numberpreallocatederrorreports) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaAddErrorSourceDeviceDriver(void* context, void* configuration, uint32_t numberpreallocatederrorreports) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24712,7 +24712,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaAddErrorSourceDeviceDri
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaAddErrorSourceDeviceDriverV1(void* context, void* configuration, uint32_t numbufferstopreallocate, uint32_t maxdatalength) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaAddErrorSourceDeviceDriverV1(void* context, void* configuration, uint32_t numbufferstopreallocate, uint32_t maxdatalength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24737,7 +24737,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaAddErrorSourceDeviceDri
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaAddHwErrorReportSectionDeviceDriver(void* errorhandle, uint32_t sectiondatalength, void* bufferset) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaAddHwErrorReportSectionDeviceDriver(void* errorhandle, uint32_t sectiondatalength, void* bufferset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24761,7 +24761,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaAddHwErrorReportSection
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaConfigureErrorSource(int32_t sourcetype, void* configuration) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaConfigureErrorSource(int32_t sourcetype, void* configuration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24784,7 +24784,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaConfigureErrorSource(in
 #endif
 }
 
-void* windowssys_windows_wdk_system_systemservices_wheaCreateHwErrorReportDeviceDriver(uint32_t errorsourceid, void* deviceobject) {
+void* windowssysWindowsWdkSystemSystemservicesWheaCreateHwErrorReportDeviceDriver(uint32_t errorsourceid, void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24807,7 +24807,7 @@ void* windowssys_windows_wdk_system_systemservices_wheaCreateHwErrorReportDevice
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaErrorSourceGetState(uint32_t errorsourceid) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaErrorSourceGetState(uint32_t errorsourceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24829,7 +24829,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaErrorSourceGetState(uin
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_wheaGetNotifyAllOfflinesPolicy(void) {
+bool windowssysWindowsWdkSystemSystemservicesWheaGetNotifyAllOfflinesPolicy(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -24850,7 +24850,7 @@ bool windowssys_windows_wdk_system_systemservices_wheaGetNotifyAllOfflinesPolicy
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_wheaHighIrqlLogSelEventHandlerRegister(void* handler, void* context) {
+bool windowssysWindowsWdkSystemSystemservicesWheaHighIrqlLogSelEventHandlerRegister(void* handler, void* context) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24873,7 +24873,7 @@ bool windowssys_windows_wdk_system_systemservices_wheaHighIrqlLogSelEventHandler
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_wheaHighIrqlLogSelEventHandlerUnregister(void) {
+void windowssysWindowsWdkSystemSystemservicesWheaHighIrqlLogSelEventHandlerUnregister(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -24893,7 +24893,7 @@ void windowssys_windows_wdk_system_systemservices_wheaHighIrqlLogSelEventHandler
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportAbandonDeviceDriver(void* errorhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportAbandonDeviceDriver(void* errorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24915,7 +24915,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportAbandonDev
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportSetSectionNameDeviceDriver(void* bufferset, uint32_t namelength, void* name) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSetSectionNameDeviceDriver(void* bufferset, uint32_t namelength, void* name) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24939,7 +24939,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportSetSection
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportSetSeverityDeviceDriver(void* errorhandle, int32_t errorseverity) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSetSeverityDeviceDriver(void* errorhandle, int32_t errorseverity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -24962,7 +24962,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportSetSeverit
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportSubmitDeviceDriver(void* errorhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSubmitDeviceDriver(void* errorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -24984,7 +24984,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaHwErrorReportSubmitDevi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaInitializeRecordHeader(void* header) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaInitializeRecordHeader(void* header) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25006,7 +25006,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaInitializeRecordHeader(
 #endif
 }
 
-bool windowssys_windows_wdk_system_systemservices_wheaIsCriticalState(void) {
+bool windowssysWindowsWdkSystemSystemservicesWheaIsCriticalState(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -25027,7 +25027,7 @@ bool windowssys_windows_wdk_system_systemservices_wheaIsCriticalState(void) {
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_wheaLogInternalEvent(void* entry) {
+void windowssysWindowsWdkSystemSystemservicesWheaLogInternalEvent(void* entry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25048,7 +25048,7 @@ void windowssys_windows_wdk_system_systemservices_wheaLogInternalEvent(void* ent
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaRegisterInUsePageOfflineNotification(void* callback, void* context) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaRegisterInUsePageOfflineNotification(void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25071,7 +25071,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaRegisterInUsePageOfflin
 #endif
 }
 
-void windowssys_windows_wdk_system_systemservices_wheaRemoveErrorSource(uint32_t errorsourceid) {
+void windowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSource(uint32_t errorsourceid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25092,7 +25092,7 @@ void windowssys_windows_wdk_system_systemservices_wheaRemoveErrorSource(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaRemoveErrorSourceDeviceDriver(uint32_t errorsourceid) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSourceDeviceDriver(uint32_t errorsourceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25114,7 +25114,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaRemoveErrorSourceDevice
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaReportHwError(void* errorpacket) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaReportHwError(void* errorpacket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25136,7 +25136,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaReportHwError(void* err
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaReportHwErrorDeviceDriver(uint32_t errorsourceid, void* deviceobject, void* errordata, uint32_t errordatalength, void* sectiontypeguid, int32_t errorseverity, void* devicefriendlyname) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaReportHwErrorDeviceDriver(uint32_t errorsourceid, void* deviceobject, void* errordata, uint32_t errordatalength, void* sectiontypeguid, int32_t errorseverity, void* devicefriendlyname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25164,7 +25164,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaReportHwErrorDeviceDriv
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaUnconfigureErrorSource(int32_t sourcetype) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaUnconfigureErrorSource(int32_t sourcetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25186,7 +25186,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaUnconfigureErrorSource(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wheaUnregisterInUsePageOfflineNotification(void* callback) {
+int32_t windowssysWindowsWdkSystemSystemservicesWheaUnregisterInUsePageOfflineNotification(void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25208,7 +25208,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wheaUnregisterInUsePageOffl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_wmiQueryTraceInformation(int32_t traceinformationclass, void* traceinformation, uint32_t traceinformationlength, void* requiredlength, void* buffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesWmiQueryTraceInformation(int32_t traceinformationclass, void* traceinformation, uint32_t traceinformationlength, void* requiredlength, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25234,7 +25234,7 @@ int32_t windowssys_windows_wdk_system_systemservices_wmiQueryTraceInformation(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwAllocateLocallyUniqueId(void* luid) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwAllocateLocallyUniqueId(void* luid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25256,7 +25256,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwAllocateLocallyUniqueId(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwClose(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwClose(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25278,7 +25278,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwClose(void* handle) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCommitComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCommitComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25301,7 +25301,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCommitComplete(void* enli
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCommitEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCommitEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25324,7 +25324,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCommitEnlistment(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCommitTransaction(void* transactionhandle, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCommitTransaction(void* transactionhandle, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -25347,7 +25347,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCommitTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCreateEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* resourcemanagerhandle, void* transactionhandle, void* objectattributes, uint32_t createoptions, uint32_t notificationmask, void* enlistmentkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCreateEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* resourcemanagerhandle, void* transactionhandle, void* objectattributes, uint32_t createoptions, uint32_t notificationmask, void* enlistmentkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25376,7 +25376,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCreateEnlistment(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCreateFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCreateFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25408,7 +25408,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCreateFile(void* filehand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCreateResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* resourcemanagerguid, void* objectattributes, uint32_t createoptions, void* description) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCreateResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* resourcemanagerguid, void* objectattributes, uint32_t createoptions, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25436,7 +25436,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCreateResourceManager(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCreateSection(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCreateSection(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25464,7 +25464,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCreateSection(void* secti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCreateTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle, uint32_t createoptions, uint32_t isolationlevel, uint32_t isolationflags, void* timeout, void* description) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCreateTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle, uint32_t createoptions, uint32_t isolationlevel, uint32_t isolationflags, void* timeout, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25495,7 +25495,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCreateTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwCreateTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, uint32_t createoptions, uint32_t commitstrength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwCreateTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, uint32_t createoptions, uint32_t commitstrength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25522,7 +25522,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwCreateTransactionManager(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwDeviceIoControlFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t iocontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwDeviceIoControlFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t iocontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25553,7 +25553,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwDeviceIoControlFile(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwDisplayString(void* string) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwDisplayString(void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25575,7 +25575,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwDisplayString(void* strin
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwEnumerateTransactionObject(void* rootobjecthandle, int32_t querytype, void* objectcursor, uint32_t objectcursorlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwEnumerateTransactionObject(void* rootobjecthandle, int32_t querytype, void* objectcursor, uint32_t objectcursorlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25601,7 +25601,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwEnumerateTransactionObjec
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwGetNotificationResourceManager(void* resourcemanagerhandle, void* transactionnotification, uint32_t notificationlength, void* timeout, void* returnlength, uint32_t asynchronous, uint64_t asynchronouscontext) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwGetNotificationResourceManager(void* resourcemanagerhandle, void* transactionnotification, uint32_t notificationlength, void* timeout, void* returnlength, uint32_t asynchronous, uint64_t asynchronouscontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25629,7 +25629,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwGetNotificationResourceMa
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwLoadDriver(void* driverservicename) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwLoadDriver(void* driverservicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25651,7 +25651,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwLoadDriver(void* driverse
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwMakeTemporaryObject(void* handle) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwMakeTemporaryObject(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25673,7 +25673,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwMakeTemporaryObject(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwManagePartition(void* targethandle, void* sourcehandle, int32_t partitioninformationclass, void* partitioninformation, uint32_t partitioninformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwManagePartition(void* targethandle, void* sourcehandle, int32_t partitioninformationclass, void* partitioninformation, uint32_t partitioninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25699,7 +25699,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwManagePartition(void* tar
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwOpenEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* rmhandle, void* enlistmentguid, void* objectattributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwOpenEnlistment(void* enlistmenthandle, uint32_t desiredaccess, void* rmhandle, void* enlistmentguid, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25725,7 +25725,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwOpenEnlistment(void* enli
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwOpenFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t shareaccess, uint32_t openoptions) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwOpenFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t shareaccess, uint32_t openoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25752,7 +25752,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwOpenFile(void* filehandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwOpenResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* resourcemanagerguid, void* objectattributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwOpenResourceManager(void* resourcemanagerhandle, uint32_t desiredaccess, void* tmhandle, void* resourcemanagerguid, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25778,7 +25778,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwOpenResourceManager(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwOpenSymbolicLinkObject(void* linkhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwOpenSymbolicLinkObject(void* linkhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25802,7 +25802,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwOpenSymbolicLinkObject(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwOpenTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwOpenTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, void* uow, void* tmhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25828,7 +25828,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwOpenTransaction(void* tra
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwOpenTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, void* tmidentity, uint32_t openoptions) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwOpenTransactionManager(void* tmhandle, uint32_t desiredaccess, void* objectattributes, void* logfilename, void* tmidentity, uint32_t openoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25855,7 +25855,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwOpenTransactionManager(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPowerInformation(int32_t informationlevel, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPowerInformation(int32_t informationlevel, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -25881,7 +25881,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPowerInformation(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPrePrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPrePrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25904,7 +25904,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPrePrepareComplete(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPrePrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPrePrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25927,7 +25927,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPrePrepareEnlistment(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPrepareComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25950,7 +25950,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPrepareComplete(void* enl
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPrepareEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25973,7 +25973,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPrepareEnlistment(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPropagationComplete(void* resourcemanagerhandle, uint32_t requestcookie, uint32_t bufferlength, void* buffer) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPropagationComplete(void* resourcemanagerhandle, uint32_t requestcookie, uint32_t bufferlength, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -25998,7 +25998,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPropagationComplete(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwPropagationFailed(void* resourcemanagerhandle, uint32_t requestcookie, int32_t propstatus) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwPropagationFailed(void* resourcemanagerhandle, uint32_t requestcookie, int32_t propstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26022,7 +26022,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwPropagationFailed(void* r
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationByName(void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQueryInformationByName(void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26048,7 +26048,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationByName(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQueryInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26074,7 +26074,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationEnlistmen
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQueryInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26100,7 +26100,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationFile(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQueryInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26126,7 +26126,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationResourceM
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQueryInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26152,7 +26152,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationTransacti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationTransactionManager(void* transactionmanagerhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength, void* returnlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQueryInformationTransactionManager(void* transactionmanagerhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26178,7 +26178,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQueryInformationTransacti
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwQuerySymbolicLinkObject(void* linkhandle, void* linktarget, void* returnedlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwQuerySymbolicLinkObject(void* linkhandle, void* linktarget, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26202,7 +26202,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwQuerySymbolicLinkObject(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwReadFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* buffer, uint32_t length, void* byteoffset, void* key) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwReadFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* buffer, uint32_t length, void* byteoffset, void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26232,7 +26232,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwReadFile(void* filehandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwReadOnlyEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwReadOnlyEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26255,7 +26255,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwReadOnlyEnlistment(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRecoverEnlistment(void* enlistmenthandle, void* enlistmentkey) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRecoverEnlistment(void* enlistmenthandle, void* enlistmentkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26278,7 +26278,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRecoverEnlistment(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRecoverResourceManager(void* resourcemanagerhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRecoverResourceManager(void* resourcemanagerhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26300,7 +26300,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRecoverResourceManager(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRecoverTransactionManager(void* transactionmanagerhandle) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRecoverTransactionManager(void* transactionmanagerhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26322,7 +26322,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRecoverTransactionManager
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRegisterProtocolAddressInformation(void* resourcemanager, void* protocolid, uint32_t protocolinformationsize, void* protocolinformation, uint32_t createoptions) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRegisterProtocolAddressInformation(void* resourcemanager, void* protocolid, uint32_t protocolinformationsize, void* protocolinformation, uint32_t createoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26348,7 +26348,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRegisterProtocolAddressIn
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRenameTransactionManager(void* logfilename, void* existingtransactionmanagerguid) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRenameTransactionManager(void* logfilename, void* existingtransactionmanagerguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26371,7 +26371,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRenameTransactionManager(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRollbackComplete(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRollbackComplete(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26394,7 +26394,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRollbackComplete(void* en
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRollbackEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRollbackEnlistment(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26417,7 +26417,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRollbackEnlistment(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRollbackTransaction(void* transactionhandle, bool wait) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRollbackTransaction(void* transactionhandle, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -26440,7 +26440,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRollbackTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwRollforwardTransactionManager(void* transactionmanagerhandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwRollforwardTransactionManager(void* transactionmanagerhandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26463,7 +26463,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwRollforwardTransactionMan
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwSetInformationEnlistment(void* enlistmenthandle, int32_t enlistmentinformationclass, void* enlistmentinformation, uint32_t enlistmentinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26488,7 +26488,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationEnlistment(
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwSetInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26514,7 +26514,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationFile(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwSetInformationResourceManager(void* resourcemanagerhandle, int32_t resourcemanagerinformationclass, void* resourcemanagerinformation, uint32_t resourcemanagerinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26539,7 +26539,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationResourceMan
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwSetInformationTransaction(void* transactionhandle, int32_t transactioninformationclass, void* transactioninformation, uint32_t transactioninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26564,7 +26564,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationTransaction
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationTransactionManager(void* tmhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwSetInformationTransactionManager(void* tmhandle, int32_t transactionmanagerinformationclass, void* transactionmanagerinformation, uint32_t transactionmanagerinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -26589,7 +26589,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwSetInformationTransaction
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwSinglePhaseReject(void* enlistmenthandle, void* tmvirtualclock) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwSinglePhaseReject(void* enlistmenthandle, void* tmvirtualclock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26612,7 +26612,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwSinglePhaseReject(void* e
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwUnloadDriver(void* driverservicename) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwUnloadDriver(void* driverservicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26634,7 +26634,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwUnloadDriver(void* driver
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_systemservices_zwWriteFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* buffer, uint32_t length, void* byteoffset, void* key) {
+int32_t windowssysWindowsWdkSystemSystemservicesZwWriteFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* buffer, uint32_t length, void* byteoffset, void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26664,7 +26664,7 @@ int32_t windowssys_windows_wdk_system_systemservices_zwWriteFile(void* filehandl
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_vDbgPrintEx(uint32_t componentid, uint32_t level, void* format, void* arglist) {
+uint32_t windowssysWindowsWdkSystemSystemservicesVDbgPrintEx(uint32_t componentid, uint32_t level, void* format, void* arglist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26689,7 +26689,7 @@ uint32_t windowssys_windows_wdk_system_systemservices_vDbgPrintEx(uint32_t compo
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_systemservices_vDbgPrintExWithPrefix(void* prefix, uint32_t componentid, uint32_t level, void* format, void* arglist) {
+uint32_t windowssysWindowsWdkSystemSystemservicesVDbgPrintExWithPrefix(void* prefix, uint32_t componentid, uint32_t level, void* format, void* arglist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

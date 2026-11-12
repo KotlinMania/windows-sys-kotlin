@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddFtRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootshare = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddRootTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdfspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptargetpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -150,7 +150,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddStdRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootshare = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -216,7 +216,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetFtContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -280,7 +280,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -344,7 +344,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetStdContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* machinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -375,7 +375,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSupportedNamespaceVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t origin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -404,7 +404,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsMove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsMove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* olddfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newdfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -433,7 +433,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -462,7 +462,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootshare = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -493,7 +493,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRootForced_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -526,7 +526,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveRootTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdfspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptargetpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -555,7 +555,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveStdRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootshare = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -584,7 +584,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetClientInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -617,7 +617,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetFtContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -646,7 +646,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -679,7 +679,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dfsentrypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -708,7 +708,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetStdContainerSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* machinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -738,28 +738,28 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
 }
 
 static void register_windows_win32_storage_distributedfilesystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsMove", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsMove_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity_napi));
-    exports.Set("windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity", Napi::Function::New(env, windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsAdd", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsAdd_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddFtRoot", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddFtRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddRootTarget", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddRootTarget_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddStdRoot", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddStdRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsEnum", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsEnum_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetClientInfo", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetClientInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetFtContainerSecurity", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetFtContainerSecurity_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetInfo", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSecurity", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSecurity_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetStdContainerSecurity", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetStdContainerSecurity_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSupportedNamespaceVersion", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSupportedNamespaceVersion_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsMove", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsMove_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemove", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemove_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRoot", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRootForced", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRootForced_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveRootTarget", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveRootTarget_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveStdRoot", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveStdRoot_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetClientInfo", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetClientInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetFtContainerSecurity", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetFtContainerSecurity_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetInfo", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetInfo_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetSecurity", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetSecurity_napi));
+    exports.Set("windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetStdContainerSecurity", Napi::Function::New(env, windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetStdContainerSecurity_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_distributedfilesystem_napi, nullptr };

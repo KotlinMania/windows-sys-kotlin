@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd(void* dfsentrypath, void* servername, void* sharename, void* comment, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsAdd(void* dfsentrypath, void* servername, void* sharename, void* comment, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot(void* servername, void* rootshare, void* ftdfsname, void* comment, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddFtRoot(void* servername, void* rootshare, void* ftdfsname, void* comment, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -67,7 +67,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot(
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget(void* pdfspath, void* ptargetpath, uint32_t majorversion, void* pcomment, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddRootTarget(void* pdfspath, void* ptargetpath, uint32_t majorversion, void* pcomment, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -93,7 +93,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTar
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot(void* servername, void* rootshare, void* comment, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddStdRoot(void* servername, void* rootshare, void* comment, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -118,7 +118,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum(void* dfsname, uint32_t level, uint32_t prefmaxlen, void* buffer, void* entriesread, void* resumehandle) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsEnum(void* dfsname, uint32_t level, uint32_t prefmaxlen, void* buffer, void* entriesread, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -145,7 +145,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetClientInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -171,7 +171,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientI
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity(void* domainname, uint32_t securityinformation, void* ppsecuritydescriptor, void* lpcbsecuritydescriptor) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetFtContainerSecurity(void* domainname, uint32_t securityinformation, void* ppsecuritydescriptor, void* lpcbsecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtConta
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity(void* dfsentrypath, uint32_t securityinformation, void* ppsecuritydescriptor, void* lpcbsecuritydescriptor) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSecurity(void* dfsentrypath, uint32_t securityinformation, void* ppsecuritydescriptor, void* lpcbsecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurit
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity(void* machinename, uint32_t securityinformation, void* ppsecuritydescriptor, void* lpcbsecuritydescriptor) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetStdContainerSecurity(void* machinename, uint32_t securityinformation, void* ppsecuritydescriptor, void* lpcbsecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -272,7 +272,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdCont
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion(int32_t origin, void* pname, void* ppversioninfo) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSupportedNamespaceVersion(int32_t origin, void* pname, void* ppversioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -296,7 +296,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupport
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsMove(void* olddfsentrypath, void* newdfsentrypath, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsMove(void* olddfsentrypath, void* newdfsentrypath, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -320,7 +320,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsMove(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove(void* dfsentrypath, void* servername, void* sharename) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemove(void* dfsentrypath, void* servername, void* sharename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -344,7 +344,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot(void* servername, void* rootshare, void* ftdfsname, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRoot(void* servername, void* rootshare, void* ftdfsname, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -369,7 +369,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced(void* domainname, void* servername, void* rootshare, void* ftdfsname, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveFtRootForced(void* domainname, void* servername, void* rootshare, void* ftdfsname, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -395,7 +395,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget(void* pdfspath, void* ptargetpath, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveRootTarget(void* pdfspath, void* ptargetpath, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRoot
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot(void* servername, void* rootshare, uint32_t flags) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveStdRoot(void* servername, void* rootshare, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -443,7 +443,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdR
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetClientInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientI
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity(void* domainname, uint32_t securityinformation, void* psecuritydescriptor) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetFtContainerSecurity(void* domainname, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -493,7 +493,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtConta
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetInfo(void* dfsentrypath, void* servername, void* sharename, uint32_t level, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -519,7 +519,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity(void* dfsentrypath, uint32_t securityinformation, void* psecuritydescriptor) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetSecurity(void* dfsentrypath, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -543,7 +543,7 @@ uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurit
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity(void* machinename, uint32_t securityinformation, void* psecuritydescriptor) {
+uint32_t windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetStdContainerSecurity(void* machinename, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-uint8_t windowssys_windows_win32_networkmanagement_netbios_netbios(void* pncb);
+uint8_t windowssysWindowsWin32NetworkmanagementNetbiosNetbios(void* pncb);
 
 #ifdef __cplusplus
 }

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1abortSystemShutdownA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownAbortSystemShutdownA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1abortSystemShutdownW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownAbortSystemShutdownW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1checkForHiberboot(JNIEnv* km_env, jclass km_clazz, jlong phiberboot, jboolean bclearflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownCheckForHiberboot(JNIEnv* km_env, jclass km_clazz, jlong phiberboot, jboolean bclearflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1exitWindowsEx(JNIEnv* km_env, jclass km_clazz, jint uflags, jint dwreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownExitWindowsEx(JNIEnv* km_env, jclass km_clazz, jint uflags, jint dwreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1initiateShutdownA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwgraceperiod, jint dwshutdownflags, jint dwreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownInitiateShutdownA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwgraceperiod, jint dwshutdownflags, jint dwreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -150,7 +150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1initiateShutdownW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwgraceperiod, jint dwshutdownflags, jint dwreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownInitiateShutdownW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwgraceperiod, jint dwshutdownflags, jint dwreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1initiateSystemShutdownA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownInitiateSystemShutdownA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -208,7 +208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1initiateSystemShutdownExA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown, jint dwreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown, jint dwreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -238,7 +238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1initiateSystemShutdownExW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown, jint dwreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown, jint dwreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -268,7 +268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1initiateSystemShutdownW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownInitiateSystemShutdownW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpmessage, jint dwtimeout, jint bforceappsclosed, jint brebootaftershutdown) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -297,7 +297,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1lockWorkStation(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownLockWorkStation(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1shutdownBlockReasonCreate(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pwszreason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pwszreason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1shutdownBlockReasonDestroy(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -372,7 +372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssys_1windows_1win32_1system_1shutdown_1shutdownBlockReasonQuery(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pwszbuff, jlong pcchbuff) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_shutdown_WindowsWin32SystemShutdownJniBridge_windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pwszbuff, jlong pcchbuff) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

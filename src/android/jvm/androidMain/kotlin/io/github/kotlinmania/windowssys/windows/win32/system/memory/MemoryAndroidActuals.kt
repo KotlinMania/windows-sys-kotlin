@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.memory
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -10,6 +12,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hlocal
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
 private object WindowsWin32SystemMemoryJniBridge {
     init {
@@ -17,536 +20,536 @@ private object WindowsWin32SystemMemoryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback(pfncallback: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryAddSecureMemoryCacheCallback(pfncallback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_allocateUserPhysicalPages(hprocess: Long, numberofpages: Long, pagearray: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages(hprocess: Long, numberofpages: Long, pagearray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_allocateUserPhysicalPages2(objecthandle: Long, numberofpages: Long, pagearray: Long, extendedparameters: Long, extendedparametercount: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages2(objecthandle: Long, numberofpages: Long, pagearray: Long, extendedparameters: Long, extendedparametercount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma(hprocess: Long, numberofpages: Long, pagearray: Long, nndpreferred: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPagesNuma(hprocess: Long, numberofpages: Long, pagearray: Long, nndpreferred: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createFileMapping2(file: Long, securityattributes: Long, desiredaccess: Int, pageprotection: Int, allocationattributes: Int, maximumsize: Long, name: Long, extendedparameters: Long, parametercount: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateFileMapping2(file: Long, securityattributes: Long, desiredaccess: Int, pageprotection: Int, allocationattributes: Int, maximumsize: Long, name: Long, extendedparameters: Long, parametercount: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createFileMappingA(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateFileMappingA(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createFileMappingFromApp(hfile: Long, securityattributes: Long, pageprotection: Int, maximumsize: Long, name: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateFileMappingFromApp(hfile: Long, securityattributes: Long, pageprotection: Int, maximumsize: Long, name: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createFileMappingNumaA(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long, nndpreferred: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateFileMappingNumaA(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long, nndpreferred: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createFileMappingNumaW(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long, nndpreferred: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateFileMappingNumaW(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long, nndpreferred: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createFileMappingW(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateFileMappingW(hfile: Long, lpfilemappingattributes: Long, flprotect: Int, dwmaximumsizehigh: Int, dwmaximumsizelow: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_createMemoryResourceNotification(notificationtype: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryCreateMemoryResourceNotification(notificationtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_discardVirtualMemory(virtualaddress: Long, size: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryDiscardVirtualMemory(virtualaddress: Long, size: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_flushViewOfFile(lpbaseaddress: Long, dwnumberofbytestoflush: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryFlushViewOfFile(lpbaseaddress: Long, dwnumberofbytestoflush: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_freeUserPhysicalPages(hprocess: Long, numberofpages: Long, pagearray: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryFreeUserPhysicalPages(hprocess: Long, numberofpages: Long, pagearray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getLargePageMinimum(): Long
+    external fun windowssysWindowsWin32SystemMemoryGetLargePageMinimum(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities(capabilities: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGetMemoryErrorHandlingCapabilities(capabilities: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getProcessHeap(): Long
+    external fun windowssysWindowsWin32SystemMemoryGetProcessHeap(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getProcessHeaps(numberofheaps: Int, processheaps: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGetProcessHeaps(numberofheaps: Int, processheaps: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx(hprocess: Long, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long, flags: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGetProcessWorkingSetSizeEx(hprocess: Long, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long, flags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getSystemFileCacheSize(lpminimumfilecachesize: Long, lpmaximumfilecachesize: Long, lpflags: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGetSystemFileCacheSize(lpminimumfilecachesize: Long, lpmaximumfilecachesize: Long, lpflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_getWriteWatch(dwflags: Int, lpbaseaddress: Long, dwregionsize: Long, lpaddresses: Long, lpdwcount: Long, lpdwgranularity: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGetWriteWatch(dwflags: Int, lpbaseaddress: Long, dwregionsize: Long, lpaddresses: Long, lpdwcount: Long, lpdwgranularity: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalAlloc(uflags: Int, dwbytes: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryGlobalAlloc(uflags: Int, dwbytes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalFlags(hmem: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGlobalFlags(hmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalHandle(pmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryGlobalHandle(pmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalLock(hmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryGlobalLock(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalReAlloc(hmem: Long, dwbytes: Long, uflags: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryGlobalReAlloc(hmem: Long, dwbytes: Long, uflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalSize(hmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryGlobalSize(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_globalUnlock(hmem: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryGlobalUnlock(hmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapAlloc(hheap: Long, dwflags: Int, dwbytes: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryHeapAlloc(hheap: Long, dwflags: Int, dwbytes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapCompact(hheap: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryHeapCompact(hheap: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapCreate(floptions: Int, dwinitialsize: Long, dwmaximumsize: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryHeapCreate(floptions: Int, dwinitialsize: Long, dwmaximumsize: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapDestroy(hheap: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapDestroy(hheap: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapFree(hheap: Long, dwflags: Int, lpmem: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapFree(hheap: Long, dwflags: Int, lpmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapLock(hheap: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapLock(hheap: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapQueryInformation(heaphandle: Long, heapinformationclass: Int, heapinformation: Long, heapinformationlength: Long, returnlength: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapQueryInformation(heaphandle: Long, heapinformationclass: Int, heapinformation: Long, heapinformationlength: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapReAlloc(hheap: Long, dwflags: Int, lpmem: Long, dwbytes: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryHeapReAlloc(hheap: Long, dwflags: Int, lpmem: Long, dwbytes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapSetInformation(heaphandle: Long, heapinformationclass: Int, heapinformation: Long, heapinformationlength: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapSetInformation(heaphandle: Long, heapinformationclass: Int, heapinformation: Long, heapinformationlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapSize(hheap: Long, dwflags: Int, lpmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryHeapSize(hheap: Long, dwflags: Int, lpmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapSummary(hheap: Long, dwflags: Int, lpsummary: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapSummary(hheap: Long, dwflags: Int, lpsummary: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapUnlock(hheap: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapUnlock(hheap: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapValidate(hheap: Long, dwflags: Int, lpmem: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapValidate(hheap: Long, dwflags: Int, lpmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_heapWalk(hheap: Long, lpentry: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryHeapWalk(hheap: Long, lpentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_isBadReadPtr(lp: Long, ucb: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryIsBadReadPtr(lp: Long, ucb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_isBadStringPtrA(lpsz: Long, ucchmax: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryIsBadStringPtrA(lpsz: Long, ucchmax: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_isBadStringPtrW(lpsz: Long, ucchmax: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryIsBadStringPtrW(lpsz: Long, ucchmax: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_isBadWritePtr(lp: Long, ucb: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryIsBadWritePtr(lp: Long, ucb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localAlloc(uflags: Int, ubytes: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryLocalAlloc(uflags: Int, ubytes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localFlags(hmem: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryLocalFlags(hmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localHandle(pmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryLocalHandle(pmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localLock(hmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryLocalLock(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localReAlloc(hmem: Long, ubytes: Long, uflags: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryLocalReAlloc(hmem: Long, ubytes: Long, uflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localSize(hmem: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryLocalSize(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_localUnlock(hmem: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryLocalUnlock(hmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_mapUserPhysicalPages(virtualaddress: Long, numberofpages: Long, pagearray: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryMapUserPhysicalPages(virtualaddress: Long, numberofpages: Long, pagearray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter(virtualaddresses: Long, numberofpages: Long, pagearray: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryMapUserPhysicalPagesScatter(virtualaddresses: Long, numberofpages: Long, pagearray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_offerVirtualMemory(virtualaddress: Long, size: Long, priority: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryOfferVirtualMemory(virtualaddress: Long, size: Long, priority: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_openDedicatedMemoryPartition(partition: Long, dedicatedmemorytypeid: Long, desiredaccess: Int, inherithandle: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryOpenDedicatedMemoryPartition(partition: Long, dedicatedmemorytypeid: Long, desiredaccess: Int, inherithandle: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_openFileMappingA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryOpenFileMappingA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_openFileMappingFromApp(desiredaccess: Int, inherithandle: Int, name: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryOpenFileMappingFromApp(desiredaccess: Int, inherithandle: Int, name: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_openFileMappingW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryOpenFileMappingW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_prefetchVirtualMemory(hprocess: Long, numberofentries: Long, virtualaddresses: Long, flags: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryPrefetchVirtualMemory(hprocess: Long, numberofentries: Long, virtualaddresses: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_queryMemoryResourceNotification(resourcenotificationhandle: Long, resourcestate: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryQueryMemoryResourceNotification(resourcenotificationhandle: Long, resourcestate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_queryPartitionInformation(partition: Long, partitioninformationclass: Int, partitioninformation: Long, partitioninformationlength: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryQueryPartitionInformation(partition: Long, partitioninformationclass: Int, partitioninformation: Long, partitioninformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_queryVirtualMemoryInformation(process: Long, virtualaddress: Long, memoryinformationclass: Int, memoryinformation: Long, memoryinformationsize: Long, returnsize: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryQueryVirtualMemoryInformation(process: Long, virtualaddress: Long, memoryinformationclass: Int, memoryinformation: Long, memoryinformationsize: Long, returnsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_reclaimVirtualMemory(virtualaddress: Long, size: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryReclaimVirtualMemory(virtualaddress: Long, size: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_registerBadMemoryNotification(callback: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryRegisterBadMemoryNotification(callback: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback(pfncallback: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryRemoveSecureMemoryCacheCallback(pfncallback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_resetWriteWatch(lpbaseaddress: Long, dwregionsize: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryResetWriteWatch(lpbaseaddress: Long, dwregionsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_rtlCompareMemory(source1: Long, source2: Long, length: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryRtlCompareMemory(source1: Long, source2: Long, length: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_rtlCrc32(buffer: Long, size: Long, initialcrc: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryRtlCrc32(buffer: Long, size: Long, initialcrc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_rtlCrc64(buffer: Long, size: Long, initialcrc: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryRtlCrc64(buffer: Long, size: Long, initialcrc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_rtlIsZeroMemory(buffer: Long, length: Long): Boolean
+    external fun windowssysWindowsWin32SystemMemoryRtlIsZeroMemory(buffer: Long, length: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_setProcessValidCallTargets(hprocess: Long, virtualaddress: Long, regionsize: Long, numberofoffsets: Int, offsetinformation: Long): Int
+    external fun windowssysWindowsWin32SystemMemorySetProcessValidCallTargets(hprocess: Long, virtualaddress: Long, regionsize: Long, numberofoffsets: Int, offsetinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView(process: Long, virtualaddress: Long, regionsize: Long, numberofoffsets: Int, offsetinformation: Long, section: Long, expectedfileoffset: Long): Int
+    external fun windowssysWindowsWin32SystemMemorySetProcessValidCallTargetsForMappedView(process: Long, virtualaddress: Long, regionsize: Long, numberofoffsets: Int, offsetinformation: Long, section: Long, expectedfileoffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx(hprocess: Long, dwminimumworkingsetsize: Long, dwmaximumworkingsetsize: Long, flags: Int): Int
+    external fun windowssysWindowsWin32SystemMemorySetProcessWorkingSetSizeEx(hprocess: Long, dwminimumworkingsetsize: Long, dwmaximumworkingsetsize: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_setSystemFileCacheSize(minimumfilecachesize: Long, maximumfilecachesize: Long, flags: Int): Int
+    external fun windowssysWindowsWin32SystemMemorySetSystemFileCacheSize(minimumfilecachesize: Long, maximumfilecachesize: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_unregisterBadMemoryNotification(registrationhandle: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryUnregisterBadMemoryNotification(registrationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualAlloc(lpaddress: Long, dwsize: Long, flallocationtype: Int, flprotect: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualAlloc(lpaddress: Long, dwsize: Long, flallocationtype: Int, flprotect: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualAlloc2(process: Long, baseaddress: Long, size: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, parametercount: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualAlloc2(process: Long, baseaddress: Long, size: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, parametercount: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualAlloc2FromApp(process: Long, baseaddress: Long, size: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, parametercount: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualAlloc2FromApp(process: Long, baseaddress: Long, size: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, parametercount: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualAllocEx(hprocess: Long, lpaddress: Long, dwsize: Long, flallocationtype: Int, flprotect: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualAllocEx(hprocess: Long, lpaddress: Long, dwsize: Long, flallocationtype: Int, flprotect: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualAllocExNuma(hprocess: Long, lpaddress: Long, dwsize: Long, flallocationtype: Int, flprotect: Int, nndpreferred: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualAllocExNuma(hprocess: Long, lpaddress: Long, dwsize: Long, flallocationtype: Int, flprotect: Int, nndpreferred: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualAllocFromApp(baseaddress: Long, size: Long, allocationtype: Int, protection: Int): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualAllocFromApp(baseaddress: Long, size: Long, allocationtype: Int, protection: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualFree(lpaddress: Long, dwsize: Long, dwfreetype: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualFree(lpaddress: Long, dwsize: Long, dwfreetype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualFreeEx(hprocess: Long, lpaddress: Long, dwsize: Long, dwfreetype: Int): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualFreeEx(hprocess: Long, lpaddress: Long, dwsize: Long, dwfreetype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualLock(lpaddress: Long, dwsize: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualLock(lpaddress: Long, dwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualProtect(lpaddress: Long, dwsize: Long, flnewprotect: Int, lpfloldprotect: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualProtect(lpaddress: Long, dwsize: Long, flnewprotect: Int, lpfloldprotect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualProtectEx(hprocess: Long, lpaddress: Long, dwsize: Long, flnewprotect: Int, lpfloldprotect: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualProtectEx(hprocess: Long, lpaddress: Long, dwsize: Long, flnewprotect: Int, lpfloldprotect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualProtectFromApp(address: Long, size: Long, newprotection: Int, oldprotection: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualProtectFromApp(address: Long, size: Long, newprotection: Int, oldprotection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualQuery(lpaddress: Long, lpbuffer: Long, dwlength: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualQuery(lpaddress: Long, lpbuffer: Long, dwlength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualQueryEx(hprocess: Long, lpaddress: Long, lpbuffer: Long, dwlength: Long): Long
+    external fun windowssysWindowsWin32SystemMemoryVirtualQueryEx(hprocess: Long, lpaddress: Long, lpbuffer: Long, dwlength: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualUnlock(lpaddress: Long, dwsize: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualUnlock(lpaddress: Long, dwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_memory_virtualUnlockEx(process: Long, address: Long, size: Long): Int
+    external fun windowssysWindowsWin32SystemMemoryVirtualUnlockEx(process: Long, address: Long, size: Long): Int
 }
 
 public actual fun addSecureMemoryCacheCallback(pfncallback: PsecureMemoryCacheCallback): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback(0L)
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryAddSecureMemoryCacheCallback(0L)
 
-public actual fun allocateUserPhysicalPages(hprocess: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_allocateUserPhysicalPages((hprocess?.value ?: 0L), (numberofpages?.value ?: 0L), (pagearray?.value ?: 0L))
+public actual fun allocateUserPhysicalPages(hprocess: Handle, numberofpages: MutPtr<ULong>, pagearray: MutPtr<ULong>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages(hprocess.rawAddress, numberofpages.rawAddress, pagearray.rawAddress)
 
-public actual fun allocateUserPhysicalPages2(objecthandle: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_allocateUserPhysicalPages2((objecthandle?.value ?: 0L), (numberofpages?.value ?: 0L), (pagearray?.value ?: 0L), (extendedparameters?.value ?: 0L), extendedparametercount.toInt())
+public actual fun allocateUserPhysicalPages2(objecthandle: Handle, numberofpages: MutPtr<ULong>, pagearray: MutPtr<ULong>, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages2(objecthandle.rawAddress, numberofpages.rawAddress, pagearray.rawAddress, extendedparameters.rawAddress, extendedparametercount.toInt())
 
-public actual fun allocateUserPhysicalPagesNuma(hprocess: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?, nndpreferred: UInt): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma((hprocess?.value ?: 0L), (numberofpages?.value ?: 0L), (pagearray?.value ?: 0L), nndpreferred.toInt())
+public actual fun allocateUserPhysicalPagesNuma(hprocess: Handle, numberofpages: MutPtr<ULong>, pagearray: MutPtr<ULong>, nndpreferred: UInt): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPagesNuma(hprocess.rawAddress, numberofpages.rawAddress, pagearray.rawAddress, nndpreferred.toInt())
 
-public actual fun createFileMapping2(file: Handle, securityattributes: COpaquePointer?, desiredaccess: UInt, pageprotection: PageProtectionFlags, allocationattributes: UInt, maximumsize: ULong, name: Pcwstr, extendedparameters: COpaquePointer?, parametercount: UInt): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createFileMapping2((file?.value ?: 0L), (securityattributes?.value ?: 0L), desiredaccess.toInt(), pageprotection.toInt(), allocationattributes.toInt(), maximumsize.toLong(), (name?.value ?: 0L), (extendedparameters?.value ?: 0L), parametercount.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createFileMapping2(file: Handle, securityattributes: ConstPtr<SecurityAttributes>, desiredaccess: UInt, pageprotection: PageProtectionFlags, allocationattributes: UInt, maximumsize: ULong, name: Pcwstr, extendedparameters: MutPtr<MemExtendedParameter>, parametercount: UInt): Handle =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateFileMapping2(file.rawAddress, securityattributes.rawAddress, desiredaccess.toInt(), pageprotection.toInt(), allocationattributes.toInt(), maximumsize.toLong(), name.rawAddress, extendedparameters.rawAddress, parametercount.toInt()))
 
-public actual fun createFileMappingA(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcstr): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createFileMappingA((hfile?.value ?: 0L), (lpfilemappingattributes?.value ?: 0L), flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createFileMappingA(hfile: Handle, lpfilemappingattributes: ConstPtr<SecurityAttributes>, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcstr): Handle =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateFileMappingA(hfile.rawAddress, lpfilemappingattributes.rawAddress, flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), lpname.rawAddress))
 
-public actual fun createFileMappingFromApp(hfile: Handle, securityattributes: COpaquePointer?, pageprotection: PageProtectionFlags, maximumsize: ULong, name: Pcwstr): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createFileMappingFromApp((hfile?.value ?: 0L), (securityattributes?.value ?: 0L), pageprotection.toInt(), maximumsize.toLong(), (name?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createFileMappingFromApp(hfile: Handle, securityattributes: ConstPtr<SecurityAttributes>, pageprotection: PageProtectionFlags, maximumsize: ULong, name: Pcwstr): Handle =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateFileMappingFromApp(hfile.rawAddress, securityattributes.rawAddress, pageprotection.toInt(), maximumsize.toLong(), name.rawAddress))
 
-public actual fun createFileMappingNumaA(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcstr, nndpreferred: UInt): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createFileMappingNumaA((hfile?.value ?: 0L), (lpfilemappingattributes?.value ?: 0L), flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), (lpname?.value ?: 0L), nndpreferred.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createFileMappingNumaA(hfile: Handle, lpfilemappingattributes: ConstPtr<SecurityAttributes>, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcstr, nndpreferred: UInt): Handle =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateFileMappingNumaA(hfile.rawAddress, lpfilemappingattributes.rawAddress, flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), lpname.rawAddress, nndpreferred.toInt()))
 
-public actual fun createFileMappingNumaW(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcwstr, nndpreferred: UInt): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createFileMappingNumaW((hfile?.value ?: 0L), (lpfilemappingattributes?.value ?: 0L), flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), (lpname?.value ?: 0L), nndpreferred.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createFileMappingNumaW(hfile: Handle, lpfilemappingattributes: ConstPtr<SecurityAttributes>, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcwstr, nndpreferred: UInt): Handle =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateFileMappingNumaW(hfile.rawAddress, lpfilemappingattributes.rawAddress, flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), lpname.rawAddress, nndpreferred.toInt()))
 
-public actual fun createFileMappingW(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcwstr): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createFileMappingW((hfile?.value ?: 0L), (lpfilemappingattributes?.value ?: 0L), flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun createFileMappingW(hfile: Handle, lpfilemappingattributes: ConstPtr<SecurityAttributes>, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcwstr): Handle =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateFileMappingW(hfile.rawAddress, lpfilemappingattributes.rawAddress, flprotect.toInt(), dwmaximumsizehigh.toInt(), dwmaximumsizelow.toInt(), lpname.rawAddress))
 
 public actual fun createMemoryResourceNotification(notificationtype: MemoryResourceNotificationType): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_createMemoryResourceNotification(notificationtype).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryCreateMemoryResourceNotification(notificationtype))
 
-public actual fun discardVirtualMemory(virtualaddress: COpaquePointer?, size: ULong): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_discardVirtualMemory((virtualaddress?.value ?: 0L), size.toLong()).toUInt()
+public actual fun discardVirtualMemory(virtualaddress: MutPtr<CVoid>, size: ULong): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryDiscardVirtualMemory(virtualaddress.rawAddress, size.toLong()).toUInt()
 
-public actual fun flushViewOfFile(lpbaseaddress: COpaquePointer?, dwnumberofbytestoflush: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_flushViewOfFile((lpbaseaddress?.value ?: 0L), dwnumberofbytestoflush.toLong())
+public actual fun flushViewOfFile(lpbaseaddress: ConstPtr<CVoid>, dwnumberofbytestoflush: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryFlushViewOfFile(lpbaseaddress.rawAddress, dwnumberofbytestoflush.toLong())
 
-public actual fun freeUserPhysicalPages(hprocess: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_freeUserPhysicalPages((hprocess?.value ?: 0L), (numberofpages?.value ?: 0L), (pagearray?.value ?: 0L))
+public actual fun freeUserPhysicalPages(hprocess: Handle, numberofpages: MutPtr<ULong>, pagearray: ConstPtr<ULong>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryFreeUserPhysicalPages(hprocess.rawAddress, numberofpages.rawAddress, pagearray.rawAddress)
 
 public actual fun getLargePageMinimum(): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getLargePageMinimum().toULong()
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetLargePageMinimum().toULong()
 
-public actual fun getMemoryErrorHandlingCapabilities(capabilities: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities((capabilities?.value ?: 0L))
+public actual fun getMemoryErrorHandlingCapabilities(capabilities: MutPtr<UInt>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetMemoryErrorHandlingCapabilities(capabilities.rawAddress)
 
 public actual fun getProcessHeap(): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getProcessHeap().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetProcessHeap())
 
-public actual fun getProcessHeaps(numberofheaps: UInt, processheaps: COpaquePointer?): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getProcessHeaps(numberofheaps.toInt(), (processheaps?.value ?: 0L)).toUInt()
+public actual fun getProcessHeaps(numberofheaps: UInt, processheaps: MutPtr<Handle>): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetProcessHeaps(numberofheaps.toInt(), processheaps.rawAddress).toUInt()
 
-public actual fun getProcessWorkingSetSizeEx(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?, flags: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx((hprocess?.value ?: 0L), (lpminimumworkingsetsize?.value ?: 0L), (lpmaximumworkingsetsize?.value ?: 0L), (flags?.value ?: 0L))
+public actual fun getProcessWorkingSetSizeEx(hprocess: Handle, lpminimumworkingsetsize: MutPtr<ULong>, lpmaximumworkingsetsize: MutPtr<ULong>, flags: MutPtr<UInt>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetProcessWorkingSetSizeEx(hprocess.rawAddress, lpminimumworkingsetsize.rawAddress, lpmaximumworkingsetsize.rawAddress, flags.rawAddress)
 
-public actual fun getSystemFileCacheSize(lpminimumfilecachesize: COpaquePointer?, lpmaximumfilecachesize: COpaquePointer?, lpflags: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getSystemFileCacheSize((lpminimumfilecachesize?.value ?: 0L), (lpmaximumfilecachesize?.value ?: 0L), (lpflags?.value ?: 0L))
+public actual fun getSystemFileCacheSize(lpminimumfilecachesize: MutPtr<ULong>, lpmaximumfilecachesize: MutPtr<ULong>, lpflags: MutPtr<UInt>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetSystemFileCacheSize(lpminimumfilecachesize.rawAddress, lpmaximumfilecachesize.rawAddress, lpflags.rawAddress)
 
-public actual fun getWriteWatch(dwflags: UInt, lpbaseaddress: COpaquePointer?, dwregionsize: ULong, lpaddresses: COpaquePointer?, lpdwcount: COpaquePointer?, lpdwgranularity: COpaquePointer?): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_getWriteWatch(dwflags.toInt(), (lpbaseaddress?.value ?: 0L), dwregionsize.toLong(), (lpaddresses?.value ?: 0L), (lpdwcount?.value ?: 0L), (lpdwgranularity?.value ?: 0L)).toUInt()
+public actual fun getWriteWatch(dwflags: UInt, lpbaseaddress: ConstPtr<CVoid>, dwregionsize: ULong, lpaddresses: MutPtr<MutPtr<CVoid>>, lpdwcount: MutPtr<ULong>, lpdwgranularity: MutPtr<UInt>): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGetWriteWatch(dwflags.toInt(), lpbaseaddress.rawAddress, dwregionsize.toLong(), lpaddresses.rawAddress, lpdwcount.rawAddress, lpdwgranularity.rawAddress).toUInt()
 
 public actual fun globalAlloc(uflags: GlobalAllocFlags, dwbytes: ULong): Hglobal =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalAlloc(uflags.toInt(), dwbytes.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalAlloc(uflags.toInt(), dwbytes.toLong()))
 
 public actual fun globalFlags(hmem: Hglobal): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalFlags((hmem?.value ?: 0L)).toUInt()
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalFlags(hmem.rawAddress).toUInt()
 
-public actual fun globalHandle(pmem: COpaquePointer?): Hglobal =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalHandle((pmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun globalHandle(pmem: ConstPtr<CVoid>): Hglobal =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalHandle(pmem.rawAddress))
 
-public actual fun globalLock(hmem: Hglobal): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalLock((hmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun globalLock(hmem: Hglobal): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalLock(hmem.rawAddress))
 
 public actual fun globalReAlloc(hmem: Hglobal, dwbytes: ULong, uflags: UInt): Hglobal =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalReAlloc((hmem?.value ?: 0L), dwbytes.toLong(), uflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalReAlloc(hmem.rawAddress, dwbytes.toLong(), uflags.toInt()))
 
 public actual fun globalSize(hmem: Hglobal): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalSize((hmem?.value ?: 0L)).toULong()
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalSize(hmem.rawAddress).toULong()
 
 public actual fun globalUnlock(hmem: Hglobal): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_globalUnlock((hmem?.value ?: 0L))
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryGlobalUnlock(hmem.rawAddress)
 
-public actual fun heapAlloc(hheap: Handle, dwflags: HeapFlags, dwbytes: ULong): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapAlloc((hheap?.value ?: 0L), dwflags.toInt(), dwbytes.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun heapAlloc(hheap: Handle, dwflags: HeapFlags, dwbytes: ULong): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapAlloc(hheap.rawAddress, dwflags.toInt(), dwbytes.toLong()))
 
 public actual fun heapCompact(hheap: Handle, dwflags: HeapFlags): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapCompact((hheap?.value ?: 0L), dwflags.toInt()).toULong()
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapCompact(hheap.rawAddress, dwflags.toInt()).toULong()
 
 public actual fun heapCreate(floptions: HeapFlags, dwinitialsize: ULong, dwmaximumsize: ULong): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapCreate(floptions.toInt(), dwinitialsize.toLong(), dwmaximumsize.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapCreate(floptions.toInt(), dwinitialsize.toLong(), dwmaximumsize.toLong()))
 
 public actual fun heapDestroy(hheap: Handle): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapDestroy((hheap?.value ?: 0L))
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapDestroy(hheap.rawAddress)
 
-public actual fun heapFree(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapFree((hheap?.value ?: 0L), dwflags.toInt(), (lpmem?.value ?: 0L))
+public actual fun heapFree(hheap: Handle, dwflags: HeapFlags, lpmem: ConstPtr<CVoid>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapFree(hheap.rawAddress, dwflags.toInt(), lpmem.rawAddress)
 
 public actual fun heapLock(hheap: Handle): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapLock((hheap?.value ?: 0L))
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapLock(hheap.rawAddress)
 
-public actual fun heapQueryInformation(heaphandle: Handle, heapinformationclass: HeapInformationClass, heapinformation: COpaquePointer?, heapinformationlength: ULong, returnlength: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapQueryInformation((heaphandle?.value ?: 0L), heapinformationclass, (heapinformation?.value ?: 0L), heapinformationlength.toLong(), (returnlength?.value ?: 0L))
+public actual fun heapQueryInformation(heaphandle: Handle, heapinformationclass: HeapInformationClass, heapinformation: MutPtr<CVoid>, heapinformationlength: ULong, returnlength: MutPtr<ULong>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapQueryInformation(heaphandle.rawAddress, heapinformationclass, heapinformation.rawAddress, heapinformationlength.toLong(), returnlength.rawAddress)
 
-public actual fun heapReAlloc(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?, dwbytes: ULong): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapReAlloc((hheap?.value ?: 0L), dwflags.toInt(), (lpmem?.value ?: 0L), dwbytes.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun heapReAlloc(hheap: Handle, dwflags: HeapFlags, lpmem: ConstPtr<CVoid>, dwbytes: ULong): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapReAlloc(hheap.rawAddress, dwflags.toInt(), lpmem.rawAddress, dwbytes.toLong()))
 
-public actual fun heapSetInformation(heaphandle: Handle, heapinformationclass: HeapInformationClass, heapinformation: COpaquePointer?, heapinformationlength: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapSetInformation((heaphandle?.value ?: 0L), heapinformationclass, (heapinformation?.value ?: 0L), heapinformationlength.toLong())
+public actual fun heapSetInformation(heaphandle: Handle, heapinformationclass: HeapInformationClass, heapinformation: ConstPtr<CVoid>, heapinformationlength: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapSetInformation(heaphandle.rawAddress, heapinformationclass, heapinformation.rawAddress, heapinformationlength.toLong())
 
-public actual fun heapSize(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapSize((hheap?.value ?: 0L), dwflags.toInt(), (lpmem?.value ?: 0L)).toULong()
+public actual fun heapSize(hheap: Handle, dwflags: HeapFlags, lpmem: ConstPtr<CVoid>): ULong =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapSize(hheap.rawAddress, dwflags.toInt(), lpmem.rawAddress).toULong()
 
-public actual fun heapSummary(hheap: Handle, dwflags: UInt, lpsummary: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapSummary((hheap?.value ?: 0L), dwflags.toInt(), (lpsummary?.value ?: 0L))
+public actual fun heapSummary(hheap: Handle, dwflags: UInt, lpsummary: MutPtr<HeapSummary>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapSummary(hheap.rawAddress, dwflags.toInt(), lpsummary.rawAddress)
 
 public actual fun heapUnlock(hheap: Handle): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapUnlock((hheap?.value ?: 0L))
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapUnlock(hheap.rawAddress)
 
-public actual fun heapValidate(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapValidate((hheap?.value ?: 0L), dwflags.toInt(), (lpmem?.value ?: 0L))
+public actual fun heapValidate(hheap: Handle, dwflags: HeapFlags, lpmem: ConstPtr<CVoid>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapValidate(hheap.rawAddress, dwflags.toInt(), lpmem.rawAddress)
 
-public actual fun heapWalk(hheap: Handle, lpentry: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_heapWalk((hheap?.value ?: 0L), (lpentry?.value ?: 0L))
+public actual fun heapWalk(hheap: Handle, lpentry: MutPtr<ProcessHeapEntry>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryHeapWalk(hheap.rawAddress, lpentry.rawAddress)
 
 public actual fun isBadCodePtr(lpfn: Farproc): Bool =
     0
 
-public actual fun isBadReadPtr(lp: COpaquePointer?, ucb: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_isBadReadPtr((lp?.value ?: 0L), ucb.toLong())
+public actual fun isBadReadPtr(lp: ConstPtr<CVoid>, ucb: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryIsBadReadPtr(lp.rawAddress, ucb.toLong())
 
 public actual fun isBadStringPtrA(lpsz: Pcstr, ucchmax: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_isBadStringPtrA((lpsz?.value ?: 0L), ucchmax.toLong())
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryIsBadStringPtrA(lpsz.rawAddress, ucchmax.toLong())
 
 public actual fun isBadStringPtrW(lpsz: Pcwstr, ucchmax: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_isBadStringPtrW((lpsz?.value ?: 0L), ucchmax.toLong())
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryIsBadStringPtrW(lpsz.rawAddress, ucchmax.toLong())
 
-public actual fun isBadWritePtr(lp: COpaquePointer?, ucb: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_isBadWritePtr((lp?.value ?: 0L), ucb.toLong())
+public actual fun isBadWritePtr(lp: ConstPtr<CVoid>, ucb: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryIsBadWritePtr(lp.rawAddress, ucb.toLong())
 
 public actual fun localAlloc(uflags: LocalAllocFlags, ubytes: ULong): Hlocal =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localAlloc(uflags.toInt(), ubytes.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalAlloc(uflags.toInt(), ubytes.toLong()))
 
 public actual fun localFlags(hmem: Hlocal): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localFlags((hmem?.value ?: 0L)).toUInt()
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalFlags(hmem.rawAddress).toUInt()
 
-public actual fun localHandle(pmem: COpaquePointer?): Hlocal =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localHandle((pmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun localHandle(pmem: ConstPtr<CVoid>): Hlocal =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalHandle(pmem.rawAddress))
 
-public actual fun localLock(hmem: Hlocal): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localLock((hmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun localLock(hmem: Hlocal): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalLock(hmem.rawAddress))
 
 public actual fun localReAlloc(hmem: Hlocal, ubytes: ULong, uflags: UInt): Hlocal =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localReAlloc((hmem?.value ?: 0L), ubytes.toLong(), uflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalReAlloc(hmem.rawAddress, ubytes.toLong(), uflags.toInt()))
 
 public actual fun localSize(hmem: Hlocal): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localSize((hmem?.value ?: 0L)).toULong()
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalSize(hmem.rawAddress).toULong()
 
 public actual fun localUnlock(hmem: Hlocal): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_localUnlock((hmem?.value ?: 0L))
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryLocalUnlock(hmem.rawAddress)
 
-public actual fun mapUserPhysicalPages(virtualaddress: COpaquePointer?, numberofpages: ULong, pagearray: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_mapUserPhysicalPages((virtualaddress?.value ?: 0L), numberofpages.toLong(), (pagearray?.value ?: 0L))
+public actual fun mapUserPhysicalPages(virtualaddress: ConstPtr<CVoid>, numberofpages: ULong, pagearray: ConstPtr<ULong>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryMapUserPhysicalPages(virtualaddress.rawAddress, numberofpages.toLong(), pagearray.rawAddress)
 
-public actual fun mapUserPhysicalPagesScatter(virtualaddresses: COpaquePointer?, numberofpages: ULong, pagearray: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter((virtualaddresses?.value ?: 0L), numberofpages.toLong(), (pagearray?.value ?: 0L))
+public actual fun mapUserPhysicalPagesScatter(virtualaddresses: ConstPtr<ConstPtr<CVoid>>, numberofpages: ULong, pagearray: ConstPtr<ULong>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryMapUserPhysicalPagesScatter(virtualaddresses.rawAddress, numberofpages.toLong(), pagearray.rawAddress)
 
 public actual fun mapViewOfFile(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
-public actual fun mapViewOfFile3(filemapping: Handle, process: Handle, baseaddress: COpaquePointer?, offset: ULong, viewsize: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): MemoryMappedViewAddress =
+public actual fun mapViewOfFile3(filemapping: Handle, process: Handle, baseaddress: ConstPtr<CVoid>, offset: ULong, viewsize: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, parametercount: UInt): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
-public actual fun mapViewOfFile3FromApp(filemapping: Handle, process: Handle, baseaddress: COpaquePointer?, offset: ULong, viewsize: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): MemoryMappedViewAddress =
+public actual fun mapViewOfFile3FromApp(filemapping: Handle, process: Handle, baseaddress: ConstPtr<CVoid>, offset: ULong, viewsize: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, parametercount: UInt): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
-public actual fun mapViewOfFileEx(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: COpaquePointer?): MemoryMappedViewAddress =
+public actual fun mapViewOfFileEx(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: ConstPtr<CVoid>): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
-public actual fun mapViewOfFileExNuma(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: COpaquePointer?, nndpreferred: UInt): MemoryMappedViewAddress =
+public actual fun mapViewOfFileExNuma(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: ConstPtr<CVoid>, nndpreferred: UInt): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
 public actual fun mapViewOfFileFromApp(hfilemappingobject: Handle, desiredaccess: FileMap, fileoffset: ULong, numberofbytestomap: ULong): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
-public actual fun mapViewOfFileNuma2(filemappinghandle: Handle, processhandle: Handle, offset: ULong, baseaddress: COpaquePointer?, viewsize: ULong, allocationtype: UInt, pageprotection: UInt, preferrednode: UInt): MemoryMappedViewAddress =
+public actual fun mapViewOfFileNuma2(filemappinghandle: Handle, processhandle: Handle, offset: ULong, baseaddress: ConstPtr<CVoid>, viewsize: ULong, allocationtype: UInt, pageprotection: UInt, preferrednode: UInt): MemoryMappedViewAddress =
     MemoryMappedViewAddress()
 
-public actual fun offerVirtualMemory(virtualaddress: COpaquePointer?, size: ULong, priority: OfferPriority): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_offerVirtualMemory((virtualaddress?.value ?: 0L), size.toLong(), priority).toUInt()
+public actual fun offerVirtualMemory(virtualaddress: MutPtr<CVoid>, size: ULong, priority: OfferPriority): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryOfferVirtualMemory(virtualaddress.rawAddress, size.toLong(), priority).toUInt()
 
 public actual fun openDedicatedMemoryPartition(partition: Handle, dedicatedmemorytypeid: ULong, desiredaccess: UInt, inherithandle: Bool): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_openDedicatedMemoryPartition((partition?.value ?: 0L), dedicatedmemorytypeid.toLong(), desiredaccess.toInt(), inherithandle).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryOpenDedicatedMemoryPartition(partition.rawAddress, dedicatedmemorytypeid.toLong(), desiredaccess.toInt(), inherithandle))
 
 public actual fun openFileMappingA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_openFileMappingA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryOpenFileMappingA(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress))
 
 public actual fun openFileMappingFromApp(desiredaccess: UInt, inherithandle: Bool, name: Pcwstr): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_openFileMappingFromApp(desiredaccess.toInt(), inherithandle, (name?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryOpenFileMappingFromApp(desiredaccess.toInt(), inherithandle, name.rawAddress))
 
 public actual fun openFileMappingW(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcwstr): Handle =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_openFileMappingW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryOpenFileMappingW(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress))
 
-public actual fun prefetchVirtualMemory(hprocess: Handle, numberofentries: ULong, virtualaddresses: COpaquePointer?, flags: UInt): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_prefetchVirtualMemory((hprocess?.value ?: 0L), numberofentries.toLong(), (virtualaddresses?.value ?: 0L), flags.toInt())
+public actual fun prefetchVirtualMemory(hprocess: Handle, numberofentries: ULong, virtualaddresses: ConstPtr<Win32MemoryRangeEntry>, flags: UInt): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryPrefetchVirtualMemory(hprocess.rawAddress, numberofentries.toLong(), virtualaddresses.rawAddress, flags.toInt())
 
-public actual fun queryMemoryResourceNotification(resourcenotificationhandle: Handle, resourcestate: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_queryMemoryResourceNotification((resourcenotificationhandle?.value ?: 0L), (resourcestate?.value ?: 0L))
+public actual fun queryMemoryResourceNotification(resourcenotificationhandle: Handle, resourcestate: MutPtr<Bool>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryQueryMemoryResourceNotification(resourcenotificationhandle.rawAddress, resourcestate.rawAddress)
 
-public actual fun queryPartitionInformation(partition: Handle, partitioninformationclass: Win32MemoryPartitionInformationClass, partitioninformation: COpaquePointer?, partitioninformationlength: UInt): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_queryPartitionInformation((partition?.value ?: 0L), partitioninformationclass, (partitioninformation?.value ?: 0L), partitioninformationlength.toInt())
+public actual fun queryPartitionInformation(partition: Handle, partitioninformationclass: Win32MemoryPartitionInformationClass, partitioninformation: MutPtr<CVoid>, partitioninformationlength: UInt): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryQueryPartitionInformation(partition.rawAddress, partitioninformationclass, partitioninformation.rawAddress, partitioninformationlength.toInt())
 
-public actual fun queryVirtualMemoryInformation(process: Handle, virtualaddress: COpaquePointer?, memoryinformationclass: Win32MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationsize: ULong, returnsize: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_queryVirtualMemoryInformation((process?.value ?: 0L), (virtualaddress?.value ?: 0L), memoryinformationclass, (memoryinformation?.value ?: 0L), memoryinformationsize.toLong(), (returnsize?.value ?: 0L))
+public actual fun queryVirtualMemoryInformation(process: Handle, virtualaddress: ConstPtr<CVoid>, memoryinformationclass: Win32MemoryInformationClass, memoryinformation: MutPtr<CVoid>, memoryinformationsize: ULong, returnsize: MutPtr<ULong>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryQueryVirtualMemoryInformation(process.rawAddress, virtualaddress.rawAddress, memoryinformationclass, memoryinformation.rawAddress, memoryinformationsize.toLong(), returnsize.rawAddress)
 
-public actual fun reclaimVirtualMemory(virtualaddress: COpaquePointer?, size: ULong): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_reclaimVirtualMemory((virtualaddress?.value ?: 0L), size.toLong()).toUInt()
+public actual fun reclaimVirtualMemory(virtualaddress: ConstPtr<CVoid>, size: ULong): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryReclaimVirtualMemory(virtualaddress.rawAddress, size.toLong()).toUInt()
 
-public actual fun registerBadMemoryNotification(callback: PbadMemoryCallbackRoutine): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_registerBadMemoryNotification(0L).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun registerBadMemoryNotification(callback: PbadMemoryCallbackRoutine): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryRegisterBadMemoryNotification(0L))
 
 public actual fun removeSecureMemoryCacheCallback(pfncallback: PsecureMemoryCacheCallback): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback(0L)
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryRemoveSecureMemoryCacheCallback(0L)
 
-public actual fun resetWriteWatch(lpbaseaddress: COpaquePointer?, dwregionsize: ULong): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_resetWriteWatch((lpbaseaddress?.value ?: 0L), dwregionsize.toLong()).toUInt()
+public actual fun resetWriteWatch(lpbaseaddress: ConstPtr<CVoid>, dwregionsize: ULong): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryResetWriteWatch(lpbaseaddress.rawAddress, dwregionsize.toLong()).toUInt()
 
-public actual fun rtlCompareMemory(source1: COpaquePointer?, source2: COpaquePointer?, length: ULong): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_rtlCompareMemory((source1?.value ?: 0L), (source2?.value ?: 0L), length.toLong()).toULong()
+public actual fun rtlCompareMemory(source1: ConstPtr<CVoid>, source2: ConstPtr<CVoid>, length: ULong): ULong =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryRtlCompareMemory(source1.rawAddress, source2.rawAddress, length.toLong()).toULong()
 
-public actual fun rtlCrc32(buffer: COpaquePointer?, size: ULong, initialcrc: UInt): UInt =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_rtlCrc32((buffer?.value ?: 0L), size.toLong(), initialcrc.toInt()).toUInt()
+public actual fun rtlCrc32(buffer: ConstPtr<CVoid>, size: ULong, initialcrc: UInt): UInt =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryRtlCrc32(buffer.rawAddress, size.toLong(), initialcrc.toInt()).toUInt()
 
-public actual fun rtlCrc64(buffer: COpaquePointer?, size: ULong, initialcrc: ULong): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_rtlCrc64((buffer?.value ?: 0L), size.toLong(), initialcrc.toLong()).toULong()
+public actual fun rtlCrc64(buffer: ConstPtr<CVoid>, size: ULong, initialcrc: ULong): ULong =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryRtlCrc64(buffer.rawAddress, size.toLong(), initialcrc.toLong()).toULong()
 
-public actual fun rtlIsZeroMemory(buffer: COpaquePointer?, length: ULong): Boolean =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_rtlIsZeroMemory((buffer?.value ?: 0L), length.toLong())
+public actual fun rtlIsZeroMemory(buffer: ConstPtr<CVoid>, length: ULong): Boolean =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryRtlIsZeroMemory(buffer.rawAddress, length.toLong())
 
-public actual fun setProcessValidCallTargets(hprocess: Handle, virtualaddress: COpaquePointer?, regionsize: ULong, numberofoffsets: UInt, offsetinformation: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_setProcessValidCallTargets((hprocess?.value ?: 0L), (virtualaddress?.value ?: 0L), regionsize.toLong(), numberofoffsets.toInt(), (offsetinformation?.value ?: 0L))
+public actual fun setProcessValidCallTargets(hprocess: Handle, virtualaddress: ConstPtr<CVoid>, regionsize: ULong, numberofoffsets: UInt, offsetinformation: MutPtr<CfgCallTargetInfo>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemorySetProcessValidCallTargets(hprocess.rawAddress, virtualaddress.rawAddress, regionsize.toLong(), numberofoffsets.toInt(), offsetinformation.rawAddress)
 
-public actual fun setProcessValidCallTargetsForMappedView(process: Handle, virtualaddress: COpaquePointer?, regionsize: ULong, numberofoffsets: UInt, offsetinformation: COpaquePointer?, section: Handle, expectedfileoffset: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView((process?.value ?: 0L), (virtualaddress?.value ?: 0L), regionsize.toLong(), numberofoffsets.toInt(), (offsetinformation?.value ?: 0L), (section?.value ?: 0L), expectedfileoffset.toLong())
+public actual fun setProcessValidCallTargetsForMappedView(process: Handle, virtualaddress: ConstPtr<CVoid>, regionsize: ULong, numberofoffsets: UInt, offsetinformation: MutPtr<CfgCallTargetInfo>, section: Handle, expectedfileoffset: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemorySetProcessValidCallTargetsForMappedView(process.rawAddress, virtualaddress.rawAddress, regionsize.toLong(), numberofoffsets.toInt(), offsetinformation.rawAddress, section.rawAddress, expectedfileoffset.toLong())
 
 public actual fun setProcessWorkingSetSizeEx(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong, flags: SetprocessworkingsetsizeexFlags): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx((hprocess?.value ?: 0L), dwminimumworkingsetsize.toLong(), dwmaximumworkingsetsize.toLong(), flags.toInt())
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemorySetProcessWorkingSetSizeEx(hprocess.rawAddress, dwminimumworkingsetsize.toLong(), dwmaximumworkingsetsize.toLong(), flags.toInt())
 
 public actual fun setSystemFileCacheSize(minimumfilecachesize: ULong, maximumfilecachesize: ULong, flags: UInt): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_setSystemFileCacheSize(minimumfilecachesize.toLong(), maximumfilecachesize.toLong(), flags.toInt())
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemorySetSystemFileCacheSize(minimumfilecachesize.toLong(), maximumfilecachesize.toLong(), flags.toInt())
 
 public actual fun unmapViewOfFile(lpbaseaddress: MemoryMappedViewAddress): Bool =
     0
@@ -557,53 +560,53 @@ public actual fun unmapViewOfFile2(process: Handle, baseaddress: MemoryMappedVie
 public actual fun unmapViewOfFileEx(baseaddress: MemoryMappedViewAddress, unmapflags: UnmapViewOfFileFlags): Bool =
     0
 
-public actual fun unregisterBadMemoryNotification(registrationhandle: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_unregisterBadMemoryNotification((registrationhandle?.value ?: 0L))
+public actual fun unregisterBadMemoryNotification(registrationhandle: ConstPtr<CVoid>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryUnregisterBadMemoryNotification(registrationhandle.rawAddress)
 
-public actual fun virtualAlloc(lpaddress: COpaquePointer?, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: PageProtectionFlags): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualAlloc((lpaddress?.value ?: 0L), dwsize.toLong(), flallocationtype.toInt(), flprotect.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun virtualAlloc(lpaddress: ConstPtr<CVoid>, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: PageProtectionFlags): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualAlloc(lpaddress.rawAddress, dwsize.toLong(), flallocationtype.toInt(), flprotect.toInt()))
 
-public actual fun virtualAlloc2(process: Handle, baseaddress: COpaquePointer?, size: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualAlloc2((process?.value ?: 0L), (baseaddress?.value ?: 0L), size.toLong(), allocationtype.toInt(), pageprotection.toInt(), (extendedparameters?.value ?: 0L), parametercount.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun virtualAlloc2(process: Handle, baseaddress: ConstPtr<CVoid>, size: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, parametercount: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualAlloc2(process.rawAddress, baseaddress.rawAddress, size.toLong(), allocationtype.toInt(), pageprotection.toInt(), extendedparameters.rawAddress, parametercount.toInt()))
 
-public actual fun virtualAlloc2FromApp(process: Handle, baseaddress: COpaquePointer?, size: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualAlloc2FromApp((process?.value ?: 0L), (baseaddress?.value ?: 0L), size.toLong(), allocationtype.toInt(), pageprotection.toInt(), (extendedparameters?.value ?: 0L), parametercount.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun virtualAlloc2FromApp(process: Handle, baseaddress: ConstPtr<CVoid>, size: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, parametercount: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualAlloc2FromApp(process.rawAddress, baseaddress.rawAddress, size.toLong(), allocationtype.toInt(), pageprotection.toInt(), extendedparameters.rawAddress, parametercount.toInt()))
 
-public actual fun virtualAllocEx(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: PageProtectionFlags): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualAllocEx((hprocess?.value ?: 0L), (lpaddress?.value ?: 0L), dwsize.toLong(), flallocationtype.toInt(), flprotect.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun virtualAllocEx(hprocess: Handle, lpaddress: ConstPtr<CVoid>, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: PageProtectionFlags): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualAllocEx(hprocess.rawAddress, lpaddress.rawAddress, dwsize.toLong(), flallocationtype.toInt(), flprotect.toInt()))
 
-public actual fun virtualAllocExNuma(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: UInt, nndpreferred: UInt): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualAllocExNuma((hprocess?.value ?: 0L), (lpaddress?.value ?: 0L), dwsize.toLong(), flallocationtype.toInt(), flprotect.toInt(), nndpreferred.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun virtualAllocExNuma(hprocess: Handle, lpaddress: ConstPtr<CVoid>, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: UInt, nndpreferred: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualAllocExNuma(hprocess.rawAddress, lpaddress.rawAddress, dwsize.toLong(), flallocationtype.toInt(), flprotect.toInt(), nndpreferred.toInt()))
 
-public actual fun virtualAllocFromApp(baseaddress: COpaquePointer?, size: ULong, allocationtype: VirtualAllocationType, protection: UInt): COpaquePointer? =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualAllocFromApp((baseaddress?.value ?: 0L), size.toLong(), allocationtype.toInt(), protection.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun virtualAllocFromApp(baseaddress: ConstPtr<CVoid>, size: ULong, allocationtype: VirtualAllocationType, protection: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualAllocFromApp(baseaddress.rawAddress, size.toLong(), allocationtype.toInt(), protection.toInt()))
 
-public actual fun virtualFree(lpaddress: COpaquePointer?, dwsize: ULong, dwfreetype: VirtualFreeType): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualFree((lpaddress?.value ?: 0L), dwsize.toLong(), dwfreetype.toInt())
+public actual fun virtualFree(lpaddress: MutPtr<CVoid>, dwsize: ULong, dwfreetype: VirtualFreeType): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualFree(lpaddress.rawAddress, dwsize.toLong(), dwfreetype.toInt())
 
-public actual fun virtualFreeEx(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, dwfreetype: VirtualFreeType): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualFreeEx((hprocess?.value ?: 0L), (lpaddress?.value ?: 0L), dwsize.toLong(), dwfreetype.toInt())
+public actual fun virtualFreeEx(hprocess: Handle, lpaddress: MutPtr<CVoid>, dwsize: ULong, dwfreetype: VirtualFreeType): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualFreeEx(hprocess.rawAddress, lpaddress.rawAddress, dwsize.toLong(), dwfreetype.toInt())
 
-public actual fun virtualLock(lpaddress: COpaquePointer?, dwsize: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualLock((lpaddress?.value ?: 0L), dwsize.toLong())
+public actual fun virtualLock(lpaddress: ConstPtr<CVoid>, dwsize: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualLock(lpaddress.rawAddress, dwsize.toLong())
 
-public actual fun virtualProtect(lpaddress: COpaquePointer?, dwsize: ULong, flnewprotect: PageProtectionFlags, lpfloldprotect: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualProtect((lpaddress?.value ?: 0L), dwsize.toLong(), flnewprotect.toInt(), (lpfloldprotect?.value ?: 0L))
+public actual fun virtualProtect(lpaddress: ConstPtr<CVoid>, dwsize: ULong, flnewprotect: PageProtectionFlags, lpfloldprotect: MutPtr<PageProtectionFlags>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualProtect(lpaddress.rawAddress, dwsize.toLong(), flnewprotect.toInt(), lpfloldprotect.rawAddress)
 
-public actual fun virtualProtectEx(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, flnewprotect: PageProtectionFlags, lpfloldprotect: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualProtectEx((hprocess?.value ?: 0L), (lpaddress?.value ?: 0L), dwsize.toLong(), flnewprotect.toInt(), (lpfloldprotect?.value ?: 0L))
+public actual fun virtualProtectEx(hprocess: Handle, lpaddress: ConstPtr<CVoid>, dwsize: ULong, flnewprotect: PageProtectionFlags, lpfloldprotect: MutPtr<PageProtectionFlags>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualProtectEx(hprocess.rawAddress, lpaddress.rawAddress, dwsize.toLong(), flnewprotect.toInt(), lpfloldprotect.rawAddress)
 
-public actual fun virtualProtectFromApp(address: COpaquePointer?, size: ULong, newprotection: UInt, oldprotection: COpaquePointer?): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualProtectFromApp((address?.value ?: 0L), size.toLong(), newprotection.toInt(), (oldprotection?.value ?: 0L))
+public actual fun virtualProtectFromApp(address: ConstPtr<CVoid>, size: ULong, newprotection: UInt, oldprotection: MutPtr<UInt>): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualProtectFromApp(address.rawAddress, size.toLong(), newprotection.toInt(), oldprotection.rawAddress)
 
-public actual fun virtualQuery(lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, dwlength: ULong): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualQuery((lpaddress?.value ?: 0L), (lpbuffer?.value ?: 0L), dwlength.toLong()).toULong()
+public actual fun virtualQuery(lpaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<MemoryBasicInformation>, dwlength: ULong): ULong =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualQuery(lpaddress.rawAddress, lpbuffer.rawAddress, dwlength.toLong()).toULong()
 
-public actual fun virtualQueryEx(hprocess: Handle, lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, dwlength: ULong): ULong =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualQueryEx((hprocess?.value ?: 0L), (lpaddress?.value ?: 0L), (lpbuffer?.value ?: 0L), dwlength.toLong()).toULong()
+public actual fun virtualQueryEx(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<MemoryBasicInformation>, dwlength: ULong): ULong =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualQueryEx(hprocess.rawAddress, lpaddress.rawAddress, lpbuffer.rawAddress, dwlength.toLong()).toULong()
 
-public actual fun virtualUnlock(lpaddress: COpaquePointer?, dwsize: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualUnlock((lpaddress?.value ?: 0L), dwsize.toLong())
+public actual fun virtualUnlock(lpaddress: ConstPtr<CVoid>, dwsize: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualUnlock(lpaddress.rawAddress, dwsize.toLong())
 
-public actual fun virtualUnlockEx(process: Handle, address: COpaquePointer?, size: ULong): Bool =
-    WindowsWin32SystemMemoryJniBridge.windowssys_windows_win32_system_memory_virtualUnlockEx((process?.value ?: 0L), (address?.value ?: 0L), size.toLong())
+public actual fun virtualUnlockEx(process: Handle, address: ConstPtr<CVoid>, size: ULong): Bool =
+    WindowsWin32SystemMemoryJniBridge.windowssysWindowsWin32SystemMemoryVirtualUnlockEx(process.rawAddress, address.rawAddress, size.toLong())

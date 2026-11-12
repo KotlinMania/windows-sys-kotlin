@@ -1,19 +1,20 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public actual fun ualInstrument(data: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+// The host must provide the C companion wrapper exports in import module windowssys.
+public actual fun ualInstrument(data: ConstPtr<UalDataBlob>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemUseraccessloggingUalInstrument")
 
 public actual fun ualRegisterProduct(wszproductname: Pcwstr, wszrolename: Pcwstr, wszguid: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemUseraccessloggingUalRegisterProduct")
 
-public actual fun ualStart(data: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun ualStart(data: ConstPtr<UalDataBlob>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemUseraccessloggingUalStart")
 
-public actual fun ualStop(data: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun ualStop(data: ConstPtr<UalDataBlob>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemUseraccessloggingUalStop")

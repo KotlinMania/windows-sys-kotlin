@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalValue(void* key, void* ppropvar) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue(void* key, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalVa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPropertyStore(void* pps, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore(void* pps, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultiplexPropertyStore(int32_t flags, void* pdpsf, void* rgstoreids, uint32_t cstores, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore(int32_t flags, void* pdpsf, void* rgstoreids, uint32_t cstores, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultip
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropertyStore(void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore(void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -112,7 +112,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropert
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexPropertyStore(void* prgpunkstores, uint32_t cstores, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore(void* prgpunkstores, uint32_t cstores, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -137,7 +137,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexProp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChangeArray(void* rgpropkey, void* rgflags, void* rgpropvar, uint32_t cchanges, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray(void* rgpropkey, void* rgflags, void* rgpropvar, uint32_t cchanges, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -164,7 +164,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChang
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromObject(void* punk, uint32_t grfmode, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject(void* punk, uint32_t grfmode, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStore
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromPropertySetStorage(void* ppss, uint32_t grfmode, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage(void* ppss, uint32_t grfmode, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStore
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropertyChange(int32_t flags, void* key, void* propvar, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange(int32_t flags, void* key, void* propvar, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -240,7 +240,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropert
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDescriptions(int32_t filteron, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions(int32_t filteron, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDe
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay(void* propkey, void* propvar, int32_t pdfflags, void* pwsztext, uint32_t cchtext) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay(void* propkey, void* propvar, int32_t pdfflags, void* pwsztext, uint32_t cchtext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -290,7 +290,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAlloc(void* key, void* propvar, int32_t pdff, void* ppszdisplay) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc(void* key, void* propvar, int32_t pdff, void* ppszdisplay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -315,7 +315,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAll
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue(void* pps, void* ppd, int32_t pdff, void* ppszdisplay) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue(void* pps, void* ppd, int32_t pdff, void* ppszdisplay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceForValue(void* propkey, void* propvar, void* ppszimageres) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue(void* propkey, void* propvar, void* ppszimageres) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -364,7 +364,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceFo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandler(void* punkitem, int32_t freadwrite, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler(void* punkitem, int32_t freadwrite, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -389,7 +389,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHand
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandlerWithCreateObject(void* punkitem, int32_t freadwrite, void* punkcreateobject, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject(void* punkitem, int32_t freadwrite, void* punkcreateobject, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -415,7 +415,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHand
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey(void* propkey, void* ppszcanonicalname) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey(void* propkey, void* ppszcanonicalname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -438,7 +438,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage(int64_t psps, uint32_t cb, void* pszname, void* ppropvar) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage(int64_t psps, uint32_t cb, void* pszname, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -463,7 +463,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription(void* propkey, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription(void* propkey, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -487,7 +487,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescript
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionByName(void* pszcanonicalname, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName(void* pszcanonicalname, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -511,7 +511,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescript
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString(void* pszproplist, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString(void* pszproplist, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -535,7 +535,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescript
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage(int64_t psps, uint32_t cb, void* rpkey, void* ppropvar) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage(int64_t psps, uint32_t cb, void* rpkey, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -560,7 +560,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromProp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName(void* pszname, void* ppropkey) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName(void* pszname, void* ppropkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -583,7 +583,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromN
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem(void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem(void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -606,7 +606,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue(void* pps, void* ppd, void* ppropvar) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue(void* pps, void* ppd, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandlerCLSID(void* pszfilepath, void* pclsid) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID(void* pszfilepath, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -653,7 +653,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandl
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete(void* propbag, void* propname) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete(void* propbag, void* propname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -676,7 +676,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -700,7 +700,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -724,7 +724,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDword(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDwor
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +772,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -796,7 +796,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -820,7 +820,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPointl(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -844,7 +844,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoints(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -868,7 +868,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPropertyKey(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadProp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRectl(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRect
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShort(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +940,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShor
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr(void* propbag, void* propname, void* value, int32_t charactercount) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr(void* propbag, void* propname, void* value, int32_t charactercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -965,7 +965,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrAlloc(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -989,7 +989,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrA
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStream(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1013,7 +1013,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStre
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType(void* propbag, void* propname, void* var, uint16_t type) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType(void* propbag, void* propname, void* var, uint16_t type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1038,7 +1038,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlonglong(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1062,7 +1062,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlon
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnknown(void* propbag, void* propname, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown(void* propbag, void* propname, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1087,7 +1087,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnkn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBool(void* propbag, void* propname, int32_t value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool(void* propbag, void* propname, int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1111,7 +1111,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBoo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBstr(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1135,7 +1135,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBst
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDword(void* propbag, void* propname, uint32_t value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword(void* propbag, void* propname, uint32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDwo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGuid(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1183,7 +1183,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt(void* propbag, void* propname, int32_t value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt(void* propbag, void* propname, int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1207,7 +1207,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLong(void* propbag, void* propname, int32_t value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong(void* propbag, void* propname, int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1231,7 +1231,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLon
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePointl(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1255,7 +1255,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoints(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1279,7 +1279,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePropertyKey(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1303,7 +1303,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRectl(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1327,7 +1327,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRec
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteShort(void* propbag, void* propname, int16_t value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort(void* propbag, void* propname, int16_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1351,7 +1351,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteSho
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1375,7 +1375,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStream(void* propbag, void* propname, void* value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream(void* propbag, void* propname, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1399,7 +1399,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlonglong(void* propbag, void* propname, uint64_t value) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong(void* propbag, void* propname, uint64_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1423,7 +1423,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnknown(void* propbag, void* propname, void* punk) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown(void* propbag, void* propname, void* punk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1447,7 +1447,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnk
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromString(void* pszstring, void* pkey) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString(void* pszstring, void* pkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1470,7 +1470,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromStri
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySchema(void) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1491,7 +1491,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySche
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySchema(void* pszpath) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1513,7 +1513,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySch
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue(void* pps, void* ppd, void* propvar) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue(void* pps, void* ppd, void* propvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1537,7 +1537,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyKey(void* pkey, void* psz, uint32_t cch) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey(void* pkey, void* psz, uint32_t cch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1561,7 +1561,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyK
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertySchema(void* pszpath) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPSUnregisterPropertySchema(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1583,7 +1583,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertyS
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties(void* hprops, uint32_t flopt) {
+void* windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties(void* hprops, uint32_t flopt) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1606,7 +1606,7 @@ void* windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties(void* hprops, void* pszgroup, void* lpprops, int32_t cbprops, uint32_t flopt) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties(void* hprops, void* pszgroup, void* lpprops, int32_t cbprops, uint32_t flopt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1632,7 +1632,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties(v
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties(void* pszapp, void* pszpif, uint32_t hinf, uint32_t flopt) {
+void* windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties(void* pszapp, void* pszpif, uint32_t hinf, uint32_t flopt) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1657,7 +1657,7 @@ void* windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties(void* hprops, void* pszgroup, void* lpprops, int32_t cbprops, uint32_t flopt) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties(void* hprops, void* pszgroup, void* lpprops, int32_t cbprops, uint32_t flopt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1683,7 +1683,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertiesByExt(void* pszext, void* ppropstore) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt(void* pszext, void* ppropstore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1706,7 +1706,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertie
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreForWindow(void* hwnd, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow(void* hwnd, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1730,7 +1730,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFor
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromIDList(void* pidl, int32_t flags, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList(void* pidl, int32_t flags, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1755,7 +1755,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromParsingName(void* pszpath, void* pbc, int32_t flags, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName(void* pszpath, void* pbc, int32_t flags, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1781,7 +1781,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate(void* psstg, void* fmtid, void* pclsid, uint32_t grfflags, uint32_t grfmode, uint32_t dwdisposition, void* ppstg, void* pucodepage) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate(void* psstg, void* fmtid, void* pclsid, uint32_t grfflags, uint32_t grfmode, uint32_t dwdisposition, void* ppstg, void* pucodepage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1810,7 +1810,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple(void* pps, uint32_t ucodepage, uint32_t cpspec, void* rgpspec, void* rgvar) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple(void* pps, uint32_t ucodepage, uint32_t cpspec, void* rgpspec, void* rgvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1836,7 +1836,7 @@ int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgWriteMultiple(void* pps, void* pucodepage, uint32_t cpspec, void* rgpspec, void* rgvar, uint32_t propidnamefirst) {
+int32_t windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple(void* pps, void* pucodepage, uint32_t cpspec, void* rgpspec, void* rgvar, uint32_t propidnamefirst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

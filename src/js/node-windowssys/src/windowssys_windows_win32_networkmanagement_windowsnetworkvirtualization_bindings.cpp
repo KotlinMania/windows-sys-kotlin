@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -74,7 +74,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsnetworkvirt
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wnvhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* notificationparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -106,8 +106,8 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsnetworkvirt
 }
 
 static void register_windows_win32_networkmanagement_windowsnetworkvirtualization_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_windowsnetworkvirtualization_napi, nullptr };

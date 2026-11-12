@@ -2,16 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization.cinterop.windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization.cinterop.windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization.cinterop.windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization.cinterop.windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification
+import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
 public actual fun wnvOpen(): Handle =
-    windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen()?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen()?.toLong() ?: 0L)
 
-public actual fun wnvRequestNotification(wnvhandle: Handle, notificationparam: COpaquePointer?, overlapped: COpaquePointer?, bytestransferred: COpaquePointer?): UInt =
-    windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification(wnvhandle?.value?.toCPointer<ByteVar>(), notificationparam?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>(), bytestransferred?.value?.toCPointer<ByteVar>())
+public actual fun wnvRequestNotification(wnvhandle: Handle, notificationparam: MutPtr<WnvNotificationParam>, overlapped: MutPtr<Overlapped>, bytestransferred: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(wnvhandle.rawAddress.toCPointer<ByteVar>(), notificationparam.rawAddress.toCPointer<ByteVar>(), overlapped.rawAddress.toCPointer<ByteVar>(), bytestransferred.rawAddress.toCPointer<ByteVar>())

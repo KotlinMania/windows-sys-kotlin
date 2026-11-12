@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCheckManifest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheCheckManifest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszmasterurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszmanifesturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -90,7 +90,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCheckMani
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -112,7 +112,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCloseHand
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheCreateAndCommitFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszsourcefilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -145,7 +145,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCreateAnd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDeleteGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheDeleteGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszmanifesturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -170,7 +170,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDeleteGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheDeleteIEGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszmanifesturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDeleteIEG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheDuplicateHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phduplicatedappcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -222,7 +222,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDuplicate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFinalize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheFinalize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbmanifestdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFinalize_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheFreeDownloadList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdownloadlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -275,7 +275,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFreeDownl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFreeGroupList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheFreeGroupList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pappcachegrouplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFreeGroup
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetDownloadList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheGetDownloadList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdownloadlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetDownlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheGetFallbackUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -353,7 +353,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetFallba
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetGroupList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheGetGroupList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pappcachegrouplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -378,7 +378,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetGroupL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheGetIEGroupList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pappcachegrouplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -403,7 +403,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetIEGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pappcacheinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheGetManifestUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszmanifesturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetManife
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_appCacheLookup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetAppCacheLookup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -486,7 +486,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheLookup_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createMD5SSOHash_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateMD5SSOHash_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszchallengeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszrealm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -517,7 +517,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createMD5SSOHash_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -556,7 +556,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -595,7 +595,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwexpectedfilesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -628,7 +628,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwexpectedfilesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwexpectedfilesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -696,7 +696,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetCreateUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheGro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteIE3Cache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteIE3Cache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -754,7 +754,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteIE3Cache_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -808,7 +808,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -833,7 +833,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -858,7 +858,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t groupid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -912,7 +912,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheGro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t param0 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -937,7 +937,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteWpadCacheFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_detectAutoProxyUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDetectAutoProxyUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszautoproxyurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchautoproxyurl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -966,7 +966,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_detectAutoProxyUr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_doConnectoidsExist_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetDoConnectoidsExist_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -989,7 +989,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_doConnectoidsExis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_exportCookieFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetExportCookieFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fappend = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1016,7 +1016,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_exportCookieFileA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_exportCookieFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetExportCookieFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fappend = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1043,7 +1043,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_exportCookieFileW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findCloseUrlCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindCloseUrlCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1068,7 +1068,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findCloseUrlCache
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwmodified = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontainerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1099,7 +1099,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwmodified = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontainerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1130,7 +1130,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlsearchpattern = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfirstcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1159,7 +1159,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlsearchpattern = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1200,7 +1200,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlsearchpattern = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1241,7 +1241,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlsearchpattern = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfirstcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1270,7 +1270,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwfilter = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontainerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1334,7 +1334,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontainerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1363,7 +1363,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnextcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1392,7 +1392,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnextcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1427,7 +1427,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnextcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1462,7 +1462,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnextcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1491,7 +1491,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindNextUrlCacheGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpgroupid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1520,7 +1520,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_findP3PPolicySymbol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFindP3PPolicySymbol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsymbol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1545,7 +1545,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findP3PPolicySymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszcachepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1574,7 +1574,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_freeUrlCacheSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszcachepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1603,7 +1603,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_freeUrlCacheSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpCommandA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fexpectresponse = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1638,7 +1638,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpCommandW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fexpectresponse = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1673,7 +1673,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1700,7 +1700,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCreateDirector
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1727,7 +1727,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCreateDirector
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpDeleteFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpDeleteFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1754,7 +1754,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpDeleteFileA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpDeleteFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpDeleteFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1781,7 +1781,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpDeleteFileW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpFindFirstFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpFindFirstFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszsearchfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1814,7 +1814,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpFindFirstFileA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpFindFirstFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpFindFirstFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszsearchfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1847,7 +1847,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpFindFirstFileW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcurrentdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1876,7 +1876,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetCurrentDire
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcurrentdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1905,7 +1905,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetCurrentDire
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpGetFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszremotefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1942,7 +1942,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpGetFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hftpsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszremotefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1979,7 +1979,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpGetFileSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwfilesizehigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2006,7 +2006,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileSize_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpGetFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszremotefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2043,7 +2043,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpOpenFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpOpenFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2076,7 +2076,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpOpenFileA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpOpenFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpOpenFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2109,7 +2109,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpOpenFileW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpPutFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocalfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2142,7 +2142,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpPutFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hftpsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocalfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2175,7 +2175,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpPutFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocalfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2208,7 +2208,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2235,7 +2235,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRemoveDirector
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2262,7 +2262,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRemoveDirector
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpRenameFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpRenameFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszexisting = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2291,7 +2291,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRenameFileA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpRenameFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpRenameFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszexisting = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2320,7 +2320,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRenameFileW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2347,7 +2347,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpSetCurrentDire
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2374,7 +2374,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpSetCurrentDire
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getDiskInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetDiskInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwclustersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2405,7 +2405,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getDiskInfoA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcacheconfiginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcbcacheconfiginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2434,7 +2434,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcacheconfiginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcbcacheconfiginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2463,7 +2463,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryBinaryBlob_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dwtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2500,7 +2500,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2529,7 +2529,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2566,7 +2566,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2603,7 +2603,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2632,7 +2632,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t gid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2667,7 +2667,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t gid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2702,7 +2702,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGetUrlCacheHeaderData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nidx = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2729,7 +2729,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheHeader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocatorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherCreateLocatorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t nserverport = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2766,7 +2766,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocatorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherCreateLocatorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t nserverport = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2803,7 +2803,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherFindFirstFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2838,7 +2838,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherFindFirstFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2873,7 +2873,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttributeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherGetAttributeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2912,7 +2912,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttribut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttributeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherGetAttributeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2951,7 +2951,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttribut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwgophertype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2978,7 +2978,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetLocatorT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwgophertype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3005,7 +3005,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetLocatorT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherOpenFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherOpenFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3038,7 +3038,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherOpenFileA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_gopherOpenFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetGopherOpenFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3071,7 +3071,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherOpenFileW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3102,7 +3102,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpAddRequestHea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3133,7 +3133,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpAddRequestHea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcompliancetoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3166,7 +3166,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpCheckDavCompl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcompliancetoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3199,7 +3199,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpCheckDavCompl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpCloseDependencyHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdependencyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3221,7 +3221,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpCloseDependen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpDuplicateDependencyHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdependencyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phduplicateddependencyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3248,7 +3248,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpDuplicateDepe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpEndRequestA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpEndRequestA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3279,7 +3279,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpEndRequestA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpEndRequestW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpEndRequestW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3310,7 +3310,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpEndRequestW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpGetServerCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpGetServerCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3339,7 +3339,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpGetServerCred
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpIndicatePageLoadComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdependencyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3364,7 +3364,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpIndicatePageL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpIsHostHstsEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfishsts = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3391,7 +3391,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpIsHostHstsEna
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpOpenDependencyHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequesthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fbackground = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3420,7 +3420,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenDependenc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpOpenRequestA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszverb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3459,7 +3459,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpOpenRequestW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconnect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszverb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3498,7 +3498,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpPushClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpPushClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwait = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3520,7 +3520,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpPushClose_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpPushEnable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpPushEnable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptransportsetting = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3549,7 +3549,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpPushEnable_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpPushWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpPushWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwait = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t etype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3578,7 +3578,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpPushWait_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpQueryInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpQueryInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3611,7 +3611,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpQueryInfoA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpQueryInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpQueryInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3644,7 +3644,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpQueryInfoW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpSendRequestA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3677,7 +3677,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpSendRequestExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3710,7 +3710,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpSendRequestExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3743,7 +3743,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpSendRequestW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3776,7 +3776,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpWebSocketClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t usstatus = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3807,7 +3807,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpWebSocketCompleteUpgrade_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwcontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3834,7 +3834,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketComp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpWebSocketQueryCloseStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3867,7 +3867,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketQuer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketReceive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpWebSocketReceive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3900,7 +3900,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketRece
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketSend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpWebSocketSend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t buffertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3931,7 +3931,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketSend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetHttpWebSocketShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwebsocket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t usstatus = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3962,7 +3962,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketShut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_importCookieFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetImportCookieFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3987,7 +3987,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_importCookieFileA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_importCookieFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetImportCookieFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4012,7 +4012,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_importCookieFileW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIncrementUrlCacheHeaderData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nidx = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdwdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4039,7 +4039,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_incrementUrlCache
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internalInternetGetCookie_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternalInternetGetCookie_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4068,7 +4068,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internalInternetG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetAlgIdToStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ai = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4099,7 +4099,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAlgIdToSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetAlgIdToStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ai = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4130,7 +4130,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAlgIdToSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetAttemptConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetAttemptConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4155,7 +4155,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAttemptCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetAutodial_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetAutodial_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4182,7 +4182,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAutodial_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetAutodialHangup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetAutodialHangup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4207,7 +4207,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAutodialH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4238,7 +4238,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCanonical
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4269,7 +4269,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCanonical
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCheckConnectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCheckConnectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4298,7 +4298,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCheckConn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCheckConnectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCheckConnectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4327,7 +4327,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCheckConn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4350,7 +4350,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetClearAllP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4375,7 +4375,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCloseHand
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCombineUrlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCombineUrlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszbaseurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszrelativeurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4408,7 +4408,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCombineUr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCombineUrlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCombineUrlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszbaseurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszrelativeurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4441,7 +4441,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCombineUr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szurlprev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4472,7 +4472,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szurlprev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4503,7 +4503,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szurlprev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4534,7 +4534,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetConnectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4573,7 +4573,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetConnectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4612,7 +4612,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetConvertUrlFromWireToWideChar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchurl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4651,7 +4651,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConvertUr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCrackUrlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCrackUrlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwurllength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4682,7 +4682,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCrackUrlA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCrackUrlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCrackUrlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwurllength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4713,7 +4713,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCrackUrlW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCreateUrlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCreateUrlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpurlcomponents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4744,7 +4744,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCreateUrl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetCreateUrlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetCreateUrlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpurlcomponents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4775,7 +4775,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCreateUrl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetDial_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetDial_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszconnectoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4808,7 +4808,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetDial_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetDialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetDialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszconnectoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4841,7 +4841,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetDialA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetDialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetDialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszconnectoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4874,7 +4874,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetDialW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsitename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsitenamesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4905,7 +4905,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetEnumPerSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsitename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsitenamesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4936,7 +4936,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetEnumPerSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetErrorDlg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetErrorDlg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4969,7 +4969,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetErrorDlg_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetFindNextFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetFindNextFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvfinddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4996,7 +4996,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFindNextF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetFindNextFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetFindNextFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvfinddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5023,7 +5023,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFindNextF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetFortezzaCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetFortezzaCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcommand = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5052,7 +5052,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFortezzaC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetFreeCookies_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetFreeCookies_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcookies = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcookiecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5076,7 +5076,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFreeCooki
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetFreeProxyInfoList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxyinfolist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5098,7 +5098,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFreeProxy
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnectedState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetConnectedState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5125,7 +5125,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5156,7 +5156,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5187,7 +5187,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszconnectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5218,7 +5218,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookieA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetCookieA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5249,7 +5249,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookieEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetCookieEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5282,7 +5282,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookieExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetCookieExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5317,7 +5317,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookieExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetCookieExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5352,7 +5352,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookieW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetCookieW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5383,7 +5383,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwerror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5412,7 +5412,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetLastRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwerror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5441,7 +5441,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetLastRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* presult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5468,7 +5468,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetPerSit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* presult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5495,7 +5495,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetPerSit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetProxyForUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetProxyForUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5524,7 +5524,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetProxyF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcertchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5553,7 +5553,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcertchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5582,7 +5582,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcertchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5611,7 +5611,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnline_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGoOnline_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5640,7 +5640,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnline_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnlineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGoOnlineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5669,7 +5669,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnlineA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnlineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetGoOnlineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5698,7 +5698,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnlineW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetHangUp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetHangUp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t dwconnection = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5725,7 +5725,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetHangUp_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5750,7 +5750,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetInitializ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetLockRequestFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetLockRequestFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphlockrequestinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5777,7 +5777,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetLockReque
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetOpenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszagent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaccesstype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5810,7 +5810,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetOpenUrlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5845,7 +5845,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetOpenUrlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5880,7 +5880,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetOpenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszagent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaccesstype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5913,7 +5913,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryDataAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetQueryDataAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwnumberofbytesavailable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5944,7 +5944,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryData
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetQueryFortezzaStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwreserved = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5971,7 +5971,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryFort
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryOptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetQueryOptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6002,7 +6002,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryOpti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryOptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetQueryOptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6033,7 +6033,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryOpti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetReadFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6064,7 +6064,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFile_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetReadFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6095,7 +6095,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFileE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetReadFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6126,7 +6126,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFileE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprotocol = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6157,7 +6157,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSecurityP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprotocol = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6188,7 +6188,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSecurityP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookieA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetCookieA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6217,7 +6217,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookieEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetCookieEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6250,7 +6250,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookieExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetCookieExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6283,7 +6283,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookieExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetCookieExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6316,7 +6316,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookieW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetCookieW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6345,7 +6345,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetDialState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszconnectoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6374,7 +6374,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetDialStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszconnectoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6403,7 +6403,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetDialStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszconnectoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6432,7 +6432,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetFilePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetFilePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ldistancetomove = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6465,7 +6465,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetFilePo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetOptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6496,7 +6496,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOptionExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetOptionExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6529,7 +6529,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOptionExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetOptionExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6562,7 +6562,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetOptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6593,7 +6593,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdecision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6620,7 +6620,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetPerSit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdecision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6647,7 +6647,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetPerSit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatusCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetStatusCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfninternetcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6674,7 +6674,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatus
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfninternetcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6701,7 +6701,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatus
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinternet = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfninternetcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6728,7 +6728,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatus
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6755,7 +6755,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6782,7 +6782,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6809,7 +6809,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwrfc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6840,7 +6840,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwrfc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6871,7 +6871,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwrfc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6902,7 +6902,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsztime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6931,7 +6931,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSys
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsztime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6960,7 +6960,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSys
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsztime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6989,7 +6989,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSys
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetUnlockRequestFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetUnlockRequestFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlockrequestinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7014,7 +7014,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetUnlockReq
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetWriteFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7045,7 +7045,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetWriteFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7076,7 +7076,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetInternetWriteFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffersin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7107,7 +7107,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchdomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pchfulldomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7134,7 +7134,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isDomainLegalCook
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pchdomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pchfulldomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7161,7 +7161,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isDomainLegalCook
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_isHostInProxyBypassList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIsHostInProxyBypassList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t tscheme = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7190,7 +7190,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isHostInProxyBypa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_isProfilesEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIsProfilesEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -7213,7 +7213,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isProfilesEnabled
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7242,7 +7242,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isUrlCacheEntryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7271,7 +7271,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isUrlCacheEntryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_loadUrlCacheContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetLoadUrlCacheContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -7294,7 +7294,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_loadUrlCacheConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetParseX509EncodedCertificateForListBoxEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbcert = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7325,7 +7325,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_parseX509EncodedC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetPerformOperationOverUrlCacheA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurlsearchpattern = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7366,7 +7366,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_performOperationO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetPrivacyGetZonePreferenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwzone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7399,7 +7399,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_privacyGetZonePre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetPrivacySetZonePreferenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwzone = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7430,7 +7430,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_privacySetZonePre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetReadGuidsForConnectedNetworks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcnetworks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pppwsznetworkguids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7465,7 +7465,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readGuidsForConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hurlcachestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlocation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7498,7 +7498,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readUrlCacheEntry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStreamEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hurlcachestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t qwlocation = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7529,7 +7529,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readUrlCacheEntry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_registerUrlCacheNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetRegisterUrlCacheNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7562,7 +7562,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_registerUrlCacheN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_resumeSuspendedDownload_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetResumeSuspendedDownload_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwresultcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7589,7 +7589,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_resumeSuspendedDo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7620,7 +7620,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7651,7 +7651,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7684,7 +7684,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7717,7 +7717,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_runOnceUrlCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetRunOnceUrlCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7748,7 +7748,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_runOnceUrlCache_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcacheconfiginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfieldcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7775,7 +7775,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcacheconfiginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfieldcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7802,7 +7802,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7837,7 +7837,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7872,7 +7872,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7907,7 +7907,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7936,7 +7936,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7965,7 +7965,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t gid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7998,7 +7998,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheGroupA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t gid = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8031,7 +8031,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheGroupA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nidx = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8058,7 +8058,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheHeader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_showClientAuthCerts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetShowClientAuthCerts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8083,7 +8083,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_showClientAuthCer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_showSecurityInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetShowSecurityInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psecurityinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8110,7 +8110,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_showSecurityInfo_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_showX509EncodedCertificate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetShowX509EncodedCertificate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8139,7 +8139,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_showX509EncodedCe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8166,7 +8166,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8193,7 +8193,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8220,7 +8220,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hurlcachestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8247,7 +8247,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUpdateUrlCacheContentPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sznewpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8272,7 +8272,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_updateUrlCacheCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheCheckEntriesExist_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rgpwszurls = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t centries = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8301,7 +8301,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCheckEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheCloseEntryHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hentryfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8323,7 +8323,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCloseEntr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheContainerSetEntryMaximumAge_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwentrymaxage = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8350,7 +8350,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheContainer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCreateContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheCreateContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8383,7 +8383,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCreateCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheFindFirstEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8418,7 +8418,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindFirst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheFindNextEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8445,7 +8445,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindNextE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheFreeEntryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcacheentryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8467,7 +8467,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFreeEntry
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheFreeGlobalSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ulltargetsize = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwfilter = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8494,7 +8494,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFreeGloba
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheGetContentPaths_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pppwszdirectories = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcdirectories = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8521,7 +8521,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetConten
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheGetEntryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8550,7 +8550,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetEntryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalCacheSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwfilter = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pullsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8579,7 +8579,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetGlobal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t limittype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulllimit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8606,7 +8606,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetGlobal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheReadEntryStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hurlcachestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ulllocation = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -8639,7 +8639,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheReadEntry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheReloadSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheReloadSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -8662,7 +8662,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheReloadSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8693,7 +8693,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheRetrieveE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8726,7 +8726,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheRetrieveE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -8749,7 +8749,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheServer_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheSetGlobalLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t limittype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t ulllimit = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -8776,7 +8776,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheSetGlobal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWininetUrlCacheUpdateEntryExtraData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* happcache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8808,297 +8808,297 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheUpdateEnt
 }
 
 static void register_windows_win32_networking_wininet_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheCheckManifest", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheCheckManifest_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheDeleteGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheDeleteGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheFinalize", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheFinalize_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheFreeGroupList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheFreeGroupList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheGetDownloadList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheGetDownloadList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheGetGroupList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheGetGroupList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheGetInfo", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_appCacheLookup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_appCacheLookup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createMD5SSOHash", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createMD5SSOHash_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createUrlCacheContainerA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createUrlCacheContainerA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createUrlCacheContainerW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createUrlCacheContainerW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createUrlCacheEntryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createUrlCacheEntryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createUrlCacheEntryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createUrlCacheEntryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_createUrlCacheGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_createUrlCacheGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteIE3Cache", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteIE3Cache_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_detectAutoProxyUrl", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_detectAutoProxyUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_doConnectoidsExist", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_doConnectoidsExist_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_exportCookieFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_exportCookieFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_exportCookieFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_exportCookieFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findCloseUrlCache", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findCloseUrlCache_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_findP3PPolicySymbol", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_findP3PPolicySymbol_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpCommandA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpCommandA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpCommandW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpCommandW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpDeleteFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpDeleteFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpDeleteFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpDeleteFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpFindFirstFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpFindFirstFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpFindFirstFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpFindFirstFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpGetFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpGetFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpGetFileEx", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpGetFileEx_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpGetFileSize", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpGetFileSize_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpGetFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpGetFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpOpenFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpOpenFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpOpenFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpOpenFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpPutFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpPutFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpPutFileEx", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpPutFileEx_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpPutFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpPutFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpRenameFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpRenameFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpRenameFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpRenameFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getDiskInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getDiskInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherCreateLocatorA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherCreateLocatorA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherCreateLocatorW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherCreateLocatorW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherFindFirstFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherFindFirstFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherFindFirstFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherFindFirstFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherGetAttributeA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherGetAttributeA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherGetAttributeW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherGetAttributeW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherOpenFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherOpenFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_gopherOpenFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_gopherOpenFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpEndRequestA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpEndRequestA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpEndRequestW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpEndRequestW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpGetServerCredentials", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpGetServerCredentials_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpOpenRequestA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpOpenRequestA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpOpenRequestW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpOpenRequestW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpPushClose", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpPushClose_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpPushEnable", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpPushEnable_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpPushWait", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpPushWait_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpQueryInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpQueryInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpQueryInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpQueryInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpSendRequestA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpSendRequestA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpSendRequestExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpSendRequestExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpSendRequestExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpSendRequestExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpSendRequestW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpSendRequestW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpWebSocketClose", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpWebSocketClose_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpWebSocketReceive", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpWebSocketReceive_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpWebSocketSend", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpWebSocketSend_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_httpWebSocketShutdown", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_httpWebSocketShutdown_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_importCookieFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_importCookieFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_importCookieFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_importCookieFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internalInternetGetCookie", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internalInternetGetCookie_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetAlgIdToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetAlgIdToStringA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetAlgIdToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetAlgIdToStringW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetAttemptConnect", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetAttemptConnect_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetAutodial", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetAutodial_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetAutodialHangup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetAutodialHangup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCheckConnectionA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCheckConnectionA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCheckConnectionW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCheckConnectionW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCombineUrlA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCombineUrlA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCombineUrlW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCombineUrlW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetConnectA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetConnectA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetConnectW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetConnectW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCrackUrlA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCrackUrlA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCrackUrlW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCrackUrlW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCreateUrlA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCreateUrlA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetCreateUrlW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetCreateUrlW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetDial", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetDial_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetDialA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetDialA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetDialW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetDialW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetErrorDlg", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetErrorDlg_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetFindNextFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetFindNextFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetFindNextFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetFindNextFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetFortezzaCommand", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetFortezzaCommand_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetFreeCookies", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetFreeCookies_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetConnectedState", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetConnectedState_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetCookieA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetCookieA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetCookieEx2", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetCookieEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetCookieExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetCookieExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetCookieExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetCookieExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetCookieW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetCookieW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetProxyForUrl", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetProxyForUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGoOnline", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGoOnline_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGoOnlineA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGoOnlineA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetGoOnlineW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetGoOnlineW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetHangUp", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetHangUp_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetLockRequestFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetLockRequestFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetOpenA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetOpenA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetOpenUrlA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetOpenUrlA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetOpenUrlW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetOpenUrlW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetOpenW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetOpenW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetQueryDataAvailable", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetQueryDataAvailable_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetQueryOptionA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetQueryOptionA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetQueryOptionW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetQueryOptionW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetReadFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetReadFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetReadFileExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetReadFileExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetReadFileExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetReadFileExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetCookieA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetCookieA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetCookieEx2", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetCookieEx2_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetCookieExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetCookieExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetCookieExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetCookieExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetCookieW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetCookieW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetDialState", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetDialState_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetDialStateA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetDialStateA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetDialStateW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetDialStateW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetFilePointer", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetFilePointer_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetOptionA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetOptionA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetOptionExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetOptionExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetOptionExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetOptionExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetOptionW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetOptionW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetStatusCallback", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetStatusCallback_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetTimeToSystemTime_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetUnlockRequestFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetUnlockRequestFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetWriteFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetWriteFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetWriteFileExA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetWriteFileExA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_internetWriteFileExW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_internetWriteFileExW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_isHostInProxyBypassList", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_isHostInProxyBypassList_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_isProfilesEnabled", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_isProfilesEnabled_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_loadUrlCacheContent", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_loadUrlCacheContent_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_registerUrlCacheNotification", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_registerUrlCacheNotification_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_resumeSuspendedDownload", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_resumeSuspendedDownload_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_runOnceUrlCache", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_runOnceUrlCache_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_showClientAuthCerts", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_showClientAuthCerts_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_showSecurityInfo", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_showSecurityInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_showX509EncodedCertificate", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_showX509EncodedCertificate_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheCreateContainer", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheCreateContainer_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheReloadSettings", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheReloadSettings_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheServer", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheServer_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit_napi));
-    exports.Set("windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData", Napi::Function::New(env, windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheCheckManifest", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheCheckManifest_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheCloseHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheCreateAndCommitFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheCreateAndCommitFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheDeleteGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheDeleteGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheDeleteIEGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheDeleteIEGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheDuplicateHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheDuplicateHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheFinalize", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheFinalize_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheFreeDownloadList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheFreeDownloadList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheFreeGroupList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheFreeGroupList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheGetDownloadList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheGetDownloadList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheGetFallbackUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheGetFallbackUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheGetGroupList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheGetGroupList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheGetIEGroupList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheGetIEGroupList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheGetManifestUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheGetManifestUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetAppCacheLookup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetAppCacheLookup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateMD5SSOHash", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateMD5SSOHash_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetCreateUrlCacheGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetCreateUrlCacheGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteIE3Cache", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteIE3Cache_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteUrlCacheGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteUrlCacheGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDetectAutoProxyUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDetectAutoProxyUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetDoConnectoidsExist", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetDoConnectoidsExist_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetExportCookieFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetExportCookieFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetExportCookieFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetExportCookieFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindCloseUrlCache", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindCloseUrlCache_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindNextUrlCacheGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindNextUrlCacheGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFindP3PPolicySymbol", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFindP3PPolicySymbol_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpCommandA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpCommandA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpCommandW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpCommandW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpDeleteFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpDeleteFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpDeleteFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpDeleteFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpFindFirstFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpFindFirstFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpFindFirstFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpFindFirstFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpGetFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpGetFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpGetFileEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpGetFileEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpGetFileSize", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpGetFileSize_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpGetFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpGetFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpOpenFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpOpenFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpOpenFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpOpenFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpPutFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpPutFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpPutFileEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpPutFileEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpPutFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpPutFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpRenameFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpRenameFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpRenameFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpRenameFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetDiskInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetDiskInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryBinaryBlob", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryBinaryBlob_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGetUrlCacheHeaderData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGetUrlCacheHeaderData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherCreateLocatorA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherCreateLocatorA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherCreateLocatorW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherCreateLocatorW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherFindFirstFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherFindFirstFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherFindFirstFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherFindFirstFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherGetAttributeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherGetAttributeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherGetAttributeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherGetAttributeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherOpenFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherOpenFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetGopherOpenFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetGopherOpenFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpCloseDependencyHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpCloseDependencyHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpDuplicateDependencyHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpDuplicateDependencyHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpEndRequestA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpEndRequestA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpEndRequestW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpEndRequestW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpGetServerCredentials", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpGetServerCredentials_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpIndicatePageLoadComplete", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpIndicatePageLoadComplete_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpIsHostHstsEnabled", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpIsHostHstsEnabled_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpOpenDependencyHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpOpenDependencyHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpOpenRequestA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpOpenRequestA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpOpenRequestW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpOpenRequestW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpPushClose", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpPushClose_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpPushEnable", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpPushEnable_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpPushWait", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpPushWait_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpQueryInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpQueryInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpQueryInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpQueryInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpSendRequestA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpSendRequestA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpSendRequestExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpSendRequestExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpSendRequestExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpSendRequestExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpSendRequestW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpSendRequestW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpWebSocketClose", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpWebSocketClose_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpWebSocketCompleteUpgrade", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpWebSocketCompleteUpgrade_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpWebSocketQueryCloseStatus", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpWebSocketQueryCloseStatus_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpWebSocketReceive", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpWebSocketReceive_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpWebSocketSend", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpWebSocketSend_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetHttpWebSocketShutdown", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetHttpWebSocketShutdown_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetImportCookieFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetImportCookieFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetImportCookieFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetImportCookieFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIncrementUrlCacheHeaderData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIncrementUrlCacheHeaderData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternalInternetGetCookie", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternalInternetGetCookie_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetAttemptConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetAttemptConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetAutodial", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetAutodial_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetAutodialHangup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetAutodialHangup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCheckConnectionA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCheckConnectionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCheckConnectionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCheckConnectionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCloseHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCombineUrlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCombineUrlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCombineUrlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCombineUrlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossing", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossing_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetConnectA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetConnectA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetConnectW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetConnectW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetConvertUrlFromWireToWideChar", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetConvertUrlFromWireToWideChar_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCrackUrlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCrackUrlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCrackUrlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCrackUrlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCreateUrlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCreateUrlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetCreateUrlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetCreateUrlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetDial", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetDial_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetDialA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetDialA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetDialW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetDialW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetErrorDlg", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetErrorDlg_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetFindNextFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetFindNextFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetFindNextFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetFindNextFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetFortezzaCommand", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetFortezzaCommand_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetFreeCookies", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetFreeCookies_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetFreeProxyInfoList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetFreeProxyInfoList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetConnectedState", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetConnectedState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetCookieA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetCookieA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetCookieEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetCookieEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetCookieExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetCookieExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetCookieExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetCookieExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetCookieW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetCookieW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetProxyForUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetProxyForUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURL", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURL_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGoOnline", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGoOnline_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGoOnlineA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGoOnlineA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetGoOnlineW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetGoOnlineW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetHangUp", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetHangUp_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetLockRequestFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetLockRequestFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetOpenA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetOpenA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetOpenUrlA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetOpenUrlA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetOpenUrlW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetOpenUrlW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetOpenW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetOpenW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetQueryDataAvailable", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetQueryDataAvailable_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetQueryFortezzaStatus", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetQueryFortezzaStatus_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetQueryOptionA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetQueryOptionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetQueryOptionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetQueryOptionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetReadFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetReadFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetReadFileExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetReadFileExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetReadFileExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetReadFileExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetCookieA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetCookieA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetCookieEx2", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetCookieEx2_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetCookieExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetCookieExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetCookieExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetCookieExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetCookieW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetCookieW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetDialState", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetDialState_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetDialStateA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetDialStateA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetDialStateW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetDialStateW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetFilePointer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetFilePointer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetOptionA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetOptionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetOptionExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetOptionExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetOptionExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetOptionExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetOptionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetOptionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetStatusCallback", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetStatusCallback_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURL", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURL_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTime", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTime_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTime", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTime_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetUnlockRequestFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetUnlockRequestFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetWriteFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetWriteFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetWriteFileExA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetWriteFileExA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetInternetWriteFileExW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetInternetWriteFileExW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIsHostInProxyBypassList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIsHostInProxyBypassList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIsProfilesEnabled", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIsProfilesEnabled_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetLoadUrlCacheContent", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetLoadUrlCacheContent_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetParseX509EncodedCertificateForListBoxEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetParseX509EncodedCertificateForListBoxEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetPerformOperationOverUrlCacheA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetPerformOperationOverUrlCacheA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetPrivacyGetZonePreferenceW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetPrivacyGetZonePreferenceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetPrivacySetZonePreferenceW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetPrivacySetZonePreferenceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetReadGuidsForConnectedNetworks", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetReadGuidsForConnectedNetworks_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStream", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStream_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStreamEx", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStreamEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetRegisterUrlCacheNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetRegisterUrlCacheNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetResumeSuspendedDownload", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetResumeSuspendedDownload_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetRunOnceUrlCache", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetRunOnceUrlCache_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroup", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroup_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetShowClientAuthCerts", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetShowClientAuthCerts_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetShowSecurityInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetShowSecurityInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetShowX509EncodedCertificate", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetShowX509EncodedCertificate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileA", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileA_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileW", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileW_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryStream", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryStream_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUpdateUrlCacheContentPath", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUpdateUrlCacheContentPath_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheCheckEntriesExist", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheCheckEntriesExist_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheCloseEntryHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheCloseEntryHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheContainerSetEntryMaximumAge", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheContainerSetEntryMaximumAge_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheCreateContainer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheCreateContainer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheFindFirstEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheFindFirstEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheFindNextEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheFindNextEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheFreeEntryInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheFreeEntryInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheFreeGlobalSpace", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheFreeGlobalSpace_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheGetContentPaths", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheGetContentPaths_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheGetEntryInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheGetEntryInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalCacheSize", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalCacheSize_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalLimit", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalLimit_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheReadEntryStream", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheReadEntryStream_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheReloadSettings", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheReloadSettings_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryFile", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryFile_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryStream", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryStream_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheServer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheServer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheSetGlobalLimit", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheSetGlobalLimit_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWininetUrlCacheUpdateEntryExtraData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWininetUrlCacheUpdateEntryExtraData_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_wininet_napi, nullptr };

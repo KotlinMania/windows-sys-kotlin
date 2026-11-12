@@ -1,28 +1,31 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.multicast
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 
-public actual fun mcastApiCleanup() {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+// The host must provide the C companion wrapper exports in import module windowssys.
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup")
+private external fun wasiWindowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup(): Unit
 
-public actual fun mcastApiStartup(version: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mcastApiCleanup(): Unit =
+    wasiWindowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup()
 
-public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: COpaquePointer?, pscopelen: COpaquePointer?, pscopecount: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mcastApiStartup(version: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup")
 
-public actual fun mcastGenUID(prequestid: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr<McastScopeEntry>, pscopelen: MutPtr<UInt>, pscopecount: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes")
 
-public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: COpaquePointer?, preleaserequest: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mcastGenUID(prequestid: MutPtr<McastClientUid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementMulticastMcastGenUID")
 
-public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: COpaquePointer?, prenewrequest: COpaquePointer?, prenewresponse: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, preleaserequest: MutPtr<McastLeaseRequest>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress")
 
-public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: COpaquePointer?, pscopectx: COpaquePointer?, paddrrequest: COpaquePointer?, paddrresponse: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, prenewrequest: MutPtr<McastLeaseRequest>, prenewresponse: MutPtr<McastLeaseResponse>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress")
+
+public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, pscopectx: MutPtr<McastScopeCtx>, paddrrequest: MutPtr<McastLeaseRequest>, paddrresponse: MutPtr<McastLeaseResponse>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress")

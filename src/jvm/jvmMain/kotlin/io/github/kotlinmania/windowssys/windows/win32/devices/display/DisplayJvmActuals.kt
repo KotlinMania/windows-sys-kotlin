@@ -2,730 +2,788 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Coloradjustment
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Paletteentry
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Trivertex
 
 private object WindowsWin32DevicesDisplayJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32DevicesDisplayJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_brushobjHGetColorTransform(pbo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayBrushobjHGetColorTransform(pbo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_brushobjPvAllocRbrush(pbo: Long, cj: Int): Long
+    external fun windowssysWindowsWin32DevicesDisplayBrushobjPvAllocRbrush(pbo: Long, cj: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_brushobjPvGetRbrush(pbo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayBrushobjPvGetRbrush(pbo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_brushobjUlGetBrushColor(pbo: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayBrushobjUlGetBrushColor(pbo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_clipobjBEnum(pco: Long, cj: Int, pul: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayClipobjBEnum(pco: Long, cj: Int, pul: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_clipobjCEnumStart(pco: Long, ball: Int, itype: Int, idirection: Int, climit: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayClipobjCEnumStart(pco: Long, ball: Int, itype: Int, idirection: Int, climit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_clipobjPpoGetPath(pco: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayClipobjPpoGetPath(pco: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply(hmonitor: Long, pszasciicapabilitiesstring: Long, dwcapabilitiesstringlengthincharacters: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayCapabilitiesRequestAndCapabilitiesReply(hmonitor: Long, pszasciicapabilitiesstring: Long, dwcapabilitiesstringlengthincharacters: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_degaussMonitor(hmonitor: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayDegaussMonitor(hmonitor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_destroyPhysicalMonitor(hmonitor: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitor(hmonitor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_destroyPhysicalMonitors(dwphysicalmonitorarraysize: Int, pphysicalmonitorarray: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitors(dwphysicalmonitorarraysize: Int, pphysicalmonitorarray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo(requestpacket: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayDisplayConfigGetDeviceInfo(requestpacket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo(setpacket: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayDisplayConfigSetDeviceInfo(setpacket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engAcquireSemaphore(hsem: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngAcquireSemaphore(hsem: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engAlphaBlend(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, prclsrc: Long, pblendobj: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngAlphaBlend(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, prclsrc: Long, pblendobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engAssociateSurface(hsurf: Long, hdev: Long, flhooks: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngAssociateSurface(hsurf: Long, hdev: Long, flhooks: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engBitBlt(psotrg: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, prcltrg: Long, pptlsrc: Long, pptlmask: Long, pbo: Long, pptlbrush: Long, rop4: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngBitBlt(psotrg: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, prcltrg: Long, pptlsrc: Long, pptlmask: Long, pbo: Long, pptlbrush: Long, rop4: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engCheckAbort(pso: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngCheckAbort(pso: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engCopyBits(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, pptlsrc: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngCopyBits(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, pptlsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engCreateClip(): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngCreateClip(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engCreatePalette(imode: Int, ccolors: Int, pulcolors: Long, flred: Int, flgreen: Int, flblue: Int): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngCreatePalette(imode: Int, ccolors: Int, pulcolors: Long, flred: Int, flgreen: Int, flblue: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engCreateSemaphore(): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngCreateSemaphore(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engDeleteClip(pco: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngDeleteClip(pco: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engDeletePalette(hpal: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngDeletePalette(hpal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engDeletePath(ppo: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngDeletePath(ppo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engDeleteSemaphore(hsem: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngDeleteSemaphore(hsem: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engDeleteSurface(hsurf: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngDeleteSurface(hsurf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engEraseSurface(pso: Long, prcl: Long, icolor: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngEraseSurface(pso: Long, prcl: Long, icolor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engFillPath(pso: Long, ppo: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: Int, floptions: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngFillPath(pso: Long, ppo: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: Int, floptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engFindResource(h: Long, iname: Int, itype: Int, pulsize: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngFindResource(h: Long, iname: Int, itype: Int, pulsize: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engFreeModule(h: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngFreeModule(h: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engGetCurrentCodePage(oemcodepage: Long, ansicodepage: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngGetCurrentCodePage(oemcodepage: Long, ansicodepage: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engGetDriverName(hdev: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngGetDriverName(hdev: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engGetPrinterDataFileName(hdev: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngGetPrinterDataFileName(hdev: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engGradientFill(psodest: Long, pco: Long, pxlo: Long, pvertex: Long, nvertex: Int, pmesh: Long, nmesh: Int, prclextents: Long, pptlditherorg: Long, ulmode: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngGradientFill(psodest: Long, pco: Long, pxlo: Long, pvertex: Long, nvertex: Int, pmesh: Long, nmesh: Int, prclextents: Long, pptlditherorg: Long, ulmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engLineTo(pso: Long, pco: Long, pbo: Long, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: Long, mix: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngLineTo(pso: Long, pco: Long, pbo: Long, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: Long, mix: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engLoadModule(pwsz: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngLoadModule(pwsz: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engLockSurface(hsurf: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayEngLockSurface(hsurf: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engMarkBandingSurface(hsurf: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngMarkBandingSurface(hsurf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engMultiByteToUnicodeN(unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, multibytestring: Long, bytesinmultibytestring: Int)
+    external fun windowssysWindowsWin32DevicesDisplayEngMultiByteToUnicodeN(unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, multibytestring: Long, bytesinmultibytestring: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engMultiByteToWideChar(codepage: Int, widecharstring: Long, bytesinwidecharstring: Int, multibytestring: Long, bytesinmultibytestring: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngMultiByteToWideChar(codepage: Int, widecharstring: Long, bytesinwidecharstring: Int, multibytestring: Long, bytesinmultibytestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engPaint(pso: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngPaint(pso: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engPlgBlt(psotrg: Long, psosrc: Long, psomsk: Long, pco: Long, pxlo: Long, pca: Long, pptlbrushorg: Long, pptfx: Long, prcl: Long, pptl: Long, imode: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngPlgBlt(psotrg: Long, psosrc: Long, psomsk: Long, pco: Long, pxlo: Long, pca: Long, pptlbrushorg: Long, pptfx: Long, prcl: Long, pptl: Long, imode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engQueryEMFInfo(hdev: Long, pemfinfo: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngQueryEMFInfo(hdev: Long, pemfinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engQueryLocalTime(param0: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngQueryLocalTime(param0: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engReleaseSemaphore(hsem: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngReleaseSemaphore(hsem: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engStretchBlt(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngStretchBlt(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engStretchBltROP(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: Int, pbo: Long, rop4: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngStretchBltROP(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: Int, pbo: Long, rop4: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engStrokeAndFillPath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbostroke: Long, plineattrs: Long, pbofill: Long, pptlbrushorg: Long, mixfill: Int, floptions: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngStrokeAndFillPath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbostroke: Long, plineattrs: Long, pbofill: Long, pptlbrushorg: Long, mixfill: Int, floptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engStrokePath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbo: Long, pptlbrushorg: Long, plineattrs: Long, mix: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngStrokePath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbo: Long, pptlbrushorg: Long, plineattrs: Long, mix: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engTextOut(pso: Long, pstro: Long, pfo: Long, pco: Long, prclextra: Long, prclopaque: Long, pbofore: Long, pboopaque: Long, pptlorg: Long, mix: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngTextOut(pso: Long, pstro: Long, pfo: Long, pco: Long, prclextra: Long, prclopaque: Long, pbofore: Long, pboopaque: Long, pptlorg: Long, mix: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engTransparentBlt(psodst: Long, psosrc: Long, pco: Long, pxlo: Long, prcldst: Long, prclsrc: Long, transcolor: Int, bcalledfrombitblt: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngTransparentBlt(psodst: Long, psosrc: Long, pco: Long, pxlo: Long, prcldst: Long, prclsrc: Long, transcolor: Int, bcalledfrombitblt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engUnicodeToMultiByteN(multibytestring: Long, maxbytesinmultibytestring: Int, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int)
+    external fun windowssysWindowsWin32DevicesDisplayEngUnicodeToMultiByteN(multibytestring: Long, maxbytesinmultibytestring: Int, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engUnlockSurface(pso: Long)
+    external fun windowssysWindowsWin32DevicesDisplayEngUnlockSurface(pso: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_engWideCharToMultiByte(codepage: Int, widecharstring: Long, bytesinwidecharstring: Int, multibytestring: Long, bytesinmultibytestring: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayEngWideCharToMultiByte(codepage: Int, widecharstring: Long, bytesinwidecharstring: Int, multibytestring: Long, bytesinmultibytestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles(pfo: Long, phg: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayFontobjCGetAllGlyphHandles(pfo: Long, phg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjCGetGlyphs(pfo: Long, imode: Int, cglyph: Int, phg: Long, ppvglyph: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayFontobjCGetGlyphs(pfo: Long, imode: Int, cglyph: Int, phg: Long, ppvglyph: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs(pfo: Long, imode: Int): Long
+    external fun windowssysWindowsWin32DevicesDisplayFontobjPQueryGlyphAttrs(pfo: Long, imode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjPfdg(pfo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayFontobjPfdg(pfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjPifi(pfo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayFontobjPifi(pfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile(pfo: Long, pcjfile: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayFontobjPvTrueTypeFontFile(pfo: Long, pcjfile: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjPxoGetXform(pfo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayFontobjPxoGetXform(pfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_fontobjVGetInfo(pfo: Long, cjsize: Int, pfi: Long)
+    external fun windowssysWindowsWin32DevicesDisplayFontobjVGetInfo(pfo: Long, cjsize: Int, pfi: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getAutoRotationState(pstate: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetAutoRotationState(pstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getCapabilitiesStringLength(hmonitor: Long, pdwcapabilitiesstringlengthincharacters: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetCapabilitiesStringLength(hmonitor: Long, pdwcapabilitiesstringlengthincharacters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences(porientation: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetDisplayAutoRotationPreferences(porientation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(flags: Int, numpatharrayelements: Long, nummodeinfoarrayelements: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetDisplayConfigBufferSizes(flags: Int, numpatharrayelements: Long, nummodeinfoarrayelements: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorBrightness(hmonitor: Long, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorBrightness(hmonitor: Long, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorCapabilities(hmonitor: Long, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorCapabilities(hmonitor: Long, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorColorTemperature(hmonitor: Long, pctcurrentcolortemperature: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorColorTemperature(hmonitor: Long, pctcurrentcolortemperature: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorContrast(hmonitor: Long, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorContrast(hmonitor: Long, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition(hmonitor: Long, ptpositiontype: Int, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaPosition(hmonitor: Long, ptpositiontype: Int, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize(hmonitor: Long, stsizetype: Int, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaSize(hmonitor: Long, stsizetype: Int, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive(hmonitor: Long, dtdrivetype: Int, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueDrive(hmonitor: Long, dtdrivetype: Int, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain(hmonitor: Long, gtgaintype: Int, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueGain(hmonitor: Long, gtgaintype: Int, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getMonitorTechnologyType(hmonitor: Long, pdtydisplaytechnologytype: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetMonitorTechnologyType(hmonitor: Long, pdtydisplaytechnologytype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Long, pdwnumberofphysicalmonitors: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Long, pdwnumberofphysicalmonitors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR(hmonitor: Long, dwphysicalmonitorarraysize: Int, pphysicalmonitorarray: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetPhysicalMonitorsFromHMONITOR(hmonitor: Long, dwphysicalmonitorarraysize: Int, pphysicalmonitorarray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getTimingReport(hmonitor: Long, pmtrmonitortimingreport: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetTimingReport(hmonitor: Long, pmtrmonitortimingreport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply(hmonitor: Long, bvcpcode: Byte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayGetVCPFeatureAndVCPFeatureReply(hmonitor: Long, bvcpcode: Byte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_htGet8BppformatPalette(ppaletteentry: Long, redgamma: Short, greengamma: Short, bluegamma: Short): Int
+    external fun windowssysWindowsWin32DevicesDisplayHtGet8BppformatPalette(ppaletteentry: Long, redgamma: Short, greengamma: Short, bluegamma: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_htGet8BppmaskPalette(ppaletteentry: Long, use8bppmaskpal: Int, cmymask: Byte, redgamma: Short, greengamma: Short, bluegamma: Short): Int
+    external fun windowssysWindowsWin32DevicesDisplayHtGet8BppmaskPalette(ppaletteentry: Long, use8bppmaskpal: Int, cmymask: Byte, redgamma: Short, greengamma: Short, bluegamma: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_pathobjBEnum(ppo: Long, ppd: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayPathobjBEnum(ppo: Long, ppd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_pathobjBEnumClipLines(ppo: Long, cb: Int, pcl: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayPathobjBEnumClipLines(ppo: Long, cb: Int, pcl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_pathobjVEnumStart(ppo: Long)
+    external fun windowssysWindowsWin32DevicesDisplayPathobjVEnumStart(ppo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines(ppo: Long, pco: Long, pso: Long, pla: Long)
+    external fun windowssysWindowsWin32DevicesDisplayPathobjVEnumStartClipLines(ppo: Long, pco: Long, pso: Long, pla: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_pathobjVGetBounds(ppo: Long, prectfx: Long)
+    external fun windowssysWindowsWin32DevicesDisplayPathobjVGetBounds(ppo: Long, prectfx: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_queryDisplayConfig(flags: Int, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayQueryDisplayConfig(flags: Int, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults(hmonitor: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryColorDefaults(hmonitor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults(hmonitor: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryDefaults(hmonitor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_strobjBEnum(pstro: Long, pc: Long, ppgpos: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayStrobjBEnum(pstro: Long, pc: Long, ppgpos: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly(pstro: Long, pc: Long, ppgpos: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayStrobjBEnumPositionsOnly(pstro: Long, pc: Long, ppgpos: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths(pso: Long, ifirst: Int, c: Int, pptqd: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayStrobjBGetAdvanceWidths(pso: Long, ifirst: Int, c: Int, pptqd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_strobjDwGetCodePage(pstro: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayStrobjDwGetCodePage(pstro: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_strobjVEnumStart(pstro: Long)
+    external fun windowssysWindowsWin32DevicesDisplayStrobjVEnumStart(pstro: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_saveCurrentMonitorSettings(hmonitor: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplaySaveCurrentMonitorSettings(hmonitor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_saveCurrentSettings(hmonitor: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplaySaveCurrentSettings(hmonitor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(orientation: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(orientation: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setDisplayConfig(numpatharrayelements: Int, patharray: Long, nummodeinfoarrayelements: Int, modeinfoarray: Long, flags: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetDisplayConfig(numpatharrayelements: Int, patharray: Long, nummodeinfoarrayelements: Int, modeinfoarray: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorBrightness(hmonitor: Long, dwnewbrightness: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorBrightness(hmonitor: Long, dwnewbrightness: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorColorTemperature(hmonitor: Long, ctcurrentcolortemperature: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorColorTemperature(hmonitor: Long, ctcurrentcolortemperature: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorContrast(hmonitor: Long, dwnewcontrast: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorContrast(hmonitor: Long, dwnewcontrast: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition(hmonitor: Long, ptpositiontype: Int, dwnewposition: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaPosition(hmonitor: Long, ptpositiontype: Int, dwnewposition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize(hmonitor: Long, stsizetype: Int, dwnewdisplayareawidthorheight: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaSize(hmonitor: Long, stsizetype: Int, dwnewdisplayareawidthorheight: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive(hmonitor: Long, dtdrivetype: Int, dwnewdrive: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueDrive(hmonitor: Long, dtdrivetype: Int, dwnewdrive: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain(hmonitor: Long, gtgaintype: Int, dwnewgain: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueGain(hmonitor: Long, gtgaintype: Int, dwnewgain: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_setVCPFeature(hmonitor: Long, bvcpcode: Byte, dwnewvalue: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplaySetVCPFeature(hmonitor: Long, bvcpcode: Byte, dwnewvalue: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_xformobjBApplyXform(pxo: Long, imode: Int, cpoints: Int, pvin: Long, pvout: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayXformobjBApplyXform(pxo: Long, imode: Int, cpoints: Int, pvin: Long, pvout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_xformobjIGetXform(pxo: Long, pxform: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayXformobjIGetXform(pxo: Long, pxform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_xlateobjCGetPalette(pxlo: Long, ipal: Int, cpal: Int, ppal: Long): Int
+    external fun windowssysWindowsWin32DevicesDisplayXlateobjCGetPalette(pxlo: Long, ipal: Int, cpal: Int, ppal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_xlateobjHGetColorTransform(pxlo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayXlateobjHGetColorTransform(pxlo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_xlateobjIXlate(pxlo: Long, icolor: Int): Int
+    external fun windowssysWindowsWin32DevicesDisplayXlateobjIXlate(pxlo: Long, icolor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_display_xlateobjPiVector(pxlo: Long): Long
+    external fun windowssysWindowsWin32DevicesDisplayXlateobjPiVector(pxlo: Long): Long
 }
 
-public actual fun brushobjHGetColorTransform(pbo: COpaquePointer?): Handle =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_brushobjHGetColorTransform((pbo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun brushobjHGetColorTransform(pbo: MutPtr<Brushobj>): Handle =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayBrushobjHGetColorTransform(pbo.rawAddress))
 
-public actual fun brushobjPvAllocRbrush(pbo: COpaquePointer?, cj: UInt): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_brushobjPvAllocRbrush((pbo?.value ?: 0L), cj.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun brushobjPvAllocRbrush(pbo: MutPtr<Brushobj>, cj: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayBrushobjPvAllocRbrush(pbo.rawAddress, cj.toInt()))
 
-public actual fun brushobjPvGetRbrush(pbo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_brushobjPvGetRbrush((pbo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun brushobjPvGetRbrush(pbo: MutPtr<Brushobj>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayBrushobjPvGetRbrush(pbo.rawAddress))
 
-public actual fun brushobjUlGetBrushColor(pbo: COpaquePointer?): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_brushobjUlGetBrushColor((pbo?.value ?: 0L)).toUInt()
+public actual fun brushobjUlGetBrushColor(pbo: MutPtr<Brushobj>): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayBrushobjUlGetBrushColor(pbo.rawAddress).toUInt()
 
-public actual fun clipobjBEnum(pco: COpaquePointer?, cj: UInt, pul: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_clipobjBEnum((pco?.value ?: 0L), cj.toInt(), (pul?.value ?: 0L))
+public actual fun clipobjBEnum(pco: MutPtr<Clipobj>, cj: UInt, pul: MutPtr<UInt>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayClipobjBEnum(pco.rawAddress, cj.toInt(), pul.rawAddress)
 
-public actual fun clipobjCEnumStart(pco: COpaquePointer?, ball: Bool, itype: UInt, idirection: UInt, climit: UInt): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_clipobjCEnumStart((pco?.value ?: 0L), ball, itype.toInt(), idirection.toInt(), climit.toInt()).toUInt()
+public actual fun clipobjCEnumStart(pco: MutPtr<Clipobj>, ball: Bool, itype: UInt, idirection: UInt, climit: UInt): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayClipobjCEnumStart(pco.rawAddress, ball, itype.toInt(), idirection.toInt(), climit.toInt()).toUInt()
 
-public actual fun clipobjPpoGetPath(pco: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_clipobjPpoGetPath((pco?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun clipobjPpoGetPath(pco: MutPtr<Clipobj>): MutPtr<Pathobj> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayClipobjPpoGetPath(pco.rawAddress))
 
 public actual fun capabilitiesRequestAndCapabilitiesReply(hmonitor: Handle, pszasciicapabilitiesstring: Pstr, dwcapabilitiesstringlengthincharacters: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply((hmonitor?.value ?: 0L), (pszasciicapabilitiesstring?.value ?: 0L), dwcapabilitiesstringlengthincharacters.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayCapabilitiesRequestAndCapabilitiesReply(hmonitor.rawAddress, pszasciicapabilitiesstring.rawAddress, dwcapabilitiesstringlengthincharacters.toInt())
 
 public actual fun degaussMonitor(hmonitor: Handle): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_degaussMonitor((hmonitor?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayDegaussMonitor(hmonitor.rawAddress)
 
 public actual fun destroyPhysicalMonitor(hmonitor: Handle): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_destroyPhysicalMonitor((hmonitor?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitor(hmonitor.rawAddress)
 
-public actual fun destroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_destroyPhysicalMonitors(dwphysicalmonitorarraysize.toInt(), (pphysicalmonitorarray?.value ?: 0L))
+public actual fun destroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: ConstPtr<PhysicalMonitor>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitors(dwphysicalmonitorarraysize.toInt(), pphysicalmonitorarray.rawAddress)
 
-public actual fun displayConfigGetDeviceInfo(requestpacket: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo((requestpacket?.value ?: 0L))
+public actual fun displayConfigGetDeviceInfo(requestpacket: MutPtr<DisplayconfigDeviceInfoHeader>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayDisplayConfigGetDeviceInfo(requestpacket.rawAddress)
 
-public actual fun displayConfigSetDeviceInfo(setpacket: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo((setpacket?.value ?: 0L))
+public actual fun displayConfigSetDeviceInfo(setpacket: ConstPtr<DisplayconfigDeviceInfoHeader>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayDisplayConfigSetDeviceInfo(setpacket.rawAddress)
 
 public actual fun engAcquireSemaphore(hsem: Hsemaphore) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engAcquireSemaphore((hsem?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngAcquireSemaphore(hsem.rawAddress)
 }
 
-public actual fun engAlphaBlend(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pblendobj: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engAlphaBlend((psodest?.value ?: 0L), (psosrc?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (prcldest?.value ?: 0L), (prclsrc?.value ?: 0L), (pblendobj?.value ?: 0L))
+public actual fun engAlphaBlend(psodest: MutPtr<Surfobj>, psosrc: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pxlo: MutPtr<Xlateobj>, prcldest: MutPtr<Rectl>, prclsrc: MutPtr<Rectl>, pblendobj: MutPtr<Blendobj>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngAlphaBlend(psodest.rawAddress, psosrc.rawAddress, pco.rawAddress, pxlo.rawAddress, prcldest.rawAddress, prclsrc.rawAddress, pblendobj.rawAddress)
 
 public actual fun engAssociateSurface(hsurf: Hsurf, hdev: Hdev, flhooks: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engAssociateSurface((hsurf?.value ?: 0L), (hdev?.value ?: 0L), flhooks.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngAssociateSurface(hsurf.rawAddress, hdev.rawAddress, flhooks.toInt())
 
-public actual fun engBitBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcltrg: COpaquePointer?, pptlsrc: COpaquePointer?, pptlmask: COpaquePointer?, pbo: COpaquePointer?, pptlbrush: COpaquePointer?, rop4: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engBitBlt((psotrg?.value ?: 0L), (psosrc?.value ?: 0L), (psomask?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (prcltrg?.value ?: 0L), (pptlsrc?.value ?: 0L), (pptlmask?.value ?: 0L), (pbo?.value ?: 0L), (pptlbrush?.value ?: 0L), rop4.toInt())
+public actual fun engBitBlt(psotrg: ConstPtr<Surfobj>, psosrc: ConstPtr<Surfobj>, psomask: ConstPtr<Surfobj>, pco: ConstPtr<Clipobj>, pxlo: ConstPtr<Xlateobj>, prcltrg: ConstPtr<Rectl>, pptlsrc: ConstPtr<Pointl>, pptlmask: ConstPtr<Pointl>, pbo: ConstPtr<Brushobj>, pptlbrush: ConstPtr<Pointl>, rop4: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngBitBlt(psotrg.rawAddress, psosrc.rawAddress, psomask.rawAddress, pco.rawAddress, pxlo.rawAddress, prcltrg.rawAddress, pptlsrc.rawAddress, pptlmask.rawAddress, pbo.rawAddress, pptlbrush.rawAddress, rop4.toInt())
 
-public actual fun engCheckAbort(pso: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engCheckAbort((pso?.value ?: 0L))
+public actual fun engCheckAbort(pso: MutPtr<Surfobj>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngCheckAbort(pso.rawAddress)
 
-public actual fun engComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engComputeGlyphSet(ncodepage, nfirstchar, cchars).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun engComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): MutPtr<FdGlyphset> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngComputeGlyphSet(ncodepage, nfirstchar, cchars))
 
-public actual fun engCopyBits(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, pptlsrc: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engCopyBits((psodest?.value ?: 0L), (psosrc?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (prcldest?.value ?: 0L), (pptlsrc?.value ?: 0L))
+public actual fun engCopyBits(psodest: MutPtr<Surfobj>, psosrc: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pxlo: MutPtr<Xlateobj>, prcldest: MutPtr<Rectl>, pptlsrc: MutPtr<Pointl>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngCopyBits(psodest.rawAddress, psosrc.rawAddress, pco.rawAddress, pxlo.rawAddress, prcldest.rawAddress, pptlsrc.rawAddress)
 
-public actual fun engCreateBitmap(sizl: Size, lwidth: Int, iformat: UInt, fl: UInt, pvbits: COpaquePointer?): Hbitmap =
-    null
+public actual fun engCreateBitmap(sizl: Size, lwidth: Int, iformat: UInt, fl: UInt, pvbits: MutPtr<CVoid>): Hbitmap =
+    MutPtr(0L)
 
-public actual fun engCreateClip(): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engCreateClip().let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun engCreateClip(): MutPtr<Clipobj> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngCreateClip())
 
 public actual fun engCreateDeviceBitmap(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hbitmap =
-    null
+    MutPtr(0L)
 
 public actual fun engCreateDeviceSurface(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hsurf =
-    null
+    MutPtr(0L)
 
-public actual fun engCreatePalette(imode: UInt, ccolors: UInt, pulcolors: COpaquePointer?, flred: UInt, flgreen: UInt, flblue: UInt): Hpalette =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engCreatePalette(imode.toInt(), ccolors.toInt(), (pulcolors?.value ?: 0L), flred.toInt(), flgreen.toInt(), flblue.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun engCreatePalette(imode: UInt, ccolors: UInt, pulcolors: MutPtr<UInt>, flred: UInt, flgreen: UInt, flblue: UInt): Hpalette =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngCreatePalette(imode.toInt(), ccolors.toInt(), pulcolors.rawAddress, flred.toInt(), flgreen.toInt(), flblue.toInt()))
 
 public actual fun engCreateSemaphore(): Hsemaphore =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engCreateSemaphore().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngCreateSemaphore())
 
-public actual fun engDeleteClip(pco: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engDeleteClip((pco?.value ?: 0L))
+public actual fun engDeleteClip(pco: ConstPtr<Clipobj>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngDeleteClip(pco.rawAddress)
 }
 
 public actual fun engDeletePalette(hpal: Hpalette): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engDeletePalette((hpal?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngDeletePalette(hpal.rawAddress)
 
-public actual fun engDeletePath(ppo: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engDeletePath((ppo?.value ?: 0L))
+public actual fun engDeletePath(ppo: MutPtr<Pathobj>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngDeletePath(ppo.rawAddress)
 }
 
 public actual fun engDeleteSemaphore(hsem: Hsemaphore) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engDeleteSemaphore((hsem?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngDeleteSemaphore(hsem.rawAddress)
 }
 
 public actual fun engDeleteSurface(hsurf: Hsurf): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engDeleteSurface((hsurf?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngDeleteSurface(hsurf.rawAddress)
 
-public actual fun engEraseSurface(pso: COpaquePointer?, prcl: COpaquePointer?, icolor: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engEraseSurface((pso?.value ?: 0L), (prcl?.value ?: 0L), icolor.toInt())
+public actual fun engEraseSurface(pso: MutPtr<Surfobj>, prcl: MutPtr<Rectl>, icolor: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngEraseSurface(pso.rawAddress, prcl.rawAddress, icolor.toInt())
 
-public actual fun engFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt, floptions: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engFillPath((pso?.value ?: 0L), (ppo?.value ?: 0L), (pco?.value ?: 0L), (pbo?.value ?: 0L), (pptlbrushorg?.value ?: 0L), mix.toInt(), floptions.toInt())
+public actual fun engFillPath(pso: MutPtr<Surfobj>, ppo: MutPtr<Pathobj>, pco: MutPtr<Clipobj>, pbo: MutPtr<Brushobj>, pptlbrushorg: MutPtr<Pointl>, mix: UInt, floptions: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngFillPath(pso.rawAddress, ppo.rawAddress, pco.rawAddress, pbo.rawAddress, pptlbrushorg.rawAddress, mix.toInt(), floptions.toInt())
 
-public actual fun engFindResource(h: Handle, iname: Int, itype: Int, pulsize: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engFindResource((h?.value ?: 0L), iname, itype, (pulsize?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun engFindResource(h: Handle, iname: Int, itype: Int, pulsize: MutPtr<UInt>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngFindResource(h.rawAddress, iname, itype, pulsize.rawAddress))
 
 public actual fun engFreeModule(h: Handle) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engFreeModule((h?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngFreeModule(h.rawAddress)
 }
 
-public actual fun engGetCurrentCodePage(oemcodepage: COpaquePointer?, ansicodepage: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engGetCurrentCodePage((oemcodepage?.value ?: 0L), (ansicodepage?.value ?: 0L))
+public actual fun engGetCurrentCodePage(oemcodepage: MutPtr<UShort>, ansicodepage: MutPtr<UShort>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngGetCurrentCodePage(oemcodepage.rawAddress, ansicodepage.rawAddress)
 }
 
 public actual fun engGetDriverName(hdev: Hdev): Pwstr =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engGetDriverName((hdev?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngGetDriverName(hdev.rawAddress))
 
 public actual fun engGetPrinterDataFileName(hdev: Hdev): Pwstr =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engGetPrinterDataFileName((hdev?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngGetPrinterDataFileName(hdev.rawAddress))
 
-public actual fun engGradientFill(psodest: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, prclextents: COpaquePointer?, pptlditherorg: COpaquePointer?, ulmode: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engGradientFill((psodest?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (pvertex?.value ?: 0L), nvertex.toInt(), (pmesh?.value ?: 0L), nmesh.toInt(), (prclextents?.value ?: 0L), (pptlditherorg?.value ?: 0L), ulmode.toInt())
+public actual fun engGradientFill(psodest: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pxlo: MutPtr<Xlateobj>, pvertex: MutPtr<Trivertex>, nvertex: UInt, pmesh: MutPtr<CVoid>, nmesh: UInt, prclextents: MutPtr<Rectl>, pptlditherorg: MutPtr<Pointl>, ulmode: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngGradientFill(psodest.rawAddress, pco.rawAddress, pxlo.rawAddress, pvertex.rawAddress, nvertex.toInt(), pmesh.rawAddress, nmesh.toInt(), prclextents.rawAddress, pptlditherorg.rawAddress, ulmode.toInt())
 
-public actual fun engLineTo(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: COpaquePointer?, mix: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engLineTo((pso?.value ?: 0L), (pco?.value ?: 0L), (pbo?.value ?: 0L), x1, y1, x2, y2, (prclbounds?.value ?: 0L), mix.toInt())
+public actual fun engLineTo(pso: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pbo: MutPtr<Brushobj>, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: MutPtr<Rectl>, mix: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngLineTo(pso.rawAddress, pco.rawAddress, pbo.rawAddress, x1, y1, x2, y2, prclbounds.rawAddress, mix.toInt())
 
 public actual fun engLoadModule(pwsz: Pcwstr): Handle =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engLoadModule((pwsz?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngLoadModule(pwsz.rawAddress))
 
-public actual fun engLockSurface(hsurf: Hsurf): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engLockSurface((hsurf?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun engLockSurface(hsurf: Hsurf): MutPtr<Surfobj> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngLockSurface(hsurf.rawAddress))
 
 public actual fun engMarkBandingSurface(hsurf: Hsurf): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engMarkBandingSurface((hsurf?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngMarkBandingSurface(hsurf.rawAddress)
 
-public actual fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engMultiByteToUnicodeN((unicodestring?.value ?: 0L), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L), (multibytestring?.value ?: 0L), bytesinmultibytestring.toInt())
+public actual fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, multibytestring: Pcstr, bytesinmultibytestring: UInt) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngMultiByteToUnicodeN(unicodestring.rawAddress, maxbytesinunicodestring.toInt(), bytesinunicodestring.rawAddress, multibytestring.rawAddress, bytesinmultibytestring.toInt())
 }
 
 public actual fun engMultiByteToWideChar(codepage: UInt, widecharstring: Pwstr, bytesinwidecharstring: Int, multibytestring: Pcstr, bytesinmultibytestring: Int): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engMultiByteToWideChar(codepage.toInt(), (widecharstring?.value ?: 0L), bytesinwidecharstring, (multibytestring?.value ?: 0L), bytesinmultibytestring)
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngMultiByteToWideChar(codepage.toInt(), widecharstring.rawAddress, bytesinwidecharstring, multibytestring.rawAddress, bytesinmultibytestring)
 
-public actual fun engPaint(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engPaint((pso?.value ?: 0L), (pco?.value ?: 0L), (pbo?.value ?: 0L), (pptlbrushorg?.value ?: 0L), mix.toInt())
+public actual fun engPaint(pso: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pbo: MutPtr<Brushobj>, pptlbrushorg: MutPtr<Pointl>, mix: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngPaint(pso.rawAddress, pco.rawAddress, pbo.rawAddress, pptlbrushorg.rawAddress, mix.toInt())
 
-public actual fun engPlgBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomsk: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlbrushorg: COpaquePointer?, pptfx: COpaquePointer?, prcl: COpaquePointer?, pptl: COpaquePointer?, imode: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engPlgBlt((psotrg?.value ?: 0L), (psosrc?.value ?: 0L), (psomsk?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (pca?.value ?: 0L), (pptlbrushorg?.value ?: 0L), (pptfx?.value ?: 0L), (prcl?.value ?: 0L), (pptl?.value ?: 0L), imode.toInt())
+public actual fun engPlgBlt(psotrg: MutPtr<Surfobj>, psosrc: MutPtr<Surfobj>, psomsk: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pxlo: MutPtr<Xlateobj>, pca: MutPtr<Coloradjustment>, pptlbrushorg: MutPtr<Pointl>, pptfx: MutPtr<Pointfix>, prcl: MutPtr<Rectl>, pptl: MutPtr<Pointl>, imode: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngPlgBlt(psotrg.rawAddress, psosrc.rawAddress, psomsk.rawAddress, pco.rawAddress, pxlo.rawAddress, pca.rawAddress, pptlbrushorg.rawAddress, pptfx.rawAddress, prcl.rawAddress, pptl.rawAddress, imode.toInt())
 
-public actual fun engQueryEMFInfo(hdev: Hdev, pemfinfo: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engQueryEMFInfo((hdev?.value ?: 0L), (pemfinfo?.value ?: 0L))
+public actual fun engQueryEMFInfo(hdev: Hdev, pemfinfo: MutPtr<Emfinfo>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngQueryEMFInfo(hdev.rawAddress, pemfinfo.rawAddress)
 
-public actual fun engQueryLocalTime(param0: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engQueryLocalTime((param0?.value ?: 0L))
+public actual fun engQueryLocalTime(param0: MutPtr<EngTimeFields>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngQueryLocalTime(param0.rawAddress)
 }
 
 public actual fun engReleaseSemaphore(hsem: Hsemaphore) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engReleaseSemaphore((hsem?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngReleaseSemaphore(hsem.rawAddress)
 }
 
-public actual fun engStretchBlt(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engStretchBlt((psodest?.value ?: 0L), (psosrc?.value ?: 0L), (psomask?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (pca?.value ?: 0L), (pptlhtorg?.value ?: 0L), (prcldest?.value ?: 0L), (prclsrc?.value ?: 0L), (pptlmask?.value ?: 0L), imode.toInt())
+public actual fun engStretchBlt(psodest: MutPtr<Surfobj>, psosrc: MutPtr<Surfobj>, psomask: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pxlo: MutPtr<Xlateobj>, pca: MutPtr<Coloradjustment>, pptlhtorg: MutPtr<Pointl>, prcldest: MutPtr<Rectl>, prclsrc: MutPtr<Rectl>, pptlmask: MutPtr<Pointl>, imode: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngStretchBlt(psodest.rawAddress, psosrc.rawAddress, psomask.rawAddress, pco.rawAddress, pxlo.rawAddress, pca.rawAddress, pptlhtorg.rawAddress, prcldest.rawAddress, prclsrc.rawAddress, pptlmask.rawAddress, imode.toInt())
 
-public actual fun engStretchBltROP(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt, pbo: COpaquePointer?, rop4: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engStretchBltROP((psodest?.value ?: 0L), (psosrc?.value ?: 0L), (psomask?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (pca?.value ?: 0L), (pptlhtorg?.value ?: 0L), (prcldest?.value ?: 0L), (prclsrc?.value ?: 0L), (pptlmask?.value ?: 0L), imode.toInt(), (pbo?.value ?: 0L), rop4.toInt())
+public actual fun engStretchBltROP(psodest: MutPtr<Surfobj>, psosrc: MutPtr<Surfobj>, psomask: MutPtr<Surfobj>, pco: MutPtr<Clipobj>, pxlo: MutPtr<Xlateobj>, pca: MutPtr<Coloradjustment>, pptlhtorg: MutPtr<Pointl>, prcldest: MutPtr<Rectl>, prclsrc: MutPtr<Rectl>, pptlmask: MutPtr<Pointl>, imode: UInt, pbo: MutPtr<Brushobj>, rop4: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngStretchBltROP(psodest.rawAddress, psosrc.rawAddress, psomask.rawAddress, pco.rawAddress, pxlo.rawAddress, pca.rawAddress, pptlhtorg.rawAddress, prcldest.rawAddress, prclsrc.rawAddress, pptlmask.rawAddress, imode.toInt(), pbo.rawAddress, rop4.toInt())
 
-public actual fun engStrokeAndFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbostroke: COpaquePointer?, plineattrs: COpaquePointer?, pbofill: COpaquePointer?, pptlbrushorg: COpaquePointer?, mixfill: UInt, floptions: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engStrokeAndFillPath((pso?.value ?: 0L), (ppo?.value ?: 0L), (pco?.value ?: 0L), (pxo?.value ?: 0L), (pbostroke?.value ?: 0L), (plineattrs?.value ?: 0L), (pbofill?.value ?: 0L), (pptlbrushorg?.value ?: 0L), mixfill.toInt(), floptions.toInt())
+public actual fun engStrokeAndFillPath(pso: MutPtr<Surfobj>, ppo: MutPtr<Pathobj>, pco: MutPtr<Clipobj>, pxo: MutPtr<Xformobj>, pbostroke: MutPtr<Brushobj>, plineattrs: MutPtr<Lineattrs>, pbofill: MutPtr<Brushobj>, pptlbrushorg: MutPtr<Pointl>, mixfill: UInt, floptions: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngStrokeAndFillPath(pso.rawAddress, ppo.rawAddress, pco.rawAddress, pxo.rawAddress, pbostroke.rawAddress, plineattrs.rawAddress, pbofill.rawAddress, pptlbrushorg.rawAddress, mixfill.toInt(), floptions.toInt())
 
-public actual fun engStrokePath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, plineattrs: COpaquePointer?, mix: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engStrokePath((pso?.value ?: 0L), (ppo?.value ?: 0L), (pco?.value ?: 0L), (pxo?.value ?: 0L), (pbo?.value ?: 0L), (pptlbrushorg?.value ?: 0L), (plineattrs?.value ?: 0L), mix.toInt())
+public actual fun engStrokePath(pso: MutPtr<Surfobj>, ppo: MutPtr<Pathobj>, pco: MutPtr<Clipobj>, pxo: MutPtr<Xformobj>, pbo: MutPtr<Brushobj>, pptlbrushorg: MutPtr<Pointl>, plineattrs: MutPtr<Lineattrs>, mix: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngStrokePath(pso.rawAddress, ppo.rawAddress, pco.rawAddress, pxo.rawAddress, pbo.rawAddress, pptlbrushorg.rawAddress, plineattrs.rawAddress, mix.toInt())
 
-public actual fun engTextOut(pso: COpaquePointer?, pstro: COpaquePointer?, pfo: COpaquePointer?, pco: COpaquePointer?, prclextra: COpaquePointer?, prclopaque: COpaquePointer?, pbofore: COpaquePointer?, pboopaque: COpaquePointer?, pptlorg: COpaquePointer?, mix: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engTextOut((pso?.value ?: 0L), (pstro?.value ?: 0L), (pfo?.value ?: 0L), (pco?.value ?: 0L), (prclextra?.value ?: 0L), (prclopaque?.value ?: 0L), (pbofore?.value ?: 0L), (pboopaque?.value ?: 0L), (pptlorg?.value ?: 0L), mix.toInt())
+public actual fun engTextOut(pso: MutPtr<Surfobj>, pstro: MutPtr<Strobj>, pfo: MutPtr<Fontobj>, pco: MutPtr<Clipobj>, prclextra: MutPtr<Rectl>, prclopaque: MutPtr<Rectl>, pbofore: MutPtr<Brushobj>, pboopaque: MutPtr<Brushobj>, pptlorg: MutPtr<Pointl>, mix: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngTextOut(pso.rawAddress, pstro.rawAddress, pfo.rawAddress, pco.rawAddress, prclextra.rawAddress, prclopaque.rawAddress, pbofore.rawAddress, pboopaque.rawAddress, pptlorg.rawAddress, mix.toInt())
 
-public actual fun engTransparentBlt(psodst: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldst: COpaquePointer?, prclsrc: COpaquePointer?, transcolor: UInt, bcalledfrombitblt: UInt): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engTransparentBlt((psodst?.value ?: 0L), (psosrc?.value ?: 0L), (pco?.value ?: 0L), (pxlo?.value ?: 0L), (prcldst?.value ?: 0L), (prclsrc?.value ?: 0L), transcolor.toInt(), bcalledfrombitblt.toInt())
+public actual fun engTransparentBlt(psodst: ConstPtr<Surfobj>, psosrc: ConstPtr<Surfobj>, pco: ConstPtr<Clipobj>, pxlo: ConstPtr<Xlateobj>, prcldst: ConstPtr<Rectl>, prclsrc: ConstPtr<Rectl>, transcolor: UInt, bcalledfrombitblt: UInt): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngTransparentBlt(psodst.rawAddress, psosrc.rawAddress, pco.rawAddress, pxlo.rawAddress, prcldst.rawAddress, prclsrc.rawAddress, transcolor.toInt(), bcalledfrombitblt.toInt())
 
-public actual fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engUnicodeToMultiByteN((multibytestring?.value ?: 0L), maxbytesinmultibytestring.toInt(), (bytesinmultibytestring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngUnicodeToMultiByteN(multibytestring.rawAddress, maxbytesinmultibytestring.toInt(), bytesinmultibytestring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 }
 
-public actual fun engUnlockSurface(pso: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engUnlockSurface((pso?.value ?: 0L))
+public actual fun engUnlockSurface(pso: MutPtr<Surfobj>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngUnlockSurface(pso.rawAddress)
 }
 
 public actual fun engWideCharToMultiByte(codepage: UInt, widecharstring: Pcwstr, bytesinwidecharstring: Int, multibytestring: Pstr, bytesinmultibytestring: Int): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_engWideCharToMultiByte(codepage.toInt(), (widecharstring?.value ?: 0L), bytesinwidecharstring, (multibytestring?.value ?: 0L), bytesinmultibytestring)
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayEngWideCharToMultiByte(codepage.toInt(), widecharstring.rawAddress, bytesinwidecharstring, multibytestring.rawAddress, bytesinmultibytestring)
 
-public actual fun fontobjCGetAllGlyphHandles(pfo: COpaquePointer?, phg: COpaquePointer?): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles((pfo?.value ?: 0L), (phg?.value ?: 0L)).toUInt()
+public actual fun fontobjCGetAllGlyphHandles(pfo: MutPtr<Fontobj>, phg: MutPtr<UInt>): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjCGetAllGlyphHandles(pfo.rawAddress, phg.rawAddress).toUInt()
 
-public actual fun fontobjCGetGlyphs(pfo: COpaquePointer?, imode: UInt, cglyph: UInt, phg: COpaquePointer?, ppvglyph: COpaquePointer?): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjCGetGlyphs((pfo?.value ?: 0L), imode.toInt(), cglyph.toInt(), (phg?.value ?: 0L), (ppvglyph?.value ?: 0L)).toUInt()
+public actual fun fontobjCGetGlyphs(pfo: MutPtr<Fontobj>, imode: UInt, cglyph: UInt, phg: MutPtr<UInt>, ppvglyph: MutPtr<MutPtr<CVoid>>): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjCGetGlyphs(pfo.rawAddress, imode.toInt(), cglyph.toInt(), phg.rawAddress, ppvglyph.rawAddress).toUInt()
 
-public actual fun fontobjPQueryGlyphAttrs(pfo: COpaquePointer?, imode: UInt): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs((pfo?.value ?: 0L), imode.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fontobjPQueryGlyphAttrs(pfo: MutPtr<Fontobj>, imode: UInt): MutPtr<FdGlyphattr> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjPQueryGlyphAttrs(pfo.rawAddress, imode.toInt()))
 
-public actual fun fontobjPfdg(pfo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjPfdg((pfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fontobjPfdg(pfo: MutPtr<Fontobj>): MutPtr<FdGlyphset> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjPfdg(pfo.rawAddress))
 
-public actual fun fontobjPifi(pfo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjPifi((pfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fontobjPifi(pfo: ConstPtr<Fontobj>): MutPtr<Ifimetrics> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjPifi(pfo.rawAddress))
 
-public actual fun fontobjPvTrueTypeFontFile(pfo: COpaquePointer?, pcjfile: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile((pfo?.value ?: 0L), (pcjfile?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fontobjPvTrueTypeFontFile(pfo: MutPtr<Fontobj>, pcjfile: MutPtr<UInt>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjPvTrueTypeFontFile(pfo.rawAddress, pcjfile.rawAddress))
 
-public actual fun fontobjPxoGetXform(pfo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjPxoGetXform((pfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fontobjPxoGetXform(pfo: ConstPtr<Fontobj>): MutPtr<Xformobj> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjPxoGetXform(pfo.rawAddress))
 
-public actual fun fontobjVGetInfo(pfo: COpaquePointer?, cjsize: UInt, pfi: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_fontobjVGetInfo((pfo?.value ?: 0L), cjsize.toInt(), (pfi?.value ?: 0L))
+public actual fun fontobjVGetInfo(pfo: MutPtr<Fontobj>, cjsize: UInt, pfi: MutPtr<Fontinfo>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayFontobjVGetInfo(pfo.rawAddress, cjsize.toInt(), pfi.rawAddress)
 }
 
-public actual fun getAutoRotationState(pstate: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getAutoRotationState((pstate?.value ?: 0L))
+public actual fun getAutoRotationState(pstate: MutPtr<ArState>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetAutoRotationState(pstate.rawAddress)
 
-public actual fun getCapabilitiesStringLength(hmonitor: Handle, pdwcapabilitiesstringlengthincharacters: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getCapabilitiesStringLength((hmonitor?.value ?: 0L), (pdwcapabilitiesstringlengthincharacters?.value ?: 0L))
+public actual fun getCapabilitiesStringLength(hmonitor: Handle, pdwcapabilitiesstringlengthincharacters: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetCapabilitiesStringLength(hmonitor.rawAddress, pdwcapabilitiesstringlengthincharacters.rawAddress)
 
-public actual fun getDisplayAutoRotationPreferences(porientation: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences((porientation?.value ?: 0L))
+public actual fun getDisplayAutoRotationPreferences(porientation: MutPtr<OrientationPreference>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetDisplayAutoRotationPreferences(porientation.rawAddress)
 
-public actual fun getDisplayConfigBufferSizes(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?): Win32Error =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(flags.toInt(), (numpatharrayelements?.value ?: 0L), (nummodeinfoarrayelements?.value ?: 0L)).toUInt()
+public actual fun getDisplayConfigBufferSizes(flags: QueryDisplayConfigFlags, numpatharrayelements: MutPtr<UInt>, nummodeinfoarrayelements: MutPtr<UInt>): Win32Error =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetDisplayConfigBufferSizes(flags.toInt(), numpatharrayelements.rawAddress, nummodeinfoarrayelements.rawAddress).toUInt()
 
-public actual fun getMonitorBrightness(hmonitor: Handle, pdwminimumbrightness: COpaquePointer?, pdwcurrentbrightness: COpaquePointer?, pdwmaximumbrightness: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorBrightness((hmonitor?.value ?: 0L), (pdwminimumbrightness?.value ?: 0L), (pdwcurrentbrightness?.value ?: 0L), (pdwmaximumbrightness?.value ?: 0L))
+public actual fun getMonitorBrightness(hmonitor: Handle, pdwminimumbrightness: MutPtr<UInt>, pdwcurrentbrightness: MutPtr<UInt>, pdwmaximumbrightness: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorBrightness(hmonitor.rawAddress, pdwminimumbrightness.rawAddress, pdwcurrentbrightness.rawAddress, pdwmaximumbrightness.rawAddress)
 
-public actual fun getMonitorCapabilities(hmonitor: Handle, pdwmonitorcapabilities: COpaquePointer?, pdwsupportedcolortemperatures: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorCapabilities((hmonitor?.value ?: 0L), (pdwmonitorcapabilities?.value ?: 0L), (pdwsupportedcolortemperatures?.value ?: 0L))
+public actual fun getMonitorCapabilities(hmonitor: Handle, pdwmonitorcapabilities: MutPtr<UInt>, pdwsupportedcolortemperatures: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorCapabilities(hmonitor.rawAddress, pdwmonitorcapabilities.rawAddress, pdwsupportedcolortemperatures.rawAddress)
 
-public actual fun getMonitorColorTemperature(hmonitor: Handle, pctcurrentcolortemperature: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorColorTemperature((hmonitor?.value ?: 0L), (pctcurrentcolortemperature?.value ?: 0L))
+public actual fun getMonitorColorTemperature(hmonitor: Handle, pctcurrentcolortemperature: MutPtr<McColorTemperature>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorColorTemperature(hmonitor.rawAddress, pctcurrentcolortemperature.rawAddress)
 
-public actual fun getMonitorContrast(hmonitor: Handle, pdwminimumcontrast: COpaquePointer?, pdwcurrentcontrast: COpaquePointer?, pdwmaximumcontrast: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorContrast((hmonitor?.value ?: 0L), (pdwminimumcontrast?.value ?: 0L), (pdwcurrentcontrast?.value ?: 0L), (pdwmaximumcontrast?.value ?: 0L))
+public actual fun getMonitorContrast(hmonitor: Handle, pdwminimumcontrast: MutPtr<UInt>, pdwcurrentcontrast: MutPtr<UInt>, pdwmaximumcontrast: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorContrast(hmonitor.rawAddress, pdwminimumcontrast.rawAddress, pdwcurrentcontrast.rawAddress, pdwmaximumcontrast.rawAddress)
 
-public actual fun getMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, pdwminimumposition: COpaquePointer?, pdwcurrentposition: COpaquePointer?, pdwmaximumposition: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition((hmonitor?.value ?: 0L), ptpositiontype, (pdwminimumposition?.value ?: 0L), (pdwcurrentposition?.value ?: 0L), (pdwmaximumposition?.value ?: 0L))
+public actual fun getMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, pdwminimumposition: MutPtr<UInt>, pdwcurrentposition: MutPtr<UInt>, pdwmaximumposition: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaPosition(hmonitor.rawAddress, ptpositiontype, pdwminimumposition.rawAddress, pdwcurrentposition.rawAddress, pdwmaximumposition.rawAddress)
 
-public actual fun getMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, pdwminimumwidthorheight: COpaquePointer?, pdwcurrentwidthorheight: COpaquePointer?, pdwmaximumwidthorheight: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize((hmonitor?.value ?: 0L), stsizetype, (pdwminimumwidthorheight?.value ?: 0L), (pdwcurrentwidthorheight?.value ?: 0L), (pdwmaximumwidthorheight?.value ?: 0L))
+public actual fun getMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, pdwminimumwidthorheight: MutPtr<UInt>, pdwcurrentwidthorheight: MutPtr<UInt>, pdwmaximumwidthorheight: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaSize(hmonitor.rawAddress, stsizetype, pdwminimumwidthorheight.rawAddress, pdwcurrentwidthorheight.rawAddress, pdwmaximumwidthorheight.rawAddress)
 
-public actual fun getMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, pdwminimumdrive: COpaquePointer?, pdwcurrentdrive: COpaquePointer?, pdwmaximumdrive: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive((hmonitor?.value ?: 0L), dtdrivetype, (pdwminimumdrive?.value ?: 0L), (pdwcurrentdrive?.value ?: 0L), (pdwmaximumdrive?.value ?: 0L))
+public actual fun getMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, pdwminimumdrive: MutPtr<UInt>, pdwcurrentdrive: MutPtr<UInt>, pdwmaximumdrive: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueDrive(hmonitor.rawAddress, dtdrivetype, pdwminimumdrive.rawAddress, pdwcurrentdrive.rawAddress, pdwmaximumdrive.rawAddress)
 
-public actual fun getMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, pdwminimumgain: COpaquePointer?, pdwcurrentgain: COpaquePointer?, pdwmaximumgain: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain((hmonitor?.value ?: 0L), gtgaintype, (pdwminimumgain?.value ?: 0L), (pdwcurrentgain?.value ?: 0L), (pdwmaximumgain?.value ?: 0L))
+public actual fun getMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, pdwminimumgain: MutPtr<UInt>, pdwcurrentgain: MutPtr<UInt>, pdwmaximumgain: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueGain(hmonitor.rawAddress, gtgaintype, pdwminimumgain.rawAddress, pdwcurrentgain.rawAddress, pdwmaximumgain.rawAddress)
 
-public actual fun getMonitorTechnologyType(hmonitor: Handle, pdtydisplaytechnologytype: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getMonitorTechnologyType((hmonitor?.value ?: 0L), (pdtydisplaytechnologytype?.value ?: 0L))
+public actual fun getMonitorTechnologyType(hmonitor: Handle, pdtydisplaytechnologytype: MutPtr<McDisplayTechnologyType>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetMonitorTechnologyType(hmonitor.rawAddress, pdtydisplaytechnologytype.rawAddress)
 
-public actual fun getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, pdwnumberofphysicalmonitors: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR((hmonitor?.value ?: 0L), (pdwnumberofphysicalmonitors?.value ?: 0L))
+public actual fun getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, pdwnumberofphysicalmonitors: MutPtr<UInt>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor.rawAddress, pdwnumberofphysicalmonitors.rawAddress)
 
-public actual fun getPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR((hmonitor?.value ?: 0L), dwphysicalmonitorarraysize.toInt(), (pphysicalmonitorarray?.value ?: 0L))
+public actual fun getPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: MutPtr<PhysicalMonitor>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetPhysicalMonitorsFromHMONITOR(hmonitor.rawAddress, dwphysicalmonitorarraysize.toInt(), pphysicalmonitorarray.rawAddress)
 
-public actual fun getTimingReport(hmonitor: Handle, pmtrmonitortimingreport: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getTimingReport((hmonitor?.value ?: 0L), (pmtrmonitortimingreport?.value ?: 0L))
+public actual fun getTimingReport(hmonitor: Handle, pmtrmonitortimingreport: MutPtr<McTimingReport>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetTimingReport(hmonitor.rawAddress, pmtrmonitortimingreport.rawAddress)
 
-public actual fun getVCPFeatureAndVCPFeatureReply(hmonitor: Handle, bvcpcode: UByte, pvct: COpaquePointer?, pdwcurrentvalue: COpaquePointer?, pdwmaximumvalue: COpaquePointer?): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply((hmonitor?.value ?: 0L), bvcpcode.toByte(), (pvct?.value ?: 0L), (pdwcurrentvalue?.value ?: 0L), (pdwmaximumvalue?.value ?: 0L))
+public actual fun getVCPFeatureAndVCPFeatureReply(hmonitor: Handle, bvcpcode: UByte, pvct: MutPtr<McVcpCodeType>, pdwcurrentvalue: MutPtr<UInt>, pdwmaximumvalue: MutPtr<UInt>): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayGetVCPFeatureAndVCPFeatureReply(hmonitor.rawAddress, bvcpcode.toByte(), pvct.rawAddress, pdwcurrentvalue.rawAddress, pdwmaximumvalue.rawAddress)
 
-public actual fun htGet8BppformatPalette(ppaletteentry: COpaquePointer?, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_htGet8BppformatPalette((ppaletteentry?.value ?: 0L), redgamma.toShort(), greengamma.toShort(), bluegamma.toShort())
+public actual fun htGet8BppformatPalette(ppaletteentry: MutPtr<Paletteentry>, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayHtGet8BppformatPalette(ppaletteentry.rawAddress, redgamma.toShort(), greengamma.toShort(), bluegamma.toShort())
 
-public actual fun htGet8BppmaskPalette(ppaletteentry: COpaquePointer?, use8bppmaskpal: Bool, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_htGet8BppmaskPalette((ppaletteentry?.value ?: 0L), use8bppmaskpal, cmymask.toByte(), redgamma.toShort(), greengamma.toShort(), bluegamma.toShort())
+public actual fun htGet8BppmaskPalette(ppaletteentry: MutPtr<Paletteentry>, use8bppmaskpal: Bool, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayHtGet8BppmaskPalette(ppaletteentry.rawAddress, use8bppmaskpal, cmymask.toByte(), redgamma.toShort(), greengamma.toShort(), bluegamma.toShort())
 
-public actual fun pathobjBEnum(ppo: COpaquePointer?, ppd: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_pathobjBEnum((ppo?.value ?: 0L), (ppd?.value ?: 0L))
+public actual fun pathobjBEnum(ppo: MutPtr<Pathobj>, ppd: MutPtr<Pathdata>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayPathobjBEnum(ppo.rawAddress, ppd.rawAddress)
 
-public actual fun pathobjBEnumClipLines(ppo: COpaquePointer?, cb: UInt, pcl: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_pathobjBEnumClipLines((ppo?.value ?: 0L), cb.toInt(), (pcl?.value ?: 0L))
+public actual fun pathobjBEnumClipLines(ppo: MutPtr<Pathobj>, cb: UInt, pcl: MutPtr<Clipline>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayPathobjBEnumClipLines(ppo.rawAddress, cb.toInt(), pcl.rawAddress)
 
-public actual fun pathobjVEnumStart(ppo: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_pathobjVEnumStart((ppo?.value ?: 0L))
+public actual fun pathobjVEnumStart(ppo: MutPtr<Pathobj>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayPathobjVEnumStart(ppo.rawAddress)
 }
 
-public actual fun pathobjVEnumStartClipLines(ppo: COpaquePointer?, pco: COpaquePointer?, pso: COpaquePointer?, pla: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines((ppo?.value ?: 0L), (pco?.value ?: 0L), (pso?.value ?: 0L), (pla?.value ?: 0L))
+public actual fun pathobjVEnumStartClipLines(ppo: MutPtr<Pathobj>, pco: MutPtr<Clipobj>, pso: MutPtr<Surfobj>, pla: MutPtr<Lineattrs>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayPathobjVEnumStartClipLines(ppo.rawAddress, pco.rawAddress, pso.rawAddress, pla.rawAddress)
 }
 
-public actual fun pathobjVGetBounds(ppo: COpaquePointer?, prectfx: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_pathobjVGetBounds((ppo?.value ?: 0L), (prectfx?.value ?: 0L))
+public actual fun pathobjVGetBounds(ppo: MutPtr<Pathobj>, prectfx: MutPtr<Rectfx>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayPathobjVGetBounds(ppo.rawAddress, prectfx.rawAddress)
 }
 
-public actual fun queryDisplayConfig(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, patharray: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?, modeinfoarray: COpaquePointer?, currenttopologyid: COpaquePointer?): Win32Error =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_queryDisplayConfig(flags.toInt(), (numpatharrayelements?.value ?: 0L), (patharray?.value ?: 0L), (nummodeinfoarrayelements?.value ?: 0L), (modeinfoarray?.value ?: 0L), (currenttopologyid?.value ?: 0L)).toUInt()
+public actual fun queryDisplayConfig(flags: QueryDisplayConfigFlags, numpatharrayelements: MutPtr<UInt>, patharray: MutPtr<DisplayconfigPathInfo>, nummodeinfoarrayelements: MutPtr<UInt>, modeinfoarray: MutPtr<DisplayconfigModeInfo>, currenttopologyid: MutPtr<DisplayconfigTopologyId>): Win32Error =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayQueryDisplayConfig(flags.toInt(), numpatharrayelements.rawAddress, patharray.rawAddress, nummodeinfoarrayelements.rawAddress, modeinfoarray.rawAddress, currenttopologyid.rawAddress).toUInt()
 
 public actual fun restoreMonitorFactoryColorDefaults(hmonitor: Handle): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults((hmonitor?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryColorDefaults(hmonitor.rawAddress)
 
 public actual fun restoreMonitorFactoryDefaults(hmonitor: Handle): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults((hmonitor?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryDefaults(hmonitor.rawAddress)
 
-public actual fun strobjBEnum(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_strobjBEnum((pstro?.value ?: 0L), (pc?.value ?: 0L), (ppgpos?.value ?: 0L))
+public actual fun strobjBEnum(pstro: MutPtr<Strobj>, pc: MutPtr<UInt>, ppgpos: MutPtr<MutPtr<Glyphpos>>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayStrobjBEnum(pstro.rawAddress, pc.rawAddress, ppgpos.rawAddress)
 
-public actual fun strobjBEnumPositionsOnly(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly((pstro?.value ?: 0L), (pc?.value ?: 0L), (ppgpos?.value ?: 0L))
+public actual fun strobjBEnumPositionsOnly(pstro: MutPtr<Strobj>, pc: MutPtr<UInt>, ppgpos: MutPtr<MutPtr<Glyphpos>>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayStrobjBEnumPositionsOnly(pstro.rawAddress, pc.rawAddress, ppgpos.rawAddress)
 
-public actual fun strobjBGetAdvanceWidths(pso: COpaquePointer?, ifirst: UInt, c: UInt, pptqd: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths((pso?.value ?: 0L), ifirst.toInt(), c.toInt(), (pptqd?.value ?: 0L))
+public actual fun strobjBGetAdvanceWidths(pso: MutPtr<Strobj>, ifirst: UInt, c: UInt, pptqd: MutPtr<Pointqf>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayStrobjBGetAdvanceWidths(pso.rawAddress, ifirst.toInt(), c.toInt(), pptqd.rawAddress)
 
-public actual fun strobjDwGetCodePage(pstro: COpaquePointer?): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_strobjDwGetCodePage((pstro?.value ?: 0L)).toUInt()
+public actual fun strobjDwGetCodePage(pstro: MutPtr<Strobj>): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayStrobjDwGetCodePage(pstro.rawAddress).toUInt()
 
-public actual fun strobjVEnumStart(pstro: COpaquePointer?) {
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_strobjVEnumStart((pstro?.value ?: 0L))
+public actual fun strobjVEnumStart(pstro: MutPtr<Strobj>) {
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayStrobjVEnumStart(pstro.rawAddress)
 }
 
 public actual fun saveCurrentMonitorSettings(hmonitor: Handle): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_saveCurrentMonitorSettings((hmonitor?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySaveCurrentMonitorSettings(hmonitor.rawAddress)
 
 public actual fun saveCurrentSettings(hmonitor: Handle): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_saveCurrentSettings((hmonitor?.value ?: 0L))
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySaveCurrentSettings(hmonitor.rawAddress)
 
 public actual fun setDisplayAutoRotationPreferences(orientation: OrientationPreference): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(orientation)
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(orientation)
 
-public actual fun setDisplayConfig(numpatharrayelements: UInt, patharray: COpaquePointer?, nummodeinfoarrayelements: UInt, modeinfoarray: COpaquePointer?, flags: SetDisplayConfigFlags): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setDisplayConfig(numpatharrayelements.toInt(), (patharray?.value ?: 0L), nummodeinfoarrayelements.toInt(), (modeinfoarray?.value ?: 0L), flags.toInt())
+public actual fun setDisplayConfig(numpatharrayelements: UInt, patharray: ConstPtr<DisplayconfigPathInfo>, nummodeinfoarrayelements: UInt, modeinfoarray: ConstPtr<DisplayconfigModeInfo>, flags: SetDisplayConfigFlags): Int =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetDisplayConfig(numpatharrayelements.toInt(), patharray.rawAddress, nummodeinfoarrayelements.toInt(), modeinfoarray.rawAddress, flags.toInt())
 
 public actual fun setMonitorBrightness(hmonitor: Handle, dwnewbrightness: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorBrightness((hmonitor?.value ?: 0L), dwnewbrightness.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorBrightness(hmonitor.rawAddress, dwnewbrightness.toInt())
 
 public actual fun setMonitorColorTemperature(hmonitor: Handle, ctcurrentcolortemperature: McColorTemperature): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorColorTemperature((hmonitor?.value ?: 0L), ctcurrentcolortemperature)
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorColorTemperature(hmonitor.rawAddress, ctcurrentcolortemperature)
 
 public actual fun setMonitorContrast(hmonitor: Handle, dwnewcontrast: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorContrast((hmonitor?.value ?: 0L), dwnewcontrast.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorContrast(hmonitor.rawAddress, dwnewcontrast.toInt())
 
 public actual fun setMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, dwnewposition: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition((hmonitor?.value ?: 0L), ptpositiontype, dwnewposition.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaPosition(hmonitor.rawAddress, ptpositiontype, dwnewposition.toInt())
 
 public actual fun setMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, dwnewdisplayareawidthorheight: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize((hmonitor?.value ?: 0L), stsizetype, dwnewdisplayareawidthorheight.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaSize(hmonitor.rawAddress, stsizetype, dwnewdisplayareawidthorheight.toInt())
 
 public actual fun setMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, dwnewdrive: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive((hmonitor?.value ?: 0L), dtdrivetype, dwnewdrive.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueDrive(hmonitor.rawAddress, dtdrivetype, dwnewdrive.toInt())
 
 public actual fun setMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, dwnewgain: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain((hmonitor?.value ?: 0L), gtgaintype, dwnewgain.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueGain(hmonitor.rawAddress, gtgaintype, dwnewgain.toInt())
 
 public actual fun setVCPFeature(hmonitor: Handle, bvcpcode: UByte, dwnewvalue: UInt): Int =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_setVCPFeature((hmonitor?.value ?: 0L), bvcpcode.toByte(), dwnewvalue.toInt())
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplaySetVCPFeature(hmonitor.rawAddress, bvcpcode.toByte(), dwnewvalue.toInt())
 
-public actual fun xformobjBApplyXform(pxo: COpaquePointer?, imode: UInt, cpoints: UInt, pvin: COpaquePointer?, pvout: COpaquePointer?): Bool =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_xformobjBApplyXform((pxo?.value ?: 0L), imode.toInt(), cpoints.toInt(), (pvin?.value ?: 0L), (pvout?.value ?: 0L))
+public actual fun xformobjBApplyXform(pxo: MutPtr<Xformobj>, imode: UInt, cpoints: UInt, pvin: MutPtr<CVoid>, pvout: MutPtr<CVoid>): Bool =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayXformobjBApplyXform(pxo.rawAddress, imode.toInt(), cpoints.toInt(), pvin.rawAddress, pvout.rawAddress)
 
-public actual fun xformobjIGetXform(pxo: COpaquePointer?, pxform: COpaquePointer?): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_xformobjIGetXform((pxo?.value ?: 0L), (pxform?.value ?: 0L)).toUInt()
+public actual fun xformobjIGetXform(pxo: ConstPtr<Xformobj>, pxform: MutPtr<Xforml>): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayXformobjIGetXform(pxo.rawAddress, pxform.rawAddress).toUInt()
 
-public actual fun xlateobjCGetPalette(pxlo: COpaquePointer?, ipal: UInt, cpal: UInt, ppal: COpaquePointer?): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_xlateobjCGetPalette((pxlo?.value ?: 0L), ipal.toInt(), cpal.toInt(), (ppal?.value ?: 0L)).toUInt()
+public actual fun xlateobjCGetPalette(pxlo: MutPtr<Xlateobj>, ipal: UInt, cpal: UInt, ppal: MutPtr<UInt>): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayXlateobjCGetPalette(pxlo.rawAddress, ipal.toInt(), cpal.toInt(), ppal.rawAddress).toUInt()
 
-public actual fun xlateobjHGetColorTransform(pxlo: COpaquePointer?): Handle =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_xlateobjHGetColorTransform((pxlo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun xlateobjHGetColorTransform(pxlo: MutPtr<Xlateobj>): Handle =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayXlateobjHGetColorTransform(pxlo.rawAddress))
 
-public actual fun xlateobjIXlate(pxlo: COpaquePointer?, icolor: UInt): UInt =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_xlateobjIXlate((pxlo?.value ?: 0L), icolor.toInt()).toUInt()
+public actual fun xlateobjIXlate(pxlo: MutPtr<Xlateobj>, icolor: UInt): UInt =
+    WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayXlateobjIXlate(pxlo.rawAddress, icolor.toInt()).toUInt()
 
-public actual fun xlateobjPiVector(pxlo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32DevicesDisplayJniBridge.windowssys_windows_win32_devices_display_xlateobjPiVector((pxlo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun xlateobjPiVector(pxlo: MutPtr<Xlateobj>): MutPtr<UInt> =
+    MutPtr(WindowsWin32DevicesDisplayJniBridge.windowssysWindowsWin32DevicesDisplayXlateobjPiVector(pxlo.rawAddress))

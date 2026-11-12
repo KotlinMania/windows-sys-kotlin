@@ -1,5 +1,6 @@
 #if canImport(Testing)
 import Foundation
+import RustLang
 import Testing
 import WindowsSys
 
@@ -13,7 +14,7 @@ struct WindowsSysExportTests {
 
         #expect(FoundationPkg.ERROR_SUCCESS == 0)
         #expect(FoundationPkg.ERROR_FILE_NOT_FOUND == 2)
-        #expect(FoundationPkg.INVALID_HANDLE_VALUE?.value == -1)
+        #expect(FoundationPkg.INVALID_HANDLE_VALUE.rawAddress == -1)
         #expect(ThreadingPkg.INFINITE == 0xFFFF_FFFF)
         #expect(ShellPkg.FOLDERID_DESKTOP.data1 == 0xB4BFCC3A)
         #expect(ShellPkg.FOLDERID_PROFILE.data1 == 0x5E6C858F)

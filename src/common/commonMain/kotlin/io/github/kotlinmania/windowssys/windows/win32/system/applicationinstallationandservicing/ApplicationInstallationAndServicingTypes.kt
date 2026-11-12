@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -42,25 +43,25 @@ public typealias Installtype = Int
 public typealias Installuilevel = Int
 
 public fun interface InstalluiHandleraFn {
-    public operator fun invoke(pvcontext: COpaquePointer?, imessagetype: UInt, szmessage: Pcstr): Int
+    public operator fun invoke(pvcontext: MutPtr<CVoid>, imessagetype: UInt, szmessage: Pcstr): Int
 }
 
 public typealias InstalluiHandlera = InstalluiHandleraFn?
 
 public fun interface InstalluiHandlerwFn {
-    public operator fun invoke(pvcontext: COpaquePointer?, imessagetype: UInt, szmessage: Pcwstr): Int
+    public operator fun invoke(pvcontext: MutPtr<CVoid>, imessagetype: UInt, szmessage: Pcwstr): Int
 }
 
 public typealias InstalluiHandlerw = InstalluiHandlerwFn?
 
 public fun interface LpdisplayvalFn {
-    public operator fun invoke(pcontext: COpaquePointer?, uitype: Resulttypes, szwval: Pcwstr, szwdescription: Pcwstr, szwlocation: Pcwstr): Bool
+    public operator fun invoke(pcontext: MutPtr<CVoid>, uitype: Resulttypes, szwval: Pcwstr, szwdescription: Pcwstr, szwlocation: Pcwstr): Bool
 }
 
 public typealias Lpdisplayval = LpdisplayvalFn?
 
 public fun interface LpevalcomcallbackFn {
-    public operator fun invoke(istatus: Statustypes, szdata: Pcwstr, pcontext: COpaquePointer?): Bool
+    public operator fun invoke(istatus: Statustypes, szdata: Pcwstr, pcontext: MutPtr<CVoid>): Bool
 }
 
 public typealias Lpevalcomcallback = LpevalcomcallbackFn?
@@ -110,7 +111,7 @@ public typealias MsitransformValidate = Int
 public typealias PackmanRuntime = Int
 
 public fun interface PinstalluiHandlerRecordFn {
-    public operator fun invoke(pvcontext: COpaquePointer?, imessagetype: UInt, hrecord: Msihandle): Int
+    public operator fun invoke(pvcontext: MutPtr<CVoid>, imessagetype: UInt, hrecord: Msihandle): Int
 }
 
 public typealias PinstalluiHandlerRecord = PinstalluiHandlerRecordFn?
@@ -152,13 +153,13 @@ public typealias PmTileHubtype = Int
 public typealias PmTileSize = Int
 
 public fun interface PpatchProgressCallbackFn {
-    public operator fun invoke(callbackcontext: COpaquePointer?, currentposition: UInt, maximumposition: UInt): Bool
+    public operator fun invoke(callbackcontext: MutPtr<CVoid>, currentposition: UInt, maximumposition: UInt): Bool
 }
 
 public typealias PpatchProgressCallback = PpatchProgressCallbackFn?
 
 public fun interface PpatchSymloadCallbackFn {
-    public operator fun invoke(whichfile: UInt, symbolfilename: Pcstr, symtype: UInt, symbolfilechecksum: UInt, symbolfiletimedate: UInt, imagefilechecksum: UInt, imagefiletimedate: UInt, callbackcontext: COpaquePointer?): Bool
+    public operator fun invoke(whichfile: UInt, symbolfilename: Pcstr, symtype: UInt, symbolfilechecksum: UInt, symbolfiletimedate: UInt, imagefilechecksum: UInt, imagefiletimedate: UInt, callbackcontext: MutPtr<CVoid>): Bool
 }
 
 public typealias PpatchSymloadCallback = PpatchSymloadCallbackFn?

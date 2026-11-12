@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_getNetScheduleAccountInformation(void* pwszservername, uint32_t ccaccount, void* wszaccount) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementGetNetScheduleAccountInformation(void* pwszservername, uint32_t ccaccount, void* wszaccount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_getNetScheduleA
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_iNetLogonControl2(void* servername, uint32_t functioncode, uint32_t querylevel, void* data, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementINetLogonControl2(void* servername, uint32_t functioncode, uint32_t querylevel, void* data, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_iNetLogonContr
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_logErrorA(uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings, uint32_t dwerrorcode) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementLogErrorA(uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings, uint32_t dwerrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_logErrorA(uint32_t
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_logErrorW(uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings, uint32_t dwerrorcode) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementLogErrorW(uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings, uint32_t dwerrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_logErrorW(uint32_t
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_logEventA(uint32_t weventtype, uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementLogEventA(uint32_t weventtype, uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -137,7 +137,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_logEventA(uint32_t
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_logEventW(uint32_t weventtype, uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementLogEventW(uint32_t weventtype, uint32_t dwmessageid, uint32_t cnumberofsubstrings, void* plpwssubstrings) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_logEventW(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_mprSetupProtocolEnum(uint32_t dwtransportid, void* lplpbuffer, void* lpdwentriesread) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementMprSetupProtocolEnum(uint32_t dwtransportid, void* lplpbuffer, void* lpdwentriesread) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -185,7 +185,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_mprSetupProtoc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_mprSetupProtocolFree(void* lpbuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementMprSetupProtocolFree(void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_mprSetupProtoc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessAdd(v
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -226,13 +226,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessAdd(v
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessDel(void* servername, void* resource) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessDel(void* servername, void* resource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessDel(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessEnum(void* servername, void* basepath, uint32_t recursive, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessEnum(void* servername, void* basepath, uint32_t recursive, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -266,7 +266,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessEnum(
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, basepath, recursive, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, basepath, recursive, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -279,13 +279,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessEnum(
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessGetInfo(void* servername, void* resource, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessGetInfo(void* servername, void* resource, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -310,7 +310,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessGetUserPerms(void* servername, void* ugname, void* resource, void* perms) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessGetUserPerms(void* servername, void* ugname, void* resource, void* perms) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -335,7 +335,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessGetUs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessSetInfo(void* servername, void* resource, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAccessSetInfo(void* servername, void* resource, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -346,7 +346,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessSetIn
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, resource, level, buf, parm_err);
+        return km_fn_ptr(servername, resource, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -355,13 +355,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAccessSetIn
     (void)resource;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAddAlternateComputerName(void* server, void* alternatename, void* domainaccount, void* domainaccountpassword, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAddAlternateComputerName(void* server, void* alternatename, void* domainaccount, void* domainaccountpassword, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -387,7 +387,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAddAlternat
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_netAddServiceAccount(void* servername, void* accountname, void* password, uint32_t flags) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAddServiceAccount(void* servername, void* accountname, void* password, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -412,7 +412,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_netAddServiceAc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAlertRaise(void* alerttype, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAlertRaise(void* alerttype, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -436,7 +436,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAlertRaise(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAlertRaiseEx(void* alerttype, void* variableinfo, uint32_t variableinfosize, void* servicename) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAlertRaiseEx(void* alerttype, void* variableinfo, uint32_t variableinfosize, void* servicename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -461,7 +461,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAlertRaiseE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferAllocate(uint32_t bytecount, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferAllocate(uint32_t bytecount, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -484,7 +484,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferAl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferFree(void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferFree(void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferFr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferReallocate(void* oldbuffer, uint32_t newbytecount, void* newbuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferReallocate(void* oldbuffer, uint32_t newbytecount, void* newbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferRe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferSize(void* buffer, void* bytecount) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferSize(void* buffer, void* bytecount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -553,7 +553,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferSi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAuditClear(void* server, void* backupfile, void* service) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAuditClear(void* server, void* backupfile, void* service) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +577,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAuditClear(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAuditRead(void* server, void* service, void* auditloghandle, uint32_t offset, void* reserved1, uint32_t reserved2, uint32_t offsetflag, void* bufptr, uint32_t prefmaxlen, void* bytesread, void* totalavailable) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAuditRead(void* server, void* service, void* auditloghandle, uint32_t offset, void* reserved1, uint32_t reserved2, uint32_t offsetflag, void* bufptr, uint32_t prefmaxlen, void* bytesread, void* totalavailable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -609,7 +609,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAuditRead(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAuditWrite(uint32_t type, void* buf, uint32_t numbytes, void* service, void* reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetAuditWrite(uint32_t type, void* buf, uint32_t numbytes, void* service, void* reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -635,7 +635,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netAuditWrite(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netConfigGet(void* server, void* component, void* parameter, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetConfigGet(void* server, void* component, void* parameter, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netConfigGet(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netConfigGetAll(void* server, void* component, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetConfigGetAll(void* server, void* component, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -684,7 +684,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netConfigGetAl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netConfigSet(void* server, void* reserved1, void* component, uint32_t level, uint32_t reserved2, void* buf, uint32_t reserved3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetConfigSet(void* server, void* reserved1, void* component, uint32_t level, uint32_t reserved2, void* buf, uint32_t reserved3) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -712,7 +712,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netConfigSet(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netCreateProvisioningPackage(void* pprovisioningparams, void* pppackagebindata, void* pdwpackagebindatasize, void* pppackagetextdata) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetCreateProvisioningPackage(void* pprovisioningparams, void* pppackagebindata, void* pdwpackagebindatasize, void* pppackagetextdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netCreateProvi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netEnumerateComputerNames(void* server, int32_t nametype, uint32_t reserved, void* entrycount, void* computernames) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetEnumerateComputerNames(void* server, int32_t nametype, uint32_t reserved, void* entrycount, void* computernames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -763,7 +763,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netEnumerateCo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_netEnumerateServiceAccounts(void* servername, uint32_t flags, void* accountscount, void* accounts) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetEnumerateServiceAccounts(void* servername, uint32_t flags, void* accountscount, void* accounts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -788,7 +788,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_netEnumerateSer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogClear(void* uncservername, void* backupfile, void* reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogClear(void* uncservername, void* backupfile, void* reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -812,7 +812,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogCle
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogRead(void* uncservername, void* reserved1, void* errorloghandle, uint32_t offset, void* reserved2, uint32_t reserved3, uint32_t offsetflag, void* bufptr, uint32_t prefmaxsize, void* bytesread, void* totalavailable) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogRead(void* uncservername, void* reserved1, void* errorloghandle, uint32_t offset, void* reserved2, uint32_t reserved3, uint32_t offsetflag, void* bufptr, uint32_t prefmaxsize, void* bytesread, void* totalavailable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -844,7 +844,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogRea
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogWrite(void* reserved1, uint32_t code, void* component, void* buffer, uint32_t numbytes, void* msgbuf, uint32_t strcount, void* reserved2) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogWrite(void* reserved1, uint32_t code, void* component, void* buffer, uint32_t numbytes, void* msgbuf, uint32_t strcount, void* reserved2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -873,7 +873,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogWri
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_netFreeAadJoinInformation(void* pjoininfo) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementNetFreeAadJoinInformation(void* pjoininfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -894,7 +894,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_netFreeAadJoinInfo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetAadJoinInformation(void* pcsztenantid, void* ppjoininfo) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGetAadJoinInformation(void* pcsztenantid, void* ppjoininfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetAadJoinIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetAnyDCName(void* servername, void* domainname, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGetAnyDCName(void* servername, void* domainname, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetAnyDCNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetDCName(void* servername, void* domainname, void* buffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGetDCName(void* servername, void* domainname, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -965,7 +965,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetDCName(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetDisplayInformationIndex(void* servername, uint32_t level, void* prefix, void* arg_3_index) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGetDisplayInformationIndex(void* servername, uint32_t level, void* prefix, void* arg3Index) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -976,7 +976,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetDisplayI
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, prefix, arg_3_index);
+        return km_fn_ptr(servername, level, prefix, arg3Index);
     }
     errno = ENOSYS;
     return 0;
@@ -984,13 +984,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetDisplayI
     (void)servername;
     (void)level;
     (void)prefix;
-    (void)arg_3_index;
+    (void)arg3Index;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetJoinInformation(void* lpserver, void* lpnamebuffer, void* buffertype) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGetJoinInformation(void* lpserver, void* lpnamebuffer, void* buffertype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1014,7 +1014,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetJoinInfo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetJoinableOUs(void* lpserver, void* lpdomain, void* lpaccount, void* lppassword, void* oucount, void* ous) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGetJoinableOUs(void* lpserver, void* lpdomain, void* lpaccount, void* lppassword, void* oucount, void* ous) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1041,7 +1041,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGetJoinable
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1052,7 +1052,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupAdd(vo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -1060,13 +1060,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupAdd(vo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupAddUser(void* servername, void* groupname, void* username) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupAddUser(void* servername, void* groupname, void* username) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1090,7 +1090,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupAddUse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupDel(void* servername, void* groupname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupDel(void* servername, void* groupname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupDel(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupDelUser(void* servername, void* groupname, void* username) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupDelUser(void* servername, void* groupname, void* username) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupDelUse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1148,7 +1148,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupEnum(v
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -1159,13 +1159,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupEnum(v
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupGetInfo(void* servername, void* groupname, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupGetInfo(void* servername, void* groupname, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1190,7 +1190,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupGetInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupGetUsers(void* servername, void* groupname, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupGetUsers(void* servername, void* groupname, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1219,7 +1219,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupGetUse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetInfo(void* servername, void* groupname, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupSetInfo(void* servername, void* groupname, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1230,7 +1230,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetInf
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, groupname, level, buf, parm_err);
+        return km_fn_ptr(servername, groupname, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -1239,13 +1239,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetInf
     (void)groupname;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetUsers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetGroupSetUsers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetUse
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_netIsServiceAccount(void* servername, void* accountname, void* isservice) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetIsServiceAccount(void* servername, void* accountname, void* isservice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_netIsServiceAcc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netJoinDomain(void* lpserver, void* lpdomain, void* lpmachineaccountou, void* lpaccount, void* lppassword, uint32_t fjoinoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetJoinDomain(void* lpserver, void* lpdomain, void* lpmachineaccountou, void* lpaccount, void* lppassword, uint32_t fjoinoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1322,7 +1322,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netJoinDomain(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1333,7 +1333,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupA
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -1341,13 +1341,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupA
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupAddMember(void* servername, void* groupname, void* membersid) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAddMember(void* servername, void* groupname, void* membersid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1371,7 +1371,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupA
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupAddMembers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAddMembers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1397,7 +1397,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupA
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupDel(void* servername, void* groupname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDel(void* servername, void* groupname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1420,7 +1420,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupDelMember(void* servername, void* groupname, void* membersid) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDelMember(void* servername, void* groupname, void* membersid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupDelMembers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDelMembers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1470,7 +1470,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1498,7 +1498,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupGetInfo(void* servername, void* groupname, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupGetInfo(void* servername, void* groupname, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1523,7 +1523,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupG
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupGetMembers(void* servername, void* localgroupname, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupGetMembers(void* servername, void* localgroupname, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1552,7 +1552,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupG
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupSetInfo(void* servername, void* groupname, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupSetInfo(void* servername, void* groupname, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1563,7 +1563,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupS
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, groupname, level, buf, parm_err);
+        return km_fn_ptr(servername, groupname, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -1572,13 +1572,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupS
     (void)groupname;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupSetMembers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupSetMembers(void* servername, void* groupname, uint32_t level, void* buf, uint32_t totalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1604,7 +1604,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageBufferSend(void* servername, void* msgname, void* fromname, void* buf, uint32_t buflen) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageBufferSend(void* servername, void* msgname, void* fromname, void* buf, uint32_t buflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1630,7 +1630,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageBuff
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameAdd(void* servername, void* msgname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameAdd(void* servername, void* msgname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1653,7 +1653,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameDel(void* servername, void* msgname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameDel(void* servername, void* msgname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1676,7 +1676,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1687,7 +1687,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageName
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -1698,13 +1698,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageName
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameGetInfo(void* servername, void* msgname, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameGetInfo(void* servername, void* msgname, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1729,7 +1729,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netMessageName
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netProvisionComputerAccount(void* lpdomain, void* lpmachinename, void* lpmachineaccountou, void* lpdcname, uint32_t dwoptions, void* pprovisionbindata, void* pdwprovisionbindatasize, void* pprovisiontextdata) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetProvisionComputerAccount(void* lpdomain, void* lpmachinename, void* lpmachineaccountou, void* lpdcname, uint32_t dwoptions, void* pprovisionbindata, void* pdwprovisionbindatasize, void* pprovisiontextdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1758,7 +1758,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netProvisionCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netQueryDisplayInformation(void* servername, uint32_t level, uint32_t arg_2_index, uint32_t entriesrequested, uint32_t preferredmaximumlength, void* returnedentrycount, void* sortedbuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetQueryDisplayInformation(void* servername, uint32_t level, uint32_t arg2Index, uint32_t entriesrequested, uint32_t preferredmaximumlength, void* returnedentrycount, void* sortedbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1769,14 +1769,14 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netQueryDispla
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, arg_2_index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer);
+        return km_fn_ptr(servername, level, arg2Index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)servername;
     (void)level;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)entriesrequested;
     (void)preferredmaximumlength;
     (void)returnedentrycount;
@@ -1786,7 +1786,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netQueryDispla
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_netQueryServiceAccount(void* servername, void* accountname, uint32_t infolevel, void* buffer) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetQueryServiceAccount(void* servername, void* accountname, uint32_t infolevel, void* buffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1811,7 +1811,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_netQueryService
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoteComputerSupports(void* uncservername, uint32_t optionswanted, void* optionssupported) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoteComputerSupports(void* uncservername, uint32_t optionswanted, void* optionssupported) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1835,7 +1835,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoteCompu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoteTOD(void* uncservername, void* bufferptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoteTOD(void* uncservername, void* bufferptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1858,7 +1858,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoteTOD(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoveAlternateComputerName(void* server, void* alternatename, void* domainaccount, void* domainaccountpassword, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoveAlternateComputerName(void* server, void* alternatename, void* domainaccount, void* domainaccountpassword, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1884,7 +1884,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoveAlter
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoveServiceAccount(void* servername, void* accountname, uint32_t flags) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRemoveServiceAccount(void* servername, void* accountname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1908,7 +1908,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_netRemoveServic
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRenameMachineInDomain(void* lpserver, void* lpnewmachinename, void* lpaccount, void* lppassword, uint32_t frenameoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRenameMachineInDomain(void* lpserver, void* lpnewmachinename, void* lpaccount, void* lppassword, uint32_t frenameoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1934,7 +1934,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRenameMachi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1945,7 +1945,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -1953,13 +1953,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirDel(void* servername, void* dirname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirDel(void* servername, void* dirname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1982,7 +1982,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2010,7 +2010,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirGetInfo(void* servername, void* dirname, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirGetInfo(void* servername, void* dirname, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2035,7 +2035,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirLock(void* servername, void* dirname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirLock(void* servername, void* dirname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2058,7 +2058,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirSetInfo(void* servername, void* dirname, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirSetInfo(void* servername, void* dirname, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2069,7 +2069,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, dirname, level, buf, parm_err);
+        return km_fn_ptr(servername, dirname, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -2078,13 +2078,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
     (void)dirname;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirUnlock(void* servername, void* dirname, uint32_t unlockforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirUnlock(void* servername, void* dirname, uint32_t unlockforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2108,7 +2108,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplExportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplGetInfo(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplGetInfo(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2132,7 +2132,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplGetInfo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2143,7 +2143,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -2151,13 +2151,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirDel(void* servername, void* dirname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirDel(void* servername, void* dirname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2180,7 +2180,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2208,7 +2208,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirGetInfo(void* servername, void* dirname, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirGetInfo(void* servername, void* dirname, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2233,7 +2233,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirLock(void* servername, void* dirname) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirLock(void* servername, void* dirname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2256,7 +2256,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirUnlock(void* servername, void* dirname, uint32_t unlockforce) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirUnlock(void* servername, void* dirname, uint32_t unlockforce) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2280,7 +2280,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplImportD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplSetInfo(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetReplSetInfo(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2291,7 +2291,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplSetInfo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -2299,13 +2299,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netReplSetInfo
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRequestOfflineDomainJoin(void* pprovisionbindata, uint32_t cbprovisionbindatasize, uint32_t dwoptions, void* lpwindowspath) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRequestOfflineDomainJoin(void* pprovisionbindata, uint32_t cbprovisionbindatasize, uint32_t dwoptions, void* lpwindowspath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2330,7 +2330,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRequestOffl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRequestProvisioningPackageInstall(void* ppackagebindata, uint32_t dwpackagebindatasize, uint32_t dwprovisionoptions, void* lpwindowspath, void* pvreserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetRequestProvisioningPackageInstall(void* ppackagebindata, uint32_t dwpackagebindatasize, uint32_t dwprovisionoptions, void* lpwindowspath, void* pvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2356,7 +2356,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netRequestProv
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobAdd(void* servername, void* buffer, void* jobid) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobAdd(void* servername, void* buffer, void* jobid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2380,7 +2380,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJob
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobDel(void* servername, uint32_t minjobid, uint32_t maxjobid) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobDel(void* servername, uint32_t minjobid, uint32_t maxjobid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2404,7 +2404,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJob
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobEnum(void* servername, void* pointertobuffer, uint32_t prefferedmaximumlength, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobEnum(void* servername, void* pointertobuffer, uint32_t prefferedmaximumlength, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2431,7 +2431,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJob
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobGetInfo(void* servername, uint32_t jobid, void* pointertobuffer) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobGetInfo(void* servername, uint32_t jobid, void* pointertobuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2455,7 +2455,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJob
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerComputerNameAdd(void* servername, void* emulateddomainname, void* emulatedservername) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerComputerNameAdd(void* servername, void* emulateddomainname, void* emulatedservername) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2479,7 +2479,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerCompu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerComputerNameDel(void* servername, void* emulatedservername) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerComputerNameDel(void* servername, void* emulatedservername) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2502,7 +2502,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerCompu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerDiskEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerDiskEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2513,7 +2513,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerDiskE
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -2524,13 +2524,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerDiskE
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, uint32_t servertype, void* domain, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, uint32_t servertype, void* domain, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2541,7 +2541,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerEnum(
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -2554,13 +2554,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerEnum(
     (void)totalentries;
     (void)servertype;
     (void)domain;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerGetInfo(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerGetInfo(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2584,7 +2584,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerSetInfo(void* servername, uint32_t level, void* buf, void* parmerror) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerSetInfo(void* servername, uint32_t level, void* buf, void* parmerror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2609,7 +2609,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerSetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportAdd(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportAdd(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2633,7 +2633,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportAddEx(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportAddEx(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2657,7 +2657,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportDel(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportDel(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2681,7 +2681,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2692,7 +2692,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTrans
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -2703,13 +2703,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServerTrans
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceControl(void* servername, void* service, uint32_t opcode, uint32_t arg, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceControl(void* servername, void* service, uint32_t opcode, uint32_t arg, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2735,7 +2735,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceCont
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2746,7 +2746,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceEnum
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -2757,13 +2757,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceEnum
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceGetInfo(void* servername, void* service, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceGetInfo(void* servername, void* service, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2788,7 +2788,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceGetI
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceInstall(void* servername, void* service, uint32_t argc, void* argv, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetServiceInstall(void* servername, void* service, uint32_t argc, void* argv, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2814,7 +2814,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netServiceInst
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netSetPrimaryComputerName(void* server, void* primaryname, void* domainaccount, void* domainaccountpassword, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetSetPrimaryComputerName(void* server, void* primaryname, void* domainaccount, void* domainaccountpassword, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2840,7 +2840,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netSetPrimaryC
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUnjoinDomain(void* lpserver, void* lpaccount, void* lppassword, uint32_t funjoinoptions) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUnjoinDomain(void* lpserver, void* lpaccount, void* lppassword, uint32_t funjoinoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2865,7 +2865,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUnjoinDomai
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseAdd(void* servername, uint32_t levelflags, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUseAdd(void* servername, uint32_t levelflags, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2876,7 +2876,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseAdd(void
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, levelflags, buf, parm_err);
+        return km_fn_ptr(servername, levelflags, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -2884,13 +2884,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseAdd(void
     (void)servername;
     (void)levelflags;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseDel(void* uncservername, void* usename, uint32_t forcelevelflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUseDel(void* uncservername, void* usename, uint32_t forcelevelflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2914,7 +2914,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseDel(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseEnum(void* uncservername, uint32_t levelflags, void* bufptr, uint32_t preferedmaximumsize, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUseEnum(void* uncservername, uint32_t levelflags, void* bufptr, uint32_t preferedmaximumsize, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2942,7 +2942,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseEnum(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseGetInfo(void* uncservername, void* usename, uint32_t levelflags, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUseGetInfo(void* uncservername, void* usename, uint32_t levelflags, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2967,7 +2967,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUseGetInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2978,7 +2978,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserAdd(voi
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -2986,13 +2986,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserAdd(voi
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserChangePassword(void* domainname, void* username, void* oldpassword, void* newpassword) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserChangePassword(void* domainname, void* username, void* oldpassword, void* newpassword) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3017,7 +3017,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserChangeP
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserDel(void* servername, void* username) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserDel(void* servername, void* username) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3040,7 +3040,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserDel(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserEnum(void* servername, uint32_t level, uint32_t filter, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserEnum(void* servername, uint32_t level, uint32_t filter, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3051,7 +3051,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserEnum(vo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, filter, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, filter, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -3063,13 +3063,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserEnum(vo
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserGetGroups(void* servername, void* username, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetGroups(void* servername, void* username, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3097,7 +3097,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserGetGrou
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserGetInfo(void* servername, void* username, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetInfo(void* servername, void* username, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3122,7 +3122,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserGetInfo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserGetLocalGroups(void* servername, void* username, uint32_t level, uint32_t flags, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetLocalGroups(void* servername, void* username, uint32_t level, uint32_t flags, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3151,7 +3151,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserGetLoca
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsGet(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserModalsGet(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3175,7 +3175,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsG
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsSet(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserModalsSet(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3186,7 +3186,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsS
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -3194,13 +3194,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsS
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserSetGroups(void* servername, void* username, uint32_t level, void* buf, uint32_t num_entries) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserSetGroups(void* servername, void* username, uint32_t level, void* buf, uint32_t numEntries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3211,7 +3211,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserSetGrou
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, username, level, buf, num_entries);
+        return km_fn_ptr(servername, username, level, buf, numEntries);
     }
     errno = ENOSYS;
     return 0;
@@ -3220,13 +3220,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserSetGrou
     (void)username;
     (void)level;
     (void)buf;
-    (void)num_entries;
+    (void)numEntries;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserSetInfo(void* servername, void* username, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetUserSetInfo(void* servername, void* username, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3237,7 +3237,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserSetInfo
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, username, level, buf, parm_err);
+        return km_fn_ptr(servername, username, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -3246,13 +3246,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netUserSetInfo
     (void)username;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netValidateName(void* lpserver, void* lpname, void* lpaccount, void* lppassword, int32_t nametype) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetValidateName(void* lpserver, void* lpname, void* lpaccount, void* lppassword, int32_t nametype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3278,7 +3278,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netValidateNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netValidatePasswordPolicy(void* servername, void* qualifier, int32_t validationtype, void* inputarg, void* outputarg) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetValidatePasswordPolicy(void* servername, void* qualifier, int32_t validationtype, void* inputarg, void* outputarg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3304,7 +3304,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netValidatePas
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netValidatePasswordPolicyFree(void* outputarg) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetValidatePasswordPolicyFree(void* outputarg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3326,7 +3326,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netValidatePas
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaGetInfo(void* servername, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaGetInfo(void* servername, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3350,7 +3350,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaGetInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaSetInfo(void* servername, uint32_t level, void* buffer, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaSetInfo(void* servername, uint32_t level, void* buffer, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3361,7 +3361,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaSetInf
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buffer, parm_err);
+        return km_fn_ptr(servername, level, buffer, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -3369,13 +3369,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaSetInf
     (void)servername;
     (void)level;
     (void)buffer;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransportAdd(void* servername, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportAdd(void* servername, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3386,7 +3386,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransp
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, buf, parm_err);
+        return km_fn_ptr(servername, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -3394,13 +3394,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransp
     (void)servername;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransportDel(void* servername, void* transportname, uint32_t ucond) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportDel(void* servername, void* transportname, uint32_t ucond) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3424,7 +3424,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransportEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resume_handle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumeHandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3435,7 +3435,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransp
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+        return km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumeHandle);
     }
     errno = ENOSYS;
     return 0;
@@ -3446,13 +3446,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransp
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
-    (void)resume_handle;
+    (void)resumeHandle;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserEnum(void* servername, uint32_t level, void* bufptr, uint32_t prefmaxlen, void* entriesread, void* totalentries, void* resumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3480,7 +3480,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserEn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserGetInfo(void* reserved, uint32_t level, void* bufptr) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserGetInfo(void* reserved, uint32_t level, void* bufptr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3504,7 +3504,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserGe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserSetInfo(void* reserved, uint32_t level, void* buf, void* parm_err) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserSetInfo(void* reserved, uint32_t level, void* buf, void* parmErr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3515,7 +3515,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserSe
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(reserved, level, buf, parm_err);
+        return km_fn_ptr(reserved, level, buf, parmErr);
     }
     errno = ENOSYS;
     return 0;
@@ -3523,13 +3523,13 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserSe
     (void)reserved;
     (void)level;
     (void)buf;
-    (void)parm_err;
+    (void)parmErr;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerAssert(void* pszfailedassertion, void* pszfilename, uint32_t dwlinenumber, void* pszmessage) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterAssert(void* pszfailedassertion, void* pszfilename, uint32_t dwlinenumber, void* pszmessage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3553,7 +3553,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerAssert(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_routerGetErrorStringA(uint32_t dwerrorcode, void* lplpszerrorstring) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementRouterGetErrorStringA(uint32_t dwerrorcode, void* lplpszerrorstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3576,7 +3576,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_routerGetError
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_routerGetErrorStringW(uint32_t dwerrorcode, void* lplpwszerrorstring) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementRouterGetErrorStringW(uint32_t dwerrorcode, void* lplpwszerrorstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3599,7 +3599,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_routerGetError
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogDeregisterA(void* hloghandle) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogDeregisterA(void* hloghandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3620,7 +3620,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogDeregiste
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogDeregisterW(void* hloghandle) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogDeregisterW(void* hloghandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3641,7 +3641,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogDeregiste
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventA(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventA(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3667,7 +3667,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventA(vo
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventDataA(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwdatabytes, void* lpdatabytes) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventDataA(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwdatabytes, void* lpdatabytes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3694,7 +3694,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventData
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventDataW(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwdatabytes, void* lpdatabytes) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventDataW(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwdatabytes, void* lpdatabytes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3721,7 +3721,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventData
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventExA(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventExA(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -3757,7 +3757,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventExA(
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventExW(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventExW(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef void (*km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -3793,7 +3793,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventExW(
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventStringA(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode, uint32_t dwerrorindex) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventStringA(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode, uint32_t dwerrorindex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3820,7 +3820,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventStri
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventStringW(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode, uint32_t dwerrorindex) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventStringW(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode, uint32_t dwerrorindex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3847,7 +3847,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventStri
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventValistExA(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, void* arglist) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventValistExA(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, void* arglist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3873,7 +3873,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventVali
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventValistExW(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, void* arglist) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventValistExW(void* hloghandle, uint32_t dweventtype, uint32_t dwerrorcode, uint32_t dwmessageid, void* ptszformat, void* arglist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3899,7 +3899,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventVali
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventW(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode) {
+void windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventW(void* hloghandle, uint32_t dweventtype, uint32_t dwmessageid, uint32_t dwsubstringcount, void* plpszsubstringarray, uint32_t dwerrorcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3925,7 +3925,7 @@ void windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventW(vo
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_netmanagement_routerLogRegisterA(void* lpszsource) {
+void* windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogRegisterA(void* lpszsource) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3947,7 +3947,7 @@ void* windowssys_windows_win32_networkmanagement_netmanagement_routerLogRegister
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_netmanagement_routerLogRegisterW(void* lpszsource) {
+void* windowssysWindowsWin32NetworkmanagementNetmanagementRouterLogRegisterW(void* lpszsource) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3969,7 +3969,7 @@ void* windowssys_windows_win32_networkmanagement_netmanagement_routerLogRegister
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netmanagement_setNetScheduleAccountInformation(void* pwszservername, void* pwszaccount, void* pwszpassword) {
+int32_t windowssysWindowsWin32NetworkmanagementNetmanagementSetNetScheduleAccountInformation(void* pwszservername, void* pwszaccount, void* pwszpassword) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3993,7 +3993,7 @@ int32_t windowssys_windows_win32_networkmanagement_netmanagement_setNetScheduleA
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterA(uint32_t dwtraceid) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterA(uint32_t dwtraceid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4015,7 +4015,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregiste
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterExA(uint32_t dwtraceid, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterExA(uint32_t dwtraceid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4038,7 +4038,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregiste
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterExW(uint32_t dwtraceid, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterExW(uint32_t dwtraceid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4061,7 +4061,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregiste
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterW(uint32_t dwtraceid) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterW(uint32_t dwtraceid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4083,7 +4083,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDeregiste
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDumpExA(uint32_t dwtraceid, uint32_t dwflags, void* lpbbytes, uint32_t dwbytecount, uint32_t dwgroupsize, int32_t baddressprefix, void* lpszprefix) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceDumpExA(uint32_t dwtraceid, uint32_t dwflags, void* lpbbytes, uint32_t dwbytecount, uint32_t dwgroupsize, int32_t baddressprefix, void* lpszprefix) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4111,7 +4111,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDumpExA(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDumpExW(uint32_t dwtraceid, uint32_t dwflags, void* lpbbytes, uint32_t dwbytecount, uint32_t dwgroupsize, int32_t baddressprefix, void* lpszprefix) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceDumpExW(uint32_t dwtraceid, uint32_t dwflags, void* lpbbytes, uint32_t dwbytecount, uint32_t dwgroupsize, int32_t baddressprefix, void* lpszprefix) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4139,7 +4139,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceDumpExW(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceGetConsoleA(uint32_t dwtraceid, void* lphconsole) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceGetConsoleA(uint32_t dwtraceid, void* lphconsole) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4162,7 +4162,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceGetConsol
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceGetConsoleW(uint32_t dwtraceid, void* lphconsole) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceGetConsoleW(uint32_t dwtraceid, void* lphconsole) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4185,7 +4185,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceGetConsol
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfA(uint32_t dwtraceid, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfA(uint32_t dwtraceid, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -4219,7 +4219,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfA(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfExA(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfExA(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(uint32_t, uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -4254,7 +4254,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfExA
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfExW(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfExW(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(uint32_t, uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -4289,7 +4289,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfExW
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfW(uint32_t dwtraceid, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTracePrintfW(uint32_t dwtraceid, void* lpszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(uint32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -4323,7 +4323,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfW(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePutsExA(uint32_t dwtraceid, uint32_t dwflags, void* lpszstring) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTracePutsExA(uint32_t dwtraceid, uint32_t dwflags, void* lpszstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4347,7 +4347,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePutsExA(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePutsExW(uint32_t dwtraceid, uint32_t dwflags, void* lpszstring) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTracePutsExW(uint32_t dwtraceid, uint32_t dwflags, void* lpszstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4371,7 +4371,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_tracePutsExW(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceRegisterExA(void* lpszcallername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceRegisterExA(void* lpszcallername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4394,7 +4394,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceRegisterE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceRegisterExW(void* lpszcallername, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceRegisterExW(void* lpszcallername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4417,7 +4417,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceRegisterE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceVprintfExA(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, void* arglist) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceVprintfExA(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, void* arglist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4442,7 +4442,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceVprintfEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netmanagement_traceVprintfExW(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, void* arglist) {
+uint32_t windowssysWindowsWin32NetworkmanagementNetmanagementTraceVprintfExW(uint32_t dwtraceid, uint32_t dwflags, void* lpszformat, void* arglist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

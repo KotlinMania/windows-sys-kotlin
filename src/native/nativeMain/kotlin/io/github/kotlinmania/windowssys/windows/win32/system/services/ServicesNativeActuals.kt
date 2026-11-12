@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,239 +13,240 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_changeServiceConfig2A
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_changeServiceConfig2W
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_changeServiceConfigA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_changeServiceConfigW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_closeServiceHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_controlService
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_controlServiceExA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_controlServiceExW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_createServiceA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_createServiceW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_deleteService
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_enumDependentServicesA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_enumDependentServicesW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_enumServicesStatusA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_enumServicesStatusExA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_enumServicesStatusExW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_enumServicesStatusW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getServiceDirectory
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getServiceDisplayNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getServiceDisplayNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getServiceKeyNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getServiceKeyNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getServiceRegistryStateKey
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getSharedServiceDirectory
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_lockServiceDatabase
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_notifyBootConfigStatus
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_notifyServiceStatusChangeA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_notifyServiceStatusChangeW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_openSCManagerA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_openSCManagerW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_openServiceA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_openServiceW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceConfig2A
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceConfig2W
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceConfigA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceConfigW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceDynamicInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceLockStatusA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceLockStatusW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceObjectSecurity
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceStatus
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_queryServiceStatusEx
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_registerServiceCtrlHandlerA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_registerServiceCtrlHandlerW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_setServiceBits
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_setServiceObjectSecurity
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_setServiceStatus
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_startServiceA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_startServiceCtrlDispatcherA
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_startServiceCtrlDispatcherW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_startServiceW
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_subscribeServiceChangeNotifications
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_unlockServiceDatabase
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications
-import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssys_windows_win32_system_services_waitServiceState
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesChangeServiceConfig2A
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesChangeServiceConfig2W
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesChangeServiceConfigA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesChangeServiceConfigW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesCloseServiceHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesControlService
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesControlServiceExA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesControlServiceExW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesCreateServiceA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesCreateServiceW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesDeleteService
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesEnumDependentServicesA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesEnumDependentServicesW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesEnumServicesStatusA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesEnumServicesStatusExA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesEnumServicesStatusExW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesEnumServicesStatusW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetServiceDirectory
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetServiceDisplayNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetServiceDisplayNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetServiceKeyNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetServiceKeyNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetSharedServiceDirectory
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesLockServiceDatabase
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesNotifyBootConfigStatus
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesOpenSCManagerA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesOpenSCManagerW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesOpenServiceA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesOpenServiceW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceConfig2A
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceConfig2W
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceConfigA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceConfigW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceLockStatusA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceLockStatusW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceStatus
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesQueryServiceStatusEx
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesSetServiceBits
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesSetServiceObjectSecurity
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesSetServiceStatus
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesStartServiceA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesStartServiceW
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesUnlockServiceDatabase
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications
+import io.github.kotlinmania.windowssys.windows.win32.system.services.cinterop.windowssysWindowsWin32SystemServicesWaitServiceState
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_changeServiceConfig2A(hservice?.value?.toCPointer<ByteVar>(), dwinfolevel, lpinfo?.value?.toCPointer<ByteVar>())
+public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemServicesChangeServiceConfig2A(hservice.rawAddress.toCPointer<ByteVar>(), dwinfolevel, lpinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_changeServiceConfig2W(hservice?.value?.toCPointer<ByteVar>(), dwinfolevel, lpinfo?.value?.toCPointer<ByteVar>())
+public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemServicesChangeServiceConfig2W(hservice.rawAddress.toCPointer<ByteVar>(), dwinfolevel, lpinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
-    windowssys_windows_win32_system_services_changeServiceConfigA(hservice?.value?.toCPointer<ByteVar>(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname?.value?.toCPointer<ByteVar>(), lploadordergroup?.value?.toCPointer<ByteVar>(), lpdwtagid?.value?.toCPointer<ByteVar>(), lpdependencies?.value?.toCPointer<ByteVar>(), lpservicestartname?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>())
+public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
+    windowssysWindowsWin32SystemServicesChangeServiceConfigA(hservice.rawAddress.toCPointer<ByteVar>(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.rawAddress.toCPointer<ByteVar>(), lploadordergroup.rawAddress.toCPointer<ByteVar>(), lpdwtagid.rawAddress.toCPointer<ByteVar>(), lpdependencies.rawAddress.toCPointer<ByteVar>(), lpservicestartname.rawAddress.toCPointer<ByteVar>(), lppassword.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
-    windowssys_windows_win32_system_services_changeServiceConfigW(hservice?.value?.toCPointer<ByteVar>(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname?.value?.toCPointer<ByteVar>(), lploadordergroup?.value?.toCPointer<ByteVar>(), lpdwtagid?.value?.toCPointer<ByteVar>(), lpdependencies?.value?.toCPointer<ByteVar>(), lpservicestartname?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>())
+public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
+    windowssysWindowsWin32SystemServicesChangeServiceConfigW(hservice.rawAddress.toCPointer<ByteVar>(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.rawAddress.toCPointer<ByteVar>(), lploadordergroup.rawAddress.toCPointer<ByteVar>(), lpdwtagid.rawAddress.toCPointer<ByteVar>(), lpdependencies.rawAddress.toCPointer<ByteVar>(), lpservicestartname.rawAddress.toCPointer<ByteVar>(), lppassword.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun closeServiceHandle(hscobject: ScHandle): Bool =
-    windowssys_windows_win32_system_services_closeServiceHandle(hscobject?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemServicesCloseServiceHandle(hscobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_controlService(hservice?.value?.toCPointer<ByteVar>(), dwcontrol, lpservicestatus?.value?.toCPointer<ByteVar>())
+public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: MutPtr<ServiceStatus>): Bool =
+    windowssysWindowsWin32SystemServicesControlService(hservice.rawAddress.toCPointer<ByteVar>(), dwcontrol, lpservicestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_controlServiceExA(hservice?.value?.toCPointer<ByteVar>(), dwcontrol, dwinfolevel, pcontrolparams?.value?.toCPointer<ByteVar>())
+public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemServicesControlServiceExA(hservice.rawAddress.toCPointer<ByteVar>(), dwcontrol, dwinfolevel, pcontrolparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_controlServiceExW(hservice?.value?.toCPointer<ByteVar>(), dwcontrol, dwinfolevel, pcontrolparams?.value?.toCPointer<ByteVar>())
+public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemServicesControlServiceExW(hservice.rawAddress.toCPointer<ByteVar>(), dwcontrol, dwinfolevel, pcontrolparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
-    windowssys_windows_win32_system_services_createServiceA(hscmanager?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname?.value?.toCPointer<ByteVar>(), lploadordergroup?.value?.toCPointer<ByteVar>(), lpdwtagid?.value?.toCPointer<ByteVar>(), lpdependencies?.value?.toCPointer<ByteVar>(), lpservicestartname?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
+    MutPtr(windowssysWindowsWin32SystemServicesCreateServiceA(hscmanager.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.rawAddress.toCPointer<ByteVar>(), lploadordergroup.rawAddress.toCPointer<ByteVar>(), lpdwtagid.rawAddress.toCPointer<ByteVar>(), lpdependencies.rawAddress.toCPointer<ByteVar>(), lpservicestartname.rawAddress.toCPointer<ByteVar>(), lppassword.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
-    windowssys_windows_win32_system_services_createServiceW(hscmanager?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname?.value?.toCPointer<ByteVar>(), lploadordergroup?.value?.toCPointer<ByteVar>(), lpdwtagid?.value?.toCPointer<ByteVar>(), lpdependencies?.value?.toCPointer<ByteVar>(), lpservicestartname?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
+    MutPtr(windowssysWindowsWin32SystemServicesCreateServiceW(hscmanager.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.rawAddress.toCPointer<ByteVar>(), lploadordergroup.rawAddress.toCPointer<ByteVar>(), lpdwtagid.rawAddress.toCPointer<ByteVar>(), lpdependencies.rawAddress.toCPointer<ByteVar>(), lpservicestartname.rawAddress.toCPointer<ByteVar>(), lppassword.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun deleteService(hservice: ScHandle): Bool =
-    windowssys_windows_win32_system_services_deleteService(hservice?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemServicesDeleteService(hservice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_enumDependentServicesA(hservice?.value?.toCPointer<ByteVar>(), dwservicestate, lpservices?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>(), lpservicesreturned?.value?.toCPointer<ByteVar>())
+public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesEnumDependentServicesA(hservice.rawAddress.toCPointer<ByteVar>(), dwservicestate, lpservices.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>(), lpservicesreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_enumDependentServicesW(hservice?.value?.toCPointer<ByteVar>(), dwservicestate, lpservices?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>(), lpservicesreturned?.value?.toCPointer<ByteVar>())
+public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesEnumDependentServicesW(hservice.rawAddress.toCPointer<ByteVar>(), dwservicestate, lpservices.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>(), lpservicesreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_enumServicesStatusA(hscmanager?.value?.toCPointer<ByteVar>(), dwservicetype, dwservicestate, lpservices?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>(), lpservicesreturned?.value?.toCPointer<ByteVar>(), lpresumehandle?.value?.toCPointer<ByteVar>())
+public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesEnumServicesStatusA(hscmanager.rawAddress.toCPointer<ByteVar>(), dwservicetype, dwservicestate, lpservices.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>(), lpservicesreturned.rawAddress.toCPointer<ByteVar>(), lpresumehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?, pszgroupname: Pcstr): Bool =
-    windowssys_windows_win32_system_services_enumServicesStatusExA(hscmanager?.value?.toCPointer<ByteVar>(), infolevel, dwservicetype, dwservicestate, lpservices?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>(), lpservicesreturned?.value?.toCPointer<ByteVar>(), lpresumehandle?.value?.toCPointer<ByteVar>(), pszgroupname?.value?.toCPointer<ByteVar>())
+public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>, pszgroupname: Pcstr): Bool =
+    windowssysWindowsWin32SystemServicesEnumServicesStatusExA(hscmanager.rawAddress.toCPointer<ByteVar>(), infolevel, dwservicetype, dwservicestate, lpservices.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>(), lpservicesreturned.rawAddress.toCPointer<ByteVar>(), lpresumehandle.rawAddress.toCPointer<ByteVar>(), pszgroupname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?, pszgroupname: Pcwstr): Bool =
-    windowssys_windows_win32_system_services_enumServicesStatusExW(hscmanager?.value?.toCPointer<ByteVar>(), infolevel, dwservicetype, dwservicestate, lpservices?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>(), lpservicesreturned?.value?.toCPointer<ByteVar>(), lpresumehandle?.value?.toCPointer<ByteVar>(), pszgroupname?.value?.toCPointer<ByteVar>())
+public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>, pszgroupname: Pcwstr): Bool =
+    windowssysWindowsWin32SystemServicesEnumServicesStatusExW(hscmanager.rawAddress.toCPointer<ByteVar>(), infolevel, dwservicetype, dwservicestate, lpservices.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>(), lpservicesreturned.rawAddress.toCPointer<ByteVar>(), lpresumehandle.rawAddress.toCPointer<ByteVar>(), pszgroupname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_enumServicesStatusW(hscmanager?.value?.toCPointer<ByteVar>(), dwservicetype, dwservicestate, lpservices?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>(), lpservicesreturned?.value?.toCPointer<ByteVar>(), lpresumehandle?.value?.toCPointer<ByteVar>())
+public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesEnumServicesStatusW(hscmanager.rawAddress.toCPointer<ByteVar>(), dwservicetype, dwservicestate, lpservices.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>(), lpservicesreturned.rawAddress.toCPointer<ByteVar>(), lpresumehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_getServiceDirectory(hservicestatus?.value?.toCPointer<ByteVar>(), edirectorytype, lppathbuffer?.value?.toCPointer<ByteVar>(), cchpathbufferlength, lpcchrequiredbufferlength?.value?.toCPointer<ByteVar>())
+public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemServicesGetServiceDirectory(hservicestatus.rawAddress.toCPointer<ByteVar>(), edirectorytype, lppathbuffer.rawAddress.toCPointer<ByteVar>(), cchpathbufferlength, lpcchrequiredbufferlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_getServiceDisplayNameA(hscmanager?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>(), lpcchbuffer?.value?.toCPointer<ByteVar>())
+public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesGetServiceDisplayNameA(hscmanager.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>(), lpcchbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_getServiceDisplayNameW(hscmanager?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>(), lpcchbuffer?.value?.toCPointer<ByteVar>())
+public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesGetServiceDisplayNameW(hscmanager.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>(), lpcchbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_getServiceKeyNameA(hscmanager?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), lpcchbuffer?.value?.toCPointer<ByteVar>())
+public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesGetServiceKeyNameA(hscmanager.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), lpcchbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_getServiceKeyNameW(hscmanager?.value?.toCPointer<ByteVar>(), lpdisplayname?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), lpcchbuffer?.value?.toCPointer<ByteVar>())
+public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesGetServiceKeyNameW(hscmanager.rawAddress.toCPointer<ByteVar>(), lpdisplayname.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), lpcchbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_getServiceRegistryStateKey(servicestatushandle?.value?.toCPointer<ByteVar>(), statetype, accessmask, servicestatekey?.value?.toCPointer<ByteVar>())
+public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: MutPtr<Hkey>): UInt =
+    windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey(servicestatushandle.rawAddress.toCPointer<ByteVar>(), statetype, accessmask, servicestatekey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_getSharedServiceDirectory(servicehandle?.value?.toCPointer<ByteVar>(), directorytype, pathbuffer?.value?.toCPointer<ByteVar>(), pathbufferlength, requiredbufferlength?.value?.toCPointer<ByteVar>())
+public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32SystemServicesGetSharedServiceDirectory(servicehandle.rawAddress.toCPointer<ByteVar>(), directorytype, pathbuffer.rawAddress.toCPointer<ByteVar>(), pathbufferlength, requiredbufferlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey(servicehandle?.value?.toCPointer<ByteVar>(), statetype, accessmask, servicestatekey?.value?.toCPointer<ByteVar>())
+public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: MutPtr<Hkey>): UInt =
+    windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey(servicehandle.rawAddress.toCPointer<ByteVar>(), statetype, accessmask, servicestatekey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lockServiceDatabase(hscmanager: ScHandle): COpaquePointer? =
-    windowssys_windows_win32_system_services_lockServiceDatabase(hscmanager?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun lockServiceDatabase(hscmanager: ScHandle): MutPtr<CVoid> =
+    MutPtr(windowssysWindowsWin32SystemServicesLockServiceDatabase(hscmanager.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun notifyBootConfigStatus(bootacceptable: Bool): Bool =
-    windowssys_windows_win32_system_services_notifyBootConfigStatus(bootacceptable)
+    windowssysWindowsWin32SystemServicesNotifyBootConfigStatus(bootacceptable)
 
-public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_notifyServiceStatusChangeA(hservice?.value?.toCPointer<ByteVar>(), dwnotifymask, pnotifybuffer?.value?.toCPointer<ByteVar>())
+public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2a>): UInt =
+    windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA(hservice.rawAddress.toCPointer<ByteVar>(), dwnotifymask, pnotifybuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_notifyServiceStatusChangeW(hservice?.value?.toCPointer<ByteVar>(), dwnotifymask, pnotifybuffer?.value?.toCPointer<ByteVar>())
+public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2w>): UInt =
+    windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW(hservice.rawAddress.toCPointer<ByteVar>(), dwnotifymask, pnotifybuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun openSCManagerA(lpmachinename: Pcstr, lpdatabasename: Pcstr, dwdesiredaccess: UInt): ScHandle =
-    windowssys_windows_win32_system_services_openSCManagerA(lpmachinename?.value?.toCPointer<ByteVar>(), lpdatabasename?.value?.toCPointer<ByteVar>(), dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemServicesOpenSCManagerA(lpmachinename.rawAddress.toCPointer<ByteVar>(), lpdatabasename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess)?.toLong() ?: 0L)
 
 public actual fun openSCManagerW(lpmachinename: Pcwstr, lpdatabasename: Pcwstr, dwdesiredaccess: UInt): ScHandle =
-    windowssys_windows_win32_system_services_openSCManagerW(lpmachinename?.value?.toCPointer<ByteVar>(), lpdatabasename?.value?.toCPointer<ByteVar>(), dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemServicesOpenSCManagerW(lpmachinename.rawAddress.toCPointer<ByteVar>(), lpdatabasename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess)?.toLong() ?: 0L)
 
 public actual fun openServiceA(hscmanager: ScHandle, lpservicename: Pcstr, dwdesiredaccess: UInt): ScHandle =
-    windowssys_windows_win32_system_services_openServiceA(hscmanager?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemServicesOpenServiceA(hscmanager.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess)?.toLong() ?: 0L)
 
 public actual fun openServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, dwdesiredaccess: UInt): ScHandle =
-    windowssys_windows_win32_system_services_openServiceW(hscmanager?.value?.toCPointer<ByteVar>(), lpservicename?.value?.toCPointer<ByteVar>(), dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemServicesOpenServiceW(hscmanager.rawAddress.toCPointer<ByteVar>(), lpservicename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess)?.toLong() ?: 0L)
 
-public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceConfig2A(hservice?.value?.toCPointer<ByteVar>(), dwinfolevel, lpbuffer?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceConfig2A(hservice.rawAddress.toCPointer<ByteVar>(), dwinfolevel, lpbuffer.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceConfig2W(hservice?.value?.toCPointer<ByteVar>(), dwinfolevel, lpbuffer?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceConfig2W(hservice.rawAddress.toCPointer<ByteVar>(), dwinfolevel, lpbuffer.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceConfigA(hservice?.value?.toCPointer<ByteVar>(), lpserviceconfig?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: MutPtr<QueryServiceConfiga>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceConfigA(hservice.rawAddress.toCPointer<ByteVar>(), lpserviceconfig.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceConfigW(hservice?.value?.toCPointer<ByteVar>(), lpserviceconfig?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: MutPtr<QueryServiceConfigw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceConfigW(hservice.rawAddress.toCPointer<ByteVar>(), lpserviceconfig.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceDynamicInformation(hservicestatus?.value?.toCPointer<ByteVar>(), dwinfolevel, ppdynamicinfo?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: MutPtr<MutPtr<CVoid>>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation(hservicestatus.rawAddress.toCPointer<ByteVar>(), dwinfolevel, ppdynamicinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceLockStatusA(hscmanager?.value?.toCPointer<ByteVar>(), lplockstatus?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: MutPtr<QueryServiceLockStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceLockStatusA(hscmanager.rawAddress.toCPointer<ByteVar>(), lplockstatus.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceLockStatusW(hscmanager?.value?.toCPointer<ByteVar>(), lplockstatus?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: MutPtr<QueryServiceLockStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceLockStatusW(hscmanager.rawAddress.toCPointer<ByteVar>(), lplockstatus.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceObjectSecurity(hservice?.value?.toCPointer<ByteVar>(), dwsecurityinformation, lpsecuritydescriptor?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity(hservice.rawAddress.toCPointer<ByteVar>(), dwsecurityinformation, lpsecuritydescriptor.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceStatus(hservice?.value?.toCPointer<ByteVar>(), lpservicestatus?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: MutPtr<ServiceStatus>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceStatus(hservice.rawAddress.toCPointer<ByteVar>(), lpservicestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_queryServiceStatusEx(hservice?.value?.toCPointer<ByteVar>(), infolevel, lpbuffer?.value?.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded?.value?.toCPointer<ByteVar>())
+public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemServicesQueryServiceStatusEx(hservice.rawAddress.toCPointer<ByteVar>(), infolevel, lpbuffer.rawAddress.toCPointer<ByteVar>(), cbbufsize, pcbbytesneeded.rawAddress.toCPointer<ByteVar>())
 
 public actual fun registerServiceCtrlHandlerA(lpservicename: Pcstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
-    windowssys_windows_win32_system_services_registerServiceCtrlHandlerA(lpservicename?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA(lpservicename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: COpaquePointer?): ServiceStatusHandle =
-    windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA(lpservicename?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr<CVoid>): ServiceStatusHandle =
+    MutPtr(windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA(lpservicename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: COpaquePointer?): ServiceStatusHandle =
-    windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW(lpservicename?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpcontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr<CVoid>): ServiceStatusHandle =
+    MutPtr(windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW(lpservicename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun registerServiceCtrlHandlerW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
-    windowssys_windows_win32_system_services_registerServiceCtrlHandlerW(lpservicename?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW(lpservicename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun setServiceBits(hservicestatus: ServiceStatusHandle, dwservicebits: UInt, bsetbitson: Bool, bupdateimmediately: Bool): Bool =
-    windowssys_windows_win32_system_services_setServiceBits(hservicestatus?.value?.toCPointer<ByteVar>(), dwservicebits, bsetbitson, bupdateimmediately)
+    windowssysWindowsWin32SystemServicesSetServiceBits(hservicestatus.rawAddress.toCPointer<ByteVar>(), dwservicebits, bsetbitson, bupdateimmediately)
 
 public actual fun setServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: ObjectSecurityInformation, lpsecuritydescriptor: PsecurityDescriptor): Bool =
-    windowssys_windows_win32_system_services_setServiceObjectSecurity(hservice?.value?.toCPointer<ByteVar>(), dwsecurityinformation, lpsecuritydescriptor?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemServicesSetServiceObjectSecurity(hservice.rawAddress.toCPointer<ByteVar>(), dwsecurityinformation, lpsecuritydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_setServiceStatus(hservicestatus?.value?.toCPointer<ByteVar>(), lpservicestatus?.value?.toCPointer<ByteVar>())
+public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: ConstPtr<ServiceStatus>): Bool =
+    windowssysWindowsWin32SystemServicesSetServiceStatus(hservicestatus.rawAddress.toCPointer<ByteVar>(), lpservicestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_startServiceA(hservice?.value?.toCPointer<ByteVar>(), dwnumserviceargs, lpserviceargvectors?.value?.toCPointer<ByteVar>())
+public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr<Pcstr>): Bool =
+    windowssysWindowsWin32SystemServicesStartServiceA(hservice.rawAddress.toCPointer<ByteVar>(), dwnumserviceargs, lpserviceargvectors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun startServiceCtrlDispatcherA(lpservicestarttable: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_startServiceCtrlDispatcherA(lpservicestarttable?.value?.toCPointer<ByteVar>())
+public actual fun startServiceCtrlDispatcherA(lpservicestarttable: ConstPtr<ServiceTableEntrya>): Bool =
+    windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA(lpservicestarttable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun startServiceCtrlDispatcherW(lpservicestarttable: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_startServiceCtrlDispatcherW(lpservicestarttable?.value?.toCPointer<ByteVar>())
+public actual fun startServiceCtrlDispatcherW(lpservicestarttable: ConstPtr<ServiceTableEntryw>): Bool =
+    windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW(lpservicestarttable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_startServiceW(hservice?.value?.toCPointer<ByteVar>(), dwnumserviceargs, lpserviceargvectors?.value?.toCPointer<ByteVar>())
+public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr<Pcwstr>): Bool =
+    windowssysWindowsWin32SystemServicesStartServiceW(hservice.rawAddress.toCPointer<ByteVar>(), dwnumserviceargs, lpserviceargvectors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: COpaquePointer?, psubscription: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_services_subscribeServiceChangeNotifications(hservice?.value?.toCPointer<ByteVar>(), eeventtype, 0L.toCPointer<ByteVar>(), pcallbackcontext?.value?.toCPointer<ByteVar>(), psubscription?.value?.toCPointer<ByteVar>())
+public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: ConstPtr<CVoid>, psubscription: MutPtr<PscNotificationRegistration>): UInt =
+    windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications(hservice.rawAddress.toCPointer<ByteVar>(), eeventtype, 0L.toCPointer<ByteVar>(), pcallbackcontext.rawAddress.toCPointer<ByteVar>(), psubscription.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unlockServiceDatabase(sclock: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_services_unlockServiceDatabase(sclock?.value?.toCPointer<ByteVar>())
+public actual fun unlockServiceDatabase(sclock: ConstPtr<CVoid>): Bool =
+    windowssysWindowsWin32SystemServicesUnlockServiceDatabase(sclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration) {
-    windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications(psubscription)
+    windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications(psubscription)
 }
 
 public actual fun waitServiceState(hservice: ScHandle, dwnotify: UInt, dwtimeout: UInt, hcancelevent: Handle): UInt =
-    windowssys_windows_win32_system_services_waitServiceState(hservice?.value?.toCPointer<ByteVar>(), dwnotify, dwtimeout, hcancelevent?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemServicesWaitServiceState(hservice.rawAddress.toCPointer<ByteVar>(), dwnotify, dwtimeout, hcancelevent.rawAddress.toCPointer<ByteVar>())

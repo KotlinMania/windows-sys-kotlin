@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_addIPAddress(uint32_t address, uint32_t ipmask, uint32_t ifindex, void* ntecontext, void* nteinstance) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress(uint32_t address, uint32_t ipmask, uint32_t ifindex, void* ntecontext, void* nteinstance) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_addIPAddress(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify(void* notifyoverlapped) {
+int32_t windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify(void* notifyoverlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_networkmanagement_iphelper_cancelIPChangeNotify
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfigChange(void* notificationhandle) {
+void windowssysWindowsWin32NetworkmanagementIphelperCancelIfTimestampConfigChange(void* notificationhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_cancelIfTimestampConfig
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNotify2(void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCancelMibChangeNotify2(void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_cancelMibChangeNoti
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHardwareCrossTimestamp(void* interfaceluid, void* crosstimestamp) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCaptureInterfaceHardwareCrossTimestamp(void* interfaceluid, void* crosstimestamp) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_captureInterfaceHar
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentGuidToId(void* compartmentguid, void* compartmentid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentGuidToId(void* compartmentguid, void* compartmentid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentG
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentIdToGuid(uint32_t compartmentid, void* compartmentguid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentIdToGuid(uint32_t compartmentid, void* compartmentguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -175,7 +175,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertCompartmentI
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAliasToLuid(void* interfacealias, void* interfaceluid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceAliasToLuid(void* interfacealias, void* interfaceluid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceAli
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGuidToLuid(void* interfaceguid, void* interfaceluid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceGuidToLuid(void* interfaceguid, void* interfaceluid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -221,7 +221,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceGui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceIndexToLuid(uint32_t interfaceindex, void* interfaceluid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceIndexToLuid(uint32_t interfaceindex, void* interfaceluid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceInd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToAlias(void* interfaceluid, void* interfacealias, uint64_t length) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToAlias(void* interfaceluid, void* interfacealias, uint64_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToGuid(void* interfaceluid, void* interfaceguid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToGuid(void* interfaceluid, void* interfaceguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToIndex(void* interfaceluid, void* interfaceindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToIndex(void* interfaceluid, void* interfaceindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameA(void* interfaceluid, void* interfacename, uint64_t length) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameA(void* interfaceluid, void* interfacename, uint64_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -338,7 +338,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLuidToNameW(void* interfaceluid, void* interfacename, uint64_t length) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameW(void* interfaceluid, void* interfacename, uint64_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceLui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidA(void* interfacename, void* interfaceluid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidA(void* interfacename, void* interfaceluid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -385,7 +385,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNameToLuidW(void* interfacename, void* interfaceluid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidW(void* interfacename, void* interfaceluid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -408,7 +408,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertInterfaceNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLength(uint32_t mask, void* masklength) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertIpv4MaskToLength(uint32_t mask, void* masklength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -431,7 +431,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertIpv4MaskToLe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4Mask(uint32_t masklength, void* mask) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperConvertLengthToIpv4Mask(uint32_t masklength, void* mask) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -454,7 +454,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_convertLengthToIpv4
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateAnycastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createAnycastIpAddr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry(void* proute) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry(void* proute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -498,7 +498,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -520,7 +520,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpForwardEntr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry(void* parpentry) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry(void* parpentry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -542,7 +542,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -564,7 +564,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createIpNetEntry2(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentTcpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createPersistentTcp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentUdpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -612,7 +612,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createPersistentUdp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry(uint32_t dwaddress, uint32_t dwmask, uint32_t dwifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateProxyArpEntry(uint32_t dwaddress, uint32_t dwmask, uint32_t dwifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -636,7 +636,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createProxyArpEntry
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createSortedAddressPairs(void* sourceaddresslist, uint32_t sourceaddresscount, void* destinationaddresslist, uint32_t destinationaddresscount, uint32_t addresssortoptions, void* sortedaddresspairlist, void* sortedaddresspaircount) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateSortedAddressPairs(void* sourceaddresslist, uint32_t sourceaddresscount, void* destinationaddresslist, uint32_t destinationaddresscount, uint32_t addresssortoptions, void* sortedaddresspairlist, void* sortedaddresspaircount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createSortedAddress
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperCreateUnicastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -686,7 +686,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_createUnicastIpAddr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteAnycastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -708,7 +708,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteAnycastIpAddr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress(uint32_t ntecontext) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteIPAddress(uint32_t ntecontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -730,7 +730,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIPAddress(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry(void* proute) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry(void* proute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -752,7 +752,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpForwardEntr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry(void* parpentry) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry(void* parpentry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -796,7 +796,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -818,7 +818,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteIpNetEntry2(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcpPortReservation(uint16_t startport, uint16_t numberofports) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentTcpPortReservation(uint16_t startport, uint16_t numberofports) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -841,7 +841,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deletePersistentTcp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdpPortReservation(uint16_t startport, uint16_t numberofports) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeletePersistentUdpPortReservation(uint16_t startport, uint16_t numberofports) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -864,7 +864,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deletePersistentUdp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry(uint32_t dwaddress, uint32_t dwmask, uint32_t dwifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteProxyArpEntry(uint32_t dwaddress, uint32_t dwmask, uint32_t dwifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -888,7 +888,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteProxyArpEntry
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDeleteUnicastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -910,7 +910,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_deleteUnicastIpAddr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense(void* phandle, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperDisableMediaSense(void* phandle, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -933,7 +933,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_disableMediaSense(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_enableRouter(void* phandle, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperEnableRouter(void* phandle, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -956,7 +956,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_enableRouter(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable(uint32_t dwifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable(uint32_t dwifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -978,7 +978,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2(uint16_t family, uint32_t interfaceindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperFlushIpNetTable2(uint16_t family, uint32_t interfaceindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1001,7 +1001,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_flushIpNetTable2(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable(uint16_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperFlushIpPathTable(uint16_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1023,7 +1023,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_flushIpPathTable(ui
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings(void* settings) {
+void windowssysWindowsWin32NetworkmanagementIphelperFreeDnsSettings(void* settings) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1044,7 +1044,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_freeDnsSettings(void* s
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSettings(void* settings) {
+void windowssysWindowsWin32NetworkmanagementIphelperFreeInterfaceDnsSettings(void* settings) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1065,7 +1065,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_freeInterfaceDnsSetting
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_freeMibTable(void* memory) {
+void windowssysWindowsWin32NetworkmanagementIphelperFreeMibTable(void* memory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1086,7 +1086,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_freeMibTable(void* memo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex(void* adaptername, void* ifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetAdapterIndex(void* adaptername, void* ifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAdapterIndex(voi
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap(void) {
+void* windowssysWindowsWin32NetworkmanagementIphelperGetAdapterOrderMap(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1130,7 +1130,7 @@ void* windowssys_windows_win32_networkmanagement_iphelper_getAdapterOrderMap(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresses(uint32_t family, uint32_t flags, void* reserved, void* adapteraddresses, void* sizepointer) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersAddresses(uint32_t family, uint32_t flags, void* reserved, void* adapteraddresses, void* sizepointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1156,7 +1156,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAdaptersAddresse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo(void* adapterinfo, void* sizepointer) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersInfo(void* adapterinfo, void* sizepointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1179,7 +1179,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAdaptersInfo(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1201,7 +1201,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddress
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddressTable(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressTable(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1224,7 +1224,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getAnycastIpAddress
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestInterface(uint32_t dwdestaddr, void* pdwbestifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetBestInterface(uint32_t dwdestaddr, void* pdwbestifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1247,7 +1247,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestInterface(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx(void* pdestaddr, void* pdwbestifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetBestInterfaceEx(void* pdestaddr, void* pdwbestifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1270,7 +1270,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestInterfaceEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestRoute(uint32_t dwdestaddr, uint32_t dwsourceaddr, void* pbestroute) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute(uint32_t dwdestaddr, uint32_t dwsourceaddr, void* pbestroute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1294,7 +1294,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestRoute(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2(void* interfaceluid, uint32_t interfaceindex, void* sourceaddress, void* destinationaddress, uint32_t addresssortoptions, void* bestroute, void* bestsourceaddress) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute2(void* interfaceluid, uint32_t interfaceindex, void* sourceaddress, void* destinationaddress, uint32_t addresssortoptions, void* bestroute, void* bestsourceaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1322,7 +1322,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getBestRoute2(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentId(void) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1343,7 +1343,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCom
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompartmentScope(void* compartmentscope, void* compartmentid) {
+void windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentScope(void* compartmentscope, void* compartmentid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1365,7 +1365,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_getCurrentThreadCompart
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartmentId(void) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetDefaultCompartmentId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getDefaultCompartme
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings(void* settings) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetDnsSettings(void* settings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1408,7 +1408,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getDnsSettings(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable(void* ptcptable, void* pdwsize, int32_t border, uint32_t ulaf, int32_t tableclass, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetExtendedTcpTable(void* ptcptable, void* pdwsize, int32_t border, uint32_t ulaf, int32_t tableclass, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getExtendedTcpTable
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable(void* pudptable, void* pdwsize, int32_t border, uint32_t ulaf, int32_t tableclass, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetExtendedUdpTable(void* pudptable, void* pdwsize, int32_t border, uint32_t ulaf, int32_t tableclass, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1462,7 +1462,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getExtendedUdpTable
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex(uint32_t ifindex) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetFriendlyIfIndex(uint32_t ifindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1484,7 +1484,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getFriendlyIfIndex(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics(void* statistics) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatistics(void* statistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1506,7 +1506,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatistics(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatisticsEx(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1529,7 +1529,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIcmpStatisticsEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfEntry(void* pifrow) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry(void* pifrow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1551,7 +1551,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfEntry(void* pi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1573,7 +1573,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2(void* r
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex(int32_t level, void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2Ex(int32_t level, void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1596,7 +1596,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfEntry2Ex(int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable(void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfStackTable(void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1618,7 +1618,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfStackTable(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfTable(void* piftable, void* pdwsize, int32_t border) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfTable(void* piftable, void* pdwsize, int32_t border) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1642,7 +1642,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfTable(void* pi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfTable2(void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2(void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1664,7 +1664,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfTable2(void* t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex(int32_t level, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2Ex(int32_t level, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1687,7 +1687,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIfTable2Ex(int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceActiveTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1710,7 +1710,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceActiveT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrentTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceCurrentTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1733,7 +1733,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceCurrent
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwareTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceHardwareTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1756,7 +1756,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceHardwar
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo(void* piftable, void* dwoutbuflen) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceInfo(void* piftable, void* dwoutbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1779,7 +1779,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceInfo(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupportedTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceSupportedTimestampCapabilities(void* interfaceluid, void* timestampcapabilites) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1802,7 +1802,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInterfaceSupport
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackTable(void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetInvertedIfStackTable(void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1824,7 +1824,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getInvertedIfStackT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable(void* pipaddrtable, void* pdwsize, int32_t border) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpAddrTable(void* pipaddrtable, void* pdwsize, int32_t border) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1848,7 +1848,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpAddrTable(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString(uint32_t errorcode, void* buffer, void* size) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpErrorString(uint32_t errorcode, void* buffer, void* size) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1872,7 +1872,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpErrorString(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1894,7 +1894,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpForwardEntry2(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable(void* pipforwardtable, void* pdwsize, int32_t border) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable(void* pipforwardtable, void* pdwsize, int32_t border) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1918,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable2(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1941,7 +1941,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpForwardTable2(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1963,7 +1963,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceEntry
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceTable(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1986,7 +1986,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpInterfaceTable
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpNetEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2008,7 +2008,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetEntry2(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable(void* ipnettable, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable(void* ipnettable, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2032,7 +2032,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable2(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2055,7 +2055,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetTable2(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnectionBandwidthEstimates(uint32_t interfaceindex, uint16_t addressfamily, void* bandwidthestimates) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpNetworkConnectionBandwidthEstimates(uint32_t interfaceindex, uint16_t addressfamily, void* bandwidthestimates) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2079,7 +2079,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpNetworkConnect
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpPathEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2101,7 +2101,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpPathEntry(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpPathTable(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2124,7 +2124,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpPathTable(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics(void* statistics) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpStatistics(void* statistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2146,7 +2146,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpStatistics(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetIpStatisticsEx(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2169,7 +2169,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getIpStatisticsEx(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId(void* jobhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetJobCompartmentId(void* jobhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2191,7 +2191,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getJobCompartmentId
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddressTable(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressTable(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2236,7 +2236,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getMulticastIpAddre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHint(void* connectivityhint) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHint(void* connectivityhint) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2258,7 +2258,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectiv
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectivityHintForInterface(uint32_t interfaceindex, void* connectivityhint) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHintForInterface(uint32_t interfaceindex, void* connectivityhint) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2281,7 +2281,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkConnectiv
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformation(void* networkguid, void* compartmentid, void* siteid, void* networkname, uint32_t length) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetNetworkInformation(void* networkguid, void* compartmentid, void* siteid, void* networkname, uint32_t length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2307,7 +2307,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkInformati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams(void* pfixedinfo, void* poutbuflen) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetNetworkParams(void* pfixedinfo, void* poutbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2330,7 +2330,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNetworkParams(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfaces(void* pdwnumif) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetNumberOfInterfaces(void* pdwnumif) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2352,7 +2352,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getNumberOfInterfac
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromPidAndInfo(uint32_t ulpid, void* pinfo, int32_t arg_2_class, void* pbuffer, void* pdwsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromPidAndInfo(uint32_t ulpid, void* pinfo, int32_t arg2Class, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2363,14 +2363,14 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromP
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(ulpid, pinfo, arg_2_class, pbuffer, pdwsize);
+        return km_fn_ptr(ulpid, pinfo, arg2Class, pbuffer, pdwsize);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)ulpid;
     (void)pinfo;
-    (void)arg_2_class;
+    (void)arg2Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2378,7 +2378,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromP
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcp6Entry(void* ptcpentry, int32_t arg_1_class, void* pbuffer, void* pdwsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcp6Entry(void* ptcpentry, int32_t arg1Class, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2389,13 +2389,13 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromT
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(ptcpentry, arg_1_class, pbuffer, pdwsize);
+        return km_fn_ptr(ptcpentry, arg1Class, pbuffer, pdwsize);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)ptcpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2403,7 +2403,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromTcpEntry(void* ptcpentry, int32_t arg_1_class, void* pbuffer, void* pdwsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcpEntry(void* ptcpentry, int32_t arg1Class, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2414,13 +2414,13 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromT
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(ptcpentry, arg_1_class, pbuffer, pdwsize);
+        return km_fn_ptr(ptcpentry, arg1Class, pbuffer, pdwsize);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)ptcpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2428,7 +2428,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdp6Entry(void* pudpentry, int32_t arg_1_class, void* pbuffer, void* pdwsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdp6Entry(void* pudpentry, int32_t arg1Class, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2439,13 +2439,13 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromU
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(pudpentry, arg_1_class, pbuffer, pdwsize);
+        return km_fn_ptr(pudpentry, arg1Class, pbuffer, pdwsize);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)pudpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2453,7 +2453,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromU
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromUdpEntry(void* pudpentry, int32_t arg_1_class, void* pbuffer, void* pdwsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdpEntry(void* pudpentry, int32_t arg1Class, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2464,13 +2464,13 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromU
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(pudpentry, arg_1_class, pbuffer, pdwsize);
+        return km_fn_ptr(pudpentry, arg1Class, pbuffer, pdwsize);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)pudpentry;
-    (void)arg_1_class;
+    (void)arg1Class;
     (void)pbuffer;
     (void)pdwsize;
     errno = ENOSYS;
@@ -2478,7 +2478,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getOwnerModuleFromU
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo(uint32_t ifindex, void* pperadapterinfo, void* poutbuflen) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetPerAdapterInfo(uint32_t ifindex, void* pperadapterinfo, void* poutbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2502,7 +2502,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getPerAdapterInfo(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6ConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, void* ros, uint32_t rosversion, uint32_t rossize, void* rod, uint32_t rodversion, uint32_t rodsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetPerTcp6ConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, void* ros, uint32_t rosversion, uint32_t rossize, void* rod, uint32_t rodversion, uint32_t rodsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2534,7 +2534,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getPerTcp6Connectio
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, void* ros, uint32_t rosversion, uint32_t rossize, void* rod, uint32_t rodversion, uint32_t rodsize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetPerTcpConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, void* ros, uint32_t rosversion, uint32_t rossize, void* rod, uint32_t rodversion, uint32_t rodsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2566,7 +2566,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getPerTcpConnection
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount(uint32_t destipaddress, void* hopcount, uint32_t maxhops, void* rtt) {
+int32_t windowssysWindowsWin32NetworkmanagementIphelperGetRTTAndHopCount(uint32_t destipaddress, void* hopcount, uint32_t maxhops, void* rtt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2591,7 +2591,7 @@ int32_t windowssys_windows_win32_networkmanagement_iphelper_getRTTAndHopCount(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartmentId(uint32_t sessionid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetSessionCompartmentId(uint32_t sessionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2613,7 +2613,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getSessionCompartme
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table(void* tcptable, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table(void* tcptable, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2637,7 +2637,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2(void* tcptable, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table2(void* tcptable, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2661,7 +2661,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcp6Table2(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics(void* statistics) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatistics(void* statistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2683,7 +2683,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpStatistics(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2706,7 +2706,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx2(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2729,7 +2729,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpStatisticsEx2
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpTable(void* tcptable, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable(void* tcptable, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2753,7 +2753,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpTable(void* t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2(void* tcptable, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable2(void* tcptable, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2777,7 +2777,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTcpTable2(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort(void* port) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetTeredoPort(void* port) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2799,7 +2799,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getTeredoPort(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table(void* udp6table, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUdp6Table(void* udp6table, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2823,7 +2823,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdp6Table(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics(void* stats) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatistics(void* stats) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2845,7 +2845,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpStatistics(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2868,7 +2868,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx2(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2891,7 +2891,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpStatisticsEx2
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpTable(void* udptable, void* sizepointer, int32_t order) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUdpTable(void* udptable, void* sizepointer, int32_t order) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2915,7 +2915,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUdpTable(void* u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAdapterInfo(void* pipifinfo, void* dwoutbuflen) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUniDirectionalAdapterInfo(void* pipifinfo, void* dwoutbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2938,7 +2938,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUniDirectionalAd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2960,7 +2960,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddress
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddressTable(uint16_t family, void* table) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressTable(uint16_t family, void* table) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2983,7 +2983,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_getUnicastIpAddress
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile(void) {
+void* windowssysWindowsWin32NetworkmanagementIphelperIcmp6CreateFile(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3004,7 +3004,7 @@ void* windowssys_windows_win32_networkmanagement_iphelper_icmp6CreateFile(void) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies(void* replybuffer, uint32_t replysize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIcmp6ParseReplies(void* replybuffer, uint32_t replysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3027,7 +3027,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmp6ParseReplies(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2(void* icmphandle, void* event, void* apcroutine, void* apccontext, void* sourceaddress, void* destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIcmp6SendEcho2(void* icmphandle, void* event, void* apcroutine, void* apccontext, void* sourceaddress, void* destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint16_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3060,7 +3060,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmp6SendEcho2(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle(void* icmphandle) {
+int32_t windowssysWindowsWin32NetworkmanagementIphelperIcmpCloseHandle(void* icmphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3082,7 +3082,7 @@ int32_t windowssys_windows_win32_networkmanagement_iphelper_icmpCloseHandle(void
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile(void) {
+void* windowssysWindowsWin32NetworkmanagementIphelperIcmpCreateFile(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3103,7 +3103,7 @@ void* windowssys_windows_win32_networkmanagement_iphelper_icmpCreateFile(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies(void* replybuffer, uint32_t replysize) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIcmpParseReplies(void* replybuffer, uint32_t replysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3126,7 +3126,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpParseReplies(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho(void* icmphandle, uint32_t destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho(void* icmphandle, uint32_t destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint16_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3155,7 +3155,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2(void* icmphandle, void* event, void* apcroutine, void* apccontext, uint32_t destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2(void* icmphandle, void* event, void* apcroutine, void* apccontext, uint32_t destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint16_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3187,7 +3187,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex(void* icmphandle, void* event, void* apcroutine, void* apccontext, uint32_t sourceaddress, uint32_t destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2Ex(void* icmphandle, void* event, void* apcroutine, void* apccontext, uint32_t sourceaddress, uint32_t destinationaddress, void* requestdata, uint16_t requestsize, void* requestoptions, void* replybuffer, uint32_t replysize, uint32_t timeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, void*, uint16_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3220,7 +3220,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_icmpSendEcho2Ex(voi
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntry(void* row) {
+void windowssysWindowsWin32NetworkmanagementIphelperInitializeIpForwardEntry(void* row) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3241,7 +3241,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_initializeIpForwardEntr
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEntry(void* row) {
+void windowssysWindowsWin32NetworkmanagementIphelperInitializeIpInterfaceEntry(void* row) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3262,7 +3262,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_initializeIpInterfaceEn
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddressEntry(void* row) {
+void windowssysWindowsWin32NetworkmanagementIphelperInitializeUnicastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3283,7 +3283,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_initializeUnicastIpAddr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress(void* adapterinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIpReleaseAddress(void* adapterinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3305,7 +3305,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_ipReleaseAddress(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress(void* adapterinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIpRenewAddress(void* adapterinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3327,7 +3327,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_ipRenewAddress(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentTcpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3351,7 +3351,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentTcp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentUdpPortReservation(uint16_t startport, uint16_t numberofports, void* token) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3375,7 +3375,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_lookupPersistentUdp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetInterfaceInfoFromStack(void* pptable, void* pdwcount, int32_t border, void* hheap, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNhpAllocateAndGetInterfaceInfoFromStack(void* pptable, void* pdwcount, int32_t border, void* hheap, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3401,7 +3401,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_nhpAllocateAndGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange(void* handle, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyAddrChange(void* handle, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3424,7 +3424,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyAddrChange(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampConfigChange(void* callercontext, void* callback, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyIfTimestampConfigChange(void* callercontext, void* callback, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3448,7 +3448,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyIfTimestampCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceChange(uint16_t family, void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyIpInterfaceChange(uint16_t family, void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3474,7 +3474,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyIpInterfaceCh
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnectivityHintChange(void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyNetworkConnectivityHintChange(void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3499,7 +3499,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyNetworkConnec
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange(void* handle, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange(void* handle, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3522,7 +3522,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2(uint16_t addressfamily, void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange2(uint16_t addressfamily, void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3548,7 +3548,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyRouteChange2(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicastIpAddressTable(uint16_t family, void* table, void* callercallback, void* callercontext, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyStableUnicastIpAddressTable(uint16_t family, void* table, void* callercallback, void* callercontext, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3574,7 +3574,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyStableUnicast
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortChange(void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyTeredoPortChange(void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3599,7 +3599,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyTeredoPortCha
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddressChange(uint16_t family, void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperNotifyUnicastIpAddressChange(uint16_t family, void* callback, void* callercontext, bool initialnotification, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3625,7 +3625,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_notifyUnicastIpAddr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString(void* networkstring, uint32_t types, void* addressinfo, void* portnumber, void* prefixlength) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperParseNetworkString(void* networkstring, uint32_t types, void* addressinfo, void* portnumber, void* prefixlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3651,7 +3651,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_parseNetworkString(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInterface(void* ih, uint32_t cinfilters, void* pfiltin, uint32_t coutfilters, void* pfiltout, void* pfhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfAddFiltersToInterface(void* ih, uint32_t cinfilters, void* pfiltin, uint32_t coutfilters, void* pfiltout, void* pfhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3678,7 +3678,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfAddFiltersToInter
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterToInterface(void* pinterface, int32_t gffilter) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfAddGlobalFilterToInterface(void* pinterface, int32_t gffilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3701,7 +3701,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfAddGlobalFilterTo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIPAddress(void* pinterface, int32_t pfattype, void* ipaddress) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIPAddress(void* pinterface, int32_t pfattype, void* ipaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3725,7 +3725,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIP
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIndex(void* pinterface, uint32_t dwindex, int32_t pfatlinktype, void* linkipaddress) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIndex(void* pinterface, uint32_t dwindex, int32_t pfatlinktype, void* linkipaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3750,7 +3750,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfBindInterfaceToIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface(uint32_t dwname, int32_t inaction, int32_t outaction, int32_t buselog, int32_t bmustbeunique, void* ppinterface) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfCreateInterface(uint32_t dwname, int32_t inaction, int32_t outaction, int32_t buselog, int32_t bmustbeunique, void* ppinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3777,7 +3777,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfCreateInterface(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface(void* pinterface) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfDeleteInterface(void* pinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3799,7 +3799,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfDeleteInterface(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog(void) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfDeleteLog(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3820,7 +3820,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfDeleteLog(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStatistics(void* pinterface, void* ppfstats, void* pdwbuffersize, int32_t fresetcounters) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfGetInterfaceStatistics(void* pinterface, void* ppfstats, void* pdwbuffersize, int32_t fresetcounters) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3845,7 +3845,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfGetInterfaceStati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog(void* hevent) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfMakeLog(void* hevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3867,7 +3867,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfMakeLog(void* hev
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters(void* pinterface, void* platebindinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfRebindFilters(void* pinterface, void* platebindinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3890,7 +3890,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRebindFilters(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandles(void* pinterface, uint32_t cfilters, void* pvhandles) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFilterHandles(void* pinterface, uint32_t cfilters, void* pvhandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3914,7 +3914,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFilterHandl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFromInterface(void* ih, uint32_t cinfilters, void* pfiltin, uint32_t coutfilters, void* pfiltout) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFiltersFromInterface(void* ih, uint32_t cinfilters, void* pfiltin, uint32_t coutfilters, void* pfiltout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3940,7 +3940,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRemoveFiltersFrom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilterFromInterface(void* pinterface, int32_t gffilter) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfRemoveGlobalFilterFromInterface(void* pinterface, int32_t gffilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3963,7 +3963,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfRemoveGlobalFilte
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer(void* pbbuffer, uint32_t dwsize, uint32_t dwthreshold, uint32_t dwentries, void* pdwloggedentries, void* pdwlostentries, void* pdwsizeused) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfSetLogBuffer(void* pbbuffer, uint32_t dwsize, uint32_t dwthreshold, uint32_t dwentries, void* pdwloggedentries, void* pdwlostentries, void* pdwsizeused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3991,7 +3991,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfSetLogBuffer(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket(void* pininterface, void* poutinterface, uint32_t cbytes, void* pbpacket, void* ppaction) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfTestPacket(void* pininterface, void* poutinterface, uint32_t cbytes, void* pbpacket, void* ppaction) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4017,7 +4017,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfTestPacket(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface(void* pinterface) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperPfUnBindInterface(void* pinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4039,7 +4039,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_pfUnBindInterface(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTimestampConfigChange(void* callback, void* callercontext, void* notificationhandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperRegisterInterfaceTimestampConfigChange(void* callback, void* callercontext, void* notificationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4063,7 +4063,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_registerInterfaceTi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2(void* row, void* sourceaddress) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperResolveIpNetEntry2(void* row, void* sourceaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4086,7 +4086,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_resolveIpNetEntry2(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor(void* networkaddress, void* physicaladdress, void* physicaladdresslength) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperResolveNeighbor(void* networkaddress, void* physicaladdress, void* physicaladdresslength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_resolveNeighbor(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense(void* poverlapped, void* lpdwenablecount) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperRestoreMediaSense(void* poverlapped, void* lpdwenablecount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4133,7 +4133,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_restoreMediaSense(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_sendARP(uint32_t destip, uint32_t srcip, void* pmacaddr, void* phyaddrlen) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSendARP(uint32_t destip, uint32_t srcip, void* pmacaddr, void* phyaddrlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4158,7 +4158,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_sendARP(uint32_t de
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentId(uint32_t compartmentid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentId(uint32_t compartmentid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4180,7 +4180,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCompartmentScope(uint32_t compartmentscope) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentScope(uint32_t compartmentscope) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4202,7 +4202,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setCurrentThreadCom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings(void* settings) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetDnsSettings(void* settings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4224,7 +4224,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setDnsSettings(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIfEntry(void* pifrow) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIfEntry(void* pifrow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4246,7 +4246,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIfEntry(void* pi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry(void* proute) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry(void* proute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4268,7 +4268,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2(void* route) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry2(void* route) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4290,7 +4290,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpForwardEntry2(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpInterfaceEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4312,7 +4312,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpInterfaceEntry
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry(void* parpentry) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry(void* parpentry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4334,7 +4334,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry2(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4356,7 +4356,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpNetEntry2(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics(void* pipstats) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpStatistics(void* pipstats) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4378,7 +4378,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpStatistics(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx(void* statistics, uint32_t family) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpStatisticsEx(void* statistics, uint32_t family) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4401,7 +4401,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpStatisticsEx(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpTTL(uint32_t nttl) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetIpTTL(uint32_t nttl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4423,7 +4423,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setIpTTL(uint32_t n
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId(void* jobhandle, uint32_t compartmentid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetJobCompartmentId(void* jobhandle, uint32_t compartmentid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4446,7 +4446,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setJobCompartmentId
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformation(void* networkguid, uint32_t compartmentid, void* networkname) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetNetworkInformation(void* networkguid, uint32_t compartmentid, void* networkname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4470,7 +4470,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setNetworkInformati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6ConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, uint32_t offset) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetPerTcp6ConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, uint32_t offset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4497,7 +4497,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setPerTcp6Connectio
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, uint32_t offset) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetPerTcpConnectionEStats(void* row, int32_t estatstype, void* rw, uint32_t rwversion, uint32_t rwsize, uint32_t offset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4524,7 +4524,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setPerTcpConnection
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartmentId(uint32_t sessionid, uint32_t compartmentid) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetSessionCompartmentId(uint32_t sessionid, uint32_t compartmentid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4547,7 +4547,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setSessionCompartme
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry(void* ptcprow) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetTcpEntry(void* ptcprow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4569,7 +4569,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setTcpEntry(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddressEntry(void* row) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperSetUnicastIpAddressEntry(void* row) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4591,7 +4591,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_setUnicastIpAddress
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_unenableRouter(void* poverlapped, void* lpdwenablecount) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter(void* poverlapped, void* lpdwenablecount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4614,7 +4614,7 @@ uint32_t windowssys_windows_win32_networkmanagement_iphelper_unenableRouter(void
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTimestampConfigChange(void* notificationhandle) {
+void windowssysWindowsWin32NetworkmanagementIphelperUnregisterInterfaceTimestampConfigChange(void* notificationhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4635,7 +4635,7 @@ void windowssys_windows_win32_networkmanagement_iphelper_unregisterInterfaceTime
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname(uint32_t interfaceindex, void* interfacename) {
+void* windowssysWindowsWin32NetworkmanagementIphelperIfIndextoname(uint32_t interfaceindex, void* interfacename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4658,7 +4658,7 @@ void* windowssys_windows_win32_networkmanagement_iphelper_ifIndextoname(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_iphelper_ifNametoindex(void* interfacename) {
+uint32_t windowssysWindowsWin32NetworkmanagementIphelperIfNametoindex(void* interfacename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

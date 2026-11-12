@@ -2,15 +2,34 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.AccessState
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverFsNotification
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverObject
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.EcpHeader
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.EcpList
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Eresource
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.IoStackLocation
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Irp
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kevent
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kmutant
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kqueue
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.KspinLockQueueNumber
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KwaitBlock
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectInformationClass
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectNameInformation
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pethread
@@ -19,23 +38,47 @@ import io.github.kotlinmania.windowssys.windows.wdk.foundation.PnotifySync
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PobjectType
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Prkprocess
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.SectionObjectPointers
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.SecuritySubjectContext
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.SspiAsyncContext
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.TargetDeviceCustomNotification
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Vpb
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.WorkQueueItem
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
+import io.github.kotlinmania.windowssys.windows.win32.security.Acl
 import io.github.kotlinmania.windowssys.windows.win32.security.AuditEventType
+import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectTypeList
+import io.github.kotlinmania.windowssys.windows.win32.security.PrivilegeSet
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.SeImpersonationState
 import io.github.kotlinmania.windowssys.windows.win32.security.SecurityImpersonationLevel
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
+import io.github.kotlinmania.windowssys.windows.win32.security.SidIdentifierAuthority
+import io.github.kotlinmania.windowssys.windows.win32.security.SidNameUse
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenInformationClass
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrivileges
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenType
 import io.github.kotlinmania.windowssys.windows.win32.security.WellKnownSidType
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SeAdtParameterArray
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecGetKeyFn
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecurityUserData
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileAccessRights
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileShareMode
+import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
+import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.IoIrpExtTrackOffsetHeader
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
+import io.github.kotlinmania.windowssys.windows.win32.system.memory.MemExtendedParameter
 
 private object WindowsWdkStorageFilesystemJniBridge {
     init {
@@ -43,2489 +86,2489 @@ private object WindowsWdkStorageFilesystemJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_applyControlToken(phcontext: Long, pinput: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemApplyControlToken(phcontext: Long, pinput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: Long, asyncreadcontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcAsyncCopyRead(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: Long, asyncreadcontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCanIWrite(fileobject: Long, bytestowrite: Int, wait: Boolean, retrying: Byte): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcCanIWrite(fileobject: Long, bytestowrite: Int, wait: Boolean, retrying: Byte): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache(sectionobjectpointer: Long, fileoffset: Long, length: Int, iostatus: Long, flags: Int)
+    external fun windowssysWindowsWdkStorageFilesystemCcCoherencyFlushAndPurgeCache(sectionobjectpointer: Long, fileoffset: Long, length: Int, iostatus: Long, flags: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCopyRead(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, iostatus: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcCopyRead(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, iostatus: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCopyReadEx(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcCopyReadEx(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCopyWrite(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcCopyWrite(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, ioissuerthread: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcCopyWriteEx(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, buffer: Long, ioissuerthread: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush(fileobject: Long, fileoffset: Long, length: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcCopyWriteWontFlush(fileobject: Long, fileoffset: Long, length: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccDeferWrite(fileobject: Long, postroutine: Long, context1: Long, context2: Long, bytestowrite: Int, retrying: Boolean)
+    external fun windowssysWindowsWdkStorageFilesystemCcDeferWrite(fileobject: Long, postroutine: Long, context1: Long, context2: Long, bytestowrite: Int, retrying: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine(context: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemCcErrorCallbackRoutine(context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccFastCopyRead(fileobject: Long, fileoffset: Int, length: Int, pagecount: Int, buffer: Long, iostatus: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcFastCopyRead(fileobject: Long, fileoffset: Int, length: Int, pagecount: Int, buffer: Long, iostatus: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite(fileobject: Long, fileoffset: Int, length: Int, buffer: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcFastCopyWrite(fileobject: Long, fileoffset: Int, length: Int, buffer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccFlushCache(sectionobjectpointer: Long, fileoffset: Long, length: Int, iostatus: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcFlushCache(sectionobjectpointer: Long, fileoffset: Long, length: Int, iostatus: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages(loghandle: Long, dirtypageroutine: Long, context1: Long, context2: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemCcGetDirtyPages(loghandle: Long, dirtypageroutine: Long, context1: Long, context2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb(bcb: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromBcb(bcb: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs(sectionobjectpointer: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromSectionPtrs(sectionobjectpointer: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromSectionPtrsRef(sectionobjectpointer: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData(sectionobjectpointer: Long, bcblistheld: Boolean): Long
+    external fun windowssysWindowsWdkStorageFilesystemCcGetFlushedValidData(sectionobjectpointer: Long, bcblistheld: Boolean): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcInitializeCacheMap(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long, flags: Int)
+    external fun windowssysWindowsWdkStorageFilesystemCcInitializeCacheMapEx(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long, flags: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded(status: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcIsCacheManagerCallbackNeeded(status: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData(vpb: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcIsThereDirtyData(vpb: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx(vpb: Long, numberofdirtypages: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcIsThereDirtyDataEx(vpb: Long, numberofdirtypages: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccMapData(fileobject: Long, fileoffset: Long, length: Int, flags: Int, bcb: Long, buffer: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcMapData(fileobject: Long, fileoffset: Long, length: Int, flags: Int, bcb: Long, buffer: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccMdlRead(fileobject: Long, fileoffset: Long, length: Int, mdlchain: Long, iostatus: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcMdlRead(fileobject: Long, fileoffset: Long, length: Int, mdlchain: Long, iostatus: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete(fileobject: Long, mdlchain: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcMdlReadComplete(fileobject: Long, mdlchain: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort(fileobject: Long, mdlchain: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcMdlWriteAbort(fileobject: Long, mdlchain: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete(fileobject: Long, fileoffset: Long, mdlchain: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcMdlWriteComplete(fileobject: Long, fileoffset: Long, mdlchain: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccPinMappedData(fileobject: Long, fileoffset: Long, length: Int, flags: Int, bcb: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcPinMappedData(fileobject: Long, fileoffset: Long, length: Int, flags: Int, bcb: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccPinRead(fileobject: Long, fileoffset: Long, length: Int, flags: Int, bcb: Long, buffer: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcPinRead(fileobject: Long, fileoffset: Long, length: Int, flags: Int, bcb: Long, buffer: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite(fileobject: Long, fileoffset: Long, length: Int, mdlchain: Long, iostatus: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcPrepareMdlWrite(fileobject: Long, fileoffset: Long, length: Int, mdlchain: Long, iostatus: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite(fileobject: Long, fileoffset: Long, length: Int, zero: Boolean, flags: Int, bcb: Long, buffer: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcPreparePinWrite(fileobject: Long, fileoffset: Long, length: Int, zero: Boolean, flags: Int, bcb: Long, buffer: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection(sectionobjectpointer: Long, fileoffset: Long, length: Int, flags: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcPurgeCacheSection(sectionobjectpointer: Long, fileoffset: Long, length: Int, flags: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccRemapBcb(bcb: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemCcRemapBcb(bcb: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccRepinBcb(bcb: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcRepinBcb(bcb: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead(fileobject: Long, fileoffset: Long, length: Int)
+    external fun windowssysWindowsWdkStorageFilesystemCcScheduleReadAhead(fileobject: Long, fileoffset: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx(fileobject: Long, fileoffset: Long, length: Int, ioissuerthread: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcScheduleReadAheadEx(fileobject: Long, fileoffset: Long, length: Int, ioissuerthread: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes(fileobject: Long, disablereadahead: Boolean, disablewritebehind: Boolean)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetAdditionalCacheAttributes(fileobject: Long, disablereadahead: Boolean, disablewritebehind: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx(fileobject: Long, flags: Int)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetAdditionalCacheAttributesEx(fileobject: Long, flags: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer(bcb: Long, ownerpointer: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetBcbOwnerPointer(bcb: Long, ownerpointer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold(fileobject: Long, dirtypagethreshold: Int)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetDirtyPageThreshold(fileobject: Long, dirtypagethreshold: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData(bcbvoid: Long, lsn: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetDirtyPinnedData(bcbvoid: Long, lsn: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetFileSizes(fileobject: Long, filesizes: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetFileSizes(fileobject: Long, filesizes: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx(fileobject: Long, filesizes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemCcSetFileSizesEx(fileobject: Long, filesizes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile(fileobject: Long, loghandle: Long, flushtolsnroutine: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetLogHandleForFile(fileobject: Long, loghandle: Long, flushtolsnroutine: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile(fileobject: Long, enableparallelflush: Boolean)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetParallelFlushFile(fileobject: Long, enableparallelflush: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity(fileobject: Long, granularity: Int)
+    external fun windowssysWindowsWdkStorageFilesystemCcSetReadAheadGranularity(fileobject: Long, granularity: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap(fileobject: Long, truncatesize: Long, uninitializeevent: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcUninitializeCacheMap(fileobject: Long, truncatesize: Long, uninitializeevent: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccUnpinData(bcb: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcUnpinData(bcb: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread(bcb: Long, resourcethreadid: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcUnpinDataForThread(bcb: Long, resourcethreadid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb(bcb: Long, writethrough: Boolean, iostatus: Long)
+    external fun windowssysWindowsWdkStorageFilesystemCcUnpinRepinnedBcb(bcb: Long, writethrough: Boolean, iostatus: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity(): Int
+    external fun windowssysWindowsWdkStorageFilesystemCcWaitForCurrentLazyWriterActivity(): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ccZeroData(fileobject: Long, startoffset: Long, endoffset: Long, wait: Boolean): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemCcZeroData(fileobject: Long, startoffset: Long, endoffset: Long, wait: Boolean): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_completeAuthToken(phcontext: Long, ptoken: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemCompleteAuthToken(phcontext: Long, ptoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite(resource: Long)
+    external fun windowssysWindowsWdkStorageFilesystemExDisableResourceBoostLite(resource: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize(poolblock: Long, quotacharged: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemExQueryPoolBlockSize(poolblock: Long, quotacharged: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_exportSecurityContext(phcontext: Long, fflags: Int, ppackedcontext: Long, ptoken: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemExportSecurityContext(phcontext: Long, fflags: Int, ppackedcontext: Long, ptoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp(ecpcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAcknowledgeEcp(ecpcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive(fileobject: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAcquireFileExclusive(fileobject: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAddBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAddBaseMcbEntryEx(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAddLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry(mcb: Long, vbn: Int, lbn: Int, sectorcount: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAddMcbEntry(mcb: Long, vbn: Int, lbn: Int, sectorcount: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache(cache: Long, directorykey: Long, shortname: Long, longname: Long, keybyshortname: Boolean, datalength: Int, data: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAddToTunnelCache(cache: Long, directorykey: Long, shortname: Long, longname: Long, keybyshortname: Boolean, datalength: Int, data: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx(cache: Long, directorykey: Long, shortname: Long, longname: Long, flags: Int, datalength: Int, data: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAddToTunnelCacheEx(cache: Long, directorykey: Long, shortname: Long, longname: Long, flags: Int, datalength: Int, data: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock(pooltype: Int, tag: Int): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAllocateAePushLock(pooltype: Int, tag: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter(ecptype: Long, sizeofcontext: Int, flags: Int, cleanupcallback: Long, pooltag: Int, ecpcontext: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameter(ecptype: Long, sizeofcontext: Int, flags: Int, cleanupcallback: Long, pooltag: Int, ecpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: Long, sizeofcontext: Int, flags: Int, cleanupcallback: Long, lookasidelist: Long, ecpcontext: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: Long, sizeofcontext: Int, flags: Int, cleanupcallback: Long, lookasidelist: Long, ecpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList(flags: Int, ecplist: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameterList(flags: Int, ecplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock(completelockirproutine: Long, unlockroutine: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAllocateFileLock(completelockirproutine: Long, unlockroutine: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource(): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAllocateResource(): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual(constantnamea: Long, constantnameb: Long, ignorecase: Boolean, upcasetable: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAreNamesEqual(constantnamea: Long, constantnameb: Long, ignorecase: Boolean, upcasetable: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks(filelock: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAreThereCurrentOrInProgressFileLocks(filelock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks(filelock: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAreThereWaitingFileLocks(filelock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete(): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlAreVolumeStartupApplicationsComplete(): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads(targetdevice: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlBalanceReads(targetdevice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects(count: Int, objectarray: Long, waittype: Int, timeout: Long, waitblockarray: Long, irp: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCancellableWaitForMultipleObjects(count: Int, objectarray: Long, waittype: Int, timeout: Long, waitblockarray: Long, irp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject(obj: Long, timeout: Long, irp: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCancellableWaitForSingleObject(obj: Long, timeout: Long, irp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject(currentfileobject: Long, newfileobject: Long, changebackingtype: Int, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlChangeBackingFileObject(currentfileobject: Long, newfileobject: Long, changebackingtype: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest(filelock: Long, allocationsize: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForOplockRequest(filelock: Long, allocationsize: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess(filelock: Long, irp: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForReadAccess(filelock: Long, irp: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess(filelock: Long, irp: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForWriteAccess(filelock: Long, irp: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock(oplock: Long, irp: Long, context: Long, completionroutine: Long, postirproutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckOplock(oplock: Long, irp: Long, context: Long, completionroutine: Long, postirproutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckOplockEx(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2(oplock: Long, irp: Long, flags: Int, flagsex2: Int, completionroutinecontext: Long, completionroutine: Long, postirproutine: Long, timeout: Long, notifycontext: Long, notifyroutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckOplockEx2(oplock: Long, irp: Long, flags: Int, flagsex2: Int, completionroutinecontext: Long, completionroutine: Long, postirproutine: Long, timeout: Long, notifycontext: Long, notifyroutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock(oplock: Long, newloweroplockstate: Int, completionroutinecontext: Long, completionroutine: Long, prependroutine: Long, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCheckUpperOplock(oplock: Long, newloweroplockstate: Int, completionroutinecontext: Long, completionroutine: Long, prependroutine: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, lockkey: Int, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCopyRead(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, lockkey: Int, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, lockkey: Int, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCopyWrite(fileobject: Long, fileoffset: Long, length: Int, wait: Boolean, lockkey: Int, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan(sectionhandle: Long, sectionobject: Long, sectionfilesize: Long, fileobject: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCreateSectionForDataScan(sectionhandle: Long, sectionobject: Long, sectionfilesize: Long, fileobject: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock(oplock: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCurrentBatchOplock(oplock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock(oplock: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCurrentOplock(oplock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH(oplock: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlCurrentOplockH(oplock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList(lookaside: Long, flags: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDeleteExtraCreateParameterLookasideList(lookaside: Long, flags: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache(cache: Long, directorykey: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDeleteKeyFromTunnelCache(cache: Long, directorykey: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache(cache: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDeleteTunnelCache(cache: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider(handle: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDeregisterUncProvider(handle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(deviceobject: Long, dismountstatus: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDismountComplete(deviceobject: Long, dismountstatus: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(name: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDoesDbcsContainWildCards(name: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards(name: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlDoesNameContainWildCards(name: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead(filelock: Long, startingbyte: Long, length: Long, key: Int, fileobject: Long, processid: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFastCheckLockForRead(filelock: Long, startingbyte: Long, length: Long, key: Int, fileobject: Long, processid: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite(filelock: Long, startingbyte: Long, length: Long, key: Int, fileobject: Long, processid: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFastCheckLockForWrite(filelock: Long, startingbyte: Long, length: Long, key: Int, fileobject: Long, processid: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll(filelock: Long, fileobject: Long, processid: Long, context: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockAll(filelock: Long, fileobject: Long, processid: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey(filelock: Long, fileobject: Long, processid: Long, key: Int, context: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockAllByKey(filelock: Long, fileobject: Long, processid: Long, key: Int, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: Long, key: Int, context: Long, alreadysynchronized: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockSingle(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: Long, key: Int, context: Long, alreadysynchronized: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFindExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache(cache: Long, directorykey: Long, name: Long, shortname: Long, longname: Long, datalength: Long, data: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFindInTunnelCache(cache: Long, directorykey: Long, name: Long, shortname: Long, longname: Long, datalength: Long, data: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx(cache: Long, directorykey: Long, name: Long, shortname: Long, longname: Long, flags: Int, datalength: Long, data: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFindInTunnelCacheEx(cache: Long, directorykey: Long, name: Long, shortname: Long, longname: Long, flags: Int, datalength: Long, data: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock(aepushlock: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFreeAePushLock(aepushlock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter(ecpcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFreeExtraCreateParameter(ecpcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList(ecplist: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFreeExtraCreateParameterList(ecplist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock(filelock: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlFreeFileLock(filelock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList(): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetCurrentProcessLoaderList(): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp(irp: Long, ecplist: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetEcpListFromIrp(irp: Long, ecplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize(fileobject: Long, filesize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetFileSize(fileobject: Long, filesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry(mcb: Long, runindex: Int, vbn: Long, lbn: Long, sectorcount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetNextBaseMcbEntry(mcb: Long, runindex: Int, vbn: Long, lbn: Long, sectorcount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter(ecplist: Long, currentecpcontext: Long, nextecptype: Long, nextecpcontext: Long, nextecpcontextsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetNextExtraCreateParameter(ecplist: Long, currentecpcontext: Long, nextecptype: Long, nextecpcontext: Long, nextecpcontextsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock(filelock: Long, restart: Boolean): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetNextFileLock(filelock: Long, restart: Boolean): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry(mcb: Long, runindex: Int, vbn: Long, lbn: Long, sectorcount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetNextLargeMcbEntry(mcb: Long, runindex: Int, vbn: Long, lbn: Long, sectorcount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry(mcb: Long, runindex: Int, vbn: Long, lbn: Long, sectorcount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetNextMcbEntry(mcb: Long, runindex: Int, vbn: Long, lbn: Long, sectorcount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation(deviceobject: Long, sectorsizeinfo: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetSectorSizeInformation(deviceobject: Long, sectorsizeinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures(deviceobject: Long, supportedfeatures: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetSupportedFeatures(deviceobject: Long, supportedfeatures: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel(deviceobject: Long, nestinglevel: Long, nestingflags: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlGetVirtualDiskNestingLevel(deviceobject: Long, nestinglevel: Long, nestingflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait()
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastMdlReadWait()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait()
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadNoWait()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible()
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadNotPossible()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss()
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadResourceMiss()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait()
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadWait()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList(lookaside: Long, flags: Int, size: Long, tag: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitExtraCreateParameterLookasideList(lookaside: Long, flags: Int, size: Long, tag: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb(mcb: Long, pooltype: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeBaseMcb(mcb: Long, pooltype: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx(mcb: Long, pooltype: Int, flags: Short): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeBaseMcbEx(mcb: Long, pooltype: Int, flags: Short): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter(ecp: Long, ecpflags: Int, cleanupcallback: Long, totalsize: Int, ecptype: Long, listallocatedfrom: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeExtraCreateParameter(ecp: Long, ecpflags: Int, cleanupcallback: Long, totalsize: Int, ecptype: Long, listallocatedfrom: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList(ecplist: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeExtraCreateParameterList(ecplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock(filelock: Long, completelockirproutine: Long, unlockroutine: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeFileLock(filelock: Long, completelockirproutine: Long, unlockroutine: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb(mcb: Long, pooltype: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeLargeMcb(mcb: Long, pooltype: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb(mcb: Long, pooltype: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeMcb(mcb: Long, pooltype: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock(oplock: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeOplock(oplock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache(cache: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInitializeTunnelCache(cache: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter(ecplist: Long, ecpcontext: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInsertExtraCreateParameter(ecplist: Long, ecpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext(perfilecontextpointer: Long, ptr: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInsertPerFileContext(perfilecontextpointer: Long, ptr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext(fileobject: Long, ptr: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInsertPerFileObjectContext(fileobject: Long, ptr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext(perstreamcontext: Long, ptr: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlInsertPerStreamContext(perstreamcontext: Long, ptr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess(process: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIs32BitProcess(process: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume(fileobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsDaxVolume(fileobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression(expression: Long, name: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsDbcsInExpression(expression: Long, name: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged(ecpcontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsEcpAcknowledged(ecpcontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode(ecpcontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsEcpFromUserMode(ecpcontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage: Int, numberofpages: Int, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsExtentDangling(startpage: Int, numberofpages: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS(): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsMobileOS(): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsNameInExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsNameInUnUpcasedExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected(exception: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsNtstatusExpected(exception: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile(fileobject: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsPagingFile(fileobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile(fileobject: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIsSystemPagingFile(fileobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl(deviceobject: Long, ioctl: Int, flags: Byte, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int, iosbinformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlIssueDeviceIoControl(deviceobject: Long, ioctl: Int, flags: Byte, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int, iosbinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile(fileobject: Long, fscontrolcode: Int, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int, retoutputbuffersize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlKernelFsControlFile(fileobject: Long, fscontrolcode: Int, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int, retoutputbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError(filename: Long, deviceobject: Long, sectionobjectpointer: Long, flusherror: Int, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLogCcFlushError(filename: Long, deviceobject: Long, sectionobjectpointer: Long, flusherror: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupLastBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupLastLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupLastMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry(mcb: Long, vbn: Int, lbn: Long, sectorcount: Long, index: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupMcbEntry(mcb: Long, vbn: Int, lbn: Long, sectorcount: Long, index: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupPerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupPerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal(streamcontext: Long, ownerid: Long, instanceid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlLookupPerStreamContextInternal(streamcontext: Long, ownerid: Long, instanceid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev(fileobject: Long, mdlchain: Long, deviceobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlMdlReadCompleteDev(fileobject: Long, mdlchain: Long, deviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlMdlReadDev(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlMdlReadEx(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev(fileobject: Long, fileoffset: Long, mdlchain: Long, deviceobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlMdlWriteCompleteDev(fileobject: Long, fileoffset: Long, mdlchain: Long, deviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName(pprovidername: Long, pproviderid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlMupGetProviderIdFromName(pprovidername: Long, pproviderid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject(pfileobject: Long, level: Int, pbuffer: Long, pbuffersize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlMupGetProviderInfoFromFileObject(pfileobject: Long, level: Int, pbuffer: Long, pbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus(exception: Int, genericexception: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNormalizeNtstatus(exception: Int, genericexception: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup(notifysync: Long, notifylist: Long, fscontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanup(notifysync: Long, notifylist: Long, fscontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll(notifysync: Long, notifylist: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanupAll(notifysync: Long, notifylist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory(notifysync: Long, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: Int, notifyirp: Long, traversecallback: Long, subjectcontext: Long, filtercallback: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyFilterChangeDirectory(notifysync: Long, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: Int, notifyirp: Long, traversecallback: Long, subjectcontext: Long, filtercallback: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange(notifysync: Long, notifylist: Long, fulltargetname: Long, targetnameoffset: Short, streamname: Long, normalizedparentname: Long, filtermatch: Int, action: Int, targetcontext: Long, filtercontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyFilterReportChange(notifysync: Long, notifylist: Long, fulltargetname: Long, targetnameoffset: Short, streamname: Long, normalizedparentname: Long, filtermatch: Int, action: Int, targetcontext: Long, filtercontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory(notifysync: Long, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: Int, notifyirp: Long, traversecallback: Long, subjectcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyFullChangeDirectory(notifysync: Long, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: Int, notifyirp: Long, traversecallback: Long, subjectcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange(notifysync: Long, notifylist: Long, fulltargetname: Long, targetnameoffset: Short, streamname: Long, normalizedparentname: Long, filtermatch: Int, action: Int, targetcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyFullReportChange(notifysync: Long, notifylist: Long, fulltargetname: Long, targetnameoffset: Short, streamname: Long, normalizedparentname: Long, filtermatch: Int, action: Int, targetcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync(notifysync: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyInitializeSync(notifysync: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync(notifysync: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyUninitializeSync(notifysync: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent(fileobject: Long, eventcode: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyVolumeEvent(fileobject: Long, eventcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx(fileobject: Long, eventcode: Int, event: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNotifyVolumeEventEx(fileobject: Long, eventcode: Int, event: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb(mcb: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInBaseMcb(mcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb(mcb: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInLargeMcb(mcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb(mcb: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInMcb(mcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakH(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long, grantedaccess: Long, shareaccess: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakH2(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long, grantedaccess: Long, shareaccess: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone(oplock: Long, irpsp: Long, irp: Long, context: Long, completionroutine: Long, postirproutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakToNone(oplock: Long, irpsp: Long, irp: Long, context: Long, completionroutine: Long, postirproutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakToNoneEx(oplock: Long, irp: Long, flags: Int, context: Long, completionroutine: Long, postirproutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl(oplock: Long, irp: Long, opencount: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockFsctrl(oplock: Long, irp: Long, opencount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx(oplock: Long, irp: Long, opencount: Int, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockFsctrlEx(oplock: Long, irp: Long, opencount: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess(oplock: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockGetAnyBreakOwnerProcess(oplock: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible(oplock: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockIsFastIoPossible(oplock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest(irp: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockIsSharedRequest(irp: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual(fo1: Long, fo2: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlOplockKeysEqual(fo1: Long, fo2: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow(context: Long, event: Long, stackoverflowroutine: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlPostPagingFileStackOverflow(context: Long, event: Long, stackoverflowroutine: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow(context: Long, event: Long, stackoverflowroutine: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlPostStackOverflow(context: Long, event: Long, stackoverflowroutine: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlPrepareMdlWriteDev(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlPrepareMdlWriteEx(fileobject: Long, fileoffset: Long, length: Int, lockkey: Int, mdlchain: Long, iostatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp(ecpcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlPrepareToReuseEcp(ecpcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: Long, key: Int, failimmediately: Boolean, exclusivelock: Boolean, iosb: Long, irp: Long, context: Long, alreadysynchronized: Boolean): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlPrivateLock(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: Long, key: Int, failimmediately: Boolean, exclusivelock: Boolean, iosb: Long, irp: Long, context: Long, alreadysynchronized: Boolean): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock(filelock: Long, irp: Long, context: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlProcessFileLock(filelock: Long, irp: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl(fileobject: Long, vdl: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlQueryCachedVdl(fileobject: Long, vdl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile(fileobject: Long, fileinformation: Long, length: Int, fileinformationclass: Int, retfileinformationsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlQueryInformationFile(fileobject: Long, fileinformation: Long, length: Int, fileinformationclass: Int, retfileinformationsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile(fileobject: Long, returnedeadata: Long, length: Int, returnsingleentry: Boolean, ealist: Long, ealistlength: Int, eaindex: Long, restartscan: Boolean, lengthreturned: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlQueryKernelEaFile(fileobject: Long, returnedeadata: Long, length: Int, returnsingleentry: Boolean, ealist: Long, ealistlength: Int, eaindex: Long, restartscan: Boolean, lengthreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel(): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlQueryMaximumVirtualDiskNestingLevel(): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: Long, callbacks: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: Long, callbacks: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider(muphandle: Long, redirectordevicename: Long, mailslotssupported: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProvider(muphandle: Long, redirectordevicename: Long, mailslotssupported: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx(muphandle: Long, redirdevname: Long, deviceobject: Long, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProviderEx(muphandle: Long, redirdevname: Long, deviceobject: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2(redirdevname: Long, deviceobject: Long, registration: Long, muphandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProviderEx2(redirdevname: Long, deviceobject: Long, registration: Long, muphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile(fileobject: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlReleaseFile(fileobject: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry(mcb: Long, vbn: Long, sectorcount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemoveBaseMcbEntry(mcb: Long, vbn: Long, sectorcount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath(originalstring: Long, pathlength: Short, newlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemoveDotsFromPath(originalstring: Long, pathlength: Short, newlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemoveExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry(mcb: Long, vbn: Long, sectorcount: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemoveLargeMcbEntry(mcb: Long, vbn: Long, sectorcount: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry(mcb: Long, vbn: Int, sectorcount: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemoveMcbEntry(mcb: Long, vbn: Int, sectorcount: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemovePerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemovePerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext(streamcontext: Long, ownerid: Long, instanceid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlRemovePerStreamContext(streamcontext: Long, ownerid: Long, instanceid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb(mcb: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlResetBaseMcb(mcb: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb(mcb: Long, selfsynchronized: Boolean)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlResetLargeMcb(mcb: Long, selfsynchronized: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking(driverobj: Long, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlSetDriverBacking(driverobj: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp(irp: Long, ecplist: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlSetEcpListIntoIrp(irp: Long, ecplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile(fileobject: Long, eabuffer: Long, length: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlSetKernelEaFile(fileobject: Long, eabuffer: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb(mcb: Long, vbn: Long, amount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlSplitBaseMcb(mcb: Long, vbn: Long, amount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb(mcb: Long, vbn: Long, amount: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlSplitLargeMcb(mcb: Long, vbn: Long, amount: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts(perfilecontextpointer: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlTeardownPerFileContexts(perfilecontextpointer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts(advancedheader: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlTeardownPerStreamContexts(advancedheader: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb(mcb: Long, vbn: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlTruncateBaseMcb(mcb: Long, vbn: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb(mcb: Long, vbn: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlTruncateLargeMcb(mcb: Long, vbn: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb(mcb: Long, vbn: Int)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlTruncateMcb(mcb: Long, vbn: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb(mcb: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUninitializeBaseMcb(mcb: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock(filelock: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUninitializeFileLock(filelock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb(mcb: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUninitializeLargeMcb(mcb: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb(mcb: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUninitializeMcb(mcb: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock(oplock: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUninitializeOplock(oplock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters(bytesread: Long, byteswritten: Long)
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUpdateDiskCounters(bytesread: Long, byteswritten: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl(oplock: Long, irp: Long, opencount: Int, loweroplockstate: Int, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlUpperOplockFsctrl(oplock: Long, irp: Long, opencount: Int, loweroplockstate: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer(bufferlength: Int, reparsebuffer: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlValidateReparsePointBuffer(bufferlength: Int, reparsebuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: Long, guid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemFsRtlVolumeDeviceToCorrelationId(volumedeviceobject: Long, guid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo(logonid: Long, flags: Int, userinformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemGetSecurityUserInfo(logonid: Long, flags: Int, userinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock(irql: Long)
+    external fun windowssysWindowsWdkStorageFilesystemIoAcquireVpbSpinLock(irql: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread(inputpriorityinfo: Long, outputpriorityinfo: Long, thread: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoApplyPriorityInfoThread(inputpriorityinfo: Long, outputpriorityinfo: Long, thread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess(desiredaccess: Long, grantedaccess: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCheckDesiredAccess(desiredaccess: Long, grantedaccess: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity(eabuffer: Long, ealength: Int, erroroffset: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCheckEaBufferValidity(eabuffer: Long, ealength: Int, erroroffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess(grantedaccess: Int, majorfunction: Byte, minorfunction: Byte, iocontrolcode: Int, arg1: Long, arg2: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCheckFunctionAccess(grantedaccess: Int, majorfunction: Byte, minorfunction: Byte, iocontrolcode: Int, arg1: Long, arg2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation(fileinformationclass: Int, length: Int, setoperation: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCheckQuerySetFileInformation(fileinformationclass: Int, length: Int, setoperation: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation(fsinformationclass: Int, length: Int, setoperation: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation(fsinformationclass: Int, length: Int, setoperation: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity(quotabuffer: Long, quotalength: Int, erroroffset: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCheckQuotaBufferValidity(quotabuffer: Long, quotalength: Int, erroroffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState(irp: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoClearFsTrackOffsetState(irp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject(fileobject: Long, deviceobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObject(fileobject: Long, deviceobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx(fileobject: Long, deviceobject: Long, filehandle: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectEx(fileobject: Long, deviceobject: Long, filehandle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2(createoptions: Long, fileobject: Long, deviceobject: Long, streamfileobject: Long, filehandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectEx2(createoptions: Long, fileobject: Long, deviceobject: Long, streamfileobject: Long, filehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite(fileobject: Long, deviceobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectLite(fileobject: Long, deviceobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList(driverobject: Long, deviceobjectlist: Long, deviceobjectlistsize: Int, actualnumberdeviceobjects: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoEnumerateDeviceObjectList(driverobject: Long, deviceobjectlist: Long, deviceobjectlistsize: Int, actualnumberdeviceobjects: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList(driverobjectlist: Long, driverobjectlistsize: Int, actualnumberdriverobjects: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoEnumerateRegisteredFiltersList(driverobjectlist: Long, driverobjectlistsize: Int, actualnumberdriverobjects: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes(objectattributes: Long, desiredaccess: Int, openoptions: Int, iostatus: Long, buffer: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemIoFastQueryNetworkAttributes(objectattributes: Long, desiredaccess: Int, openoptions: Int, iostatus: Long, buffer: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice(deviceobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetAttachedDevice(deviceobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject(fileobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetBaseFileSystemDeviceObject(fileobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef(deviceobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetDeviceAttachmentBaseRef(deviceobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify(thread: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetDeviceToVerify(thread: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject(filesystemdeviceobject: Long, diskdeviceobject: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoGetDiskDeviceObject(filesystemdeviceobject: Long, diskdeviceobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState(irp: Long, retfstrackoffsetblob: Long, rettrackedoffset: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoGetFsTrackOffsetState(irp: Long, retfstrackoffsetblob: Long, rettrackedoffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject(deviceobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetLowerDeviceObject(deviceobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext(fileobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetOplockKeyContext(fileobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx(fileobject: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetOplockKeyContextEx(fileobject: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess(irp: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoGetRequestorProcess(irp: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId(irp: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoGetRequestorProcessId(irp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId(irp: Long, psessionid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoGetRequestorSessionId(irp: Long, psessionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType(irp: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemIoIrpHasFsTrackOffsetExtensionType(irp: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous(irp: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemIoIsOperationSynchronous(irp: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioIsSystemThread(thread: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemIoIsSystemThread(thread: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer(irp: Long, reparsebuffer: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemIoIsValidNameGraftingBuffer(irp: Long, reparsebuffer: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioPageRead(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoPageRead(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName(fileobject: Long, objectnameinformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoQueryFileDosDeviceName(fileobject: Long, objectnameinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation(fileobject: Long, fileinformationclass: Int, length: Int, fileinformation: Long, returnedlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoQueryFileInformation(fileobject: Long, fileinformationclass: Int, length: Int, fileinformation: Long, returnedlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation(fileobject: Long, fsinformationclass: Int, length: Int, fsinformation: Long, returnedlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoQueryVolumeInformation(fileobject: Long, fsinformationclass: Int, length: Int, fsinformation: Long, returnedlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp(irp: Long)
+    external fun windowssysWindowsWdkStorageFilesystemIoQueueThreadIrp(irp: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem(deviceobject: Long)
+    external fun windowssysWindowsWdkStorageFilesystemIoRegisterFileSystem(deviceobject: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock(irql: Byte)
+    external fun windowssysWindowsWdkStorageFilesystemIoReleaseVpbSpinLock(irql: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName(fileobject: Long, newfilename: Long, filenamelength: Short): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoReplaceFileObjectName(fileobject: Long, newfilename: Long, filenamelength: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset(physicaldeviceobject: Long, flags: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoRequestDeviceRemovalForReset(physicaldeviceobject: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo(irp: Long, fileobject: Long, thread: Long, priorityinfo: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoRetrievePriorityInfo(irp: Long, fileobject: Long, thread: Long, priorityinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify(thread: Long, deviceobject: Long)
+    external fun windowssysWindowsWdkStorageFilesystemIoSetDeviceToVerify(thread: Long, deviceobject: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState(irp: Long, fstrackoffsetblob: Long, trackedoffset: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoSetFsTrackOffsetState(irp: Long, fstrackoffsetblob: Long, trackedoffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioSetInformation(fileobject: Long, fileinformationclass: Int, length: Int, fileinformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoSetInformation(fileobject: Long, fileinformationclass: Int, length: Int, fileinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoSynchronousPageWrite(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioThreadToProcess(thread: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemIoThreadToProcess(thread: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem(deviceobject: Long)
+    external fun windowssysWindowsWdkStorageFilesystemIoUnregisterFileSystem(deviceobject: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ioVerifyVolume(deviceobject: Long, allowrawmount: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemIoVerifyVolume(deviceobject: Long, allowrawmount: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock(number: Int): Byte
+    external fun windowssysWindowsWdkStorageFilesystemKeAcquireQueuedSpinLock(number: Int): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch(spinlock: Long): Byte
+    external fun windowssysWindowsWdkStorageFilesystemKeAcquireSpinLockRaiseToSynch(spinlock: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keAttachProcess(process: Long)
+    external fun windowssysWindowsWdkStorageFilesystemKeAttachProcess(process: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keDetachProcess()
+    external fun windowssysWindowsWdkStorageFilesystemKeDetachProcess()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keInitializeMutant(mutant: Long, initialowner: Boolean)
+    external fun windowssysWindowsWdkStorageFilesystemKeInitializeMutant(mutant: Long, initialowner: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keInitializeQueue(queue: Long, count: Int)
+    external fun windowssysWindowsWdkStorageFilesystemKeInitializeQueue(queue: Long, count: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue(queue: Long, entry: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeInsertHeadQueue(queue: Long, entry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keInsertQueue(queue: Long, entry: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeInsertQueue(queue: Long, entry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keReadStateMutant(mutant: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeReadStateMutant(mutant: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keReadStateQueue(queue: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeReadStateQueue(queue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keReleaseMutant(mutant: Long, increment: Int, abandoned: Boolean, wait: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeReleaseMutant(mutant: Long, increment: Int, abandoned: Boolean, wait: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock(number: Int, oldirql: Byte)
+    external fun windowssysWindowsWdkStorageFilesystemKeReleaseQueuedSpinLock(number: Int, oldirql: Byte)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keRemoveQueue(queue: Long, waitmode: Byte, timeout: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemKeRemoveQueue(queue: Long, waitmode: Byte, timeout: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx(queue: Long, waitmode: Byte, alertable: Boolean, timeout: Long, entryarray: Long, count: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeRemoveQueueEx(queue: Long, waitmode: Byte, alertable: Boolean, timeout: Long, entryarray: Long, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keRundownQueue(queue: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemKeRundownQueue(queue: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread(thread: Long, processor: Byte): Byte
+    external fun windowssysWindowsWdkStorageFilesystemKeSetIdealProcessorThread(thread: Long, processor: Byte): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable(enable: Boolean): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemKeSetKernelStackSwapEnable(enable: Boolean): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keStackAttachProcess(process: Long, apcstate: Long)
+    external fun windowssysWindowsWdkStorageFilesystemKeStackAttachProcess(process: Long, apcstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock(number: Int, oldirql: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemKeTryToAcquireQueuedSpinLock(number: Int, oldirql: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess(apcstate: Long)
+    external fun windowssysWindowsWdkStorageFilesystemKeUnstackDetachProcess(apcstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_makeSignature(phcontext: Long, fqop: Int, pmessage: Long, messageseqno: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemMakeSignature(phcontext: Long, fqop: Int, pmessage: Long, messageseqno: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mapSecurityError(secstatus: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemMapSecurityError(secstatus: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated(sectionpointer: Long, newfilesize: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemMmCanFileBeTruncated(sectionpointer: Long, newfilesize: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences(sectionpointer: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemMmDoesFileHaveUserWritableReferences(sectionpointer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmFlushImageSection(sectionobjectpointer: Long, flushtype: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemMmFlushImageSection(sectionobjectpointer: Long, flushtype: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed(sectionobjectpointer: Long, delayclose: Boolean): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemMmForceSectionClosed(sectionobjectpointer: Long, delayclose: Boolean): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx(sectionobjectpointer: Long, forcecloseflags: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemMmForceSectionClosedEx(sectionobjectpointer: Long, forcecloseflags: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize(): Long
+    external fun windowssysWindowsWdkStorageFilesystemMmGetMaximumFileSectionSize(): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive(fssectionpointer: Long, flags: Int, sectionisactive: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemMmIsFileSectionActive(fssectionpointer: Long, flags: Int, sectionisactive: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault(): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemMmIsRecursiveIoFault(): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero(mdl: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemMmMdlPagesAreZero(mdl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmPrefetchPages(numberoflists: Int, readlists: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemMmPrefetchPages(numberoflists: Int, readlists: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified(address: Long, length: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemMmSetAddressRangeModified(address: Long, length: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken(tokenhandle: Long, resettodefault: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAdjustGroupsToken(tokenhandle: Long, resettodefault: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken(tokenhandle: Long, disableallprivileges: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAdjustPrivilegesToken(tokenhandle: Long, disableallprivileges: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory(processhandle: Long, baseaddress: Long, zerobits: Long, regionsize: Long, allocationtype: Int, protect: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAllocateVirtualMemory(processhandle: Long, baseaddress: Long, zerobits: Long, regionsize: Long, allocationtype: Int, protect: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx(processhandle: Long, baseaddress: Long, regionsize: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, extendedparametercount: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtAllocateVirtualMemoryEx(processhandle: Long, baseaddress: Long, regionsize: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, extendedparametercount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx(filehandle: Long, iorequesttocancel: Long, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCancelIoFileEx(filehandle: Long, iorequesttocancel: Long, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCreateDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCreateEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long, eventtype: Int, initialstate: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCreateEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long, eventtype: Int, initialstate: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCreateFile(filehandle: Long, desiredaccess: Int, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: Int, shareaccess: Int, createdisposition: Int, createoptions: Int, eabuffer: Long, ealength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCreateFile(filehandle: Long, desiredaccess: Int, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: Int, shareaccess: Int, createdisposition: Int, createoptions: Int, eabuffer: Long, ealength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCreateSection(sectionhandle: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, filehandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCreateSection(sectionhandle: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, filehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx(sectionhandle: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, filehandle: Long, extendedparameters: Long, extendedparametercount: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtCreateSectionEx(sectionhandle: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, filehandle: Long, extendedparameters: Long, extendedparametercount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntDeleteFile(objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtDeleteFile(objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntDuplicateObject(sourceprocesshandle: Long, sourcehandle: Long, targetprocesshandle: Long, targethandle: Long, desiredaccess: Int, handleattributes: Int, options: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtDuplicateObject(sourceprocesshandle: Long, sourcehandle: Long, targetprocesshandle: Long, targethandle: Long, desiredaccess: Int, handleattributes: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntDuplicateToken(existingtokenhandle: Long, desiredaccess: Int, objectattributes: Long, effectiveonly: Boolean, tokentype: Int, newtokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtDuplicateToken(existingtokenhandle: Long, desiredaccess: Int, objectattributes: Long, effectiveonly: Boolean, tokentype: Int, newtokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntFilterToken(existingtokenhandle: Long, flags: Int, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtFilterToken(existingtokenhandle: Long, flags: Int, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile(filehandle: Long, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtFlushBuffersFile(filehandle: Long, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx(filehandle: Long, flags: Int, parameters: Long, parameterssize: Int, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtFlushBuffersFileEx(filehandle: Long, flags: Int, parameters: Long, parameterssize: Int, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, iostatus: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtFlushVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, iostatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, freetype: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtFreeVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, freetype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntFsControlFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fscontrolcode: Int, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtFsControlFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fscontrolcode: Int, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken(threadhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtImpersonateAnonymousToken(threadhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntLockFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int, failimmediately: Boolean, exclusivelock: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtLockFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int, failimmediately: Boolean, exclusivelock: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey(keyhandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, completionfilter: Int, watchtree: Boolean, buffer: Long, buffersize: Int, asynchronous: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtNotifyChangeKey(keyhandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, completionfilter: Int, watchtree: Boolean, buffer: Long, buffersize: Int, asynchronous: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenFile(filehandle: Long, desiredaccess: Int, objectattributes: Long, iostatusblock: Long, shareaccess: Int, openoptions: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenFile(filehandle: Long, desiredaccess: Int, objectattributes: Long, iostatusblock: Long, shareaccess: Int, openoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken(processhandle: Long, desiredaccess: Int, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenProcessToken(processhandle: Long, desiredaccess: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx(processhandle: Long, desiredaccess: Int, handleattributes: Int, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenProcessTokenEx(processhandle: Long, desiredaccess: Int, handleattributes: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject(linkhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenSymbolicLinkObject(linkhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken(threadhandle: Long, desiredaccess: Int, openasself: Boolean, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenThreadToken(threadhandle: Long, desiredaccess: Int, openasself: Boolean, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx(threadhandle: Long, desiredaccess: Int, openasself: Boolean, handleattributes: Int, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtOpenThreadTokenEx(threadhandle: Long, desiredaccess: Int, openasself: Boolean, handleattributes: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck(clienttoken: Long, requiredprivileges: Long, result: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtPrivilegeCheck(clienttoken: Long, requiredprivileges: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryDirectoryFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, queryflags: Int, filename: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryDirectoryFileEx(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, queryflags: Int, filename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject(directoryhandle: Long, buffer: Long, length: Int, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryDirectoryObject(directoryhandle: Long, buffer: Long, length: Int, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, ealist: Long, ealistlength: Int, eaindex: Long, restartscan: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, ealist: Long, ealistlength: Int, eaindex: Long, restartscan: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName(objectattributes: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryInformationByName(objectattributes: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile(filehandle: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryInformationFile(filehandle: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, sidlist: Long, sidlistlength: Int, startsid: Long, restartscan: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, sidlist: Long, sidlistlength: Int, startsid: Long, restartscan: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long, length: Int, lengthneeded: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQuerySecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long, length: Int, lengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject(linkhandle: Long, linktarget: Long, returnedlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQuerySymbolicLinkObject(linkhandle: Long, linktarget: Long, returnedlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory(processhandle: Long, baseaddress: Long, memoryinformationclass: Int, memoryinformation: Long, memoryinformationlength: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryVirtualMemory(processhandle: Long, baseaddress: Long, memoryinformationclass: Int, memoryinformation: Long, memoryinformationlength: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtQueryVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntReadFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, buffer: Long, length: Int, byteoffset: Long, key: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtReadFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, buffer: Long, length: Int, byteoffset: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetEvent(eventhandle: Long, previousstate: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetEvent(eventhandle: Long, previousstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetInformationFile(filehandle: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetInformationFile(filehandle: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory(processhandle: Long, vminformationclass: Int, numberofentries: Long, virtualaddresses: Long, vminformation: Long, vminformationlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetInformationVirtualMemory(processhandle: Long, vminformationclass: Int, numberofentries: Long, virtualaddresses: Long, vminformation: Long, vminformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetSecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtSetVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntUnlockFile(filehandle: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtUnlockFile(filehandle: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_ntWriteFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, buffer: Long, length: Int, byteoffset: Long, key: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemNtWriteFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, buffer: Long, length: Int, byteoffset: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obInsertObject(obj: Long, passedaccessstate: Long, desiredaccess: Int, objectpointerbias: Int, newobject: Long, handle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemObInsertObject(obj: Long, passedaccessstate: Long, desiredaccess: Int, objectpointerbias: Int, newobject: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obIsKernelHandle(handle: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemObIsKernelHandle(handle: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject(obj: Long)
+    external fun windowssysWindowsWdkStorageFilesystemObMakeTemporaryObject(obj: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer(obj: Long, handleattributes: Int, passedaccessstate: Long, desiredaccess: Int, objecttype: Long, accessmode: Byte, handle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemObOpenObjectByPointer(obj: Long, handleattributes: Int, passedaccessstate: Long, desiredaccess: Int, objecttype: Long, accessmode: Byte, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag(obj: Long, handleattributes: Int, passedaccessstate: Long, desiredaccess: Int, objecttype: Long, accessmode: Byte, tag: Int, handle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemObOpenObjectByPointerWithTag(obj: Long, handleattributes: Int, passedaccessstate: Long, desiredaccess: Int, objecttype: Long, accessmode: Byte, tag: Int, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obQueryNameString(obj: Long, objectnameinfo: Long, length: Int, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemObQueryNameString(obj: Long, objectnameinfo: Long, length: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle(handle: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemObQueryObjectAuditingByHandle(handle: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_pfxFindPrefix(prefixtable: Long, fullname: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemPfxFindPrefix(prefixtable: Long, fullname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_pfxInitialize(prefixtable: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPfxInitialize(prefixtable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemPfxInsertPrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix(prefixtable: Long, prefixtableentry: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPfxRemovePrefix(prefixtable: Long, prefixtableentry: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem(workitem: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemPoQueueShutdownWorkItem(workitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken(thread: Long, token: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemPsAssignImpersonationToken(thread: Long, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psChargePoolQuota(process: Long, pooltype: Int, amount: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPsChargePoolQuota(process: Long, pooltype: Int, amount: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota(process: Long, pooltype: Int, amount: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemPsChargeProcessPoolQuota(process: Long, pooltype: Int, amount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken(impersonationtoken: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPsDereferenceImpersonationToken(impersonationtoken: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken(primarytoken: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPsDereferencePrimaryToken(primarytoken: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psDisableImpersonation(thread: Long, impersonationstate: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemPsDisableImpersonation(thread: Long, impersonationstate: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime(): Long
+    external fun windowssysWindowsWdkStorageFilesystemPsGetProcessExitTime(): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psGetThreadProcess(thread: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemPsGetThreadProcess(thread: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psImpersonateClient(thread: Long, token: Long, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemPsImpersonateClient(thread: Long, token: Long, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled(): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemPsIsDiskCountersEnabled(): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psIsSystemThread(thread: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemPsIsSystemThread(thread: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating(thread: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemPsIsThreadTerminating(thread: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId(processid: Long, process: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemPsLookupProcessByProcessId(processid: Long, process: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId(threadid: Long, thread: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemPsLookupThreadByThreadId(threadid: Long, thread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken(thread: Long, copyonopen: Long, effectiveonly: Long, impersonationlevel: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemPsReferenceImpersonationToken(thread: Long, copyonopen: Long, effectiveonly: Long, impersonationlevel: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken(process: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemPsReferencePrimaryToken(process: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation(thread: Long, impersonationstate: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPsRestoreImpersonation(thread: Long, impersonationstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota(process: Long, pooltype: Int, amount: Long)
+    external fun windowssysWindowsWdkStorageFilesystemPsReturnPoolQuota(process: Long, pooltype: Int, amount: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psRevertToSelf()
+    external fun windowssysWindowsWdkStorageFilesystemPsRevertToSelf()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters(process: Long, bytesread: Long, byteswritten: Long, readoperationcount: Int, writeoperationcount: Int, flushoperationcount: Int)
+    external fun windowssysWindowsWdkStorageFilesystemPsUpdateDiskCounters(process: Long, bytesread: Long, byteswritten: Long, readoperationcount: Int, writeoperationcount: Int, flushoperationcount: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_querySecurityContextToken(phcontext: Long, token: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemQuerySecurityContextToken(phcontext: Long, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: Long, selfrelativesecuritydescriptor: Long, bufferlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: Long, selfrelativesecuritydescriptor: Long, bufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce(acl: Long, acerevision: Int, accessmask: Int, sid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAddAccessAllowedAce(acl: Long, acerevision: Int, accessmask: Int, sid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx(acl: Long, acerevision: Int, aceflags: Int, accessmask: Int, sid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAddAccessAllowedAceEx(acl: Long, acerevision: Int, aceflags: Int, accessmask: Int, sid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAddAce(acl: Long, acerevision: Int, startingaceindex: Int, acelist: Long, acelistlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAddAce(acl: Long, acerevision: Int, startingaceindex: Int, acelist: Long, acelistlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid(identifierauthority: Long, subauthoritycount: Byte, subauthority0: Int, subauthority1: Int, subauthority2: Int, subauthority3: Int, subauthority4: Int, subauthority5: Int, subauthority6: Int, subauthority7: Int, sid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAllocateAndInitializeSid(identifierauthority: Long, subauthoritycount: Byte, subauthority0: Int, subauthority1: Int, subauthority2: Int, subauthority3: Int, subauthority4: Int, subauthority5: Int, subauthority6: Int, subauthority7: Int, sid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx(identifierauthority: Long, subauthoritycount: Byte, subauthorities: Long, sid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAllocateAndInitializeSidEx(identifierauthority: Long, subauthoritycount: Byte, subauthorities: Long, sid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap(heaphandle: Long, flags: Int, size: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlAllocateHeap(heaphandle: Long, flags: Int, size: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString(destination: Long, source: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlAppendStringToString(destination: Long, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes(altitude1: Long, altitude2: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCompareAltitudes(altitude1: Long, altitude2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong(source: Long, length: Long, pattern: Int): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlCompareMemoryUlong(source: Long, length: Long, pattern: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer(compressionformatandengine: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, uncompressedchunksize: Int, finalcompressedsize: Long, workspace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCompressBuffer(compressionformatandengine: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, uncompressedchunksize: Int, finalcompressedsize: Long, workspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, compresseddatainfo: Long, compresseddatainfolength: Int, workspace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, compresseddatainfo: Long, compresseddatainfolength: Int, workspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCopyLuid(destinationluid: Long, sourceluid: Long)
+    external fun windowssysWindowsWdkStorageFilesystemRtlCopyLuid(destinationluid: Long, sourceluid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCopySid(destinationsidlength: Int, destinationsid: Long, sourcesid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCopySid(destinationsidlength: Int, destinationsid: Long, sourcesid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCreateAcl(acl: Long, acllength: Int, aclrevision: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCreateAcl(acl: Long, acllength: Int, aclrevision: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCreateHeap(flags: Int, heapbase: Long, reservesize: Long, commitsize: Long, lock: Long, parameters: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlCreateHeap(flags: Int, heapbase: Long, reservesize: Long, commitsize: Long, lock: Long, parameters: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid(servicename: Long, servicesid: Long, servicesidlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCreateServiceSid(servicename: Long, servicesid: Long, servicesidlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder(volumerootpath: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCreateSystemVolumeInformationFolder(volumerootpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString(destinationstring: Long, sourcestring: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlCreateUnicodeString(destinationstring: Long, sourcestring: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid(name: Long, basesubauthority: Int, sid: Long, sidlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCreateVirtualAccountSid(name: Long, basesubauthority: Int, sid: Long, sidlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN(customcp: Long, unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, customcpstring: Long, bytesincustomcpstring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlCustomCPToUnicodeN(customcp: Long, unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, customcpstring: Long, bytesincustomcpstring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer(compressionformat: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, finaluncompressedsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDecompressBuffer(compressionformat: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, finaluncompressedsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx(compressionformat: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, finaluncompressedsize: Long, workspace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDecompressBufferEx(compressionformat: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, finaluncompressedsize: Long, workspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2(compressionformat: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, uncompressedchunksize: Int, finaluncompressedsize: Long, workspace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDecompressBufferEx2(compressionformat: Short, uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, uncompressedchunksize: Int, finaluncompressedsize: Long, workspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, compressedtail: Long, compressedtailsize: Int, compresseddatainfo: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDecompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: Int, compressedbuffer: Long, compressedbuffersize: Int, compressedtail: Long, compressedtailsize: Int, compresseddatainfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment(compressionformat: Short, uncompressedfragment: Long, uncompressedfragmentsize: Int, compressedbuffer: Long, compressedbuffersize: Int, fragmentoffset: Int, finaluncompressedsize: Long, workspace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDecompressFragment(compressionformat: Short, uncompressedfragment: Long, uncompressedfragmentsize: Int, compressedbuffer: Long, compressedbuffersize: Int, fragmentoffset: Int, finaluncompressedsize: Long, workspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx(compressionformat: Short, uncompressedfragment: Long, uncompressedfragmentsize: Int, compressedbuffer: Long, compressedbuffersize: Int, fragmentoffset: Int, uncompressedchunksize: Int, finaluncompressedsize: Long, workspace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDecompressFragmentEx(compressionformat: Short, uncompressedfragment: Long, uncompressedfragmentsize: Int, compressedbuffer: Long, compressedbuffersize: Int, fragmentoffset: Int, uncompressedchunksize: Int, finaluncompressedsize: Long, workspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDeleteAce(acl: Long, aceindex: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDeleteAce(acl: Long, aceindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk(compressionformat: Short, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDescribeChunk(compressionformat: Short, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap(heaphandle: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlDestroyHeap(heaphandle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Long, ntfilename: Long, filepart: Long, reserved: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDosPathNameToNtPathNameUWithStatus(dosfilename: Long, ntfilename: Long, filepart: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDowncaseUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString(flags: Int, stringin: Long, stringout: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlDuplicateUnicodeString(flags: Int, stringin: Long, stringout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid(sid1: Long, sid2: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlEqualPrefixSid(sid1: Long, sid2: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlEqualSid(sid1: Long, sid2: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlEqualSid(sid1: Long, sid2: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix(prefixtable: Long, fullname: Long, caseinsensitiveindex: Int): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlFindUnicodePrefix(prefixtable: Long, fullname: Long, caseinsensitiveindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlFreeHeap(heaphandle: Long, flags: Int, baseaddress: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlFreeHeap(heaphandle: Long, flags: Int, baseaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlFreeSid(sid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlFreeSid(sid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name(name: Long, allowextendedcharacters: Boolean, context: Long, name8dot3: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGenerate8dot3Name(name: Long, allowextendedcharacters: Boolean, context: Long, name8dot3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGetAce(acl: Long, aceindex: Int, ace: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGetAce(acl: Long, aceindex: Int, ace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize(compressionformatandengine: Short, compressbufferworkspacesize: Long, compressfragmentworkspacesize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGetCompressionWorkSpaceSize(compressionformatandengine: Short, compressbufferworkspacesize: Long, compressfragmentworkspacesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor(securitydescriptor: Long, daclpresent: Long, dacl: Long, dacldefaulted: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGetDaclSecurityDescriptor(securitydescriptor: Long, daclpresent: Long, dacl: Long, dacldefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor(securitydescriptor: Long, group: Long, groupdefaulted: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGetGroupSecurityDescriptor(securitydescriptor: Long, group: Long, groupdefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor(securitydescriptor: Long, owner: Long, ownerdefaulted: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGetOwnerSecurityDescriptor(securitydescriptor: Long, owner: Long, ownerdefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor(securitydescriptor: Long, saclpresent: Long, sacl: Long, sacldefaulted: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlGetSaclSecurityDescriptor(securitydescriptor: Long, saclpresent: Long, sacl: Long, sacldefaulted: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid(sid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlIdentifierAuthoritySid(sid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii(flags: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIdnToAscii(flags: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode(flags: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIdnToNameprepUnicode(flags: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode(flags: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIdnToUnicode(flags: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable(tablebase: Long, codepagetable: Long)
+    external fun windowssysWindowsWdkStorageFilesystemRtlInitCodePageTable(tablebase: Long, codepagetable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx(destinationstring: Long, sourcestring: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlInitUnicodeStringEx(destinationstring: Long, sourcestring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlInitializeSid(sid: Long, identifierauthority: Long, subauthoritycount: Byte): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlInitializeSid(sid: Long, identifierauthority: Long, subauthoritycount: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx(sid: Long, identifierauthority: Long, subauthoritycount: Byte, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlInitializeSidEx(sid: Long, identifierauthority: Long, subauthoritycount: Byte, kmVac: Int, kmVa0: Long, kmVa1: Long, kmVa2: Long, kmVa3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix(prefixtable: Long)
+    external fun windowssysWindowsWdkStorageFilesystemRtlInitializeUnicodePrefix(prefixtable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlInsertUnicodePrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder(fileattributes: Int, reparsetag: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsCloudFilesPlaceholder(fileattributes: Int, reparsetag: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU(dosfilename: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsDosDeviceNameU(dosfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString(normform: Int, sourcestring: Long, sourcestringlength: Int, normalized: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsNormalizedString(normform: Int, sourcestring: Long, sourcestringlength: Int, normalized: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder(fileattributes: Int, reparsetag: Int): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholder(fileattributes: Int, reparsetag: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle(filehandle: Long, ispartialplaceholder: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholderFileHandle(filehandle: Long, ispartialplaceholder: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo(infobuffer: Long, infoclass: Int, ispartialplaceholder: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholderFileInfo(infobuffer: Long, infoclass: Int, ispartialplaceholder: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken(context: Long, previousmode: Byte): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsSandboxedToken(context: Long, previousmode: Byte): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter(char: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlIsValidOemCharacter(char: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid(subauthoritycount: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlLengthRequiredSid(subauthoritycount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlLengthSid(sid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlLengthSid(sid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN(unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, multibytestring: Long, bytesinmultibytestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlMultiByteToUnicodeN(unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, multibytestring: Long, bytesinmultibytestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize(bytesinunicodestring: Long, multibytestring: Long, bytesinmultibytestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlMultiByteToUnicodeSize(bytesinunicodestring: Long, multibytestring: Long, bytesinmultibytestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix(prefixtable: Long, restart: Boolean): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlNextUnicodePrefix(prefixtable: Long, restart: Boolean): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlNormalizeString(normform: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlNormalizeString(normform: Int, sourcestring: Long, sourcestringlength: Int, destinationstring: Long, destinationstringlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb(status: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlNtStatusToDosErrorNoTeb(status: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlOemStringToCountedUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlOemStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN(unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, oemstring: Long, bytesinoemstring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlOemToUnicodeN(unicodestring: Long, maxbytesinunicodestring: Int, bytesinunicodestring: Long, oemstring: Long, bytesinoemstring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlPrefixString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlPrefixString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity(tokenobject: Long, packagefullname: Long, packagesize: Long, appid: Long, appidsize: Long, packaged: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlQueryPackageIdentity(tokenobject: Long, packagefullname: Long, packagesize: Long, appid: Long, appidsize: Long, packaged: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx(tokenobject: Long, packagefullname: Long, packagesize: Long, appid: Long, appidsize: Long, dynamicid: Long, flags: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlQueryPackageIdentityEx(tokenobject: Long, packagefullname: Long, packagesize: Long, appid: Long, appidsize: Long, dynamicid: Long, flags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode(): Byte
+    external fun windowssysWindowsWdkStorageFilesystemRtlQueryProcessPlaceholderCompatibilityMode(): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode(): Byte
+    external fun windowssysWindowsWdkStorageFilesystemRtlQueryThreadPlaceholderCompatibilityMode(): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlRandom(seed: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlRandom(seed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlRandomEx(seed: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlRandomEx(seed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix(prefixtable: Long, prefixtableentry: Long)
+    external fun windowssysWindowsWdkStorageFilesystemRtlRemoveUnicodePrefix(prefixtable: Long, prefixtableentry: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd(securitydescriptor: Long, oldsid: Long, newsid: Long, numchanges: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlReplaceSidInSd(securitydescriptor: Long, oldsid: Long, newsid: Long, numchanges: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlReserveChunk(compressionformat: Short, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlReserveChunk(compressionformat: Short, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime(elapsedseconds: Int, time: Long)
+    external fun windowssysWindowsWdkStorageFilesystemRtlSecondsSince1970ToTime(elapsedseconds: Int, time: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime(elapsedseconds: Int, time: Long)
+    external fun windowssysWindowsWdkStorageFilesystemRtlSecondsSince1980ToTime(elapsedseconds: Int, time: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: Long, absolutesecuritydescriptor: Long, absolutesecuritydescriptorsize: Long, dacl: Long, daclsize: Long, sacl: Long, saclsize: Long, owner: Long, ownersize: Long, primarygroup: Long, primarygroupsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: Long, absolutesecuritydescriptor: Long, absolutesecuritydescriptorsize: Long, dacl: Long, daclsize: Long, sacl: Long, saclsize: Long, owner: Long, ownersize: Long, primarygroup: Long, primarygroupsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor(securitydescriptor: Long, group: Long, groupdefaulted: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlSetGroupSecurityDescriptor(securitydescriptor: Long, group: Long, groupdefaulted: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor(securitydescriptor: Long, owner: Long, ownerdefaulted: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlSetOwnerSecurityDescriptor(securitydescriptor: Long, owner: Long, ownerdefaulted: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte
+    external fun windowssysWindowsWdkStorageFilesystemRtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte
+    external fun windowssysWindowsWdkStorageFilesystemRtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid(sid: Long): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlSubAuthorityCountSid(sid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid(sid: Long, subauthority: Int): Long
+    external fun windowssysWindowsWdkStorageFilesystemRtlSubAuthoritySid(sid: Long, subauthority: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980(time: Long, elapsedseconds: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlTimeToSecondsSince1980(time: Long, elapsedseconds: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN(customcp: Long, customcpstring: Long, maxbytesincustomcpstring: Int, bytesincustomcpstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUnicodeToCustomCPN(customcp: Long, customcpstring: Long, maxbytesincustomcpstring: Int, bytesincustomcpstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN(multibytestring: Long, maxbytesinmultibytestring: Int, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUnicodeToMultiByteN(multibytestring: Long, maxbytesinmultibytestring: Int, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN(oemstring: Long, maxbytesinoemstring: Int, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUnicodeToOemN(oemstring: Long, maxbytesinoemstring: Int, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN(customcp: Long, customcpstring: Long, maxbytesincustomcpstring: Int, bytesincustomcpstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToCustomCPN(customcp: Long, customcpstring: Long, maxbytesincustomcpstring: Int, bytesincustomcpstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN(multibytestring: Long, maxbytesinmultibytestring: Int, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToMultiByteN(multibytestring: Long, maxbytesinmultibytestring: Int, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN(oemstring: Long, maxbytesinoemstring: Int, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToOemN(oemstring: Long, maxbytesinoemstring: Int, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlValidSid(sid: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemRtlValidSid(sid: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString(flags: Int, string: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlValidateUnicodeString(flags: Int, string: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize(oemstring: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlxOemStringToUnicodeSize(oemstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize(unicodestring: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemRtlxUnicodeStringToOemSize(unicodestring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState(securitydescriptor: Long, primarytokeninformation: Long, clienttokeninformation: Long, desiredaccess: Int, previouslygrantedaccess: Int, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAccessCheckFromState(securitydescriptor: Long, primarytokeninformation: Long, clienttokeninformation: Long, desiredaccess: Int, previouslygrantedaccess: Int, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx(securitydescriptor: Long, primarytoken: Long, clienttoken: Long, desiredaccess: Int, previouslygrantedaccess: Int, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAccessCheckFromStateEx(securitydescriptor: Long, primarytoken: Long, clienttoken: Long, desiredaccess: Int, previouslygrantedaccess: Int, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints(objecttype: Long, securitydescriptor: Long, accessstate: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeAdjustAccessStateForAccessConstraints(objecttype: Long, securitydescriptor: Long, accessstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel(objecttype: Long, securitydescriptor: Long, accessstate: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeAdjustAccessStateForTrustLabel(objecttype: Long, securitydescriptor: Long, accessstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity(objectname: Long, originaldescriptor: Long, proposeddescriptor: Long, subjectsecuritycontext: Long, adjusteddescriptor: Long, applyadjusteddescriptor: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeAdjustObjectSecurity(objectname: Long, originaldescriptor: Long, proposeddescriptor: Long, subjectsecuritycontext: Long, adjusteddescriptor: Long, applyadjusteddescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAppendPrivileges(accessstate: Long, privileges: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeAppendPrivileges(accessstate: Long, privileges: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: Int)
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation(filename: Long, linkname: Long, bsuccess: Boolean)
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditHardLinkCreation(filename: Long, linkname: Long, bsuccess: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction(filename: Long, linkname: Long, bsuccess: Boolean, transactionid: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditHardLinkCreationWithTransaction(filename: Long, linkname: Long, bsuccess: Boolean, transactionid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange(transactionid: Long, resourcemanagerid: Long, newtransactionstate: Int)
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditTransactionStateChange(transactionid: Long, resourcemanagerid: Long, newtransactionstate: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext(securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingAnyFileEventsWithContext(securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx(securitydescriptor: Long, subjectsecuritycontext: Long, stagingenabled: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingAnyFileEventsWithContextEx(securitydescriptor: Long, subjectsecuritycontext: Long, stagingenabled: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents(accessgranted: Boolean, securitydescriptor: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingFileEvents(accessgranted: Boolean, securitydescriptor: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long, stagingenabled: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long, stagingenabled: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: Long, subjectsecuritycontext: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx(thread: Long, process: Long, subjectcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeCaptureSubjectContextEx(thread: Long, process: Long, subjectcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval(currentdescriptor: Long, newdescriptor: Long, subjectsecuritycontext: Long, aceremoved: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeCheckForCriticalAceRemoval(currentdescriptor: Long, newdescriptor: Long, subjectsecuritycontext: Long, aceremoved: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity(clientthread: Long, clientsecurityqos: Long, remotesession: Boolean, clientcontext: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeCreateClientSecurity(clientthread: Long, clientsecurityqos: Long, remotesession: Boolean, clientcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext(subjectcontext: Long, clientsecurityqos: Long, serverisremote: Boolean, clientcontext: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeCreateClientSecurityFromSubjectContext(subjectcontext: Long, clientsecurityqos: Long, serverisremote: Boolean, clientcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity(clientcontext: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeDeleteClientSecurity(clientcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm(obj: Long, handle: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeDeleteObjectAuditAlarm(obj: Long, handle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction(obj: Long, handle: Long, transactionid: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeDeleteObjectAuditAlarmWithTransaction(obj: Long, handle: Long, transactionid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seExamineSacl(sacl: Long, resourcesacl: Long, token: Long, desiredaccess: Int, accessgranted: Boolean, generateaudit: Long, generatealarm: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeExamineSacl(sacl: Long, resourcesacl: Long, token: Long, desiredaccess: Int, accessgranted: Boolean, generateaudit: Long, generatealarm: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seFilterToken(existingtoken: Long, flags: Int, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, filteredtoken: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeFilterToken(existingtoken: Long, flags: Int, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, filteredtoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seFreePrivileges(privileges: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeFreePrivileges(privileges: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seImpersonateClient(clientcontext: Long, serverthread: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeImpersonateClient(clientcontext: Long, serverthread: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx(clientcontext: Long, serverthread: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeImpersonateClientEx(clientcontext: Long, serverthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName(process: Long, pimagefilename: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeLocateProcessImageName(process: Long, pimagefilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification(logonid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeMarkLogonSessionForTerminationNotification(logonid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx(logonid: Long, pserversilo: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeMarkLogonSessionForTerminationNotificationEx(logonid: Long, pserversilo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeOpenObjectAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeOpenObjectAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeOpenObjectForDeleteAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: Long, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck(requiredprivileges: Long, subjectsecuritycontext: Long, accessmode: Byte): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSePrivilegeCheck(requiredprivileges: Long, subjectsecuritycontext: Long, accessmode: Byte): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken(token: Long, authenticationid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeQueryAuthenticationIdToken(token: Long, authenticationid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seQueryInformationToken(token: Long, tokeninformationclass: Int, tokeninformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeQueryInformationToken(token: Long, tokeninformationclass: Int, tokeninformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo(securityinformation: Long, securitydescriptor: Long, length: Long, objectssecuritydescriptor: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeQuerySecurityDescriptorInfo(securityinformation: Long, securitydescriptor: Long, length: Long, objectssecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken(token: Long, pserversilo: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeQueryServerSiloToken(token: Long, pserversilo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken(token: Long, sessionid: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeQuerySessionIdToken(token: Long, sessionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx(token: Long, sessionid: Long, isservicesession: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeQuerySessionIdTokenEx(token: Long, sessionid: Long, isservicesession: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine(callbackroutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeRegisterLogonSessionTerminatedRoutine(callbackroutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: Long, context: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeRegisterLogonSessionTerminatedRoutineEx(callbackroutine: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory(flags: Int, sourcename: Long, usersid: Long, auditparameters: Long, auditsubcategoryid: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeReportSecurityEventWithSubCategory(flags: Int, sourcename: Long, usersid: Long, auditparameters: Long, auditsubcategoryid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping(accessstate: Long, genericmapping: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSeSetAccessStateGenericMapping(accessstate: Long, genericmapping: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo(obj: Long, securityinformation: Long, modificationdescriptor: Long, objectssecuritydescriptor: Long, pooltype: Int, genericmapping: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeSetSecurityDescriptorInfo(obj: Long, securityinformation: Long, modificationdescriptor: Long, objectssecuritydescriptor: Long, pooltype: Int, genericmapping: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx(obj: Long, securityinformation: Long, modificationdescriptor: Long, objectssecuritydescriptor: Long, autoinheritflags: Int, pooltype: Int, genericmapping: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeSetSecurityDescriptorInfoEx(obj: Long, securityinformation: Long, modificationdescriptor: Long, objectssecuritydescriptor: Long, autoinheritflags: Int, pooltype: Int, genericmapping: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent(objecttype: Long, childdescriptor: Long, accessstate: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeShouldCheckForAccessRightsFromParent(objecttype: Long, childdescriptor: Long, accessstate: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation(accessinformation: Long, token: Long, length: Int, requiredlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeTokenFromAccessInformation(accessinformation: Long, token: Long, length: Int, requiredlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin(token: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeTokenIsAdmin(token: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted(token: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeTokenIsRestricted(token: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted(token: Long): Boolean
+    external fun windowssysWindowsWdkStorageFilesystemSeTokenIsWriteRestricted(token: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seTokenType(token: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeTokenType(token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine(callbackroutine: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeUnregisterLogonSessionTerminatedRoutine(callbackroutine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: Long, context: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSeUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_secLookupAccountName(name: Long, sidsize: Long, sid: Long, nameuse: Long, domainsize: Long, referenceddomain: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSecLookupAccountName(name: Long, sidsize: Long, sid: Long, nameuse: Long, domainsize: Long, referenceddomain: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_secLookupAccountSid(sid: Long, namesize: Long, namebuffer: Long, domainsize: Long, domainbuffer: Long, nameuse: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSecLookupAccountSid(sid: Long, namesize: Long, namebuffer: Long, domainsize: Long, domainbuffer: Long, nameuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid(sidtype: Int, sid: Long, sidbuffersize: Int, sidsize: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSecLookupWellKnownSid(sidtype: Int, sid: Long, sidbuffersize: Int, sidsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_secMakeSPN(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, spn: Long, length: Long, allocate: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemSecMakeSPN(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, spn: Long, length: Long, allocate: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_secMakeSPNEx(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, targetinfo: Long, spn: Long, length: Long, allocate: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemSecMakeSPNEx(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, targetinfo: Long, spn: Long, length: Long, allocate: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, intargetinfo: Long, spn: Long, totalsize: Long, allocate: Boolean, istargetinfomarshaled: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemSecMakeSPNEx2(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, intargetinfo: Long, spn: Long, totalsize: Long, allocate: Boolean, istargetinfomarshaled: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_setContextAttributesW(phcontext: Long, ulattribute: Int, pbuffer: Long, cbbuffer: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemSetContextAttributesW(phcontext: Long, ulattribute: Int, pbuffer: Long, cbbuffer: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync(asynccontext: Long, phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: Int, targetdatarep: Int, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiAcceptSecurityContextAsync(asynccontext: Long, phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: Int, targetdatarep: Int, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext(): Long
+    external fun windowssysWindowsWdkStorageFilesystemSspiCreateAsyncContext(): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync(asynccontext: Long, phcontext: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiDeleteSecurityContextAsync(asynccontext: Long, phcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext(handle: Long)
+    external fun windowssysWindowsWdkStorageFilesystemSspiFreeAsyncContext(handle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync(asynccontext: Long, phcredential: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiFreeCredentialsHandleAsync(asynccontext: Long, phcredential: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus(handle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiGetAsyncCallStatus(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: Int, reserved1: Int, targetdatarep: Int, pinput: Long, reserved2: Int, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiInitializeSecurityContextAsyncA(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: Int, reserved1: Int, targetdatarep: Int, pinput: Long, reserved2: Int, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: Int, reserved1: Int, targetdatarep: Int, pinput: Long, reserved2: Int, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiInitializeSecurityContextAsyncW(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: Int, reserved1: Int, targetdatarep: Int, pinput: Long, reserved2: Int, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext(handle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiReinitAsyncContext(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback(context: Long, callback: Long, callbackdata: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemSspiSetAsyncNotifyCallback(context: Long, callback: Long, callbackdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_verifySignature(phcontext: Long, pmessage: Long, messageseqno: Int, pfqop: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemVerifySignature(phcontext: Long, pmessage: Long, messageseqno: Int, pfqop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, desiredaccess: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, principalselfsid: Long, desiredaccess: Int, audittype: Int, flags: Int, objecttypelist: Long, objecttypelistlength: Int, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken(tokenhandle: Long, resettodefault: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAdjustGroupsToken(tokenhandle: Long, resettodefault: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken(tokenhandle: Long, disableallprivileges: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAdjustPrivilegesToken(tokenhandle: Long, disableallprivileges: Boolean, newstate: Long, bufferlength: Int, previousstate: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory(processhandle: Long, baseaddress: Long, zerobits: Long, regionsize: Long, allocationtype: Int, protect: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAllocateVirtualMemory(processhandle: Long, baseaddress: Long, zerobits: Long, regionsize: Long, allocationtype: Int, protect: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx(processhandle: Long, baseaddress: Long, regionsize: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, extendedparametercount: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwAllocateVirtualMemoryEx(processhandle: Long, baseaddress: Long, regionsize: Long, allocationtype: Int, pageprotection: Int, extendedparameters: Long, extendedparametercount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx(filehandle: Long, iorequesttocancel: Long, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwCancelIoFileEx(filehandle: Long, iorequesttocancel: Long, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwCreateDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwCreateEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long, eventtype: Int, initialstate: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwCreateEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long, eventtype: Int, initialstate: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx(sectionhandle: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, filehandle: Long, extendedparameters: Long, extendedparametercount: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwCreateSectionEx(sectionhandle: Long, desiredaccess: Int, objectattributes: Long, maximumsize: Long, sectionpageprotection: Int, allocationattributes: Int, filehandle: Long, extendedparameters: Long, extendedparametercount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwDeleteFile(objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwDeleteFile(objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwDuplicateObject(sourceprocesshandle: Long, sourcehandle: Long, targetprocesshandle: Long, targethandle: Long, desiredaccess: Int, handleattributes: Int, options: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwDuplicateObject(sourceprocesshandle: Long, sourcehandle: Long, targetprocesshandle: Long, targethandle: Long, desiredaccess: Int, handleattributes: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwDuplicateToken(existingtokenhandle: Long, desiredaccess: Int, objectattributes: Long, effectiveonly: Boolean, tokentype: Int, newtokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwDuplicateToken(existingtokenhandle: Long, desiredaccess: Int, objectattributes: Long, effectiveonly: Boolean, tokentype: Int, newtokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwFilterToken(existingtokenhandle: Long, flags: Int, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwFilterToken(existingtokenhandle: Long, flags: Int, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile(filehandle: Long, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwFlushBuffersFile(filehandle: Long, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx(filehandle: Long, flags: Int, parameters: Long, parameterssize: Int, iostatusblock: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwFlushBuffersFileEx(filehandle: Long, flags: Int, parameters: Long, parameterssize: Int, iostatusblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, iostatus: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwFlushVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, iostatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, freetype: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwFreeVirtualMemory(processhandle: Long, baseaddress: Long, regionsize: Long, freetype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwFsControlFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fscontrolcode: Int, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwFsControlFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fscontrolcode: Int, inputbuffer: Long, inputbufferlength: Int, outputbuffer: Long, outputbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken(threadhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwImpersonateAnonymousToken(threadhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwLockFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int, failimmediately: Boolean, exclusivelock: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwLockFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int, failimmediately: Boolean, exclusivelock: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey(keyhandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, completionfilter: Int, watchtree: Boolean, buffer: Long, buffersize: Int, asynchronous: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwNotifyChangeKey(keyhandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, completionfilter: Int, watchtree: Boolean, buffer: Long, buffersize: Int, asynchronous: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwOpenDirectoryObject(directoryhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: Long, clienttoken: Long, desiredaccess: Int, grantedaccess: Int, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken(processhandle: Long, desiredaccess: Int, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwOpenProcessToken(processhandle: Long, desiredaccess: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx(processhandle: Long, desiredaccess: Int, handleattributes: Int, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwOpenProcessTokenEx(processhandle: Long, desiredaccess: Int, handleattributes: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken(threadhandle: Long, desiredaccess: Int, openasself: Boolean, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwOpenThreadToken(threadhandle: Long, desiredaccess: Int, openasself: Boolean, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx(threadhandle: Long, desiredaccess: Int, openasself: Boolean, handleattributes: Int, tokenhandle: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwOpenThreadTokenEx(threadhandle: Long, desiredaccess: Int, openasself: Boolean, handleattributes: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck(clienttoken: Long, requiredprivileges: Long, result: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwPrivilegeCheck(clienttoken: Long, requiredprivileges: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: Long, desiredaccess: Int, privileges: Long, accessgranted: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: Long, privileges: Long, accessgranted: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryDirectoryFile(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, queryflags: Int, filename: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryDirectoryFileEx(filehandle: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: Int, fileinformationclass: Int, queryflags: Int, filename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject(directoryhandle: Long, buffer: Long, length: Int, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryDirectoryObject(directoryhandle: Long, buffer: Long, length: Int, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, ealist: Long, ealistlength: Int, eaindex: Long, restartscan: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, ealist: Long, ealistlength: Int, eaindex: Long, restartscan: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryObject(handle: Long, objectinformationclass: Int, objectinformation: Long, objectinformationlength: Int, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryObject(handle: Long, objectinformationclass: Int, objectinformation: Long, objectinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, sidlist: Long, sidlistlength: Int, startsid: Long, restartscan: Boolean): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int, returnsingleentry: Boolean, sidlist: Long, sidlistlength: Int, startsid: Long, restartscan: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long, length: Int, lengthneeded: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQuerySecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long, length: Int, lengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory(processhandle: Long, baseaddress: Long, memoryinformationclass: Int, memoryinformation: Long, memoryinformationlength: Long, returnlength: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryVirtualMemory(processhandle: Long, baseaddress: Long, memoryinformationclass: Int, memoryinformation: Long, memoryinformationlength: Long, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwQueryVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetEaFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetEvent(eventhandle: Long, previousstate: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetEvent(eventhandle: Long, previousstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetInformationToken(tokenhandle: Long, tokeninformationclass: Int, tokeninformation: Long, tokeninformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory(processhandle: Long, vminformationclass: Int, numberofentries: Long, virtualaddresses: Long, vminformation: Long, vminformationlength: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetInformationVirtualMemory(processhandle: Long, vminformationclass: Int, numberofentries: Long, virtualaddresses: Long, vminformation: Long, vminformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetQuotaInformationFile(filehandle: Long, iostatusblock: Long, buffer: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetSecurityObject(handle: Long, securityinformation: Int, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwSetVolumeInformationFile(filehandle: Long, iostatusblock: Long, fsinformation: Long, length: Int, fsinformationclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_zwUnlockFile(filehandle: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int): Int
+    external fun windowssysWindowsWdkStorageFilesystemZwUnlockFile(filehandle: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: Int): Int
 }
 
-public actual fun applyControlToken(phcontext: COpaquePointer?, pinput: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_applyControlToken((phcontext?.value ?: 0L), (pinput?.value ?: 0L))
+public actual fun applyControlToken(phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemApplyControlToken(phcontext.rawAddress, pinput.rawAddress)
 
-public actual fun ccAsyncCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, ioissuerthread: Pethread, asyncreadcontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, (buffer?.value ?: 0L), (iostatus?.value ?: 0L), ioissuerthread, (asyncreadcontext?.value ?: 0L))
+public actual fun ccAsyncCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, ioissuerthread: Pethread, asyncreadcontext: ConstPtr<CcAsyncReadContext>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcAsyncCopyRead(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, buffer.rawAddress, iostatus.rawAddress, ioissuerthread, asyncreadcontext.rawAddress)
 
-public actual fun ccCanIWrite(fileobject: COpaquePointer?, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCanIWrite((fileobject?.value ?: 0L), bytestowrite.toInt(), wait, retrying.toByte())
+public actual fun ccCanIWrite(fileobject: ConstPtr<FileObject>, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCanIWrite(fileobject.rawAddress, bytestowrite.toInt(), wait, retrying.toByte())
 
-public actual fun ccCoherencyFlushAndPurgeCache(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, iostatus: COpaquePointer?, flags: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache((sectionobjectpointer?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), (iostatus?.value ?: 0L), flags.toInt())
+public actual fun ccCoherencyFlushAndPurgeCache(sectionobjectpointer: ConstPtr<SectionObjectPointers>, fileoffset: ConstPtr<Long>, length: UInt, iostatus: MutPtr<IoStatusBlock>, flags: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCoherencyFlushAndPurgeCache(sectionobjectpointer.rawAddress, fileoffset.rawAddress, length.toInt(), iostatus.rawAddress, flags.toInt())
 }
 
-public actual fun ccCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCopyRead((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, (buffer?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun ccCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCopyRead(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, buffer.rawAddress, iostatus.rawAddress)
 
-public actual fun ccCopyReadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, ioissuerthread: Pethread): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCopyReadEx((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, (buffer?.value ?: 0L), (iostatus?.value ?: 0L), ioissuerthread)
+public actual fun ccCopyReadEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, ioissuerthread: Pethread): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCopyReadEx(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, buffer.rawAddress, iostatus.rawAddress, ioissuerthread)
 
-public actual fun ccCopyWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCopyWrite((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, (buffer?.value ?: 0L))
+public actual fun ccCopyWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCopyWrite(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, buffer.rawAddress)
 
-public actual fun ccCopyWriteEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, ioissuerthread: Pethread): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, (buffer?.value ?: 0L), ioissuerthread)
+public actual fun ccCopyWriteEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: ConstPtr<CVoid>, ioissuerthread: Pethread): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCopyWriteEx(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, buffer.rawAddress, ioissuerthread)
 
-public actual fun ccCopyWriteWontFlush(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt())
+public actual fun ccCopyWriteWontFlush(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcCopyWriteWontFlush(fileobject.rawAddress, fileoffset.rawAddress, length.toInt())
 
-public actual fun ccDeferWrite(fileobject: COpaquePointer?, postroutine: PccPostDeferredWrite, context1: COpaquePointer?, context2: COpaquePointer?, bytestowrite: UInt, retrying: Boolean) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccDeferWrite((fileobject?.value ?: 0L), 0L, (context1?.value ?: 0L), (context2?.value ?: 0L), bytestowrite.toInt(), retrying)
+public actual fun ccDeferWrite(fileobject: ConstPtr<FileObject>, postroutine: PccPostDeferredWrite, context1: ConstPtr<CVoid>, context2: ConstPtr<CVoid>, bytestowrite: UInt, retrying: Boolean) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcDeferWrite(fileobject.rawAddress, 0L, context1.rawAddress, context2.rawAddress, bytestowrite.toInt(), retrying)
 }
 
-public actual fun ccErrorCallbackRoutine(context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine((context?.value ?: 0L))
+public actual fun ccErrorCallbackRoutine(context: ConstPtr<CcErrorCallbackContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcErrorCallbackRoutine(context.rawAddress)
 
-public actual fun ccFastCopyRead(fileobject: COpaquePointer?, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccFastCopyRead((fileobject?.value ?: 0L), fileoffset.toInt(), length.toInt(), pagecount.toInt(), (buffer?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun ccFastCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcFastCopyRead(fileobject.rawAddress, fileoffset.toInt(), length.toInt(), pagecount.toInt(), buffer.rawAddress, iostatus.rawAddress)
 }
 
-public actual fun ccFastCopyWrite(fileobject: COpaquePointer?, fileoffset: UInt, length: UInt, buffer: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite((fileobject?.value ?: 0L), fileoffset.toInt(), length.toInt(), (buffer?.value ?: 0L))
+public actual fun ccFastCopyWrite(fileobject: ConstPtr<FileObject>, fileoffset: UInt, length: UInt, buffer: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcFastCopyWrite(fileobject.rawAddress, fileoffset.toInt(), length.toInt(), buffer.rawAddress)
 }
 
-public actual fun ccFlushCache(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, iostatus: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccFlushCache((sectionobjectpointer?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), (iostatus?.value ?: 0L))
+public actual fun ccFlushCache(sectionobjectpointer: ConstPtr<SectionObjectPointers>, fileoffset: ConstPtr<Long>, length: UInt, iostatus: MutPtr<IoStatusBlock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcFlushCache(sectionobjectpointer.rawAddress, fileoffset.rawAddress, length.toInt(), iostatus.rawAddress)
 }
 
-public actual fun ccGetDirtyPages(loghandle: COpaquePointer?, dirtypageroutine: PdirtyPageRoutine, context1: COpaquePointer?, context2: COpaquePointer?): Long =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages((loghandle?.value ?: 0L), 0L, (context1?.value ?: 0L), (context2?.value ?: 0L))
+public actual fun ccGetDirtyPages(loghandle: ConstPtr<CVoid>, dirtypageroutine: PdirtyPageRoutine, context1: ConstPtr<CVoid>, context2: ConstPtr<CVoid>): Long =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcGetDirtyPages(loghandle.rawAddress, 0L, context1.rawAddress, context2.rawAddress)
 
-public actual fun ccGetFileObjectFromBcb(bcb: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb((bcb?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ccGetFileObjectFromBcb(bcb: ConstPtr<CVoid>): MutPtr<FileObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromBcb(bcb.rawAddress))
 
-public actual fun ccGetFileObjectFromSectionPtrs(sectionobjectpointer: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs((sectionobjectpointer?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ccGetFileObjectFromSectionPtrs(sectionobjectpointer: ConstPtr<SectionObjectPointers>): MutPtr<FileObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromSectionPtrs(sectionobjectpointer.rawAddress))
 
-public actual fun ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef((sectionobjectpointer?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: ConstPtr<SectionObjectPointers>): MutPtr<FileObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromSectionPtrsRef(sectionobjectpointer.rawAddress))
 
-public actual fun ccGetFlushedValidData(sectionobjectpointer: COpaquePointer?, bcblistheld: Boolean): Long =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData((sectionobjectpointer?.value ?: 0L), bcblistheld)
+public actual fun ccGetFlushedValidData(sectionobjectpointer: ConstPtr<SectionObjectPointers>, bcblistheld: Boolean): Long =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcGetFlushedValidData(sectionobjectpointer.rawAddress, bcblistheld)
 
-public actual fun ccInitializeCacheMap(fileobject: COpaquePointer?, filesizes: COpaquePointer?, pinaccess: Boolean, callbacks: COpaquePointer?, lazywritecontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap((fileobject?.value ?: 0L), (filesizes?.value ?: 0L), pinaccess, (callbacks?.value ?: 0L), (lazywritecontext?.value ?: 0L))
+public actual fun ccInitializeCacheMap(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>, pinaccess: Boolean, callbacks: ConstPtr<CacheManagerCallbacks>, lazywritecontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcInitializeCacheMap(fileobject.rawAddress, filesizes.rawAddress, pinaccess, callbacks.rawAddress, lazywritecontext.rawAddress)
 }
 
-public actual fun ccInitializeCacheMapEx(fileobject: COpaquePointer?, filesizes: COpaquePointer?, pinaccess: Boolean, callbacks: COpaquePointer?, lazywritecontext: COpaquePointer?, flags: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx((fileobject?.value ?: 0L), (filesizes?.value ?: 0L), pinaccess, (callbacks?.value ?: 0L), (lazywritecontext?.value ?: 0L), flags.toInt())
+public actual fun ccInitializeCacheMapEx(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>, pinaccess: Boolean, callbacks: ConstPtr<CacheManagerCallbacks>, lazywritecontext: ConstPtr<CVoid>, flags: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcInitializeCacheMapEx(fileobject.rawAddress, filesizes.rawAddress, pinaccess, callbacks.rawAddress, lazywritecontext.rawAddress, flags.toInt())
 }
 
 public actual fun ccIsCacheManagerCallbackNeeded(status: Ntstatus): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded(status)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcIsCacheManagerCallbackNeeded(status)
 
-public actual fun ccIsThereDirtyData(vpb: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData((vpb?.value ?: 0L))
+public actual fun ccIsThereDirtyData(vpb: ConstPtr<Vpb>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcIsThereDirtyData(vpb.rawAddress)
 
-public actual fun ccIsThereDirtyDataEx(vpb: COpaquePointer?, numberofdirtypages: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx((vpb?.value ?: 0L), (numberofdirtypages?.value ?: 0L))
+public actual fun ccIsThereDirtyDataEx(vpb: ConstPtr<Vpb>, numberofdirtypages: ConstPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcIsThereDirtyDataEx(vpb.rawAddress, numberofdirtypages.rawAddress)
 
-public actual fun ccMapData(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccMapData((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), flags.toInt(), (bcb?.value ?: 0L), (buffer?.value ?: 0L))
+public actual fun ccMapData(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>, buffer: MutPtr<MutPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcMapData(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), flags.toInt(), bcb.rawAddress, buffer.rawAddress)
 
-public actual fun ccMdlRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccMdlRead((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun ccMdlRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcMdlRead(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), mdlchain.rawAddress, iostatus.rawAddress)
 }
 
-public actual fun ccMdlReadComplete(fileobject: COpaquePointer?, mdlchain: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete((fileobject?.value ?: 0L), (mdlchain?.value ?: 0L))
+public actual fun ccMdlReadComplete(fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcMdlReadComplete(fileobject.rawAddress, mdlchain.rawAddress)
 }
 
-public actual fun ccMdlWriteAbort(fileobject: COpaquePointer?, mdlchain: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort((fileobject?.value ?: 0L), (mdlchain?.value ?: 0L))
+public actual fun ccMdlWriteAbort(fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcMdlWriteAbort(fileobject.rawAddress, mdlchain.rawAddress)
 }
 
-public actual fun ccMdlWriteComplete(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), (mdlchain?.value ?: 0L))
+public actual fun ccMdlWriteComplete(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, mdlchain: ConstPtr<Mdl>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcMdlWriteComplete(fileobject.rawAddress, fileoffset.rawAddress, mdlchain.rawAddress)
 }
 
-public actual fun ccPinMappedData(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccPinMappedData((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), flags.toInt(), (bcb?.value ?: 0L))
+public actual fun ccPinMappedData(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcPinMappedData(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), flags.toInt(), bcb.rawAddress)
 
-public actual fun ccPinRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccPinRead((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), flags.toInt(), (bcb?.value ?: 0L), (buffer?.value ?: 0L))
+public actual fun ccPinRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>, buffer: MutPtr<MutPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcPinRead(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), flags.toInt(), bcb.rawAddress, buffer.rawAddress)
 
-public actual fun ccPrepareMdlWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun ccPrepareMdlWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcPrepareMdlWrite(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), mdlchain.rawAddress, iostatus.rawAddress)
 }
 
-public actual fun ccPreparePinWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, zero: Boolean, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), zero, flags.toInt(), (bcb?.value ?: 0L), (buffer?.value ?: 0L))
+public actual fun ccPreparePinWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, zero: Boolean, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>, buffer: MutPtr<MutPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcPreparePinWrite(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), zero, flags.toInt(), bcb.rawAddress, buffer.rawAddress)
 
-public actual fun ccPurgeCacheSection(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection((sectionobjectpointer?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), flags.toInt())
+public actual fun ccPurgeCacheSection(sectionobjectpointer: ConstPtr<SectionObjectPointers>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcPurgeCacheSection(sectionobjectpointer.rawAddress, fileoffset.rawAddress, length.toInt(), flags.toInt())
 
-public actual fun ccRemapBcb(bcb: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccRemapBcb((bcb?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ccRemapBcb(bcb: ConstPtr<CVoid>): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcRemapBcb(bcb.rawAddress))
 
-public actual fun ccRepinBcb(bcb: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccRepinBcb((bcb?.value ?: 0L))
+public actual fun ccRepinBcb(bcb: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcRepinBcb(bcb.rawAddress)
 }
 
-public actual fun ccScheduleReadAhead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt())
+public actual fun ccScheduleReadAhead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcScheduleReadAhead(fileobject.rawAddress, fileoffset.rawAddress, length.toInt())
 }
 
-public actual fun ccScheduleReadAheadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, ioissuerthread: Pethread) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), ioissuerthread)
+public actual fun ccScheduleReadAheadEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, ioissuerthread: Pethread) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcScheduleReadAheadEx(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), ioissuerthread)
 }
 
-public actual fun ccSetAdditionalCacheAttributes(fileobject: COpaquePointer?, disablereadahead: Boolean, disablewritebehind: Boolean) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes((fileobject?.value ?: 0L), disablereadahead, disablewritebehind)
+public actual fun ccSetAdditionalCacheAttributes(fileobject: ConstPtr<FileObject>, disablereadahead: Boolean, disablewritebehind: Boolean) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetAdditionalCacheAttributes(fileobject.rawAddress, disablereadahead, disablewritebehind)
 }
 
-public actual fun ccSetAdditionalCacheAttributesEx(fileobject: COpaquePointer?, flags: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx((fileobject?.value ?: 0L), flags.toInt())
+public actual fun ccSetAdditionalCacheAttributesEx(fileobject: ConstPtr<FileObject>, flags: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetAdditionalCacheAttributesEx(fileobject.rawAddress, flags.toInt())
 }
 
-public actual fun ccSetBcbOwnerPointer(bcb: COpaquePointer?, ownerpointer: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer((bcb?.value ?: 0L), (ownerpointer?.value ?: 0L))
+public actual fun ccSetBcbOwnerPointer(bcb: ConstPtr<CVoid>, ownerpointer: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetBcbOwnerPointer(bcb.rawAddress, ownerpointer.rawAddress)
 }
 
-public actual fun ccSetDirtyPageThreshold(fileobject: COpaquePointer?, dirtypagethreshold: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold((fileobject?.value ?: 0L), dirtypagethreshold.toInt())
+public actual fun ccSetDirtyPageThreshold(fileobject: ConstPtr<FileObject>, dirtypagethreshold: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetDirtyPageThreshold(fileobject.rawAddress, dirtypagethreshold.toInt())
 }
 
-public actual fun ccSetDirtyPinnedData(bcbvoid: COpaquePointer?, lsn: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData((bcbvoid?.value ?: 0L), (lsn?.value ?: 0L))
+public actual fun ccSetDirtyPinnedData(bcbvoid: ConstPtr<CVoid>, lsn: ConstPtr<Long>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetDirtyPinnedData(bcbvoid.rawAddress, lsn.rawAddress)
 }
 
-public actual fun ccSetFileSizes(fileobject: COpaquePointer?, filesizes: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetFileSizes((fileobject?.value ?: 0L), (filesizes?.value ?: 0L))
+public actual fun ccSetFileSizes(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetFileSizes(fileobject.rawAddress, filesizes.rawAddress)
 }
 
-public actual fun ccSetFileSizesEx(fileobject: COpaquePointer?, filesizes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx((fileobject?.value ?: 0L), (filesizes?.value ?: 0L))
+public actual fun ccSetFileSizesEx(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetFileSizesEx(fileobject.rawAddress, filesizes.rawAddress)
 
-public actual fun ccSetLogHandleForFile(fileobject: COpaquePointer?, loghandle: COpaquePointer?, flushtolsnroutine: PflushToLsn) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile((fileobject?.value ?: 0L), (loghandle?.value ?: 0L), 0L)
+public actual fun ccSetLogHandleForFile(fileobject: ConstPtr<FileObject>, loghandle: ConstPtr<CVoid>, flushtolsnroutine: PflushToLsn) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetLogHandleForFile(fileobject.rawAddress, loghandle.rawAddress, 0L)
 }
 
-public actual fun ccSetParallelFlushFile(fileobject: COpaquePointer?, enableparallelflush: Boolean) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile((fileobject?.value ?: 0L), enableparallelflush)
+public actual fun ccSetParallelFlushFile(fileobject: ConstPtr<FileObject>, enableparallelflush: Boolean) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetParallelFlushFile(fileobject.rawAddress, enableparallelflush)
 }
 
-public actual fun ccSetReadAheadGranularity(fileobject: COpaquePointer?, granularity: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity((fileobject?.value ?: 0L), granularity.toInt())
+public actual fun ccSetReadAheadGranularity(fileobject: ConstPtr<FileObject>, granularity: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcSetReadAheadGranularity(fileobject.rawAddress, granularity.toInt())
 }
 
-public actual fun ccUninitializeCacheMap(fileobject: COpaquePointer?, truncatesize: COpaquePointer?, uninitializeevent: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap((fileobject?.value ?: 0L), (truncatesize?.value ?: 0L), (uninitializeevent?.value ?: 0L))
+public actual fun ccUninitializeCacheMap(fileobject: ConstPtr<FileObject>, truncatesize: ConstPtr<Long>, uninitializeevent: ConstPtr<CacheUninitializeEvent>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcUninitializeCacheMap(fileobject.rawAddress, truncatesize.rawAddress, uninitializeevent.rawAddress)
 
-public actual fun ccUnpinData(bcb: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccUnpinData((bcb?.value ?: 0L))
+public actual fun ccUnpinData(bcb: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcUnpinData(bcb.rawAddress)
 }
 
-public actual fun ccUnpinDataForThread(bcb: COpaquePointer?, resourcethreadid: ULong) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread((bcb?.value ?: 0L), resourcethreadid.toLong())
+public actual fun ccUnpinDataForThread(bcb: ConstPtr<CVoid>, resourcethreadid: ULong) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcUnpinDataForThread(bcb.rawAddress, resourcethreadid.toLong())
 }
 
-public actual fun ccUnpinRepinnedBcb(bcb: COpaquePointer?, writethrough: Boolean, iostatus: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb((bcb?.value ?: 0L), writethrough, (iostatus?.value ?: 0L))
+public actual fun ccUnpinRepinnedBcb(bcb: ConstPtr<CVoid>, writethrough: Boolean, iostatus: MutPtr<IoStatusBlock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcUnpinRepinnedBcb(bcb.rawAddress, writethrough, iostatus.rawAddress)
 }
 
 public actual fun ccWaitForCurrentLazyWriterActivity(): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcWaitForCurrentLazyWriterActivity()
 
-public actual fun ccZeroData(fileobject: COpaquePointer?, startoffset: COpaquePointer?, endoffset: COpaquePointer?, wait: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ccZeroData((fileobject?.value ?: 0L), (startoffset?.value ?: 0L), (endoffset?.value ?: 0L), wait)
+public actual fun ccZeroData(fileobject: ConstPtr<FileObject>, startoffset: ConstPtr<Long>, endoffset: ConstPtr<Long>, wait: Boolean): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCcZeroData(fileobject.rawAddress, startoffset.rawAddress, endoffset.rawAddress, wait)
 
-public actual fun completeAuthToken(phcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_completeAuthToken((phcontext?.value ?: 0L), (ptoken?.value ?: 0L))
+public actual fun completeAuthToken(phcontext: ConstPtr<SecHandle>, ptoken: ConstPtr<SecBufferDesc>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemCompleteAuthToken(phcontext.rawAddress, ptoken.rawAddress)
 
-public actual fun exDisableResourceBoostLite(resource: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite((resource?.value ?: 0L))
+public actual fun exDisableResourceBoostLite(resource: ConstPtr<Eresource>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemExDisableResourceBoostLite(resource.rawAddress)
 }
 
-public actual fun exQueryPoolBlockSize(poolblock: COpaquePointer?, quotacharged: COpaquePointer?): ULong =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize((poolblock?.value ?: 0L), (quotacharged?.value ?: 0L)).toULong()
+public actual fun exQueryPoolBlockSize(poolblock: ConstPtr<CVoid>, quotacharged: MutPtr<Boolean>): ULong =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemExQueryPoolBlockSize(poolblock.rawAddress, quotacharged.rawAddress).toULong()
 
-public actual fun exportSecurityContext(phcontext: COpaquePointer?, fflags: UInt, ppackedcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_exportSecurityContext((phcontext?.value ?: 0L), fflags.toInt(), (ppackedcontext?.value ?: 0L), (ptoken?.value ?: 0L))
+public actual fun exportSecurityContext(phcontext: ConstPtr<SecHandle>, fflags: UInt, ppackedcontext: MutPtr<SecBuffer>, ptoken: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemExportSecurityContext(phcontext.rawAddress, fflags.toInt(), ppackedcontext.rawAddress, ptoken.rawAddress)
 
-public actual fun fsRtlAcknowledgeEcp(ecpcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp((ecpcontext?.value ?: 0L))
+public actual fun fsRtlAcknowledgeEcp(ecpcontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAcknowledgeEcp(ecpcontext.rawAddress)
 }
 
-public actual fun fsRtlAcquireFileExclusive(fileobject: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive((fileobject?.value ?: 0L))
+public actual fun fsRtlAcquireFileExclusive(fileobject: ConstPtr<FileObject>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAcquireFileExclusive(fileobject.rawAddress)
 }
 
-public actual fun fsRtlAddBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry((mcb?.value ?: 0L), vbn, lbn, sectorcount)
+public actual fun fsRtlAddBaseMcbEntry(mcb: MutPtr<BaseMcb>, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAddBaseMcbEntry(mcb.rawAddress, vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddBaseMcbEntryEx(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx((mcb?.value ?: 0L), vbn, lbn, sectorcount)
+public actual fun fsRtlAddBaseMcbEntryEx(mcb: MutPtr<BaseMcb>, vbn: Long, lbn: Long, sectorcount: Long): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAddBaseMcbEntryEx(mcb.rawAddress, vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry((mcb?.value ?: 0L), vbn, lbn, sectorcount)
+public actual fun fsRtlAddLargeMcbEntry(mcb: MutPtr<LargeMcb>, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAddLargeMcbEntry(mcb.rawAddress, vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddMcbEntry(mcb: COpaquePointer?, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry((mcb?.value ?: 0L), vbn.toInt(), lbn.toInt(), sectorcount.toInt())
+public actual fun fsRtlAddMcbEntry(mcb: MutPtr<Mcb>, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAddMcbEntry(mcb.rawAddress, vbn.toInt(), lbn.toInt(), sectorcount.toInt())
 
-public actual fun fsRtlAddToTunnelCache(cache: COpaquePointer?, directorykey: ULong, shortname: COpaquePointer?, longname: COpaquePointer?, keybyshortname: Boolean, datalength: UInt, data: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache((cache?.value ?: 0L), directorykey.toLong(), (shortname?.value ?: 0L), (longname?.value ?: 0L), keybyshortname, datalength.toInt(), (data?.value ?: 0L))
+public actual fun fsRtlAddToTunnelCache(cache: MutPtr<Tunnel>, directorykey: ULong, shortname: ConstPtr<UnicodeString>, longname: ConstPtr<UnicodeString>, keybyshortname: Boolean, datalength: UInt, data: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAddToTunnelCache(cache.rawAddress, directorykey.toLong(), shortname.rawAddress, longname.rawAddress, keybyshortname, datalength.toInt(), data.rawAddress)
 }
 
-public actual fun fsRtlAddToTunnelCacheEx(cache: COpaquePointer?, directorykey: ULong, shortname: COpaquePointer?, longname: COpaquePointer?, flags: UInt, datalength: UInt, data: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx((cache?.value ?: 0L), directorykey.toLong(), (shortname?.value ?: 0L), (longname?.value ?: 0L), flags.toInt(), datalength.toInt(), (data?.value ?: 0L))
+public actual fun fsRtlAddToTunnelCacheEx(cache: MutPtr<Tunnel>, directorykey: ULong, shortname: ConstPtr<UnicodeString>, longname: ConstPtr<UnicodeString>, flags: UInt, datalength: UInt, data: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAddToTunnelCacheEx(cache.rawAddress, directorykey.toLong(), shortname.rawAddress, longname.rawAddress, flags.toInt(), datalength.toInt(), data.rawAddress)
 }
 
-public actual fun fsRtlAllocateAePushLock(pooltype: PoolType, tag: UInt): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock(pooltype, tag.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlAllocateAePushLock(pooltype: PoolType, tag: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAllocateAePushLock(pooltype, tag.toInt()))
 
-public actual fun fsRtlAllocateExtraCreateParameter(ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter((ecptype?.value ?: 0L), sizeofcontext.toInt(), flags.toInt(), 0L, pooltag.toInt(), (ecpcontext?.value ?: 0L))
+public actual fun fsRtlAllocateExtraCreateParameter(ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameter(ecptype.rawAddress, sizeofcontext.toInt(), flags.toInt(), 0L, pooltag.toInt(), ecpcontext.rawAddress)
 
-public actual fun fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList((ecptype?.value ?: 0L), sizeofcontext.toInt(), flags.toInt(), 0L, (lookasidelist?.value ?: 0L), (ecpcontext?.value ?: 0L))
+public actual fun fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: MutPtr<CVoid>, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameterFromLookasideList(ecptype.rawAddress, sizeofcontext.toInt(), flags.toInt(), 0L, lookasidelist.rawAddress, ecpcontext.rawAddress)
 
-public actual fun fsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList(flags.toInt(), (ecplist?.value ?: 0L))
+public actual fun fsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: MutPtr<MutPtr<EcpList>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameterList(flags.toInt(), ecplist.rawAddress)
 
-public actual fun fsRtlAllocateFileLock(completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock(0L, 0L).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlAllocateFileLock(completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine): MutPtr<FileLock> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAllocateFileLock(0L, 0L))
 
-public actual fun fsRtlAllocateResource(): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource().let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlAllocateResource(): MutPtr<Eresource> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAllocateResource())
 
-public actual fun fsRtlAreNamesEqual(constantnamea: COpaquePointer?, constantnameb: COpaquePointer?, ignorecase: Boolean, upcasetable: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual((constantnamea?.value ?: 0L), (constantnameb?.value ?: 0L), ignorecase, (upcasetable?.value ?: 0L))
+public actual fun fsRtlAreNamesEqual(constantnamea: ConstPtr<UnicodeString>, constantnameb: ConstPtr<UnicodeString>, ignorecase: Boolean, upcasetable: ConstPtr<UShort>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAreNamesEqual(constantnamea.rawAddress, constantnameb.rawAddress, ignorecase, upcasetable.rawAddress)
 
-public actual fun fsRtlAreThereCurrentOrInProgressFileLocks(filelock: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks((filelock?.value ?: 0L))
+public actual fun fsRtlAreThereCurrentOrInProgressFileLocks(filelock: ConstPtr<FileLock>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAreThereCurrentOrInProgressFileLocks(filelock.rawAddress)
 
-public actual fun fsRtlAreThereWaitingFileLocks(filelock: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks((filelock?.value ?: 0L))
+public actual fun fsRtlAreThereWaitingFileLocks(filelock: ConstPtr<FileLock>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAreThereWaitingFileLocks(filelock.rawAddress)
 
 public actual fun fsRtlAreVolumeStartupApplicationsComplete(): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlAreVolumeStartupApplicationsComplete()
 
-public actual fun fsRtlBalanceReads(targetdevice: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads((targetdevice?.value ?: 0L))
+public actual fun fsRtlBalanceReads(targetdevice: ConstPtr<DeviceObject>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlBalanceReads(targetdevice.rawAddress)
 
-public actual fun fsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: COpaquePointer?, waittype: WaitType, timeout: COpaquePointer?, waitblockarray: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects(count.toInt(), (objectarray?.value ?: 0L), waittype, (timeout?.value ?: 0L), (waitblockarray?.value ?: 0L), (irp?.value ?: 0L))
+public actual fun fsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: ConstPtr<ConstPtr<CVoid>>, waittype: WaitType, timeout: ConstPtr<Long>, waitblockarray: ConstPtr<KwaitBlock>, irp: ConstPtr<Irp>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCancellableWaitForMultipleObjects(count.toInt(), objectarray.rawAddress, waittype, timeout.rawAddress, waitblockarray.rawAddress, irp.rawAddress)
 
-public actual fun fsRtlCancellableWaitForSingleObject(obj: COpaquePointer?, timeout: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject((obj?.value ?: 0L), (timeout?.value ?: 0L), (irp?.value ?: 0L))
+public actual fun fsRtlCancellableWaitForSingleObject(obj: ConstPtr<CVoid>, timeout: ConstPtr<Long>, irp: ConstPtr<Irp>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCancellableWaitForSingleObject(obj.rawAddress, timeout.rawAddress, irp.rawAddress)
 
-public actual fun fsRtlChangeBackingFileObject(currentfileobject: COpaquePointer?, newfileobject: COpaquePointer?, changebackingtype: FsrtlChangeBackingType, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject((currentfileobject?.value ?: 0L), (newfileobject?.value ?: 0L), changebackingtype, flags.toInt())
+public actual fun fsRtlChangeBackingFileObject(currentfileobject: ConstPtr<FileObject>, newfileobject: ConstPtr<FileObject>, changebackingtype: FsrtlChangeBackingType, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlChangeBackingFileObject(currentfileobject.rawAddress, newfileobject.rawAddress, changebackingtype, flags.toInt())
 
-public actual fun fsRtlCheckLockForOplockRequest(filelock: COpaquePointer?, allocationsize: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest((filelock?.value ?: 0L), (allocationsize?.value ?: 0L))
+public actual fun fsRtlCheckLockForOplockRequest(filelock: ConstPtr<FileLock>, allocationsize: ConstPtr<Long>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForOplockRequest(filelock.rawAddress, allocationsize.rawAddress)
 
-public actual fun fsRtlCheckLockForReadAccess(filelock: COpaquePointer?, irp: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess((filelock?.value ?: 0L), (irp?.value ?: 0L))
+public actual fun fsRtlCheckLockForReadAccess(filelock: ConstPtr<FileLock>, irp: ConstPtr<Irp>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForReadAccess(filelock.rawAddress, irp.rawAddress)
 
-public actual fun fsRtlCheckLockForWriteAccess(filelock: COpaquePointer?, irp: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess((filelock?.value ?: 0L), (irp?.value ?: 0L))
+public actual fun fsRtlCheckLockForWriteAccess(filelock: ConstPtr<FileLock>, irp: ConstPtr<Irp>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForWriteAccess(filelock.rawAddress, irp.rawAddress)
 
-public actual fun fsRtlCheckOplock(oplock: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock((oplock?.value ?: 0L), (irp?.value ?: 0L), (context?.value ?: 0L), 0L, 0L)
+public actual fun fsRtlCheckOplock(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckOplock(oplock.rawAddress, irp.rawAddress, context.rawAddress, 0L, 0L)
 
-public actual fun fsRtlCheckOplockEx(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx((oplock?.value ?: 0L), (irp?.value ?: 0L), flags.toInt(), (context?.value ?: 0L), 0L, 0L)
+public actual fun fsRtlCheckOplockEx(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckOplockEx(oplock.rawAddress, irp.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L)
 
-public actual fun fsRtlCheckOplockEx2(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, flagsex2: UInt, completionroutinecontext: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, timeout: ULong, notifycontext: COpaquePointer?, notifyroutine: PoplockNotifyRoutine): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2((oplock?.value ?: 0L), (irp?.value ?: 0L), flags.toInt(), flagsex2.toInt(), (completionroutinecontext?.value ?: 0L), 0L, 0L, timeout.toLong(), (notifycontext?.value ?: 0L), 0L)
+public actual fun fsRtlCheckOplockEx2(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, flagsex2: UInt, completionroutinecontext: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, timeout: ULong, notifycontext: ConstPtr<CVoid>, notifyroutine: PoplockNotifyRoutine): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckOplockEx2(oplock.rawAddress, irp.rawAddress, flags.toInt(), flagsex2.toInt(), completionroutinecontext.rawAddress, 0L, 0L, timeout.toLong(), notifycontext.rawAddress, 0L)
 
-public actual fun fsRtlCheckUpperOplock(oplock: COpaquePointer?, newloweroplockstate: UInt, completionroutinecontext: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, prependroutine: PoplockFsPrepostIrp, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock((oplock?.value ?: 0L), newloweroplockstate.toInt(), (completionroutinecontext?.value ?: 0L), 0L, 0L, flags.toInt())
+public actual fun fsRtlCheckUpperOplock(oplock: ConstPtr<ConstPtr<CVoid>>, newloweroplockstate: UInt, completionroutinecontext: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, prependroutine: PoplockFsPrepostIrp, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCheckUpperOplock(oplock.rawAddress, newloweroplockstate.toInt(), completionroutinecontext.rawAddress, 0L, 0L, flags.toInt())
 
-public actual fun fsRtlCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, lockkey.toInt(), (buffer?.value ?: 0L), (iostatus?.value ?: 0L), (deviceobject?.value ?: 0L))
+public actual fun fsRtlCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, lockkey: UInt, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCopyRead(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, lockkey.toInt(), buffer.rawAddress, iostatus.rawAddress, deviceobject.rawAddress)
 
-public actual fun fsRtlCopyWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), wait, lockkey.toInt(), (buffer?.value ?: 0L), (iostatus?.value ?: 0L), (deviceobject?.value ?: 0L))
+public actual fun fsRtlCopyWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, lockkey: UInt, buffer: ConstPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCopyWrite(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), wait, lockkey.toInt(), buffer.rawAddress, iostatus.rawAddress, deviceobject.rawAddress)
 
-public actual fun fsRtlCreateSectionForDataScan(sectionhandle: COpaquePointer?, sectionobject: COpaquePointer?, sectionfilesize: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan((sectionhandle?.value ?: 0L), (sectionobject?.value ?: 0L), (sectionfilesize?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (maximumsize?.value ?: 0L), sectionpageprotection.toInt(), allocationattributes.toInt(), flags.toInt())
+public actual fun fsRtlCreateSectionForDataScan(sectionhandle: MutPtr<Handle>, sectionobject: MutPtr<MutPtr<CVoid>>, sectionfilesize: MutPtr<Long>, fileobject: ConstPtr<FileObject>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCreateSectionForDataScan(sectionhandle.rawAddress, sectionobject.rawAddress, sectionfilesize.rawAddress, fileobject.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, maximumsize.rawAddress, sectionpageprotection.toInt(), allocationattributes.toInt(), flags.toInt())
 
-public actual fun fsRtlCurrentBatchOplock(oplock: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock((oplock?.value ?: 0L))
+public actual fun fsRtlCurrentBatchOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCurrentBatchOplock(oplock.rawAddress)
 
-public actual fun fsRtlCurrentOplock(oplock: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock((oplock?.value ?: 0L))
+public actual fun fsRtlCurrentOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCurrentOplock(oplock.rawAddress)
 
-public actual fun fsRtlCurrentOplockH(oplock: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH((oplock?.value ?: 0L))
+public actual fun fsRtlCurrentOplockH(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlCurrentOplockH(oplock.rawAddress)
 
-public actual fun fsRtlDeleteExtraCreateParameterLookasideList(lookaside: COpaquePointer?, flags: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList((lookaside?.value ?: 0L), flags.toInt())
+public actual fun fsRtlDeleteExtraCreateParameterLookasideList(lookaside: MutPtr<CVoid>, flags: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDeleteExtraCreateParameterLookasideList(lookaside.rawAddress, flags.toInt())
 }
 
-public actual fun fsRtlDeleteKeyFromTunnelCache(cache: COpaquePointer?, directorykey: ULong) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache((cache?.value ?: 0L), directorykey.toLong())
+public actual fun fsRtlDeleteKeyFromTunnelCache(cache: MutPtr<Tunnel>, directorykey: ULong) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDeleteKeyFromTunnelCache(cache.rawAddress, directorykey.toLong())
 }
 
-public actual fun fsRtlDeleteTunnelCache(cache: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache((cache?.value ?: 0L))
+public actual fun fsRtlDeleteTunnelCache(cache: MutPtr<Tunnel>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDeleteTunnelCache(cache.rawAddress)
 }
 
 public actual fun fsRtlDeregisterUncProvider(handle: Handle) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider((handle?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDeregisterUncProvider(handle.rawAddress)
 }
 
-public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismountstatus: Ntstatus) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete((deviceobject?.value ?: 0L), dismountstatus)
+public actual fun fsRtlDismountComplete(deviceobject: ConstPtr<DeviceObject>, dismountstatus: Ntstatus) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDismountComplete(deviceobject.rawAddress, dismountstatus)
 }
 
-public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
+public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, remainingname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
 }
 
-public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
+public actual fun fsRtlDissectName(path: UnicodeString, firstname: MutPtr<UnicodeString>, remainingname: MutPtr<UnicodeString>) {
 }
 
-public actual fun fsRtlDoesDbcsContainWildCards(name: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards((name?.value ?: 0L))
+public actual fun fsRtlDoesDbcsContainWildCards(name: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDoesDbcsContainWildCards(name.rawAddress)
 
-public actual fun fsRtlDoesNameContainWildCards(name: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards((name?.value ?: 0L))
+public actual fun fsRtlDoesNameContainWildCards(name: ConstPtr<UnicodeString>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlDoesNameContainWildCards(name.rawAddress)
 
-public actual fun fsRtlFastCheckLockForRead(filelock: COpaquePointer?, startingbyte: COpaquePointer?, length: COpaquePointer?, key: UInt, fileobject: COpaquePointer?, processid: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead((filelock?.value ?: 0L), (startingbyte?.value ?: 0L), (length?.value ?: 0L), key.toInt(), (fileobject?.value ?: 0L), (processid?.value ?: 0L))
+public actual fun fsRtlFastCheckLockForRead(filelock: ConstPtr<FileLock>, startingbyte: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, fileobject: ConstPtr<FileObject>, processid: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFastCheckLockForRead(filelock.rawAddress, startingbyte.rawAddress, length.rawAddress, key.toInt(), fileobject.rawAddress, processid.rawAddress)
 
-public actual fun fsRtlFastCheckLockForWrite(filelock: COpaquePointer?, startingbyte: COpaquePointer?, length: COpaquePointer?, key: UInt, fileobject: COpaquePointer?, processid: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite((filelock?.value ?: 0L), (startingbyte?.value ?: 0L), (length?.value ?: 0L), key.toInt(), (fileobject?.value ?: 0L), (processid?.value ?: 0L))
+public actual fun fsRtlFastCheckLockForWrite(filelock: ConstPtr<FileLock>, startingbyte: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, fileobject: ConstPtr<CVoid>, processid: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFastCheckLockForWrite(filelock.rawAddress, startingbyte.rawAddress, length.rawAddress, key.toInt(), fileobject.rawAddress, processid.rawAddress)
 
-public actual fun fsRtlFastUnlockAll(filelock: COpaquePointer?, fileobject: COpaquePointer?, processid: Peprocess, context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll((filelock?.value ?: 0L), (fileobject?.value ?: 0L), processid, (context?.value ?: 0L))
+public actual fun fsRtlFastUnlockAll(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, processid: Peprocess, context: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockAll(filelock.rawAddress, fileobject.rawAddress, processid, context.rawAddress)
 
-public actual fun fsRtlFastUnlockAllByKey(filelock: COpaquePointer?, fileobject: COpaquePointer?, processid: Peprocess, key: UInt, context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey((filelock?.value ?: 0L), (fileobject?.value ?: 0L), processid, key.toInt(), (context?.value ?: 0L))
+public actual fun fsRtlFastUnlockAllByKey(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, processid: Peprocess, key: UInt, context: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockAllByKey(filelock.rawAddress, fileobject.rawAddress, processid, key.toInt(), context.rawAddress)
 
-public actual fun fsRtlFastUnlockSingle(filelock: COpaquePointer?, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, context: COpaquePointer?, alreadysynchronized: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle((filelock?.value ?: 0L), (fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), (length?.value ?: 0L), processid, key.toInt(), (context?.value ?: 0L), alreadysynchronized)
+public actual fun fsRtlFastUnlockSingle(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: ConstPtr<Long>, processid: Peprocess, key: UInt, context: ConstPtr<CVoid>, alreadysynchronized: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockSingle(filelock.rawAddress, fileobject.rawAddress, fileoffset.rawAddress, length.rawAddress, processid, key.toInt(), context.rawAddress, alreadysynchronized)
 
-public actual fun fsRtlFindExtraCreateParameter(ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter((ecplist?.value ?: 0L), (ecptype?.value ?: 0L), (ecpcontext?.value ?: 0L), (ecpcontextsize?.value ?: 0L))
+public actual fun fsRtlFindExtraCreateParameter(ecplist: ConstPtr<EcpList>, ecptype: ConstPtr<Guid>, ecpcontext: MutPtr<MutPtr<CVoid>>, ecpcontextsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFindExtraCreateParameter(ecplist.rawAddress, ecptype.rawAddress, ecpcontext.rawAddress, ecpcontextsize.rawAddress)
 
-public actual fun fsRtlFindInTunnelCache(cache: COpaquePointer?, directorykey: ULong, name: COpaquePointer?, shortname: COpaquePointer?, longname: COpaquePointer?, datalength: COpaquePointer?, data: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache((cache?.value ?: 0L), directorykey.toLong(), (name?.value ?: 0L), (shortname?.value ?: 0L), (longname?.value ?: 0L), (datalength?.value ?: 0L), (data?.value ?: 0L))
+public actual fun fsRtlFindInTunnelCache(cache: ConstPtr<Tunnel>, directorykey: ULong, name: ConstPtr<UnicodeString>, shortname: MutPtr<UnicodeString>, longname: MutPtr<UnicodeString>, datalength: MutPtr<UInt>, data: MutPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFindInTunnelCache(cache.rawAddress, directorykey.toLong(), name.rawAddress, shortname.rawAddress, longname.rawAddress, datalength.rawAddress, data.rawAddress)
 
-public actual fun fsRtlFindInTunnelCacheEx(cache: COpaquePointer?, directorykey: ULong, name: COpaquePointer?, shortname: COpaquePointer?, longname: COpaquePointer?, flags: UInt, datalength: COpaquePointer?, data: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx((cache?.value ?: 0L), directorykey.toLong(), (name?.value ?: 0L), (shortname?.value ?: 0L), (longname?.value ?: 0L), flags.toInt(), (datalength?.value ?: 0L), (data?.value ?: 0L))
+public actual fun fsRtlFindInTunnelCacheEx(cache: ConstPtr<Tunnel>, directorykey: ULong, name: ConstPtr<UnicodeString>, shortname: MutPtr<UnicodeString>, longname: MutPtr<UnicodeString>, flags: UInt, datalength: MutPtr<UInt>, data: MutPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFindInTunnelCacheEx(cache.rawAddress, directorykey.toLong(), name.rawAddress, shortname.rawAddress, longname.rawAddress, flags.toInt(), datalength.rawAddress, data.rawAddress)
 
-public actual fun fsRtlFreeAePushLock(aepushlock: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock((aepushlock?.value ?: 0L))
+public actual fun fsRtlFreeAePushLock(aepushlock: MutPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFreeAePushLock(aepushlock.rawAddress)
 }
 
-public actual fun fsRtlFreeExtraCreateParameter(ecpcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter((ecpcontext?.value ?: 0L))
+public actual fun fsRtlFreeExtraCreateParameter(ecpcontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFreeExtraCreateParameter(ecpcontext.rawAddress)
 }
 
-public actual fun fsRtlFreeExtraCreateParameterList(ecplist: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList((ecplist?.value ?: 0L))
+public actual fun fsRtlFreeExtraCreateParameterList(ecplist: ConstPtr<EcpList>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFreeExtraCreateParameterList(ecplist.rawAddress)
 }
 
-public actual fun fsRtlFreeFileLock(filelock: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock((filelock?.value ?: 0L))
+public actual fun fsRtlFreeFileLock(filelock: ConstPtr<FileLock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlFreeFileLock(filelock.rawAddress)
 }
 
-public actual fun fsRtlGetCurrentProcessLoaderList(): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList().let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlGetCurrentProcessLoaderList(): MutPtr<ListEntry> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetCurrentProcessLoaderList())
 
-public actual fun fsRtlGetEcpListFromIrp(irp: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp((irp?.value ?: 0L), (ecplist?.value ?: 0L))
+public actual fun fsRtlGetEcpListFromIrp(irp: ConstPtr<Irp>, ecplist: MutPtr<MutPtr<EcpList>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetEcpListFromIrp(irp.rawAddress, ecplist.rawAddress)
 
-public actual fun fsRtlGetFileSize(fileobject: COpaquePointer?, filesize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize((fileobject?.value ?: 0L), (filesize?.value ?: 0L))
+public actual fun fsRtlGetFileSize(fileobject: ConstPtr<FileObject>, filesize: MutPtr<Long>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetFileSize(fileobject.rawAddress, filesize.rawAddress)
 
-public actual fun fsRtlGetNextBaseMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry((mcb?.value ?: 0L), runindex.toInt(), (vbn?.value ?: 0L), (lbn?.value ?: 0L), (sectorcount?.value ?: 0L))
+public actual fun fsRtlGetNextBaseMcbEntry(mcb: ConstPtr<BaseMcb>, runindex: UInt, vbn: MutPtr<Long>, lbn: MutPtr<Long>, sectorcount: MutPtr<Long>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetNextBaseMcbEntry(mcb.rawAddress, runindex.toInt(), vbn.rawAddress, lbn.rawAddress, sectorcount.rawAddress)
 
-public actual fun fsRtlGetNextExtraCreateParameter(ecplist: COpaquePointer?, currentecpcontext: COpaquePointer?, nextecptype: COpaquePointer?, nextecpcontext: COpaquePointer?, nextecpcontextsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter((ecplist?.value ?: 0L), (currentecpcontext?.value ?: 0L), (nextecptype?.value ?: 0L), (nextecpcontext?.value ?: 0L), (nextecpcontextsize?.value ?: 0L))
+public actual fun fsRtlGetNextExtraCreateParameter(ecplist: ConstPtr<EcpList>, currentecpcontext: ConstPtr<CVoid>, nextecptype: MutPtr<Guid>, nextecpcontext: MutPtr<MutPtr<CVoid>>, nextecpcontextsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetNextExtraCreateParameter(ecplist.rawAddress, currentecpcontext.rawAddress, nextecptype.rawAddress, nextecpcontext.rawAddress, nextecpcontextsize.rawAddress)
 
-public actual fun fsRtlGetNextFileLock(filelock: COpaquePointer?, restart: Boolean): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock((filelock?.value ?: 0L), restart).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlGetNextFileLock(filelock: ConstPtr<FileLock>, restart: Boolean): MutPtr<FileLockInfo> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetNextFileLock(filelock.rawAddress, restart))
 
-public actual fun fsRtlGetNextLargeMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry((mcb?.value ?: 0L), runindex.toInt(), (vbn?.value ?: 0L), (lbn?.value ?: 0L), (sectorcount?.value ?: 0L))
+public actual fun fsRtlGetNextLargeMcbEntry(mcb: ConstPtr<LargeMcb>, runindex: UInt, vbn: MutPtr<Long>, lbn: MutPtr<Long>, sectorcount: MutPtr<Long>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetNextLargeMcbEntry(mcb.rawAddress, runindex.toInt(), vbn.rawAddress, lbn.rawAddress, sectorcount.rawAddress)
 
-public actual fun fsRtlGetNextMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry((mcb?.value ?: 0L), runindex.toInt(), (vbn?.value ?: 0L), (lbn?.value ?: 0L), (sectorcount?.value ?: 0L))
+public actual fun fsRtlGetNextMcbEntry(mcb: ConstPtr<Mcb>, runindex: UInt, vbn: MutPtr<UInt>, lbn: MutPtr<UInt>, sectorcount: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetNextMcbEntry(mcb.rawAddress, runindex.toInt(), vbn.rawAddress, lbn.rawAddress, sectorcount.rawAddress)
 
-public actual fun fsRtlGetSectorSizeInformation(deviceobject: COpaquePointer?, sectorsizeinfo: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation((deviceobject?.value ?: 0L), (sectorsizeinfo?.value ?: 0L))
+public actual fun fsRtlGetSectorSizeInformation(deviceobject: ConstPtr<DeviceObject>, sectorsizeinfo: MutPtr<FileFsSectorSizeInformation>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetSectorSizeInformation(deviceobject.rawAddress, sectorsizeinfo.rawAddress)
 
-public actual fun fsRtlGetSupportedFeatures(deviceobject: COpaquePointer?, supportedfeatures: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures((deviceobject?.value ?: 0L), (supportedfeatures?.value ?: 0L))
+public actual fun fsRtlGetSupportedFeatures(deviceobject: ConstPtr<DeviceObject>, supportedfeatures: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetSupportedFeatures(deviceobject.rawAddress, supportedfeatures.rawAddress)
 
-public actual fun fsRtlGetVirtualDiskNestingLevel(deviceobject: COpaquePointer?, nestinglevel: COpaquePointer?, nestingflags: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel((deviceobject?.value ?: 0L), (nestinglevel?.value ?: 0L), (nestingflags?.value ?: 0L))
+public actual fun fsRtlGetVirtualDiskNestingLevel(deviceobject: ConstPtr<DeviceObject>, nestinglevel: MutPtr<UInt>, nestingflags: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlGetVirtualDiskNestingLevel(deviceobject.rawAddress, nestinglevel.rawAddress, nestingflags.rawAddress)
 
 public actual fun fsRtlIncrementCcFastMdlReadWait() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastMdlReadWait()
 }
 
 public actual fun fsRtlIncrementCcFastReadNoWait() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadNoWait()
 }
 
 public actual fun fsRtlIncrementCcFastReadNotPossible() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadNotPossible()
 }
 
 public actual fun fsRtlIncrementCcFastReadResourceMiss() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadResourceMiss()
 }
 
 public actual fun fsRtlIncrementCcFastReadWait() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadWait()
 }
 
-public actual fun fsRtlInitExtraCreateParameterLookasideList(lookaside: COpaquePointer?, flags: UInt, size: ULong, tag: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList((lookaside?.value ?: 0L), flags.toInt(), size.toLong(), tag.toInt())
+public actual fun fsRtlInitExtraCreateParameterLookasideList(lookaside: MutPtr<CVoid>, flags: UInt, size: ULong, tag: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitExtraCreateParameterLookasideList(lookaside.rawAddress, flags.toInt(), size.toLong(), tag.toInt())
 }
 
-public actual fun fsRtlInitializeBaseMcb(mcb: COpaquePointer?, pooltype: PoolType) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb((mcb?.value ?: 0L), pooltype)
+public actual fun fsRtlInitializeBaseMcb(mcb: MutPtr<BaseMcb>, pooltype: PoolType) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeBaseMcb(mcb.rawAddress, pooltype)
 }
 
-public actual fun fsRtlInitializeBaseMcbEx(mcb: COpaquePointer?, pooltype: PoolType, flags: UShort): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx((mcb?.value ?: 0L), pooltype, flags.toShort())
+public actual fun fsRtlInitializeBaseMcbEx(mcb: MutPtr<BaseMcb>, pooltype: PoolType, flags: UShort): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeBaseMcbEx(mcb.rawAddress, pooltype, flags.toShort())
 
-public actual fun fsRtlInitializeExtraCreateParameter(ecp: COpaquePointer?, ecpflags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, totalsize: UInt, ecptype: COpaquePointer?, listallocatedfrom: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter((ecp?.value ?: 0L), ecpflags.toInt(), 0L, totalsize.toInt(), (ecptype?.value ?: 0L), (listallocatedfrom?.value ?: 0L))
+public actual fun fsRtlInitializeExtraCreateParameter(ecp: MutPtr<EcpHeader>, ecpflags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, totalsize: UInt, ecptype: ConstPtr<Guid>, listallocatedfrom: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeExtraCreateParameter(ecp.rawAddress, ecpflags.toInt(), 0L, totalsize.toInt(), ecptype.rawAddress, listallocatedfrom.rawAddress)
 }
 
-public actual fun fsRtlInitializeExtraCreateParameterList(ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList((ecplist?.value ?: 0L))
+public actual fun fsRtlInitializeExtraCreateParameterList(ecplist: MutPtr<EcpList>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeExtraCreateParameterList(ecplist.rawAddress)
 
-public actual fun fsRtlInitializeFileLock(filelock: COpaquePointer?, completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock((filelock?.value ?: 0L), 0L, 0L)
+public actual fun fsRtlInitializeFileLock(filelock: MutPtr<FileLock>, completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeFileLock(filelock.rawAddress, 0L, 0L)
 }
 
-public actual fun fsRtlInitializeLargeMcb(mcb: COpaquePointer?, pooltype: PoolType) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb((mcb?.value ?: 0L), pooltype)
+public actual fun fsRtlInitializeLargeMcb(mcb: MutPtr<LargeMcb>, pooltype: PoolType) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeLargeMcb(mcb.rawAddress, pooltype)
 }
 
-public actual fun fsRtlInitializeMcb(mcb: COpaquePointer?, pooltype: PoolType) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb((mcb?.value ?: 0L), pooltype)
+public actual fun fsRtlInitializeMcb(mcb: MutPtr<Mcb>, pooltype: PoolType) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeMcb(mcb.rawAddress, pooltype)
 }
 
-public actual fun fsRtlInitializeOplock(oplock: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock((oplock?.value ?: 0L))
+public actual fun fsRtlInitializeOplock(oplock: MutPtr<MutPtr<CVoid>>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeOplock(oplock.rawAddress)
 }
 
-public actual fun fsRtlInitializeTunnelCache(cache: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache((cache?.value ?: 0L))
+public actual fun fsRtlInitializeTunnelCache(cache: MutPtr<Tunnel>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInitializeTunnelCache(cache.rawAddress)
 }
 
-public actual fun fsRtlInsertExtraCreateParameter(ecplist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter((ecplist?.value ?: 0L), (ecpcontext?.value ?: 0L))
+public actual fun fsRtlInsertExtraCreateParameter(ecplist: MutPtr<EcpList>, ecpcontext: MutPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInsertExtraCreateParameter(ecplist.rawAddress, ecpcontext.rawAddress)
 
-public actual fun fsRtlInsertPerFileContext(perfilecontextpointer: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext((perfilecontextpointer?.value ?: 0L), (ptr?.value ?: 0L))
+public actual fun fsRtlInsertPerFileContext(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>, ptr: ConstPtr<FsrtlPerFileContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInsertPerFileContext(perfilecontextpointer.rawAddress, ptr.rawAddress)
 
-public actual fun fsRtlInsertPerFileObjectContext(fileobject: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext((fileobject?.value ?: 0L), (ptr?.value ?: 0L))
+public actual fun fsRtlInsertPerFileObjectContext(fileobject: ConstPtr<FileObject>, ptr: ConstPtr<FsrtlPerFileobjectContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInsertPerFileObjectContext(fileobject.rawAddress, ptr.rawAddress)
 
-public actual fun fsRtlInsertPerStreamContext(perstreamcontext: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext((perstreamcontext?.value ?: 0L), (ptr?.value ?: 0L))
+public actual fun fsRtlInsertPerStreamContext(perstreamcontext: ConstPtr<FsrtlAdvancedFcbHeader>, ptr: ConstPtr<FsrtlPerStreamContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlInsertPerStreamContext(perstreamcontext.rawAddress, ptr.rawAddress)
 
 public actual fun fsRtlIs32BitProcess(process: Peprocess): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess(process)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIs32BitProcess(process)
 
-public actual fun fsRtlIsDaxVolume(fileobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume((fileobject?.value ?: 0L))
+public actual fun fsRtlIsDaxVolume(fileobject: ConstPtr<FileObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsDaxVolume(fileobject.rawAddress)
 
-public actual fun fsRtlIsDbcsInExpression(expression: COpaquePointer?, name: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression((expression?.value ?: 0L), (name?.value ?: 0L))
+public actual fun fsRtlIsDbcsInExpression(expression: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, name: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsDbcsInExpression(expression.rawAddress, name.rawAddress)
 
-public actual fun fsRtlIsEcpAcknowledged(ecpcontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged((ecpcontext?.value ?: 0L))
+public actual fun fsRtlIsEcpAcknowledged(ecpcontext: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsEcpAcknowledged(ecpcontext.rawAddress)
 
-public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode((ecpcontext?.value ?: 0L))
+public actual fun fsRtlIsEcpFromUserMode(ecpcontext: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsEcpFromUserMode(ecpcontext.rawAddress)
 
 public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()).toUInt()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()).toUInt()
 
 public actual fun fsRtlIsFatDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
     false
@@ -2534,1628 +2577,1628 @@ public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssy
     false
 
 public actual fun fsRtlIsMobileOS(): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsMobileOS()
 
-public actual fun fsRtlIsNameInExpression(expression: COpaquePointer?, name: COpaquePointer?, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression((expression?.value ?: 0L), (name?.value ?: 0L), ignorecase, (upcasetable?.value ?: 0L))
+public actual fun fsRtlIsNameInExpression(expression: ConstPtr<UnicodeString>, name: ConstPtr<UnicodeString>, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsNameInExpression(expression.rawAddress, name.rawAddress, ignorecase, upcasetable.rawAddress)
 
-public actual fun fsRtlIsNameInUnUpcasedExpression(expression: COpaquePointer?, name: COpaquePointer?, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression((expression?.value ?: 0L), (name?.value ?: 0L), ignorecase, (upcasetable?.value ?: 0L))
+public actual fun fsRtlIsNameInUnUpcasedExpression(expression: ConstPtr<UnicodeString>, name: ConstPtr<UnicodeString>, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsNameInUnUpcasedExpression(expression.rawAddress, name.rawAddress, ignorecase, upcasetable.rawAddress)
 
 public actual fun fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt())
 
 public actual fun fsRtlIsNtstatusExpected(exception: Ntstatus): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected(exception)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsNtstatusExpected(exception)
 
-public actual fun fsRtlIsPagingFile(fileobject: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile((fileobject?.value ?: 0L)).toUInt()
+public actual fun fsRtlIsPagingFile(fileobject: ConstPtr<FileObject>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsPagingFile(fileobject.rawAddress).toUInt()
 
-public actual fun fsRtlIsSystemPagingFile(fileobject: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile((fileobject?.value ?: 0L)).toUInt()
+public actual fun fsRtlIsSystemPagingFile(fileobject: ConstPtr<FileObject>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIsSystemPagingFile(fileobject.rawAddress).toUInt()
 
-public actual fun fsRtlIssueDeviceIoControl(deviceobject: COpaquePointer?, ioctl: UInt, flags: UByte, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, iosbinformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl((deviceobject?.value ?: 0L), ioctl.toInt(), flags.toByte(), (inputbuffer?.value ?: 0L), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L), outputbufferlength.toInt(), (iosbinformation?.value ?: 0L))
+public actual fun fsRtlIssueDeviceIoControl(deviceobject: ConstPtr<DeviceObject>, ioctl: UInt, flags: UByte, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: ConstPtr<CVoid>, outputbufferlength: UInt, iosbinformation: MutPtr<ULong>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlIssueDeviceIoControl(deviceobject.rawAddress, ioctl.toInt(), flags.toByte(), inputbuffer.rawAddress, inputbufferlength.toInt(), outputbuffer.rawAddress, outputbufferlength.toInt(), iosbinformation.rawAddress)
 
-public actual fun fsRtlKernelFsControlFile(fileobject: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, retoutputbuffersize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile((fileobject?.value ?: 0L), fscontrolcode.toInt(), (inputbuffer?.value ?: 0L), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L), outputbufferlength.toInt(), (retoutputbuffersize?.value ?: 0L))
+public actual fun fsRtlKernelFsControlFile(fileobject: ConstPtr<FileObject>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt, retoutputbuffersize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlKernelFsControlFile(fileobject.rawAddress, fscontrolcode.toInt(), inputbuffer.rawAddress, inputbufferlength.toInt(), outputbuffer.rawAddress, outputbufferlength.toInt(), retoutputbuffersize.rawAddress)
 
-public actual fun fsRtlLogCcFlushError(filename: COpaquePointer?, deviceobject: COpaquePointer?, sectionobjectpointer: COpaquePointer?, flusherror: Ntstatus, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError((filename?.value ?: 0L), (deviceobject?.value ?: 0L), (sectionobjectpointer?.value ?: 0L), flusherror, flags.toInt())
+public actual fun fsRtlLogCcFlushError(filename: ConstPtr<UnicodeString>, deviceobject: ConstPtr<DeviceObject>, sectionobjectpointer: ConstPtr<SectionObjectPointers>, flusherror: Ntstatus, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLogCcFlushError(filename.rawAddress, deviceobject.rawAddress, sectionobjectpointer.rawAddress, flusherror, flags.toInt())
 
-public actual fun fsRtlLookupBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: COpaquePointer?, sectorcountfromlbn: COpaquePointer?, startinglbn: COpaquePointer?, sectorcountfromstartinglbn: COpaquePointer?, index: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry((mcb?.value ?: 0L), vbn, (lbn?.value ?: 0L), (sectorcountfromlbn?.value ?: 0L), (startinglbn?.value ?: 0L), (sectorcountfromstartinglbn?.value ?: 0L), (index?.value ?: 0L))
+public actual fun fsRtlLookupBaseMcbEntry(mcb: ConstPtr<BaseMcb>, vbn: Long, lbn: MutPtr<Long>, sectorcountfromlbn: MutPtr<Long>, startinglbn: MutPtr<Long>, sectorcountfromstartinglbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupBaseMcbEntry(mcb.rawAddress, vbn, lbn.rawAddress, sectorcountfromlbn.rawAddress, startinglbn.rawAddress, sectorcountfromstartinglbn.rawAddress, index.rawAddress)
 
-public actual fun fsRtlLookupLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: COpaquePointer?, sectorcountfromlbn: COpaquePointer?, startinglbn: COpaquePointer?, sectorcountfromstartinglbn: COpaquePointer?, index: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry((mcb?.value ?: 0L), vbn, (lbn?.value ?: 0L), (sectorcountfromlbn?.value ?: 0L), (startinglbn?.value ?: 0L), (sectorcountfromstartinglbn?.value ?: 0L), (index?.value ?: 0L))
+public actual fun fsRtlLookupLargeMcbEntry(mcb: ConstPtr<LargeMcb>, vbn: Long, lbn: MutPtr<Long>, sectorcountfromlbn: MutPtr<Long>, startinglbn: MutPtr<Long>, sectorcountfromstartinglbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupLargeMcbEntry(mcb.rawAddress, vbn, lbn.rawAddress, sectorcountfromlbn.rawAddress, startinglbn.rawAddress, sectorcountfromstartinglbn.rawAddress, index.rawAddress)
 
-public actual fun fsRtlLookupLastBaseMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry((mcb?.value ?: 0L), (vbn?.value ?: 0L), (lbn?.value ?: 0L))
+public actual fun fsRtlLookupLastBaseMcbEntry(mcb: ConstPtr<BaseMcb>, vbn: MutPtr<Long>, lbn: MutPtr<Long>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupLastBaseMcbEntry(mcb.rawAddress, vbn.rawAddress, lbn.rawAddress)
 
-public actual fun fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: COpaquePointer?, largevbn: COpaquePointer?, largelbn: COpaquePointer?, index: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex((opaquemcb?.value ?: 0L), (largevbn?.value ?: 0L), (largelbn?.value ?: 0L), (index?.value ?: 0L))
+public actual fun fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: ConstPtr<BaseMcb>, largevbn: MutPtr<Long>, largelbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb.rawAddress, largevbn.rawAddress, largelbn.rawAddress, index.rawAddress)
 
-public actual fun fsRtlLookupLastLargeMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry((mcb?.value ?: 0L), (vbn?.value ?: 0L), (lbn?.value ?: 0L))
+public actual fun fsRtlLookupLastLargeMcbEntry(mcb: ConstPtr<LargeMcb>, vbn: MutPtr<Long>, lbn: MutPtr<Long>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupLastLargeMcbEntry(mcb.rawAddress, vbn.rawAddress, lbn.rawAddress)
 
-public actual fun fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: COpaquePointer?, largevbn: COpaquePointer?, largelbn: COpaquePointer?, index: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex((opaquemcb?.value ?: 0L), (largevbn?.value ?: 0L), (largelbn?.value ?: 0L), (index?.value ?: 0L))
+public actual fun fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: ConstPtr<LargeMcb>, largevbn: MutPtr<Long>, largelbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb.rawAddress, largevbn.rawAddress, largelbn.rawAddress, index.rawAddress)
 
-public actual fun fsRtlLookupLastMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry((mcb?.value ?: 0L), (vbn?.value ?: 0L), (lbn?.value ?: 0L))
+public actual fun fsRtlLookupLastMcbEntry(mcb: ConstPtr<Mcb>, vbn: MutPtr<UInt>, lbn: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupLastMcbEntry(mcb.rawAddress, vbn.rawAddress, lbn.rawAddress)
 
-public actual fun fsRtlLookupMcbEntry(mcb: COpaquePointer?, vbn: UInt, lbn: COpaquePointer?, sectorcount: COpaquePointer?, index: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry((mcb?.value ?: 0L), vbn.toInt(), (lbn?.value ?: 0L), (sectorcount?.value ?: 0L), (index?.value ?: 0L))
+public actual fun fsRtlLookupMcbEntry(mcb: ConstPtr<Mcb>, vbn: UInt, lbn: MutPtr<UInt>, sectorcount: MutPtr<UInt>, index: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupMcbEntry(mcb.rawAddress, vbn.toInt(), lbn.rawAddress, sectorcount.rawAddress, index.rawAddress)
 
-public actual fun fsRtlLookupPerFileContext(perfilecontextpointer: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext((perfilecontextpointer?.value ?: 0L), (ownerid?.value ?: 0L), (instanceid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlLookupPerFileContext(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupPerFileContext(perfilecontextpointer.rawAddress, ownerid.rawAddress, instanceid.rawAddress))
 
-public actual fun fsRtlLookupPerFileObjectContext(fileobject: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext((fileobject?.value ?: 0L), (ownerid?.value ?: 0L), (instanceid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlLookupPerFileObjectContext(fileobject: ConstPtr<FileObject>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileobjectContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupPerFileObjectContext(fileobject.rawAddress, ownerid.rawAddress, instanceid.rawAddress))
 
-public actual fun fsRtlLookupPerStreamContextInternal(streamcontext: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal((streamcontext?.value ?: 0L), (ownerid?.value ?: 0L), (instanceid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlLookupPerStreamContextInternal(streamcontext: ConstPtr<FsrtlAdvancedFcbHeader>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerStreamContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlLookupPerStreamContextInternal(streamcontext.rawAddress, ownerid.rawAddress, instanceid.rawAddress))
 
-public actual fun fsRtlMdlReadCompleteDev(fileobject: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev((fileobject?.value ?: 0L), (mdlchain?.value ?: 0L), (deviceobject?.value ?: 0L))
+public actual fun fsRtlMdlReadCompleteDev(fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlMdlReadCompleteDev(fileobject.rawAddress, mdlchain.rawAddress, deviceobject.rawAddress)
 
-public actual fun fsRtlMdlReadDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L), (deviceobject?.value ?: 0L))
+public actual fun fsRtlMdlReadDev(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlMdlReadDev(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), lockkey.toInt(), mdlchain.rawAddress, iostatus.rawAddress, deviceobject.rawAddress)
 
-public actual fun fsRtlMdlReadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun fsRtlMdlReadEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlMdlReadEx(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), lockkey.toInt(), mdlchain.rawAddress, iostatus.rawAddress)
 
-public actual fun fsRtlMdlWriteCompleteDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), (mdlchain?.value ?: 0L), (deviceobject?.value ?: 0L))
+public actual fun fsRtlMdlWriteCompleteDev(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, mdlchain: ConstPtr<Mdl>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlMdlWriteCompleteDev(fileobject.rawAddress, fileoffset.rawAddress, mdlchain.rawAddress, deviceobject.rawAddress)
 
-public actual fun fsRtlMupGetProviderIdFromName(pprovidername: COpaquePointer?, pproviderid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName((pprovidername?.value ?: 0L), (pproviderid?.value ?: 0L))
+public actual fun fsRtlMupGetProviderIdFromName(pprovidername: ConstPtr<UnicodeString>, pproviderid: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlMupGetProviderIdFromName(pprovidername.rawAddress, pproviderid.rawAddress)
 
-public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: COpaquePointer?, level: UInt, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject((pfileobject?.value ?: 0L), level.toInt(), (pbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L))
+public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: ConstPtr<FileObject>, level: UInt, pbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlMupGetProviderInfoFromFileObject(pfileobject.rawAddress, level.toInt(), pbuffer.rawAddress, pbuffersize.rawAddress)
 
 public actual fun fsRtlNormalizeNtstatus(exception: Ntstatus, genericexception: Ntstatus): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus(exception, genericexception)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNormalizeNtstatus(exception, genericexception)
 
-public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup(notifysync, (notifylist?.value ?: 0L), (fscontext?.value ?: 0L))
+public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanup(notifysync, notifylist.rawAddress, fscontext.rawAddress)
 }
 
-public actual fun fsRtlNotifyCleanupAll(notifysync: PnotifySync, notifylist: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll(notifysync, (notifylist?.value ?: 0L))
+public actual fun fsRtlNotifyCleanupAll(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanupAll(notifysync, notifylist.rawAddress)
 }
 
-public actual fun fsRtlNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?, filtercallback: PfilterReportChange) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory(notifysync, (notifylist?.value ?: 0L), (fscontext?.value ?: 0L), (fulldirectoryname?.value ?: 0L), watchtree, ignorebuffer, completionfilter.toInt(), (notifyirp?.value ?: 0L), 0L, (subjectcontext?.value ?: 0L), 0L)
+public actual fun fsRtlNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>, fulldirectoryname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: ConstPtr<Irp>, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr<SecuritySubjectContext>, filtercallback: PfilterReportChange) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyFilterChangeDirectory(notifysync, notifylist.rawAddress, fscontext.rawAddress, fulldirectoryname.rawAddress, watchtree, ignorebuffer, completionfilter.toInt(), notifyirp.rawAddress, 0L, subjectcontext.rawAddress, 0L)
 }
 
-public actual fun fsRtlNotifyFilterReportChange(notifysync: PnotifySync, notifylist: COpaquePointer?, fulltargetname: COpaquePointer?, targetnameoffset: UShort, streamname: COpaquePointer?, normalizedparentname: COpaquePointer?, filtermatch: UInt, action: UInt, targetcontext: COpaquePointer?, filtercontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange(notifysync, (notifylist?.value ?: 0L), (fulltargetname?.value ?: 0L), targetnameoffset.toShort(), (streamname?.value ?: 0L), (normalizedparentname?.value ?: 0L), filtermatch.toInt(), action.toInt(), (targetcontext?.value ?: 0L), (filtercontext?.value ?: 0L))
+public actual fun fsRtlNotifyFilterReportChange(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fulltargetname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, targetnameoffset: UShort, streamname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, normalizedparentname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, filtermatch: UInt, action: UInt, targetcontext: ConstPtr<CVoid>, filtercontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyFilterReportChange(notifysync, notifylist.rawAddress, fulltargetname.rawAddress, targetnameoffset.toShort(), streamname.rawAddress, normalizedparentname.rawAddress, filtermatch.toInt(), action.toInt(), targetcontext.rawAddress, filtercontext.rawAddress)
 }
 
-public actual fun fsRtlNotifyFullChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory(notifysync, (notifylist?.value ?: 0L), (fscontext?.value ?: 0L), (fulldirectoryname?.value ?: 0L), watchtree, ignorebuffer, completionfilter.toInt(), (notifyirp?.value ?: 0L), 0L, (subjectcontext?.value ?: 0L))
+public actual fun fsRtlNotifyFullChangeDirectory(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>, fulldirectoryname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: ConstPtr<Irp>, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr<SecuritySubjectContext>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyFullChangeDirectory(notifysync, notifylist.rawAddress, fscontext.rawAddress, fulldirectoryname.rawAddress, watchtree, ignorebuffer, completionfilter.toInt(), notifyirp.rawAddress, 0L, subjectcontext.rawAddress)
 }
 
-public actual fun fsRtlNotifyFullReportChange(notifysync: PnotifySync, notifylist: COpaquePointer?, fulltargetname: COpaquePointer?, targetnameoffset: UShort, streamname: COpaquePointer?, normalizedparentname: COpaquePointer?, filtermatch: UInt, action: UInt, targetcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange(notifysync, (notifylist?.value ?: 0L), (fulltargetname?.value ?: 0L), targetnameoffset.toShort(), (streamname?.value ?: 0L), (normalizedparentname?.value ?: 0L), filtermatch.toInt(), action.toInt(), (targetcontext?.value ?: 0L))
+public actual fun fsRtlNotifyFullReportChange(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fulltargetname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, targetnameoffset: UShort, streamname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, normalizedparentname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, filtermatch: UInt, action: UInt, targetcontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyFullReportChange(notifysync, notifylist.rawAddress, fulltargetname.rawAddress, targetnameoffset.toShort(), streamname.rawAddress, normalizedparentname.rawAddress, filtermatch.toInt(), action.toInt(), targetcontext.rawAddress)
 }
 
-public actual fun fsRtlNotifyInitializeSync(notifysync: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync((notifysync?.value ?: 0L))
+public actual fun fsRtlNotifyInitializeSync(notifysync: MutPtr<PnotifySync>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyInitializeSync(notifysync.rawAddress)
 }
 
-public actual fun fsRtlNotifyUninitializeSync(notifysync: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync((notifysync?.value ?: 0L))
+public actual fun fsRtlNotifyUninitializeSync(notifysync: MutPtr<PnotifySync>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyUninitializeSync(notifysync.rawAddress)
 }
 
-public actual fun fsRtlNotifyVolumeEvent(fileobject: COpaquePointer?, eventcode: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent((fileobject?.value ?: 0L), eventcode.toInt())
+public actual fun fsRtlNotifyVolumeEvent(fileobject: ConstPtr<FileObject>, eventcode: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyVolumeEvent(fileobject.rawAddress, eventcode.toInt())
 
-public actual fun fsRtlNotifyVolumeEventEx(fileobject: COpaquePointer?, eventcode: UInt, event: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx((fileobject?.value ?: 0L), eventcode.toInt(), (event?.value ?: 0L))
+public actual fun fsRtlNotifyVolumeEventEx(fileobject: ConstPtr<FileObject>, eventcode: UInt, event: ConstPtr<TargetDeviceCustomNotification>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNotifyVolumeEventEx(fileobject.rawAddress, eventcode.toInt(), event.rawAddress)
 
-public actual fun fsRtlNumberOfRunsInBaseMcb(mcb: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb((mcb?.value ?: 0L)).toUInt()
+public actual fun fsRtlNumberOfRunsInBaseMcb(mcb: ConstPtr<BaseMcb>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInBaseMcb(mcb.rawAddress).toUInt()
 
-public actual fun fsRtlNumberOfRunsInLargeMcb(mcb: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb((mcb?.value ?: 0L)).toUInt()
+public actual fun fsRtlNumberOfRunsInLargeMcb(mcb: ConstPtr<LargeMcb>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInLargeMcb(mcb.rawAddress).toUInt()
 
-public actual fun fsRtlNumberOfRunsInMcb(mcb: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb((mcb?.value ?: 0L)).toUInt()
+public actual fun fsRtlNumberOfRunsInMcb(mcb: ConstPtr<Mcb>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInMcb(mcb.rawAddress).toUInt()
 
-public actual fun fsRtlOplockBreakH(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH((oplock?.value ?: 0L), (irp?.value ?: 0L), flags.toInt(), (context?.value ?: 0L), 0L, 0L)
+public actual fun fsRtlOplockBreakH(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakH(oplock.rawAddress, irp.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L)
 
-public actual fun fsRtlOplockBreakH2(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, grantedaccess: COpaquePointer?, shareaccess: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2((oplock?.value ?: 0L), (irp?.value ?: 0L), flags.toInt(), (context?.value ?: 0L), 0L, 0L, (grantedaccess?.value ?: 0L), (shareaccess?.value ?: 0L))
+public actual fun fsRtlOplockBreakH2(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, grantedaccess: ConstPtr<UInt>, shareaccess: ConstPtr<UShort>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakH2(oplock.rawAddress, irp.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L, grantedaccess.rawAddress, shareaccess.rawAddress)
 
-public actual fun fsRtlOplockBreakToNone(oplock: COpaquePointer?, irpsp: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone((oplock?.value ?: 0L), (irpsp?.value ?: 0L), (irp?.value ?: 0L), (context?.value ?: 0L), 0L, 0L)
+public actual fun fsRtlOplockBreakToNone(oplock: MutPtr<MutPtr<CVoid>>, irpsp: ConstPtr<IoStackLocation>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakToNone(oplock.rawAddress, irpsp.rawAddress, irp.rawAddress, context.rawAddress, 0L, 0L)
 
-public actual fun fsRtlOplockBreakToNoneEx(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx((oplock?.value ?: 0L), (irp?.value ?: 0L), flags.toInt(), (context?.value ?: 0L), 0L, 0L)
+public actual fun fsRtlOplockBreakToNoneEx(oplock: MutPtr<MutPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakToNoneEx(oplock.rawAddress, irp.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L)
 
-public actual fun fsRtlOplockFsctrl(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl((oplock?.value ?: 0L), (irp?.value ?: 0L), opencount.toInt())
+public actual fun fsRtlOplockFsctrl(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, opencount: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockFsctrl(oplock.rawAddress, irp.rawAddress, opencount.toInt())
 
-public actual fun fsRtlOplockFsctrlEx(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx((oplock?.value ?: 0L), (irp?.value ?: 0L), opencount.toInt(), flags.toInt())
+public actual fun fsRtlOplockFsctrlEx(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, opencount: UInt, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockFsctrlEx(oplock.rawAddress, irp.rawAddress, opencount.toInt(), flags.toInt())
 
-public actual fun fsRtlOplockGetAnyBreakOwnerProcess(oplock: COpaquePointer?): Peprocess =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess((oplock?.value ?: 0L))
+public actual fun fsRtlOplockGetAnyBreakOwnerProcess(oplock: ConstPtr<ConstPtr<CVoid>>): Peprocess =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockGetAnyBreakOwnerProcess(oplock.rawAddress)
 
-public actual fun fsRtlOplockIsFastIoPossible(oplock: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible((oplock?.value ?: 0L))
+public actual fun fsRtlOplockIsFastIoPossible(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockIsFastIoPossible(oplock.rawAddress)
 
-public actual fun fsRtlOplockIsSharedRequest(irp: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest((irp?.value ?: 0L))
+public actual fun fsRtlOplockIsSharedRequest(irp: ConstPtr<Irp>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockIsSharedRequest(irp.rawAddress)
 
-public actual fun fsRtlOplockKeysEqual(fo1: COpaquePointer?, fo2: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual((fo1?.value ?: 0L), (fo2?.value ?: 0L))
+public actual fun fsRtlOplockKeysEqual(fo1: ConstPtr<FileObject>, fo2: ConstPtr<FileObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlOplockKeysEqual(fo1.rawAddress, fo2.rawAddress)
 
-public actual fun fsRtlPostPagingFileStackOverflow(context: COpaquePointer?, event: COpaquePointer?, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow((context?.value ?: 0L), (event?.value ?: 0L), 0L)
+public actual fun fsRtlPostPagingFileStackOverflow(context: ConstPtr<CVoid>, event: ConstPtr<Kevent>, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlPostPagingFileStackOverflow(context.rawAddress, event.rawAddress, 0L)
 }
 
-public actual fun fsRtlPostStackOverflow(context: COpaquePointer?, event: COpaquePointer?, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow((context?.value ?: 0L), (event?.value ?: 0L), 0L)
+public actual fun fsRtlPostStackOverflow(context: ConstPtr<CVoid>, event: ConstPtr<Kevent>, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlPostStackOverflow(context.rawAddress, event.rawAddress, 0L)
 }
 
-public actual fun fsRtlPrepareMdlWriteDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L), (deviceobject?.value ?: 0L))
+public actual fun fsRtlPrepareMdlWriteDev(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlPrepareMdlWriteDev(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), lockkey.toInt(), mdlchain.rawAddress, iostatus.rawAddress, deviceobject.rawAddress)
 
-public actual fun fsRtlPrepareMdlWriteEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx((fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun fsRtlPrepareMdlWriteEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlPrepareMdlWriteEx(fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), lockkey.toInt(), mdlchain.rawAddress, iostatus.rawAddress)
 
-public actual fun fsRtlPrepareToReuseEcp(ecpcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp((ecpcontext?.value ?: 0L))
+public actual fun fsRtlPrepareToReuseEcp(ecpcontext: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlPrepareToReuseEcp(ecpcontext.rawAddress)
 }
 
-public actual fun fsRtlPrivateLock(filelock: COpaquePointer?, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, alreadysynchronized: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock((filelock?.value ?: 0L), (fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), (length?.value ?: 0L), processid, key.toInt(), failimmediately, exclusivelock, (iosb?.value ?: 0L), (irp?.value ?: 0L), (context?.value ?: 0L), alreadysynchronized)
+public actual fun fsRtlPrivateLock(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: ConstPtr<Long>, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: MutPtr<IoStatusBlock>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>, alreadysynchronized: Boolean): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlPrivateLock(filelock.rawAddress, fileobject.rawAddress, fileoffset.rawAddress, length.rawAddress, processid, key.toInt(), failimmediately, exclusivelock, iosb.rawAddress, irp.rawAddress, context.rawAddress, alreadysynchronized)
 
-public actual fun fsRtlProcessFileLock(filelock: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock((filelock?.value ?: 0L), (irp?.value ?: 0L), (context?.value ?: 0L))
+public actual fun fsRtlProcessFileLock(filelock: ConstPtr<FileLock>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlProcessFileLock(filelock.rawAddress, irp.rawAddress, context.rawAddress)
 
-public actual fun fsRtlQueryCachedVdl(fileobject: COpaquePointer?, vdl: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl((fileobject?.value ?: 0L), (vdl?.value ?: 0L))
+public actual fun fsRtlQueryCachedVdl(fileobject: ConstPtr<FileObject>, vdl: MutPtr<Long>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlQueryCachedVdl(fileobject.rawAddress, vdl.rawAddress)
 
-public actual fun fsRtlQueryInformationFile(fileobject: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, retfileinformationsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile((fileobject?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, (retfileinformationsize?.value ?: 0L))
+public actual fun fsRtlQueryInformationFile(fileobject: ConstPtr<FileObject>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, retfileinformationsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlQueryInformationFile(fileobject.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, retfileinformationsize.rawAddress)
 
-public actual fun fsRtlQueryKernelEaFile(fileobject: COpaquePointer?, returnedeadata: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean, lengthreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile((fileobject?.value ?: 0L), (returnedeadata?.value ?: 0L), length.toInt(), returnsingleentry, (ealist?.value ?: 0L), ealistlength.toInt(), (eaindex?.value ?: 0L), restartscan, (lengthreturned?.value ?: 0L))
+public actual fun fsRtlQueryKernelEaFile(fileobject: ConstPtr<FileObject>, returnedeadata: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean, lengthreturned: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlQueryKernelEaFile(fileobject.rawAddress, returnedeadata.rawAddress, length.toInt(), returnsingleentry, ealist.rawAddress, ealistlength.toInt(), eaindex.rawAddress, restartscan, lengthreturned.rawAddress)
 
 public actual fun fsRtlQueryMaximumVirtualDiskNestingLevel(): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel().toUInt()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlQueryMaximumVirtualDiskNestingLevel().toUInt()
 
-public actual fun fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: COpaquePointer?, callbacks: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks((filterdriverobject?.value ?: 0L), (callbacks?.value ?: 0L))
+public actual fun fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: ConstPtr<DriverObject>, callbacks: ConstPtr<FsFilterCallbacks>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRegisterFileSystemFilterCallbacks(filterdriverobject.rawAddress, callbacks.rawAddress)
 
-public actual fun fsRtlRegisterUncProvider(muphandle: COpaquePointer?, redirectordevicename: COpaquePointer?, mailslotssupported: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider((muphandle?.value ?: 0L), (redirectordevicename?.value ?: 0L), mailslotssupported)
+public actual fun fsRtlRegisterUncProvider(muphandle: MutPtr<Handle>, redirectordevicename: ConstPtr<UnicodeString>, mailslotssupported: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProvider(muphandle.rawAddress, redirectordevicename.rawAddress, mailslotssupported)
 
-public actual fun fsRtlRegisterUncProviderEx(muphandle: COpaquePointer?, redirdevname: COpaquePointer?, deviceobject: COpaquePointer?, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx((muphandle?.value ?: 0L), (redirdevname?.value ?: 0L), (deviceobject?.value ?: 0L), flags.toInt())
+public actual fun fsRtlRegisterUncProviderEx(muphandle: MutPtr<Handle>, redirdevname: ConstPtr<UnicodeString>, deviceobject: ConstPtr<DeviceObject>, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProviderEx(muphandle.rawAddress, redirdevname.rawAddress, deviceobject.rawAddress, flags.toInt())
 
-public actual fun fsRtlRegisterUncProviderEx2(redirdevname: COpaquePointer?, deviceobject: COpaquePointer?, registration: COpaquePointer?, muphandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2((redirdevname?.value ?: 0L), (deviceobject?.value ?: 0L), (registration?.value ?: 0L), (muphandle?.value ?: 0L))
+public actual fun fsRtlRegisterUncProviderEx2(redirdevname: ConstPtr<UnicodeString>, deviceobject: ConstPtr<DeviceObject>, registration: ConstPtr<FsrtlUncProviderRegistration>, muphandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProviderEx2(redirdevname.rawAddress, deviceobject.rawAddress, registration.rawAddress, muphandle.rawAddress)
 
-public actual fun fsRtlReleaseFile(fileobject: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile((fileobject?.value ?: 0L))
+public actual fun fsRtlReleaseFile(fileobject: ConstPtr<FileObject>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlReleaseFile(fileobject.rawAddress)
 }
 
-public actual fun fsRtlRemoveBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, sectorcount: Long): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry((mcb?.value ?: 0L), vbn, sectorcount)
+public actual fun fsRtlRemoveBaseMcbEntry(mcb: MutPtr<BaseMcb>, vbn: Long, sectorcount: Long): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemoveBaseMcbEntry(mcb.rawAddress, vbn, sectorcount)
 
-public actual fun fsRtlRemoveDotsFromPath(originalstring: Pwstr, pathlength: UShort, newlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath((originalstring?.value ?: 0L), pathlength.toShort(), (newlength?.value ?: 0L))
+public actual fun fsRtlRemoveDotsFromPath(originalstring: Pwstr, pathlength: UShort, newlength: MutPtr<UShort>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemoveDotsFromPath(originalstring.rawAddress, pathlength.toShort(), newlength.rawAddress)
 
-public actual fun fsRtlRemoveExtraCreateParameter(ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter((ecplist?.value ?: 0L), (ecptype?.value ?: 0L), (ecpcontext?.value ?: 0L), (ecpcontextsize?.value ?: 0L))
+public actual fun fsRtlRemoveExtraCreateParameter(ecplist: MutPtr<EcpList>, ecptype: ConstPtr<Guid>, ecpcontext: MutPtr<MutPtr<CVoid>>, ecpcontextsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemoveExtraCreateParameter(ecplist.rawAddress, ecptype.rawAddress, ecpcontext.rawAddress, ecpcontextsize.rawAddress)
 
-public actual fun fsRtlRemoveLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, sectorcount: Long) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry((mcb?.value ?: 0L), vbn, sectorcount)
+public actual fun fsRtlRemoveLargeMcbEntry(mcb: MutPtr<LargeMcb>, vbn: Long, sectorcount: Long) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemoveLargeMcbEntry(mcb.rawAddress, vbn, sectorcount)
 }
 
-public actual fun fsRtlRemoveMcbEntry(mcb: COpaquePointer?, vbn: UInt, sectorcount: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry((mcb?.value ?: 0L), vbn.toInt(), sectorcount.toInt())
+public actual fun fsRtlRemoveMcbEntry(mcb: MutPtr<Mcb>, vbn: UInt, sectorcount: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemoveMcbEntry(mcb.rawAddress, vbn.toInt(), sectorcount.toInt())
 }
 
-public actual fun fsRtlRemovePerFileContext(perfilecontextpointer: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext((perfilecontextpointer?.value ?: 0L), (ownerid?.value ?: 0L), (instanceid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlRemovePerFileContext(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemovePerFileContext(perfilecontextpointer.rawAddress, ownerid.rawAddress, instanceid.rawAddress))
 
-public actual fun fsRtlRemovePerFileObjectContext(fileobject: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext((fileobject?.value ?: 0L), (ownerid?.value ?: 0L), (instanceid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlRemovePerFileObjectContext(fileobject: ConstPtr<FileObject>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileobjectContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemovePerFileObjectContext(fileobject.rawAddress, ownerid.rawAddress, instanceid.rawAddress))
 
-public actual fun fsRtlRemovePerStreamContext(streamcontext: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext((streamcontext?.value ?: 0L), (ownerid?.value ?: 0L), (instanceid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun fsRtlRemovePerStreamContext(streamcontext: ConstPtr<FsrtlAdvancedFcbHeader>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerStreamContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlRemovePerStreamContext(streamcontext.rawAddress, ownerid.rawAddress, instanceid.rawAddress))
 
-public actual fun fsRtlResetBaseMcb(mcb: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb((mcb?.value ?: 0L))
+public actual fun fsRtlResetBaseMcb(mcb: MutPtr<BaseMcb>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlResetBaseMcb(mcb.rawAddress)
 }
 
-public actual fun fsRtlResetLargeMcb(mcb: COpaquePointer?, selfsynchronized: Boolean) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb((mcb?.value ?: 0L), selfsynchronized)
+public actual fun fsRtlResetLargeMcb(mcb: MutPtr<LargeMcb>, selfsynchronized: Boolean) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlResetLargeMcb(mcb.rawAddress, selfsynchronized)
 }
 
-public actual fun fsRtlSetDriverBacking(driverobj: COpaquePointer?, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking((driverobj?.value ?: 0L), flags.toInt())
+public actual fun fsRtlSetDriverBacking(driverobj: ConstPtr<DriverObject>, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlSetDriverBacking(driverobj.rawAddress, flags.toInt())
 
-public actual fun fsRtlSetEcpListIntoIrp(irp: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp((irp?.value ?: 0L), (ecplist?.value ?: 0L))
+public actual fun fsRtlSetEcpListIntoIrp(irp: MutPtr<Irp>, ecplist: ConstPtr<EcpList>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlSetEcpListIntoIrp(irp.rawAddress, ecplist.rawAddress)
 
-public actual fun fsRtlSetKernelEaFile(fileobject: COpaquePointer?, eabuffer: COpaquePointer?, length: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile((fileobject?.value ?: 0L), (eabuffer?.value ?: 0L), length.toInt())
+public actual fun fsRtlSetKernelEaFile(fileobject: ConstPtr<FileObject>, eabuffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlSetKernelEaFile(fileobject.rawAddress, eabuffer.rawAddress, length.toInt())
 
-public actual fun fsRtlSplitBaseMcb(mcb: COpaquePointer?, vbn: Long, amount: Long): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb((mcb?.value ?: 0L), vbn, amount)
+public actual fun fsRtlSplitBaseMcb(mcb: MutPtr<BaseMcb>, vbn: Long, amount: Long): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlSplitBaseMcb(mcb.rawAddress, vbn, amount)
 
-public actual fun fsRtlSplitLargeMcb(mcb: COpaquePointer?, vbn: Long, amount: Long): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb((mcb?.value ?: 0L), vbn, amount)
+public actual fun fsRtlSplitLargeMcb(mcb: MutPtr<LargeMcb>, vbn: Long, amount: Long): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlSplitLargeMcb(mcb.rawAddress, vbn, amount)
 
-public actual fun fsRtlTeardownPerFileContexts(perfilecontextpointer: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts((perfilecontextpointer?.value ?: 0L))
+public actual fun fsRtlTeardownPerFileContexts(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlTeardownPerFileContexts(perfilecontextpointer.rawAddress)
 }
 
-public actual fun fsRtlTeardownPerStreamContexts(advancedheader: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts((advancedheader?.value ?: 0L))
+public actual fun fsRtlTeardownPerStreamContexts(advancedheader: ConstPtr<FsrtlAdvancedFcbHeader>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlTeardownPerStreamContexts(advancedheader.rawAddress)
 }
 
-public actual fun fsRtlTruncateBaseMcb(mcb: COpaquePointer?, vbn: Long) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb((mcb?.value ?: 0L), vbn)
+public actual fun fsRtlTruncateBaseMcb(mcb: MutPtr<BaseMcb>, vbn: Long) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlTruncateBaseMcb(mcb.rawAddress, vbn)
 }
 
-public actual fun fsRtlTruncateLargeMcb(mcb: COpaquePointer?, vbn: Long) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb((mcb?.value ?: 0L), vbn)
+public actual fun fsRtlTruncateLargeMcb(mcb: MutPtr<LargeMcb>, vbn: Long) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlTruncateLargeMcb(mcb.rawAddress, vbn)
 }
 
-public actual fun fsRtlTruncateMcb(mcb: COpaquePointer?, vbn: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb((mcb?.value ?: 0L), vbn.toInt())
+public actual fun fsRtlTruncateMcb(mcb: MutPtr<Mcb>, vbn: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlTruncateMcb(mcb.rawAddress, vbn.toInt())
 }
 
-public actual fun fsRtlUninitializeBaseMcb(mcb: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb((mcb?.value ?: 0L))
+public actual fun fsRtlUninitializeBaseMcb(mcb: ConstPtr<BaseMcb>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUninitializeBaseMcb(mcb.rawAddress)
 }
 
-public actual fun fsRtlUninitializeFileLock(filelock: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock((filelock?.value ?: 0L))
+public actual fun fsRtlUninitializeFileLock(filelock: MutPtr<FileLock>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUninitializeFileLock(filelock.rawAddress)
 }
 
-public actual fun fsRtlUninitializeLargeMcb(mcb: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb((mcb?.value ?: 0L))
+public actual fun fsRtlUninitializeLargeMcb(mcb: MutPtr<LargeMcb>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUninitializeLargeMcb(mcb.rawAddress)
 }
 
-public actual fun fsRtlUninitializeMcb(mcb: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb((mcb?.value ?: 0L))
+public actual fun fsRtlUninitializeMcb(mcb: MutPtr<Mcb>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUninitializeMcb(mcb.rawAddress)
 }
 
-public actual fun fsRtlUninitializeOplock(oplock: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock((oplock?.value ?: 0L))
+public actual fun fsRtlUninitializeOplock(oplock: MutPtr<MutPtr<CVoid>>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUninitializeOplock(oplock.rawAddress)
 }
 
 public actual fun fsRtlUpdateDiskCounters(bytesread: ULong, byteswritten: ULong) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters(bytesread.toLong(), byteswritten.toLong())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUpdateDiskCounters(bytesread.toLong(), byteswritten.toLong())
 }
 
-public actual fun fsRtlUpperOplockFsctrl(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt, loweroplockstate: UInt, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl((oplock?.value ?: 0L), (irp?.value ?: 0L), opencount.toInt(), loweroplockstate.toInt(), flags.toInt())
+public actual fun fsRtlUpperOplockFsctrl(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, opencount: UInt, loweroplockstate: UInt, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlUpperOplockFsctrl(oplock.rawAddress, irp.rawAddress, opencount.toInt(), loweroplockstate.toInt(), flags.toInt())
 
-public actual fun fsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer(bufferlength.toInt(), (reparsebuffer?.value ?: 0L))
+public actual fun fsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: ConstPtr<ReparseDataBuffer>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlValidateReparsePointBuffer(bufferlength.toInt(), reparsebuffer.rawAddress)
 
-public actual fun fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId((volumedeviceobject?.value ?: 0L), (guid?.value ?: 0L))
+public actual fun fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: ConstPtr<DeviceObject>, guid: MutPtr<Guid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemFsRtlVolumeDeviceToCorrelationId(volumedeviceobject.rawAddress, guid.rawAddress)
 
-public actual fun getSecurityUserInfo(logonid: COpaquePointer?, flags: UInt, userinformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo((logonid?.value ?: 0L), flags.toInt(), (userinformation?.value ?: 0L))
+public actual fun getSecurityUserInfo(logonid: ConstPtr<Luid>, flags: UInt, userinformation: MutPtr<MutPtr<SecurityUserData>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemGetSecurityUserInfo(logonid.rawAddress, flags.toInt(), userinformation.rawAddress)
 
-public actual fun ioAcquireVpbSpinLock(irql: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock((irql?.value ?: 0L))
+public actual fun ioAcquireVpbSpinLock(irql: MutPtr<UByte>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoAcquireVpbSpinLock(irql.rawAddress)
 }
 
-public actual fun ioApplyPriorityInfoThread(inputpriorityinfo: COpaquePointer?, outputpriorityinfo: COpaquePointer?, thread: Pethread): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread((inputpriorityinfo?.value ?: 0L), (outputpriorityinfo?.value ?: 0L), thread)
+public actual fun ioApplyPriorityInfoThread(inputpriorityinfo: ConstPtr<IoPriorityInfo>, outputpriorityinfo: MutPtr<IoPriorityInfo>, thread: Pethread): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoApplyPriorityInfoThread(inputpriorityinfo.rawAddress, outputpriorityinfo.rawAddress, thread)
 
-public actual fun ioCheckDesiredAccess(desiredaccess: COpaquePointer?, grantedaccess: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess((desiredaccess?.value ?: 0L), grantedaccess.toInt())
+public actual fun ioCheckDesiredAccess(desiredaccess: MutPtr<UInt>, grantedaccess: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCheckDesiredAccess(desiredaccess.rawAddress, grantedaccess.toInt())
 
-public actual fun ioCheckEaBufferValidity(eabuffer: COpaquePointer?, ealength: UInt, erroroffset: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity((eabuffer?.value ?: 0L), ealength.toInt(), (erroroffset?.value ?: 0L))
+public actual fun ioCheckEaBufferValidity(eabuffer: ConstPtr<FileFullEaInformation>, ealength: UInt, erroroffset: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCheckEaBufferValidity(eabuffer.rawAddress, ealength.toInt(), erroroffset.rawAddress)
 
-public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: COpaquePointer?, arg2: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess(grantedaccess.toInt(), majorfunction.toByte(), minorfunction.toByte(), iocontrolcode.toInt(), (arg1?.value ?: 0L), (arg2?.value ?: 0L))
+public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: ConstPtr<CVoid>, arg2: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCheckFunctionAccess(grantedaccess.toInt(), majorfunction.toByte(), minorfunction.toByte(), iocontrolcode.toInt(), arg1.rawAddress, arg2.rawAddress)
 
 public actual fun ioCheckQuerySetFileInformation(fileinformationclass: FileInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation(fileinformationclass, length.toInt(), setoperation)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCheckQuerySetFileInformation(fileinformationclass, length.toInt(), setoperation)
 
 public actual fun ioCheckQuerySetVolumeInformation(fsinformationclass: FsInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation(fsinformationclass, length.toInt(), setoperation)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation(fsinformationclass, length.toInt(), setoperation)
 
-public actual fun ioCheckQuotaBufferValidity(quotabuffer: COpaquePointer?, quotalength: UInt, erroroffset: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity((quotabuffer?.value ?: 0L), quotalength.toInt(), (erroroffset?.value ?: 0L))
+public actual fun ioCheckQuotaBufferValidity(quotabuffer: ConstPtr<FileQuotaInformation>, quotalength: UInt, erroroffset: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCheckQuotaBufferValidity(quotabuffer.rawAddress, quotalength.toInt(), erroroffset.rawAddress)
 
-public actual fun ioClearFsTrackOffsetState(irp: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState((irp?.value ?: 0L))
+public actual fun ioClearFsTrackOffsetState(irp: MutPtr<Irp>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoClearFsTrackOffsetState(irp.rawAddress)
 
-public actual fun ioCreateStreamFileObject(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject((fileobject?.value ?: 0L), (deviceobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioCreateStreamFileObject(fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>): MutPtr<FileObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObject(fileobject.rawAddress, deviceobject.rawAddress))
 
-public actual fun ioCreateStreamFileObjectEx(fileobject: COpaquePointer?, deviceobject: COpaquePointer?, filehandle: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx((fileobject?.value ?: 0L), (deviceobject?.value ?: 0L), (filehandle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioCreateStreamFileObjectEx(fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>, filehandle: MutPtr<Handle>): MutPtr<FileObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectEx(fileobject.rawAddress, deviceobject.rawAddress, filehandle.rawAddress))
 
-public actual fun ioCreateStreamFileObjectEx2(createoptions: COpaquePointer?, fileobject: COpaquePointer?, deviceobject: COpaquePointer?, streamfileobject: COpaquePointer?, filehandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2((createoptions?.value ?: 0L), (fileobject?.value ?: 0L), (deviceobject?.value ?: 0L), (streamfileobject?.value ?: 0L), (filehandle?.value ?: 0L))
+public actual fun ioCreateStreamFileObjectEx2(createoptions: ConstPtr<IoCreateStreamFileOptions>, fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>, streamfileobject: MutPtr<MutPtr<FileObject>>, filehandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectEx2(createoptions.rawAddress, fileobject.rawAddress, deviceobject.rawAddress, streamfileobject.rawAddress, filehandle.rawAddress)
 
-public actual fun ioCreateStreamFileObjectLite(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite((fileobject?.value ?: 0L), (deviceobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioCreateStreamFileObjectLite(fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>): MutPtr<FileObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectLite(fileobject.rawAddress, deviceobject.rawAddress))
 
-public actual fun ioEnumerateDeviceObjectList(driverobject: COpaquePointer?, deviceobjectlist: COpaquePointer?, deviceobjectlistsize: UInt, actualnumberdeviceobjects: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList((driverobject?.value ?: 0L), (deviceobjectlist?.value ?: 0L), deviceobjectlistsize.toInt(), (actualnumberdeviceobjects?.value ?: 0L))
+public actual fun ioEnumerateDeviceObjectList(driverobject: ConstPtr<DriverObject>, deviceobjectlist: MutPtr<MutPtr<DeviceObject>>, deviceobjectlistsize: UInt, actualnumberdeviceobjects: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoEnumerateDeviceObjectList(driverobject.rawAddress, deviceobjectlist.rawAddress, deviceobjectlistsize.toInt(), actualnumberdeviceobjects.rawAddress)
 
-public actual fun ioEnumerateRegisteredFiltersList(driverobjectlist: COpaquePointer?, driverobjectlistsize: UInt, actualnumberdriverobjects: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList((driverobjectlist?.value ?: 0L), driverobjectlistsize.toInt(), (actualnumberdriverobjects?.value ?: 0L))
+public actual fun ioEnumerateRegisteredFiltersList(driverobjectlist: MutPtr<MutPtr<DriverObject>>, driverobjectlistsize: UInt, actualnumberdriverobjects: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoEnumerateRegisteredFiltersList(driverobjectlist.rawAddress, driverobjectlistsize.toInt(), actualnumberdriverobjects.rawAddress)
 
-public actual fun ioFastQueryNetworkAttributes(objectattributes: COpaquePointer?, desiredaccess: UInt, openoptions: UInt, iostatus: COpaquePointer?, buffer: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes((objectattributes?.value ?: 0L), desiredaccess.toInt(), openoptions.toInt(), (iostatus?.value ?: 0L), (buffer?.value ?: 0L))
+public actual fun ioFastQueryNetworkAttributes(objectattributes: ConstPtr<ObjectAttributes>, desiredaccess: UInt, openoptions: UInt, iostatus: MutPtr<IoStatusBlock>, buffer: MutPtr<FileNetworkOpenInformation>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoFastQueryNetworkAttributes(objectattributes.rawAddress, desiredaccess.toInt(), openoptions.toInt(), iostatus.rawAddress, buffer.rawAddress)
 
-public actual fun ioGetAttachedDevice(deviceobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice((deviceobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetAttachedDevice(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetAttachedDevice(deviceobject.rawAddress))
 
-public actual fun ioGetBaseFileSystemDeviceObject(fileobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject((fileobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetBaseFileSystemDeviceObject(fileobject: ConstPtr<FileObject>): MutPtr<DeviceObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetBaseFileSystemDeviceObject(fileobject.rawAddress))
 
-public actual fun ioGetDeviceAttachmentBaseRef(deviceobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef((deviceobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetDeviceAttachmentBaseRef(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetDeviceAttachmentBaseRef(deviceobject.rawAddress))
 
-public actual fun ioGetDeviceToVerify(thread: Pethread): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify(thread).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetDeviceToVerify(thread: Pethread): MutPtr<DeviceObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetDeviceToVerify(thread))
 
-public actual fun ioGetDiskDeviceObject(filesystemdeviceobject: COpaquePointer?, diskdeviceobject: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject((filesystemdeviceobject?.value ?: 0L), (diskdeviceobject?.value ?: 0L))
+public actual fun ioGetDiskDeviceObject(filesystemdeviceobject: ConstPtr<DeviceObject>, diskdeviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetDiskDeviceObject(filesystemdeviceobject.rawAddress, diskdeviceobject.rawAddress)
 
-public actual fun ioGetFsTrackOffsetState(irp: COpaquePointer?, retfstrackoffsetblob: COpaquePointer?, rettrackedoffset: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState((irp?.value ?: 0L), (retfstrackoffsetblob?.value ?: 0L), (rettrackedoffset?.value ?: 0L))
+public actual fun ioGetFsTrackOffsetState(irp: ConstPtr<Irp>, retfstrackoffsetblob: MutPtr<MutPtr<IoIrpExtTrackOffsetHeader>>, rettrackedoffset: MutPtr<Long>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetFsTrackOffsetState(irp.rawAddress, retfstrackoffsetblob.rawAddress, rettrackedoffset.rawAddress)
 
-public actual fun ioGetLowerDeviceObject(deviceobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject((deviceobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetLowerDeviceObject(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetLowerDeviceObject(deviceobject.rawAddress))
 
-public actual fun ioGetOplockKeyContext(fileobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext((fileobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetOplockKeyContext(fileobject: ConstPtr<FileObject>): MutPtr<OplockKeyEcpContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetOplockKeyContext(fileobject.rawAddress))
 
-public actual fun ioGetOplockKeyContextEx(fileobject: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx((fileobject?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ioGetOplockKeyContextEx(fileobject: ConstPtr<FileObject>): MutPtr<OplockKeyContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetOplockKeyContextEx(fileobject.rawAddress))
 
-public actual fun ioGetRequestorProcess(irp: COpaquePointer?): Peprocess =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess((irp?.value ?: 0L))
+public actual fun ioGetRequestorProcess(irp: ConstPtr<Irp>): Peprocess =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetRequestorProcess(irp.rawAddress)
 
-public actual fun ioGetRequestorProcessId(irp: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId((irp?.value ?: 0L)).toUInt()
+public actual fun ioGetRequestorProcessId(irp: ConstPtr<Irp>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetRequestorProcessId(irp.rawAddress).toUInt()
 
-public actual fun ioGetRequestorSessionId(irp: COpaquePointer?, psessionid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId((irp?.value ?: 0L), (psessionid?.value ?: 0L))
+public actual fun ioGetRequestorSessionId(irp: ConstPtr<Irp>, psessionid: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoGetRequestorSessionId(irp.rawAddress, psessionid.rawAddress)
 
-public actual fun ioIrpHasFsTrackOffsetExtensionType(irp: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType((irp?.value ?: 0L))
+public actual fun ioIrpHasFsTrackOffsetExtensionType(irp: ConstPtr<Irp>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoIrpHasFsTrackOffsetExtensionType(irp.rawAddress)
 
-public actual fun ioIsOperationSynchronous(irp: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous((irp?.value ?: 0L))
+public actual fun ioIsOperationSynchronous(irp: ConstPtr<Irp>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoIsOperationSynchronous(irp.rawAddress)
 
 public actual fun ioIsSystemThread(thread: Pethread): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioIsSystemThread(thread)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoIsSystemThread(thread)
 
-public actual fun ioIsValidNameGraftingBuffer(irp: COpaquePointer?, reparsebuffer: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer((irp?.value ?: 0L), (reparsebuffer?.value ?: 0L))
+public actual fun ioIsValidNameGraftingBuffer(irp: ConstPtr<Irp>, reparsebuffer: ConstPtr<ReparseDataBuffer>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoIsValidNameGraftingBuffer(irp.rawAddress, reparsebuffer.rawAddress)
 
-public actual fun ioPageRead(fileobject: COpaquePointer?, memorydescriptorlist: COpaquePointer?, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioPageRead((fileobject?.value ?: 0L), (memorydescriptorlist?.value ?: 0L), (startingoffset?.value ?: 0L), (event?.value ?: 0L), (iostatusblock?.value ?: 0L))
+public actual fun ioPageRead(fileobject: ConstPtr<FileObject>, memorydescriptorlist: ConstPtr<Mdl>, startingoffset: ConstPtr<Long>, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoPageRead(fileobject.rawAddress, memorydescriptorlist.rawAddress, startingoffset.rawAddress, event.rawAddress, iostatusblock.rawAddress)
 
-public actual fun ioQueryFileDosDeviceName(fileobject: COpaquePointer?, objectnameinformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName((fileobject?.value ?: 0L), (objectnameinformation?.value ?: 0L))
+public actual fun ioQueryFileDosDeviceName(fileobject: ConstPtr<FileObject>, objectnameinformation: MutPtr<MutPtr<ObjectNameInformation>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoQueryFileDosDeviceName(fileobject.rawAddress, objectnameinformation.rawAddress)
 
-public actual fun ioQueryFileInformation(fileobject: COpaquePointer?, fileinformationclass: FileInformationClass, length: UInt, fileinformation: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation((fileobject?.value ?: 0L), fileinformationclass, length.toInt(), (fileinformation?.value ?: 0L), (returnedlength?.value ?: 0L))
+public actual fun ioQueryFileInformation(fileobject: ConstPtr<FileObject>, fileinformationclass: FileInformationClass, length: UInt, fileinformation: MutPtr<CVoid>, returnedlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoQueryFileInformation(fileobject.rawAddress, fileinformationclass, length.toInt(), fileinformation.rawAddress, returnedlength.rawAddress)
 
-public actual fun ioQueryVolumeInformation(fileobject: COpaquePointer?, fsinformationclass: FsInformationClass, length: UInt, fsinformation: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation((fileobject?.value ?: 0L), fsinformationclass, length.toInt(), (fsinformation?.value ?: 0L), (returnedlength?.value ?: 0L))
+public actual fun ioQueryVolumeInformation(fileobject: ConstPtr<FileObject>, fsinformationclass: FsInformationClass, length: UInt, fsinformation: MutPtr<CVoid>, returnedlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoQueryVolumeInformation(fileobject.rawAddress, fsinformationclass, length.toInt(), fsinformation.rawAddress, returnedlength.rawAddress)
 
-public actual fun ioQueueThreadIrp(irp: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp((irp?.value ?: 0L))
+public actual fun ioQueueThreadIrp(irp: ConstPtr<Irp>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoQueueThreadIrp(irp.rawAddress)
 }
 
-public actual fun ioRegisterFileSystem(deviceobject: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem((deviceobject?.value ?: 0L))
+public actual fun ioRegisterFileSystem(deviceobject: ConstPtr<DeviceObject>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoRegisterFileSystem(deviceobject.rawAddress)
 }
 
-public actual fun ioRegisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification): Ntstatus =
+public actual fun ioRegisterFsRegistrationChange(driverobject: ConstPtr<DriverObject>, drivernotificationroutine: DriverFsNotification): Ntstatus =
     0
 
-public actual fun ioRegisterFsRegistrationChangeMountAware(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification, synchronizewithmounts: Boolean): Ntstatus =
+public actual fun ioRegisterFsRegistrationChangeMountAware(driverobject: ConstPtr<DriverObject>, drivernotificationroutine: DriverFsNotification, synchronizewithmounts: Boolean): Ntstatus =
     0
 
 public actual fun ioReleaseVpbSpinLock(irql: UByte) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock(irql.toByte())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoReleaseVpbSpinLock(irql.toByte())
 }
 
-public actual fun ioReplaceFileObjectName(fileobject: COpaquePointer?, newfilename: Pcwstr, filenamelength: UShort): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName((fileobject?.value ?: 0L), (newfilename?.value ?: 0L), filenamelength.toShort())
+public actual fun ioReplaceFileObjectName(fileobject: ConstPtr<FileObject>, newfilename: Pcwstr, filenamelength: UShort): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoReplaceFileObjectName(fileobject.rawAddress, newfilename.rawAddress, filenamelength.toShort())
 
-public actual fun ioRequestDeviceRemovalForReset(physicaldeviceobject: COpaquePointer?, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset((physicaldeviceobject?.value ?: 0L), flags.toInt())
+public actual fun ioRequestDeviceRemovalForReset(physicaldeviceobject: ConstPtr<DeviceObject>, flags: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoRequestDeviceRemovalForReset(physicaldeviceobject.rawAddress, flags.toInt())
 
-public actual fun ioRetrievePriorityInfo(irp: COpaquePointer?, fileobject: COpaquePointer?, thread: Pethread, priorityinfo: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo((irp?.value ?: 0L), (fileobject?.value ?: 0L), thread, (priorityinfo?.value ?: 0L))
+public actual fun ioRetrievePriorityInfo(irp: ConstPtr<Irp>, fileobject: ConstPtr<FileObject>, thread: Pethread, priorityinfo: MutPtr<IoPriorityInfo>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoRetrievePriorityInfo(irp.rawAddress, fileobject.rawAddress, thread, priorityinfo.rawAddress)
 
-public actual fun ioSetDeviceToVerify(thread: Pethread, deviceobject: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify(thread, (deviceobject?.value ?: 0L))
+public actual fun ioSetDeviceToVerify(thread: Pethread, deviceobject: ConstPtr<DeviceObject>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoSetDeviceToVerify(thread, deviceobject.rawAddress)
 }
 
-public actual fun ioSetFsTrackOffsetState(irp: COpaquePointer?, fstrackoffsetblob: COpaquePointer?, trackedoffset: Long): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState((irp?.value ?: 0L), (fstrackoffsetblob?.value ?: 0L), trackedoffset)
+public actual fun ioSetFsTrackOffsetState(irp: MutPtr<Irp>, fstrackoffsetblob: ConstPtr<IoIrpExtTrackOffsetHeader>, trackedoffset: Long): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoSetFsTrackOffsetState(irp.rawAddress, fstrackoffsetblob.rawAddress, trackedoffset)
 
-public actual fun ioSetInformation(fileobject: COpaquePointer?, fileinformationclass: FileInformationClass, length: UInt, fileinformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioSetInformation((fileobject?.value ?: 0L), fileinformationclass, length.toInt(), (fileinformation?.value ?: 0L))
+public actual fun ioSetInformation(fileobject: ConstPtr<FileObject>, fileinformationclass: FileInformationClass, length: UInt, fileinformation: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoSetInformation(fileobject.rawAddress, fileinformationclass, length.toInt(), fileinformation.rawAddress)
 
-public actual fun ioSynchronousPageWrite(fileobject: COpaquePointer?, memorydescriptorlist: COpaquePointer?, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite((fileobject?.value ?: 0L), (memorydescriptorlist?.value ?: 0L), (startingoffset?.value ?: 0L), (event?.value ?: 0L), (iostatusblock?.value ?: 0L))
+public actual fun ioSynchronousPageWrite(fileobject: ConstPtr<FileObject>, memorydescriptorlist: ConstPtr<Mdl>, startingoffset: ConstPtr<Long>, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoSynchronousPageWrite(fileobject.rawAddress, memorydescriptorlist.rawAddress, startingoffset.rawAddress, event.rawAddress, iostatusblock.rawAddress)
 
 public actual fun ioThreadToProcess(thread: Pethread): Peprocess =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioThreadToProcess(thread)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoThreadToProcess(thread)
 
-public actual fun ioUnregisterFileSystem(deviceobject: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem((deviceobject?.value ?: 0L))
+public actual fun ioUnregisterFileSystem(deviceobject: ConstPtr<DeviceObject>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoUnregisterFileSystem(deviceobject.rawAddress)
 }
 
-public actual fun ioUnregisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification) {
+public actual fun ioUnregisterFsRegistrationChange(driverobject: ConstPtr<DriverObject>, drivernotificationroutine: DriverFsNotification) {
 }
 
-public actual fun ioVerifyVolume(deviceobject: COpaquePointer?, allowrawmount: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ioVerifyVolume((deviceobject?.value ?: 0L), allowrawmount)
+public actual fun ioVerifyVolume(deviceobject: ConstPtr<DeviceObject>, allowrawmount: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemIoVerifyVolume(deviceobject.rawAddress, allowrawmount)
 
 public actual fun keAcquireQueuedSpinLock(number: KspinLockQueueNumber): UByte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock(number).toUByte()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeAcquireQueuedSpinLock(number).toUByte()
 
-public actual fun keAcquireSpinLockRaiseToSynch(spinlock: COpaquePointer?): UByte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch((spinlock?.value ?: 0L)).toUByte()
+public actual fun keAcquireSpinLockRaiseToSynch(spinlock: MutPtr<ULong>): UByte =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeAcquireSpinLockRaiseToSynch(spinlock.rawAddress).toUByte()
 
 public actual fun keAttachProcess(process: Prkprocess) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keAttachProcess(process)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeAttachProcess(process)
 }
 
 public actual fun keDetachProcess() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keDetachProcess()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeDetachProcess()
 }
 
-public actual fun keInitializeMutant(mutant: COpaquePointer?, initialowner: Boolean) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keInitializeMutant((mutant?.value ?: 0L), initialowner)
+public actual fun keInitializeMutant(mutant: MutPtr<Kmutant>, initialowner: Boolean) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeInitializeMutant(mutant.rawAddress, initialowner)
 }
 
-public actual fun keInitializeQueue(queue: COpaquePointer?, count: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keInitializeQueue((queue?.value ?: 0L), count.toInt())
+public actual fun keInitializeQueue(queue: MutPtr<Kqueue>, count: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeInitializeQueue(queue.rawAddress, count.toInt())
 }
 
-public actual fun keInsertHeadQueue(queue: COpaquePointer?, entry: COpaquePointer?): Int =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue((queue?.value ?: 0L), (entry?.value ?: 0L))
+public actual fun keInsertHeadQueue(queue: MutPtr<Kqueue>, entry: MutPtr<ListEntry>): Int =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeInsertHeadQueue(queue.rawAddress, entry.rawAddress)
 
-public actual fun keInsertQueue(queue: COpaquePointer?, entry: COpaquePointer?): Int =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keInsertQueue((queue?.value ?: 0L), (entry?.value ?: 0L))
+public actual fun keInsertQueue(queue: MutPtr<Kqueue>, entry: MutPtr<ListEntry>): Int =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeInsertQueue(queue.rawAddress, entry.rawAddress)
 
-public actual fun keReadStateMutant(mutant: COpaquePointer?): Int =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keReadStateMutant((mutant?.value ?: 0L))
+public actual fun keReadStateMutant(mutant: ConstPtr<Kmutant>): Int =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeReadStateMutant(mutant.rawAddress)
 
-public actual fun keReadStateQueue(queue: COpaquePointer?): Int =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keReadStateQueue((queue?.value ?: 0L))
+public actual fun keReadStateQueue(queue: ConstPtr<Kqueue>): Int =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeReadStateQueue(queue.rawAddress)
 
-public actual fun keReleaseMutant(mutant: COpaquePointer?, increment: Int, abandoned: Boolean, wait: Boolean): Int =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keReleaseMutant((mutant?.value ?: 0L), increment, abandoned, wait)
+public actual fun keReleaseMutant(mutant: MutPtr<Kmutant>, increment: Int, abandoned: Boolean, wait: Boolean): Int =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeReleaseMutant(mutant.rawAddress, increment, abandoned, wait)
 
 public actual fun keReleaseQueuedSpinLock(number: KspinLockQueueNumber, oldirql: UByte) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock(number, oldirql.toByte())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeReleaseQueuedSpinLock(number, oldirql.toByte())
 }
 
-public actual fun keRemoveQueue(queue: COpaquePointer?, waitmode: Byte, timeout: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keRemoveQueue((queue?.value ?: 0L), waitmode, (timeout?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun keRemoveQueue(queue: MutPtr<Kqueue>, waitmode: Byte, timeout: ConstPtr<Long>): MutPtr<ListEntry> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeRemoveQueue(queue.rawAddress, waitmode, timeout.rawAddress))
 
-public actual fun keRemoveQueueEx(queue: COpaquePointer?, waitmode: Byte, alertable: Boolean, timeout: COpaquePointer?, entryarray: COpaquePointer?, count: UInt): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx((queue?.value ?: 0L), waitmode, alertable, (timeout?.value ?: 0L), (entryarray?.value ?: 0L), count.toInt()).toUInt()
+public actual fun keRemoveQueueEx(queue: MutPtr<Kqueue>, waitmode: Byte, alertable: Boolean, timeout: ConstPtr<Long>, entryarray: MutPtr<MutPtr<ListEntry>>, count: UInt): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeRemoveQueueEx(queue.rawAddress, waitmode, alertable, timeout.rawAddress, entryarray.rawAddress, count.toInt()).toUInt()
 
-public actual fun keRundownQueue(queue: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keRundownQueue((queue?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun keRundownQueue(queue: MutPtr<Kqueue>): MutPtr<ListEntry> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeRundownQueue(queue.rawAddress))
 
 public actual fun keSetIdealProcessorThread(thread: Pkthread, processor: UByte): UByte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread(thread, processor.toByte()).toUByte()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeSetIdealProcessorThread(thread, processor.toByte()).toUByte()
 
 public actual fun keSetKernelStackSwapEnable(enable: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable(enable)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeSetKernelStackSwapEnable(enable)
 
-public actual fun keStackAttachProcess(process: Prkprocess, apcstate: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keStackAttachProcess(process, (apcstate?.value ?: 0L))
+public actual fun keStackAttachProcess(process: Prkprocess, apcstate: MutPtr<KapcState>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeStackAttachProcess(process, apcstate.rawAddress)
 }
 
-public actual fun keTryToAcquireQueuedSpinLock(number: KspinLockQueueNumber, oldirql: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock(number, (oldirql?.value ?: 0L)).toUInt()
+public actual fun keTryToAcquireQueuedSpinLock(number: KspinLockQueueNumber, oldirql: MutPtr<UByte>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeTryToAcquireQueuedSpinLock(number, oldirql.rawAddress).toUInt()
 
-public actual fun keUnstackDetachProcess(apcstate: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess((apcstate?.value ?: 0L))
+public actual fun keUnstackDetachProcess(apcstate: ConstPtr<KapcState>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemKeUnstackDetachProcess(apcstate.rawAddress)
 }
 
-public actual fun makeSignature(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_makeSignature((phcontext?.value ?: 0L), fqop.toInt(), (pmessage?.value ?: 0L), messageseqno.toInt())
+public actual fun makeSignature(phcontext: ConstPtr<SecHandle>, fqop: UInt, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMakeSignature(phcontext.rawAddress, fqop.toInt(), pmessage.rawAddress, messageseqno.toInt())
 
 public actual fun mapSecurityError(secstatus: Hresult): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mapSecurityError(secstatus)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMapSecurityError(secstatus)
 
-public actual fun mmCanFileBeTruncated(sectionpointer: COpaquePointer?, newfilesize: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated((sectionpointer?.value ?: 0L), (newfilesize?.value ?: 0L))
+public actual fun mmCanFileBeTruncated(sectionpointer: ConstPtr<SectionObjectPointers>, newfilesize: ConstPtr<Long>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmCanFileBeTruncated(sectionpointer.rawAddress, newfilesize.rawAddress)
 
-public actual fun mmDoesFileHaveUserWritableReferences(sectionpointer: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences((sectionpointer?.value ?: 0L)).toUInt()
+public actual fun mmDoesFileHaveUserWritableReferences(sectionpointer: ConstPtr<SectionObjectPointers>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmDoesFileHaveUserWritableReferences(sectionpointer.rawAddress).toUInt()
 
-public actual fun mmFlushImageSection(sectionobjectpointer: COpaquePointer?, flushtype: MmflushType): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmFlushImageSection((sectionobjectpointer?.value ?: 0L), flushtype)
+public actual fun mmFlushImageSection(sectionobjectpointer: ConstPtr<SectionObjectPointers>, flushtype: MmflushType): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmFlushImageSection(sectionobjectpointer.rawAddress, flushtype)
 
-public actual fun mmForceSectionClosed(sectionobjectpointer: COpaquePointer?, delayclose: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed((sectionobjectpointer?.value ?: 0L), delayclose)
+public actual fun mmForceSectionClosed(sectionobjectpointer: ConstPtr<SectionObjectPointers>, delayclose: Boolean): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmForceSectionClosed(sectionobjectpointer.rawAddress, delayclose)
 
-public actual fun mmForceSectionClosedEx(sectionobjectpointer: COpaquePointer?, forcecloseflags: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx((sectionobjectpointer?.value ?: 0L), forcecloseflags.toInt())
+public actual fun mmForceSectionClosedEx(sectionobjectpointer: ConstPtr<SectionObjectPointers>, forcecloseflags: UInt): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmForceSectionClosedEx(sectionobjectpointer.rawAddress, forcecloseflags.toInt())
 
 public actual fun mmGetMaximumFileSectionSize(): ULong =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize().toULong()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmGetMaximumFileSectionSize().toULong()
 
-public actual fun mmIsFileSectionActive(fssectionpointer: COpaquePointer?, flags: UInt, sectionisactive: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive((fssectionpointer?.value ?: 0L), flags.toInt(), (sectionisactive?.value ?: 0L))
+public actual fun mmIsFileSectionActive(fssectionpointer: ConstPtr<SectionObjectPointers>, flags: UInt, sectionisactive: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmIsFileSectionActive(fssectionpointer.rawAddress, flags.toInt(), sectionisactive.rawAddress)
 
 public actual fun mmIsRecursiveIoFault(): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmIsRecursiveIoFault()
 
-public actual fun mmMdlPagesAreZero(mdl: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero((mdl?.value ?: 0L)).toUInt()
+public actual fun mmMdlPagesAreZero(mdl: ConstPtr<Mdl>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmMdlPagesAreZero(mdl.rawAddress).toUInt()
 
-public actual fun mmPrefetchPages(numberoflists: UInt, readlists: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmPrefetchPages(numberoflists.toInt(), (readlists?.value ?: 0L))
+public actual fun mmPrefetchPages(numberoflists: UInt, readlists: ConstPtr<ConstPtr<ReadList>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmPrefetchPages(numberoflists.toInt(), readlists.rawAddress)
 
-public actual fun mmSetAddressRangeModified(address: COpaquePointer?, length: ULong): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified((address?.value ?: 0L), length.toLong())
+public actual fun mmSetAddressRangeModified(address: ConstPtr<CVoid>, length: ULong): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemMmSetAddressRangeModified(address.rawAddress, length.toLong())
 
-public actual fun ntAccessCheckAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), desiredaccess.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun ntAccessCheckAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAccessCheckAndAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, desiredaccess.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun ntAccessCheckByTypeAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun ntAccessCheckByTypeAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeAndAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeResultListAndAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun ntAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken((tokenhandle?.value ?: 0L), resettodefault, (newstate?.value ?: 0L), bufferlength.toInt(), (previousstate?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun ntAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: ConstPtr<TokenGroups>, bufferlength: UInt, previousstate: MutPtr<TokenGroups>, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAdjustGroupsToken(tokenhandle.rawAddress, resettodefault, newstate.rawAddress, bufferlength.toInt(), previousstate.rawAddress, returnlength.rawAddress)
 
-public actual fun ntAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken((tokenhandle?.value ?: 0L), disableallprivileges, (newstate?.value ?: 0L), bufferlength.toInt(), (previousstate?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun ntAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: ConstPtr<TokenPrivileges>, bufferlength: UInt, previousstate: MutPtr<TokenPrivileges>, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAdjustPrivilegesToken(tokenhandle.rawAddress, disableallprivileges, newstate.rawAddress, bufferlength.toInt(), previousstate.rawAddress, returnlength.rawAddress)
 
-public actual fun ntAllocateVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, regionsize: COpaquePointer?, allocationtype: UInt, protect: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), zerobits.toLong(), (regionsize?.value ?: 0L), allocationtype.toInt(), protect.toInt())
+public actual fun ntAllocateVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, regionsize: MutPtr<ULong>, allocationtype: UInt, protect: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAllocateVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, zerobits.toLong(), regionsize.rawAddress, allocationtype.toInt(), protect.toInt())
 
-public actual fun ntAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), (regionsize?.value ?: 0L), allocationtype.toInt(), pageprotection.toInt(), (extendedparameters?.value ?: 0L), extendedparametercount.toInt())
+public actual fun ntAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, allocationtype: UInt, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtAllocateVirtualMemoryEx(processhandle.rawAddress, baseaddress.rawAddress, regionsize.rawAddress, allocationtype.toInt(), pageprotection.toInt(), extendedparameters.rawAddress, extendedparametercount.toInt())
 
-public actual fun ntCancelIoFileEx(filehandle: Handle, iorequesttocancel: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx((filehandle?.value ?: 0L), (iorequesttocancel?.value ?: 0L), (iostatusblock?.value ?: 0L))
+public actual fun ntCancelIoFileEx(filehandle: Handle, iorequesttocancel: ConstPtr<IoStatusBlock>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCancelIoFileEx(filehandle.rawAddress, iorequesttocancel.rawAddress, iostatusblock.rawAddress)
 
-public actual fun ntCloseObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun ntCloseObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCloseObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun ntCreateDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject((directoryhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun ntCreateDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCreateDirectoryObject(directoryhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntCreateEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, eventtype: EventType, initialstate: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCreateEvent((eventhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), eventtype, initialstate)
+public actual fun ntCreateEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, eventtype: EventType, initialstate: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCreateEvent(eventhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, eventtype, initialstate)
 
-public actual fun ntCreateFile(filehandle: COpaquePointer?, desiredaccess: FileAccessRights, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: FileFlagsAndAttributes, shareaccess: FileShareMode, createdisposition: NtcreatefileCreateDisposition, createoptions: NtcreatefileCreateOptions, eabuffer: COpaquePointer?, ealength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCreateFile((filehandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt())
+public actual fun ntCreateFile(filehandle: MutPtr<Handle>, desiredaccess: FileAccessRights, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: FileFlagsAndAttributes, shareaccess: FileShareMode, createdisposition: NtcreatefileCreateDisposition, createoptions: NtcreatefileCreateOptions, eabuffer: ConstPtr<CVoid>, ealength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCreateFile(filehandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, allocationsize.rawAddress, fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), eabuffer.rawAddress, ealength.toInt())
 
-public actual fun ntCreateSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCreateSection((sectionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (maximumsize?.value ?: 0L), sectionpageprotection.toInt(), allocationattributes.toInt(), (filehandle?.value ?: 0L))
+public actual fun ntCreateSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCreateSection(sectionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, maximumsize.rawAddress, sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.rawAddress)
 
-public actual fun ntCreateSectionEx(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx((sectionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (maximumsize?.value ?: 0L), sectionpageprotection.toInt(), allocationattributes.toInt(), (filehandle?.value ?: 0L), (extendedparameters?.value ?: 0L), extendedparametercount.toInt())
+public actual fun ntCreateSectionEx(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtCreateSectionEx(sectionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, maximumsize.rawAddress, sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.rawAddress, extendedparameters.rawAddress, extendedparametercount.toInt())
 
-public actual fun ntDeleteFile(objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntDeleteFile((objectattributes?.value ?: 0L))
+public actual fun ntDeleteFile(objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtDeleteFile(objectattributes.rawAddress)
 
-public actual fun ntDeleteObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun ntDeleteObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtDeleteObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun ntDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: COpaquePointer?, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntDuplicateObject((sourceprocesshandle?.value ?: 0L), (sourcehandle?.value ?: 0L), (targetprocesshandle?.value ?: 0L), (targethandle?.value ?: 0L), desiredaccess.toInt(), handleattributes.toInt(), options.toInt())
+public actual fun ntDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: MutPtr<Handle>, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtDuplicateObject(sourceprocesshandle.rawAddress, sourcehandle.rawAddress, targetprocesshandle.rawAddress, targethandle.rawAddress, desiredaccess.toInt(), handleattributes.toInt(), options.toInt())
 
-public actual fun ntDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: COpaquePointer?, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntDuplicateToken((existingtokenhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), effectiveonly, tokentype, (newtokenhandle?.value ?: 0L))
+public actual fun ntDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtDuplicateToken(existingtokenhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, effectiveonly, tokentype, newtokenhandle.rawAddress)
 
-public actual fun ntFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, newtokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntFilterToken((existingtokenhandle?.value ?: 0L), flags.toInt(), (sidstodisable?.value ?: 0L), (privilegestodelete?.value ?: 0L), (restrictedsids?.value ?: 0L), (newtokenhandle?.value ?: 0L))
+public actual fun ntFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: ConstPtr<TokenGroups>, privilegestodelete: ConstPtr<TokenPrivileges>, restrictedsids: ConstPtr<TokenGroups>, newtokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtFilterToken(existingtokenhandle.rawAddress, flags.toInt(), sidstodisable.rawAddress, privilegestodelete.rawAddress, restrictedsids.rawAddress, newtokenhandle.rawAddress)
 
-public actual fun ntFlushBuffersFile(filehandle: Handle, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L))
+public actual fun ntFlushBuffersFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtFlushBuffersFile(filehandle.rawAddress, iostatusblock.rawAddress)
 
-public actual fun ntFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: COpaquePointer?, parameterssize: UInt, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx((filehandle?.value ?: 0L), flags.toInt(), (parameters?.value ?: 0L), parameterssize.toInt(), (iostatusblock?.value ?: 0L))
+public actual fun ntFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: ConstPtr<CVoid>, parameterssize: UInt, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtFlushBuffersFileEx(filehandle.rawAddress, flags.toInt(), parameters.rawAddress, parameterssize.toInt(), iostatusblock.rawAddress)
 
-public actual fun ntFlushVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), (regionsize?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun ntFlushVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtFlushVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, regionsize.rawAddress, iostatus.rawAddress)
 
-public actual fun ntFreeVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), (regionsize?.value ?: 0L), freetype.toInt())
+public actual fun ntFreeVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, freetype: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtFreeVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, regionsize.rawAddress, freetype.toInt())
 
-public actual fun ntFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntFsControlFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), fscontrolcode.toInt(), (inputbuffer?.value ?: 0L), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L), outputbufferlength.toInt())
+public actual fun ntFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtFsControlFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, fscontrolcode.toInt(), inputbuffer.rawAddress, inputbufferlength.toInt(), outputbuffer.rawAddress, outputbufferlength.toInt())
 
 public actual fun ntImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken((threadhandle?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtImpersonateAnonymousToken(threadhandle.rawAddress)
 
-public actual fun ntLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntLockFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (byteoffset?.value ?: 0L), (length?.value ?: 0L), key.toInt(), failimmediately, exclusivelock)
+public actual fun ntLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtLockFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, byteoffset.rawAddress, length.rawAddress, key.toInt(), failimmediately, exclusivelock)
 
-public actual fun ntNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey((keyhandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), completionfilter.toInt(), watchtree, (buffer?.value ?: 0L), buffersize.toInt(), asynchronous)
+public actual fun ntNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtNotifyChangeKey(keyhandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, completionfilter.toInt(), watchtree, buffer.rawAddress, buffersize.toInt(), asynchronous)
 
-public actual fun ntOpenDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject((directoryhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun ntOpenDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenDirectoryObject(directoryhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntOpenFile(filehandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, shareaccess: UInt, openoptions: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenFile((filehandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), shareaccess.toInt(), openoptions.toInt())
+public actual fun ntOpenFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, shareaccess: UInt, openoptions: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenFile(filehandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, shareaccess.toInt(), openoptions.toInt())
 
-public actual fun ntOpenObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Boolean, accessgranted: Boolean, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L), objectcreation, accessgranted, (generateonclose?.value ?: 0L))
+public actual fun ntOpenObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr<PrivilegeSet>, objectcreation: Boolean, accessgranted: Boolean, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), grantedaccess.toInt(), privileges.rawAddress, objectcreation, accessgranted, generateonclose.rawAddress)
 
-public actual fun ntOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken((processhandle?.value ?: 0L), desiredaccess.toInt(), (tokenhandle?.value ?: 0L))
+public actual fun ntOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenProcessToken(processhandle.rawAddress, desiredaccess.toInt(), tokenhandle.rawAddress)
 
-public actual fun ntOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx((processhandle?.value ?: 0L), desiredaccess.toInt(), handleattributes.toInt(), (tokenhandle?.value ?: 0L))
+public actual fun ntOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenProcessTokenEx(processhandle.rawAddress, desiredaccess.toInt(), handleattributes.toInt(), tokenhandle.rawAddress)
 
-public actual fun ntOpenSymbolicLinkObject(linkhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject((linkhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun ntOpenSymbolicLinkObject(linkhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenSymbolicLinkObject(linkhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken((threadhandle?.value ?: 0L), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L))
+public actual fun ntOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenThreadToken(threadhandle.rawAddress, desiredaccess.toInt(), openasself, tokenhandle.rawAddress)
 
-public actual fun ntOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx((threadhandle?.value ?: 0L), desiredaccess.toInt(), openasself, handleattributes.toInt(), (tokenhandle?.value ?: 0L))
+public actual fun ntOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtOpenThreadTokenEx(threadhandle.rawAddress, desiredaccess.toInt(), openasself, handleattributes.toInt(), tokenhandle.rawAddress)
 
-public actual fun ntPrivilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, result: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck((clienttoken?.value ?: 0L), (requiredprivileges?.value ?: 0L), (result?.value ?: 0L))
+public actual fun ntPrivilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr<PrivilegeSet>, result: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtPrivilegeCheck(clienttoken.rawAddress, requiredprivileges.rawAddress, result.rawAddress)
 
-public actual fun ntPrivilegeObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (privileges?.value ?: 0L), accessgranted)
+public actual fun ntPrivilegeObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtPrivilegeObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), privileges.rawAddress, accessgranted)
 
-public actual fun ntPrivilegedServiceAuditAlarm(subsystemname: COpaquePointer?, servicename: COpaquePointer?, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm((subsystemname?.value ?: 0L), (servicename?.value ?: 0L), (clienttoken?.value ?: 0L), (privileges?.value ?: 0L), accessgranted)
+public actual fun ntPrivilegedServiceAuditAlarm(subsystemname: ConstPtr<UnicodeString>, servicename: ConstPtr<UnicodeString>, clienttoken: Handle, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtPrivilegedServiceAuditAlarm(subsystemname.rawAddress, servicename.rawAddress, clienttoken.rawAddress, privileges.rawAddress, accessgranted)
 
-public actual fun ntQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: COpaquePointer?, restartscan: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, returnsingleentry, (filename?.value ?: 0L), restartscan)
+public actual fun ntQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr<UnicodeString>, restartscan: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryDirectoryFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, returnsingleentry, filename.rawAddress, restartscan)
 
-public actual fun ntQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, queryflags.toInt(), (filename?.value ?: 0L))
+public actual fun ntQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryDirectoryFileEx(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, queryflags.toInt(), filename.rawAddress)
 
-public actual fun ntQueryDirectoryObject(directoryhandle: Handle, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject((directoryhandle?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), returnsingleentry, restartscan, (context?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun ntQueryDirectoryObject(directoryhandle: Handle, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: MutPtr<UInt>, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryDirectoryObject(directoryhandle.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, restartscan, context.rawAddress, returnlength.rawAddress)
 
-public actual fun ntQueryEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryEaFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), returnsingleentry, (ealist?.value ?: 0L), ealistlength.toInt(), (eaindex?.value ?: 0L), restartscan)
+public actual fun ntQueryEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryEaFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, ealist.rawAddress, ealistlength.toInt(), eaindex.rawAddress, restartscan)
 
-public actual fun ntQueryFullAttributesFile(objectattributes: COpaquePointer?, fileinformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile((objectattributes?.value ?: 0L), (fileinformation?.value ?: 0L))
+public actual fun ntQueryFullAttributesFile(objectattributes: ConstPtr<ObjectAttributes>, fileinformation: MutPtr<FileNetworkOpenInformation>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryFullAttributesFile(objectattributes.rawAddress, fileinformation.rawAddress)
 
-public actual fun ntQueryInformationByName(objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName((objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass)
+public actual fun ntQueryInformationByName(objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryInformationByName(objectattributes.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass)
 
-public actual fun ntQueryInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass)
+public actual fun ntQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass)
 
-public actual fun ntQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken((tokenhandle?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L), tokeninformationlength.toInt(), (returnlength?.value ?: 0L))
+public actual fun ntQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<CVoid>, tokeninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryInformationToken(tokenhandle.rawAddress, tokeninformationclass, tokeninformation.rawAddress, tokeninformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun ntQueryQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, sidlist: COpaquePointer?, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), returnsingleentry, (sidlist?.value ?: 0L), sidlistlength.toInt(), (startsid?.value ?: 0L), restartscan)
+public actual fun ntQueryQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr<CVoid>, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryQuotaInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, sidlist.rawAddress, sidlistlength.toInt(), startsid.rawAddress, restartscan)
 
-public actual fun ntQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject((handle?.value ?: 0L), securityinformation.toInt(), (securitydescriptor?.value ?: 0L), length.toInt(), (lengthneeded?.value ?: 0L))
+public actual fun ntQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQuerySecurityObject(handle.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress, length.toInt(), lengthneeded.rawAddress)
 
-public actual fun ntQuerySymbolicLinkObject(linkhandle: Handle, linktarget: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject((linkhandle?.value ?: 0L), (linktarget?.value ?: 0L), (returnedlength?.value ?: 0L))
+public actual fun ntQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr<UnicodeString>, returnedlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQuerySymbolicLinkObject(linkhandle.rawAddress, linktarget.rawAddress, returnedlength.rawAddress)
 
-public actual fun ntQueryVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), memoryinformationclass, (memoryinformation?.value ?: 0L), memoryinformationlength.toLong(), (returnlength?.value ?: 0L))
+public actual fun ntQueryVirtualMemory(processhandle: Handle, baseaddress: ConstPtr<CVoid>, memoryinformationclass: MemoryInformationClass, memoryinformation: MutPtr<CVoid>, memoryinformationlength: ULong, returnlength: MutPtr<ULong>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, memoryinformationclass, memoryinformation.rawAddress, memoryinformationlength.toLong(), returnlength.rawAddress)
 
-public actual fun ntQueryVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (fsinformation?.value ?: 0L), length.toInt(), fsinformationclass)
+public actual fun ntQueryVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtQueryVolumeInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass)
 
-public actual fun ntReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, byteoffset: COpaquePointer?, key: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntReadFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), (byteoffset?.value ?: 0L), (key?.value ?: 0L))
+public actual fun ntReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtReadFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), byteoffset.rawAddress, key.rawAddress)
 
-public actual fun ntSetEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetEaFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt())
+public actual fun ntSetEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetEaFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt())
 
-public actual fun ntSetEvent(eventhandle: Handle, previousstate: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetEvent((eventhandle?.value ?: 0L), (previousstate?.value ?: 0L))
+public actual fun ntSetEvent(eventhandle: Handle, previousstate: MutPtr<Int>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetEvent(eventhandle.rawAddress, previousstate.rawAddress)
 
-public actual fun ntSetInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass)
+public actual fun ntSetInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: ConstPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass)
 
-public actual fun ntSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetInformationToken((tokenhandle?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L), tokeninformationlength.toInt())
+public actual fun ntSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr<CVoid>, tokeninformationlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetInformationToken(tokenhandle.rawAddress, tokeninformationclass, tokeninformation.rawAddress, tokeninformationlength.toInt())
 
-public actual fun ntSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: COpaquePointer?, vminformation: COpaquePointer?, vminformationlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory((processhandle?.value ?: 0L), vminformationclass, numberofentries.toLong(), (virtualaddresses?.value ?: 0L), (vminformation?.value ?: 0L), vminformationlength.toInt())
+public actual fun ntSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: ConstPtr<MemoryRangeEntry>, vminformation: ConstPtr<CVoid>, vminformationlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetInformationVirtualMemory(processhandle.rawAddress, vminformationclass, numberofentries.toLong(), virtualaddresses.rawAddress, vminformation.rawAddress, vminformationlength.toInt())
 
-public actual fun ntSetQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt())
+public actual fun ntSetQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetQuotaInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt())
 
 public actual fun ntSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject((handle?.value ?: 0L), securityinformation.toInt(), (securitydescriptor?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetSecurityObject(handle.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress)
 
-public actual fun ntSetVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (fsinformation?.value ?: 0L), length.toInt(), fsinformationclass)
+public actual fun ntSetVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: ConstPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtSetVolumeInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass)
 
-public actual fun ntUnlockFile(filehandle: Handle, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntUnlockFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (byteoffset?.value ?: 0L), (length?.value ?: 0L), key.toInt())
+public actual fun ntUnlockFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtUnlockFile(filehandle.rawAddress, iostatusblock.rawAddress, byteoffset.rawAddress, length.rawAddress, key.toInt())
 
-public actual fun ntWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, byteoffset: COpaquePointer?, key: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_ntWriteFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), (byteoffset?.value ?: 0L), (key?.value ?: 0L))
+public actual fun ntWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemNtWriteFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), byteoffset.rawAddress, key.rawAddress)
 
-public actual fun obInsertObject(obj: COpaquePointer?, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objectpointerbias: UInt, newobject: COpaquePointer?, handle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obInsertObject((obj?.value ?: 0L), (passedaccessstate?.value ?: 0L), desiredaccess.toInt(), objectpointerbias.toInt(), (newobject?.value ?: 0L), (handle?.value ?: 0L))
+public actual fun obInsertObject(obj: ConstPtr<CVoid>, passedaccessstate: MutPtr<AccessState>, desiredaccess: UInt, objectpointerbias: UInt, newobject: MutPtr<MutPtr<CVoid>>, handle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObInsertObject(obj.rawAddress, passedaccessstate.rawAddress, desiredaccess.toInt(), objectpointerbias.toInt(), newobject.rawAddress, handle.rawAddress)
 
 public actual fun obIsKernelHandle(handle: Handle): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obIsKernelHandle((handle?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObIsKernelHandle(handle.rawAddress)
 
-public actual fun obMakeTemporaryObject(obj: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject((obj?.value ?: 0L))
+public actual fun obMakeTemporaryObject(obj: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObMakeTemporaryObject(obj.rawAddress)
 }
 
-public actual fun obOpenObjectByPointer(obj: COpaquePointer?, handleattributes: UInt, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, handle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer((obj?.value ?: 0L), handleattributes.toInt(), (passedaccessstate?.value ?: 0L), desiredaccess.toInt(), objecttype, accessmode, (handle?.value ?: 0L))
+public actual fun obOpenObjectByPointer(obj: ConstPtr<CVoid>, handleattributes: UInt, passedaccessstate: ConstPtr<AccessState>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, handle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObOpenObjectByPointer(obj.rawAddress, handleattributes.toInt(), passedaccessstate.rawAddress, desiredaccess.toInt(), objecttype, accessmode, handle.rawAddress)
 
-public actual fun obOpenObjectByPointerWithTag(obj: COpaquePointer?, handleattributes: UInt, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, handle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag((obj?.value ?: 0L), handleattributes.toInt(), (passedaccessstate?.value ?: 0L), desiredaccess.toInt(), objecttype, accessmode, tag.toInt(), (handle?.value ?: 0L))
+public actual fun obOpenObjectByPointerWithTag(obj: ConstPtr<CVoid>, handleattributes: UInt, passedaccessstate: ConstPtr<AccessState>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, handle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObOpenObjectByPointerWithTag(obj.rawAddress, handleattributes.toInt(), passedaccessstate.rawAddress, desiredaccess.toInt(), objecttype, accessmode, tag.toInt(), handle.rawAddress)
 
-public actual fun obQueryNameString(obj: COpaquePointer?, objectnameinfo: COpaquePointer?, length: UInt, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obQueryNameString((obj?.value ?: 0L), (objectnameinfo?.value ?: 0L), length.toInt(), (returnlength?.value ?: 0L))
+public actual fun obQueryNameString(obj: ConstPtr<CVoid>, objectnameinfo: MutPtr<ObjectNameInformation>, length: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObQueryNameString(obj.rawAddress, objectnameinfo.rawAddress, length.toInt(), returnlength.rawAddress)
 
-public actual fun obQueryObjectAuditingByHandle(handle: Handle, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle((handle?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun obQueryObjectAuditingByHandle(handle: Handle, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemObQueryObjectAuditingByHandle(handle.rawAddress, generateonclose.rawAddress)
 
-public actual fun pfxFindPrefix(prefixtable: COpaquePointer?, fullname: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_pfxFindPrefix((prefixtable?.value ?: 0L), (fullname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun pfxFindPrefix(prefixtable: ConstPtr<PrefixTable>, fullname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): MutPtr<PrefixTableEntry> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPfxFindPrefix(prefixtable.rawAddress, fullname.rawAddress))
 
-public actual fun pfxInitialize(prefixtable: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_pfxInitialize((prefixtable?.value ?: 0L))
+public actual fun pfxInitialize(prefixtable: MutPtr<PrefixTable>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPfxInitialize(prefixtable.rawAddress)
 }
 
-public actual fun pfxInsertPrefix(prefixtable: COpaquePointer?, prefix: COpaquePointer?, prefixtableentry: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix((prefixtable?.value ?: 0L), (prefix?.value ?: 0L), (prefixtableentry?.value ?: 0L))
+public actual fun pfxInsertPrefix(prefixtable: ConstPtr<PrefixTable>, prefix: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, prefixtableentry: MutPtr<PrefixTableEntry>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPfxInsertPrefix(prefixtable.rawAddress, prefix.rawAddress, prefixtableentry.rawAddress)
 
-public actual fun pfxRemovePrefix(prefixtable: COpaquePointer?, prefixtableentry: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix((prefixtable?.value ?: 0L), (prefixtableentry?.value ?: 0L))
+public actual fun pfxRemovePrefix(prefixtable: ConstPtr<PrefixTable>, prefixtableentry: ConstPtr<PrefixTableEntry>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPfxRemovePrefix(prefixtable.rawAddress, prefixtableentry.rawAddress)
 }
 
-public actual fun poQueueShutdownWorkItem(workitem: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem((workitem?.value ?: 0L))
+public actual fun poQueueShutdownWorkItem(workitem: MutPtr<WorkQueueItem>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPoQueueShutdownWorkItem(workitem.rawAddress)
 
 public actual fun psAssignImpersonationToken(thread: Pethread, token: Handle): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken(thread, (token?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsAssignImpersonationToken(thread, token.rawAddress)
 
 public actual fun psChargePoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psChargePoolQuota(process, pooltype, amount.toLong())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsChargePoolQuota(process, pooltype, amount.toLong())
 }
 
 public actual fun psChargeProcessPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota(process, pooltype, amount.toLong())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsChargeProcessPoolQuota(process, pooltype, amount.toLong())
 
-public actual fun psDereferenceImpersonationToken(impersonationtoken: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken((impersonationtoken?.value ?: 0L))
+public actual fun psDereferenceImpersonationToken(impersonationtoken: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsDereferenceImpersonationToken(impersonationtoken.rawAddress)
 }
 
-public actual fun psDereferencePrimaryToken(primarytoken: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken((primarytoken?.value ?: 0L))
+public actual fun psDereferencePrimaryToken(primarytoken: ConstPtr<CVoid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsDereferencePrimaryToken(primarytoken.rawAddress)
 }
 
-public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psDisableImpersonation(thread, (impersonationstate?.value ?: 0L))
+public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: MutPtr<SeImpersonationState>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsDisableImpersonation(thread, impersonationstate.rawAddress)
 
 public actual fun psGetProcessExitTime(): Long =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsGetProcessExitTime()
 
 public actual fun psGetThreadProcess(thread: Pethread): Peprocess =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psGetThreadProcess(thread)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsGetThreadProcess(thread)
 
-public actual fun psImpersonateClient(thread: Pethread, token: COpaquePointer?, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psImpersonateClient(thread, (token?.value ?: 0L), copyonopen, effectiveonly, impersonationlevel)
+public actual fun psImpersonateClient(thread: Pethread, token: ConstPtr<CVoid>, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsImpersonateClient(thread, token.rawAddress, copyonopen, effectiveonly, impersonationlevel)
 
 public actual fun psIsDiskCountersEnabled(): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsIsDiskCountersEnabled()
 
 public actual fun psIsSystemThread(thread: Pethread): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psIsSystemThread(thread)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsIsSystemThread(thread)
 
 public actual fun psIsThreadTerminating(thread: Pethread): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating(thread)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsIsThreadTerminating(thread)
 
-public actual fun psLookupProcessByProcessId(processid: Handle, process: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId((processid?.value ?: 0L), (process?.value ?: 0L))
+public actual fun psLookupProcessByProcessId(processid: Handle, process: MutPtr<Peprocess>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsLookupProcessByProcessId(processid.rawAddress, process.rawAddress)
 
-public actual fun psLookupThreadByThreadId(threadid: Handle, thread: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId((threadid?.value ?: 0L), (thread?.value ?: 0L))
+public actual fun psLookupThreadByThreadId(threadid: Handle, thread: MutPtr<Pethread>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsLookupThreadByThreadId(threadid.rawAddress, thread.rawAddress)
 
-public actual fun psReferenceImpersonationToken(thread: Pethread, copyonopen: COpaquePointer?, effectiveonly: COpaquePointer?, impersonationlevel: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken(thread, (copyonopen?.value ?: 0L), (effectiveonly?.value ?: 0L), (impersonationlevel?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun psReferenceImpersonationToken(thread: Pethread, copyonopen: MutPtr<Boolean>, effectiveonly: MutPtr<Boolean>, impersonationlevel: MutPtr<SecurityImpersonationLevel>): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsReferenceImpersonationToken(thread, copyonopen.rawAddress, effectiveonly.rawAddress, impersonationlevel.rawAddress))
 
-public actual fun psReferencePrimaryToken(process: Peprocess): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken(process).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun psReferencePrimaryToken(process: Peprocess): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsReferencePrimaryToken(process))
 
-public actual fun psRestoreImpersonation(thread: Pethread, impersonationstate: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation(thread, (impersonationstate?.value ?: 0L))
+public actual fun psRestoreImpersonation(thread: Pethread, impersonationstate: ConstPtr<SeImpersonationState>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsRestoreImpersonation(thread, impersonationstate.rawAddress)
 }
 
 public actual fun psReturnPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota(process, pooltype, amount.toLong())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsReturnPoolQuota(process, pooltype, amount.toLong())
 }
 
 public actual fun psRevertToSelf() {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psRevertToSelf()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsRevertToSelf()
 }
 
 public actual fun psUpdateDiskCounters(process: Peprocess, bytesread: ULong, byteswritten: ULong, readoperationcount: UInt, writeoperationcount: UInt, flushoperationcount: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters(process, bytesread.toLong(), byteswritten.toLong(), readoperationcount.toInt(), writeoperationcount.toInt(), flushoperationcount.toInt())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemPsUpdateDiskCounters(process, bytesread.toLong(), byteswritten.toLong(), readoperationcount.toInt(), writeoperationcount.toInt(), flushoperationcount.toInt())
 }
 
-public actual fun querySecurityContextToken(phcontext: COpaquePointer?, token: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_querySecurityContextToken((phcontext?.value ?: 0L), (token?.value ?: 0L))
+public actual fun querySecurityContextToken(phcontext: ConstPtr<SecHandle>, token: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemQuerySecurityContextToken(phcontext.rawAddress, token.rawAddress)
 
-public actual fun rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PsecurityDescriptor, selfrelativesecuritydescriptor: PsecurityDescriptor, bufferlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD((absolutesecuritydescriptor?.value ?: 0L), (selfrelativesecuritydescriptor?.value ?: 0L), (bufferlength?.value ?: 0L))
+public actual fun rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PsecurityDescriptor, selfrelativesecuritydescriptor: PsecurityDescriptor, bufferlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor.rawAddress, selfrelativesecuritydescriptor.rawAddress, bufferlength.rawAddress)
 
-public actual fun rtlAddAccessAllowedAce(acl: COpaquePointer?, acerevision: UInt, accessmask: UInt, sid: Psid): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce((acl?.value ?: 0L), acerevision.toInt(), accessmask.toInt(), (sid?.value ?: 0L))
+public actual fun rtlAddAccessAllowedAce(acl: MutPtr<Acl>, acerevision: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAddAccessAllowedAce(acl.rawAddress, acerevision.toInt(), accessmask.toInt(), sid.rawAddress)
 
-public actual fun rtlAddAccessAllowedAceEx(acl: COpaquePointer?, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: Psid): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx((acl?.value ?: 0L), acerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (sid?.value ?: 0L))
+public actual fun rtlAddAccessAllowedAceEx(acl: MutPtr<Acl>, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAddAccessAllowedAceEx(acl.rawAddress, acerevision.toInt(), aceflags.toInt(), accessmask.toInt(), sid.rawAddress)
 
-public actual fun rtlAddAce(acl: COpaquePointer?, acerevision: UInt, startingaceindex: UInt, acelist: COpaquePointer?, acelistlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAddAce((acl?.value ?: 0L), acerevision.toInt(), startingaceindex.toInt(), (acelist?.value ?: 0L), acelistlength.toInt())
+public actual fun rtlAddAce(acl: MutPtr<Acl>, acerevision: UInt, startingaceindex: UInt, acelist: ConstPtr<CVoid>, acelistlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAddAce(acl.rawAddress, acerevision.toInt(), startingaceindex.toInt(), acelist.rawAddress, acelistlength.toInt())
 
-public actual fun rtlAllocateAndInitializeSid(identifierauthority: COpaquePointer?, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid((identifierauthority?.value ?: 0L), subauthoritycount.toByte(), subauthority0.toInt(), subauthority1.toInt(), subauthority2.toInt(), subauthority3.toInt(), subauthority4.toInt(), subauthority5.toInt(), subauthority6.toInt(), subauthority7.toInt(), (sid?.value ?: 0L))
+public actual fun rtlAllocateAndInitializeSid(identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: MutPtr<Psid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAllocateAndInitializeSid(identifierauthority.rawAddress, subauthoritycount.toByte(), subauthority0.toInt(), subauthority1.toInt(), subauthority2.toInt(), subauthority3.toInt(), subauthority4.toInt(), subauthority5.toInt(), subauthority6.toInt(), subauthority7.toInt(), sid.rawAddress)
 
-public actual fun rtlAllocateAndInitializeSidEx(identifierauthority: COpaquePointer?, subauthoritycount: UByte, subauthorities: COpaquePointer?, sid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx((identifierauthority?.value ?: 0L), subauthoritycount.toByte(), (subauthorities?.value ?: 0L), (sid?.value ?: 0L))
+public actual fun rtlAllocateAndInitializeSidEx(identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte, subauthorities: ConstPtr<UInt>, sid: MutPtr<Psid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAllocateAndInitializeSidEx(identifierauthority.rawAddress, subauthoritycount.toByte(), subauthorities.rawAddress, sid.rawAddress)
 
-public actual fun rtlAllocateHeap(heaphandle: COpaquePointer?, flags: UInt, size: ULong): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap((heaphandle?.value ?: 0L), flags.toInt(), size.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlAllocateHeap(heaphandle: ConstPtr<CVoid>, flags: UInt, size: ULong): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAllocateHeap(heaphandle.rawAddress, flags.toInt(), size.toLong()))
 
-public actual fun rtlAppendStringToString(destination: COpaquePointer?, source: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString((destination?.value ?: 0L), (source?.value ?: 0L))
+public actual fun rtlAppendStringToString(destination: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, source: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlAppendStringToString(destination.rawAddress, source.rawAddress)
 
-public actual fun rtlCompareAltitudes(altitude1: COpaquePointer?, altitude2: COpaquePointer?): Int =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes((altitude1?.value ?: 0L), (altitude2?.value ?: 0L))
+public actual fun rtlCompareAltitudes(altitude1: ConstPtr<UnicodeString>, altitude2: ConstPtr<UnicodeString>): Int =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCompareAltitudes(altitude1.rawAddress, altitude2.rawAddress)
 
-public actual fun rtlCompareMemoryUlong(source: COpaquePointer?, length: ULong, pattern: UInt): ULong =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong((source?.value ?: 0L), length.toLong(), pattern.toInt()).toULong()
+public actual fun rtlCompareMemoryUlong(source: ConstPtr<CVoid>, length: ULong, pattern: UInt): ULong =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCompareMemoryUlong(source.rawAddress, length.toLong(), pattern.toInt()).toULong()
 
-public actual fun rtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer(compressionformatandengine.toShort(), (uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), uncompressedchunksize.toInt(), (finalcompressedsize?.value ?: 0L), (workspace?.value ?: 0L))
+public actual fun rtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: ConstPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: MutPtr<UByte>, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCompressBuffer(compressionformatandengine.toShort(), uncompressedbuffer.rawAddress, uncompressedbuffersize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), uncompressedchunksize.toInt(), finalcompressedsize.rawAddress, workspace.rawAddress)
 
-public actual fun rtlCompressChunks(uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, compresseddatainfo: COpaquePointer?, compresseddatainfolength: UInt, workspace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCompressChunks((uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), (compresseddatainfo?.value ?: 0L), compresseddatainfolength.toInt(), (workspace?.value ?: 0L))
+public actual fun rtlCompressChunks(uncompressedbuffer: ConstPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: MutPtr<UByte>, compressedbuffersize: UInt, compresseddatainfo: MutPtr<CompressedDataInfo>, compresseddatainfolength: UInt, workspace: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCompressChunks(uncompressedbuffer.rawAddress, uncompressedbuffersize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), compresseddatainfo.rawAddress, compresseddatainfolength.toInt(), workspace.rawAddress)
 
-public actual fun rtlCopyLuid(destinationluid: COpaquePointer?, sourceluid: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCopyLuid((destinationluid?.value ?: 0L), (sourceluid?.value ?: 0L))
+public actual fun rtlCopyLuid(destinationluid: MutPtr<Luid>, sourceluid: ConstPtr<Luid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCopyLuid(destinationluid.rawAddress, sourceluid.rawAddress)
 }
 
 public actual fun rtlCopySid(destinationsidlength: UInt, destinationsid: Psid, sourcesid: Psid): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCopySid(destinationsidlength.toInt(), (destinationsid?.value ?: 0L), (sourcesid?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCopySid(destinationsidlength.toInt(), destinationsid.rawAddress, sourcesid.rawAddress)
 
-public actual fun rtlCreateAcl(acl: COpaquePointer?, acllength: UInt, aclrevision: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCreateAcl((acl?.value ?: 0L), acllength.toInt(), aclrevision.toInt())
+public actual fun rtlCreateAcl(acl: MutPtr<Acl>, acllength: UInt, aclrevision: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCreateAcl(acl.rawAddress, acllength.toInt(), aclrevision.toInt())
 
-public actual fun rtlCreateHeap(flags: UInt, heapbase: COpaquePointer?, reservesize: ULong, commitsize: ULong, lock: COpaquePointer?, parameters: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCreateHeap(flags.toInt(), (heapbase?.value ?: 0L), reservesize.toLong(), commitsize.toLong(), (lock?.value ?: 0L), (parameters?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlCreateHeap(flags: UInt, heapbase: ConstPtr<CVoid>, reservesize: ULong, commitsize: ULong, lock: ConstPtr<CVoid>, parameters: ConstPtr<RtlHeapParameters>): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCreateHeap(flags.toInt(), heapbase.rawAddress, reservesize.toLong(), commitsize.toLong(), lock.rawAddress, parameters.rawAddress))
 
-public actual fun rtlCreateServiceSid(servicename: COpaquePointer?, servicesid: Psid, servicesidlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid((servicename?.value ?: 0L), (servicesid?.value ?: 0L), (servicesidlength?.value ?: 0L))
+public actual fun rtlCreateServiceSid(servicename: ConstPtr<UnicodeString>, servicesid: Psid, servicesidlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCreateServiceSid(servicename.rawAddress, servicesid.rawAddress, servicesidlength.rawAddress)
 
-public actual fun rtlCreateSystemVolumeInformationFolder(volumerootpath: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder((volumerootpath?.value ?: 0L))
+public actual fun rtlCreateSystemVolumeInformationFolder(volumerootpath: ConstPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCreateSystemVolumeInformationFolder(volumerootpath.rawAddress)
 
-public actual fun rtlCreateUnicodeString(destinationstring: COpaquePointer?, sourcestring: Pcwstr): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
+public actual fun rtlCreateUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: Pcwstr): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCreateUnicodeString(destinationstring.rawAddress, sourcestring.rawAddress)
 
-public actual fun rtlCreateVirtualAccountSid(name: COpaquePointer?, basesubauthority: UInt, sid: Psid, sidlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid((name?.value ?: 0L), basesubauthority.toInt(), (sid?.value ?: 0L), (sidlength?.value ?: 0L))
+public actual fun rtlCreateVirtualAccountSid(name: ConstPtr<UnicodeString>, basesubauthority: UInt, sid: Psid, sidlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCreateVirtualAccountSid(name.rawAddress, basesubauthority.toInt(), sid.rawAddress, sidlength.rawAddress)
 
-public actual fun rtlCustomCPToUnicodeN(customcp: COpaquePointer?, unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, customcpstring: Pcstr, bytesincustomcpstring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN((customcp?.value ?: 0L), (unicodestring?.value ?: 0L), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L), (customcpstring?.value ?: 0L), bytesincustomcpstring.toInt())
+public actual fun rtlCustomCPToUnicodeN(customcp: ConstPtr<Cptableinfo>, unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, customcpstring: Pcstr, bytesincustomcpstring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlCustomCPToUnicodeN(customcp.rawAddress, unicodestring.rawAddress, maxbytesinunicodestring.toInt(), bytesinunicodestring.rawAddress, customcpstring.rawAddress, bytesincustomcpstring.toInt())
 
-public actual fun rtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, finaluncompressedsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer(compressionformat.toShort(), (uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), (finaluncompressedsize?.value ?: 0L))
+public actual fun rtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, finaluncompressedsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDecompressBuffer(compressionformat.toShort(), uncompressedbuffer.rawAddress, uncompressedbuffersize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), finaluncompressedsize.rawAddress)
 
-public actual fun rtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx(compressionformat.toShort(), (uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), (finaluncompressedsize?.value ?: 0L), (workspace?.value ?: 0L))
+public actual fun rtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDecompressBufferEx(compressionformat.toShort(), uncompressedbuffer.rawAddress, uncompressedbuffersize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), finaluncompressedsize.rawAddress, workspace.rawAddress)
 
-public actual fun rtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2(compressionformat.toShort(), (uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), uncompressedchunksize.toInt(), (finaluncompressedsize?.value ?: 0L), (workspace?.value ?: 0L))
+public actual fun rtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDecompressBufferEx2(compressionformat.toShort(), uncompressedbuffer.rawAddress, uncompressedbuffersize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), uncompressedchunksize.toInt(), finaluncompressedsize.rawAddress, workspace.rawAddress)
 
-public actual fun rtlDecompressChunks(uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, compressedtail: COpaquePointer?, compressedtailsize: UInt, compresseddatainfo: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks((uncompressedbuffer?.value ?: 0L), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), (compressedtail?.value ?: 0L), compressedtailsize.toInt(), (compresseddatainfo?.value ?: 0L))
+public actual fun rtlDecompressChunks(uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, compressedtail: ConstPtr<UByte>, compressedtailsize: UInt, compresseddatainfo: ConstPtr<CompressedDataInfo>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDecompressChunks(uncompressedbuffer.rawAddress, uncompressedbuffersize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), compressedtail.rawAddress, compressedtailsize.toInt(), compresseddatainfo.rawAddress)
 
-public actual fun rtlDecompressFragment(compressionformat: UShort, uncompressedfragment: COpaquePointer?, uncompressedfragmentsize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment(compressionformat.toShort(), (uncompressedfragment?.value ?: 0L), uncompressedfragmentsize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), fragmentoffset.toInt(), (finaluncompressedsize?.value ?: 0L), (workspace?.value ?: 0L))
+public actual fun rtlDecompressFragment(compressionformat: UShort, uncompressedfragment: MutPtr<UByte>, uncompressedfragmentsize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDecompressFragment(compressionformat.toShort(), uncompressedfragment.rawAddress, uncompressedfragmentsize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), fragmentoffset.toInt(), finaluncompressedsize.rawAddress, workspace.rawAddress)
 
-public actual fun rtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: COpaquePointer?, uncompressedfragmentsize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx(compressionformat.toShort(), (uncompressedfragment?.value ?: 0L), uncompressedfragmentsize.toInt(), (compressedbuffer?.value ?: 0L), compressedbuffersize.toInt(), fragmentoffset.toInt(), uncompressedchunksize.toInt(), (finaluncompressedsize?.value ?: 0L), (workspace?.value ?: 0L))
+public actual fun rtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: MutPtr<UByte>, uncompressedfragmentsize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDecompressFragmentEx(compressionformat.toShort(), uncompressedfragment.rawAddress, uncompressedfragmentsize.toInt(), compressedbuffer.rawAddress, compressedbuffersize.toInt(), fragmentoffset.toInt(), uncompressedchunksize.toInt(), finaluncompressedsize.rawAddress, workspace.rawAddress)
 
-public actual fun rtlDeleteAce(acl: COpaquePointer?, aceindex: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDeleteAce((acl?.value ?: 0L), aceindex.toInt())
+public actual fun rtlDeleteAce(acl: MutPtr<Acl>, aceindex: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDeleteAce(acl.rawAddress, aceindex.toInt())
 
-public actual fun rtlDescribeChunk(compressionformat: UShort, compressedbuffer: COpaquePointer?, endofcompressedbufferplus1: COpaquePointer?, chunkbuffer: COpaquePointer?, chunksize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk(compressionformat.toShort(), (compressedbuffer?.value ?: 0L), (endofcompressedbufferplus1?.value ?: 0L), (chunkbuffer?.value ?: 0L), (chunksize?.value ?: 0L))
+public actual fun rtlDescribeChunk(compressionformat: UShort, compressedbuffer: MutPtr<MutPtr<UByte>>, endofcompressedbufferplus1: ConstPtr<UByte>, chunkbuffer: MutPtr<MutPtr<UByte>>, chunksize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDescribeChunk(compressionformat.toShort(), compressedbuffer.rawAddress, endofcompressedbufferplus1.rawAddress, chunkbuffer.rawAddress, chunksize.rawAddress)
 
-public actual fun rtlDestroyHeap(heaphandle: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap((heaphandle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlDestroyHeap(heaphandle: ConstPtr<CVoid>): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDestroyHeap(heaphandle.rawAddress))
 
-public actual fun rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Pcwstr, ntfilename: COpaquePointer?, filepart: COpaquePointer?, reserved: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus((dosfilename?.value ?: 0L), (ntfilename?.value ?: 0L), (filepart?.value ?: 0L), (reserved?.value ?: 0L))
+public actual fun rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Pcwstr, ntfilename: MutPtr<UnicodeString>, filepart: MutPtr<Pwstr>, reserved: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDosPathNameToNtPathNameUWithStatus(dosfilename.rawAddress, ntfilename.rawAddress, filepart.rawAddress, reserved.rawAddress)
 
-public actual fun rtlDowncaseUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlDowncaseUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDowncaseUnicodeString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlDuplicateUnicodeString(flags: UInt, stringin: COpaquePointer?, stringout: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString(flags.toInt(), (stringin?.value ?: 0L), (stringout?.value ?: 0L))
+public actual fun rtlDuplicateUnicodeString(flags: UInt, stringin: ConstPtr<UnicodeString>, stringout: MutPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlDuplicateUnicodeString(flags.toInt(), stringin.rawAddress, stringout.rawAddress)
 
 public actual fun rtlEqualPrefixSid(sid1: Psid, sid2: Psid): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid((sid1?.value ?: 0L), (sid2?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlEqualPrefixSid(sid1.rawAddress, sid2.rawAddress)
 
 public actual fun rtlEqualSid(sid1: Psid, sid2: Psid): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlEqualSid((sid1?.value ?: 0L), (sid2?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlEqualSid(sid1.rawAddress, sid2.rawAddress)
 
-public actual fun rtlFindUnicodePrefix(prefixtable: COpaquePointer?, fullname: COpaquePointer?, caseinsensitiveindex: UInt): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix((prefixtable?.value ?: 0L), (fullname?.value ?: 0L), caseinsensitiveindex.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlFindUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, fullname: ConstPtr<UnicodeString>, caseinsensitiveindex: UInt): MutPtr<UnicodePrefixTableEntry> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlFindUnicodePrefix(prefixtable.rawAddress, fullname.rawAddress, caseinsensitiveindex.toInt()))
 
-public actual fun rtlFreeHeap(heaphandle: COpaquePointer?, flags: UInt, baseaddress: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlFreeHeap((heaphandle?.value ?: 0L), flags.toInt(), (baseaddress?.value ?: 0L)).toUInt()
+public actual fun rtlFreeHeap(heaphandle: ConstPtr<CVoid>, flags: UInt, baseaddress: ConstPtr<CVoid>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlFreeHeap(heaphandle.rawAddress, flags.toInt(), baseaddress.rawAddress).toUInt()
 
-public actual fun rtlFreeSid(sid: Psid): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlFreeSid((sid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlFreeSid(sid: Psid): MutPtr<CVoid> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlFreeSid(sid.rawAddress))
 
-public actual fun rtlGenerate8dot3Name(name: COpaquePointer?, allowextendedcharacters: Boolean, context: COpaquePointer?, name8dot3: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name((name?.value ?: 0L), allowextendedcharacters, (context?.value ?: 0L), (name8dot3?.value ?: 0L))
+public actual fun rtlGenerate8dot3Name(name: ConstPtr<UnicodeString>, allowextendedcharacters: Boolean, context: MutPtr<GenerateNameContext>, name8dot3: MutPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGenerate8dot3Name(name.rawAddress, allowextendedcharacters, context.rawAddress, name8dot3.rawAddress)
 
-public actual fun rtlGetAce(acl: COpaquePointer?, aceindex: UInt, ace: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGetAce((acl?.value ?: 0L), aceindex.toInt(), (ace?.value ?: 0L))
+public actual fun rtlGetAce(acl: ConstPtr<Acl>, aceindex: UInt, ace: MutPtr<MutPtr<CVoid>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGetAce(acl.rawAddress, aceindex.toInt(), ace.rawAddress)
 
-public actual fun rtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: COpaquePointer?, compressfragmentworkspacesize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize(compressionformatandengine.toShort(), (compressbufferworkspacesize?.value ?: 0L), (compressfragmentworkspacesize?.value ?: 0L))
+public actual fun rtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: MutPtr<UInt>, compressfragmentworkspacesize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGetCompressionWorkSpaceSize(compressionformatandengine.toShort(), compressbufferworkspacesize.rawAddress, compressfragmentworkspacesize.rawAddress)
 
-public actual fun rtlGetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: COpaquePointer?, dacl: COpaquePointer?, dacldefaulted: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor((securitydescriptor?.value ?: 0L), (daclpresent?.value ?: 0L), (dacl?.value ?: 0L), (dacldefaulted?.value ?: 0L))
+public actual fun rtlGetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: MutPtr<Boolean>, dacl: MutPtr<MutPtr<Acl>>, dacldefaulted: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGetDaclSecurityDescriptor(securitydescriptor.rawAddress, daclpresent.rawAddress, dacl.rawAddress, dacldefaulted.rawAddress)
 
-public actual fun rtlGetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: COpaquePointer?, groupdefaulted: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor((securitydescriptor?.value ?: 0L), (group?.value ?: 0L), (groupdefaulted?.value ?: 0L))
+public actual fun rtlGetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: MutPtr<Psid>, groupdefaulted: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGetGroupSecurityDescriptor(securitydescriptor.rawAddress, group.rawAddress, groupdefaulted.rawAddress)
 
-public actual fun rtlGetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: COpaquePointer?, ownerdefaulted: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor((securitydescriptor?.value ?: 0L), (owner?.value ?: 0L), (ownerdefaulted?.value ?: 0L))
+public actual fun rtlGetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: MutPtr<Psid>, ownerdefaulted: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGetOwnerSecurityDescriptor(securitydescriptor.rawAddress, owner.rawAddress, ownerdefaulted.rawAddress)
 
-public actual fun rtlGetSaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, saclpresent: COpaquePointer?, sacl: COpaquePointer?, sacldefaulted: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor((securitydescriptor?.value ?: 0L), (saclpresent?.value ?: 0L), (sacl?.value ?: 0L), (sacldefaulted?.value ?: 0L))
+public actual fun rtlGetSaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, saclpresent: MutPtr<Boolean>, sacl: MutPtr<MutPtr<Acl>>, sacldefaulted: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlGetSaclSecurityDescriptor(securitydescriptor.rawAddress, saclpresent.rawAddress, sacl.rawAddress, sacldefaulted.rawAddress)
 
-public actual fun rtlIdentifierAuthoritySid(sid: Psid): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid((sid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlIdentifierAuthoritySid(sid: Psid): MutPtr<SidIdentifierAuthority> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIdentifierAuthoritySid(sid.rawAddress))
 
-public actual fun rtlIdnToAscii(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii(flags.toInt(), (sourcestring?.value ?: 0L), sourcestringlength, (destinationstring?.value ?: 0L), (destinationstringlength?.value ?: 0L))
+public actual fun rtlIdnToAscii(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIdnToAscii(flags.toInt(), sourcestring.rawAddress, sourcestringlength, destinationstring.rawAddress, destinationstringlength.rawAddress)
 
-public actual fun rtlIdnToNameprepUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode(flags.toInt(), (sourcestring?.value ?: 0L), sourcestringlength, (destinationstring?.value ?: 0L), (destinationstringlength?.value ?: 0L))
+public actual fun rtlIdnToNameprepUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIdnToNameprepUnicode(flags.toInt(), sourcestring.rawAddress, sourcestringlength, destinationstring.rawAddress, destinationstringlength.rawAddress)
 
-public actual fun rtlIdnToUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode(flags.toInt(), (sourcestring?.value ?: 0L), sourcestringlength, (destinationstring?.value ?: 0L), (destinationstringlength?.value ?: 0L))
+public actual fun rtlIdnToUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIdnToUnicode(flags.toInt(), sourcestring.rawAddress, sourcestringlength, destinationstring.rawAddress, destinationstringlength.rawAddress)
 
-public actual fun rtlInitCodePageTable(tablebase: COpaquePointer?, codepagetable: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable((tablebase?.value ?: 0L), (codepagetable?.value ?: 0L))
+public actual fun rtlInitCodePageTable(tablebase: ConstPtr<UShort>, codepagetable: MutPtr<Cptableinfo>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlInitCodePageTable(tablebase.rawAddress, codepagetable.rawAddress)
 }
 
-public actual fun rtlInitUnicodeStringEx(destinationstring: COpaquePointer?, sourcestring: Pcwstr): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
+public actual fun rtlInitUnicodeStringEx(destinationstring: MutPtr<UnicodeString>, sourcestring: Pcwstr): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlInitUnicodeStringEx(destinationstring.rawAddress, sourcestring.rawAddress)
 
-public actual fun rtlInitializeSid(sid: Psid, identifierauthority: COpaquePointer?, subauthoritycount: UByte): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlInitializeSid((sid?.value ?: 0L), (identifierauthority?.value ?: 0L), subauthoritycount.toByte())
+public actual fun rtlInitializeSid(sid: Psid, identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlInitializeSid(sid.rawAddress, identifierauthority.rawAddress, subauthoritycount.toByte())
 
-public actual fun rtlInitializeSidEx(sid: Psid, identifierauthority: COpaquePointer?, subauthoritycount: UByte, vararg variadicArgs: Long): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx((sid?.value ?: 0L), (identifierauthority?.value ?: 0L), subauthoritycount.toByte(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+public actual fun rtlInitializeSidEx(sid: Psid, identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte, vararg variadicArgs: Long): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlInitializeSidEx(sid.rawAddress, identifierauthority.rawAddress, subauthoritycount.toByte(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun rtlInitializeUnicodePrefix(prefixtable: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix((prefixtable?.value ?: 0L))
+public actual fun rtlInitializeUnicodePrefix(prefixtable: MutPtr<UnicodePrefixTable>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlInitializeUnicodePrefix(prefixtable.rawAddress)
 }
 
-public actual fun rtlInsertUnicodePrefix(prefixtable: COpaquePointer?, prefix: COpaquePointer?, prefixtableentry: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix((prefixtable?.value ?: 0L), (prefix?.value ?: 0L), (prefixtableentry?.value ?: 0L))
+public actual fun rtlInsertUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, prefix: ConstPtr<UnicodeString>, prefixtableentry: MutPtr<UnicodePrefixTableEntry>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlInsertUnicodePrefix(prefixtable.rawAddress, prefix.rawAddress, prefixtableentry.rawAddress)
 
 public actual fun rtlIsCloudFilesPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder(fileattributes.toInt(), reparsetag.toInt())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsCloudFilesPlaceholder(fileattributes.toInt(), reparsetag.toInt())
 
 public actual fun rtlIsDosDeviceNameU(dosfilename: Pcwstr): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU((dosfilename?.value ?: 0L)).toUInt()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsDosDeviceNameU(dosfilename.rawAddress).toUInt()
 
 public actual fun rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt())
 
-public actual fun rtlIsNormalizedString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, normalized: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString(normform.toInt(), (sourcestring?.value ?: 0L), sourcestringlength, (normalized?.value ?: 0L))
+public actual fun rtlIsNormalizedString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, normalized: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsNormalizedString(normform.toInt(), sourcestring.rawAddress, sourcestringlength, normalized.rawAddress)
 
 public actual fun rtlIsPartialPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder(fileattributes.toInt(), reparsetag.toInt())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholder(fileattributes.toInt(), reparsetag.toInt())
 
-public actual fun rtlIsPartialPlaceholderFileHandle(filehandle: Handle, ispartialplaceholder: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle((filehandle?.value ?: 0L), (ispartialplaceholder?.value ?: 0L))
+public actual fun rtlIsPartialPlaceholderFileHandle(filehandle: Handle, ispartialplaceholder: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholderFileHandle(filehandle.rawAddress, ispartialplaceholder.rawAddress)
 
-public actual fun rtlIsPartialPlaceholderFileInfo(infobuffer: COpaquePointer?, infoclass: FileInformationClass, ispartialplaceholder: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo((infobuffer?.value ?: 0L), infoclass, (ispartialplaceholder?.value ?: 0L))
+public actual fun rtlIsPartialPlaceholderFileInfo(infobuffer: ConstPtr<CVoid>, infoclass: FileInformationClass, ispartialplaceholder: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholderFileInfo(infobuffer.rawAddress, infoclass, ispartialplaceholder.rawAddress)
 
-public actual fun rtlIsSandboxedToken(context: COpaquePointer?, previousmode: Byte): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken((context?.value ?: 0L), previousmode)
+public actual fun rtlIsSandboxedToken(context: ConstPtr<SecuritySubjectContext>, previousmode: Byte): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsSandboxedToken(context.rawAddress, previousmode)
 
 public actual fun rtlIsValidOemCharacter(char: Pwstr): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter((char?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlIsValidOemCharacter(char.rawAddress)
 
 public actual fun rtlLengthRequiredSid(subauthoritycount: UInt): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid(subauthoritycount.toInt()).toUInt()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlLengthRequiredSid(subauthoritycount.toInt()).toUInt()
 
 public actual fun rtlLengthSid(sid: Psid): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlLengthSid((sid?.value ?: 0L)).toUInt()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlLengthSid(sid.rawAddress).toUInt()
 
-public actual fun rtlMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN((unicodestring?.value ?: 0L), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L), (multibytestring?.value ?: 0L), bytesinmultibytestring.toInt())
+public actual fun rtlMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlMultiByteToUnicodeN(unicodestring.rawAddress, maxbytesinunicodestring.toInt(), bytesinunicodestring.rawAddress, multibytestring.rawAddress, bytesinmultibytestring.toInt())
 
-public actual fun rtlMultiByteToUnicodeSize(bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize((bytesinunicodestring?.value ?: 0L), (multibytestring?.value ?: 0L), bytesinmultibytestring.toInt())
+public actual fun rtlMultiByteToUnicodeSize(bytesinunicodestring: MutPtr<UInt>, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlMultiByteToUnicodeSize(bytesinunicodestring.rawAddress, multibytestring.rawAddress, bytesinmultibytestring.toInt())
 
-public actual fun rtlNextUnicodePrefix(prefixtable: COpaquePointer?, restart: Boolean): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix((prefixtable?.value ?: 0L), restart).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlNextUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, restart: Boolean): MutPtr<UnicodePrefixTableEntry> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlNextUnicodePrefix(prefixtable.rawAddress, restart))
 
-public actual fun rtlNormalizeString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlNormalizeString(normform.toInt(), (sourcestring?.value ?: 0L), sourcestringlength, (destinationstring?.value ?: 0L), (destinationstringlength?.value ?: 0L))
+public actual fun rtlNormalizeString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlNormalizeString(normform.toInt(), sourcestring.rawAddress, sourcestringlength, destinationstring.rawAddress, destinationstringlength.rawAddress)
 
 public actual fun rtlNtStatusToDosErrorNoTeb(status: Ntstatus): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb(status).toUInt()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlNtStatusToDosErrorNoTeb(status).toUInt()
 
-public actual fun rtlOemStringToCountedUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlOemStringToCountedUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlOemStringToCountedUnicodeString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlOemStringToUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlOemStringToUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlOemStringToUnicodeString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlOemToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, oemstring: Pcstr, bytesinoemstring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN((unicodestring?.value ?: 0L), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L), (oemstring?.value ?: 0L), bytesinoemstring.toInt())
+public actual fun rtlOemToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, oemstring: Pcstr, bytesinoemstring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlOemToUnicodeN(unicodestring.rawAddress, maxbytesinunicodestring.toInt(), bytesinunicodestring.rawAddress, oemstring.rawAddress, bytesinoemstring.toInt())
 
-public actual fun rtlPrefixString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlPrefixString((string1?.value ?: 0L), (string2?.value ?: 0L), caseinsensitive)
+public actual fun rtlPrefixString(string1: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, string2: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, caseinsensitive: Boolean): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlPrefixString(string1.rawAddress, string2.rawAddress, caseinsensitive)
 
-public actual fun rtlQueryPackageIdentity(tokenobject: COpaquePointer?, packagefullname: Pwstr, packagesize: COpaquePointer?, appid: Pwstr, appidsize: COpaquePointer?, packaged: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity((tokenobject?.value ?: 0L), (packagefullname?.value ?: 0L), (packagesize?.value ?: 0L), (appid?.value ?: 0L), (appidsize?.value ?: 0L), (packaged?.value ?: 0L))
+public actual fun rtlQueryPackageIdentity(tokenobject: ConstPtr<CVoid>, packagefullname: Pwstr, packagesize: MutPtr<ULong>, appid: Pwstr, appidsize: MutPtr<ULong>, packaged: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlQueryPackageIdentity(tokenobject.rawAddress, packagefullname.rawAddress, packagesize.rawAddress, appid.rawAddress, appidsize.rawAddress, packaged.rawAddress)
 
-public actual fun rtlQueryPackageIdentityEx(tokenobject: COpaquePointer?, packagefullname: Pwstr, packagesize: COpaquePointer?, appid: Pwstr, appidsize: COpaquePointer?, dynamicid: COpaquePointer?, flags: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx((tokenobject?.value ?: 0L), (packagefullname?.value ?: 0L), (packagesize?.value ?: 0L), (appid?.value ?: 0L), (appidsize?.value ?: 0L), (dynamicid?.value ?: 0L), (flags?.value ?: 0L))
+public actual fun rtlQueryPackageIdentityEx(tokenobject: ConstPtr<CVoid>, packagefullname: Pwstr, packagesize: MutPtr<ULong>, appid: Pwstr, appidsize: MutPtr<ULong>, dynamicid: MutPtr<Guid>, flags: MutPtr<ULong>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlQueryPackageIdentityEx(tokenobject.rawAddress, packagefullname.rawAddress, packagesize.rawAddress, appid.rawAddress, appidsize.rawAddress, dynamicid.rawAddress, flags.rawAddress)
 
 public actual fun rtlQueryProcessPlaceholderCompatibilityMode(): Byte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlQueryProcessPlaceholderCompatibilityMode()
 
 public actual fun rtlQueryThreadPlaceholderCompatibilityMode(): Byte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode()
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlQueryThreadPlaceholderCompatibilityMode()
 
-public actual fun rtlRandom(seed: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlRandom((seed?.value ?: 0L)).toUInt()
+public actual fun rtlRandom(seed: MutPtr<UInt>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlRandom(seed.rawAddress).toUInt()
 
-public actual fun rtlRandomEx(seed: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlRandomEx((seed?.value ?: 0L)).toUInt()
+public actual fun rtlRandomEx(seed: MutPtr<UInt>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlRandomEx(seed.rawAddress).toUInt()
 
-public actual fun rtlRemoveUnicodePrefix(prefixtable: COpaquePointer?, prefixtableentry: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix((prefixtable?.value ?: 0L), (prefixtableentry?.value ?: 0L))
+public actual fun rtlRemoveUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, prefixtableentry: ConstPtr<UnicodePrefixTableEntry>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlRemoveUnicodePrefix(prefixtable.rawAddress, prefixtableentry.rawAddress)
 }
 
-public actual fun rtlReplaceSidInSd(securitydescriptor: PsecurityDescriptor, oldsid: Psid, newsid: Psid, numchanges: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd((securitydescriptor?.value ?: 0L), (oldsid?.value ?: 0L), (newsid?.value ?: 0L), (numchanges?.value ?: 0L))
+public actual fun rtlReplaceSidInSd(securitydescriptor: PsecurityDescriptor, oldsid: Psid, newsid: Psid, numchanges: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlReplaceSidInSd(securitydescriptor.rawAddress, oldsid.rawAddress, newsid.rawAddress, numchanges.rawAddress)
 
-public actual fun rtlReserveChunk(compressionformat: UShort, compressedbuffer: COpaquePointer?, endofcompressedbufferplus1: COpaquePointer?, chunkbuffer: COpaquePointer?, chunksize: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlReserveChunk(compressionformat.toShort(), (compressedbuffer?.value ?: 0L), (endofcompressedbufferplus1?.value ?: 0L), (chunkbuffer?.value ?: 0L), chunksize.toInt())
+public actual fun rtlReserveChunk(compressionformat: UShort, compressedbuffer: MutPtr<MutPtr<UByte>>, endofcompressedbufferplus1: ConstPtr<UByte>, chunkbuffer: MutPtr<MutPtr<UByte>>, chunksize: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlReserveChunk(compressionformat.toShort(), compressedbuffer.rawAddress, endofcompressedbufferplus1.rawAddress, chunkbuffer.rawAddress, chunksize.toInt())
 
-public actual fun rtlSecondsSince1970ToTime(elapsedseconds: UInt, time: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime(elapsedseconds.toInt(), (time?.value ?: 0L))
+public actual fun rtlSecondsSince1970ToTime(elapsedseconds: UInt, time: MutPtr<Long>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSecondsSince1970ToTime(elapsedseconds.toInt(), time.rawAddress)
 }
 
-public actual fun rtlSecondsSince1980ToTime(elapsedseconds: UInt, time: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime(elapsedseconds.toInt(), (time?.value ?: 0L))
+public actual fun rtlSecondsSince1980ToTime(elapsedseconds: UInt, time: MutPtr<Long>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSecondsSince1980ToTime(elapsedseconds.toInt(), time.rawAddress)
 }
 
-public actual fun rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptorsize: COpaquePointer?, dacl: COpaquePointer?, daclsize: COpaquePointer?, sacl: COpaquePointer?, saclsize: COpaquePointer?, owner: Psid, ownersize: COpaquePointer?, primarygroup: Psid, primarygroupsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD((selfrelativesecuritydescriptor?.value ?: 0L), (absolutesecuritydescriptor?.value ?: 0L), (absolutesecuritydescriptorsize?.value ?: 0L), (dacl?.value ?: 0L), (daclsize?.value ?: 0L), (sacl?.value ?: 0L), (saclsize?.value ?: 0L), (owner?.value ?: 0L), (ownersize?.value ?: 0L), (primarygroup?.value ?: 0L), (primarygroupsize?.value ?: 0L))
+public actual fun rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptorsize: MutPtr<UInt>, dacl: MutPtr<Acl>, daclsize: MutPtr<UInt>, sacl: MutPtr<Acl>, saclsize: MutPtr<UInt>, owner: Psid, ownersize: MutPtr<UInt>, primarygroup: Psid, primarygroupsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor.rawAddress, absolutesecuritydescriptor.rawAddress, absolutesecuritydescriptorsize.rawAddress, dacl.rawAddress, daclsize.rawAddress, sacl.rawAddress, saclsize.rawAddress, owner.rawAddress, ownersize.rawAddress, primarygroup.rawAddress, primarygroupsize.rawAddress)
 
 public actual fun rtlSetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: Psid, groupdefaulted: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor((securitydescriptor?.value ?: 0L), (group?.value ?: 0L), groupdefaulted)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSetGroupSecurityDescriptor(securitydescriptor.rawAddress, group.rawAddress, groupdefaulted)
 
 public actual fun rtlSetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: Psid, ownerdefaulted: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor((securitydescriptor?.value ?: 0L), (owner?.value ?: 0L), ownerdefaulted)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSetOwnerSecurityDescriptor(securitydescriptor.rawAddress, owner.rawAddress, ownerdefaulted)
 
 public actual fun rtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode(mode)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSetProcessPlaceholderCompatibilityMode(mode)
 
 public actual fun rtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode(mode)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSetThreadPlaceholderCompatibilityMode(mode)
 
-public actual fun rtlSubAuthorityCountSid(sid: Psid): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid((sid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlSubAuthorityCountSid(sid: Psid): MutPtr<UByte> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSubAuthorityCountSid(sid.rawAddress))
 
-public actual fun rtlSubAuthoritySid(sid: Psid, subauthority: UInt): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid((sid?.value ?: 0L), subauthority.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlSubAuthoritySid(sid: Psid, subauthority: UInt): MutPtr<UInt> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlSubAuthoritySid(sid.rawAddress, subauthority.toInt()))
 
-public actual fun rtlTimeToSecondsSince1980(time: COpaquePointer?, elapsedseconds: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980((time?.value ?: 0L), (elapsedseconds?.value ?: 0L))
+public actual fun rtlTimeToSecondsSince1980(time: ConstPtr<Long>, elapsedseconds: MutPtr<UInt>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlTimeToSecondsSince1980(time.rawAddress, elapsedseconds.rawAddress)
 
-public actual fun rtlUnicodeStringToCountedOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlUnicodeStringToCountedOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUnicodeStringToCountedOemString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlUnicodeToCustomCPN(customcp: COpaquePointer?, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN((customcp?.value ?: 0L), (customcpstring?.value ?: 0L), maxbytesincustomcpstring.toInt(), (bytesincustomcpstring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun rtlUnicodeToCustomCPN(customcp: ConstPtr<Cptableinfo>, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUnicodeToCustomCPN(customcp.rawAddress, customcpstring.rawAddress, maxbytesincustomcpstring.toInt(), bytesincustomcpstring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
-public actual fun rtlUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN((multibytestring?.value ?: 0L), maxbytesinmultibytestring.toInt(), (bytesinmultibytestring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun rtlUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUnicodeToMultiByteN(multibytestring.rawAddress, maxbytesinmultibytestring.toInt(), bytesinmultibytestring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
-public actual fun rtlUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN((oemstring?.value ?: 0L), maxbytesinoemstring.toInt(), (bytesinoemstring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun rtlUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUnicodeToOemN(oemstring.rawAddress, maxbytesinoemstring.toInt(), bytesinoemstring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
-public actual fun rtlUpcaseUnicodeStringToCountedOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlUpcaseUnicodeStringToCountedOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeStringToCountedOemString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlUpcaseUnicodeStringToOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
+public actual fun rtlUpcaseUnicodeStringToOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeStringToOemString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlUpcaseUnicodeToCustomCPN(customcp: COpaquePointer?, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN((customcp?.value ?: 0L), (customcpstring?.value ?: 0L), maxbytesincustomcpstring.toInt(), (bytesincustomcpstring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun rtlUpcaseUnicodeToCustomCPN(customcp: ConstPtr<Cptableinfo>, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToCustomCPN(customcp.rawAddress, customcpstring.rawAddress, maxbytesincustomcpstring.toInt(), bytesincustomcpstring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
-public actual fun rtlUpcaseUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN((multibytestring?.value ?: 0L), maxbytesinmultibytestring.toInt(), (bytesinmultibytestring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun rtlUpcaseUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToMultiByteN(multibytestring.rawAddress, maxbytesinmultibytestring.toInt(), bytesinmultibytestring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
-public actual fun rtlUpcaseUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN((oemstring?.value ?: 0L), maxbytesinoemstring.toInt(), (bytesinoemstring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
+public actual fun rtlUpcaseUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToOemN(oemstring.rawAddress, maxbytesinoemstring.toInt(), bytesinoemstring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
 public actual fun rtlValidSid(sid: Psid): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlValidSid((sid?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlValidSid(sid.rawAddress)
 
-public actual fun rtlValidateUnicodeString(flags: UInt, string: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString(flags.toInt(), (string?.value ?: 0L))
+public actual fun rtlValidateUnicodeString(flags: UInt, string: ConstPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlValidateUnicodeString(flags.toInt(), string.rawAddress)
 
-public actual fun rtlxOemStringToUnicodeSize(oemstring: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize((oemstring?.value ?: 0L)).toUInt()
+public actual fun rtlxOemStringToUnicodeSize(oemstring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlxOemStringToUnicodeSize(oemstring.rawAddress).toUInt()
 
-public actual fun rtlxUnicodeStringToOemSize(unicodestring: COpaquePointer?): UInt =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize((unicodestring?.value ?: 0L)).toUInt()
+public actual fun rtlxUnicodeStringToOemSize(unicodestring: ConstPtr<UnicodeString>): UInt =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemRtlxUnicodeStringToOemSize(unicodestring.rawAddress).toUInt()
 
-public actual fun seAccessCheckFromState(securitydescriptor: PsecurityDescriptor, primarytokeninformation: COpaquePointer?, clienttokeninformation: COpaquePointer?, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: COpaquePointer?, genericmapping: COpaquePointer?, accessmode: Byte, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState((securitydescriptor?.value ?: 0L), (primarytokeninformation?.value ?: 0L), (clienttokeninformation?.value ?: 0L), desiredaccess.toInt(), previouslygrantedaccess.toInt(), (privileges?.value ?: 0L), (genericmapping?.value ?: 0L), accessmode, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L))
+public actual fun seAccessCheckFromState(securitydescriptor: PsecurityDescriptor, primarytokeninformation: ConstPtr<TokenAccessInformation>, clienttokeninformation: ConstPtr<TokenAccessInformation>, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr<MutPtr<PrivilegeSet>>, genericmapping: ConstPtr<GenericMapping>, accessmode: Byte, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAccessCheckFromState(securitydescriptor.rawAddress, primarytokeninformation.rawAddress, clienttokeninformation.rawAddress, desiredaccess.toInt(), previouslygrantedaccess.toInt(), privileges.rawAddress, genericmapping.rawAddress, accessmode, grantedaccess.rawAddress, accessstatus.rawAddress)
 
-public actual fun seAccessCheckFromStateEx(securitydescriptor: PsecurityDescriptor, primarytoken: COpaquePointer?, clienttoken: COpaquePointer?, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: COpaquePointer?, genericmapping: COpaquePointer?, accessmode: Byte, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx((securitydescriptor?.value ?: 0L), (primarytoken?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), previouslygrantedaccess.toInt(), (privileges?.value ?: 0L), (genericmapping?.value ?: 0L), accessmode, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L))
+public actual fun seAccessCheckFromStateEx(securitydescriptor: PsecurityDescriptor, primarytoken: ConstPtr<CVoid>, clienttoken: ConstPtr<CVoid>, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr<MutPtr<PrivilegeSet>>, genericmapping: ConstPtr<GenericMapping>, accessmode: Byte, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAccessCheckFromStateEx(securitydescriptor.rawAddress, primarytoken.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), previouslygrantedaccess.toInt(), privileges.rawAddress, genericmapping.rawAddress, accessmode, grantedaccess.rawAddress, accessstatus.rawAddress)
 
-public actual fun seAdjustAccessStateForAccessConstraints(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints((objecttype?.value ?: 0L), (securitydescriptor?.value ?: 0L), (accessstate?.value ?: 0L))
+public actual fun seAdjustAccessStateForAccessConstraints(objecttype: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor, accessstate: MutPtr<AccessState>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAdjustAccessStateForAccessConstraints(objecttype.rawAddress, securitydescriptor.rawAddress, accessstate.rawAddress)
 }
 
-public actual fun seAdjustAccessStateForTrustLabel(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel((objecttype?.value ?: 0L), (securitydescriptor?.value ?: 0L), (accessstate?.value ?: 0L))
+public actual fun seAdjustAccessStateForTrustLabel(objecttype: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor, accessstate: MutPtr<AccessState>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAdjustAccessStateForTrustLabel(objecttype.rawAddress, securitydescriptor.rawAddress, accessstate.rawAddress)
 }
 
-public actual fun seAdjustObjectSecurity(objectname: COpaquePointer?, originaldescriptor: PsecurityDescriptor, proposeddescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, adjusteddescriptor: COpaquePointer?, applyadjusteddescriptor: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity((objectname?.value ?: 0L), (originaldescriptor?.value ?: 0L), (proposeddescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L), (adjusteddescriptor?.value ?: 0L), (applyadjusteddescriptor?.value ?: 0L))
+public actual fun seAdjustObjectSecurity(objectname: ConstPtr<UnicodeString>, originaldescriptor: PsecurityDescriptor, proposeddescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, adjusteddescriptor: MutPtr<PsecurityDescriptor>, applyadjusteddescriptor: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAdjustObjectSecurity(objectname.rawAddress, originaldescriptor.rawAddress, proposeddescriptor.rawAddress, subjectsecuritycontext.rawAddress, adjusteddescriptor.rawAddress, applyadjusteddescriptor.rawAddress)
 
-public actual fun seAppendPrivileges(accessstate: COpaquePointer?, privileges: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAppendPrivileges((accessstate?.value ?: 0L), (privileges?.value ?: 0L))
+public actual fun seAppendPrivileges(accessstate: MutPtr<AccessState>, privileges: ConstPtr<PrivilegeSet>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAppendPrivileges(accessstate.rawAddress, privileges.rawAddress)
 
 public actual fun seAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests(bsuccess, selftestcode.toInt())
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditFipsCryptoSelftests(bsuccess, selftestcode.toInt())
 }
 
-public actual fun seAuditHardLinkCreation(filename: COpaquePointer?, linkname: COpaquePointer?, bsuccess: Boolean) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation((filename?.value ?: 0L), (linkname?.value ?: 0L), bsuccess)
+public actual fun seAuditHardLinkCreation(filename: ConstPtr<UnicodeString>, linkname: ConstPtr<UnicodeString>, bsuccess: Boolean) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditHardLinkCreation(filename.rawAddress, linkname.rawAddress, bsuccess)
 }
 
-public actual fun seAuditHardLinkCreationWithTransaction(filename: COpaquePointer?, linkname: COpaquePointer?, bsuccess: Boolean, transactionid: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction((filename?.value ?: 0L), (linkname?.value ?: 0L), bsuccess, (transactionid?.value ?: 0L))
+public actual fun seAuditHardLinkCreationWithTransaction(filename: ConstPtr<UnicodeString>, linkname: ConstPtr<UnicodeString>, bsuccess: Boolean, transactionid: ConstPtr<Guid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditHardLinkCreationWithTransaction(filename.rawAddress, linkname.rawAddress, bsuccess, transactionid.rawAddress)
 }
 
-public actual fun seAuditTransactionStateChange(transactionid: COpaquePointer?, resourcemanagerid: COpaquePointer?, newtransactionstate: UInt) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange((transactionid?.value ?: 0L), (resourcemanagerid?.value ?: 0L), newtransactionstate.toInt())
+public actual fun seAuditTransactionStateChange(transactionid: ConstPtr<Guid>, resourcemanagerid: ConstPtr<Guid>, newtransactionstate: UInt) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditTransactionStateChange(transactionid.rawAddress, resourcemanagerid.rawAddress, newtransactionstate.toInt())
 }
 
-public actual fun seAuditingAnyFileEventsWithContext(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext((securitydescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L))
+public actual fun seAuditingAnyFileEventsWithContext(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingAnyFileEventsWithContext(securitydescriptor.rawAddress, subjectsecuritycontext.rawAddress)
 
-public actual fun seAuditingAnyFileEventsWithContextEx(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, stagingenabled: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx((securitydescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L), (stagingenabled?.value ?: 0L))
+public actual fun seAuditingAnyFileEventsWithContextEx(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, stagingenabled: MutPtr<Boolean>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingAnyFileEventsWithContextEx(securitydescriptor.rawAddress, subjectsecuritycontext.rawAddress, stagingenabled.rawAddress)
 
 public actual fun seAuditingFileEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents(accessgranted, (securitydescriptor?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingFileEvents(accessgranted, securitydescriptor.rawAddress)
 
-public actual fun seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext(accessgranted, (securitydescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L))
+public actual fun seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingFileEventsWithContext(accessgranted, securitydescriptor.rawAddress, subjectsecuritycontext.rawAddress)
 
-public actual fun seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, stagingenabled: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx(accessgranted, (securitydescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L), (stagingenabled?.value ?: 0L))
+public actual fun seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, stagingenabled: MutPtr<Boolean>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingFileEventsWithContextEx(accessgranted, securitydescriptor.rawAddress, subjectsecuritycontext.rawAddress, stagingenabled.rawAddress)
 
-public actual fun seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents(accessgranted, (securitydescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L))
+public actual fun seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingFileOrGlobalEvents(accessgranted, securitydescriptor.rawAddress, subjectsecuritycontext.rawAddress)
 
 public actual fun seAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents(accessgranted, (securitydescriptor?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingHardLinkEvents(accessgranted, securitydescriptor.rawAddress)
 
-public actual fun seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext(accessgranted, (securitydescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L))
+public actual fun seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeAuditingHardLinkEventsWithContext(accessgranted, securitydescriptor.rawAddress, subjectsecuritycontext.rawAddress)
 
-public actual fun seCaptureSubjectContextEx(thread: Pethread, process: Peprocess, subjectcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx(thread, process, (subjectcontext?.value ?: 0L))
+public actual fun seCaptureSubjectContextEx(thread: Pethread, process: Peprocess, subjectcontext: MutPtr<SecuritySubjectContext>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeCaptureSubjectContextEx(thread, process, subjectcontext.rawAddress)
 }
 
-public actual fun seCheckForCriticalAceRemoval(currentdescriptor: PsecurityDescriptor, newdescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, aceremoved: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval((currentdescriptor?.value ?: 0L), (newdescriptor?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L), (aceremoved?.value ?: 0L))
+public actual fun seCheckForCriticalAceRemoval(currentdescriptor: PsecurityDescriptor, newdescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, aceremoved: MutPtr<Boolean>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeCheckForCriticalAceRemoval(currentdescriptor.rawAddress, newdescriptor.rawAddress, subjectsecuritycontext.rawAddress, aceremoved.rawAddress)
 }
 
-public actual fun seCreateClientSecurity(clientthread: Pethread, clientsecurityqos: COpaquePointer?, remotesession: Boolean, clientcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity(clientthread, (clientsecurityqos?.value ?: 0L), remotesession, (clientcontext?.value ?: 0L))
+public actual fun seCreateClientSecurity(clientthread: Pethread, clientsecurityqos: ConstPtr<SecurityQualityOfService>, remotesession: Boolean, clientcontext: MutPtr<SecurityClientContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeCreateClientSecurity(clientthread, clientsecurityqos.rawAddress, remotesession, clientcontext.rawAddress)
 
-public actual fun seCreateClientSecurityFromSubjectContext(subjectcontext: COpaquePointer?, clientsecurityqos: COpaquePointer?, serverisremote: Boolean, clientcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext((subjectcontext?.value ?: 0L), (clientsecurityqos?.value ?: 0L), serverisremote, (clientcontext?.value ?: 0L))
+public actual fun seCreateClientSecurityFromSubjectContext(subjectcontext: ConstPtr<SecuritySubjectContext>, clientsecurityqos: ConstPtr<SecurityQualityOfService>, serverisremote: Boolean, clientcontext: MutPtr<SecurityClientContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeCreateClientSecurityFromSubjectContext(subjectcontext.rawAddress, clientsecurityqos.rawAddress, serverisremote, clientcontext.rawAddress)
 
-public actual fun seDeleteClientSecurity(clientcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity((clientcontext?.value ?: 0L))
+public actual fun seDeleteClientSecurity(clientcontext: MutPtr<SecurityClientContext>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeDeleteClientSecurity(clientcontext.rawAddress)
 }
 
-public actual fun seDeleteObjectAuditAlarm(obj: COpaquePointer?, handle: Handle) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm((obj?.value ?: 0L), (handle?.value ?: 0L))
+public actual fun seDeleteObjectAuditAlarm(obj: ConstPtr<CVoid>, handle: Handle) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeDeleteObjectAuditAlarm(obj.rawAddress, handle.rawAddress)
 }
 
-public actual fun seDeleteObjectAuditAlarmWithTransaction(obj: COpaquePointer?, handle: Handle, transactionid: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction((obj?.value ?: 0L), (handle?.value ?: 0L), (transactionid?.value ?: 0L))
+public actual fun seDeleteObjectAuditAlarmWithTransaction(obj: ConstPtr<CVoid>, handle: Handle, transactionid: ConstPtr<Guid>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeDeleteObjectAuditAlarmWithTransaction(obj.rawAddress, handle.rawAddress, transactionid.rawAddress)
 }
 
-public actual fun seExamineSacl(sacl: COpaquePointer?, resourcesacl: COpaquePointer?, token: COpaquePointer?, desiredaccess: UInt, accessgranted: Boolean, generateaudit: COpaquePointer?, generatealarm: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seExamineSacl((sacl?.value ?: 0L), (resourcesacl?.value ?: 0L), (token?.value ?: 0L), desiredaccess.toInt(), accessgranted, (generateaudit?.value ?: 0L), (generatealarm?.value ?: 0L))
+public actual fun seExamineSacl(sacl: ConstPtr<Acl>, resourcesacl: ConstPtr<Acl>, token: ConstPtr<CVoid>, desiredaccess: UInt, accessgranted: Boolean, generateaudit: MutPtr<Boolean>, generatealarm: MutPtr<Boolean>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeExamineSacl(sacl.rawAddress, resourcesacl.rawAddress, token.rawAddress, desiredaccess.toInt(), accessgranted, generateaudit.rawAddress, generatealarm.rawAddress)
 }
 
-public actual fun seFilterToken(existingtoken: COpaquePointer?, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, filteredtoken: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seFilterToken((existingtoken?.value ?: 0L), flags.toInt(), (sidstodisable?.value ?: 0L), (privilegestodelete?.value ?: 0L), (restrictedsids?.value ?: 0L), (filteredtoken?.value ?: 0L))
+public actual fun seFilterToken(existingtoken: ConstPtr<CVoid>, flags: UInt, sidstodisable: ConstPtr<TokenGroups>, privilegestodelete: ConstPtr<TokenPrivileges>, restrictedsids: ConstPtr<TokenGroups>, filteredtoken: MutPtr<MutPtr<CVoid>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeFilterToken(existingtoken.rawAddress, flags.toInt(), sidstodisable.rawAddress, privilegestodelete.rawAddress, restrictedsids.rawAddress, filteredtoken.rawAddress)
 
-public actual fun seFreePrivileges(privileges: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seFreePrivileges((privileges?.value ?: 0L))
+public actual fun seFreePrivileges(privileges: ConstPtr<PrivilegeSet>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeFreePrivileges(privileges.rawAddress)
 }
 
-public actual fun seImpersonateClient(clientcontext: COpaquePointer?, serverthread: Pethread) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seImpersonateClient((clientcontext?.value ?: 0L), serverthread)
+public actual fun seImpersonateClient(clientcontext: ConstPtr<SecurityClientContext>, serverthread: Pethread) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeImpersonateClient(clientcontext.rawAddress, serverthread)
 }
 
-public actual fun seImpersonateClientEx(clientcontext: COpaquePointer?, serverthread: Pethread): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx((clientcontext?.value ?: 0L), serverthread)
+public actual fun seImpersonateClientEx(clientcontext: ConstPtr<SecurityClientContext>, serverthread: Pethread): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeImpersonateClientEx(clientcontext.rawAddress, serverthread)
 
-public actual fun seLocateProcessImageName(process: Peprocess, pimagefilename: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName(process, (pimagefilename?.value ?: 0L))
+public actual fun seLocateProcessImageName(process: Peprocess, pimagefilename: MutPtr<MutPtr<UnicodeString>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeLocateProcessImageName(process, pimagefilename.rawAddress)
 
-public actual fun seMarkLogonSessionForTerminationNotification(logonid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification((logonid?.value ?: 0L))
+public actual fun seMarkLogonSessionForTerminationNotification(logonid: ConstPtr<Luid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeMarkLogonSessionForTerminationNotification(logonid.rawAddress)
 
-public actual fun seMarkLogonSessionForTerminationNotificationEx(logonid: COpaquePointer?, pserversilo: Pesilo): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx((logonid?.value ?: 0L), pserversilo)
+public actual fun seMarkLogonSessionForTerminationNotificationEx(logonid: ConstPtr<Luid>, pserversilo: Pesilo): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeMarkLogonSessionForTerminationNotificationEx(logonid.rawAddress, pserversilo)
 
-public actual fun seOpenObjectAuditAlarm(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm((objecttypename?.value ?: 0L), (obj?.value ?: 0L), (absoluteobjectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (accessstate?.value ?: 0L), objectcreated, accessgranted, accessmode, (generateonclose?.value ?: 0L))
+public actual fun seOpenObjectAuditAlarm(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: MutPtr<Boolean>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeOpenObjectAuditAlarm(objecttypename.rawAddress, obj.rawAddress, absoluteobjectname.rawAddress, securitydescriptor.rawAddress, accessstate.rawAddress, objectcreated, accessgranted, accessmode, generateonclose.rawAddress)
 }
 
-public actual fun seOpenObjectAuditAlarmWithTransaction(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: COpaquePointer?, generateonclose: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction((objecttypename?.value ?: 0L), (obj?.value ?: 0L), (absoluteobjectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (accessstate?.value ?: 0L), objectcreated, accessgranted, accessmode, (transactionid?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun seOpenObjectAuditAlarmWithTransaction(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: ConstPtr<Guid>, generateonclose: MutPtr<Boolean>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeOpenObjectAuditAlarmWithTransaction(objecttypename.rawAddress, obj.rawAddress, absoluteobjectname.rawAddress, securitydescriptor.rawAddress, accessstate.rawAddress, objectcreated, accessgranted, accessmode, transactionid.rawAddress, generateonclose.rawAddress)
 }
 
-public actual fun seOpenObjectForDeleteAuditAlarm(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm((objecttypename?.value ?: 0L), (obj?.value ?: 0L), (absoluteobjectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (accessstate?.value ?: 0L), objectcreated, accessgranted, accessmode, (generateonclose?.value ?: 0L))
+public actual fun seOpenObjectForDeleteAuditAlarm(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: MutPtr<Boolean>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeOpenObjectForDeleteAuditAlarm(objecttypename.rawAddress, obj.rawAddress, absoluteobjectname.rawAddress, securitydescriptor.rawAddress, accessstate.rawAddress, objectcreated, accessgranted, accessmode, generateonclose.rawAddress)
 }
 
-public actual fun seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: COpaquePointer?, generateonclose: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction((objecttypename?.value ?: 0L), (obj?.value ?: 0L), (absoluteobjectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (accessstate?.value ?: 0L), objectcreated, accessgranted, accessmode, (transactionid?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: ConstPtr<Guid>, generateonclose: MutPtr<Boolean>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename.rawAddress, obj.rawAddress, absoluteobjectname.rawAddress, securitydescriptor.rawAddress, accessstate.rawAddress, objectcreated, accessgranted, accessmode, transactionid.rawAddress, generateonclose.rawAddress)
 }
 
-public actual fun sePrivilegeCheck(requiredprivileges: COpaquePointer?, subjectsecuritycontext: COpaquePointer?, accessmode: Byte): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck((requiredprivileges?.value ?: 0L), (subjectsecuritycontext?.value ?: 0L), accessmode)
+public actual fun sePrivilegeCheck(requiredprivileges: MutPtr<PrivilegeSet>, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, accessmode: Byte): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSePrivilegeCheck(requiredprivileges.rawAddress, subjectsecuritycontext.rawAddress, accessmode)
 
-public actual fun seQueryAuthenticationIdToken(token: COpaquePointer?, authenticationid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken((token?.value ?: 0L), (authenticationid?.value ?: 0L))
+public actual fun seQueryAuthenticationIdToken(token: ConstPtr<CVoid>, authenticationid: MutPtr<Luid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeQueryAuthenticationIdToken(token.rawAddress, authenticationid.rawAddress)
 
-public actual fun seQueryInformationToken(token: COpaquePointer?, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seQueryInformationToken((token?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L))
+public actual fun seQueryInformationToken(token: ConstPtr<CVoid>, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<MutPtr<CVoid>>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeQueryInformationToken(token.rawAddress, tokeninformationclass, tokeninformation.rawAddress)
 
-public actual fun seQuerySecurityDescriptorInfo(securityinformation: COpaquePointer?, securitydescriptor: PsecurityDescriptor, length: COpaquePointer?, objectssecuritydescriptor: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo((securityinformation?.value ?: 0L), (securitydescriptor?.value ?: 0L), (length?.value ?: 0L), (objectssecuritydescriptor?.value ?: 0L))
+public actual fun seQuerySecurityDescriptorInfo(securityinformation: ConstPtr<UInt>, securitydescriptor: PsecurityDescriptor, length: MutPtr<UInt>, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeQuerySecurityDescriptorInfo(securityinformation.rawAddress, securitydescriptor.rawAddress, length.rawAddress, objectssecuritydescriptor.rawAddress)
 
-public actual fun seQueryServerSiloToken(token: COpaquePointer?, pserversilo: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken((token?.value ?: 0L), (pserversilo?.value ?: 0L))
+public actual fun seQueryServerSiloToken(token: ConstPtr<CVoid>, pserversilo: MutPtr<Pesilo>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeQueryServerSiloToken(token.rawAddress, pserversilo.rawAddress)
 
-public actual fun seQuerySessionIdToken(token: COpaquePointer?, sessionid: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken((token?.value ?: 0L), (sessionid?.value ?: 0L))
+public actual fun seQuerySessionIdToken(token: ConstPtr<CVoid>, sessionid: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeQuerySessionIdToken(token.rawAddress, sessionid.rawAddress)
 
-public actual fun seQuerySessionIdTokenEx(token: COpaquePointer?, sessionid: COpaquePointer?, isservicesession: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx((token?.value ?: 0L), (sessionid?.value ?: 0L), (isservicesession?.value ?: 0L))
+public actual fun seQuerySessionIdTokenEx(token: ConstPtr<CVoid>, sessionid: MutPtr<UInt>, isservicesession: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeQuerySessionIdTokenEx(token.rawAddress, sessionid.rawAddress, isservicesession.rawAddress)
 
 public actual fun seRegisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine(0L)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeRegisterLogonSessionTerminatedRoutine(0L)
 
-public actual fun seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx(0L, (context?.value ?: 0L))
+public actual fun seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeRegisterLogonSessionTerminatedRoutineEx(0L, context.rawAddress)
 
-public actual fun seReportSecurityEventWithSubCategory(flags: UInt, sourcename: COpaquePointer?, usersid: Psid, auditparameters: COpaquePointer?, auditsubcategoryid: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory(flags.toInt(), (sourcename?.value ?: 0L), (usersid?.value ?: 0L), (auditparameters?.value ?: 0L), auditsubcategoryid.toInt())
+public actual fun seReportSecurityEventWithSubCategory(flags: UInt, sourcename: ConstPtr<UnicodeString>, usersid: Psid, auditparameters: ConstPtr<SeAdtParameterArray>, auditsubcategoryid: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeReportSecurityEventWithSubCategory(flags.toInt(), sourcename.rawAddress, usersid.rawAddress, auditparameters.rawAddress, auditsubcategoryid.toInt())
 
-public actual fun seSetAccessStateGenericMapping(accessstate: COpaquePointer?, genericmapping: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping((accessstate?.value ?: 0L), (genericmapping?.value ?: 0L))
+public actual fun seSetAccessStateGenericMapping(accessstate: MutPtr<AccessState>, genericmapping: ConstPtr<GenericMapping>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeSetAccessStateGenericMapping(accessstate.rawAddress, genericmapping.rawAddress)
 }
 
-public actual fun seSetSecurityDescriptorInfo(obj: COpaquePointer?, securityinformation: COpaquePointer?, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, pooltype: PoolType, genericmapping: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo((obj?.value ?: 0L), (securityinformation?.value ?: 0L), (modificationdescriptor?.value ?: 0L), (objectssecuritydescriptor?.value ?: 0L), pooltype, (genericmapping?.value ?: 0L))
+public actual fun seSetSecurityDescriptorInfo(obj: ConstPtr<CVoid>, securityinformation: ConstPtr<UInt>, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>, pooltype: PoolType, genericmapping: ConstPtr<GenericMapping>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeSetSecurityDescriptorInfo(obj.rawAddress, securityinformation.rawAddress, modificationdescriptor.rawAddress, objectssecuritydescriptor.rawAddress, pooltype, genericmapping.rawAddress)
 
-public actual fun seSetSecurityDescriptorInfoEx(obj: COpaquePointer?, securityinformation: COpaquePointer?, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, autoinheritflags: UInt, pooltype: PoolType, genericmapping: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx((obj?.value ?: 0L), (securityinformation?.value ?: 0L), (modificationdescriptor?.value ?: 0L), (objectssecuritydescriptor?.value ?: 0L), autoinheritflags.toInt(), pooltype, (genericmapping?.value ?: 0L))
+public actual fun seSetSecurityDescriptorInfoEx(obj: ConstPtr<CVoid>, securityinformation: ConstPtr<UInt>, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>, autoinheritflags: UInt, pooltype: PoolType, genericmapping: ConstPtr<GenericMapping>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeSetSecurityDescriptorInfoEx(obj.rawAddress, securityinformation.rawAddress, modificationdescriptor.rawAddress, objectssecuritydescriptor.rawAddress, autoinheritflags.toInt(), pooltype, genericmapping.rawAddress)
 
-public actual fun seShouldCheckForAccessRightsFromParent(objecttype: COpaquePointer?, childdescriptor: PsecurityDescriptor, accessstate: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent((objecttype?.value ?: 0L), (childdescriptor?.value ?: 0L), (accessstate?.value ?: 0L))
+public actual fun seShouldCheckForAccessRightsFromParent(objecttype: ConstPtr<CVoid>, childdescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeShouldCheckForAccessRightsFromParent(objecttype.rawAddress, childdescriptor.rawAddress, accessstate.rawAddress)
 
-public actual fun seTokenFromAccessInformation(accessinformation: COpaquePointer?, token: COpaquePointer?, length: UInt, requiredlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation((accessinformation?.value ?: 0L), (token?.value ?: 0L), length.toInt(), (requiredlength?.value ?: 0L))
+public actual fun seTokenFromAccessInformation(accessinformation: ConstPtr<TokenAccessInformation>, token: MutPtr<CVoid>, length: UInt, requiredlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeTokenFromAccessInformation(accessinformation.rawAddress, token.rawAddress, length.toInt(), requiredlength.rawAddress)
 
-public actual fun seTokenIsAdmin(token: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin((token?.value ?: 0L))
+public actual fun seTokenIsAdmin(token: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeTokenIsAdmin(token.rawAddress)
 
-public actual fun seTokenIsRestricted(token: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted((token?.value ?: 0L))
+public actual fun seTokenIsRestricted(token: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeTokenIsRestricted(token.rawAddress)
 
-public actual fun seTokenIsWriteRestricted(token: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted((token?.value ?: 0L))
+public actual fun seTokenIsWriteRestricted(token: ConstPtr<CVoid>): Boolean =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeTokenIsWriteRestricted(token.rawAddress)
 
-public actual fun seTokenType(token: COpaquePointer?): TokenType =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seTokenType((token?.value ?: 0L))
+public actual fun seTokenType(token: ConstPtr<CVoid>): TokenType =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeTokenType(token.rawAddress)
 
 public actual fun seUnregisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine(0L)
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeUnregisterLogonSessionTerminatedRoutine(0L)
 
-public actual fun seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx(0L, (context?.value ?: 0L))
+public actual fun seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: ConstPtr<CVoid>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSeUnregisterLogonSessionTerminatedRoutineEx(0L, context.rawAddress)
 
-public actual fun secLookupAccountName(name: COpaquePointer?, sidsize: COpaquePointer?, sid: Psid, nameuse: COpaquePointer?, domainsize: COpaquePointer?, referenceddomain: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_secLookupAccountName((name?.value ?: 0L), (sidsize?.value ?: 0L), (sid?.value ?: 0L), (nameuse?.value ?: 0L), (domainsize?.value ?: 0L), (referenceddomain?.value ?: 0L))
+public actual fun secLookupAccountName(name: ConstPtr<UnicodeString>, sidsize: MutPtr<UInt>, sid: Psid, nameuse: MutPtr<SidNameUse>, domainsize: MutPtr<UInt>, referenceddomain: MutPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSecLookupAccountName(name.rawAddress, sidsize.rawAddress, sid.rawAddress, nameuse.rawAddress, domainsize.rawAddress, referenceddomain.rawAddress)
 
-public actual fun secLookupAccountSid(sid: Psid, namesize: COpaquePointer?, namebuffer: COpaquePointer?, domainsize: COpaquePointer?, domainbuffer: COpaquePointer?, nameuse: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_secLookupAccountSid((sid?.value ?: 0L), (namesize?.value ?: 0L), (namebuffer?.value ?: 0L), (domainsize?.value ?: 0L), (domainbuffer?.value ?: 0L), (nameuse?.value ?: 0L))
+public actual fun secLookupAccountSid(sid: Psid, namesize: MutPtr<UInt>, namebuffer: MutPtr<UnicodeString>, domainsize: MutPtr<UInt>, domainbuffer: MutPtr<UnicodeString>, nameuse: MutPtr<SidNameUse>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSecLookupAccountSid(sid.rawAddress, namesize.rawAddress, namebuffer.rawAddress, domainsize.rawAddress, domainbuffer.rawAddress, nameuse.rawAddress)
 
-public actual fun secLookupWellKnownSid(sidtype: WellKnownSidType, sid: Psid, sidbuffersize: UInt, sidsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid(sidtype, (sid?.value ?: 0L), sidbuffersize.toInt(), (sidsize?.value ?: 0L))
+public actual fun secLookupWellKnownSid(sidtype: WellKnownSidType, sid: Psid, sidbuffersize: UInt, sidsize: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSecLookupWellKnownSid(sidtype, sid.rawAddress, sidbuffersize.toInt(), sidsize.rawAddress)
 
-public actual fun secMakeSPN(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, spn: COpaquePointer?, length: COpaquePointer?, allocate: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_secMakeSPN((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (instancename?.value ?: 0L), instanceport.toShort(), (referrer?.value ?: 0L), (spn?.value ?: 0L), (length?.value ?: 0L), allocate)
+public actual fun secMakeSPN(serviceclass: MutPtr<UnicodeString>, servicename: MutPtr<UnicodeString>, instancename: MutPtr<UnicodeString>, instanceport: UShort, referrer: MutPtr<UnicodeString>, spn: MutPtr<UnicodeString>, length: MutPtr<UInt>, allocate: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSecMakeSPN(serviceclass.rawAddress, servicename.rawAddress, instancename.rawAddress, instanceport.toShort(), referrer.rawAddress, spn.rawAddress, length.rawAddress, allocate)
 
-public actual fun secMakeSPNEx(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, targetinfo: COpaquePointer?, spn: COpaquePointer?, length: COpaquePointer?, allocate: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_secMakeSPNEx((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (instancename?.value ?: 0L), instanceport.toShort(), (referrer?.value ?: 0L), (targetinfo?.value ?: 0L), (spn?.value ?: 0L), (length?.value ?: 0L), allocate)
+public actual fun secMakeSPNEx(serviceclass: MutPtr<UnicodeString>, servicename: MutPtr<UnicodeString>, instancename: MutPtr<UnicodeString>, instanceport: UShort, referrer: MutPtr<UnicodeString>, targetinfo: MutPtr<UnicodeString>, spn: MutPtr<UnicodeString>, length: MutPtr<UInt>, allocate: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSecMakeSPNEx(serviceclass.rawAddress, servicename.rawAddress, instancename.rawAddress, instanceport.toShort(), referrer.rawAddress, targetinfo.rawAddress, spn.rawAddress, length.rawAddress, allocate)
 
-public actual fun secMakeSPNEx2(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, intargetinfo: COpaquePointer?, spn: COpaquePointer?, totalsize: COpaquePointer?, allocate: Boolean, istargetinfomarshaled: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (instancename?.value ?: 0L), instanceport.toShort(), (referrer?.value ?: 0L), (intargetinfo?.value ?: 0L), (spn?.value ?: 0L), (totalsize?.value ?: 0L), allocate, istargetinfomarshaled)
+public actual fun secMakeSPNEx2(serviceclass: MutPtr<UnicodeString>, servicename: MutPtr<UnicodeString>, instancename: MutPtr<UnicodeString>, instanceport: UShort, referrer: MutPtr<UnicodeString>, intargetinfo: MutPtr<UnicodeString>, spn: MutPtr<UnicodeString>, totalsize: MutPtr<UInt>, allocate: Boolean, istargetinfomarshaled: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSecMakeSPNEx2(serviceclass.rawAddress, servicename.rawAddress, instancename.rawAddress, instanceport.toShort(), referrer.rawAddress, intargetinfo.rawAddress, spn.rawAddress, totalsize.rawAddress, allocate, istargetinfomarshaled)
 
-public actual fun setContextAttributesW(phcontext: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_setContextAttributesW((phcontext?.value ?: 0L), ulattribute.toInt(), (pbuffer?.value ?: 0L), cbbuffer.toInt())
+public actual fun setContextAttributesW(phcontext: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: ConstPtr<CVoid>, cbbuffer: UInt): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSetContextAttributesW(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun sspiAcceptSecurityContextAsync(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync((asynccontext?.value ?: 0L), (phcredential?.value ?: 0L), (phcontext?.value ?: 0L), (pinput?.value ?: 0L), fcontextreq.toInt(), targetdatarep.toInt(), (phnewcontext?.value ?: 0L), (poutput?.value ?: 0L), (pfcontextattr?.value ?: 0L), (ptsexpiry?.value ?: 0L))
+public actual fun sspiAcceptSecurityContextAsync(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: ConstPtr<SecHandle>, poutput: ConstPtr<SecBufferDesc>, pfcontextattr: ConstPtr<UInt>, ptsexpiry: ConstPtr<Long>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiAcceptSecurityContextAsync(asynccontext.rawAddress, phcredential.rawAddress, phcontext.rawAddress, pinput.rawAddress, fcontextreq.toInt(), targetdatarep.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun sspiAcquireCredentialsHandleAsyncA(asynccontext: COpaquePointer?, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+public actual fun sspiAcquireCredentialsHandleAsyncA(asynccontext: MutPtr<SspiAsyncContext>, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pvlogonid: ConstPtr<CVoid>, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, phcredential: ConstPtr<SecHandle>, ptsexpiry: ConstPtr<Long>): Hresult =
     0
 
-public actual fun sspiAcquireCredentialsHandleAsyncW(asynccontext: COpaquePointer?, pszprincipal: COpaquePointer?, pszpackage: COpaquePointer?, fcredentialuse: UInt, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+public actual fun sspiAcquireCredentialsHandleAsyncW(asynccontext: MutPtr<SspiAsyncContext>, pszprincipal: ConstPtr<UnicodeString>, pszpackage: ConstPtr<UnicodeString>, fcredentialuse: UInt, pvlogonid: ConstPtr<CVoid>, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, phcredential: ConstPtr<SecHandle>, ptsexpiry: ConstPtr<Long>): Hresult =
     0
 
-public actual fun sspiCreateAsyncContext(): COpaquePointer? =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext().let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun sspiCreateAsyncContext(): MutPtr<SspiAsyncContext> =
+    MutPtr(WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiCreateAsyncContext())
 
-public actual fun sspiDeleteSecurityContextAsync(asynccontext: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync((asynccontext?.value ?: 0L), (phcontext?.value ?: 0L))
+public actual fun sspiDeleteSecurityContextAsync(asynccontext: MutPtr<SspiAsyncContext>, phcontext: ConstPtr<SecHandle>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiDeleteSecurityContextAsync(asynccontext.rawAddress, phcontext.rawAddress)
 
-public actual fun sspiFreeAsyncContext(handle: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext((handle?.value ?: 0L))
+public actual fun sspiFreeAsyncContext(handle: ConstPtr<SspiAsyncContext>) {
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiFreeAsyncContext(handle.rawAddress)
 }
 
-public actual fun sspiFreeCredentialsHandleAsync(asynccontext: COpaquePointer?, phcredential: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync((asynccontext?.value ?: 0L), (phcredential?.value ?: 0L))
+public actual fun sspiFreeCredentialsHandleAsync(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiFreeCredentialsHandleAsync(asynccontext.rawAddress, phcredential.rawAddress)
 
-public actual fun sspiGetAsyncCallStatus(handle: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus((handle?.value ?: 0L))
+public actual fun sspiGetAsyncCallStatus(handle: ConstPtr<SspiAsyncContext>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiGetAsyncCallStatus(handle.rawAddress)
 
-public actual fun sspiInitializeSecurityContextAsyncA(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcstr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA((asynccontext?.value ?: 0L), (phcredential?.value ?: 0L), (phcontext?.value ?: 0L), (psztargetname?.value ?: 0L), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L), reserved2.toInt(), (phnewcontext?.value ?: 0L), (poutput?.value ?: 0L), (pfcontextattr?.value ?: 0L), (ptsexpiry?.value ?: 0L))
+public actual fun sspiInitializeSecurityContextAsyncA(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: Pcstr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: ConstPtr<SecHandle>, poutput: ConstPtr<SecBufferDesc>, pfcontextattr: ConstPtr<UInt>, ptsexpiry: ConstPtr<Long>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiInitializeSecurityContextAsyncA(asynccontext.rawAddress, phcredential.rawAddress, phcontext.rawAddress, psztargetname.rawAddress, fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.rawAddress, reserved2.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun sspiInitializeSecurityContextAsyncW(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW((asynccontext?.value ?: 0L), (phcredential?.value ?: 0L), (phcontext?.value ?: 0L), (psztargetname?.value ?: 0L), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L), reserved2.toInt(), (phnewcontext?.value ?: 0L), (poutput?.value ?: 0L), (pfcontextattr?.value ?: 0L), (ptsexpiry?.value ?: 0L))
+public actual fun sspiInitializeSecurityContextAsyncW(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: ConstPtr<UnicodeString>, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: ConstPtr<SecHandle>, poutput: ConstPtr<SecBufferDesc>, pfcontextattr: ConstPtr<UInt>, ptsexpiry: ConstPtr<Long>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiInitializeSecurityContextAsyncW(asynccontext.rawAddress, phcredential.rawAddress, phcontext.rawAddress, psztargetname.rawAddress, fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.rawAddress, reserved2.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun sspiReinitAsyncContext(handle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext((handle?.value ?: 0L))
+public actual fun sspiReinitAsyncContext(handle: MutPtr<SspiAsyncContext>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiReinitAsyncContext(handle.rawAddress)
 
-public actual fun sspiSetAsyncNotifyCallback(context: COpaquePointer?, callback: SspiAsyncNotifyCallback, callbackdata: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback((context?.value ?: 0L), 0L, (callbackdata?.value ?: 0L))
+public actual fun sspiSetAsyncNotifyCallback(context: ConstPtr<SspiAsyncContext>, callback: SspiAsyncNotifyCallback, callbackdata: ConstPtr<CVoid>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemSspiSetAsyncNotifyCallback(context.rawAddress, 0L, callbackdata.rawAddress)
 
-public actual fun verifySignature(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_verifySignature((phcontext?.value ?: 0L), (pmessage?.value ?: 0L), messageseqno.toInt(), (pfqop?.value ?: 0L))
+public actual fun verifySignature(phcontext: ConstPtr<SecHandle>, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt, pfqop: MutPtr<UInt>): Hresult =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemVerifySignature(phcontext.rawAddress, pmessage.rawAddress, messageseqno.toInt(), pfqop.rawAddress)
 
-public actual fun zwAccessCheckAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), desiredaccess.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun zwAccessCheckAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAccessCheckAndAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, desiredaccess.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun zwAccessCheckByTypeAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun zwAccessCheckByTypeAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeAndAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (principalselfsid?.value ?: 0L), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L), objectcreation, (grantedaccess?.value ?: 0L), (accessstatus?.value ?: 0L), (generateonclose?.value ?: 0L))
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, principalselfsid.rawAddress, desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.rawAddress, objecttypelistlength.toInt(), genericmapping.rawAddress, objectcreation, grantedaccess.rawAddress, accessstatus.rawAddress, generateonclose.rawAddress)
 
-public actual fun zwAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken((tokenhandle?.value ?: 0L), resettodefault, (newstate?.value ?: 0L), bufferlength.toInt(), (previousstate?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun zwAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: ConstPtr<TokenGroups>, bufferlength: UInt, previousstate: MutPtr<TokenGroups>, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAdjustGroupsToken(tokenhandle.rawAddress, resettodefault, newstate.rawAddress, bufferlength.toInt(), previousstate.rawAddress, returnlength.rawAddress)
 
-public actual fun zwAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken((tokenhandle?.value ?: 0L), disableallprivileges, (newstate?.value ?: 0L), bufferlength.toInt(), (previousstate?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun zwAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: ConstPtr<TokenPrivileges>, bufferlength: UInt, previousstate: MutPtr<TokenPrivileges>, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAdjustPrivilegesToken(tokenhandle.rawAddress, disableallprivileges, newstate.rawAddress, bufferlength.toInt(), previousstate.rawAddress, returnlength.rawAddress)
 
-public actual fun zwAllocateVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, regionsize: COpaquePointer?, allocationtype: UInt, protect: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), zerobits.toLong(), (regionsize?.value ?: 0L), allocationtype.toInt(), protect.toInt())
+public actual fun zwAllocateVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, regionsize: MutPtr<ULong>, allocationtype: UInt, protect: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAllocateVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, zerobits.toLong(), regionsize.rawAddress, allocationtype.toInt(), protect.toInt())
 
-public actual fun zwAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), (regionsize?.value ?: 0L), allocationtype.toInt(), pageprotection.toInt(), (extendedparameters?.value ?: 0L), extendedparametercount.toInt())
+public actual fun zwAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, allocationtype: UInt, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwAllocateVirtualMemoryEx(processhandle.rawAddress, baseaddress.rawAddress, regionsize.rawAddress, allocationtype.toInt(), pageprotection.toInt(), extendedparameters.rawAddress, extendedparametercount.toInt())
 
-public actual fun zwCancelIoFileEx(filehandle: Handle, iorequesttocancel: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx((filehandle?.value ?: 0L), (iorequesttocancel?.value ?: 0L), (iostatusblock?.value ?: 0L))
+public actual fun zwCancelIoFileEx(filehandle: Handle, iorequesttocancel: ConstPtr<IoStatusBlock>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwCancelIoFileEx(filehandle.rawAddress, iorequesttocancel.rawAddress, iostatusblock.rawAddress)
 
-public actual fun zwCloseObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun zwCloseObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwCloseObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun zwCreateDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject((directoryhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun zwCreateDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwCreateDirectoryObject(directoryhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwCreateEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, eventtype: EventType, initialstate: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwCreateEvent((eventhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), eventtype, initialstate)
+public actual fun zwCreateEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, eventtype: EventType, initialstate: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwCreateEvent(eventhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, eventtype, initialstate)
 
-public actual fun zwCreateSectionEx(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx((sectionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (maximumsize?.value ?: 0L), sectionpageprotection.toInt(), allocationattributes.toInt(), (filehandle?.value ?: 0L), (extendedparameters?.value ?: 0L), extendedparametercount.toInt())
+public actual fun zwCreateSectionEx(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwCreateSectionEx(sectionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, maximumsize.rawAddress, sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.rawAddress, extendedparameters.rawAddress, extendedparametercount.toInt())
 
-public actual fun zwDeleteFile(objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwDeleteFile((objectattributes?.value ?: 0L))
+public actual fun zwDeleteFile(objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwDeleteFile(objectattributes.rawAddress)
 
-public actual fun zwDeleteObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), generateonclose)
+public actual fun zwDeleteObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwDeleteObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, generateonclose)
 
-public actual fun zwDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: COpaquePointer?, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwDuplicateObject((sourceprocesshandle?.value ?: 0L), (sourcehandle?.value ?: 0L), (targetprocesshandle?.value ?: 0L), (targethandle?.value ?: 0L), desiredaccess.toInt(), handleattributes.toInt(), options.toInt())
+public actual fun zwDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: MutPtr<Handle>, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwDuplicateObject(sourceprocesshandle.rawAddress, sourcehandle.rawAddress, targetprocesshandle.rawAddress, targethandle.rawAddress, desiredaccess.toInt(), handleattributes.toInt(), options.toInt())
 
-public actual fun zwDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: COpaquePointer?, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwDuplicateToken((existingtokenhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), effectiveonly, tokentype, (newtokenhandle?.value ?: 0L))
+public actual fun zwDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwDuplicateToken(existingtokenhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, effectiveonly, tokentype, newtokenhandle.rawAddress)
 
-public actual fun zwFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, newtokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwFilterToken((existingtokenhandle?.value ?: 0L), flags.toInt(), (sidstodisable?.value ?: 0L), (privilegestodelete?.value ?: 0L), (restrictedsids?.value ?: 0L), (newtokenhandle?.value ?: 0L))
+public actual fun zwFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: ConstPtr<TokenGroups>, privilegestodelete: ConstPtr<TokenPrivileges>, restrictedsids: ConstPtr<TokenGroups>, newtokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwFilterToken(existingtokenhandle.rawAddress, flags.toInt(), sidstodisable.rawAddress, privilegestodelete.rawAddress, restrictedsids.rawAddress, newtokenhandle.rawAddress)
 
-public actual fun zwFlushBuffersFile(filehandle: Handle, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L))
+public actual fun zwFlushBuffersFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwFlushBuffersFile(filehandle.rawAddress, iostatusblock.rawAddress)
 
-public actual fun zwFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: COpaquePointer?, parameterssize: UInt, iostatusblock: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx((filehandle?.value ?: 0L), flags.toInt(), (parameters?.value ?: 0L), parameterssize.toInt(), (iostatusblock?.value ?: 0L))
+public actual fun zwFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: ConstPtr<CVoid>, parameterssize: UInt, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwFlushBuffersFileEx(filehandle.rawAddress, flags.toInt(), parameters.rawAddress, parameterssize.toInt(), iostatusblock.rawAddress)
 
-public actual fun zwFlushVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), (regionsize?.value ?: 0L), (iostatus?.value ?: 0L))
+public actual fun zwFlushVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwFlushVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, regionsize.rawAddress, iostatus.rawAddress)
 
-public actual fun zwFreeVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), (regionsize?.value ?: 0L), freetype.toInt())
+public actual fun zwFreeVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, freetype: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwFreeVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, regionsize.rawAddress, freetype.toInt())
 
-public actual fun zwFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwFsControlFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), fscontrolcode.toInt(), (inputbuffer?.value ?: 0L), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L), outputbufferlength.toInt())
+public actual fun zwFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwFsControlFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, fscontrolcode.toInt(), inputbuffer.rawAddress, inputbufferlength.toInt(), outputbuffer.rawAddress, outputbufferlength.toInt())
 
 public actual fun zwImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken((threadhandle?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwImpersonateAnonymousToken(threadhandle.rawAddress)
 
-public actual fun zwLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwLockFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (byteoffset?.value ?: 0L), (length?.value ?: 0L), key.toInt(), failimmediately, exclusivelock)
+public actual fun zwLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwLockFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, byteoffset.rawAddress, length.rawAddress, key.toInt(), failimmediately, exclusivelock)
 
-public actual fun zwNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey((keyhandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), completionfilter.toInt(), watchtree, (buffer?.value ?: 0L), buffersize.toInt(), asynchronous)
+public actual fun zwNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwNotifyChangeKey(keyhandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, completionfilter.toInt(), watchtree, buffer.rawAddress, buffersize.toInt(), asynchronous)
 
-public actual fun zwOpenDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject((directoryhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
+public actual fun zwOpenDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwOpenDirectoryObject(directoryhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwOpenObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Boolean, accessgranted: Boolean, generateonclose: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (objecttypename?.value ?: 0L), (objectname?.value ?: 0L), (securitydescriptor?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L), objectcreation, accessgranted, (generateonclose?.value ?: 0L))
+public actual fun zwOpenObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr<PrivilegeSet>, objectcreation: Boolean, accessgranted: Boolean, generateonclose: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwOpenObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, objecttypename.rawAddress, objectname.rawAddress, securitydescriptor.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), grantedaccess.toInt(), privileges.rawAddress, objectcreation, accessgranted, generateonclose.rawAddress)
 
-public actual fun zwOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken((processhandle?.value ?: 0L), desiredaccess.toInt(), (tokenhandle?.value ?: 0L))
+public actual fun zwOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwOpenProcessToken(processhandle.rawAddress, desiredaccess.toInt(), tokenhandle.rawAddress)
 
-public actual fun zwOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx((processhandle?.value ?: 0L), desiredaccess.toInt(), handleattributes.toInt(), (tokenhandle?.value ?: 0L))
+public actual fun zwOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwOpenProcessTokenEx(processhandle.rawAddress, desiredaccess.toInt(), handleattributes.toInt(), tokenhandle.rawAddress)
 
-public actual fun zwOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken((threadhandle?.value ?: 0L), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L))
+public actual fun zwOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwOpenThreadToken(threadhandle.rawAddress, desiredaccess.toInt(), openasself, tokenhandle.rawAddress)
 
-public actual fun zwOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx((threadhandle?.value ?: 0L), desiredaccess.toInt(), openasself, handleattributes.toInt(), (tokenhandle?.value ?: 0L))
+public actual fun zwOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwOpenThreadTokenEx(threadhandle.rawAddress, desiredaccess.toInt(), openasself, handleattributes.toInt(), tokenhandle.rawAddress)
 
-public actual fun zwPrivilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, result: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck((clienttoken?.value ?: 0L), (requiredprivileges?.value ?: 0L), (result?.value ?: 0L))
+public actual fun zwPrivilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr<PrivilegeSet>, result: MutPtr<Boolean>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwPrivilegeCheck(clienttoken.rawAddress, requiredprivileges.rawAddress, result.rawAddress)
 
-public actual fun zwPrivilegeObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm((subsystemname?.value ?: 0L), (handleid?.value ?: 0L), (clienttoken?.value ?: 0L), desiredaccess.toInt(), (privileges?.value ?: 0L), accessgranted)
+public actual fun zwPrivilegeObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwPrivilegeObjectAuditAlarm(subsystemname.rawAddress, handleid.rawAddress, clienttoken.rawAddress, desiredaccess.toInt(), privileges.rawAddress, accessgranted)
 
-public actual fun zwPrivilegedServiceAuditAlarm(subsystemname: COpaquePointer?, servicename: COpaquePointer?, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm((subsystemname?.value ?: 0L), (servicename?.value ?: 0L), (clienttoken?.value ?: 0L), (privileges?.value ?: 0L), accessgranted)
+public actual fun zwPrivilegedServiceAuditAlarm(subsystemname: ConstPtr<UnicodeString>, servicename: ConstPtr<UnicodeString>, clienttoken: Handle, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwPrivilegedServiceAuditAlarm(subsystemname.rawAddress, servicename.rawAddress, clienttoken.rawAddress, privileges.rawAddress, accessgranted)
 
-public actual fun zwQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: COpaquePointer?, restartscan: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, returnsingleentry, (filename?.value ?: 0L), restartscan)
+public actual fun zwQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr<UnicodeString>, restartscan: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryDirectoryFile(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, returnsingleentry, filename.rawAddress, restartscan)
 
-public actual fun zwQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx((filehandle?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, queryflags.toInt(), (filename?.value ?: 0L))
+public actual fun zwQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr<UnicodeString>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryDirectoryFileEx(filehandle.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, queryflags.toInt(), filename.rawAddress)
 
-public actual fun zwQueryDirectoryObject(directoryhandle: Handle, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject((directoryhandle?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), returnsingleentry, restartscan, (context?.value ?: 0L), (returnlength?.value ?: 0L))
+public actual fun zwQueryDirectoryObject(directoryhandle: Handle, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: MutPtr<UInt>, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryDirectoryObject(directoryhandle.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, restartscan, context.rawAddress, returnlength.rawAddress)
 
-public actual fun zwQueryEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryEaFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), returnsingleentry, (ealist?.value ?: 0L), ealistlength.toInt(), (eaindex?.value ?: 0L), restartscan)
+public actual fun zwQueryEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryEaFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, ealist.rawAddress, ealistlength.toInt(), eaindex.rawAddress, restartscan)
 
-public actual fun zwQueryFullAttributesFile(objectattributes: COpaquePointer?, fileinformation: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile((objectattributes?.value ?: 0L), (fileinformation?.value ?: 0L))
+public actual fun zwQueryFullAttributesFile(objectattributes: ConstPtr<ObjectAttributes>, fileinformation: MutPtr<FileNetworkOpenInformation>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryFullAttributesFile(objectattributes.rawAddress, fileinformation.rawAddress)
 
-public actual fun zwQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken((tokenhandle?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L), tokeninformationlength.toInt(), (returnlength?.value ?: 0L))
+public actual fun zwQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<CVoid>, tokeninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryInformationToken(tokenhandle.rawAddress, tokeninformationclass, tokeninformation.rawAddress, tokeninformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun zwQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: COpaquePointer?, objectinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryObject((handle?.value ?: 0L), objectinformationclass, (objectinformation?.value ?: 0L), objectinformationlength.toInt(), (returnlength?.value ?: 0L))
+public actual fun zwQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr<CVoid>, objectinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryObject(handle.rawAddress, objectinformationclass, objectinformation.rawAddress, objectinformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun zwQueryQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, sidlist: COpaquePointer?, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt(), returnsingleentry, (sidlist?.value ?: 0L), sidlistlength.toInt(), (startsid?.value ?: 0L), restartscan)
+public actual fun zwQueryQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr<CVoid>, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryQuotaInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, sidlist.rawAddress, sidlistlength.toInt(), startsid.rawAddress, restartscan)
 
-public actual fun zwQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject((handle?.value ?: 0L), securityinformation.toInt(), (securitydescriptor?.value ?: 0L), length.toInt(), (lengthneeded?.value ?: 0L))
+public actual fun zwQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr<UInt>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQuerySecurityObject(handle.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress, length.toInt(), lengthneeded.rawAddress)
 
-public actual fun zwQueryVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory((processhandle?.value ?: 0L), (baseaddress?.value ?: 0L), memoryinformationclass, (memoryinformation?.value ?: 0L), memoryinformationlength.toLong(), (returnlength?.value ?: 0L))
+public actual fun zwQueryVirtualMemory(processhandle: Handle, baseaddress: ConstPtr<CVoid>, memoryinformationclass: MemoryInformationClass, memoryinformation: MutPtr<CVoid>, memoryinformationlength: ULong, returnlength: MutPtr<ULong>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryVirtualMemory(processhandle.rawAddress, baseaddress.rawAddress, memoryinformationclass, memoryinformation.rawAddress, memoryinformationlength.toLong(), returnlength.rawAddress)
 
-public actual fun zwQueryVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (fsinformation?.value ?: 0L), length.toInt(), fsinformationclass)
+public actual fun zwQueryVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwQueryVolumeInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass)
 
-public actual fun zwSetEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetEaFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt())
+public actual fun zwSetEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetEaFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt())
 
-public actual fun zwSetEvent(eventhandle: Handle, previousstate: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetEvent((eventhandle?.value ?: 0L), (previousstate?.value ?: 0L))
+public actual fun zwSetEvent(eventhandle: Handle, previousstate: MutPtr<Int>): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetEvent(eventhandle.rawAddress, previousstate.rawAddress)
 
-public actual fun zwSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetInformationToken((tokenhandle?.value ?: 0L), tokeninformationclass, (tokeninformation?.value ?: 0L), tokeninformationlength.toInt())
+public actual fun zwSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr<CVoid>, tokeninformationlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetInformationToken(tokenhandle.rawAddress, tokeninformationclass, tokeninformation.rawAddress, tokeninformationlength.toInt())
 
-public actual fun zwSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: COpaquePointer?, vminformation: COpaquePointer?, vminformationlength: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory((processhandle?.value ?: 0L), vminformationclass, numberofentries.toLong(), (virtualaddresses?.value ?: 0L), (vminformation?.value ?: 0L), vminformationlength.toInt())
+public actual fun zwSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: ConstPtr<MemoryRangeEntry>, vminformation: ConstPtr<CVoid>, vminformationlength: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetInformationVirtualMemory(processhandle.rawAddress, vminformationclass, numberofentries.toLong(), virtualaddresses.rawAddress, vminformation.rawAddress, vminformationlength.toInt())
 
-public actual fun zwSetQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (buffer?.value ?: 0L), length.toInt())
+public actual fun zwSetQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetQuotaInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt())
 
 public actual fun zwSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject((handle?.value ?: 0L), securityinformation.toInt(), (securitydescriptor?.value ?: 0L))
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetSecurityObject(handle.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress)
 
-public actual fun zwSetVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (fsinformation?.value ?: 0L), length.toInt(), fsinformationclass)
+public actual fun zwSetVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: ConstPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwSetVolumeInformationFile(filehandle.rawAddress, iostatusblock.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass)
 
-public actual fun zwUnlockFile(filehandle: Handle, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_zwUnlockFile((filehandle?.value ?: 0L), (iostatusblock?.value ?: 0L), (byteoffset?.value ?: 0L), (length?.value ?: 0L), key.toInt())
+public actual fun zwUnlockFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt): Ntstatus =
+    WindowsWdkStorageFilesystemJniBridge.windowssysWindowsWdkStorageFilesystemZwUnlockFile(filehandle.rawAddress, iostatusblock.rawAddress, byteoffset.rawAddress, length.rawAddress, key.toInt())

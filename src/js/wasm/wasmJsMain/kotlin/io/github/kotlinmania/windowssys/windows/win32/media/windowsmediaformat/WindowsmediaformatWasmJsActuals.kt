@@ -2,77 +2,79 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32MediaWindowsmediaformatNapiAddon(): Boolean
+private external fun initWindowsWin32MediaWindowsmediaformatNapiAddon(): Boolean
 
-private val _windowsWin32MediaWindowsmediaformatNapiAvailable: Boolean = _initWindowsWin32MediaWindowsmediaformatNapiAddon()
+private val windowsWin32MediaWindowsmediaformatNapiAvailable: Boolean = initWindowsWin32MediaWindowsmediaformatNapiAddon()
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(p0, p1)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor(p0)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(p0)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer(p0)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(p0)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager(p0)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(p0)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateReader(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateReader(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(p0, p1)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink(p0)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(p0)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink(p0)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(p0)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink(p0)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(p0)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(p0, p1)")
+private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(p0: String, p1: String): Int
 
-public actual fun wMCreateBackupRestorer(pcallback: COpaquePointer?, ppbackup: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateBackupRestorer((pcallback?.value ?: 0L).toString(), (ppbackup?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateBackupRestorer(pcallback: MutPtr<CVoid>, ppbackup: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(pcallback.rawAddress.toString(), ppbackup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateEditor(ppeditor: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateEditor((ppeditor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateEditor(ppeditor: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(ppeditor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateIndexer(ppindexer: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateIndexer((ppindexer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateIndexer(ppindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(ppindexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateProfileManager(ppprofilemanager: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateProfileManager((ppprofilemanager?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateProfileManager(ppprofilemanager: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(ppprofilemanager.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateReader(punkcert: COpaquePointer?, dwrights: UInt, ppreader: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateReader((punkcert?.value ?: 0L).toString(), dwrights.toInt(), (ppreader?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppreader: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(punkcert.rawAddress.toString(), dwrights.toInt(), ppreader.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateSyncReader(punkcert: COpaquePointer?, dwrights: UInt, ppsyncreader: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateSyncReader((punkcert?.value ?: 0L).toString(), dwrights.toInt(), (ppsyncreader?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateSyncReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppsyncreader: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(punkcert.rawAddress.toString(), dwrights.toInt(), ppsyncreader.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriter(punkcert: COpaquePointer?, ppwriter: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriter((punkcert?.value ?: 0L).toString(), (ppwriter?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateWriter(punkcert: MutPtr<CVoid>, ppwriter: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(punkcert.rawAddress.toString(), ppwriter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriterFileSink(ppsink: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterFileSink((ppsink?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateWriterFileSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(ppsink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriterNetworkSink(ppsink: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterNetworkSink((ppsink?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateWriterNetworkSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(ppsink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriterPushSink(ppsink: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMCreateWriterPushSink((ppsink?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMCreateWriterPushSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(ppsink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: COpaquePointer?): Hresult =
-    if (_windowsWin32MediaWindowsmediaformatNapiAvailable) _wasm_windowssys_windows_win32_media_windowsmediaformat_wMIsContentProtected((pwszfilename?.value ?: 0L).toString(), (pfisprotected?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: MutPtr<Bool>): Hresult =
+    if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(pwszfilename.rawAddress.toString(), pfisprotected.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

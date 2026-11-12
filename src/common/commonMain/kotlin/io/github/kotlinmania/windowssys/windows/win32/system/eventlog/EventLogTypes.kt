@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public typealias EvtChannelClockType = Int
 
@@ -45,7 +46,7 @@ public typealias EvtRpcLoginFlags = UInt
 public typealias EvtSeekFlags = UInt
 
 public fun interface EvtSubscribeCallbackFn {
-    public operator fun invoke(action: EvtSubscribeNotifyAction, usercontext: COpaquePointer?, event: EvtHandle): UInt
+    public operator fun invoke(action: EvtSubscribeNotifyAction, usercontext: ConstPtr<CVoid>, event: EvtHandle): UInt
 }
 
 public typealias EvtSubscribeCallback = EvtSubscribeCallbackFn?

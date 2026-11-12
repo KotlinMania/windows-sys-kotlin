@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
@@ -12,14 +13,14 @@ private object WindowsWdkFoundationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_foundation_ntClose(handle: Long): Int
+    external fun windowssysWindowsWdkFoundationNtClose(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_foundation_ntQueryObject(handle: Long, objectinformationclass: Int, objectinformation: Long, objectinformationlength: Int, returnlength: Long): Int
+    external fun windowssysWindowsWdkFoundationNtQueryObject(handle: Long, objectinformationclass: Int, objectinformation: Long, objectinformationlength: Int, returnlength: Long): Int
 }
 
 public actual fun ntClose(handle: Handle): Ntstatus =
-    WindowsWdkFoundationJniBridge.windowssys_windows_wdk_foundation_ntClose((handle?.value ?: 0L))
+    WindowsWdkFoundationJniBridge.windowssysWindowsWdkFoundationNtClose(handle.rawAddress)
 
-public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: COpaquePointer?, objectinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    WindowsWdkFoundationJniBridge.windowssys_windows_wdk_foundation_ntQueryObject((handle?.value ?: 0L), objectinformationclass, (objectinformation?.value ?: 0L), objectinformationlength.toInt(), (returnlength?.value ?: 0L))
+public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr<CVoid>, objectinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    WindowsWdkFoundationJniBridge.windowssysWindowsWdkFoundationNtQueryObject(handle.rawAddress, objectinformationclass, objectinformation.rawAddress, objectinformationlength.toInt(), returnlength.rawAddress)

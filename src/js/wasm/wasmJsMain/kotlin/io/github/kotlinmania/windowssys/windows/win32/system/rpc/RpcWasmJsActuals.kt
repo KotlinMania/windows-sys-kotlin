@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -11,3566 +13,3567 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32SystemRpcNapiAddon(): Boolean
+private external fun initWindowsWin32SystemRpcNapiAddon(): Boolean
 
-private val _windowsWin32SystemRpcNapiAvailable: Boolean = _initWindowsWin32SystemRpcNapiAddon()
+private val windowsWin32SystemRpcNapiAvailable: Boolean = initWindowsWin32SystemRpcNapiAddon()
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_dceErrorInqTextA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_dceErrorInqTextA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcDceErrorInqTextA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcDceErrorInqTextA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_dceErrorInqTextW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_dceErrorInqTextW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcDceErrorInqTextW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcDceErrorInqTextW(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iunknownAddRefProxy(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iunknownAddRefProxy(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIunknownAddRefProxy(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIunknownAddRefProxy(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iunknownQueryInterfaceProxy(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iunknownQueryInterfaceProxy(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIunknownQueryInterfaceProxy(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIunknownQueryInterfaceProxy(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iunknownReleaseProxy(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iunknownReleaseProxy(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIunknownReleaseProxy(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIunknownReleaseProxy(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcAllocate(p0: Int): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcAllocate(p0: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcAsyncAbortCall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcAsyncAbortCall(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcAsyncAbortCall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcAsyncAbortCall(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcAsyncSetHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcAsyncSetHandle(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcAsyncSetHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcAsyncSetHandle(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingCopy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingCopy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingCopy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingCopy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingCreateNp(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingCreateNp(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingCreateNp(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingCreateNp(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingHandleToAsyncHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingHandleToAsyncHandle(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingHandleToAsyncHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingHandleToAsyncHandle(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqClientTokenAttributes(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqClientTokenAttributes(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqClientTokenAttributes(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqClientTokenAttributes(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqLocalClientPid(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqLocalClientPid(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqLocalClientPid(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqLocalClientPid(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqMarshalledTargetInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqMarshalledTargetInfo(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqMarshalledTargetInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqMarshalledTargetInfo(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContext(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContext(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContext(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContext(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContextKeyInfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContextKeyInfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContextKeyInfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContextKeyInfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqTransportType(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqTransportType(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqTransportType(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqTransportType(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingInqWireIdForSnego(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqWireIdForSnego(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingInqWireIdForSnego(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqWireIdForSnego(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingIsClientLocal(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingIsClientLocal(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingIsClientLocal(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingIsClientLocal(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingIsServerLocal(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingIsServerLocal(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingIsServerLocal(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingIsServerLocal(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingSetPrivateOption(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingSetPrivateOption(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingSetPrivateOption(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingSetPrivateOption(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcBindingToStaticStringBindingW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcBindingToStaticStringBindingW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcBindingToStaticStringBindingW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcBindingToStaticStringBindingW(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcClearMutex(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcClearMutex(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcClearMutex(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcClearMutex(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcDeleteMutex(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcDeleteMutex(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcDeleteMutex(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcDeleteMutex(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcExceptionFilter(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcExceptionFilter(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcExceptionFilter(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcExceptionFilter(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcFree(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcFreeBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcFreeBuffer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcFreeBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcFreeBuffer(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcFreePipeBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcFreePipeBuffer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcFreePipeBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcFreePipeBuffer(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcGetBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcGetBuffer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcGetBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcGetBuffer(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcGetBufferWithObject(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcGetBufferWithObject(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcGetBufferWithObject(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcGetBufferWithObject(p0: String, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcGetCurrentCallHandle()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcGetCurrentCallHandle(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcGetCurrentCallHandle()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcGetCurrentCallHandle(): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcGetDefaultSd(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcGetDefaultSd(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcGetDefaultSd(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcGetDefaultSd(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcGetExtendedError()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcGetExtendedError(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcGetExtendedError()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcGetExtendedError(): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcIfInqTransferSyntaxes(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcIfInqTransferSyntaxes(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcIfInqTransferSyntaxes(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcIfInqTransferSyntaxes(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcMapWin32Status(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcMapWin32Status(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcMapWin32Status(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcMapWin32Status(p0: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcMgmtEnableDedicatedThreadPool()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcMgmtEnableDedicatedThreadPool(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNegotiateTransferSyntax(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNegotiateTransferSyntax(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNegotiateTransferSyntax(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNegotiateTransferSyntax(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsGetBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsGetBuffer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsGetBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsGetBuffer(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsInterfaceExported(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsInterfaceExported(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsInterfaceExported(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsInterfaceExported(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsInterfaceUnexported(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsInterfaceUnexported(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsInterfaceUnexported(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsInterfaceUnexported(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsRaiseException(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsRaiseException(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsRaiseException(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsRaiseException(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcNsSendReceive(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcNsSendReceive(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcNsSendReceive(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcNsSendReceive(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcOpenClientProcess(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcOpenClientProcess(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcOpenClientProcess(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcOpenClientProcess(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcPauseExecution(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcPauseExecution(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcPauseExecution(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcPauseExecution(p0: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcReBindBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcReBindBuffer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcReBindBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcReBindBuffer(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcReallocPipeBuffer(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcReallocPipeBuffer(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcReallocPipeBuffer(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcReallocPipeBuffer(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcReceive(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcReceive(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcReceive(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcReceive(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcRecordCalloutFailure(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcRecordCalloutFailure(p0: Int, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcRecordCalloutFailure(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcRecordCalloutFailure(p0: Int, p1: String, p2: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcRequestMutex(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcRequestMutex(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcRequestMutex(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcRequestMutex(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcSend(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcSend(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcSend(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcSend(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcSendReceive(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcSendReceive(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcSendReceive(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcSendReceive(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerCheckClientRestriction(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerCheckClientRestriction(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerCheckClientRestriction(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerCheckClientRestriction(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerDisableExceptionFilter()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerDisableExceptionFilter(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerGetAssociationId(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerGetAssociationId(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerGetAssociationId(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerGetAssociationId(p0: String, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerInqAddressChangeFn()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqAddressChangeFn(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerInqAddressChangeFn()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerInqAddressChangeFn(): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerInqLocalConnAddress(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqLocalConnAddress(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerInqLocalConnAddress(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerInqLocalConnAddress(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerInqRemoteConnAddress(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqRemoteConnAddress(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerInqRemoteConnAddress(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerInqRemoteConnAddress(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerInqTransportType(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqTransportType(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerInqTransportType(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerInqTransportType(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerRegisterForwardFunction(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerRegisterForwardFunction(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerRegisterForwardFunction(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerRegisterForwardFunction(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerSetAddressChangeFn(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerSetAddressChangeFn(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerSetAddressChangeFn(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerSetAddressChangeFn(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerStartService(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerStartService(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerStartService(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerStartService(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification2(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification2(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification2(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification2(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2A(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2A(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerUseProtseq2A(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseq2A(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2W(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2W(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerUseProtseq2W(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseq2W(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2A(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2A(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2A(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2A(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2W(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2W(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2W(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2W(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcSessionStrictContextHandle()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcSessionStrictContextHandle()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcSessionStrictContextHandle()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcSessionStrictContextHandle()
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcSsDontSerializeContext()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcSsDontSerializeContext()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcSsDontSerializeContext()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcSsDontSerializeContext()
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcSystemHandleTypeSpecificWork(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcSystemHandleTypeSpecificWork(p0: String, p1: Int, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcSystemHandleTypeSpecificWork(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcSystemHandleTypeSpecificWork(p0: String, p1: Int, p2: Int, p3: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iRpcTurnOnEeinfoPropagation()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iRpcTurnOnEeinfoPropagation(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation()")
+private external fun wasmWindowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_iUuidCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_iUuidCreate(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcIUuidCreate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcIUuidCreate(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesBufferHandleReset(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesBufferHandleReset(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesBufferHandleReset(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesBufferHandleReset(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesDecodeBufferHandleCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesDecodeBufferHandleCreate(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesDecodeBufferHandleCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesDecodeBufferHandleCreate(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesDecodeIncrementalHandleCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesDecodeIncrementalHandleCreate(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesDecodeIncrementalHandleCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesDecodeIncrementalHandleCreate(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesEncodeDynBufferHandleCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesEncodeDynBufferHandleCreate(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesEncodeDynBufferHandleCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesEncodeDynBufferHandleCreate(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesEncodeFixedBufferHandleCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesEncodeFixedBufferHandleCreate(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesEncodeFixedBufferHandleCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesEncodeFixedBufferHandleCreate(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesEncodeIncrementalHandleCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesEncodeIncrementalHandleCreate(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesEncodeIncrementalHandleCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesEncodeIncrementalHandleCreate(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesHandleFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesHandleFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesHandleFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesHandleFree(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesIncrementalHandleReset(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesIncrementalHandleReset(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesIncrementalHandleReset(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesIncrementalHandleReset(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_mesInqProcEncodingId(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_mesInqProcEncodingId(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcMesInqProcEncodingId(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcMesInqProcEncodingId(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRCContextBinding(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRCContextBinding(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRCContextBinding(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRCContextBinding(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRCContextMarshall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRCContextMarshall(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRCContextMarshall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRCContextMarshall(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRCContextUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRCContextUnmarshall(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRCContextUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRCContextUnmarshall(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRSContextMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRSContextMarshall(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRSContextMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshall(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRSContextMarshall2(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRSContextMarshall2(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int)
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRSContextMarshall2(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshall2(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRSContextMarshallEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRSContextMarshallEx(p0: String, p1: String, p2: String, p3: String)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRSContextMarshallEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshallEx(p0: String, p1: String, p2: String, p3: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRSContextUnmarshall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRSContextUnmarshall(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRSContextUnmarshall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshall(p0: String, p1: Int): String
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRSContextUnmarshall2(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRSContextUnmarshall2(p0: String, p1: String, p2: Int, p3: String, p4: Int): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRSContextUnmarshall2(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshall2(p0: String, p1: String, p2: Int, p3: String, p4: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_nDRSContextUnmarshallEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_nDRSContextUnmarshallEx(p0: String, p1: String, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNDRSContextUnmarshallEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshallEx(p0: String, p1: String, p2: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndr64AsyncServerCall64(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndr64AsyncServerCall64(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdr64AsyncServerCall64(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdr64AsyncServerCall64(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndr64AsyncServerCallAll(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndr64AsyncServerCallAll(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdr64AsyncServerCallAll(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdr64AsyncServerCallAll(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndr64DcomAsyncStubCall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndr64DcomAsyncStubCall(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdr64DcomAsyncStubCall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdr64DcomAsyncStubCall(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrAllocate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrAllocate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrAllocate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrAllocate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrAsyncServerCall(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrAsyncServerCall(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrAsyncServerCall(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrAsyncServerCall(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrByteCountPointerBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrByteCountPointerBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrByteCountPointerFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrByteCountPointerFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrByteCountPointerMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrByteCountPointerMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrByteCountPointerUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrByteCountPointerUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrClearOutParameters(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrClearOutParameters(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrClearOutParameters(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrClearOutParameters(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrClientContextMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrClientContextMarshall(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrClientContextMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrClientContextMarshall(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrClientContextUnmarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrClientContextUnmarshall(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrClientContextUnmarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrClientContextUnmarshall(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrClientInitialize(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrClientInitialize(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrClientInitialize(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrClientInitialize(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrClientInitializeNew(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrClientInitializeNew(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrClientInitializeNew(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrClientInitializeNew(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexArrayBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexArrayBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexArrayFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexArrayFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexArrayMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexArrayMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexArrayMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexArrayMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexArrayUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexArrayUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexStructBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexStructBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexStructBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexStructFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexStructFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexStructFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexStructMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexStructMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexStructMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexStructMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexStructMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexStructMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrComplexStructUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrComplexStructUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrComplexStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantArrayBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantArrayBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantArrayFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantArrayFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantArrayMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantArrayMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantArrayMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantArrayMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantArrayUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantArrayUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStringBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStringBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStringBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStringMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStringMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStringMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStringMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStringMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStringMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStringUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStringUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStringUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStructBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStructBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStructBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStructFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStructFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStructFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStructMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStructMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStructMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStructMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStructMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStructMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantStructUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantStructUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingStructBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingStructBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingStructFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingStructFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingStructMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingStructMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConformantVaryingStructUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConformantVaryingStructUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrContextHandleInitialize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrContextHandleInitialize(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrContextHandleInitialize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrContextHandleInitialize(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrContextHandleSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrContextHandleSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrContextHandleSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrContextHandleSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConvert(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConvert(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConvert(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConvert(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrConvert2(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrConvert2(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrConvert2(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrConvert2(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrCorrelationFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrCorrelationFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrCorrelationFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrCorrelationFree(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrCorrelationInitialize(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrCorrelationInitialize(p0: String, p1: String, p2: Int, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrCorrelationInitialize(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrCorrelationInitialize(p0: String, p1: String, p2: Int, p3: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrCorrelationPass(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrCorrelationPass(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrCorrelationPass(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrCorrelationPass(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrCreateServerInterfaceFromStub(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrCreateServerInterfaceFromStub(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrCreateServerInterfaceFromStub(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrCreateServerInterfaceFromStub(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrDcomAsyncStubCall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrDcomAsyncStubCall(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrDcomAsyncStubCall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrDcomAsyncStubCall(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFixedArrayBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFixedArrayBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFixedArrayFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFixedArrayFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFixedArrayMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFixedArrayMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFixedArrayMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFixedArrayMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFixedArrayUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFixedArrayUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFreeBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFreeBuffer(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFreeBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFreeBuffer(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFullPointerXlatFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFullPointerXlatFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFullPointerXlatFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFullPointerXlatFree(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrFullPointerXlatInit(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrFullPointerXlatInit(p0: Int, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrFullPointerXlatInit(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrFullPointerXlatInit(p0: Int, p1: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrGetBuffer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrGetBuffer(p0: String, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrGetBuffer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrGetBuffer(p0: String, p1: Int, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrGetDcomProtocolVersion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrGetDcomProtocolVersion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrGetDcomProtocolVersion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrGetDcomProtocolVersion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrGetUserMarshalInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrGetUserMarshalInfo(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrGetUserMarshalInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrGetUserMarshalInfo(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrInterfacePointerBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrInterfacePointerBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrInterfacePointerFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrInterfacePointerFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrInterfacePointerMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrInterfacePointerMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrInterfacePointerMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrInterfacePointerMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrInterfacePointerUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrInterfacePointerUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMapCommAndFaultStatus(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMapCommAndFaultStatus(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMapCommAndFaultStatus(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMapCommAndFaultStatus(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesProcEncodeDecode(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesProcEncodeDecode(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String)
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesProcEncodeDecode(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesProcEncodeDecode(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSize(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSize(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSize(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSize(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSizeAll(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSizeAll(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSizeAll(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSizeAll(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecode(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecode(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecode(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecode(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecodeAll(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecodeAll(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecodeAll(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecodeAll(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncode(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncode(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncode(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncode(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncodeAll(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncodeAll(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncodeAll(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncodeAll(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeAlignSize(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize2(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize2(p0: String, p1: String, p2: String, p3: String, p4: String): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeAlignSize2(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize2(p0: String, p1: String, p2: String, p3: String, p4: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize3(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeAlignSize3(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeDecode(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeDecode(p0: String, p1: String, p2: String, p3: String)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeDecode(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode(p0: String, p1: String, p2: String, p3: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeDecode2(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeDecode2(p0: String, p1: String, p2: String, p3: String, p4: String)
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeDecode2(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode2(p0: String, p1: String, p2: String, p3: String, p4: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeDecode3(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeDecode3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String)
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeDecode3(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeEncode(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeEncode(p0: String, p1: String, p2: String, p3: String)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeEncode(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode(p0: String, p1: String, p2: String, p3: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeEncode2(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeEncode2(p0: String, p1: String, p2: String, p3: String, p4: String)
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeEncode2(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode2(p0: String, p1: String, p2: String, p3: String, p4: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeEncode3(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeEncode3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String)
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeEncode3(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeFree2(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeFree2(p0: String, p1: String, p2: String, p3: String, p4: String)
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeFree2(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeFree2(p0: String, p1: String, p2: String, p3: String, p4: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrMesTypeFree3(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeFree3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String)
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrMesTypeFree3(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrMesTypeFree3(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonConformantStringBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonConformantStringBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonConformantStringMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonConformantStringMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonConformantStringMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonConformantStringMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonConformantStringUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonConformantStringUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNsGetBuffer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNsGetBuffer(p0: String, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNsGetBuffer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNsGetBuffer(p0: String, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrNsSendReceive(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrNsSendReceive(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrNsSendReceive(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrNsSendReceive(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrOleAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrOleAllocate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrOleAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrOleAllocate(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrOleFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrOleFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrOleFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrOleFree(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientBufferSize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientBufferSize(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPartialIgnoreClientBufferSize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreClientBufferSize(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientMarshall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientMarshall(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPartialIgnoreClientMarshall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreClientMarshall(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerInitialize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerInitialize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPartialIgnoreServerInitialize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreServerInitialize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerUnmarshall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerUnmarshall(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPartialIgnoreServerUnmarshall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreServerUnmarshall(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPointerBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPointerBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPointerBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPointerBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPointerFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPointerFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPointerFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPointerFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPointerMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPointerMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPointerMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPointerMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPointerMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPointerMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPointerMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPointerMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrPointerUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrPointerUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrPointerUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrPointerUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRangeUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRangeUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRangeUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRangeUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSmClientAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSmClientAllocate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSmClientAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSmClientAllocate(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSmClientFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSmClientFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSmClientFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSmClientFree(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSmSetClientToOsf(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSmSetClientToOsf(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSmSetClientToOsf(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSmSetClientToOsf(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSsDefaultAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsDefaultAllocate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSsDefaultAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDefaultAllocate(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSsDefaultFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsDefaultFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSsDefaultFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDefaultFree(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSsDisableAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsDisableAllocate(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSsDisableAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDisableAllocate(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrRpcSsEnableAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsEnableAllocate(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrRpcSsEnableAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrRpcSsEnableAllocate(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSendReceive(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSendReceive(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSendReceive(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSendReceive(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerCall2(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerCall2(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerCall2(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerCall2(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerCallAll(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerCallAll(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerCallAll(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerCallAll(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerCallNdr64(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerCallNdr64(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerCallNdr64(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerCallNdr64(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerContextMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerContextMarshall(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerContextMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerContextMarshall(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerContextNewMarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerContextNewMarshall(p0: String, p1: String, p2: String, p3: String)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerContextNewMarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerContextNewMarshall(p0: String, p1: String, p2: String, p3: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerContextNewUnmarshall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerContextNewUnmarshall(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerContextNewUnmarshall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerContextNewUnmarshall(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerContextUnmarshall(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerContextUnmarshall(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerContextUnmarshall(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerContextUnmarshall(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerInitialize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerInitialize(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerInitialize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerInitialize(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerInitializeMarshall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializeMarshall(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerInitializeMarshall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeMarshall(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerInitializeNew(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializeNew(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerInitializeNew(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeNew(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerInitializePartial(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializePartial(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerInitializePartial(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerInitializePartial(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrServerInitializeUnmarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializeUnmarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrServerInitializeUnmarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeUnmarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleStructBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleStructBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleStructFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleStructFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleStructMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleStructMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleStructMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleStructMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleStructUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleStructUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleTypeMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleTypeMarshall(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleTypeMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleTypeMarshall(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrSimpleTypeUnmarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrSimpleTypeUnmarshall(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrSimpleTypeUnmarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrSimpleTypeUnmarshall(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrStubCall2(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrStubCall2(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrStubCall2(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrStubCall2(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrStubCall3(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrStubCall3(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrStubCall3(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrStubCall3(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrUserMarshalBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrUserMarshalBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrUserMarshalFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrUserMarshalFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrUserMarshalMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrUserMarshalMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrUserMarshalMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrUserMarshalMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrUserMarshalSimpleTypeConvert(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalSimpleTypeConvert(p0: String, p1: String, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrUserMarshalSimpleTypeConvert(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalSimpleTypeConvert(p0: String, p1: String, p2: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrUserMarshalUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrUserMarshalUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrVaryingArrayBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrVaryingArrayBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrVaryingArrayFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrVaryingArrayFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrVaryingArrayMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrVaryingArrayMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrVaryingArrayMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrVaryingArrayMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrVaryingArrayUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrVaryingArrayUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrXmitOrRepAsBufferSize(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsBufferSize(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrXmitOrRepAsBufferSize(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsBufferSize(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrXmitOrRepAsFree(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsFree(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrXmitOrRepAsFree(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsFree(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMarshall(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMarshall(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrXmitOrRepAsMarshall(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsMarshall(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMemorySize(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMemorySize(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrXmitOrRepAsMemorySize(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsMemorySize(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_ndrXmitOrRepAsUnmarshall(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcNdrXmitOrRepAsUnmarshall(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsUnmarshall(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcAsyncAbortCall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcAsyncAbortCall(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcAsyncAbortCall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcAsyncAbortCall(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcAsyncCancelCall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcAsyncCancelCall(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcAsyncCancelCall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcAsyncCancelCall(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcAsyncCompleteCall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcAsyncCompleteCall(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcAsyncCompleteCall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcAsyncCompleteCall(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcAsyncGetCallStatus(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcAsyncGetCallStatus(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcAsyncGetCallStatus(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcAsyncGetCallStatus(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcAsyncInitializeHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcAsyncInitializeHandle(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcAsyncInitializeHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcAsyncInitializeHandle(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcAsyncRegisterInfo(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcAsyncRegisterInfo(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcAsyncRegisterInfo(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcAsyncRegisterInfo(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingBind(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingBind(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingBind(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingBind(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingCopy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingCopy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingCopy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingCopy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingCreateA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingCreateA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingCreateA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingCreateA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingCreateW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingCreateW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingCreateW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingCreateW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingFree(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingFromStringBindingA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingFromStringBindingA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingFromStringBindingW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingFromStringBindingW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExA(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExW(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqMaxCalls(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqMaxCalls(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqMaxCalls(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqMaxCalls(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqObject(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqObject(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqObject(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqObject(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingInqOption(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqOption(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingInqOption(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingInqOption(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingReset(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingReset(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingReset(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingReset(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingServerFromClient(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingServerFromClient(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingServerFromClient(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingServerFromClient(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoA(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoA(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExA(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExA(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExW(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExW(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoW(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoW(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingSetObject(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetObject(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingSetObject(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingSetObject(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingSetOption(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetOption(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingSetOption(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingSetOption(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingToStringBindingA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingToStringBindingA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingToStringBindingA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingToStringBindingA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingToStringBindingW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingToStringBindingW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingToStringBindingW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingToStringBindingW(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingUnbind(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingUnbind(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingUnbind(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingUnbind(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcBindingVectorFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcBindingVectorFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcBindingVectorFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcBindingVectorFree(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcCancelThread(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcCancelThread(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcCancelThread(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcCancelThread(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcCancelThreadEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcCancelThreadEx(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcCancelThreadEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcCancelThreadEx(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcEpRegisterA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcEpRegisterA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcEpRegisterW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcEpRegisterW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcEpResolveBinding(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcEpResolveBinding(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcEpResolveBinding(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcEpResolveBinding(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcEpUnregister(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcEpUnregister(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcEpUnregister(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcEpUnregister(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorAddRecord(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorAddRecord(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorAddRecord(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorAddRecord(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorClearInformation()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorClearInformation()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorClearInformation()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorClearInformation()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorEndEnumeration(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorEndEnumeration(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorEndEnumeration(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorEndEnumeration(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorGetNextRecord(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorGetNextRecord(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorGetNextRecord(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorGetNextRecord(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorGetNumberOfRecords(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorGetNumberOfRecords(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorGetNumberOfRecords(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorGetNumberOfRecords(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorLoadErrorInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorLoadErrorInfo(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorLoadErrorInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorLoadErrorInfo(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorResetEnumeration(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorResetEnumeration(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorResetEnumeration(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorResetEnumeration(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorSaveErrorInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorSaveErrorInfo(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorSaveErrorInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorSaveErrorInfo(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcErrorStartEnumeration(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcErrorStartEnumeration(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcErrorStartEnumeration(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcErrorStartEnumeration(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcExceptionFilter(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcExceptionFilter(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcExceptionFilter(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcExceptionFilter(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcFreeAuthorizationContext(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcFreeAuthorizationContext(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcFreeAuthorizationContext(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcFreeAuthorizationContext(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcIfIdVectorFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcIfIdVectorFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcIfIdVectorFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcIfIdVectorFree(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcIfInqId(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcIfInqId(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcIfInqId(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcIfInqId(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcImpersonateClient(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcImpersonateClient(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcImpersonateClient(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClient(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcImpersonateClient2(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcImpersonateClient2(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcImpersonateClient2(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClient2(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcImpersonateClientContainer(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcImpersonateClientContainer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcImpersonateClientContainer(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClientContainer(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtEnableIdleCleanup()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEnableIdleCleanup(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup(): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqBegin(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqBegin(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqBegin(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqBegin(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqDone(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqDone(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqDone(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqDone(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtEpUnregister(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpUnregister(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtEpUnregister(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpUnregister(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtInqComTimeout(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqComTimeout(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtInqComTimeout(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqComTimeout(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtInqDefaultProtectLevel(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqDefaultProtectLevel(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtInqDefaultProtectLevel(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqDefaultProtectLevel(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtInqIfIds(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqIfIds(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtInqIfIds(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqIfIds(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtInqStats(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqStats(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtInqStats(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqStats(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtIsServerListening(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtIsServerListening(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtIsServerListening(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtIsServerListening(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtSetAuthorizationFn(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetAuthorizationFn(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtSetAuthorizationFn(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetAuthorizationFn(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtSetCancelTimeout(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetCancelTimeout(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(p0: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtSetComTimeout(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetComTimeout(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtSetComTimeout(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetComTimeout(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtSetServerStackSize(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetServerStackSize(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtStatsVectorFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtStatsVectorFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtStatsVectorFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtStatsVectorFree(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtStopServerListening(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtStopServerListening(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtStopServerListening(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtStopServerListening(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcMgmtWaitServerListen()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcMgmtWaitServerListen(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsA(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsA(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsW(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsW(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsW(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidA(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidA(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidW(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidW(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidW(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingExportA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportA(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingExportA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportA(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPA(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingExportPnPA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportPnPA(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPW(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingExportPnPW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportPnPW(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingExportW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportW(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingExportW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportW(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginA(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingImportBeginA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportBeginA(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginW(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingImportBeginW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportBeginW(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingImportDone(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportDone(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingImportDone(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportDone(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingImportNext(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportNext(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingImportNext(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportNext(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginA(p0: Int, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginA(p0: Int, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginW(p0: Int, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginW(p0: Int, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingLookupDone(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupDone(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingLookupDone(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupDone(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingLookupNext(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupNext(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingLookupNext(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupNext(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingSelect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingSelect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingSelect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingSelect(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingUnexportA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportA(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingUnexportA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportA(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPA(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPA(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPW(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPW(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsBindingUnexportW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportW(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsBindingUnexportW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportW(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameA(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsEntryExpandNameA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsEntryExpandNameA(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameW(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsEntryExpandNameW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsEntryExpandNameW(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginA(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginA(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginW(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginW(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqDone(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqDone(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqDone(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqDone(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqNext(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqNext(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqNext(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqNext(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupDeleteA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupDeleteA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupDeleteA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupDeleteA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupDeleteW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupDeleteW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupDeleteW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupDeleteW(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddA(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrAddA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrAddA(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddW(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrAddW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrAddW(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginA(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginA(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginW(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginW(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqDone(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqDone(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqDone(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqDone(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveA(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveA(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveW(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveW(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportA(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportA(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportW(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportW(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtEntryCreateA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryCreateA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtEntryCreateW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryCreateW(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteW(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsA(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsA(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsW(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsW(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtHandleSetExpAge(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtHandleSetExpAge(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtHandleSetExpAge(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtHandleSetExpAge(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtInqExpAge(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtInqExpAge(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtInqExpAge(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtInqExpAge(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsMgmtSetExpAge(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtSetExpAge(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsMgmtSetExpAge(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtSetExpAge(p0: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileDeleteA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileDeleteA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileDeleteA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileDeleteA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileDeleteW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileDeleteW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileDeleteW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileDeleteW(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltAddA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltAddA(p0: Int, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltAddA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltAddA(p0: Int, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltAddW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltAddW(p0: Int, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltAddW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltAddW(p0: Int, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginA(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginA(p0: Int, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginA(p0: Int, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginW(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginW(p0: Int, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginW(p0: Int, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String, p7: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltInqDone(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqDone(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltInqDone(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqDone(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveA(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveA(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveW(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveW(p0: Int, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcObjectInqType(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcObjectInqType(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcObjectInqType(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcObjectInqType(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcObjectSetInqFn(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcObjectSetInqFn(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcObjectSetInqFn(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcObjectSetInqFn(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcObjectSetType(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcObjectSetType(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcObjectSetType(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcObjectSetType(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeA(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcProtseqVectorFreeA(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcProtseqVectorFreeA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeW(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcProtseqVectorFreeW(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcProtseqVectorFreeW(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcRaiseException(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcRaiseException(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcRaiseException(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcRaiseException(p0: Int)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcRevertContainerImpersonation()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcRevertContainerImpersonation(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcRevertContainerImpersonation()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcRevertContainerImpersonation(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcRevertToSelf()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcRevertToSelf(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcRevertToSelf()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcRevertToSelf(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcRevertToSelfEx(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcRevertToSelfEx(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcRevertToSelfEx(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcRevertToSelfEx(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerCompleteSecurityCallback(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerCompleteSecurityCallback(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerCompleteSecurityCallback(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerCompleteSecurityCallback(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqBindingHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqBindingHandle(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqBindingHandle(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindingHandle(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqBindings(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqBindings(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqBindings(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindings(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqBindingsEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqBindingsEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqBindingsEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindingsEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqCallAttributesA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqCallAttributesA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqCallAttributesW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqCallAttributesW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameW(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInqIf(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInqIf(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInqIf(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInqIf(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupActivate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupActivate(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupActivate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupActivate(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupClose(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupClose(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupClose(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupClose(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateA(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateA(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateA(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateW(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateW(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateW(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupDeactivate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupDeactivate(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupDeactivate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupDeactivate(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupInqBindings(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupInqBindings(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupInqBindings(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupInqBindings(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerListen(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerListen(p0: Int, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerListen(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerListen(p0: Int, p1: Int, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerRegisterIf(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIf(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerRegisterIf(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerRegisterIf2(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIf2(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerRegisterIf2(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf2(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerRegisterIf3(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIf3(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerRegisterIf3(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf3(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerRegisterIfEx(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIfEx(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerRegisterIfEx(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIfEx(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerSubscribeForNotification(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerSubscribeForNotification(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerSubscribeForNotification(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerSubscribeForNotification(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerTestCancel(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerTestCancel(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerTestCancel(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerTestCancel(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUnregisterIf(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUnregisterIf(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUnregisterIf(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUnregisterIf(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUnregisterIfEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUnregisterIfEx(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUnregisterIfEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUnregisterIfEx(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUnsubscribeForNotification(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUnsubscribeForNotification(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUnsubscribeForNotification(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUnsubscribeForNotification(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqs(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqs(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqs(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqs(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsEx(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsEx(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIf(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIf(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIf(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIf(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIfEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIfEx(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIfEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIfEx(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqExA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqExA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqExA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqExA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqExW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqExW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqExW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqExW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerUseProtseqW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerUseProtseqW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcServerYield()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcServerYield()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcServerYield()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcServerYield()
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmAllocate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmAllocate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmAllocate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmAllocate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmClientFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmClientFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmClientFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmClientFree(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmDestroyClientContext(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmDestroyClientContext(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmDestroyClientContext(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmDestroyClientContext(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmDisableAllocate()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmDisableAllocate(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmDisableAllocate()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmDisableAllocate(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmEnableAllocate()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmEnableAllocate(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmEnableAllocate()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmEnableAllocate(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmFree(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmGetThreadHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmGetThreadHandle(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmGetThreadHandle(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmGetThreadHandle(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmSetClientAllocFree(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmSetClientAllocFree(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmSetClientAllocFree(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmSetClientAllocFree(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmSetThreadHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmSetThreadHandle(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmSetThreadHandle(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmSetThreadHandle(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSmSwapClientAllocFree(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSmSwapClientAllocFree(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSmSwapClientAllocFree(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSmSwapClientAllocFree(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsAllocate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsAllocate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsAllocate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsAllocate(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsContextLockExclusive(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsContextLockExclusive(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsContextLockExclusive(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsContextLockExclusive(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsContextLockShared(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsContextLockShared(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsContextLockShared(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsContextLockShared(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsDestroyClientContext(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsDestroyClientContext(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsDestroyClientContext(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsDestroyClientContext(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsDisableAllocate()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsDisableAllocate()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsDisableAllocate()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsDisableAllocate()
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsDontSerializeContext()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsDontSerializeContext()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsDontSerializeContext()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsDontSerializeContext()
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsEnableAllocate()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsEnableAllocate()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsEnableAllocate()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsEnableAllocate()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsFree(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsFree(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsFree(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsFree(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsGetContextBinding(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsGetContextBinding(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsGetContextBinding(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsGetContextBinding(p0: String, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsGetThreadHandle()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsGetThreadHandle(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsGetThreadHandle()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsGetThreadHandle(): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsSetClientAllocFree(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsSetClientAllocFree(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsSetClientAllocFree(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsSetClientAllocFree(p0: String, p1: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsSetThreadHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsSetThreadHandle(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsSetThreadHandle(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsSetThreadHandle(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcSsSwapClientAllocFree(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcSsSwapClientAllocFree(p0: String, p1: String, p2: String, p3: String)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcSsSwapClientAllocFree(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcSsSwapClientAllocFree(p0: String, p1: String, p2: String, p3: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcStringBindingComposeA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingComposeA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcStringBindingComposeA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcStringBindingComposeA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcStringBindingComposeW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingComposeW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcStringBindingComposeW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcStringBindingComposeW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcStringBindingParseA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingParseA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcStringBindingParseA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcStringBindingParseA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcStringBindingParseW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingParseW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcStringBindingParseW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcStringBindingParseW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcStringFreeA(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcStringFreeA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcStringFreeA(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcStringFreeA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcStringFreeW(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcStringFreeW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcStringFreeW(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcStringFreeW(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcTestCancel()")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcTestCancel(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcTestCancel()")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcTestCancel(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_rpcUserFree(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_rpcUserFree(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcRpcUserFree(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcRpcUserFree(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidCompare(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidCompare(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidCompare(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidCompare(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidCreate(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidCreate(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidCreate(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidCreateNil(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidCreateNil(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidCreateNil(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidCreateNil(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidCreateSequential(p0)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidCreateSequential(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidCreateSequential(p0)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidCreateSequential(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidEqual(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidEqual(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidEqual(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidEqual(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidFromStringA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidFromStringA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidFromStringA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidFromStringA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidFromStringW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidFromStringW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidFromStringW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidFromStringW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidHash(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidHash(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidHash(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidHash(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidIsNil(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidIsNil(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidIsNil(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidIsNil(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidToStringA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidToStringA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidToStringA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidToStringA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_rpc_uuidToStringW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_rpc_uuidToStringW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRpcUuidToStringW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemRpcUuidToStringW(p0: String, p1: String): Int
 
 public actual fun dceErrorInqTextA(rpcstatus: RpcStatus, errortext: Pstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_dceErrorInqTextA(rpcstatus, (errortext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcDceErrorInqTextA(rpcstatus, errortext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dceErrorInqTextW(rpcstatus: RpcStatus, errortext: Pwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_dceErrorInqTextW(rpcstatus, (errortext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcDceErrorInqTextW(rpcstatus, errortext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownAddRefProxy(thisRef: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iunknownAddRefProxy((thisRef?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iunknownAddRefProxy(thisRef: MutPtr<CVoid>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIunknownAddRefProxy(thisRef.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownQueryInterfaceProxy(thisRef: COpaquePointer?, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iunknownQueryInterfaceProxy((thisRef?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (ppvobject?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iunknownQueryInterfaceProxy(thisRef: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIunknownQueryInterfaceProxy(thisRef.rawAddress.toString(), riid.rawAddress.toString(), ppvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownReleaseProxy(thisRef: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iunknownReleaseProxy((thisRef?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iunknownReleaseProxy(thisRef: MutPtr<CVoid>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIunknownReleaseProxy(thisRef.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcAllocate(size: UInt): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcAllocate(size.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcAllocate(size: UInt): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcIRpcAllocate(size.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcAsyncAbortCall(pasync: COpaquePointer?, exceptioncode: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcAsyncAbortCall((pasync?.value ?: 0L).toString(), exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcAsyncAbortCall(pasync: ConstPtr<RpcAsyncState>, exceptioncode: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcAsyncAbortCall(pasync.rawAddress.toString(), exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcAsyncSetHandle(message: COpaquePointer?, pasync: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcAsyncSetHandle((message?.value ?: 0L).toString(), (pasync?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcAsyncSetHandle(message: ConstPtr<RpcMessage>, pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcAsyncSetHandle(message.rawAddress.toString(), pasync.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingCopy(sourcebinding: COpaquePointer?, destinationbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingCopy((sourcebinding?.value ?: 0L).toString(), (destinationbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingCopy(sourcebinding: MutPtr<CVoid>, destinationbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingCopy(sourcebinding.rawAddress.toString(), destinationbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingCreateNp((servername?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (networkoptions?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingCreateNp(servername.rawAddress.toString(), servicename.rawAddress.toString(), networkoptions.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingHandleToAsyncHandle(binding: COpaquePointer?, asynchandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingHandleToAsyncHandle((binding?.value ?: 0L).toString(), (asynchandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingHandleToAsyncHandle(binding: MutPtr<CVoid>, asynchandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingHandleToAsyncHandle(binding.rawAddress.toString(), asynchandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqClientTokenAttributes(binding: COpaquePointer?, tokenid: COpaquePointer?, authenticationid: COpaquePointer?, modifiedid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqClientTokenAttributes((binding?.value ?: 0L).toString(), (tokenid?.value ?: 0L).toString(), (authenticationid?.value ?: 0L).toString(), (modifiedid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqClientTokenAttributes(binding: ConstPtr<CVoid>, tokenid: MutPtr<Luid>, authenticationid: MutPtr<Luid>, modifiedid: MutPtr<Luid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqClientTokenAttributes(binding.rawAddress.toString(), tokenid.rawAddress.toString(), authenticationid.rawAddress.toString(), modifiedid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqDynamicEndpointA(binding: COpaquePointer?, dynamicendpoint: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointA((binding?.value ?: 0L).toString(), (dynamicendpoint?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqDynamicEndpointA(binding: ConstPtr<CVoid>, dynamicendpoint: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointA(binding.rawAddress.toString(), dynamicendpoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqDynamicEndpointW(binding: COpaquePointer?, dynamicendpoint: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointW((binding?.value ?: 0L).toString(), (dynamicendpoint?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqDynamicEndpointW(binding: ConstPtr<CVoid>, dynamicendpoint: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointW(binding.rawAddress.toString(), dynamicendpoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqLocalClientPid(binding: COpaquePointer?, pid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqLocalClientPid((binding?.value ?: 0L).toString(), (pid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqLocalClientPid(binding: MutPtr<CVoid>, pid: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqLocalClientPid(binding.rawAddress.toString(), pid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqMarshalledTargetInfo(binding: COpaquePointer?, marshalledtargetinfosize: COpaquePointer?, marshalledtargetinfo: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqMarshalledTargetInfo((binding?.value ?: 0L).toString(), (marshalledtargetinfosize?.value ?: 0L).toString(), (marshalledtargetinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqMarshalledTargetInfo(binding: ConstPtr<CVoid>, marshalledtargetinfosize: MutPtr<UInt>, marshalledtargetinfo: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqMarshalledTargetInfo(binding.rawAddress.toString(), marshalledtargetinfosize.rawAddress.toString(), marshalledtargetinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqSecurityContext(binding: COpaquePointer?, securitycontexthandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContext((binding?.value ?: 0L).toString(), (securitycontexthandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqSecurityContext(binding: MutPtr<CVoid>, securitycontexthandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContext(binding.rawAddress.toString(), securitycontexthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqSecurityContextKeyInfo(binding: COpaquePointer?, keyinfo: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContextKeyInfo((binding?.value ?: 0L).toString(), (keyinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqSecurityContextKeyInfo(binding: ConstPtr<CVoid>, keyinfo: MutPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContextKeyInfo(binding.rawAddress.toString(), keyinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqTransportType(binding: COpaquePointer?, type: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqTransportType((binding?.value ?: 0L).toString(), (type?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqTransportType(binding: MutPtr<CVoid>, type: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqTransportType(binding.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqWireIdForSnego(binding: COpaquePointer?, wireid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingInqWireIdForSnego((binding?.value ?: 0L).toString(), (wireid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingInqWireIdForSnego(binding: ConstPtr<CVoid>, wireid: MutPtr<UByte>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqWireIdForSnego(binding.rawAddress.toString(), wireid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingIsClientLocal(bindinghandle: COpaquePointer?, clientlocalflag: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingIsClientLocal((bindinghandle?.value ?: 0L).toString(), (clientlocalflag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingIsClientLocal(bindinghandle: MutPtr<CVoid>, clientlocalflag: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingIsClientLocal(bindinghandle.rawAddress.toString(), clientlocalflag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingIsServerLocal(binding: COpaquePointer?, serverlocalflag: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingIsServerLocal((binding?.value ?: 0L).toString(), (serverlocalflag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingIsServerLocal(binding: ConstPtr<CVoid>, serverlocalflag: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingIsServerLocal(binding.rawAddress.toString(), serverlocalflag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingSetPrivateOption(hbinding: COpaquePointer?, option: UInt, optionvalue: ULong): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingSetPrivateOption((hbinding?.value ?: 0L).toString(), option.toInt(), optionvalue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingSetPrivateOption(hbinding: ConstPtr<CVoid>, option: UInt, optionvalue: ULong): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingSetPrivateOption(hbinding.rawAddress.toString(), option.toInt(), optionvalue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingToStaticStringBindingW(binding: COpaquePointer?, stringbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcBindingToStaticStringBindingW((binding?.value ?: 0L).toString(), (stringbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcBindingToStaticStringBindingW(binding: MutPtr<CVoid>, stringbinding: MutPtr<MutPtr<UShort>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingToStaticStringBindingW(binding.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcClearMutex(mutex: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcClearMutex((mutex?.value ?: 0L).toString())
+public actual fun iRpcClearMutex(mutex: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcClearMutex(mutex.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcDeleteMutex(mutex: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcDeleteMutex((mutex?.value ?: 0L).toString())
+public actual fun iRpcDeleteMutex(mutex: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcDeleteMutex(mutex.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun iRpcExceptionFilter(exceptioncode: UInt): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcExceptionFilter(exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcExceptionFilter(exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcFree(obj: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcFree((obj?.value ?: 0L).toString())
+public actual fun iRpcFree(obj: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcFree(obj.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcFreeBuffer(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcFreeBuffer((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcFreeBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcFreeBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcFreePipeBuffer(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcFreePipeBuffer((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcFreePipeBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcFreePipeBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetBuffer(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcGetBuffer((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcGetBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetBufferWithObject(message: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcGetBufferWithObject((message?.value ?: 0L).toString(), (objectuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcGetBufferWithObject(message: MutPtr<RpcMessage>, objectuuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetBufferWithObject(message.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetCurrentCallHandle(): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcGetCurrentCallHandle().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcGetCurrentCallHandle(): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcIRpcGetCurrentCallHandle().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcGetDefaultSd((ppsecuritydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetDefaultSd(ppsecuritydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcGetExtendedError(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcGetExtendedError() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetExtendedError() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: COpaquePointer?, transfersyntaxes: COpaquePointer?, transfersyntaxsize: UInt, transfersyntaxcount: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcIfInqTransferSyntaxes((rpcifhandle?.value ?: 0L).toString(), (transfersyntaxes?.value ?: 0L).toString(), transfersyntaxsize.toInt(), (transfersyntaxcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr<CVoid>, transfersyntaxes: MutPtr<RpcTransferSyntax>, transfersyntaxsize: UInt, transfersyntaxcount: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcIfInqTransferSyntaxes(rpcifhandle.rawAddress.toString(), transfersyntaxes.rawAddress.toString(), transfersyntaxsize.toInt(), transfersyntaxcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcMapWin32Status(status: RpcStatus): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcMapWin32Status(status) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcMapWin32Status(status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcMgmtEnableDedicatedThreadPool(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcMgmtEnableDedicatedThreadPool() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNegotiateTransferSyntax(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNegotiateTransferSyntax((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNegotiateTransferSyntax(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNegotiateTransferSyntax(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsBindingSetEntryNameA(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameA((binding?.value ?: 0L).toString(), entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNsBindingSetEntryNameA(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameA(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsBindingSetEntryNameW(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameW((binding?.value ?: 0L).toString(), entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNsBindingSetEntryNameW(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameW(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsGetBuffer(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNsGetBuffer((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNsGetBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsGetBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: COpaquePointer?, rpcinterfaceinformation: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNsInterfaceExported(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (rpcinterfaceinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: ConstPtr<UShort>, rpcinterfaceinformation: ConstPtr<RpcServerInterface>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsInterfaceExported(entrynamesyntax.toInt(), entryname.rawAddress.toString(), rpcinterfaceinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: COpaquePointer?, rpcinterfaceinformation: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNsInterfaceUnexported(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (rpcinterfaceinformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: MutPtr<UShort>, rpcinterfaceinformation: MutPtr<RpcServerInterface>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsInterfaceUnexported(entrynamesyntax.toInt(), entryname.rawAddress.toString(), rpcinterfaceinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsRaiseException(message: COpaquePointer?, status: RpcStatus) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcNsRaiseException((message?.value ?: 0L).toString(), status)
+public actual fun iRpcNsRaiseException(message: MutPtr<RpcMessage>, status: RpcStatus) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcNsRaiseException(message.rawAddress.toString(), status)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcNsSendReceive(message: COpaquePointer?, handle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcNsSendReceive((message?.value ?: 0L).toString(), (handle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcNsSendReceive(message: MutPtr<RpcMessage>, handle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsSendReceive(message.rawAddress.toString(), handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcOpenClientProcess(binding: COpaquePointer?, desiredaccess: UInt, clientprocess: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcOpenClientProcess((binding?.value ?: 0L).toString(), desiredaccess.toInt(), (clientprocess?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcOpenClientProcess(binding: ConstPtr<CVoid>, desiredaccess: UInt, clientprocess: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcOpenClientProcess(binding.rawAddress.toString(), desiredaccess.toInt(), clientprocess.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcPauseExecution(milliseconds: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcPauseExecution(milliseconds.toInt())
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcPauseExecution(milliseconds.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcReBindBuffer(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcReBindBuffer((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcReBindBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcReBindBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcReallocPipeBuffer(message: COpaquePointer?, newsize: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcReallocPipeBuffer((message?.value ?: 0L).toString(), newsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcReallocPipeBuffer(message: ConstPtr<RpcMessage>, newsize: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcReallocPipeBuffer(message.rawAddress.toString(), newsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcReceive(message: COpaquePointer?, size: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcReceive((message?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcReceive(message: MutPtr<RpcMessage>, size: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcReceive(message.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: COpaquePointer?, dllname: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcRecordCalloutFailure(rpcstatus, (calloutstate?.value ?: 0L).toString(), (dllname?.value ?: 0L).toString())
+public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: MutPtr<RdrCalloutState>, dllname: MutPtr<UShort>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcRecordCalloutFailure(rpcstatus, calloutstate.rawAddress.toString(), dllname.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcRequestMutex(mutex: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcRequestMutex((mutex?.value ?: 0L).toString())
+public actual fun iRpcRequestMutex(mutex: MutPtr<MutPtr<CVoid>>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcRequestMutex(mutex.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcSend(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcSend((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcSend(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcSend(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcSendReceive(message: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcSendReceive((message?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcSendReceive(message: MutPtr<RpcMessage>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcSendReceive(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerCheckClientRestriction(context: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerCheckClientRestriction((context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerCheckClientRestriction(context: MutPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerCheckClientRestriction(context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcServerDisableExceptionFilter(): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerDisableExceptionFilter() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerGetAssociationId(binding: COpaquePointer?, associationid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerGetAssociationId((binding?.value ?: 0L).toString(), (associationid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerGetAssociationId(binding: ConstPtr<CVoid>, associationid: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerGetAssociationId(binding.rawAddress.toString(), associationid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqAddressChangeFn(): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqAddressChangeFn().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerInqAddressChangeFn(): MutPtr<RpcAddressChangeFn> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcIRpcServerInqAddressChangeFn().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqLocalConnAddress(binding: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?, addressformat: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqLocalConnAddress((binding?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString(), (addressformat?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerInqLocalConnAddress(binding: MutPtr<CVoid>, buffer: MutPtr<CVoid>, buffersize: MutPtr<UInt>, addressformat: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerInqLocalConnAddress(binding.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.rawAddress.toString(), addressformat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqRemoteConnAddress(binding: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?, addressformat: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqRemoteConnAddress((binding?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString(), (addressformat?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerInqRemoteConnAddress(binding: MutPtr<CVoid>, buffer: MutPtr<CVoid>, buffersize: MutPtr<UInt>, addressformat: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerInqRemoteConnAddress(binding.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.rawAddress.toString(), addressformat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqTransportType(type: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerInqTransportType((type?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerInqTransportType(type: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerInqTransportType(type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerRegisterForwardFunction(pforwardfunction: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerRegisterForwardFunction((pforwardfunction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerRegisterForwardFunction(pforwardfunction: MutPtr<RpcForwardFunction>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerRegisterForwardFunction(pforwardfunction.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerSetAddressChangeFn(paddresschangefn: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerSetAddressChangeFn((paddresschangefn?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerSetAddressChangeFn(paddresschangefn: MutPtr<RpcAddressChangeFn>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerSetAddressChangeFn(paddresschangefn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerStartService((protseq?.value ?: 0L).toString(), (endpoint?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerStartService(protseq.rawAddress.toString(), endpoint.rawAddress.toString(), ifspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerSubscribeForDisconnectNotification(binding: COpaquePointer?, hevent: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification((binding?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerSubscribeForDisconnectNotification(binding: ConstPtr<CVoid>, hevent: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification(binding.rawAddress.toString(), hevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerSubscribeForDisconnectNotification2(binding: COpaquePointer?, hevent: COpaquePointer?, subscriptionid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification2((binding?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), (subscriptionid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerSubscribeForDisconnectNotification2(binding: ConstPtr<CVoid>, hevent: ConstPtr<CVoid>, subscriptionid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification2(binding.rawAddress.toString(), hevent.rawAddress.toString(), subscriptionid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUnsubscribeForDisconnectNotification(binding: COpaquePointer?, subscriptionid: Guid): RpcStatus =
+public actual fun iRpcServerUnsubscribeForDisconnectNotification(binding: ConstPtr<CVoid>, subscriptionid: Guid): RpcStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2A((networkaddress?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseq2A(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2W((networkaddress?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseq2W(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2A((networkaddress?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), maxcalls.toInt(), (endpoint?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2A(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2W((networkaddress?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), maxcalls.toInt(), (endpoint?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2W(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcSessionStrictContextHandle() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcSessionStrictContextHandle()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcSessionStrictContextHandle()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun iRpcSsDontSerializeContext() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_iRpcSsDontSerializeContext()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcIRpcSsDontSerializeContext()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun iRpcSystemHandleTypeSpecificWork(handle: COpaquePointer?, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcSystemHandleTypeSpecificWork((handle?.value ?: 0L).toString(), actualtype.toInt(), idltype.toInt(), marshaldirection) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iRpcSystemHandleTypeSpecificWork(handle: MutPtr<CVoid>, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcSystemHandleTypeSpecificWork(handle.rawAddress.toString(), actualtype.toInt(), idltype.toInt(), marshaldirection) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcTurnOnEeinfoPropagation(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iRpcTurnOnEeinfoPropagation() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iUuidCreate(uuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_iUuidCreate((uuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun iUuidCreate(uuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIUuidCreate(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesBufferHandleReset(handle: COpaquePointer?, handlestyle: UInt, operation: MidlEsCode, pbuffer: COpaquePointer?, buffersize: UInt, pencodedsize: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesBufferHandleReset((handle?.value ?: 0L).toString(), handlestyle.toInt(), operation, (pbuffer?.value ?: 0L).toString(), buffersize.toInt(), (pencodedsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesBufferHandleReset(handle: ConstPtr<CVoid>, handlestyle: UInt, operation: MidlEsCode, pbuffer: ConstPtr<ConstPtr<Byte>>, buffersize: UInt, pencodedsize: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesBufferHandleReset(handle.rawAddress.toString(), handlestyle.toInt(), operation, pbuffer.rawAddress.toString(), buffersize.toInt(), pencodedsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesDecodeBufferHandleCreate((buffer?.value ?: 0L).toString(), buffersize.toInt(), (phandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesDecodeBufferHandleCreate(buffer.rawAddress.toString(), buffersize.toInt(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesDecodeIncrementalHandleCreate(userstate: COpaquePointer?, readfn: MidlEsRead, phandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesDecodeIncrementalHandleCreate((userstate?.value ?: 0L).toString(), 0L.toString(), (phandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesDecodeIncrementalHandleCreate(userstate: MutPtr<CVoid>, readfn: MidlEsRead, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesDecodeIncrementalHandleCreate(userstate.rawAddress.toString(), 0L.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesEncodeDynBufferHandleCreate(pbuffer: COpaquePointer?, pencodedsize: COpaquePointer?, phandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesEncodeDynBufferHandleCreate((pbuffer?.value ?: 0L).toString(), (pencodedsize?.value ?: 0L).toString(), (phandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesEncodeDynBufferHandleCreate(pbuffer: MutPtr<MutPtr<Byte>>, pencodedsize: MutPtr<UInt>, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesEncodeDynBufferHandleCreate(pbuffer.rawAddress.toString(), pencodedsize.rawAddress.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: COpaquePointer?, phandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesEncodeFixedBufferHandleCreate((pbuffer?.value ?: 0L).toString(), buffersize.toInt(), (pencodedsize?.value ?: 0L).toString(), (phandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: MutPtr<UInt>, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesEncodeFixedBufferHandleCreate(pbuffer.rawAddress.toString(), buffersize.toInt(), pencodedsize.rawAddress.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesEncodeIncrementalHandleCreate(userstate: COpaquePointer?, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesEncodeIncrementalHandleCreate((userstate?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), (phandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesEncodeIncrementalHandleCreate(userstate: MutPtr<CVoid>, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesEncodeIncrementalHandleCreate(userstate.rawAddress.toString(), 0L.toString(), 0L.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesHandleFree(handle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesHandleFree((handle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesHandleFree(handle: MutPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesHandleFree(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesIncrementalHandleReset(handle: COpaquePointer?, userstate: COpaquePointer?, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesIncrementalHandleReset((handle?.value ?: 0L).toString(), (userstate?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString(), operation) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesIncrementalHandleReset(handle: MutPtr<CVoid>, userstate: MutPtr<CVoid>, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesIncrementalHandleReset(handle.rawAddress.toString(), userstate.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), operation) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesInqProcEncodingId(handle: COpaquePointer?, pinterfaceid: COpaquePointer?, pprocnum: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_mesInqProcEncodingId((handle?.value ?: 0L).toString(), (pinterfaceid?.value ?: 0L).toString(), (pprocnum?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mesInqProcEncodingId(handle: MutPtr<CVoid>, pinterfaceid: MutPtr<RpcSyntaxIdentifier>, pprocnum: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesInqProcEncodingId(handle.rawAddress.toString(), pinterfaceid.rawAddress.toString(), pprocnum.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRCContextBinding(ccontext: Long): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_nDRCContextBinding(ccontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun nDRCContextBinding(ccontext: Long): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRCContextBinding(ccontext.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRCContextMarshall(ccontext: Long, pbuff: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_nDRCContextMarshall(ccontext.toString(), (pbuff?.value ?: 0L).toString())
+public actual fun nDRCContextMarshall(ccontext: Long, pbuff: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNDRCContextMarshall(ccontext.toString(), pbuff.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun nDRCContextUnmarshall(pccontext: COpaquePointer?, hbinding: COpaquePointer?, pbuff: COpaquePointer?, datarepresentation: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_nDRCContextUnmarshall((pccontext?.value ?: 0L).toString(), (hbinding?.value ?: 0L).toString(), (pbuff?.value ?: 0L).toString(), datarepresentation.toInt())
+public actual fun nDRCContextUnmarshall(pccontext: MutPtr<Long>, hbinding: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNDRCContextUnmarshall(pccontext.rawAddress.toString(), hbinding.rawAddress.toString(), pbuff.rawAddress.toString(), datarepresentation.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun nDRSContextMarshall(ccontext: COpaquePointer?, pbuff: COpaquePointer?, userrundownin: NdrRundown) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_nDRSContextMarshall((ccontext?.value ?: 0L).toString(), (pbuff?.value ?: 0L).toString(), 0L.toString())
+public actual fun nDRSContextMarshall(ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshall(ccontext.rawAddress.toString(), pbuff.rawAddress.toString(), 0L.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun nDRSContextMarshall2(bindinghandle: COpaquePointer?, ccontext: COpaquePointer?, pbuff: COpaquePointer?, userrundownin: NdrRundown, ctxguard: COpaquePointer?, flags: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_nDRSContextMarshall2((bindinghandle?.value ?: 0L).toString(), (ccontext?.value ?: 0L).toString(), (pbuff?.value ?: 0L).toString(), 0L.toString(), (ctxguard?.value ?: 0L).toString(), flags.toInt())
+public actual fun nDRSContextMarshall2(bindinghandle: ConstPtr<CVoid>, ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown, ctxguard: ConstPtr<CVoid>, flags: UInt) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshall2(bindinghandle.rawAddress.toString(), ccontext.rawAddress.toString(), pbuff.rawAddress.toString(), 0L.toString(), ctxguard.rawAddress.toString(), flags.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun nDRSContextMarshallEx(bindinghandle: COpaquePointer?, ccontext: COpaquePointer?, pbuff: COpaquePointer?, userrundownin: NdrRundown) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_nDRSContextMarshallEx((bindinghandle?.value ?: 0L).toString(), (ccontext?.value ?: 0L).toString(), (pbuff?.value ?: 0L).toString(), 0L.toString())
+public actual fun nDRSContextMarshallEx(bindinghandle: ConstPtr<CVoid>, ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshallEx(bindinghandle.rawAddress.toString(), ccontext.rawAddress.toString(), pbuff.rawAddress.toString(), 0L.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun nDRSContextUnmarshall(pbuff: COpaquePointer?, datarepresentation: UInt): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_nDRSContextUnmarshall((pbuff?.value ?: 0L).toString(), datarepresentation.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun nDRSContextUnmarshall(pbuff: ConstPtr<CVoid>, datarepresentation: UInt): MutPtr<NdrScontext> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshall(pbuff.rawAddress.toString(), datarepresentation.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRSContextUnmarshall2(bindinghandle: COpaquePointer?, pbuff: COpaquePointer?, datarepresentation: UInt, ctxguard: COpaquePointer?, flags: UInt): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_nDRSContextUnmarshall2((bindinghandle?.value ?: 0L).toString(), (pbuff?.value ?: 0L).toString(), datarepresentation.toInt(), (ctxguard?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun nDRSContextUnmarshall2(bindinghandle: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt, ctxguard: ConstPtr<CVoid>, flags: UInt): MutPtr<NdrScontext> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshall2(bindinghandle.rawAddress.toString(), pbuff.rawAddress.toString(), datarepresentation.toInt(), ctxguard.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRSContextUnmarshallEx(bindinghandle: COpaquePointer?, pbuff: COpaquePointer?, datarepresentation: UInt): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_nDRSContextUnmarshallEx((bindinghandle?.value ?: 0L).toString(), (pbuff?.value ?: 0L).toString(), datarepresentation.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun nDRSContextUnmarshallEx(bindinghandle: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt): MutPtr<NdrScontext> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshallEx(bindinghandle.rawAddress.toString(), pbuff.rawAddress.toString(), datarepresentation.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndr64AsyncClientCall(pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndr64AsyncClientCall(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndr64AsyncServerCall64(prpcmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndr64AsyncServerCall64((prpcmsg?.value ?: 0L).toString())
+public actual fun ndr64AsyncServerCall64(prpcmsg: MutPtr<RpcMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdr64AsyncServerCall64(prpcmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndr64AsyncServerCallAll(prpcmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndr64AsyncServerCallAll((prpcmsg?.value ?: 0L).toString())
+public actual fun ndr64AsyncServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdr64AsyncServerCallAll(prpcmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndr64DcomAsyncClientCall(pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndr64DcomAsyncClientCall(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndr64DcomAsyncStubCall(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndr64DcomAsyncStubCall((pthis?.value ?: 0L).toString(), (pchannel?.value ?: 0L).toString(), (prpcmsg?.value ?: 0L).toString(), (pdwstubphase?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndr64DcomAsyncStubCall(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdr64DcomAsyncStubCall(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrAllocate(pstubmsg: COpaquePointer?, len: ULong): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrAllocate((pstubmsg?.value ?: 0L).toString(), len.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrAllocate(pstubmsg: MutPtr<MidlStubMessage>, len: ULong): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrAllocate(pstubmsg.rawAddress.toString(), len.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrAsyncClientCall(pstubdescriptor: COpaquePointer?, pformat: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrAsyncClientCall(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrAsyncServerCall(prpcmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrAsyncServerCall((prpcmsg?.value ?: 0L).toString())
+public actual fun ndrAsyncServerCall(prpcmsg: MutPtr<RpcMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrAsyncServerCall(prpcmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrByteCountPointerBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrByteCountPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrByteCountPointerFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrByteCountPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrByteCountPointerMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrByteCountPointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrByteCountPointerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrByteCountPointerUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrByteCountPointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrClearOutParameters(pstubmsg: COpaquePointer?, pformat: COpaquePointer?, argaddr: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrClearOutParameters((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), (argaddr?.value ?: 0L).toString())
+public actual fun ndrClearOutParameters(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>, argaddr: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrClearOutParameters(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString(), argaddr.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrClientCall2(pstubdescriptor: COpaquePointer?, pformat: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrClientCall2(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrClientCall3(pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrClientCall3(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrClientContextMarshall(pstubmsg: COpaquePointer?, contexthandle: Long, fcheck: Int) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrClientContextMarshall((pstubmsg?.value ?: 0L).toString(), contexthandle.toString(), fcheck)
+public actual fun ndrClientContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: Long, fcheck: Int) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrClientContextMarshall(pstubmsg.rawAddress.toString(), contexthandle.toString(), fcheck)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrClientContextUnmarshall(pstubmsg: COpaquePointer?, pcontexthandle: COpaquePointer?, bindhandle: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrClientContextUnmarshall((pstubmsg?.value ?: 0L).toString(), (pcontexthandle?.value ?: 0L).toString(), (bindhandle?.value ?: 0L).toString())
+public actual fun ndrClientContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pcontexthandle: MutPtr<Long>, bindhandle: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrClientContextUnmarshall(pstubmsg.rawAddress.toString(), pcontexthandle.rawAddress.toString(), bindhandle.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrClientInitialize(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, procnum: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrClientInitialize((prpcmsg?.value ?: 0L).toString(), (pstubmsg?.value ?: 0L).toString(), (pstubdescriptor?.value ?: 0L).toString(), procnum.toInt())
+public actual fun ndrClientInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, procnum: UInt) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrClientInitialize(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), procnum.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrClientInitializeNew(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, procnum: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrClientInitializeNew((prpcmsg?.value ?: 0L).toString(), (pstubmsg?.value ?: 0L).toString(), (pstubdescriptor?.value ?: 0L).toString(), procnum.toInt())
+public actual fun ndrClientInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, procnum: UInt) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrClientInitializeNew(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), procnum.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrComplexArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrComplexArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrComplexArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrComplexArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrComplexArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrComplexArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrComplexArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrComplexArrayUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrComplexArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrComplexStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrComplexStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrComplexStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrComplexStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrComplexStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrComplexStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrComplexStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrComplexStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrComplexStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrComplexStructUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrComplexStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantArrayUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStringBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantStringBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantStringMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantStringMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStringMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStringMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantStringMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantStringMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStringUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantStringUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantStringUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStringUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantStructUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantVaryingArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantVaryingArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantVaryingArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantVaryingArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantVaryingArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantVaryingStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConformantVaryingStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConformantVaryingStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantVaryingStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantVaryingStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrConformantVaryingStructUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrConformantVaryingStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrContextHandleInitialize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrContextHandleInitialize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrContextHandleInitialize(pstubmsg: ConstPtr<MidlStubMessage>, pformat: ConstPtr<UByte>): MutPtr<NdrScontext> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrContextHandleInitialize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrContextHandleSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrContextHandleSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrContextHandleSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrContextHandleSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConvert(pstubmsg: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConvert((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrConvert(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConvert(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrConvert2(pstubmsg: COpaquePointer?, pformat: COpaquePointer?, numberparams: Int) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrConvert2((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), numberparams)
+public actual fun ndrConvert2(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>, numberparams: Int) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrConvert2(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString(), numberparams)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrCorrelationFree(pstubmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrCorrelationFree((pstubmsg?.value ?: 0L).toString())
+public actual fun ndrCorrelationFree(pstubmsg: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrCorrelationFree(pstubmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrCorrelationInitialize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, cachesize: UInt, flags: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrCorrelationInitialize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), cachesize.toInt(), flags.toInt())
+public actual fun ndrCorrelationInitialize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>, cachesize: UInt, flags: UInt) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrCorrelationInitialize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), cachesize.toInt(), flags.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrCorrelationPass(pstubmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrCorrelationPass((pstubmsg?.value ?: 0L).toString())
+public actual fun ndrCorrelationPass(pstubmsg: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrCorrelationPass(pstubmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrCreateServerInterfaceFromStub(pstub: COpaquePointer?, pserverif: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrCreateServerInterfaceFromStub((pstub?.value ?: 0L).toString(), (pserverif?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrCreateServerInterfaceFromStub(pstub: MutPtr<CVoid>, pserverif: MutPtr<RpcServerInterface>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrCreateServerInterfaceFromStub(pstub.rawAddress.toString(), pserverif.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrDcomAsyncClientCall(pstubdescriptor: COpaquePointer?, pformat: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrDcomAsyncClientCall(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrDcomAsyncStubCall(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrDcomAsyncStubCall((pthis?.value ?: 0L).toString(), (pchannel?.value ?: 0L).toString(), (prpcmsg?.value ?: 0L).toString(), (pdwstubphase?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrDcomAsyncStubCall(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrDcomAsyncStubCall(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrEncapsulatedUnionFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrEncapsulatedUnionMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrEncapsulatedUnionMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrEncapsulatedUnionMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrEncapsulatedUnionMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrEncapsulatedUnionUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrEncapsulatedUnionUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFixedArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrFixedArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrFixedArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrFixedArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrFixedArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrFixedArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFixedArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrFixedArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFixedArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrFixedArrayUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrFixedArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFreeBuffer(pstubmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrFreeBuffer((pstubmsg?.value ?: 0L).toString())
+public actual fun ndrFreeBuffer(pstubmsg: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrFreeBuffer(pstubmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrFullPointerXlatFree(pxlattables: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrFullPointerXlatFree((pxlattables?.value ?: 0L).toString())
+public actual fun ndrFullPointerXlatFree(pxlattables: MutPtr<FullPtrXlatTables>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrFullPointerXlatFree(pxlattables.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrFullPointerXlatInit(numberofpointers.toInt(), xlatside).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): MutPtr<FullPtrXlatTables> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrFullPointerXlatInit(numberofpointers.toInt(), xlatside).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrGetBuffer(pstubmsg: COpaquePointer?, bufferlength: UInt, handle: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrGetBuffer((pstubmsg?.value ?: 0L).toString(), bufferlength.toInt(), (handle?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrGetBuffer(pstubmsg: MutPtr<MidlStubMessage>, bufferlength: UInt, handle: MutPtr<CVoid>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrGetBuffer(pstubmsg.rawAddress.toString(), bufferlength.toInt(), handle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrGetDcomProtocolVersion(pstubmsg: COpaquePointer?, pversion: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrGetDcomProtocolVersion((pstubmsg?.value ?: 0L).toString(), (pversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrGetDcomProtocolVersion(pstubmsg: MutPtr<MidlStubMessage>, pversion: MutPtr<RpcVersion>): Hresult =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrGetDcomProtocolVersion(pstubmsg.rawAddress.toString(), pversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrGetUserMarshalInfo(pflags: COpaquePointer?, informationlevel: UInt, pmarshalinfo: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrGetUserMarshalInfo((pflags?.value ?: 0L).toString(), informationlevel.toInt(), (pmarshalinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrGetUserMarshalInfo(pflags: ConstPtr<UInt>, informationlevel: UInt, pmarshalinfo: MutPtr<NdrUserMarshalInfo>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrGetUserMarshalInfo(pflags.rawAddress.toString(), informationlevel.toInt(), pmarshalinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrInterfacePointerBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrInterfacePointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrInterfacePointerFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrInterfacePointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrInterfacePointerMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrInterfacePointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrInterfacePointerMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrInterfacePointerMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrInterfacePointerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrInterfacePointerUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrInterfacePointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMapCommAndFaultStatus(pstubmsg: COpaquePointer?, pcommstatus: COpaquePointer?, pfaultstatus: COpaquePointer?, status: RpcStatus): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrMapCommAndFaultStatus((pstubmsg?.value ?: 0L).toString(), (pcommstatus?.value ?: 0L).toString(), (pfaultstatus?.value ?: 0L).toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrMapCommAndFaultStatus(pstubmsg: MutPtr<MidlStubMessage>, pcommstatus: MutPtr<UInt>, pfaultstatus: MutPtr<UInt>, status: RpcStatus): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMapCommAndFaultStatus(pstubmsg.rawAddress.toString(), pcommstatus.rawAddress.toString(), pfaultstatus.rawAddress.toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesProcEncodeDecode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, vararg variadicArgs: Long) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesProcEncodeDecode((handle?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
+public actual fun ndrMesProcEncodeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, vararg variadicArgs: Long) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesProcEncodeDecode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesProcEncodeDecode2(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrMesProcEncodeDecode2(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesProcEncodeDecode3(handle: COpaquePointer?, pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrMesProcEncodeDecode3(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesSimpleTypeAlignSize(param0: COpaquePointer?): ULong =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSize((param0?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrMesSimpleTypeAlignSize(param0: MutPtr<CVoid>): ULong =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSize(param0.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesSimpleTypeAlignSizeAll(handle: COpaquePointer?, pproxyinfo: COpaquePointer?): ULong =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSizeAll((handle?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrMesSimpleTypeAlignSizeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>): ULong =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSizeAll(handle.rawAddress.toString(), pproxyinfo.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesSimpleTypeDecode(handle: COpaquePointer?, pobject: COpaquePointer?, size: Short) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecode((handle?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString(), size.toInt())
+public actual fun ndrMesSimpleTypeDecode(handle: MutPtr<CVoid>, pobject: MutPtr<CVoid>, size: Short) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecode(handle.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesSimpleTypeDecodeAll(handle: COpaquePointer?, pproxyinfo: COpaquePointer?, pobject: COpaquePointer?, size: Short) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecodeAll((handle?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString(), size.toInt())
+public actual fun ndrMesSimpleTypeDecodeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, pobject: MutPtr<CVoid>, size: Short) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecodeAll(handle.rawAddress.toString(), pproxyinfo.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesSimpleTypeEncode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pobject: COpaquePointer?, size: Short) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncode((handle?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString(), size.toInt())
+public actual fun ndrMesSimpleTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pobject: ConstPtr<CVoid>, size: Short) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesSimpleTypeEncodeAll(handle: COpaquePointer?, pproxyinfo: COpaquePointer?, pobject: COpaquePointer?, size: Short) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncodeAll((handle?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString(), size.toInt())
+public actual fun ndrMesSimpleTypeEncodeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, pobject: ConstPtr<CVoid>, size: Short) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncodeAll(handle.rawAddress.toString(), pproxyinfo.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeAlignSize(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?): ULong =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize((handle?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrMesTypeAlignSize(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>): ULong =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesTypeAlignSize2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?): ULong =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize2((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrMesTypeAlignSize2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>): ULong =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesTypeAlignSize3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?): ULong =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize3((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString(), (arrtypeoffset?.value ?: 0L).toString(), ntypeindex.toInt(), (pobject?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrMesTypeAlignSize3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: ConstPtr<CVoid>): ULong =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesTypeDecode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeDecode((handle?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeDecode2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeDecode2((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeDecode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeDecode3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeDecode3((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString(), (arrtypeoffset?.value ?: 0L).toString(), ntypeindex.toInt(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeDecode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeEncode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeEncode((handle?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeEncode2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeEncode2((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeEncode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeEncode3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeEncode3((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString(), (arrtypeoffset?.value ?: 0L).toString(), ntypeindex.toInt(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeEncode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeFree2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeFree2((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pstubdesc?.value ?: 0L).toString(), (pformatstring?.value ?: 0L).toString(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeFree2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeFree2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrMesTypeFree3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrMesTypeFree3((handle?.value ?: 0L).toString(), (ppicklinginfo?.value ?: 0L).toString(), (pproxyinfo?.value ?: 0L).toString(), (arrtypeoffset?.value ?: 0L).toString(), ntypeindex.toInt(), (pobject?.value ?: 0L).toString())
+public actual fun ndrMesTypeFree3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrMesTypeFree3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrNonConformantStringBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrNonConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrNonConformantStringMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNonConformantStringMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonConformantStringMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNonConformantStringMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonConformantStringUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNonConformantStringUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNonConformantStringUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrNonEncapsulatedUnionMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNonEncapsulatedUnionMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNsGetBuffer(pstubmsg: COpaquePointer?, bufferlength: UInt, handle: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNsGetBuffer((pstubmsg?.value ?: 0L).toString(), bufferlength.toInt(), (handle?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNsGetBuffer(pstubmsg: MutPtr<MidlStubMessage>, bufferlength: UInt, handle: MutPtr<CVoid>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNsGetBuffer(pstubmsg.rawAddress.toString(), bufferlength.toInt(), handle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNsSendReceive(pstubmsg: COpaquePointer?, pbufferend: COpaquePointer?, pautohandle: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrNsSendReceive((pstubmsg?.value ?: 0L).toString(), (pbufferend?.value ?: 0L).toString(), (pautohandle?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrNsSendReceive(pstubmsg: MutPtr<MidlStubMessage>, pbufferend: MutPtr<UByte>, pautohandle: MutPtr<MutPtr<CVoid>>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNsSendReceive(pstubmsg.rawAddress.toString(), pbufferend.rawAddress.toString(), pautohandle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrOleAllocate(size: ULong): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrOleAllocate(size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrOleAllocate(size: ULong): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrOleAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrOleFree(nodetofree: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrOleFree((nodetofree?.value ?: 0L).toString())
+public actual fun ndrOleFree(nodetofree: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrOleFree(nodetofree.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString())
+public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreClientBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString())
+public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreClientMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerInitialize((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<CVoid>>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreServerInitialize(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString())
+public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<CVoid>>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreServerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPointerBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrPointerBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrPointerBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPointerFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrPointerFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrPointerFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrPointerMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrPointerMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrPointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrPointerMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrPointerMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrPointerMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrPointerMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrPointerMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrPointerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrPointerUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrPointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrPointerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRangeUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrRangeUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrRangeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrRangeUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRpcSmClientAllocate(size: ULong): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrRpcSmClientAllocate(size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrRpcSmClientAllocate(size: ULong): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrRpcSmClientAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRpcSmClientFree(nodetofree: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrRpcSmClientFree((nodetofree?.value ?: 0L).toString())
+public actual fun ndrRpcSmClientFree(nodetofree: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrRpcSmClientFree(nodetofree.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrRpcSmSetClientToOsf(pmessage: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrRpcSmSetClientToOsf((pmessage?.value ?: 0L).toString())
+public actual fun ndrRpcSmSetClientToOsf(pmessage: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrRpcSmSetClientToOsf(pmessage.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrRpcSsDefaultAllocate(size: ULong): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsDefaultAllocate(size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrRpcSsDefaultAllocate(size: ULong): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDefaultAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRpcSsDefaultFree(nodetofree: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsDefaultFree((nodetofree?.value ?: 0L).toString())
+public actual fun ndrRpcSsDefaultFree(nodetofree: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDefaultFree(nodetofree.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrRpcSsDisableAllocate(pmessage: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsDisableAllocate((pmessage?.value ?: 0L).toString())
+public actual fun ndrRpcSsDisableAllocate(pmessage: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDisableAllocate(pmessage.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrRpcSsEnableAllocate(pmessage: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrRpcSsEnableAllocate((pmessage?.value ?: 0L).toString())
+public actual fun ndrRpcSsEnableAllocate(pmessage: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrRpcSsEnableAllocate(pmessage.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrSendReceive(pstubmsg: COpaquePointer?, pbufferend: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrSendReceive((pstubmsg?.value ?: 0L).toString(), (pbufferend?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrSendReceive(pstubmsg: MutPtr<MidlStubMessage>, pbufferend: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrSendReceive(pstubmsg.rawAddress.toString(), pbufferend.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerCall2(prpcmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerCall2((prpcmsg?.value ?: 0L).toString())
+public actual fun ndrServerCall2(prpcmsg: MutPtr<RpcMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerCall2(prpcmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerCallAll(prpcmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerCallAll((prpcmsg?.value ?: 0L).toString())
+public actual fun ndrServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerCallAll(prpcmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerCallNdr64(prpcmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerCallNdr64((prpcmsg?.value ?: 0L).toString())
+public actual fun ndrServerCallNdr64(prpcmsg: MutPtr<RpcMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerCallNdr64(prpcmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerContextMarshall(pstubmsg: COpaquePointer?, contexthandle: COpaquePointer?, rundownroutine: NdrRundown) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerContextMarshall((pstubmsg?.value ?: 0L).toString(), (contexthandle?.value ?: 0L).toString(), 0L.toString())
+public actual fun ndrServerContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: MutPtr<NdrScontext>, rundownroutine: NdrRundown) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerContextMarshall(pstubmsg.rawAddress.toString(), contexthandle.rawAddress.toString(), 0L.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerContextNewMarshall(pstubmsg: COpaquePointer?, contexthandle: COpaquePointer?, rundownroutine: NdrRundown, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerContextNewMarshall((pstubmsg?.value ?: 0L).toString(), (contexthandle?.value ?: 0L).toString(), 0L.toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrServerContextNewMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: MutPtr<NdrScontext>, rundownroutine: NdrRundown, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerContextNewMarshall(pstubmsg.rawAddress.toString(), contexthandle.rawAddress.toString(), 0L.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerContextNewUnmarshall(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrServerContextNewUnmarshall((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrServerContextNewUnmarshall(pstubmsg: ConstPtr<MidlStubMessage>, pformat: ConstPtr<UByte>): MutPtr<NdrScontext> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerContextNewUnmarshall(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerContextUnmarshall(pstubmsg: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrServerContextUnmarshall((pstubmsg?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrServerContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>): MutPtr<NdrScontext> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerContextUnmarshall(pstubmsg.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerInitialize(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrServerInitialize((prpcmsg?.value ?: 0L).toString(), (pstubmsg?.value ?: 0L).toString(), (pstubdescriptor?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrServerInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerInitialize(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerInitializeMarshall(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializeMarshall((prpcmsg?.value ?: 0L).toString(), (pstubmsg?.value ?: 0L).toString())
+public actual fun ndrServerInitializeMarshall(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeMarshall(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerInitializeNew(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializeNew((prpcmsg?.value ?: 0L).toString(), (pstubmsg?.value ?: 0L).toString(), (pstubdescriptor?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrServerInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeNew(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerInitializePartial(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, requestedbuffersize: UInt) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializePartial((prpcmsg?.value ?: 0L).toString(), (pstubmsg?.value ?: 0L).toString(), (pstubdescriptor?.value ?: 0L).toString(), requestedbuffersize.toInt())
+public actual fun ndrServerInitializePartial(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, requestedbuffersize: UInt) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrServerInitializePartial(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), requestedbuffersize.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrServerInitializeUnmarshall(pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, prpcmsg: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrServerInitializeUnmarshall((pstubmsg?.value ?: 0L).toString(), (pstubdescriptor?.value ?: 0L).toString(), (prpcmsg?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrServerInitializeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, prpcmsg: MutPtr<RpcMessage>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeUnmarshall(pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), prpcmsg.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrSimpleStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrSimpleStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrSimpleStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrSimpleStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrSimpleStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrSimpleStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrSimpleStructUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrSimpleStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleTypeMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, formatchar: UByte) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrSimpleTypeMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), formatchar.toInt())
+public actual fun ndrSimpleTypeMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, formatchar: UByte) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrSimpleTypeMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), formatchar.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrSimpleTypeUnmarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, formatchar: UByte) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrSimpleTypeUnmarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), formatchar.toInt())
+public actual fun ndrSimpleTypeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, formatchar: UByte) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrSimpleTypeUnmarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), formatchar.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrStubCall2(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrStubCall2((pthis?.value ?: 0L).toString(), (pchannel?.value ?: 0L).toString(), (prpcmsg?.value ?: 0L).toString(), (pdwstubphase?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrStubCall2(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrStubCall2(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrStubCall3(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrStubCall3((pthis?.value ?: 0L).toString(), (pchannel?.value ?: 0L).toString(), (prpcmsg?.value ?: 0L).toString(), (pdwstubphase?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrStubCall3(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrStubCall3(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrUserMarshalBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrUserMarshalFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrUserMarshalFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrUserMarshalMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrUserMarshalMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrUserMarshalMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalSimpleTypeConvert(pflags: COpaquePointer?, pbuffer: COpaquePointer?, formatchar: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalSimpleTypeConvert((pflags?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), formatchar.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrUserMarshalSimpleTypeConvert(pflags: MutPtr<UInt>, pbuffer: MutPtr<UByte>, formatchar: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalSimpleTypeConvert(pflags.rawAddress.toString(), pbuffer.rawAddress.toString(), formatchar.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrUserMarshalUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrUserMarshalUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrVaryingArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrVaryingArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrVaryingArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrVaryingArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrVaryingArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrVaryingArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrVaryingArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrVaryingArrayUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrVaryingArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsBufferSize((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrXmitOrRepAsFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsFree((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString())
+public actual fun ndrXmitOrRepAsFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ndrXmitOrRepAsMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMarshall((pstubmsg?.value ?: 0L).toString(), (pmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrXmitOrRepAsMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrXmitOrRepAsMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMemorySize((pstubmsg?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrXmitOrRepAsMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrXmitOrRepAsUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_ndrXmitOrRepAsUnmarshall((pstubmsg?.value ?: 0L).toString(), (ppmemory?.value ?: 0L).toString(), (pformat?.value ?: 0L).toString(), fmustalloc.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ndrXmitOrRepAsUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncAbortCall(pasync: COpaquePointer?, exceptioncode: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcAsyncAbortCall((pasync?.value ?: 0L).toString(), exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcAsyncAbortCall(pasync: MutPtr<RpcAsyncState>, exceptioncode: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncAbortCall(pasync.rawAddress.toString(), exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncCancelCall(pasync: COpaquePointer?, fabort: Bool): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcAsyncCancelCall((pasync?.value ?: 0L).toString(), fabort) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcAsyncCancelCall(pasync: MutPtr<RpcAsyncState>, fabort: Bool): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncCancelCall(pasync.rawAddress.toString(), fabort) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncCompleteCall(pasync: COpaquePointer?, reply: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcAsyncCompleteCall((pasync?.value ?: 0L).toString(), (reply?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcAsyncCompleteCall(pasync: MutPtr<RpcAsyncState>, reply: MutPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncCompleteCall(pasync.rawAddress.toString(), reply.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncGetCallStatus(pasync: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcAsyncGetCallStatus((pasync?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcAsyncGetCallStatus(pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncGetCallStatus(pasync.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncInitializeHandle(pasync: COpaquePointer?, size: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcAsyncInitializeHandle((pasync?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcAsyncInitializeHandle(pasync: MutPtr<RpcAsyncState>, size: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncInitializeHandle(pasync.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncRegisterInfo(pasync: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcAsyncRegisterInfo((pasync?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcAsyncRegisterInfo(pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncRegisterInfo(pasync.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingBind(pasync: COpaquePointer?, binding: COpaquePointer?, ifspec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingBind((pasync?.value ?: 0L).toString(), (binding?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingBind(pasync: ConstPtr<RpcAsyncState>, binding: ConstPtr<CVoid>, ifspec: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingBind(pasync.rawAddress.toString(), binding.rawAddress.toString(), ifspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingCopy(sourcebinding: COpaquePointer?, destinationbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingCopy((sourcebinding?.value ?: 0L).toString(), (destinationbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingCopy(sourcebinding: ConstPtr<CVoid>, destinationbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingCopy(sourcebinding.rawAddress.toString(), destinationbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingCreateA(template: COpaquePointer?, security: COpaquePointer?, options: COpaquePointer?, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingCreateA((template?.value ?: 0L).toString(), (security?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingCreateA(template: ConstPtr<RpcBindingHandleTemplateV1A>, security: ConstPtr<RpcBindingHandleSecurityV1A>, options: ConstPtr<RpcBindingHandleOptionsV1>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingCreateA(template.rawAddress.toString(), security.rawAddress.toString(), options.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingCreateW(template: COpaquePointer?, security: COpaquePointer?, options: COpaquePointer?, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingCreateW((template?.value ?: 0L).toString(), (security?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingCreateW(template: ConstPtr<RpcBindingHandleTemplateV1W>, security: ConstPtr<RpcBindingHandleSecurityV1W>, options: ConstPtr<RpcBindingHandleOptionsV1>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingCreateW(template.rawAddress.toString(), security.rawAddress.toString(), options.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingFree(binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingFree((binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingFree(binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingFree(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingA((stringbinding?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingFromStringBindingA(stringbinding.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingW((stringbinding?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingFromStringBindingW(stringbinding.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientA(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientA((clientbinding?.value ?: 0L).toString(), (privs?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthClientA(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientA(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientExA(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?, flags: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExA((clientbinding?.value ?: 0L).toString(), (privs?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthClientExA(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>, flags: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExA(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientExW(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?, flags: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExW((clientbinding?.value ?: 0L).toString(), (privs?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthClientExW(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>, flags: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExW(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientW(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientW((clientbinding?.value ?: 0L).toString(), (privs?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthClientW(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientW(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoA(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoA((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthInfoA(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoExA(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?, rpcqosversion: UInt, securityqos: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExA((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString(), rpcqosversion.toInt(), (securityqos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthInfoExA(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>, rpcqosversion: UInt, securityqos: MutPtr<RpcSecurityQos>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString(), rpcqosversion.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoExW(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?, rpcqosversion: UInt, securityqos: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExW((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString(), rpcqosversion.toInt(), (securityqos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthInfoExW(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>, rpcqosversion: UInt, securityqos: MutPtr<RpcSecurityQos>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString(), rpcqosversion.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoW(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoW((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), (authnlevel?.value ?: 0L).toString(), (authnsvc?.value ?: 0L).toString(), (authidentity?.value ?: 0L).toString(), (authzsvc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqAuthInfoW(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqMaxCalls(binding: COpaquePointer?, maxcalls: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqMaxCalls((binding?.value ?: 0L).toString(), (maxcalls?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqMaxCalls(binding: ConstPtr<CVoid>, maxcalls: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqMaxCalls(binding.rawAddress.toString(), maxcalls.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqObject(binding: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqObject((binding?.value ?: 0L).toString(), (objectuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqObject(binding: ConstPtr<CVoid>, objectuuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqObject(binding.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqOption(hbinding: COpaquePointer?, option: UInt, poptionvalue: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingInqOption((hbinding?.value ?: 0L).toString(), option.toInt(), (poptionvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingInqOption(hbinding: ConstPtr<CVoid>, option: UInt, poptionvalue: MutPtr<ULong>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqOption(hbinding.rawAddress.toString(), option.toInt(), poptionvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingReset(binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingReset((binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingReset(binding: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingReset(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingServerFromClient(clientbinding: COpaquePointer?, serverbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingServerFromClient((clientbinding?.value ?: 0L).toString(), (serverbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingServerFromClient(clientbinding: ConstPtr<CVoid>, serverbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingServerFromClient(clientbinding.rawAddress.toString(), serverbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoA(binding: COpaquePointer?, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoA((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), authnlevel.toInt(), authnsvc.toInt(), (authidentity?.value ?: 0L).toString(), authzsvc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingSetAuthInfoA(binding: ConstPtr<CVoid>, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoExA(binding: COpaquePointer?, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt, securityqos: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExA((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), authnlevel.toInt(), authnsvc.toInt(), (authidentity?.value ?: 0L).toString(), authzsvc.toInt(), (securityqos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingSetAuthInfoExA(binding: ConstPtr<CVoid>, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt, securityqos: ConstPtr<RpcSecurityQos>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoExW(binding: COpaquePointer?, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt, securityqos: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExW((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), authnlevel.toInt(), authnsvc.toInt(), (authidentity?.value ?: 0L).toString(), authzsvc.toInt(), (securityqos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingSetAuthInfoExW(binding: ConstPtr<CVoid>, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt, securityqos: ConstPtr<RpcSecurityQos>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoW(binding: COpaquePointer?, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoW((binding?.value ?: 0L).toString(), (serverprincname?.value ?: 0L).toString(), authnlevel.toInt(), authnsvc.toInt(), (authidentity?.value ?: 0L).toString(), authzsvc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingSetAuthInfoW(binding: ConstPtr<CVoid>, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetObject(binding: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetObject((binding?.value ?: 0L).toString(), (objectuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingSetObject(binding: ConstPtr<CVoid>, objectuuid: ConstPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetObject(binding.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetOption(hbinding: COpaquePointer?, option: UInt, optionvalue: ULong): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingSetOption((hbinding?.value ?: 0L).toString(), option.toInt(), optionvalue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingSetOption(hbinding: ConstPtr<CVoid>, option: UInt, optionvalue: ULong): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetOption(hbinding.rawAddress.toString(), option.toInt(), optionvalue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingToStringBindingA(binding: COpaquePointer?, stringbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingToStringBindingA((binding?.value ?: 0L).toString(), (stringbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingToStringBindingA(binding: ConstPtr<CVoid>, stringbinding: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingToStringBindingA(binding.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingToStringBindingW(binding: COpaquePointer?, stringbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingToStringBindingW((binding?.value ?: 0L).toString(), (stringbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingToStringBindingW(binding: ConstPtr<CVoid>, stringbinding: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingToStringBindingW(binding.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingUnbind(binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingUnbind((binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingUnbind(binding: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingUnbind(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingVectorFree(bindingvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcBindingVectorFree((bindingvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcBindingVectorFree(bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingVectorFree(bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCancelThread(thread: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcCancelThread((thread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcCancelThread(thread: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCancelThread(thread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCancelThreadEx(thread: COpaquePointer?, timeout: Int): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcCancelThreadEx((thread?.value ?: 0L).toString(), timeout) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcCancelThreadEx(thread: ConstPtr<CVoid>, timeout: Int): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCancelThreadEx(thread.rawAddress.toString(), timeout) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCertGeneratePrincipalNameA(context: COpaquePointer?, flags: UInt, pbuffer: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameA((context?.value ?: 0L).toString(), flags.toInt(), (pbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcCertGeneratePrincipalNameA(context: ConstPtr<CertContext>, flags: UInt, pbuffer: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameA(context.rawAddress.toString(), flags.toInt(), pbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCertGeneratePrincipalNameW(context: COpaquePointer?, flags: UInt, pbuffer: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameW((context?.value ?: 0L).toString(), flags.toInt(), (pbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcCertGeneratePrincipalNameW(context: ConstPtr<CertContext>, flags: UInt, pbuffer: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameW(context.rawAddress.toString(), flags.toInt(), pbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterA(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterA((ifspec?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString(), (uuidvector?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcEpRegisterA(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterA(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterNoReplaceA(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceA((ifspec?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString(), (uuidvector?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcEpRegisterNoReplaceA(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceA(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterNoReplaceW(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceW((ifspec?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString(), (uuidvector?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcEpRegisterNoReplaceW(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcwstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceW(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterW(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcEpRegisterW((ifspec?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString(), (uuidvector?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcEpRegisterW(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcwstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterW(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpResolveBinding(binding: COpaquePointer?, ifspec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcEpResolveBinding((binding?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcEpResolveBinding(binding: ConstPtr<CVoid>, ifspec: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpResolveBinding(binding.rawAddress.toString(), ifspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpUnregister(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcEpUnregister((ifspec?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString(), (uuidvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcEpUnregister(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpUnregister(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorAddRecord(errorinfo: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorAddRecord((errorinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorAddRecord(errorinfo: ConstPtr<RpcExtendedErrorInfo>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorAddRecord(errorinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcErrorClearInformation() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcErrorClearInformation()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcErrorClearInformation()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcErrorEndEnumeration(enumhandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorEndEnumeration((enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorEndEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorEndEnumeration(enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorGetNextRecord(enumhandle: COpaquePointer?, copystrings: Bool, errorinfo: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorGetNextRecord((enumhandle?.value ?: 0L).toString(), copystrings, (errorinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorGetNextRecord(enumhandle: ConstPtr<RpcErrorEnumHandle>, copystrings: Bool, errorinfo: MutPtr<RpcExtendedErrorInfo>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorGetNextRecord(enumhandle.rawAddress.toString(), copystrings, errorinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorGetNumberOfRecords(enumhandle: COpaquePointer?, records: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorGetNumberOfRecords((enumhandle?.value ?: 0L).toString(), (records?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorGetNumberOfRecords(enumhandle: ConstPtr<RpcErrorEnumHandle>, records: MutPtr<Int>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorGetNumberOfRecords(enumhandle.rawAddress.toString(), records.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorLoadErrorInfo(errorblob: COpaquePointer?, blobsize: ULong, enumhandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorLoadErrorInfo((errorblob?.value ?: 0L).toString(), blobsize.toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorLoadErrorInfo(errorblob: ConstPtr<CVoid>, blobsize: ULong, enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorLoadErrorInfo(errorblob.rawAddress.toString(), blobsize.toString(), enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorResetEnumeration(enumhandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorResetEnumeration((enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorResetEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorResetEnumeration(enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorSaveErrorInfo(enumhandle: COpaquePointer?, errorblob: COpaquePointer?, blobsize: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorSaveErrorInfo((enumhandle?.value ?: 0L).toString(), (errorblob?.value ?: 0L).toString(), (blobsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorSaveErrorInfo(enumhandle: ConstPtr<RpcErrorEnumHandle>, errorblob: MutPtr<MutPtr<CVoid>>, blobsize: MutPtr<ULong>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorSaveErrorInfo(enumhandle.rawAddress.toString(), errorblob.rawAddress.toString(), blobsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorStartEnumeration(enumhandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcErrorStartEnumeration((enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcErrorStartEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorStartEnumeration(enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcExceptionFilter(exceptioncode: UInt): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcExceptionFilter(exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcExceptionFilter(exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcFreeAuthorizationContext((pauthzclientcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcFreeAuthorizationContext(pauthzclientcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcGetAuthorizationContextForClient(clientbinding: COpaquePointer?, impersonateonreturn: Bool, reserved1: COpaquePointer?, pexpirationtime: COpaquePointer?, reserved2: Luid, reserved3: UInt, reserved4: COpaquePointer?, pauthzclientcontext: COpaquePointer?): RpcStatus =
+public actual fun rpcGetAuthorizationContextForClient(clientbinding: ConstPtr<CVoid>, impersonateonreturn: Bool, reserved1: ConstPtr<CVoid>, pexpirationtime: ConstPtr<Long>, reserved2: Luid, reserved3: UInt, reserved4: ConstPtr<CVoid>, pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcIfIdVectorFree(ifidvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcIfIdVectorFree((ifidvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcIfIdVectorFree(ifidvector: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcIfIdVectorFree(ifidvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcIfInqId(rpcifhandle: COpaquePointer?, rpcifid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcIfInqId((rpcifhandle?.value ?: 0L).toString(), (rpcifid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcIfInqId(rpcifhandle: ConstPtr<CVoid>, rpcifid: MutPtr<RpcIfId>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcIfInqId(rpcifhandle.rawAddress.toString(), rpcifid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcImpersonateClient(bindinghandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcImpersonateClient((bindinghandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcImpersonateClient(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClient(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcImpersonateClient2(bindinghandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcImpersonateClient2((bindinghandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcImpersonateClient2(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClient2(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcImpersonateClientContainer(bindinghandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcImpersonateClientContainer((bindinghandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcImpersonateClientContainer(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClientContainer(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtEnableIdleCleanup(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEnableIdleCleanup() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqBegin(epbinding: COpaquePointer?, inquirytype: UInt, ifid: COpaquePointer?, versoption: UInt, objectuuid: COpaquePointer?, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqBegin((epbinding?.value ?: 0L).toString(), inquirytype.toInt(), (ifid?.value ?: 0L).toString(), versoption.toInt(), (objectuuid?.value ?: 0L).toString(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtEpEltInqBegin(epbinding: ConstPtr<CVoid>, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuid: ConstPtr<Guid>, inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqBegin(epbinding.rawAddress.toString(), inquirytype.toInt(), ifid.rawAddress.toString(), versoption.toInt(), objectuuid.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqDone(inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqDone((inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtEpEltInqDone(inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqNextA(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, binding: COpaquePointer?, objectuuid: COpaquePointer?, annotation: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextA((inquirycontext?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), (binding?.value ?: 0L).toString(), (objectuuid?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtEpEltInqNextA(inquirycontext: ConstPtr<ConstPtr<CVoid>>, ifid: MutPtr<RpcIfId>, binding: MutPtr<MutPtr<CVoid>>, objectuuid: MutPtr<Guid>, annotation: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextA(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), binding.rawAddress.toString(), objectuuid.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqNextW(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, binding: COpaquePointer?, objectuuid: COpaquePointer?, annotation: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextW((inquirycontext?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), (binding?.value ?: 0L).toString(), (objectuuid?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtEpEltInqNextW(inquirycontext: ConstPtr<ConstPtr<CVoid>>, ifid: MutPtr<RpcIfId>, binding: MutPtr<MutPtr<CVoid>>, objectuuid: MutPtr<Guid>, annotation: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextW(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), binding.rawAddress.toString(), objectuuid.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpUnregister(epbinding: COpaquePointer?, ifid: COpaquePointer?, binding: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtEpUnregister((epbinding?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), (binding?.value ?: 0L).toString(), (objectuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtEpUnregister(epbinding: ConstPtr<CVoid>, ifid: ConstPtr<RpcIfId>, binding: ConstPtr<CVoid>, objectuuid: ConstPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpUnregister(epbinding.rawAddress.toString(), ifid.rawAddress.toString(), binding.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqComTimeout(binding: COpaquePointer?, timeout: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqComTimeout((binding?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtInqComTimeout(binding: ConstPtr<CVoid>, timeout: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqComTimeout(binding.rawAddress.toString(), timeout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqDefaultProtectLevel(authnsvc.toInt(), (authnlevel?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqDefaultProtectLevel(authnsvc.toInt(), authnlevel.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqIfIds(binding: COpaquePointer?, ifidvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqIfIds((binding?.value ?: 0L).toString(), (ifidvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtInqIfIds(binding: ConstPtr<CVoid>, ifidvector: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqIfIds(binding.rawAddress.toString(), ifidvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqServerPrincNameA(binding: COpaquePointer?, authnsvc: UInt, serverprincname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameA((binding?.value ?: 0L).toString(), authnsvc.toInt(), (serverprincname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtInqServerPrincNameA(binding: ConstPtr<CVoid>, authnsvc: UInt, serverprincname: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameA(binding.rawAddress.toString(), authnsvc.toInt(), serverprincname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqServerPrincNameW(binding: COpaquePointer?, authnsvc: UInt, serverprincname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameW((binding?.value ?: 0L).toString(), authnsvc.toInt(), (serverprincname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtInqServerPrincNameW(binding: ConstPtr<CVoid>, authnsvc: UInt, serverprincname: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameW(binding.rawAddress.toString(), authnsvc.toInt(), serverprincname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqStats(binding: COpaquePointer?, statistics: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtInqStats((binding?.value ?: 0L).toString(), (statistics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtInqStats(binding: ConstPtr<CVoid>, statistics: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqStats(binding.rawAddress.toString(), statistics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtIsServerListening(binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtIsServerListening((binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtIsServerListening(binding: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtIsServerListening(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizationFn): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetAuthorizationFn(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetAuthorizationFn(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtSetCancelTimeout(timeout: Int): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetCancelTimeout(timeout) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(timeout) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtSetComTimeout(binding: COpaquePointer?, timeout: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetComTimeout((binding?.value ?: 0L).toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtSetComTimeout(binding: ConstPtr<CVoid>, timeout: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetComTimeout(binding.rawAddress.toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtSetServerStackSize(threadstacksize: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtSetServerStackSize(threadstacksize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(threadstacksize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtStatsVectorFree(statsvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtStatsVectorFree((statsvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtStatsVectorFree(statsvector: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtStatsVectorFree(statsvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtStopServerListening(binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtStopServerListening((binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcMgmtStopServerListening(binding: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtStopServerListening(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtWaitServerListen(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcMgmtWaitServerListen() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNetworkInqProtseqsA(protseqvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsA((protseqvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNetworkInqProtseqsA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsA(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNetworkInqProtseqsW(protseqvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsW((protseqvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNetworkInqProtseqsW(protseqvector: MutPtr<MutPtr<RpcProtseqVectorw>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsW(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNetworkIsProtseqValidA(protseq: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidA((protseq?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidA(protseq.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNetworkIsProtseqValidW(protseq: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidW((protseq?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidW(protseq.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, bindingvec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (bindingvec?.value ?: 0L).toString(), (objectuuidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, bindingvec: ConstPtr<RpcBindingVector>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), bindingvec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objectvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportPnPA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objectvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportPnPW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, bindingvec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingExportW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (bindingvec?.value ?: 0L).toString(), (objectuuidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, bindingvec: ConstPtr<RpcBindingVector>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), bindingvec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, importcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString(), (importcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportBeginA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), importcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, importcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString(), (importcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportBeginW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), importcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportDone(importcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportDone((importcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingImportDone(importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportDone(importcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportNext(importcontext: COpaquePointer?, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingImportNext((importcontext?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingImportNext(importcontext: MutPtr<CVoid>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportNext(importcontext.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingInqEntryNameA(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameA((binding?.value ?: 0L).toString(), entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingInqEntryNameA(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameA(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingInqEntryNameW(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameW((binding?.value ?: 0L).toString(), entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingInqEntryNameW(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameW(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, bindingmaxcount: UInt, lookupcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString(), bindingmaxcount.toInt(), (lookupcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, bindingmaxcount: UInt, lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), bindingmaxcount.toInt(), lookupcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, bindingmaxcount: UInt, lookupcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString(), bindingmaxcount.toInt(), (lookupcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, bindingmaxcount: UInt, lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), bindingmaxcount.toInt(), lookupcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupDone(lookupcontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupDone((lookupcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingLookupDone(lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupDone(lookupcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupNext(lookupcontext: COpaquePointer?, bindingvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingLookupNext((lookupcontext?.value ?: 0L).toString(), (bindingvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingLookupNext(lookupcontext: MutPtr<CVoid>, bindingvec: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupNext(lookupcontext.rawAddress.toString(), bindingvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingSelect(bindingvec: COpaquePointer?, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingSelect((bindingvec?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingSelect(bindingvec: MutPtr<RpcBindingVector>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingSelect(bindingvec.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objectuuidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objectvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objectvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsBindingUnexportW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifspec?.value ?: 0L).toString(), (objectuuidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (expandedname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryExpandNameA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), expandedname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (expandedname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryExpandNameW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), expandedname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqDone(inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqDone((inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsEntryObjectInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqNext(inquirycontext: COpaquePointer?, objuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqNext((inquirycontext?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsEntryObjectInqNext(inquirycontext: MutPtr<CVoid>, objuuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqNext(inquirycontext.rawAddress.toString(), objuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupDeleteA(groupnamesyntax: GroupNameSyntax, groupname: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupDeleteA(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupDeleteA(groupnamesyntax.toInt(), groupname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupDeleteW(groupnamesyntax: GroupNameSyntax, groupname: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupDeleteW(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupDeleteW(groupnamesyntax.toInt(), groupname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupMbrAddA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddA(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrAddA(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupMbrAddW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddW(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrAddW(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginA(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString(), membernamesyntax.toInt(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginA(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginW(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString(), membernamesyntax.toInt(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginW(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqDone(inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqDone((inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsGroupMbrInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqNextA(inquirycontext: COpaquePointer?, membername: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextA((inquirycontext?.value ?: 0L).toString(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsGroupMbrInqNextA(inquirycontext: MutPtr<CVoid>, membername: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextA(inquirycontext.rawAddress.toString(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqNextW(inquirycontext: COpaquePointer?, membername: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextW((inquirycontext?.value ?: 0L).toString(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsGroupMbrInqNextW(inquirycontext: MutPtr<CVoid>, membername: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextW(inquirycontext.rawAddress.toString(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveA(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveA(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupMbrRemoveW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveW(groupnamesyntax.toInt(), (groupname?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveW(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: COpaquePointer?, versoption: UInt, objectuuidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), versoption.toInt(), (objectuuidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifid.rawAddress.toString(), versoption.toInt(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: COpaquePointer?, versoption: UInt, objectuuidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), versoption.toInt(), (objectuuidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifid.rawAddress.toString(), versoption.toInt(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtEntryCreateA(entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryCreateA(entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtEntryCreateW(entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryCreateW(entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtEntryDeleteA(entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteA(entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtEntryDeleteW(entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteW(entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsA(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsW(entrynamesyntax.toInt(), (entryname?.value ?: 0L).toString(), (ifidvec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtHandleSetExpAge(nshandle: COpaquePointer?, expirationage: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtHandleSetExpAge((nshandle?.value ?: 0L).toString(), expirationage.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsMgmtHandleSetExpAge(nshandle: MutPtr<CVoid>, expirationage: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtHandleSetExpAge(nshandle.rawAddress.toString(), expirationage.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtInqExpAge(expirationage: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtInqExpAge((expirationage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsMgmtInqExpAge(expirationage: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtInqExpAge(expirationage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtSetExpAge(expirationage: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsMgmtSetExpAge(expirationage.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtSetExpAge(expirationage.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsProfileDeleteA(profilenamesyntax: UInt, profilename: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileDeleteA(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileDeleteA(profilenamesyntax.toInt(), profilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsProfileDeleteW(profilenamesyntax: UInt, profilename: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileDeleteW(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileDeleteW(profilenamesyntax.toInt(), profilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltAddA(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString(), priority.toInt(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltAddA(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString(), priority.toInt(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltAddW(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString(), priority.toInt(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltAddW(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString(), priority.toInt(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: COpaquePointer?, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginA(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString(), inquirytype.toInt(), (ifid?.value ?: 0L).toString(), versoption.toInt(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginA(profilenamesyntax.toInt(), profilename.rawAddress.toString(), inquirytype.toInt(), ifid.rawAddress.toString(), versoption.toInt(), membernamesyntax.toInt(), membername.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: COpaquePointer?, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginW(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString(), inquirytype.toInt(), (ifid?.value ?: 0L).toString(), versoption.toInt(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString(), (inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginW(profilenamesyntax.toInt(), profilename.rawAddress.toString(), inquirytype.toInt(), ifid.rawAddress.toString(), versoption.toInt(), membernamesyntax.toInt(), membername.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqDone(inquirycontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqDone((inquirycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqNextA(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, membername: COpaquePointer?, priority: COpaquePointer?, annotation: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextA((inquirycontext?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), (membername?.value ?: 0L).toString(), (priority?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltInqNextA(inquirycontext: ConstPtr<CVoid>, ifid: MutPtr<RpcIfId>, membername: MutPtr<Pstr>, priority: MutPtr<UInt>, annotation: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextA(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), membername.rawAddress.toString(), priority.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqNextW(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, membername: COpaquePointer?, priority: COpaquePointer?, annotation: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextW((inquirycontext?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), (membername?.value ?: 0L).toString(), (priority?.value ?: 0L).toString(), (annotation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltInqNextW(inquirycontext: ConstPtr<CVoid>, ifid: MutPtr<RpcIfId>, membername: MutPtr<Pwstr>, priority: MutPtr<UInt>, annotation: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextW(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), membername.rawAddress.toString(), priority.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveA(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveA(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveW(profilenamesyntax.toInt(), (profilename?.value ?: 0L).toString(), (ifid?.value ?: 0L).toString(), membernamesyntax.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveW(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcObjectInqType(objuuid: COpaquePointer?, typeuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcObjectInqType((objuuid?.value ?: 0L).toString(), (typeuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcObjectInqType(objuuid: ConstPtr<Guid>, typeuuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcObjectInqType(objuuid.rawAddress.toString(), typeuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcObjectSetInqFn(inquiryfn: RpcObjectInqFn): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcObjectSetInqFn(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcObjectSetInqFn(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcObjectSetType(objuuid: COpaquePointer?, typeuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcObjectSetType((objuuid?.value ?: 0L).toString(), (typeuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcObjectSetType(objuuid: ConstPtr<Guid>, typeuuid: ConstPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcObjectSetType(objuuid.rawAddress.toString(), typeuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcProtseqVectorFreeA(protseqvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeA((protseqvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcProtseqVectorFreeA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcProtseqVectorFreeA(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcProtseqVectorFreeW(protseqvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeW((protseqvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcProtseqVectorFreeW(protseqvector: MutPtr<MutPtr<RpcProtseqVectorw>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcProtseqVectorFreeW(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcRaiseException(exception: RpcStatus) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcRaiseException(exception)
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcRaiseException(exception)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun rpcRevertContainerImpersonation(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcRevertContainerImpersonation() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcRevertContainerImpersonation() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcRevertToSelf(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcRevertToSelf() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcRevertToSelf() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcRevertToSelfEx(bindinghandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcRevertToSelfEx((bindinghandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcRevertToSelfEx(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcRevertToSelfEx(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerCompleteSecurityCallback(bindinghandle: COpaquePointer?, status: RpcStatus): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerCompleteSecurityCallback((bindinghandle?.value ?: 0L).toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerCompleteSecurityCallback(bindinghandle: ConstPtr<CVoid>, status: RpcStatus): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerCompleteSecurityCallback(bindinghandle.rawAddress.toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqBindingHandle(binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqBindingHandle((binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqBindingHandle(binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindingHandle(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqBindings(bindingvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqBindings((bindingvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqBindings(bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindings(bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqBindingsEx(securitydescriptor: COpaquePointer?, bindingvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqBindingsEx((securitydescriptor?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqBindingsEx(securitydescriptor: ConstPtr<CVoid>, bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindingsEx(securitydescriptor.rawAddress.toString(), bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqCallAttributesA(clientbinding: COpaquePointer?, rpccallattributes: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesA((clientbinding?.value ?: 0L).toString(), (rpccallattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqCallAttributesA(clientbinding: ConstPtr<CVoid>, rpccallattributes: MutPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqCallAttributesA(clientbinding.rawAddress.toString(), rpccallattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqCallAttributesW(clientbinding: COpaquePointer?, rpccallattributes: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesW((clientbinding?.value ?: 0L).toString(), (rpccallattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqCallAttributesW(clientbinding: ConstPtr<CVoid>, rpccallattributes: MutPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqCallAttributesW(clientbinding.rawAddress.toString(), rpccallattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameA(authnsvc.toInt(), (princname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameA(authnsvc.toInt(), princname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameW(authnsvc.toInt(), (princname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameW(authnsvc.toInt(), princname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqIf(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInqIf((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), (mgrepv?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInqIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqIf(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupActivate(ifgroup: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupActivate((ifgroup?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInterfaceGroupActivate(ifgroup: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupActivate(ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupClose(ifgroup: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupClose((ifgroup?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInterfaceGroupClose(ifgroup: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupClose(ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupCreateA(interfaces: COpaquePointer?, numifs: UInt, endpoints: COpaquePointer?, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: COpaquePointer?, ifgroup: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateA((interfaces?.value ?: 0L).toString(), numifs.toInt(), (endpoints?.value ?: 0L).toString(), numendpoints.toInt(), idleperiod.toInt(), 0L.toString(), (idlecallbackcontext?.value ?: 0L).toString(), (ifgroup?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInterfaceGroupCreateA(interfaces: ConstPtr<RpcInterfaceTemplatea>, numifs: UInt, endpoints: ConstPtr<RpcEndpointTemplatea>, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr<CVoid>, ifgroup: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateA(interfaces.rawAddress.toString(), numifs.toInt(), endpoints.rawAddress.toString(), numendpoints.toInt(), idleperiod.toInt(), 0L.toString(), idlecallbackcontext.rawAddress.toString(), ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupCreateW(interfaces: COpaquePointer?, numifs: UInt, endpoints: COpaquePointer?, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: COpaquePointer?, ifgroup: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateW((interfaces?.value ?: 0L).toString(), numifs.toInt(), (endpoints?.value ?: 0L).toString(), numendpoints.toInt(), idleperiod.toInt(), 0L.toString(), (idlecallbackcontext?.value ?: 0L).toString(), (ifgroup?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInterfaceGroupCreateW(interfaces: ConstPtr<RpcInterfaceTemplatew>, numifs: UInt, endpoints: ConstPtr<RpcEndpointTemplatew>, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr<CVoid>, ifgroup: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateW(interfaces.rawAddress.toString(), numifs.toInt(), endpoints.rawAddress.toString(), numendpoints.toInt(), idleperiod.toInt(), 0L.toString(), idlecallbackcontext.rawAddress.toString(), ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupDeactivate(ifgroup: COpaquePointer?, forcedeactivation: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupDeactivate((ifgroup?.value ?: 0L).toString(), forcedeactivation.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInterfaceGroupDeactivate(ifgroup: ConstPtr<CVoid>, forcedeactivation: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupDeactivate(ifgroup.rawAddress.toString(), forcedeactivation.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: COpaquePointer?, bindingvector: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupInqBindings((ifgroup?.value ?: 0L).toString(), (bindingvector?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: ConstPtr<CVoid>, bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupInqBindings(ifgroup.rawAddress.toString(), bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcServerListen(minimumcallthreads: UInt, maxcalls: UInt, dontwait: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerListen(minimumcallthreads.toInt(), maxcalls.toInt(), dontwait.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerListen(minimumcallthreads.toInt(), maxcalls.toInt(), dontwait.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoA((serverprincname?.value ?: 0L).toString(), authnsvc.toInt(), 0L.toString(), (arg?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoA(serverprincname.rawAddress.toString(), authnsvc.toInt(), 0L.toString(), arg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoW((serverprincname?.value ?: 0L).toString(), authnsvc.toInt(), 0L.toString(), (arg?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoW(serverprincname.rawAddress.toString(), authnsvc.toInt(), 0L.toString(), arg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIf(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIf((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), (mgrepv?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerRegisterIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIf2(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIf2((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), (mgrepv?.value ?: 0L).toString(), flags.toInt(), maxcalls.toInt(), maxrpcsize.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerRegisterIf2(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf2(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString(), flags.toInt(), maxcalls.toInt(), maxrpcsize.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIf3(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIf3((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), (mgrepv?.value ?: 0L).toString(), flags.toInt(), maxcalls.toInt(), maxrpcsize.toInt(), 0L.toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerRegisterIf3(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf3(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString(), flags.toInt(), maxcalls.toInt(), maxrpcsize.toInt(), 0L.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIfEx(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerRegisterIfEx((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), (mgrepv?.value ?: 0L).toString(), flags.toInt(), maxcalls.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerRegisterIfEx(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIfEx(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString(), flags.toInt(), maxcalls.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerSubscribeForNotification(binding: COpaquePointer?, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerSubscribeForNotification((binding?.value ?: 0L).toString(), notification, notificationtype, (notificationinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerSubscribeForNotification(binding: ConstPtr<CVoid>, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: ConstPtr<RpcAsyncNotificationInfo>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerSubscribeForNotification(binding.rawAddress.toString(), notification, notificationtype, notificationinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerTestCancel(bindinghandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerTestCancel((bindinghandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerTestCancel(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerTestCancel(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUnregisterIf(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, waitforcallstocomplete: UInt): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUnregisterIf((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), waitforcallstocomplete.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUnregisterIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, waitforcallstocomplete: UInt): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUnregisterIf(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), waitforcallstocomplete.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUnregisterIfEx(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, rundowncontexthandles: Int): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUnregisterIfEx((ifspec?.value ?: 0L).toString(), (mgrtypeuuid?.value ?: 0L).toString(), rundowncontexthandles) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUnregisterIfEx(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, rundowncontexthandles: Int): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUnregisterIfEx(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), rundowncontexthandles) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUnsubscribeForNotification(binding: COpaquePointer?, notification: RpcNotifications, notificationsqueued: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUnsubscribeForNotification((binding?.value ?: 0L).toString(), notification, (notificationsqueued?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUnsubscribeForNotification(binding: ConstPtr<CVoid>, notification: RpcNotifications, notificationsqueued: MutPtr<UInt>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUnsubscribeForNotification(binding.rawAddress.toString(), notification, notificationsqueued.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqs(maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqs(maxcalls.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsEx(maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsEx(maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIf(maxcalls.toInt(), (ifspec?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIf(maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIfEx(maxcalls.toInt(), (ifspec?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIfEx(maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqA((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqA(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpA((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (endpoint?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpA(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExA((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (endpoint?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExA(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExW((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (endpoint?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExW(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpW((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (endpoint?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpW(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqExA((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqExA(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqExW((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqExW(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfA((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (ifspec?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfA(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExA((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (ifspec?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExA(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExW((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (ifspec?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExW(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfW((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (ifspec?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfW(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcServerUseProtseqW((protseq?.value ?: 0L).toString(), maxcalls.toInt(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqW(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcServerYield() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcServerYield()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcServerYield()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcSmAllocate(size: ULong, pstatus: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmAllocate(size.toString(), (pstatus?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmAllocate(size: ULong, pstatus: MutPtr<RpcStatus>): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSmAllocate(size.toString(), pstatus.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmClientFree(pnodetofree: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmClientFree((pnodetofree?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmClientFree(pnodetofree: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmClientFree(pnodetofree.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmDestroyClientContext(contexthandle: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmDestroyClientContext((contexthandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmDestroyClientContext(contexthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSmDisableAllocate(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmDisableAllocate() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmDisableAllocate() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSmEnableAllocate(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmEnableAllocate() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmEnableAllocate() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmFree(nodetofree: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmFree((nodetofree?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmFree(nodetofree: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmFree(nodetofree.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmGetThreadHandle(pstatus: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmGetThreadHandle((pstatus?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmGetThreadHandle(pstatus: MutPtr<RpcStatus>): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSmGetThreadHandle(pstatus.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSmSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmSetClientAllocFree(0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmSetClientAllocFree(0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmSetThreadHandle(id: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmSetThreadHandle((id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmSetThreadHandle(id: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmSetThreadHandle(id.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: COpaquePointer?, oldclientfree: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSmSwapClientAllocFree(0L.toString(), 0L.toString(), (oldclientalloc?.value ?: 0L).toString(), (oldclientfree?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr<RpcClientAlloc>, oldclientfree: MutPtr<RpcClientFree>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmSwapClientAllocFree(0L.toString(), 0L.toString(), oldclientalloc.rawAddress.toString(), oldclientfree.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsAllocate(size: ULong): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSsAllocate(size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSsAllocate(size: ULong): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSsAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsContextLockExclusive(serverbindinghandle: COpaquePointer?, usercontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSsContextLockExclusive((serverbindinghandle?.value ?: 0L).toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSsContextLockExclusive(serverbindinghandle: ConstPtr<CVoid>, usercontext: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSsContextLockExclusive(serverbindinghandle.rawAddress.toString(), usercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsContextLockShared(serverbindinghandle: COpaquePointer?, usercontext: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSsContextLockShared((serverbindinghandle?.value ?: 0L).toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSsContextLockShared(serverbindinghandle: ConstPtr<CVoid>, usercontext: ConstPtr<CVoid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSsContextLockShared(serverbindinghandle.rawAddress.toString(), usercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsDestroyClientContext(contexthandle: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsDestroyClientContext((contexthandle?.value ?: 0L).toString())
+public actual fun rpcSsDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVoid>>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsDestroyClientContext(contexthandle.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun rpcSsDisableAllocate() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsDisableAllocate()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsDisableAllocate()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun rpcSsDontSerializeContext() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsDontSerializeContext()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsDontSerializeContext()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun rpcSsEnableAllocate() {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsEnableAllocate()
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsEnableAllocate()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcSsFree(nodetofree: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsFree((nodetofree?.value ?: 0L).toString())
+public actual fun rpcSsFree(nodetofree: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsFree(nodetofree.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcSsGetContextBinding(contexthandle: COpaquePointer?, binding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSsGetContextBinding((contexthandle?.value ?: 0L).toString(), (binding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSsGetContextBinding(contexthandle: ConstPtr<CVoid>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSsGetContextBinding(contexthandle.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsGetThreadHandle(): COpaquePointer? =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcSsGetThreadHandle().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcSsGetThreadHandle(): MutPtr<CVoid> =
+    if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSsGetThreadHandle().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSsSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsSetClientAllocFree(0L.toString(), 0L.toString())
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsSetClientAllocFree(0L.toString(), 0L.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcSsSetThreadHandle(id: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsSetThreadHandle((id?.value ?: 0L).toString())
+public actual fun rpcSsSetThreadHandle(id: ConstPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsSetThreadHandle(id.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: COpaquePointer?, oldclientfree: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcSsSwapClientAllocFree(0L.toString(), 0L.toString(), (oldclientalloc?.value ?: 0L).toString(), (oldclientfree?.value ?: 0L).toString())
+public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr<RpcClientAlloc>, oldclientfree: MutPtr<RpcClientFree>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcSsSwapClientAllocFree(0L.toString(), 0L.toString(), oldclientalloc.rawAddress.toString(), oldclientfree.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingComposeA((objuuid?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), (networkaddr?.value ?: 0L).toString(), (endpoint?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (stringbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingComposeA(objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), options.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingComposeW((objuuid?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), (networkaddr?.value ?: 0L).toString(), (endpoint?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (stringbinding?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingComposeW(objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), options.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: COpaquePointer?, protseq: COpaquePointer?, networkaddr: COpaquePointer?, endpoint: COpaquePointer?, networkoptions: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingParseA((stringbinding?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), (networkaddr?.value ?: 0L).toString(), (endpoint?.value ?: 0L).toString(), (networkoptions?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: MutPtr<Pstr>, protseq: MutPtr<Pstr>, networkaddr: MutPtr<Pstr>, endpoint: MutPtr<Pstr>, networkoptions: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingParseA(stringbinding.rawAddress.toString(), objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), networkoptions.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: COpaquePointer?, protseq: COpaquePointer?, networkaddr: COpaquePointer?, endpoint: COpaquePointer?, networkoptions: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcStringBindingParseW((stringbinding?.value ?: 0L).toString(), (objuuid?.value ?: 0L).toString(), (protseq?.value ?: 0L).toString(), (networkaddr?.value ?: 0L).toString(), (endpoint?.value ?: 0L).toString(), (networkoptions?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: MutPtr<Pwstr>, protseq: MutPtr<Pwstr>, networkaddr: MutPtr<Pwstr>, endpoint: MutPtr<Pwstr>, networkoptions: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingParseW(stringbinding.rawAddress.toString(), objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), networkoptions.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringFreeA(string: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcStringFreeA((string?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcStringFreeA(string: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringFreeA(string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringFreeW(string: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcStringFreeW((string?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rpcStringFreeW(string: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringFreeW(string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcTestCancel(): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_rpcTestCancel() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcTestCancel() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcUserFree(asynchandle: COpaquePointer?, pbuffer: COpaquePointer?) {
-    if (_windowsWin32SystemRpcNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_rpc_rpcUserFree((asynchandle?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString())
+public actual fun rpcUserFree(asynchandle: MutPtr<CVoid>, pbuffer: MutPtr<CVoid>) {
+    if (windowsWin32SystemRpcNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemRpcRpcUserFree(asynchandle.rawAddress.toString(), pbuffer.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uuidCompare(uuid1: COpaquePointer?, uuid2: COpaquePointer?, status: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidCompare((uuid1?.value ?: 0L).toString(), (uuid2?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidCompare(uuid1: ConstPtr<Guid>, uuid2: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCompare(uuid1.rawAddress.toString(), uuid2.rawAddress.toString(), status.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidCreate(uuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidCreate((uuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidCreate(uuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCreate(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidCreateNil(niluuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidCreateNil((niluuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidCreateNil(niluuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCreateNil(niluuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidCreateSequential(uuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidCreateSequential((uuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidCreateSequential(uuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCreateSequential(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidEqual(uuid1: COpaquePointer?, uuid2: COpaquePointer?, status: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidEqual((uuid1?.value ?: 0L).toString(), (uuid2?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidEqual(uuid1: ConstPtr<Guid>, uuid2: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidEqual(uuid1.rawAddress.toString(), uuid2.rawAddress.toString(), status.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidFromStringA(stringuuid: Pcstr, uuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidFromStringA((stringuuid?.value ?: 0L).toString(), (uuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidFromStringA(stringuuid: Pcstr, uuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidFromStringA(stringuuid.rawAddress.toString(), uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidFromStringW(stringuuid: Pcwstr, uuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidFromStringW((stringuuid?.value ?: 0L).toString(), (uuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidFromStringW(stringuuid: Pcwstr, uuid: MutPtr<Guid>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidFromStringW(stringuuid.rawAddress.toString(), uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidHash(uuid: COpaquePointer?, status: COpaquePointer?): UShort =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidHash((uuid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidHash(uuid: ConstPtr<Guid>, status: MutPtr<RpcStatus>): UShort =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidHash(uuid.rawAddress.toString(), status.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidIsNil(uuid: COpaquePointer?, status: COpaquePointer?): Int =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidIsNil((uuid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidIsNil(uuid: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidIsNil(uuid.rawAddress.toString(), status.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidToStringA(uuid: COpaquePointer?, stringuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidToStringA((uuid?.value ?: 0L).toString(), (stringuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidToStringA(uuid: ConstPtr<Guid>, stringuuid: MutPtr<Pstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidToStringA(uuid.rawAddress.toString(), stringuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidToStringW(uuid: COpaquePointer?, stringuuid: COpaquePointer?): RpcStatus =
-    if (_windowsWin32SystemRpcNapiAvailable) _wasm_windowssys_windows_win32_system_rpc_uuidToStringW((uuid?.value ?: 0L).toString(), (stringuuid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uuidToStringW(uuid: ConstPtr<Guid>, stringuuid: MutPtr<Pwstr>): RpcStatus =
+    if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidToStringW(uuid.rawAddress.toString(), stringuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

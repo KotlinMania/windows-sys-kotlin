@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_com_bindMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComBindMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfopt = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_system_com_bindMoniker_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_cLSIDFromProgID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCLSIDFromProgID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszprogid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_system_com_cLSIDFromProgID_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_cLSIDFromProgIDEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCLSIDFromProgIDEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszprogid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_system_com_cLSIDFromProgIDEx_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_cLSIDFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCLSIDFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_system_com_cLSIDFromString_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coAddRefServerProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoAddRefServerProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_system_com_coAddRefServerProcess_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coAllowSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoAllowSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -213,7 +213,7 @@ static Napi::Value windowssys_windows_win32_system_com_coAllowSetForegroundWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -238,7 +238,7 @@ static Napi::Value windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coBuildVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoBuildVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_system_com_coBuildVersion_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCancelCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCancelCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ultimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -288,7 +288,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCancelCall_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCopyProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCopyProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcopy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCopyProxy_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppunkmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -342,7 +342,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCreateFreeThreadedMarsh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCreateGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCreateGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -367,7 +367,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCreateGuid_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCreateInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCreateInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -400,7 +400,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCreateInstance_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCreateInstanceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCreateInstanceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCreateInstanceEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coCreateInstanceFromApp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoCreateInstanceFromApp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -470,7 +470,7 @@ static Napi::Value windowssys_windows_win32_system_com_coCreateInstanceFromApp_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coDecrementMTAUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoDecrementMTAUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -495,7 +495,7 @@ static Napi::Value windowssys_windows_win32_system_com_coDecrementMTAUsage_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coDisableCallCancellation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoDisableCallCancellation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -520,7 +520,7 @@ static Napi::Value windowssys_windows_win32_system_com_coDisableCallCancellation
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coDisconnectContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoDisconnectContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_system_com_coDisconnectContext_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coDisconnectObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoDisconnectObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -572,7 +572,7 @@ static Napi::Value windowssys_windows_win32_system_com_coDisconnectObject_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coDosDateTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoDosDateTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ndosdate = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t ndostime = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -601,7 +601,7 @@ static Napi::Value windowssys_windows_win32_system_com_coDosDateTimeToFileTime_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coEnableCallCancellation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoEnableCallCancellation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -626,7 +626,7 @@ static Napi::Value windowssys_windows_win32_system_com_coEnableCallCancellation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coFileTimeNow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoFileTimeNow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -651,7 +651,7 @@ static Napi::Value windowssys_windows_win32_system_com_coFileTimeNow_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coFileTimeToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoFileTimeToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdosdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -680,7 +680,7 @@ static Napi::Value windowssys_windows_win32_system_com_coFileTimeToDosDateTime_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coFreeAllLibraries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoFreeAllLibraries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -700,7 +700,7 @@ static Napi::Value windowssys_windows_win32_system_com_coFreeAllLibraries_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coFreeLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoFreeLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -722,7 +722,7 @@ static Napi::Value windowssys_windows_win32_system_com_coFreeLibrary_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coFreeUnusedLibraries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoFreeUnusedLibraries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -742,7 +742,7 @@ static Napi::Value windowssys_windows_win32_system_com_coFreeUnusedLibraries_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwunloaddelay = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -766,7 +766,7 @@ static Napi::Value windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetApartmentType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetApartmentType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* papttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paptqualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -793,7 +793,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetApartmentType_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetCallContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetCallContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -820,7 +820,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetCallContext_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetCallerTID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetCallerTID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -845,7 +845,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetCallerTID_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetCancelObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetCancelObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* iid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -874,7 +874,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetCancelObject_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetClassObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetClassObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwclscontext = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -907,7 +907,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetClassObject_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetContextToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetContextToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -932,7 +932,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetContextToken_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -957,7 +957,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetCurrentLogicalThread
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetCurrentProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetCurrentProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -980,7 +980,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetCurrentProcess_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetMalloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetMalloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmemcontext = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppmalloc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1007,7 +1007,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetMalloc_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbindoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1038,7 +1038,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetObject_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetObjectContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetObjectContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1065,7 +1065,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetObjectContext_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetPSClsid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetPSClsid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1092,7 +1092,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetPSClsid_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetSystemSecurityPermissions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t comsdtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppsd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1119,7 +1119,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetSystemSecurityPermis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coGetTreatAsClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoGetTreatAsClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsidold = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1146,7 +1146,7 @@ static Napi::Value windowssys_windows_win32_system_com_coGetTreatAsClass_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1169,7 +1169,7 @@ static Napi::Value windowssys_windows_win32_system_com_coImpersonateClient_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coIncrementMTAUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoIncrementMTAUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1194,7 +1194,7 @@ static Napi::Value windowssys_windows_win32_system_com_coIncrementMTAUsage_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1219,7 +1219,7 @@ static Napi::Value windowssys_windows_win32_system_com_coInitialize_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coInitializeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoInitializeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcoinit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1246,7 +1246,7 @@ static Napi::Value windowssys_windows_win32_system_com_coInitializeEx_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coInitializeSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoInitializeSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psecdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cauthsvc = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1287,7 +1287,7 @@ static Napi::Value windowssys_windows_win32_system_com_coInitializeSecurity_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coInstall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoInstall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1320,7 +1320,7 @@ static Napi::Value windowssys_windows_win32_system_com_coInstall_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_system_com_coInvalidateRemoteMachine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coIsHandlerConnected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoIsHandlerConnected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1370,7 +1370,7 @@ static Napi::Value windowssys_windows_win32_system_com_coIsHandlerConnected_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coIsOle1Class_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoIsOle1Class_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1395,7 +1395,7 @@ static Napi::Value windowssys_windows_win32_system_com_coIsOle1Class_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coLoadLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoLoadLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszlibname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bautofree = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1422,7 +1422,7 @@ static Napi::Value windowssys_windows_win32_system_com_coLoadLibrary_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coLockObjectExternal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoLockObjectExternal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flock = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1451,7 +1451,7 @@ static Napi::Value windowssys_windows_win32_system_com_coLockObjectExternal_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coQueryAuthenticationServices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoQueryAuthenticationServices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcauthsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asauthsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1478,7 +1478,7 @@ static Napi::Value windowssys_windows_win32_system_com_coQueryAuthenticationServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coQueryClientBlanket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoQueryClientBlanket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pauthnsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pauthzsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1515,7 +1515,7 @@ static Napi::Value windowssys_windows_win32_system_com_coQueryClientBlanket_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coQueryProxyBlanket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoQueryProxyBlanket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwauthnsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1554,7 +1554,7 @@ static Napi::Value windowssys_windows_win32_system_com_coQueryProxyBlanket_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterActivationFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterActivationFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pactivationfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1579,7 +1579,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterActivationFilte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterChannelHook_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterChannelHook_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* extensionuuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pchannelhook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1606,7 +1606,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterChannelHook_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterClassObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterClassObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1639,7 +1639,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterClassObject_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterDeviceCatalog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterDeviceCatalog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1666,7 +1666,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterDeviceCatalog_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterInitializeSpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterInitializeSpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pspy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulicookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1693,7 +1693,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterInitializeSpy_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterMallocSpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterMallocSpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmallocspy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1718,7 +1718,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterMallocSpy_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterPSClsid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterPSClsid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1745,7 +1745,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterPSClsid_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRegisterSurrogate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRegisterSurrogate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psurrogate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1770,7 +1770,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRegisterSurrogate_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coReleaseServerProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoReleaseServerProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1793,7 +1793,7 @@ static Napi::Value windowssys_windows_win32_system_com_coReleaseServerProcess_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coResumeClassObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoResumeClassObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1816,7 +1816,7 @@ static Napi::Value windowssys_windows_win32_system_com_coResumeClassObjects_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRevertToSelf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRevertToSelf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1839,7 +1839,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRevertToSelf_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRevokeClassObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRevokeClassObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwregister = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1864,7 +1864,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRevokeClassObject_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRevokeDeviceCatalog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRevokeDeviceCatalog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1889,7 +1889,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRevokeDeviceCatalog_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRevokeInitializeSpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRevokeInitializeSpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ulicookie = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1914,7 +1914,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRevokeInitializeSpy_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coRevokeMallocSpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoRevokeMallocSpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1937,7 +1937,7 @@ static Napi::Value windowssys_windows_win32_system_com_coRevokeMallocSpy_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coSetCancelObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoSetCancelObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1962,7 +1962,7 @@ static Napi::Value windowssys_windows_win32_system_com_coSetCancelObject_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coSetProxyBlanket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoSetProxyBlanket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwauthnsvc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2001,7 +2001,7 @@ static Napi::Value windowssys_windows_win32_system_com_coSetProxyBlanket_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coSuspendClassObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoSuspendClassObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2024,7 +2024,7 @@ static Napi::Value windowssys_windows_win32_system_com_coSuspendClassObjects_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coSwitchCallContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoSwitchCallContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnewobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppoldobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2051,7 +2051,7 @@ static Napi::Value windowssys_windows_win32_system_com_coSwitchCallContext_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coTaskMemAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoTaskMemAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t cb = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2076,7 +2076,7 @@ static Napi::Value windowssys_windows_win32_system_com_coTaskMemAlloc_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coTaskMemFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoTaskMemFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2098,7 +2098,7 @@ static Napi::Value windowssys_windows_win32_system_com_coTaskMemFree_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coTaskMemRealloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoTaskMemRealloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cb = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2125,7 +2125,7 @@ static Napi::Value windowssys_windows_win32_system_com_coTaskMemRealloc_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coTestCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoTestCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2148,7 +2148,7 @@ static Napi::Value windowssys_windows_win32_system_com_coTestCancel_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coTreatAsClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoTreatAsClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsidold = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2175,7 +2175,7 @@ static Napi::Value windowssys_windows_win32_system_com_coTreatAsClass_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coUninitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoUninitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2195,7 +2195,7 @@ static Napi::Value windowssys_windows_win32_system_com_coUninitialize_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coWaitForMultipleHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoWaitForMultipleHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2228,7 +2228,7 @@ static Napi::Value windowssys_windows_win32_system_com_coWaitForMultipleHandles_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_coWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCoWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2261,7 +2261,7 @@ static Napi::Value windowssys_windows_win32_system_com_coWaitForMultipleObjects_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createAntiMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateAntiMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2286,7 +2286,7 @@ static Napi::Value windowssys_windows_win32_system_com_createAntiMoniker_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createBindCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateBindCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2313,7 +2313,7 @@ static Napi::Value windowssys_windows_win32_system_com_createBindCtx_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createClassMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateClassMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2340,7 +2340,7 @@ static Napi::Value windowssys_windows_win32_system_com_createClassMoniker_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createDataAdviseHolder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateDataAdviseHolder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppdaholder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2365,7 +2365,7 @@ static Napi::Value windowssys_windows_win32_system_com_createDataAdviseHolder_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createDataCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateDataCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2396,7 +2396,7 @@ static Napi::Value windowssys_windows_win32_system_com_createDataCache_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createFileMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateFileMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2423,7 +2423,7 @@ static Napi::Value windowssys_windows_win32_system_com_createFileMoniker_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createGenericComposite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateGenericComposite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmkfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmkrest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2452,7 +2452,7 @@ static Napi::Value windowssys_windows_win32_system_com_createGenericComposite_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createIUriBuilder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateIUriBuilder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2483,7 +2483,7 @@ static Napi::Value windowssys_windows_win32_system_com_createIUriBuilder_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createItemMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateItemMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdelim = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2512,7 +2512,7 @@ static Napi::Value windowssys_windows_win32_system_com_createItemMoniker_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createObjrefMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateObjrefMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2539,7 +2539,7 @@ static Napi::Value windowssys_windows_win32_system_com_createObjrefMoniker_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createPointerMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreatePointerMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2566,7 +2566,7 @@ static Napi::Value windowssys_windows_win32_system_com_createPointerMoniker_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createStdProgressIndicator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateStdProgressIndicator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2597,7 +2597,7 @@ static Napi::Value windowssys_windows_win32_system_com_createStdProgressIndicato
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createUri_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateUri_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2628,7 +2628,7 @@ static Napi::Value windowssys_windows_win32_system_com_createUri_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createUriFromMultiByteString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateUriFromMultiByteString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszansiinputuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwencodingflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2663,7 +2663,7 @@ static Napi::Value windowssys_windows_win32_system_com_createUriFromMultiByteStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_createUriWithFragment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComCreateUriWithFragment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfragment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2696,7 +2696,7 @@ static Napi::Value windowssys_windows_win32_system_com_createUriWithFragment_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_dcomChannelSetHResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComDcomChannelSetHResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2725,7 +2725,7 @@ static Napi::Value windowssys_windows_win32_system_com_dcomChannelSetHResult_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_getClassFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComGetClassFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2752,7 +2752,7 @@ static Napi::Value windowssys_windows_win32_system_com_getClassFile_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_getErrorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComGetErrorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pperrinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2779,7 +2779,7 @@ static Napi::Value windowssys_windows_win32_system_com_getErrorInfo_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_getRunningObjectTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComGetRunningObjectTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pprot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2806,7 +2806,7 @@ static Napi::Value windowssys_windows_win32_system_com_getRunningObjectTable_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_iIDFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComIIDFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2833,7 +2833,7 @@ static Napi::Value windowssys_windows_win32_system_com_iIDFromString_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_mkParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMkParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2864,7 +2864,7 @@ static Napi::Value windowssys_windows_win32_system_com_mkParseDisplayName_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_monikerCommonPrefixWith_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMonikerCommonPrefixWith_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmkthis = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmkother = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2893,7 +2893,7 @@ static Napi::Value windowssys_windows_win32_system_com_monikerCommonPrefixWith_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_monikerRelativePathTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMonikerRelativePathTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmksrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmkdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2924,7 +2924,7 @@ static Napi::Value windowssys_windows_win32_system_com_monikerRelativePathTo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_progIDFromCLSID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComProgIDFromCLSID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpszprogid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2951,7 +2951,7 @@ static Napi::Value windowssys_windows_win32_system_com_progIDFromCLSID_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_setErrorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComSetErrorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* perrinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2978,7 +2978,7 @@ static Napi::Value windowssys_windows_win32_system_com_setErrorInfo_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_stringFromCLSID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStringFromCLSID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3005,7 +3005,7 @@ static Napi::Value windowssys_windows_win32_system_com_stringFromCLSID_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_stringFromGUID2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStringFromGUID2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3034,7 +3034,7 @@ static Napi::Value windowssys_windows_win32_system_com_stringFromGUID2_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_stringFromIID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComStringFromIID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3062,116 +3062,116 @@ static Napi::Value windowssys_windows_win32_system_com_stringFromIID_napi(const 
 }
 
 static void register_windows_win32_system_com_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_com_bindMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_bindMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_cLSIDFromProgID", Napi::Function::New(env, windowssys_windows_win32_system_com_cLSIDFromProgID_napi));
-    exports.Set("windowssys_windows_win32_system_com_cLSIDFromProgIDEx", Napi::Function::New(env, windowssys_windows_win32_system_com_cLSIDFromProgIDEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_cLSIDFromString", Napi::Function::New(env, windowssys_windows_win32_system_com_cLSIDFromString_napi));
-    exports.Set("windowssys_windows_win32_system_com_coAddRefServerProcess", Napi::Function::New(env, windowssys_windows_win32_system_com_coAddRefServerProcess_napi));
-    exports.Set("windowssys_windows_win32_system_com_coAllowSetForegroundWindow", Napi::Function::New(env, windowssys_windows_win32_system_com_coAllowSetForegroundWindow_napi));
-    exports.Set("windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID_napi));
-    exports.Set("windowssys_windows_win32_system_com_coBuildVersion", Napi::Function::New(env, windowssys_windows_win32_system_com_coBuildVersion_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCancelCall", Napi::Function::New(env, windowssys_windows_win32_system_com_coCancelCall_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCopyProxy", Napi::Function::New(env, windowssys_windows_win32_system_com_coCopyProxy_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler", Napi::Function::New(env, windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCreateGuid", Napi::Function::New(env, windowssys_windows_win32_system_com_coCreateGuid_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCreateInstance", Napi::Function::New(env, windowssys_windows_win32_system_com_coCreateInstance_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCreateInstanceEx", Napi::Function::New(env, windowssys_windows_win32_system_com_coCreateInstanceEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_coCreateInstanceFromApp", Napi::Function::New(env, windowssys_windows_win32_system_com_coCreateInstanceFromApp_napi));
-    exports.Set("windowssys_windows_win32_system_com_coDecrementMTAUsage", Napi::Function::New(env, windowssys_windows_win32_system_com_coDecrementMTAUsage_napi));
-    exports.Set("windowssys_windows_win32_system_com_coDisableCallCancellation", Napi::Function::New(env, windowssys_windows_win32_system_com_coDisableCallCancellation_napi));
-    exports.Set("windowssys_windows_win32_system_com_coDisconnectContext", Napi::Function::New(env, windowssys_windows_win32_system_com_coDisconnectContext_napi));
-    exports.Set("windowssys_windows_win32_system_com_coDisconnectObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coDisconnectObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coDosDateTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_system_com_coDosDateTimeToFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_com_coEnableCallCancellation", Napi::Function::New(env, windowssys_windows_win32_system_com_coEnableCallCancellation_napi));
-    exports.Set("windowssys_windows_win32_system_com_coFileTimeNow", Napi::Function::New(env, windowssys_windows_win32_system_com_coFileTimeNow_napi));
-    exports.Set("windowssys_windows_win32_system_com_coFileTimeToDosDateTime", Napi::Function::New(env, windowssys_windows_win32_system_com_coFileTimeToDosDateTime_napi));
-    exports.Set("windowssys_windows_win32_system_com_coFreeAllLibraries", Napi::Function::New(env, windowssys_windows_win32_system_com_coFreeAllLibraries_napi));
-    exports.Set("windowssys_windows_win32_system_com_coFreeLibrary", Napi::Function::New(env, windowssys_windows_win32_system_com_coFreeLibrary_napi));
-    exports.Set("windowssys_windows_win32_system_com_coFreeUnusedLibraries", Napi::Function::New(env, windowssys_windows_win32_system_com_coFreeUnusedLibraries_napi));
-    exports.Set("windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx", Napi::Function::New(env, windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetApartmentType", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetApartmentType_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetCallContext", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetCallContext_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetCallerTID", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetCallerTID_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetCancelObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetCancelObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetClassObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetClassObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetContextToken", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetContextToken_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetCurrentProcess", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetCurrentProcess_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetMalloc", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetMalloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetObjectContext", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetObjectContext_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetPSClsid", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetPSClsid_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetSystemSecurityPermissions", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetSystemSecurityPermissions_napi));
-    exports.Set("windowssys_windows_win32_system_com_coGetTreatAsClass", Napi::Function::New(env, windowssys_windows_win32_system_com_coGetTreatAsClass_napi));
-    exports.Set("windowssys_windows_win32_system_com_coImpersonateClient", Napi::Function::New(env, windowssys_windows_win32_system_com_coImpersonateClient_napi));
-    exports.Set("windowssys_windows_win32_system_com_coIncrementMTAUsage", Napi::Function::New(env, windowssys_windows_win32_system_com_coIncrementMTAUsage_napi));
-    exports.Set("windowssys_windows_win32_system_com_coInitialize", Napi::Function::New(env, windowssys_windows_win32_system_com_coInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_com_coInitializeEx", Napi::Function::New(env, windowssys_windows_win32_system_com_coInitializeEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_coInitializeSecurity", Napi::Function::New(env, windowssys_windows_win32_system_com_coInitializeSecurity_napi));
-    exports.Set("windowssys_windows_win32_system_com_coInstall", Napi::Function::New(env, windowssys_windows_win32_system_com_coInstall_napi));
-    exports.Set("windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings", Napi::Function::New(env, windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings_napi));
-    exports.Set("windowssys_windows_win32_system_com_coIsHandlerConnected", Napi::Function::New(env, windowssys_windows_win32_system_com_coIsHandlerConnected_napi));
-    exports.Set("windowssys_windows_win32_system_com_coIsOle1Class", Napi::Function::New(env, windowssys_windows_win32_system_com_coIsOle1Class_napi));
-    exports.Set("windowssys_windows_win32_system_com_coLoadLibrary", Napi::Function::New(env, windowssys_windows_win32_system_com_coLoadLibrary_napi));
-    exports.Set("windowssys_windows_win32_system_com_coLockObjectExternal", Napi::Function::New(env, windowssys_windows_win32_system_com_coLockObjectExternal_napi));
-    exports.Set("windowssys_windows_win32_system_com_coQueryAuthenticationServices", Napi::Function::New(env, windowssys_windows_win32_system_com_coQueryAuthenticationServices_napi));
-    exports.Set("windowssys_windows_win32_system_com_coQueryClientBlanket", Napi::Function::New(env, windowssys_windows_win32_system_com_coQueryClientBlanket_napi));
-    exports.Set("windowssys_windows_win32_system_com_coQueryProxyBlanket", Napi::Function::New(env, windowssys_windows_win32_system_com_coQueryProxyBlanket_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterActivationFilter", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterActivationFilter_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterChannelHook", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterChannelHook_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterClassObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterClassObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterDeviceCatalog", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterDeviceCatalog_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterInitializeSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterInitializeSpy_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterMallocSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterMallocSpy_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterPSClsid", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterPSClsid_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRegisterSurrogate", Napi::Function::New(env, windowssys_windows_win32_system_com_coRegisterSurrogate_napi));
-    exports.Set("windowssys_windows_win32_system_com_coReleaseServerProcess", Napi::Function::New(env, windowssys_windows_win32_system_com_coReleaseServerProcess_napi));
-    exports.Set("windowssys_windows_win32_system_com_coResumeClassObjects", Napi::Function::New(env, windowssys_windows_win32_system_com_coResumeClassObjects_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRevertToSelf", Napi::Function::New(env, windowssys_windows_win32_system_com_coRevertToSelf_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRevokeClassObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coRevokeClassObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRevokeDeviceCatalog", Napi::Function::New(env, windowssys_windows_win32_system_com_coRevokeDeviceCatalog_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRevokeInitializeSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_coRevokeInitializeSpy_napi));
-    exports.Set("windowssys_windows_win32_system_com_coRevokeMallocSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_coRevokeMallocSpy_napi));
-    exports.Set("windowssys_windows_win32_system_com_coSetCancelObject", Napi::Function::New(env, windowssys_windows_win32_system_com_coSetCancelObject_napi));
-    exports.Set("windowssys_windows_win32_system_com_coSetProxyBlanket", Napi::Function::New(env, windowssys_windows_win32_system_com_coSetProxyBlanket_napi));
-    exports.Set("windowssys_windows_win32_system_com_coSuspendClassObjects", Napi::Function::New(env, windowssys_windows_win32_system_com_coSuspendClassObjects_napi));
-    exports.Set("windowssys_windows_win32_system_com_coSwitchCallContext", Napi::Function::New(env, windowssys_windows_win32_system_com_coSwitchCallContext_napi));
-    exports.Set("windowssys_windows_win32_system_com_coTaskMemAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_coTaskMemAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_coTaskMemFree", Napi::Function::New(env, windowssys_windows_win32_system_com_coTaskMemFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_coTaskMemRealloc", Napi::Function::New(env, windowssys_windows_win32_system_com_coTaskMemRealloc_napi));
-    exports.Set("windowssys_windows_win32_system_com_coTestCancel", Napi::Function::New(env, windowssys_windows_win32_system_com_coTestCancel_napi));
-    exports.Set("windowssys_windows_win32_system_com_coTreatAsClass", Napi::Function::New(env, windowssys_windows_win32_system_com_coTreatAsClass_napi));
-    exports.Set("windowssys_windows_win32_system_com_coUninitialize", Napi::Function::New(env, windowssys_windows_win32_system_com_coUninitialize_napi));
-    exports.Set("windowssys_windows_win32_system_com_coWaitForMultipleHandles", Napi::Function::New(env, windowssys_windows_win32_system_com_coWaitForMultipleHandles_napi));
-    exports.Set("windowssys_windows_win32_system_com_coWaitForMultipleObjects", Napi::Function::New(env, windowssys_windows_win32_system_com_coWaitForMultipleObjects_napi));
-    exports.Set("windowssys_windows_win32_system_com_createAntiMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_createAntiMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_createBindCtx", Napi::Function::New(env, windowssys_windows_win32_system_com_createBindCtx_napi));
-    exports.Set("windowssys_windows_win32_system_com_createClassMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_createClassMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_createDataAdviseHolder", Napi::Function::New(env, windowssys_windows_win32_system_com_createDataAdviseHolder_napi));
-    exports.Set("windowssys_windows_win32_system_com_createDataCache", Napi::Function::New(env, windowssys_windows_win32_system_com_createDataCache_napi));
-    exports.Set("windowssys_windows_win32_system_com_createFileMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_createFileMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_createGenericComposite", Napi::Function::New(env, windowssys_windows_win32_system_com_createGenericComposite_napi));
-    exports.Set("windowssys_windows_win32_system_com_createIUriBuilder", Napi::Function::New(env, windowssys_windows_win32_system_com_createIUriBuilder_napi));
-    exports.Set("windowssys_windows_win32_system_com_createItemMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_createItemMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_createObjrefMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_createObjrefMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_createPointerMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_createPointerMoniker_napi));
-    exports.Set("windowssys_windows_win32_system_com_createStdProgressIndicator", Napi::Function::New(env, windowssys_windows_win32_system_com_createStdProgressIndicator_napi));
-    exports.Set("windowssys_windows_win32_system_com_createUri", Napi::Function::New(env, windowssys_windows_win32_system_com_createUri_napi));
-    exports.Set("windowssys_windows_win32_system_com_createUriFromMultiByteString", Napi::Function::New(env, windowssys_windows_win32_system_com_createUriFromMultiByteString_napi));
-    exports.Set("windowssys_windows_win32_system_com_createUriWithFragment", Napi::Function::New(env, windowssys_windows_win32_system_com_createUriWithFragment_napi));
-    exports.Set("windowssys_windows_win32_system_com_dcomChannelSetHResult", Napi::Function::New(env, windowssys_windows_win32_system_com_dcomChannelSetHResult_napi));
-    exports.Set("windowssys_windows_win32_system_com_getClassFile", Napi::Function::New(env, windowssys_windows_win32_system_com_getClassFile_napi));
-    exports.Set("windowssys_windows_win32_system_com_getErrorInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_getErrorInfo_napi));
-    exports.Set("windowssys_windows_win32_system_com_getRunningObjectTable", Napi::Function::New(env, windowssys_windows_win32_system_com_getRunningObjectTable_napi));
-    exports.Set("windowssys_windows_win32_system_com_iIDFromString", Napi::Function::New(env, windowssys_windows_win32_system_com_iIDFromString_napi));
-    exports.Set("windowssys_windows_win32_system_com_mkParseDisplayName", Napi::Function::New(env, windowssys_windows_win32_system_com_mkParseDisplayName_napi));
-    exports.Set("windowssys_windows_win32_system_com_monikerCommonPrefixWith", Napi::Function::New(env, windowssys_windows_win32_system_com_monikerCommonPrefixWith_napi));
-    exports.Set("windowssys_windows_win32_system_com_monikerRelativePathTo", Napi::Function::New(env, windowssys_windows_win32_system_com_monikerRelativePathTo_napi));
-    exports.Set("windowssys_windows_win32_system_com_progIDFromCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_progIDFromCLSID_napi));
-    exports.Set("windowssys_windows_win32_system_com_setErrorInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_setErrorInfo_napi));
-    exports.Set("windowssys_windows_win32_system_com_stringFromCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_stringFromCLSID_napi));
-    exports.Set("windowssys_windows_win32_system_com_stringFromGUID2", Napi::Function::New(env, windowssys_windows_win32_system_com_stringFromGUID2_napi));
-    exports.Set("windowssys_windows_win32_system_com_stringFromIID", Napi::Function::New(env, windowssys_windows_win32_system_com_stringFromIID_napi));
+    exports.Set("windowssysWindowsWin32SystemComBindMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComBindMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCLSIDFromProgID", Napi::Function::New(env, windowssysWindowsWin32SystemComCLSIDFromProgID_napi));
+    exports.Set("windowssysWindowsWin32SystemComCLSIDFromProgIDEx", Napi::Function::New(env, windowssysWindowsWin32SystemComCLSIDFromProgIDEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComCLSIDFromString", Napi::Function::New(env, windowssysWindowsWin32SystemComCLSIDFromString_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoAddRefServerProcess", Napi::Function::New(env, windowssysWindowsWin32SystemComCoAddRefServerProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoAllowSetForegroundWindow", Napi::Function::New(env, windowssysWindowsWin32SystemComCoAllowSetForegroundWindow_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID", Napi::Function::New(env, windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoBuildVersion", Napi::Function::New(env, windowssysWindowsWin32SystemComCoBuildVersion_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCancelCall", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCancelCall_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCopyProxy", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCopyProxy_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCreateGuid", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCreateGuid_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCreateInstance", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCreateInstance_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCreateInstanceEx", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCreateInstanceEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoCreateInstanceFromApp", Napi::Function::New(env, windowssysWindowsWin32SystemComCoCreateInstanceFromApp_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoDecrementMTAUsage", Napi::Function::New(env, windowssysWindowsWin32SystemComCoDecrementMTAUsage_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoDisableCallCancellation", Napi::Function::New(env, windowssysWindowsWin32SystemComCoDisableCallCancellation_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoDisconnectContext", Napi::Function::New(env, windowssysWindowsWin32SystemComCoDisconnectContext_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoDisconnectObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoDisconnectObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoDosDateTimeToFileTime", Napi::Function::New(env, windowssysWindowsWin32SystemComCoDosDateTimeToFileTime_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoEnableCallCancellation", Napi::Function::New(env, windowssysWindowsWin32SystemComCoEnableCallCancellation_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoFileTimeNow", Napi::Function::New(env, windowssysWindowsWin32SystemComCoFileTimeNow_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoFileTimeToDosDateTime", Napi::Function::New(env, windowssysWindowsWin32SystemComCoFileTimeToDosDateTime_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoFreeAllLibraries", Napi::Function::New(env, windowssysWindowsWin32SystemComCoFreeAllLibraries_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoFreeLibrary", Napi::Function::New(env, windowssysWindowsWin32SystemComCoFreeLibrary_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoFreeUnusedLibraries", Napi::Function::New(env, windowssysWindowsWin32SystemComCoFreeUnusedLibraries_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx", Napi::Function::New(env, windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetApartmentType", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetApartmentType_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetCallContext", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetCallContext_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetCallerTID", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetCallerTID_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetCancelObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetCancelObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetClassObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetClassObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetContextToken", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetContextToken_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetCurrentProcess", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetCurrentProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetMalloc", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetMalloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetObjectContext", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetObjectContext_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetPSClsid", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetPSClsid_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoGetTreatAsClass", Napi::Function::New(env, windowssysWindowsWin32SystemComCoGetTreatAsClass_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoImpersonateClient", Napi::Function::New(env, windowssysWindowsWin32SystemComCoImpersonateClient_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoIncrementMTAUsage", Napi::Function::New(env, windowssysWindowsWin32SystemComCoIncrementMTAUsage_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemComCoInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoInitializeEx", Napi::Function::New(env, windowssysWindowsWin32SystemComCoInitializeEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoInitializeSecurity", Napi::Function::New(env, windowssysWindowsWin32SystemComCoInitializeSecurity_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoInstall", Napi::Function::New(env, windowssysWindowsWin32SystemComCoInstall_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings", Napi::Function::New(env, windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoIsHandlerConnected", Napi::Function::New(env, windowssysWindowsWin32SystemComCoIsHandlerConnected_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoIsOle1Class", Napi::Function::New(env, windowssysWindowsWin32SystemComCoIsOle1Class_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoLoadLibrary", Napi::Function::New(env, windowssysWindowsWin32SystemComCoLoadLibrary_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoLockObjectExternal", Napi::Function::New(env, windowssysWindowsWin32SystemComCoLockObjectExternal_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoQueryAuthenticationServices", Napi::Function::New(env, windowssysWindowsWin32SystemComCoQueryAuthenticationServices_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoQueryClientBlanket", Napi::Function::New(env, windowssysWindowsWin32SystemComCoQueryClientBlanket_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoQueryProxyBlanket", Napi::Function::New(env, windowssysWindowsWin32SystemComCoQueryProxyBlanket_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterActivationFilter", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterActivationFilter_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterChannelHook", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterChannelHook_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterClassObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterClassObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterDeviceCatalog", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterDeviceCatalog_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterInitializeSpy", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterInitializeSpy_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterMallocSpy", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterMallocSpy_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterPSClsid", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterPSClsid_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRegisterSurrogate", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRegisterSurrogate_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoReleaseServerProcess", Napi::Function::New(env, windowssysWindowsWin32SystemComCoReleaseServerProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoResumeClassObjects", Napi::Function::New(env, windowssysWindowsWin32SystemComCoResumeClassObjects_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRevertToSelf", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRevertToSelf_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRevokeClassObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRevokeClassObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRevokeDeviceCatalog", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRevokeDeviceCatalog_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRevokeInitializeSpy", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRevokeInitializeSpy_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoRevokeMallocSpy", Napi::Function::New(env, windowssysWindowsWin32SystemComCoRevokeMallocSpy_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoSetCancelObject", Napi::Function::New(env, windowssysWindowsWin32SystemComCoSetCancelObject_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoSetProxyBlanket", Napi::Function::New(env, windowssysWindowsWin32SystemComCoSetProxyBlanket_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoSuspendClassObjects", Napi::Function::New(env, windowssysWindowsWin32SystemComCoSuspendClassObjects_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoSwitchCallContext", Napi::Function::New(env, windowssysWindowsWin32SystemComCoSwitchCallContext_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoTaskMemAlloc", Napi::Function::New(env, windowssysWindowsWin32SystemComCoTaskMemAlloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoTaskMemFree", Napi::Function::New(env, windowssysWindowsWin32SystemComCoTaskMemFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoTaskMemRealloc", Napi::Function::New(env, windowssysWindowsWin32SystemComCoTaskMemRealloc_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoTestCancel", Napi::Function::New(env, windowssysWindowsWin32SystemComCoTestCancel_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoTreatAsClass", Napi::Function::New(env, windowssysWindowsWin32SystemComCoTreatAsClass_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoUninitialize", Napi::Function::New(env, windowssysWindowsWin32SystemComCoUninitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoWaitForMultipleHandles", Napi::Function::New(env, windowssysWindowsWin32SystemComCoWaitForMultipleHandles_napi));
+    exports.Set("windowssysWindowsWin32SystemComCoWaitForMultipleObjects", Napi::Function::New(env, windowssysWindowsWin32SystemComCoWaitForMultipleObjects_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateAntiMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateAntiMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateBindCtx", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateBindCtx_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateClassMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateClassMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateDataAdviseHolder", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateDataAdviseHolder_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateDataCache", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateDataCache_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateFileMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateFileMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateGenericComposite", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateGenericComposite_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateIUriBuilder", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateIUriBuilder_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateItemMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateItemMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateObjrefMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateObjrefMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreatePointerMoniker", Napi::Function::New(env, windowssysWindowsWin32SystemComCreatePointerMoniker_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateStdProgressIndicator", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateStdProgressIndicator_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateUri", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateUri_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateUriFromMultiByteString", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateUriFromMultiByteString_napi));
+    exports.Set("windowssysWindowsWin32SystemComCreateUriWithFragment", Napi::Function::New(env, windowssysWindowsWin32SystemComCreateUriWithFragment_napi));
+    exports.Set("windowssysWindowsWin32SystemComDcomChannelSetHResult", Napi::Function::New(env, windowssysWindowsWin32SystemComDcomChannelSetHResult_napi));
+    exports.Set("windowssysWindowsWin32SystemComGetClassFile", Napi::Function::New(env, windowssysWindowsWin32SystemComGetClassFile_napi));
+    exports.Set("windowssysWindowsWin32SystemComGetErrorInfo", Napi::Function::New(env, windowssysWindowsWin32SystemComGetErrorInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemComGetRunningObjectTable", Napi::Function::New(env, windowssysWindowsWin32SystemComGetRunningObjectTable_napi));
+    exports.Set("windowssysWindowsWin32SystemComIIDFromString", Napi::Function::New(env, windowssysWindowsWin32SystemComIIDFromString_napi));
+    exports.Set("windowssysWindowsWin32SystemComMkParseDisplayName", Napi::Function::New(env, windowssysWindowsWin32SystemComMkParseDisplayName_napi));
+    exports.Set("windowssysWindowsWin32SystemComMonikerCommonPrefixWith", Napi::Function::New(env, windowssysWindowsWin32SystemComMonikerCommonPrefixWith_napi));
+    exports.Set("windowssysWindowsWin32SystemComMonikerRelativePathTo", Napi::Function::New(env, windowssysWindowsWin32SystemComMonikerRelativePathTo_napi));
+    exports.Set("windowssysWindowsWin32SystemComProgIDFromCLSID", Napi::Function::New(env, windowssysWindowsWin32SystemComProgIDFromCLSID_napi));
+    exports.Set("windowssysWindowsWin32SystemComSetErrorInfo", Napi::Function::New(env, windowssysWindowsWin32SystemComSetErrorInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemComStringFromCLSID", Napi::Function::New(env, windowssysWindowsWin32SystemComStringFromCLSID_napi));
+    exports.Set("windowssysWindowsWin32SystemComStringFromGUID2", Napi::Function::New(env, windowssysWindowsWin32SystemComStringFromGUID2_napi));
+    exports.Set("windowssysWindowsWin32SystemComStringFromIID", Napi::Function::New(env, windowssysWindowsWin32SystemComStringFromIID_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_com_napi, nullptr };

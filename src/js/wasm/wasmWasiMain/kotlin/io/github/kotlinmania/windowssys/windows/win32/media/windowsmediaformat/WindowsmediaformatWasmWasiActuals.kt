@@ -1,40 +1,43 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public actual fun wMCreateBackupRestorer(pcallback: COpaquePointer?, ppbackup: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+// The host must provide the C companion wrapper exports in import module windowssys.
+public actual fun wMCreateBackupRestorer(pcallback: MutPtr<CVoid>, ppbackup: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer")
 
-public actual fun wMCreateEditor(ppeditor: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateEditor(ppeditor: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor")
 
-public actual fun wMCreateIndexer(ppindexer: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateIndexer(ppindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer")
 
-public actual fun wMCreateProfileManager(ppprofilemanager: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateProfileManager(ppprofilemanager: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager")
 
-public actual fun wMCreateReader(punkcert: COpaquePointer?, dwrights: UInt, ppreader: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppreader: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader")
 
-public actual fun wMCreateSyncReader(punkcert: COpaquePointer?, dwrights: UInt, ppsyncreader: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateSyncReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppsyncreader: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader")
 
-public actual fun wMCreateWriter(punkcert: COpaquePointer?, ppwriter: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateWriter(punkcert: MutPtr<CVoid>, ppwriter: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter")
 
-public actual fun wMCreateWriterFileSink(ppsink: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateWriterFileSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink")
 
-public actual fun wMCreateWriterNetworkSink(ppsink: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateWriterNetworkSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink")
 
-public actual fun wMCreateWriterPushSink(ppsink: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMCreateWriterPushSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink")
 
-public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: MutPtr<Bool>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected")

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpAddFragmentToCache(void* requestqueuehandle, void* urlprefix, void* datachunk, void* cachepolicy, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpAddFragmentToCache(void* requestqueuehandle, void* urlprefix, void* datachunk, void* cachepolicy, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpAddFragmentToCache(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpAddUrl(void* requestqueuehandle, void* fullyqualifiedurl, void* reserved) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpAddUrl(void* requestqueuehandle, void* fullyqualifiedurl, void* reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpAddUrl(void* request
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpAddUrlToUrlGroup(uint64_t urlgroupid, void* pfullyqualifiedurl, uint64_t urlcontext, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpAddUrlToUrlGroup(uint64_t urlgroupid, void* pfullyqualifiedurl, uint64_t urlcontext, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -90,7 +90,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpAddUrlToUrlGroup(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpCancelHttpRequest(void* requestqueuehandle, uint64_t requestid, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpCancelHttpRequest(void* requestqueuehandle, uint64_t requestid, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -114,7 +114,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpCancelHttpRequest(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpCloseRequestQueue(void* requestqueuehandle) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpCloseRequestQueue(void* requestqueuehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpCloseRequestQueue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpCloseServerSession(uint64_t serversessionid) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpCloseServerSession(uint64_t serversessionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpCloseServerSession(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpCloseUrlGroup(uint64_t urlgroupid) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpCloseUrlGroup(uint64_t urlgroupid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -180,7 +180,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpCloseUrlGroup(uint64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpCreateHttpHandle(void* requestqueuehandle, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpCreateHttpHandle(void* requestqueuehandle, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpCreateHttpHandle(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpCreateUrlGroup(uint64_t serversessionid, void* purlgroupid, uint32_t reserved) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpCreateUrlGroup(uint64_t serversessionid, void* purlgroupid, uint32_t reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpCreateUrlGroup(uint6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpDeclarePush(void* requestqueuehandle, uint64_t requestid, int32_t verb, void* path, void* query, void* headers) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpDeclarePush(void* requestqueuehandle, uint64_t requestid, int32_t verb, void* path, void* query, void* headers) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpDeclarePush(void* re
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpDelegateRequestEx(void* requestqueuehandle, void* delegatequeuehandle, uint64_t requestid, uint64_t delegateurlgroupid, uint32_t propertyinfosetsize, void* propertyinfoset) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpDelegateRequestEx(void* requestqueuehandle, void* delegatequeuehandle, uint64_t requestid, uint64_t delegateurlgroupid, uint32_t propertyinfosetsize, void* propertyinfoset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -281,7 +281,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpDelegateRequestEx(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpDeleteServiceConfiguration(void* servicehandle, int32_t configid, void* pconfiginformation, uint32_t configinformationlength, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpDeleteServiceConfiguration(void* servicehandle, int32_t configid, void* pconfiginformation, uint32_t configinformationlength, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -307,7 +307,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpDeleteServiceConfigu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpFindUrlGroupId(void* fullyqualifiedurl, void* requestqueuehandle, void* urlgroupid) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpFindUrlGroupId(void* fullyqualifiedurl, void* requestqueuehandle, void* urlgroupid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -331,7 +331,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpFindUrlGroupId(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpFlushResponseCache(void* requestqueuehandle, void* urlprefix, uint32_t flags, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpFlushResponseCache(void* requestqueuehandle, void* urlprefix, uint32_t flags, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -356,7 +356,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpFlushResponseCache(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_httpserver_httpIsFeatureSupported(int32_t featureid) {
+int32_t windowssysWindowsWin32NetworkingHttpserverHttpIsFeatureSupported(int32_t featureid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -378,7 +378,7 @@ int32_t windowssys_windows_win32_networking_httpserver_httpIsFeatureSupported(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpPrepareUrl(void* reserved, uint32_t flags, void* url, void* preparedurl) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpPrepareUrl(void* reserved, uint32_t flags, void* url, void* preparedurl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpPrepareUrl(void* res
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpQueryRequestQueueProperty(void* requestqueuehandle, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, uint32_t reserved1, void* returnlength, void* reserved2) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpQueryRequestQueueProperty(void* requestqueuehandle, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, uint32_t reserved1, void* returnlength, void* reserved2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -431,7 +431,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpQueryRequestQueuePro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpQueryServerSessionProperty(uint64_t serversessionid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, void* returnlength) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpQueryServerSessionProperty(uint64_t serversessionid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -457,7 +457,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpQueryServerSessionPr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpQueryServiceConfiguration(void* servicehandle, int32_t configid, void* pinput, uint32_t inputlength, void* poutput, uint32_t outputlength, void* preturnlength, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpQueryServiceConfiguration(void* servicehandle, int32_t configid, void* pinput, uint32_t inputlength, void* poutput, uint32_t outputlength, void* preturnlength, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -486,7 +486,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpQueryServiceConfigur
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpQueryUrlGroupProperty(uint64_t urlgroupid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, void* returnlength) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpQueryUrlGroupProperty(uint64_t urlgroupid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -512,7 +512,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpQueryUrlGroupPropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpReadFragmentFromCache(void* requestqueuehandle, void* urlprefix, void* byterange, void* buffer, uint32_t bufferlength, void* bytesread, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpReadFragmentFromCache(void* requestqueuehandle, void* urlprefix, void* byterange, void* buffer, uint32_t bufferlength, void* bytesread, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -540,7 +540,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpReadFragmentFromCach
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpReceiveClientCertificate(void* requestqueuehandle, uint64_t connectionid, uint32_t flags, void* sslclientcertinfo, uint32_t sslclientcertinfosize, void* bytesreceived, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpReceiveClientCertificate(void* requestqueuehandle, uint64_t connectionid, uint32_t flags, void* sslclientcertinfo, uint32_t sslclientcertinfosize, void* bytesreceived, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -568,7 +568,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpReceiveClientCertifi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpReceiveHttpRequest(void* requestqueuehandle, uint64_t requestid, uint32_t flags, void* requestbuffer, uint32_t requestbufferlength, void* bytesreturned, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpReceiveHttpRequest(void* requestqueuehandle, uint64_t requestid, uint32_t flags, void* requestbuffer, uint32_t requestbufferlength, void* bytesreturned, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpReceiveHttpRequest(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpReceiveRequestEntityBody(void* requestqueuehandle, uint64_t requestid, uint32_t flags, void* entitybuffer, uint32_t entitybufferlength, void* bytesreturned, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpReceiveRequestEntityBody(void* requestqueuehandle, uint64_t requestid, uint32_t flags, void* entitybuffer, uint32_t entitybufferlength, void* bytesreturned, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -624,7 +624,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpReceiveRequestEntity
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpRemoveUrl(void* requestqueuehandle, void* fullyqualifiedurl) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpRemoveUrl(void* requestqueuehandle, void* fullyqualifiedurl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -647,7 +647,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpRemoveUrl(void* requ
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpRemoveUrlFromUrlGroup(uint64_t urlgroupid, void* pfullyqualifiedurl, uint32_t flags) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpRemoveUrlFromUrlGroup(uint64_t urlgroupid, void* pfullyqualifiedurl, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -671,7 +671,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpRemoveUrlFromUrlGrou
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSendHttpResponse(void* requestqueuehandle, uint64_t requestid, uint32_t flags, void* httpresponse, void* cachepolicy, void* bytessent, void* reserved1, uint32_t reserved2, void* overlapped, void* logdata) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSendHttpResponse(void* requestqueuehandle, uint64_t requestid, uint32_t flags, void* httpresponse, void* cachepolicy, void* bytessent, void* reserved1, uint32_t reserved2, void* overlapped, void* logdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -702,7 +702,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSendHttpResponse(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSendResponseEntityBody(void* requestqueuehandle, uint64_t requestid, uint32_t flags, uint16_t entitychunkcount, void* entitychunks, void* bytessent, void* reserved1, uint32_t reserved2, void* overlapped, void* logdata) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSendResponseEntityBody(void* requestqueuehandle, uint64_t requestid, uint32_t flags, uint16_t entitychunkcount, void* entitychunks, void* bytessent, void* reserved1, uint32_t reserved2, void* overlapped, void* logdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint16_t, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -733,7 +733,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSendResponseEntityBo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSetRequestProperty(void* requestqueuehandle, uint64_t id, int32_t propertyid, void* input, uint32_t inputpropertysize, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSetRequestProperty(void* requestqueuehandle, uint64_t id, int32_t propertyid, void* input, uint32_t inputpropertysize, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -760,7 +760,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSetRequestProperty(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSetRequestQueueProperty(void* requestqueuehandle, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, uint32_t reserved1, void* reserved2) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSetRequestQueueProperty(void* requestqueuehandle, int32_t property, void* propertyinformation, uint32_t propertyinformationlength, uint32_t reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -787,7 +787,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSetRequestQueuePrope
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSetServerSessionProperty(uint64_t serversessionid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSetServerSessionProperty(uint64_t serversessionid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -812,7 +812,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSetServerSessionProp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSetServiceConfiguration(void* servicehandle, int32_t configid, void* pconfiginformation, uint32_t configinformationlength, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSetServiceConfiguration(void* servicehandle, int32_t configid, void* pconfiginformation, uint32_t configinformationlength, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -838,7 +838,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSetServiceConfigurat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpSetUrlGroupProperty(uint64_t urlgroupid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpSetUrlGroupProperty(uint64_t urlgroupid, int32_t property, void* propertyinformation, uint32_t propertyinformationlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -863,7 +863,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpSetUrlGroupProperty(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpShutdownRequestQueue(void* requestqueuehandle) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpShutdownRequestQueue(void* requestqueuehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -885,7 +885,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpShutdownRequestQueue
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpTerminate(uint32_t flags, void* preserved) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpTerminate(uint32_t flags, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -908,7 +908,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpTerminate(uint32_t f
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpUpdateServiceConfiguration(void* handle, int32_t configid, void* configinfo, uint32_t configinfolength, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpUpdateServiceConfiguration(void* handle, int32_t configid, void* configinfo, uint32_t configinfolength, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -934,7 +934,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpUpdateServiceConfigu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpWaitForDemandStart(void* requestqueuehandle, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpWaitForDemandStart(void* requestqueuehandle, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -957,7 +957,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpWaitForDemandStart(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpWaitForDisconnect(void* requestqueuehandle, uint64_t connectionid, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpWaitForDisconnect(void* requestqueuehandle, uint64_t connectionid, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -981,7 +981,7 @@ uint32_t windowssys_windows_win32_networking_httpserver_httpWaitForDisconnect(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_httpserver_httpWaitForDisconnectEx(void* requestqueuehandle, uint64_t connectionid, uint32_t reserved, void* overlapped) {
+uint32_t windowssysWindowsWin32NetworkingHttpserverHttpWaitForDisconnectEx(void* requestqueuehandle, uint64_t connectionid, uint32_t reserved, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

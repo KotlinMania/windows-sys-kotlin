@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,1692 +13,1693 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.In6Addr
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.MibIpmcastMfe
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32NetworkmanagementRrasNapiAddon(): Boolean
+private external fun initWindowsWin32NetworkmanagementRrasNapiAddon(): Boolean
 
-private val _windowsWin32NetworkmanagementRrasNapiAvailable: Boolean = _initWindowsWin32NetworkmanagementRrasNapiAddon()
+private val windowsWin32NetworkmanagementRrasNapiAvailable: Boolean = initWindowsWin32NetworkmanagementRrasNapiAddon()
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmAddGroupMembershipEntry(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmAddGroupMembershipEntry(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmDeRegisterMProtocol(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmDeRegisterMProtocol(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetMfe(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetMfe(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetMfe(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetMfe(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface(p0: Int, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface(p0: Int, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership(p0: String, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmReleaseInterfaceOwnership(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmReleaseInterfaceOwnership(p0: String, p1: Int, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership(p0: String, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership(p0: String, p1: Int, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionRemoveQuarantine(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionRemoveQuarantine(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminGetPDCServer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminGetPDCServer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdatePhonebookInfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdatePhonebookInfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerDisconnect(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerDisconnect(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortClearStats(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortClearStats(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortReset(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortReset(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminRegisterConnectionNotification(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminRegisterConnectionNotification(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigGetFriendlyName(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigGetFriendlyName(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRefresh(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerRefresh(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoCreate(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoCreate(p0: Int, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoDelete(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoDelete(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoDelete(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoDelete(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasClearConnectionStatistics(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasClearConnectionStatistics(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasClearLinkStatistics(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasClearLinkStatistics(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationA(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationW(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryA(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDialA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDialA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDialDlgA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialDlgA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDialDlgA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialDlgA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDialDlgW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialDlgW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDialDlgW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialDlgW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasDialW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasDialW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA(p0: Int, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringA(p0: Int, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW(p0: Int, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW(p0: Int, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetPCscf(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetPCscf(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetPCscf(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetPCscf(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasHangUpA(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasHangUpA(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasHangUpA(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasHangUpA(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasHangUpW(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasHangUpW(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasHangUpW(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasHangUpW(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasRenameEntryA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableA(p0: Int, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW(p0: Int, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA(p0: Int, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA(p0: Int, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW(p0: Int, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW(p0: Int, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String, p7: Int, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String, p7: Int, p8: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterEntity(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeregisterEntity(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmLockDestination(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmLockDestination(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmLockDestination(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmLockDestination(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmLockRoute(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmLockRoute(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmLockRoute(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmLockRoute(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
 
 public actual fun mgmAddGroupMembershipEntry(hprotocol: Handle, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry((hprotocol?.value ?: 0L).toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmAddGroupMembershipEntry(hprotocol.rawAddress.toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mgmDeRegisterMProtocol(hprotocol: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol((hprotocol?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmDeRegisterMProtocol(hprotocol.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mgmDeleteGroupMembershipEntry(hprotocol: Handle, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry((hprotocol?.value ?: 0L).toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry(hprotocol.rawAddress.toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetFirstMfe(pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe((pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetFirstMfe(pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe(pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString(), pdwnumentries.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetFirstMfeStats(pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats((pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetFirstMfeStats(pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>, dwflags: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats(pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString(), pdwnumentries.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetMfe(pimm: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetMfe((pimm?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetMfe(pimm: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetMfe(pimm.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetMfeStats(pimm: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats((pimm?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetMfeStats(pimm: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, dwflags: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats(pimm.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetNextMfe(pimmstart: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe((pimmstart?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetNextMfe(pimmstart: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe(pimmstart.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString(), pdwnumentries.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetNextMfeStats(pimmstart: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats((pimmstart?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetNextMfeStats(pimmstart: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>, dwflags: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats(pimmstart.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString(), pdwnumentries.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdwifprotocolid: COpaquePointer?, pdwifcomponentid: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface(dwifindex.toInt(), dwifnexthopaddr.toInt(), (pdwifprotocolid?.value ?: 0L).toString(), (pdwifcomponentid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdwifprotocolid: MutPtr<UInt>, pdwifcomponentid: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface(dwifindex.toInt(), dwifnexthopaddr.toInt(), pdwifprotocolid.rawAddress.toString(), pdwifcomponentid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mgmGroupEnumerationEnd(henum: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd((henum?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd(henum.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGroupEnumerationGetNext(henum: Handle, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext((henum?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGroupEnumerationGetNext(henum: Handle, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext(henum.rawAddress.toString(), pdwbuffersize.rawAddress.toString(), pbbuffer.rawAddress.toString(), pdwnumentries.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmGroupEnumerationStart(hprotocol: Handle, metenumtype: MgmEnumTypes, phenumhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart((hprotocol?.value ?: 0L).toString(), metenumtype, (phenumhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmGroupEnumerationStart(hprotocol: Handle, metenumtype: MgmEnumTypes, phenumhandle: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart(hprotocol.rawAddress.toString(), metenumtype, phenumhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mgmRegisterMProtocol(prpiinfo: COpaquePointer?, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol((prpiinfo?.value ?: 0L).toString(), dwprotocolid.toInt(), dwcomponentid.toInt(), (phprotocol?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mgmRegisterMProtocol(prpiinfo: MutPtr<RoutingProtocolConfig>, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol(prpiinfo.rawAddress.toString(), dwprotocolid.toInt(), dwcomponentid.toInt(), phprotocol.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mgmReleaseInterfaceOwnership(hprotocol: Handle, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership((hprotocol?.value ?: 0L).toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmReleaseInterfaceOwnership(hprotocol.rawAddress.toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mgmTakeInterfaceOwnership(hprotocol: Handle, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership((hprotocol?.value ?: 0L).toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership(hprotocol.rawAddress.toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminBufferFree(pbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree((pbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminBufferFree(pbuffer: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree(pbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminConnectionClearStats(hrasserver: Long, hrasconnection: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats(hrasserver.toString(), (hrasconnection?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats(hrasserver.toString(), hrasconnection.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum(hrasserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum(hrasserver.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString(), dwprefmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: COpaquePointer?, dwpreferedmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, pprasconn: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx(hrasserver.toString(), (pobjectheader?.value ?: 0L).toString(), dwpreferedmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (pprasconn?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: ConstPtr<MprapiObjectHeader>, dwpreferedmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, pprasconn: MutPtr<MutPtr<RasConnectionEx>>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx(hrasserver.toString(), pobjectheader.rawAddress.toString(), dwpreferedmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), pprasconn.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo(hrasserver.toString(), dwlevel.toInt(), (hrasconnection?.value ?: 0L).toString(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo(hrasserver.toString(), dwlevel.toInt(), hrasconnection.rawAddress.toString(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: Handle, prasconnection: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx(hrasserver.toString(), (hrasconnection?.value ?: 0L).toString(), (prasconnection?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: Handle, prasconnection: MutPtr<RasConnectionEx>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx(hrasserver.toString(), hrasconnection.rawAddress.toString(), prasconnection.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminConnectionRemoveQuarantine(hrasserver: Handle, hrasconnection: Handle, fisipaddress: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine((hrasserver?.value ?: 0L).toString(), (hrasconnection?.value ?: 0L).toString(), fisipaddress).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionRemoveQuarantine(hrasserver.rawAddress.toString(), hrasconnection.rawAddress.toString(), fisipaddress).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminDeregisterConnectionNotification(hmprserver: Long, heventnotification: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification(hmprserver.toString(), (heventnotification?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification(hmprserver.toString(), heventnotification.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?, lpdwtotalentries: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>, lpdwtotalentries: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString(), lpdwtotalentries.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminEstablishDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, benable: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer((pszdomain?.value ?: 0L).toString(), (pszmachine?.value ?: 0L).toString(), benable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer(pszdomain.rawAddress.toString(), pszmachine.rawAddress.toString(), benable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminGetErrorString(dwerror: UInt, lplpwserrorstring: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString(dwerror.toInt(), (lplpwserrorstring?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminGetErrorString(dwerror: UInt, lplpwserrorstring: MutPtr<Pwstr>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString(dwerror.toInt(), lplpwserrorstring.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminGetPDCServer(lpszdomain: Pcwstr, lpszserver: Pcwstr, lpszpdcserver: Pwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer((lpszdomain?.value ?: 0L).toString(), (lpszserver?.value ?: 0L).toString(), (lpszpdcserver?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminGetPDCServer(lpszdomain.rawAddress.toString(), lpszserver.rawAddress.toString(), lpszpdcserver.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceConnect(hmprserver: Long, hinterface: Handle, hevent: Handle, fsynchronous: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), fsynchronous).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect(hmprserver.toString(), hinterface.rawAddress.toString(), hevent.rawAddress.toString(), fsynchronous).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?, phinterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString(), (phinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>, phinterface: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString(), phinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceDelete(hmprserver: Long, hinterface: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete(hmprserver.toString(), (hinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete(hmprserver.toString(), hinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lplpbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwindex.toInt(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo(hmprserver.toString(), hinterface.rawAddress.toString(), dwindex.toInt(), dwlevel.toInt(), lplpbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwindex.toInt(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo(hmprserver.toString(), hinterface.rawAddress.toString(), dwindex.toInt(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceDisconnect(hmprserver: Long, hinterface: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect(hmprserver.toString(), (hinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect(hmprserver.toString(), hinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString(), dwprefmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceGetCredentials(lpwsserver: Pcwstr, lpwsinterfacename: Pcwstr, lpwsusername: Pwstr, lpwspassword: Pwstr, lpwsdomainname: Pwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials((lpwsserver?.value ?: 0L).toString(), (lpwsinterfacename?.value ?: 0L).toString(), (lpwsusername?.value ?: 0L).toString(), (lpwspassword?.value ?: 0L).toString(), (lpwsdomainname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials(lpwsserver.rawAddress.toString(), lpwsinterfacename.rawAddress.toString(), lpwsusername.rawAddress.toString(), lpwspassword.rawAddress.toString(), lpwsdomainname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx(hmprserver.toString(), hinterface.rawAddress.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: MutPtr<MprIfCustominfoex2>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx(hmprserver.toString(), hinterface.rawAddress.toString(), pcustominfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: Pcwstr, phinterface: COpaquePointer?, fincludeclientinterfaces: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle(hmprserver.toString(), (lpwsinterfacename?.value ?: 0L).toString(), (phinterface?.value ?: 0L).toString(), fincludeclientinterfaces).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: Pcwstr, phinterface: MutPtr<Handle>, fincludeclientinterfaces: Bool): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle(hmprserver.toString(), lpwsinterfacename.rawAddress.toString(), phinterface.rawAddress.toString(), fincludeclientinterfaces).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceGetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceGetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: ConstPtr<ConstPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo(hmprserver.toString(), hinterface.rawAddress.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, lpdwupdateresult: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwprotocolid.toInt(), (lpdwupdateresult?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, lpdwupdateresult: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult(hmprserver.toString(), hinterface.rawAddress.toString(), dwprotocolid.toInt(), lpdwupdateresult.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceSetCredentials(lpwsserver: Pcwstr, lpwsinterfacename: Pcwstr, lpwsusername: Pcwstr, lpwsdomainname: Pcwstr, lpwspassword: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials((lpwsserver?.value ?: 0L).toString(), (lpwsinterfacename?.value ?: 0L).toString(), (lpwsusername?.value ?: 0L).toString(), (lpwsdomainname?.value ?: 0L).toString(), (lpwspassword?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials(lpwsserver.rawAddress.toString(), lpwsinterfacename.rawAddress.toString(), lpwsusername.rawAddress.toString(), lpwsdomainname.rawAddress.toString(), lpwspassword.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx(hmprserver.toString(), hinterface.rawAddress.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: ConstPtr<MprIfCustominfoex2>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx(hmprserver.toString(), hinterface.rawAddress.toString(), pcustominfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceSetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceSetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo(hmprserver.toString(), hinterface.rawAddress.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd(hmprserver.toString(), hinterface.rawAddress.toString(), dwtransportid.toInt(), pinterfaceinfo.rawAddress.toString(), dwinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, ppinterfaceinfo: COpaquePointer?, lpdwinterfaceinfosize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (ppinterfaceinfo?.value ?: 0L).toString(), (lpdwinterfaceinfosize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, ppinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwinterfaceinfosize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo(hmprserver.toString(), hinterface.rawAddress.toString(), dwtransportid.toInt(), ppinterfaceinfo.rawAddress.toString(), lpdwinterfaceinfosize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceTransportRemove(hmprserver: Long, hinterface: Handle, dwtransportid: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove(hmprserver.toString(), hinterface.rawAddress.toString(), dwtransportid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo(hmprserver.toString(), hinterface.rawAddress.toString(), dwtransportid.toInt(), pinterfaceinfo.rawAddress.toString(), dwinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterface: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdatePhonebookInfo(hmprserver.toString(), hinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminInterfaceUpdateRoutes(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, hevent: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwprotocolid.toInt(), (hevent?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes(hmprserver.toString(), hinterface.rawAddress.toString(), dwprotocolid.toInt(), hevent.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminIsDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, pbisrasserver: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer((pszdomain?.value ?: 0L).toString(), (pszmachine?.value ?: 0L).toString(), (pbisrasserver?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminIsDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, pbisrasserver: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer(pszdomain.rawAddress.toString(), pszmachine.rawAddress.toString(), pbisrasserver.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminIsServiceInitialized(lpwsservername: Pcwstr, fisserviceinitialized: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized((lpwsservername?.value ?: 0L).toString(), (fisserviceinitialized?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminIsServiceInitialized(lpwsservername: Pcwstr, fisserviceinitialized: ConstPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized(lpwsservername.rawAddress.toString(), fisserviceinitialized.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminIsServiceRunning(lpwsservername: Pcwstr): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning((lpwsservername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning(lpwsservername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBBufferFree(pbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree((pbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBBufferFree(pbuffer: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree(pbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBEntryCreate(hmibserver: Long, dwpid: UInt, dwroutingpid: UInt, lpentry: COpaquePointer?, dwentrysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate(hmibserver.toString(), dwpid.toInt(), dwroutingpid.toInt(), (lpentry?.value ?: 0L).toString(), dwentrysize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBEntryCreate(hmibserver: Long, dwpid: UInt, dwroutingpid: UInt, lpentry: ConstPtr<CVoid>, dwentrysize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate(hmibserver.toString(), dwpid.toInt(), dwroutingpid.toInt(), lpentry.rawAddress.toString(), dwentrysize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBEntryDelete(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: COpaquePointer?, dwentrysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpentry?.value ?: 0L).toString(), dwentrysize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBEntryDelete(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: ConstPtr<CVoid>, dwentrysize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpentry.rawAddress.toString(), dwentrysize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBEntryGet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: COpaquePointer?, dwinentrysize: UInt, lplpoutentry: COpaquePointer?, lpoutentrysize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpinentry?.value ?: 0L).toString(), dwinentrysize.toInt(), (lplpoutentry?.value ?: 0L).toString(), (lpoutentrysize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBEntryGet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr<CVoid>, dwinentrysize: UInt, lplpoutentry: MutPtr<MutPtr<CVoid>>, lpoutentrysize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.rawAddress.toString(), dwinentrysize.toInt(), lplpoutentry.rawAddress.toString(), lpoutentrysize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBEntryGetFirst(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: COpaquePointer?, dwinentrysize: UInt, lplpoutentry: COpaquePointer?, lpoutentrysize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpinentry?.value ?: 0L).toString(), dwinentrysize.toInt(), (lplpoutentry?.value ?: 0L).toString(), (lpoutentrysize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBEntryGetFirst(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr<CVoid>, dwinentrysize: UInt, lplpoutentry: MutPtr<MutPtr<CVoid>>, lpoutentrysize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.rawAddress.toString(), dwinentrysize.toInt(), lplpoutentry.rawAddress.toString(), lpoutentrysize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBEntryGetNext(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: COpaquePointer?, dwinentrysize: UInt, lplpoutentry: COpaquePointer?, lpoutentrysize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpinentry?.value ?: 0L).toString(), dwinentrysize.toInt(), (lplpoutentry?.value ?: 0L).toString(), (lpoutentrysize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBEntryGetNext(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr<CVoid>, dwinentrysize: UInt, lplpoutentry: MutPtr<MutPtr<CVoid>>, lpoutentrysize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.rawAddress.toString(), dwinentrysize.toInt(), lplpoutentry.rawAddress.toString(), lpoutentrysize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: COpaquePointer?, dwentrysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpentry?.value ?: 0L).toString(), dwentrysize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: ConstPtr<CVoid>, dwentrysize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpentry.rawAddress.toString(), dwentrysize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminMIBServerConnect(lpwsservername: Pcwstr, phmibserver: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect((lpwsservername?.value ?: 0L).toString(), (phmibserver?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminMIBServerConnect(lpwsservername: Pcwstr, phmibserver: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect(lpwsservername.rawAddress.toString(), phmibserver.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminMIBServerDisconnect(hmibserver: Long) {
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect(hmibserver.toString())
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerDisconnect(hmibserver.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun mprAdminPortClearStats(hrasserver: Long, hport: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats(hrasserver.toString(), (hport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortClearStats(hrasserver.toString(), hport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminPortDisconnect(hrasserver: Long, hport: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect(hrasserver.toString(), (hport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect(hrasserver.toString(), hport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum(hrasserver.toString(), dwlevel.toInt(), (hrasconnection?.value ?: 0L).toString(), (lplpbbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum(hrasserver.toString(), dwlevel.toInt(), hrasconnection.rawAddress.toString(), lplpbbuffer.rawAddress.toString(), dwprefmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: Handle, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo(hrasserver.toString(), dwlevel.toInt(), (hport?.value ?: 0L).toString(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: Handle, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo(hrasserver.toString(), dwlevel.toInt(), hport.rawAddress.toString(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminPortReset(hrasserver: Long, hport: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset(hrasserver.toString(), (hport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminPortReset(hrasserver.toString(), hport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminRegisterConnectionNotification(hmprserver: Long, heventnotification: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification(hmprserver.toString(), (heventnotification?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminRegisterConnectionNotification(hmprserver.toString(), heventnotification.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminSendUserMessage(hmprserver: Long, hconnection: Handle, lpwszmessage: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage(hmprserver.toString(), (hconnection?.value ?: 0L).toString(), (lpwszmessage?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage(hmprserver.toString(), hconnection.rawAddress.toString(), lpwszmessage.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminServerConnect(lpwsservername: Pcwstr, phmprserver: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect((lpwsservername?.value ?: 0L).toString(), (phmprserver?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerConnect(lpwsservername: Pcwstr, phmprserver: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect(lpwsservername.rawAddress.toString(), phmprserver.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprAdminServerDisconnect(hmprserver: Long) {
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect(hmprserver.toString())
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect(hmprserver.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun mprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: ConstPtr<ConstPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminServerGetInfo(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerGetInfo(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminServerGetInfoEx(hmprserver: Long, pserverinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx(hmprserver.toString(), (pserverinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerGetInfoEx(hmprserver: Long, pserverinfo: MutPtr<MprServerEx1>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx(hmprserver.toString(), pserverinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminServerSetCredentials(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerSetCredentials(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminServerSetInfoEx(hmprserver: Long, pserverinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx(hmprserver.toString(), (pserverinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminServerSetInfoEx(hmprserver: Long, pserverinfo: ConstPtr<MprServerSetConfigEx1>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx(hmprserver.toString(), pserverinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminTransportCreate(hmprserver: Long, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate(hmprserver.toString(), dwtransportid.toInt(), (lpwstransportname?.value ?: 0L).toString(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt(), (lpwsdllpath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminTransportCreate(hmprserver: Long, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate(hmprserver.toString(), dwtransportid.toInt(), lpwstransportname.rawAddress.toString(), pglobalinfo.rawAddress.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress.toString(), dwclientinterfaceinfosize.toInt(), lpwsdllpath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminTransportGetInfo(hmprserver: Long, dwtransportid: UInt, ppglobalinfo: COpaquePointer?, lpdwglobalinfosize: COpaquePointer?, ppclientinterfaceinfo: COpaquePointer?, lpdwclientinterfaceinfosize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo(hmprserver.toString(), dwtransportid.toInt(), (ppglobalinfo?.value ?: 0L).toString(), (lpdwglobalinfosize?.value ?: 0L).toString(), (ppclientinterfaceinfo?.value ?: 0L).toString(), (lpdwclientinterfaceinfosize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminTransportGetInfo(hmprserver: Long, dwtransportid: UInt, ppglobalinfo: MutPtr<MutPtr<UByte>>, lpdwglobalinfosize: MutPtr<UInt>, ppclientinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwclientinterfaceinfosize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo(hmprserver.toString(), dwtransportid.toInt(), ppglobalinfo.rawAddress.toString(), lpdwglobalinfosize.rawAddress.toString(), ppclientinterfaceinfo.rawAddress.toString(), lpdwclientinterfaceinfosize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo(hmprserver.toString(), dwtransportid.toInt(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo(hmprserver.toString(), dwtransportid.toInt(), pglobalinfo.rawAddress.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress.toString(), dwclientinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminUpdateConnection(hrasserver: Long, hrasconnection: Handle, prasupdateconnection: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection(hrasserver.toString(), (hrasconnection?.value ?: 0L).toString(), (prasupdateconnection?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminUpdateConnection(hrasserver: Long, hrasconnection: Handle, prasupdateconnection: ConstPtr<RasUpdateConnection>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection(hrasserver.toString(), hrasconnection.rawAddress.toString(), prasupdateconnection.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminUserGetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo((lpszserver?.value ?: 0L).toString(), (lpszuser?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminUserGetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: MutPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo(lpszserver.rawAddress.toString(), lpszuser.rawAddress.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprAdminUserSetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo((lpszserver?.value ?: 0L).toString(), (lpszuser?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprAdminUserSetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo(lpszserver.rawAddress.toString(), lpszuser.rawAddress.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigBufferFree(pbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree((pbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigBufferFree(pbuffer: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree(pbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigFilterGetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), dwtransportid.toInt(), (lpbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigFilterGetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: MutPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo(hmprconfig.rawAddress.toString(), dwlevel.toInt(), dwtransportid.toInt(), lpbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigFilterSetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), dwtransportid.toInt(), (lpbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigFilterSetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo(hmprconfig.rawAddress.toString(), dwlevel.toInt(), dwtransportid.toInt(), lpbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigGetFriendlyName(hmprconfig: Handle, pszguidname: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName((hmprconfig?.value ?: 0L).toString(), (pszguidname?.value ?: 0L).toString(), (pszbuffer?.value ?: 0L).toString(), dwbuffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigGetFriendlyName(hmprconfig.rawAddress.toString(), pszguidname.rawAddress.toString(), pszbuffer.rawAddress.toString(), dwbuffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigGetGuidName(hmprconfig: Handle, pszfriendlyname: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName((hmprconfig?.value ?: 0L).toString(), (pszfriendlyname?.value ?: 0L).toString(), (pszbuffer?.value ?: 0L).toString(), dwbuffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName(hmprconfig.rawAddress.toString(), pszfriendlyname.rawAddress.toString(), pszbuffer.rawAddress.toString(), dwbuffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceCreate(hmprconfig: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?, phrouterinterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString(), (phrouterinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceCreate(hmprconfig: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>, phrouterinterface: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate(hmprconfig.rawAddress.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString(), phrouterinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigInterfaceDelete(hmprconfig: Handle, hrouterinterface: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum(hmprconfig.rawAddress.toString(), dwlevel.toInt(), lplpbuffer.rawAddress.toString(), dwprefmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceGetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceGetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: MutPtr<MprIfCustominfoex2>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), pcustominfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceGetHandle(hmprconfig: Handle, lpwsinterfacename: Pcwstr, phrouterinterface: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle((hmprconfig?.value ?: 0L).toString(), (lpwsinterfacename?.value ?: 0L).toString(), (phrouterinterface?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceGetHandle(hmprconfig: Handle, lpwsinterfacename: Pcwstr, phrouterinterface: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle(hmprconfig.rawAddress.toString(), lpwsinterfacename.rawAddress.toString(), phrouterinterface.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceGetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, lpdwbuffersize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), (lpdwbuffersize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceGetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, lpdwbuffersize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), dwlevel.toInt(), lplpbuffer.rawAddress.toString(), lpdwbuffersize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceSetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceSetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: ConstPtr<MprIfCustominfoex2>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), pcustominfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceSetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceSetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceTransportAdd(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt, phrouteriftransport: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (lpwstransportname?.value ?: 0L).toString(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt(), (phrouteriftransport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceTransportAdd(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt, phrouteriftransport: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), dwtransportid.toInt(), lpwstransportname.rawAddress.toString(), pinterfaceinfo.rawAddress.toString(), dwinterfaceinfosize.toInt(), phrouteriftransport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceTransportEnum(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceTransportEnum(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), dwlevel.toInt(), lplpbuffer.rawAddress.toString(), dwprefmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceTransportGetHandle(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, phrouteriftransport: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (phrouteriftransport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceTransportGetHandle(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, phrouteriftransport: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), dwtransportid.toInt(), phrouteriftransport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceTransportGetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, ppinterfaceinfo: COpaquePointer?, lpdwinterfaceinfosize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (hrouteriftransport?.value ?: 0L).toString(), (ppinterfaceinfo?.value ?: 0L).toString(), (lpdwinterfaceinfosize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceTransportGetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, ppinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwinterfaceinfosize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), hrouteriftransport.rawAddress.toString(), ppinterfaceinfo.rawAddress.toString(), lpdwinterfaceinfosize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigInterfaceTransportRemove(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (hrouteriftransport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), hrouteriftransport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigInterfaceTransportSetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (hrouteriftransport?.value ?: 0L).toString(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigInterfaceTransportSetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo(hmprconfig.rawAddress.toString(), hrouterinterface.rawAddress.toString(), hrouteriftransport.rawAddress.toString(), pinterfaceinfo.rawAddress.toString(), dwinterfaceinfosize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigServerBackup(hmprconfig: Handle, lpwspath: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup((hmprconfig?.value ?: 0L).toString(), (lpwspath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup(hmprconfig.rawAddress.toString(), lpwspath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigServerConnect(lpwsservername: Pcwstr, phmprconfig: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect((lpwsservername?.value ?: 0L).toString(), (phmprconfig?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigServerConnect(lpwsservername: Pcwstr, phmprconfig: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect(lpwsservername.rawAddress.toString(), phmprconfig.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigServerDisconnect(hmprconfig: Handle) {
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect((hmprconfig?.value ?: 0L).toString())
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect(hmprconfig.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun mprConfigServerGetInfo(hmprconfig: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigServerGetInfo(hmprconfig: Handle, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo(hmprconfig.rawAddress.toString(), dwlevel.toInt(), lplpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigServerGetInfoEx(hmprconfig: Handle, pserverinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx((hmprconfig?.value ?: 0L).toString(), (pserverinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigServerGetInfoEx(hmprconfig: Handle, pserverinfo: MutPtr<MprServerEx1>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx(hmprconfig.rawAddress.toString(), pserverinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigServerInstall(dwlevel: UInt, pbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall(dwlevel.toInt(), (pbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigServerInstall(dwlevel: UInt, pbuffer: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall(dwlevel.toInt(), pbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigServerRefresh(hmprconfig: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh((hmprconfig?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerRefresh(hmprconfig.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigServerRestore(hmprconfig: Handle, lpwspath: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore((hmprconfig?.value ?: 0L).toString(), (lpwspath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore(hmprconfig.rawAddress.toString(), lpwspath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigServerSetInfoEx(hmprconfig: Handle, psetserverconfig: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx((hmprconfig?.value ?: 0L).toString(), (psetserverconfig?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigServerSetInfoEx(hmprconfig: Handle, psetserverconfig: ConstPtr<MprServerSetConfigEx1>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx(hmprconfig.rawAddress.toString(), psetserverconfig.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigTransportCreate(hmprconfig: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr, phroutertransport: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate((hmprconfig?.value ?: 0L).toString(), dwtransportid.toInt(), (lpwstransportname?.value ?: 0L).toString(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt(), (lpwsdllpath?.value ?: 0L).toString(), (phroutertransport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigTransportCreate(hmprconfig: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr, phroutertransport: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate(hmprconfig.rawAddress.toString(), dwtransportid.toInt(), lpwstransportname.rawAddress.toString(), pglobalinfo.rawAddress.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress.toString(), dwclientinterfaceinfosize.toInt(), lpwsdllpath.rawAddress.toString(), phroutertransport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mprConfigTransportDelete(hmprconfig: Handle, hroutertransport: Handle): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete((hmprconfig?.value ?: 0L).toString(), (hroutertransport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete(hmprconfig.rawAddress.toString(), hroutertransport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigTransportEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigTransportEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum(hmprconfig.rawAddress.toString(), dwlevel.toInt(), lplpbuffer.rawAddress.toString(), dwprefmaxlen.toInt(), lpdwentriesread.rawAddress.toString(), lpdwtotalentries.rawAddress.toString(), lpdwresumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigTransportGetHandle(hmprconfig: Handle, dwtransportid: UInt, phroutertransport: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle((hmprconfig?.value ?: 0L).toString(), dwtransportid.toInt(), (phroutertransport?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigTransportGetHandle(hmprconfig: Handle, dwtransportid: UInt, phroutertransport: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle(hmprconfig.rawAddress.toString(), dwtransportid.toInt(), phroutertransport.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigTransportGetInfo(hmprconfig: Handle, hroutertransport: Handle, ppglobalinfo: COpaquePointer?, lpdwglobalinfosize: COpaquePointer?, ppclientinterfaceinfo: COpaquePointer?, lpdwclientinterfaceinfosize: COpaquePointer?, lplpwsdllpath: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo((hmprconfig?.value ?: 0L).toString(), (hroutertransport?.value ?: 0L).toString(), (ppglobalinfo?.value ?: 0L).toString(), (lpdwglobalinfosize?.value ?: 0L).toString(), (ppclientinterfaceinfo?.value ?: 0L).toString(), (lpdwclientinterfaceinfosize?.value ?: 0L).toString(), (lplpwsdllpath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigTransportGetInfo(hmprconfig: Handle, hroutertransport: Handle, ppglobalinfo: MutPtr<MutPtr<UByte>>, lpdwglobalinfosize: MutPtr<UInt>, ppclientinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwclientinterfaceinfosize: MutPtr<UInt>, lplpwsdllpath: MutPtr<Pwstr>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo(hmprconfig.rawAddress.toString(), hroutertransport.rawAddress.toString(), ppglobalinfo.rawAddress.toString(), lpdwglobalinfosize.rawAddress.toString(), ppclientinterfaceinfo.rawAddress.toString(), lpdwclientinterfaceinfosize.rawAddress.toString(), lplpwsdllpath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprConfigTransportSetInfo(hmprconfig: Handle, hroutertransport: Handle, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo((hmprconfig?.value ?: 0L).toString(), (hroutertransport?.value ?: 0L).toString(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt(), (lpwsdllpath?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprConfigTransportSetInfo(hmprconfig: Handle, hroutertransport: Handle, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo(hmprconfig.rawAddress.toString(), hroutertransport.rawAddress.toString(), pglobalinfo.rawAddress.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress.toString(), dwclientinterfaceinfosize.toInt(), lpwsdllpath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoBlockAdd(lpheader: COpaquePointer?, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), (lpitemdata?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoBlockAdd(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: ConstPtr<UByte>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd(lpheader.rawAddress.toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), lpitemdata.rawAddress.toString(), lplpnewheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoBlockFind(lpheader: COpaquePointer?, dwinfotype: UInt, lpdwitemsize: COpaquePointer?, lpdwitemcount: COpaquePointer?, lplpitemdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), (lpdwitemsize?.value ?: 0L).toString(), (lpdwitemcount?.value ?: 0L).toString(), (lplpitemdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoBlockFind(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, lpdwitemsize: MutPtr<UInt>, lpdwitemcount: MutPtr<UInt>, lplpitemdata: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind(lpheader.rawAddress.toString(), dwinfotype.toInt(), lpdwitemsize.rawAddress.toString(), lpdwitemcount.rawAddress.toString(), lplpitemdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoBlockQuerySize(lpheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize((lpheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoBlockQuerySize(lpheader: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize(lpheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoBlockRemove(lpheader: COpaquePointer?, dwinfotype: UInt, lplpnewheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), (lplpnewheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoBlockRemove(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove(lpheader.rawAddress.toString(), dwinfotype.toInt(), lplpnewheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoBlockSet(lpheader: COpaquePointer?, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), (lpitemdata?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoBlockSet(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: ConstPtr<UByte>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet(lpheader.rawAddress.toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), lpitemdata.rawAddress.toString(), lplpnewheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoCreate(dwversion: UInt, lplpnewheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoCreate(dwversion.toInt(), (lplpnewheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoCreate(dwversion: UInt, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoCreate(dwversion.toInt(), lplpnewheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoDelete(lpheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoDelete((lpheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoDelete(lpheader: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoDelete(lpheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoDuplicate(lpheader: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate((lpheader?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoDuplicate(lpheader: ConstPtr<CVoid>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate(lpheader.rawAddress.toString(), lplpnewheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprInfoRemoveAll(lpheader: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll((lpheader?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mprInfoRemoveAll(lpheader: ConstPtr<CVoid>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll(lpheader.rawAddress.toString(), lplpnewheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasClearConnectionStatistics(hrasconn: Hrasconn): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics((hrasconn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasClearConnectionStatistics(hrasconn.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasClearLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics((hrasconn?.value ?: 0L).toString(), dwsubentry.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasClearLinkStatistics(hrasconn.rawAddress.toString(), dwsubentry.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasConnectionNotificationA(param0: Hrasconn, param1: Handle, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasConnectionNotificationW(param0: Hrasconn, param1: Handle, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasCreatePhonebookEntryA(param0: Hwnd, param1: Pcstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryA(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasCreatePhonebookEntryW(param0: Hwnd, param1: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryW(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasDeleteEntryA(param0: Pcstr, param1: Pcstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryA(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasDeleteEntryW(param0: Pcwstr, param1: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryW(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasDeleteSubEntryA(pszphonebook: Pcstr, pszentry: Pcstr, dwsubentryid: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwsubentryid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryA(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), dwsubentryid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasDeleteSubEntryW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwsubentryid: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwsubentryid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), dwsubentryid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasDialA(param0: COpaquePointer?, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasDialA(param0: ConstPtr<Rasdialextensions>, param1: Pcstr, param2: ConstPtr<Rasdialparamsa>, param3: UInt, param4: ConstPtr<CVoid>, param5: MutPtr<Hrasconn>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.toInt(), param4.rawAddress.toString(), param5.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasDialDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpszphonenumber: Pcstr, lpinfo: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialDlgA((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpszphonenumber?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasDialDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpszphonenumber: Pcstr, lpinfo: MutPtr<Rasdialdlg>): Bool =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialDlgA(lpszphonebook.rawAddress.toString(), lpszentry.rawAddress.toString(), lpszphonenumber.rawAddress.toString(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasDialDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpszphonenumber: Pcwstr, lpinfo: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialDlgW((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpszphonenumber?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasDialDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpszphonenumber: Pcwstr, lpinfo: MutPtr<Rasdialdlg>): Bool =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialDlgW(lpszphonebook.rawAddress.toString(), lpszentry.rawAddress.toString(), lpszphonenumber.rawAddress.toString(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasDialW(param0: COpaquePointer?, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasDialW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasDialW(param0: ConstPtr<Rasdialextensions>, param1: Pcwstr, param2: ConstPtr<Rasdialparamsw>, param3: UInt, param4: ConstPtr<CVoid>, param5: MutPtr<Hrasconn>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasDialW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.toInt(), param4.rawAddress.toString(), param5.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasEditPhonebookEntryA(param0: Hwnd, param1: Pcstr, param2: Pcstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasEditPhonebookEntryW(param0: Hwnd, param1: Pcwstr, param2: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEntryDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEntryDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: MutPtr<Rasentrydlga>): Bool =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA(lpszphonebook.rawAddress.toString(), lpszentry.rawAddress.toString(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEntryDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEntryDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: MutPtr<Rasentrydlgw>): Bool =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW(lpszphonebook.rawAddress.toString(), lpszentry.rawAddress.toString(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumAutodialAddressesA(lpprasautodialaddresses: COpaquePointer?, lpdwcbrasautodialaddresses: COpaquePointer?, lpdwcrasautodialaddresses: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA((lpprasautodialaddresses?.value ?: 0L).toString(), (lpdwcbrasautodialaddresses?.value ?: 0L).toString(), (lpdwcrasautodialaddresses?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumAutodialAddressesA(lpprasautodialaddresses: MutPtr<Pstr>, lpdwcbrasautodialaddresses: MutPtr<UInt>, lpdwcrasautodialaddresses: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA(lpprasautodialaddresses.rawAddress.toString(), lpdwcbrasautodialaddresses.rawAddress.toString(), lpdwcrasautodialaddresses.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumAutodialAddressesW(lpprasautodialaddresses: COpaquePointer?, lpdwcbrasautodialaddresses: COpaquePointer?, lpdwcrasautodialaddresses: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW((lpprasautodialaddresses?.value ?: 0L).toString(), (lpdwcbrasautodialaddresses?.value ?: 0L).toString(), (lpdwcrasautodialaddresses?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumAutodialAddressesW(lpprasautodialaddresses: MutPtr<Pwstr>, lpdwcbrasautodialaddresses: MutPtr<UInt>, lpdwcrasautodialaddresses: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW(lpprasautodialaddresses.rawAddress.toString(), lpdwcbrasautodialaddresses.rawAddress.toString(), lpdwcrasautodialaddresses.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumConnectionsA(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumConnectionsA(param0: MutPtr<Rasconna>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumConnectionsW(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumConnectionsW(param0: MutPtr<Rasconnw>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumDevicesA(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumDevicesA(param0: MutPtr<Rasdevinfoa>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumDevicesW(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumDevicesW(param0: MutPtr<Rasdevinfow>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumEntriesA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumEntriesA(param0: Pcstr, param1: Pcstr, param2: MutPtr<Rasentrynamea>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasEnumEntriesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasEnumEntriesW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<Rasentrynamew>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasFreeEapUserIdentityA(praseapuseridentity: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA((praseapuseridentity?.value ?: 0L).toString())
+public actual fun rasFreeEapUserIdentityA(praseapuseridentity: ConstPtr<Raseapuseridentitya>) {
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA(praseapuseridentity.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rasFreeEapUserIdentityW(praseapuseridentity: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW((praseapuseridentity?.value ?: 0L).toString())
+public actual fun rasFreeEapUserIdentityW(praseapuseridentity: ConstPtr<Raseapuseridentityw>) {
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW(praseapuseridentity.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun rasGetAutodialAddressA(param0: Pcstr, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetAutodialAddressA(param0: Pcstr, param1: ConstPtr<UInt>, param2: MutPtr<Rasautodialentrya>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetAutodialAddressW(param0: Pcwstr, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetAutodialAddressW(param0: Pcwstr, param1: ConstPtr<UInt>, param2: MutPtr<Rasautodialentryw>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetAutodialEnableA(param0: UInt, param1: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA(param0.toInt(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetAutodialEnableA(param0: UInt, param1: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA(param0.toInt(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetAutodialEnableW(param0: UInt, param1: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW(param0.toInt(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetAutodialEnableW(param0: UInt, param1: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW(param0.toInt(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetAutodialParamA(param0: UInt, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA(param0.toInt(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetAutodialParamA(param0: UInt, param1: MutPtr<CVoid>, param2: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA(param0.toInt(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetAutodialParamW(param0: UInt, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW(param0.toInt(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetAutodialParamW(param0: UInt, param1: MutPtr<CVoid>, param2: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW(param0.toInt(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetConnectStatusA(param0: Hrasconn, param1: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetConnectStatusA(param0: Hrasconn, param1: MutPtr<Rasconnstatusa>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetConnectStatusW(param0: Hrasconn, param1: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetConnectStatusW(param0: Hrasconn, param1: MutPtr<Rasconnstatusw>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetConnectionStatistics(hrasconn: Hrasconn, lpstatistics: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics((hrasconn?.value ?: 0L).toString(), (lpstatistics?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetConnectionStatistics(hrasconn: Hrasconn, lpstatistics: MutPtr<RasStats>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics(hrasconn.rawAddress.toString(), lpstatistics.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetCountryInfoA(param0: COpaquePointer?, param1: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetCountryInfoA(param0: MutPtr<Rasctryinfo>, param1: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetCountryInfoW(param0: COpaquePointer?, param1: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetCountryInfoW(param0: MutPtr<Rasctryinfo>, param1: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetCredentialsA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetCredentialsA(param0: Pcstr, param1: Pcstr, param2: MutPtr<Rascredentialsa>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<Rascredentialsw>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: COpaquePointer?, pdwsizeofcustomauthdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), (pdwsizeofcustomauthdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: MutPtr<UByte>, pdwsizeofcustomauthdata: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbcustomauthdata.rawAddress.toString(), pdwsizeofcustomauthdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: COpaquePointer?, pdwsizeofcustomauthdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), (pdwsizeofcustomauthdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: MutPtr<UByte>, pdwsizeofcustomauthdata: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbcustomauthdata.rawAddress.toString(), pdwsizeofcustomauthdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: COpaquePointer?, pdwsizeofeapdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), (pdwsizeofeapdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: MutPtr<UByte>, pdwsizeofeapdata: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA(htoken.rawAddress.toString(), pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbeapdata.rawAddress.toString(), pdwsizeofeapdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: COpaquePointer?, pdwsizeofeapdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), (pdwsizeofeapdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: MutPtr<UByte>, pdwsizeofeapdata: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW(htoken.rawAddress.toString(), pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbeapdata.rawAddress.toString(), pdwsizeofeapdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEapUserIdentityA(pszphonebook: Pcstr, pszentry: Pcstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (ppraseapuseridentity?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEapUserIdentityA(pszphonebook: Pcstr, pszentry: Pcstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: MutPtr<MutPtr<Raseapuseridentitya>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), dwflags.toInt(), hwnd.rawAddress.toString(), ppraseapuseridentity.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEapUserIdentityW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (ppraseapuseridentity?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEapUserIdentityW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: MutPtr<MutPtr<Raseapuseridentityw>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), dwflags.toInt(), hwnd.rawAddress.toString(), ppraseapuseridentity.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEntryDialParamsA(param0: Pcstr, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEntryDialParamsA(param0: Pcstr, param1: MutPtr<Rasdialparamsa>, param2: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEntryDialParamsW(param0: Pcwstr, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEntryDialParamsW(param0: Pcwstr, param1: MutPtr<Rasdialparamsw>, param2: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: MutPtr<Rasentrya>, param3: MutPtr<UInt>, param4: MutPtr<UByte>, param5: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4.rawAddress.toString(), param5.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<Rasentryw>, param3: MutPtr<UInt>, param4: MutPtr<UByte>, param5: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4.rawAddress.toString(), param5.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasGetErrorStringA(resourceid: UInt, lpszstring: Pstr, inbufsize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA(resourceid.toInt(), (lpszstring?.value ?: 0L).toString(), inbufsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringA(resourceid.toInt(), lpszstring.rawAddress.toString(), inbufsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasGetErrorStringW(resourceid: UInt, lpszstring: Pwstr, inbufsize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW(resourceid.toInt(), (lpszstring?.value ?: 0L).toString(), inbufsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW(resourceid.toInt(), lpszstring.rawAddress.toString(), inbufsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt, lpstatistics: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics((hrasconn?.value ?: 0L).toString(), dwsubentry.toInt(), (lpstatistics?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt, lpstatistics: MutPtr<RasStats>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics(hrasconn.rawAddress.toString(), dwsubentry.toInt(), lpstatistics.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasGetPCscf(lpszpcscf: Pwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetPCscf((lpszpcscf?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetPCscf(lpszpcscf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetProjectionInfoA(param0: Hrasconn, param1: Rasprojection, param2: COpaquePointer?, param3: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA((param0?.value ?: 0L).toString(), param1, (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetProjectionInfoA(param0: Hrasconn, param1: Rasprojection, param2: MutPtr<CVoid>, param3: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA(param0.rawAddress.toString(), param1, param2.rawAddress.toString(), param3.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetProjectionInfoEx(hrasconn: Hrasconn, prasprojection: COpaquePointer?, lpdwsize: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx((hrasconn?.value ?: 0L).toString(), (prasprojection?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetProjectionInfoEx(hrasconn: Hrasconn, prasprojection: MutPtr<RasProjectionInfo>, lpdwsize: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx(hrasconn.rawAddress.toString(), prasprojection.rawAddress.toString(), lpdwsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetProjectionInfoW(param0: Hrasconn, param1: Rasprojection, param2: COpaquePointer?, param3: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW((param0?.value ?: 0L).toString(), param1, (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetProjectionInfoW(param0: Hrasconn, param1: Rasprojection, param2: MutPtr<CVoid>, param3: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW(param0.rawAddress.toString(), param1, param2.rawAddress.toString(), param3.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetSubEntryHandleA(param0: Hrasconn, param1: UInt, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetSubEntryHandleA(param0: Hrasconn, param1: UInt, param2: MutPtr<Hrasconn>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetSubEntryHandleW(param0: Hrasconn, param1: UInt, param2: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetSubEntryHandleW(param0: Hrasconn, param1: UInt, param2: MutPtr<Hrasconn>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?, param6: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString(), (param6?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: MutPtr<Rassubentrya>, param4: MutPtr<UInt>, param5: MutPtr<UByte>, param6: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString(), param4.rawAddress.toString(), param5.rawAddress.toString(), param6.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasGetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?, param6: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString(), (param6?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasGetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: MutPtr<Rassubentryw>, param4: MutPtr<UInt>, param5: MutPtr<UByte>, param6: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString(), param4.rawAddress.toString(), param5.rawAddress.toString(), param6.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasHangUpA(param0: Hrasconn): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasHangUpA((param0?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasHangUpA(param0.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasHangUpW(param0: Hrasconn): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasHangUpW((param0?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasHangUpW(param0.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasInvokeEapUI(param0: Hrasconn, param1: UInt, param2: COpaquePointer?, param3: Hwnd): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasInvokeEapUI(param0: Hrasconn, param1: UInt, param2: ConstPtr<Rasdialextensions>, param3: Hwnd): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString(), param3.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasPhonebookDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasPhonebookDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: MutPtr<Raspbdlga>): Bool =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA(lpszphonebook.rawAddress.toString(), lpszentry.rawAddress.toString(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasPhonebookDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: COpaquePointer?): Bool =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasPhonebookDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: MutPtr<Raspbdlgw>): Bool =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW(lpszphonebook.rawAddress.toString(), lpszentry.rawAddress.toString(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasRenameEntryA(param0: Pcstr, param1: Pcstr, param2: Pcstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasRenameEntryA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasRenameEntryW(param0: Pcwstr, param1: Pcwstr, param2: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetAutodialAddressA(param0: Pcstr, param1: UInt, param2: COpaquePointer?, param3: UInt, param4: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString(), param3.toInt(), param4.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetAutodialAddressA(param0: Pcstr, param1: UInt, param2: ConstPtr<Rasautodialentrya>, param3: UInt, param4: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString(), param3.toInt(), param4.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetAutodialAddressW(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: UInt, param4: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString(), param3.toInt(), param4.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetAutodialAddressW(param0: Pcwstr, param1: UInt, param2: ConstPtr<Rasautodialentryw>, param3: UInt, param4: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString(), param3.toInt(), param4.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasSetAutodialEnableA(param0: UInt, param1: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA(param0.toInt(), param1).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableA(param0.toInt(), param1).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasSetAutodialEnableW(param0: UInt, param1: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW(param0.toInt(), param1).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW(param0.toInt(), param1).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetAutodialParamA(param0: UInt, param1: COpaquePointer?, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA(param0.toInt(), (param1?.value ?: 0L).toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetAutodialParamA(param0: UInt, param1: ConstPtr<CVoid>, param2: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA(param0.toInt(), param1.rawAddress.toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetAutodialParamW(param0: UInt, param1: COpaquePointer?, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW(param0.toInt(), (param1?.value ?: 0L).toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetAutodialParamW(param0: UInt, param1: ConstPtr<CVoid>, param2: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW(param0.toInt(), param1.rawAddress.toString(), param2.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetCredentialsA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetCredentialsA(param0: Pcstr, param1: Pcstr, param2: ConstPtr<Rascredentialsa>, param3: Bool): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: ConstPtr<Rascredentialsw>, param3: Bool): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: COpaquePointer?, dwsizeofcustomauthdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), dwsizeofcustomauthdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: ConstPtr<UByte>, dwsizeofcustomauthdata: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbcustomauthdata.rawAddress.toString(), dwsizeofcustomauthdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: COpaquePointer?, dwsizeofcustomauthdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), dwsizeofcustomauthdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: ConstPtr<UByte>, dwsizeofcustomauthdata: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW(pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbcustomauthdata.rawAddress.toString(), dwsizeofcustomauthdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: COpaquePointer?, dwsizeofeapdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), dwsizeofeapdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: ConstPtr<UByte>, dwsizeofeapdata: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA(htoken.rawAddress.toString(), pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbeapdata.rawAddress.toString(), dwsizeofeapdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: COpaquePointer?, dwsizeofeapdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), dwsizeofeapdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: ConstPtr<UByte>, dwsizeofeapdata: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW(htoken.rawAddress.toString(), pszphonebook.rawAddress.toString(), pszentry.rawAddress.toString(), pbeapdata.rawAddress.toString(), dwsizeofeapdata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetEntryDialParamsA(param0: Pcstr, param1: COpaquePointer?, param2: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetEntryDialParamsA(param0: Pcstr, param1: ConstPtr<Rasdialparamsa>, param2: Bool): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetEntryDialParamsW(param0: Pcwstr, param1: COpaquePointer?, param2: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetEntryDialParamsW(param0: Pcwstr, param1: ConstPtr<Rasdialparamsw>, param2: Bool): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), param5.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: ConstPtr<Rasentrya>, param3: UInt, param4: ConstPtr<UByte>, param5: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.toInt(), param4.rawAddress.toString(), param5.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), param5.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: ConstPtr<Rasentryw>, param3: UInt, param4: ConstPtr<UByte>, param5: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.toInt(), param4.rawAddress.toString(), param5.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: COpaquePointer?, param4: UInt, param5: COpaquePointer?, param6: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), param4.toInt(), (param5?.value ?: 0L).toString(), param6.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: ConstPtr<Rassubentrya>, param4: UInt, param5: ConstPtr<UByte>, param6: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString(), param4.toInt(), param5.rawAddress.toString(), param6.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasSetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: UInt, param5: COpaquePointer?, param6: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), param4.toInt(), (param5?.value ?: 0L).toString(), param6.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasSetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: ConstPtr<Rassubentryw>, param4: UInt, param5: ConstPtr<UByte>, param6: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString(), param4.toInt(), param5.rawAddress.toString(), param6.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rasUpdateConnection(hrasconn: Hrasconn, lprasupdateconn: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection((hrasconn?.value ?: 0L).toString(), (lprasupdateconn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rasUpdateConnection(hrasconn: Hrasconn, lprasupdateconn: ConstPtr<Rasupdateconn>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection(hrasconn.rawAddress.toString(), lprasupdateconn.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasValidateEntryNameA(param0: Pcstr, param1: Pcstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameA(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rasValidateEntryNameW(param0: Pcwstr, param1: Pcwstr): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW(param0.rawAddress.toString(), param1.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmAddNextHop(rtmreghandle: Long, nexthopinfo: COpaquePointer?, nexthophandle: COpaquePointer?, changeflags: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop(rtmreghandle.toString(), (nexthopinfo?.value ?: 0L).toString(), (nexthophandle?.value ?: 0L).toString(), (changeflags?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmAddNextHop(rtmreghandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>, nexthophandle: MutPtr<Long>, changeflags: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop(rtmreghandle.toString(), nexthopinfo.rawAddress.toString(), nexthophandle.rawAddress.toString(), changeflags.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmAddRouteToDest(rtmreghandle: Long, routehandle: COpaquePointer?, destaddress: COpaquePointer?, routeinfo: COpaquePointer?, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest(rtmreghandle.toString(), (routehandle?.value ?: 0L).toString(), (destaddress?.value ?: 0L).toString(), (routeinfo?.value ?: 0L).toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), (changeflags?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmAddRouteToDest(rtmreghandle: Long, routehandle: MutPtr<Long>, destaddress: MutPtr<RtmNetAddress>, routeinfo: MutPtr<RtmRouteInfo>, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest(rtmreghandle.toString(), routehandle.rawAddress.toString(), destaddress.rawAddress.toString(), routeinfo.rawAddress.toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), changeflags.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmBlockMethods(rtmreghandle: Long, targethandle: Handle, targettype: UByte, blockingflag: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods(rtmreghandle.toString(), (targethandle?.value ?: 0L).toString(), targettype.toInt(), blockingflag.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods(rtmreghandle.toString(), targethandle.rawAddress.toString(), targettype.toInt(), blockingflag.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: COpaquePointer?, address: In6Addr, dwlength: UInt, dwaddresssize: UInt): UInt =
+public actual fun rtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: MutPtr<RtmNetAddress>, address: In6Addr, dwlength: UInt, dwaddresssize: UInt): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: COpaquePointer?, paddress: COpaquePointer?, plength: COpaquePointer?, dwaddresssize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength((pnetaddress?.value ?: 0L).toString(), (paddress?.value ?: 0L).toString(), (plength?.value ?: 0L).toString(), dwaddresssize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: MutPtr<RtmNetAddress>, paddress: MutPtr<In6Addr>, plength: MutPtr<UInt>, dwaddresssize: UInt): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength(pnetaddress.rawAddress.toString(), paddress.rawAddress.toString(), plength.rawAddress.toString(), dwaddresssize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmCreateDestEnum(rtmreghandle: Long, targetviews: UInt, enumflags: UInt, netaddress: COpaquePointer?, protocolid: UInt, rtmenumhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum(rtmreghandle.toString(), targetviews.toInt(), enumflags.toInt(), (netaddress?.value ?: 0L).toString(), protocolid.toInt(), (rtmenumhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmCreateDestEnum(rtmreghandle: Long, targetviews: UInt, enumflags: UInt, netaddress: MutPtr<RtmNetAddress>, protocolid: UInt, rtmenumhandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum(rtmreghandle.toString(), targetviews.toInt(), enumflags.toInt(), netaddress.rawAddress.toString(), protocolid.toInt(), rtmenumhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmCreateNextHopEnum(rtmreghandle: Long, enumflags: UInt, netaddress: COpaquePointer?, rtmenumhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum(rtmreghandle.toString(), enumflags.toInt(), (netaddress?.value ?: 0L).toString(), (rtmenumhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmCreateNextHopEnum(rtmreghandle: Long, enumflags: UInt, netaddress: MutPtr<RtmNetAddress>, rtmenumhandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum(rtmreghandle.toString(), enumflags.toInt(), netaddress.rawAddress.toString(), rtmenumhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmCreateRouteEnum(rtmreghandle: Long, desthandle: Long, targetviews: UInt, enumflags: UInt, startdest: COpaquePointer?, matchingflags: UInt, criteriaroute: COpaquePointer?, criteriainterface: UInt, rtmenumhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), enumflags.toInt(), (startdest?.value ?: 0L).toString(), matchingflags.toInt(), (criteriaroute?.value ?: 0L).toString(), criteriainterface.toInt(), (rtmenumhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmCreateRouteEnum(rtmreghandle: Long, desthandle: Long, targetviews: UInt, enumflags: UInt, startdest: MutPtr<RtmNetAddress>, matchingflags: UInt, criteriaroute: MutPtr<RtmRouteInfo>, criteriainterface: UInt, rtmenumhandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), enumflags.toInt(), startdest.rawAddress.toString(), matchingflags.toInt(), criteriaroute.rawAddress.toString(), criteriainterface.toInt(), rtmenumhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmCreateRouteList(rtmreghandle: Long, routelisthandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList(rtmreghandle.toString(), (routelisthandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmCreateRouteList(rtmreghandle: Long, routelisthandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList(rtmreghandle.toString(), routelisthandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmCreateRouteListEnum(rtmreghandle: Long, routelisthandle: Long, rtmenumhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum(rtmreghandle.toString(), routelisthandle.toString(), (rtmenumhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmCreateRouteListEnum(rtmreghandle: Long, routelisthandle: Long, rtmenumhandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum(rtmreghandle.toString(), routelisthandle.toString(), rtmenumhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmDeleteEnumHandle(rtmreghandle: Long, enumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle(rtmreghandle.toString(), enumhandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle(rtmreghandle.toString(), enumhandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmDeleteNextHop(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop(rtmreghandle.toString(), nexthophandle.toString(), (nexthopinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmDeleteNextHop(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop(rtmreghandle.toString(), nexthophandle.toString(), nexthopinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmDeleteRouteList(rtmreghandle: Long, routelisthandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList(rtmreghandle.toString(), routelisthandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList(rtmreghandle.toString(), routelisthandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmDeleteRouteToDest(rtmreghandle: Long, routehandle: Long, changeflags: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest(rtmreghandle.toString(), routehandle.toString(), (changeflags?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmDeleteRouteToDest(rtmreghandle: Long, routehandle: Long, changeflags: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest(rtmreghandle.toString(), routehandle.toString(), changeflags.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmDeregisterEntity(rtmreghandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity(rtmreghandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeregisterEntity(rtmreghandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmDeregisterFromChangeNotification(rtmreghandle: Long, notifyhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification(rtmreghandle.toString(), notifyhandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification(rtmreghandle.toString(), notifyhandle.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmFindNextHop(rtmreghandle: Long, nexthopinfo: COpaquePointer?, nexthophandle: COpaquePointer?, nexthoppointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop(rtmreghandle.toString(), (nexthopinfo?.value ?: 0L).toString(), (nexthophandle?.value ?: 0L).toString(), (nexthoppointer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmFindNextHop(rtmreghandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>, nexthophandle: MutPtr<Long>, nexthoppointer: MutPtr<MutPtr<RtmNexthopInfo>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop(rtmreghandle.toString(), nexthopinfo.rawAddress.toString(), nexthophandle.rawAddress.toString(), nexthoppointer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetChangeStatus(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, changestatus: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), (changestatus?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetChangeStatus(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, changestatus: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), changestatus.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: COpaquePointer?, changeddests: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests(rtmreghandle.toString(), notifyhandle.toString(), (numdests?.value ?: 0L).toString(), (changeddests?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: MutPtr<UInt>, changeddests: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.rawAddress.toString(), changeddests.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetDestInfo(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetDestInfo(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetEntityInfo(rtmreghandle: Long, entityhandle: Long, entityinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo(rtmreghandle.toString(), entityhandle.toString(), (entityinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetEntityInfo(rtmreghandle: Long, entityhandle: Long, entityinfo: MutPtr<RtmEntityInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo(rtmreghandle.toString(), entityhandle.toString(), entityinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetEntityMethods(rtmreghandle: Long, entityhandle: Long, nummethods: COpaquePointer?, exptmethods: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods(rtmreghandle.toString(), entityhandle.toString(), (nummethods?.value ?: 0L).toString(), (exptmethods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetEntityMethods(rtmreghandle: Long, entityhandle: Long, nummethods: MutPtr<UInt>, exptmethods: MutPtr<RtmEntityExportMethod>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods(rtmreghandle.toString(), entityhandle.toString(), nummethods.rawAddress.toString(), exptmethods.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetEnumDests(rtmreghandle: Long, enumhandle: Long, numdests: COpaquePointer?, destinfos: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests(rtmreghandle.toString(), enumhandle.toString(), (numdests?.value ?: 0L).toString(), (destinfos?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetEnumDests(rtmreghandle: Long, enumhandle: Long, numdests: MutPtr<UInt>, destinfos: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests(rtmreghandle.toString(), enumhandle.toString(), numdests.rawAddress.toString(), destinfos.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetEnumNextHops(rtmreghandle: Long, enumhandle: Long, numnexthops: COpaquePointer?, nexthophandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops(rtmreghandle.toString(), enumhandle.toString(), (numnexthops?.value ?: 0L).toString(), (nexthophandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetEnumNextHops(rtmreghandle: Long, enumhandle: Long, numnexthops: MutPtr<UInt>, nexthophandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops(rtmreghandle.toString(), enumhandle.toString(), numnexthops.rawAddress.toString(), nexthophandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: COpaquePointer?, routehandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), (numroutes?.value ?: 0L).toString(), (routehandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: MutPtr<UInt>, routehandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), numroutes.rawAddress.toString(), routehandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetExactMatchDestination(rtmreghandle: Long, destaddress: COpaquePointer?, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination(rtmreghandle.toString(), (destaddress?.value ?: 0L).toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetExactMatchDestination(rtmreghandle: Long, destaddress: MutPtr<RtmNetAddress>, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination(rtmreghandle.toString(), destaddress.rawAddress.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetExactMatchRoute(rtmreghandle: Long, destaddress: COpaquePointer?, matchingflags: UInt, routeinfo: COpaquePointer?, interfaceindex: UInt, targetviews: UInt, routehandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute(rtmreghandle.toString(), (destaddress?.value ?: 0L).toString(), matchingflags.toInt(), (routeinfo?.value ?: 0L).toString(), interfaceindex.toInt(), targetviews.toInt(), (routehandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetExactMatchRoute(rtmreghandle: Long, destaddress: MutPtr<RtmNetAddress>, matchingflags: UInt, routeinfo: MutPtr<RtmRouteInfo>, interfaceindex: UInt, targetviews: UInt, routehandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute(rtmreghandle.toString(), destaddress.rawAddress.toString(), matchingflags.toInt(), routeinfo.rawAddress.toString(), interfaceindex.toInt(), targetviews.toInt(), routehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetLessSpecificDestination(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetLessSpecificDestination(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetListEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: COpaquePointer?, routehandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), (numroutes?.value ?: 0L).toString(), (routehandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetListEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: MutPtr<UInt>, routehandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), numroutes.rawAddress.toString(), routehandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetMostSpecificDestination(rtmreghandle: Long, destaddress: COpaquePointer?, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination(rtmreghandle.toString(), (destaddress?.value ?: 0L).toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetMostSpecificDestination(rtmreghandle: Long, destaddress: MutPtr<RtmNetAddress>, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination(rtmreghandle.toString(), destaddress.rawAddress.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetNextHopInfo(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo(rtmreghandle.toString(), nexthophandle.toString(), (nexthopinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetNextHopInfo(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo(rtmreghandle.toString(), nexthophandle.toString(), nexthopinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetNextHopPointer(rtmreghandle: Long, nexthophandle: Long, nexthoppointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer(rtmreghandle.toString(), nexthophandle.toString(), (nexthoppointer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetNextHopPointer(rtmreghandle: Long, nexthophandle: Long, nexthoppointer: MutPtr<MutPtr<RtmNexthopInfo>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer(rtmreghandle.toString(), nexthophandle.toString(), nexthoppointer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetOpaqueInformationPointer(rtmreghandle: Long, desthandle: Long, opaqueinfopointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer(rtmreghandle.toString(), desthandle.toString(), (opaqueinfopointer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetOpaqueInformationPointer(rtmreghandle: Long, desthandle: Long, opaqueinfopointer: MutPtr<MutPtr<CVoid>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer(rtmreghandle.toString(), desthandle.toString(), opaqueinfopointer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetRegisteredEntities(rtmreghandle: Long, numentities: COpaquePointer?, entityhandles: COpaquePointer?, entityinfos: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities(rtmreghandle.toString(), (numentities?.value ?: 0L).toString(), (entityhandles?.value ?: 0L).toString(), (entityinfos?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetRegisteredEntities(rtmreghandle: Long, numentities: MutPtr<UInt>, entityhandles: MutPtr<Long>, entityinfos: MutPtr<RtmEntityInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities(rtmreghandle.toString(), numentities.rawAddress.toString(), entityhandles.rawAddress.toString(), entityinfos.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetRouteInfo(rtmreghandle: Long, routehandle: Long, routeinfo: COpaquePointer?, destaddress: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo(rtmreghandle.toString(), routehandle.toString(), (routeinfo?.value ?: 0L).toString(), (destaddress?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetRouteInfo(rtmreghandle: Long, routehandle: Long, routeinfo: MutPtr<RtmRouteInfo>, destaddress: MutPtr<RtmNetAddress>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo(rtmreghandle.toString(), routehandle.toString(), routeinfo.rawAddress.toString(), destaddress.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmGetRoutePointer(rtmreghandle: Long, routehandle: Long, routepointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer(rtmreghandle.toString(), routehandle.toString(), (routepointer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmGetRoutePointer(rtmreghandle: Long, routehandle: Long, routepointer: MutPtr<MutPtr<RtmRouteInfo>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer(rtmreghandle.toString(), routehandle.toString(), routepointer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmHoldDestination(rtmreghandle: Long, desthandle: Long, targetviews: UInt, holdtime: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), holdtime.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), holdtime.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmIgnoreChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), (changeddests?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmIgnoreChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), changeddests.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmInsertInRouteList(rtmreghandle: Long, routelisthandle: Long, numroutes: UInt, routehandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList(rtmreghandle.toString(), routelisthandle.toString(), numroutes.toInt(), (routehandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmInsertInRouteList(rtmreghandle: Long, routelisthandle: Long, numroutes: UInt, routehandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList(rtmreghandle.toString(), routelisthandle.toString(), numroutes.toInt(), routehandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmInvokeMethod(rtmreghandle: Long, entityhandle: Long, input: COpaquePointer?, outputsize: COpaquePointer?, output: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod(rtmreghandle.toString(), entityhandle.toString(), (input?.value ?: 0L).toString(), (outputsize?.value ?: 0L).toString(), (output?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmInvokeMethod(rtmreghandle: Long, entityhandle: Long, input: MutPtr<RtmEntityMethodInput>, outputsize: MutPtr<UInt>, output: MutPtr<RtmEntityMethodOutput>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod(rtmreghandle.toString(), entityhandle.toString(), input.rawAddress.toString(), outputsize.rawAddress.toString(), output.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmIsBestRoute(rtmreghandle: Long, routehandle: Long, bestinviews: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute(rtmreghandle.toString(), routehandle.toString(), (bestinviews?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmIsBestRoute(rtmreghandle: Long, routehandle: Long, bestinviews: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute(rtmreghandle.toString(), routehandle.toString(), bestinviews.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmIsMarkedForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, destmarked: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), (destmarked?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmIsMarkedForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, destmarked: MutPtr<Bool>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), destmarked.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmLockDestination(rtmreghandle: Long, desthandle: Long, exclusive: Bool, lockdest: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmLockDestination(rtmreghandle.toString(), desthandle.toString(), exclusive, lockdest).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmLockDestination(rtmreghandle.toString(), desthandle.toString(), exclusive, lockdest).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmLockNextHop(rtmreghandle: Long, nexthophandle: Long, exclusive: Bool, locknexthop: Bool, nexthoppointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop(rtmreghandle.toString(), nexthophandle.toString(), exclusive, locknexthop, (nexthoppointer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmLockNextHop(rtmreghandle: Long, nexthophandle: Long, exclusive: Bool, locknexthop: Bool, nexthoppointer: MutPtr<MutPtr<RtmNexthopInfo>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop(rtmreghandle.toString(), nexthophandle.toString(), exclusive, locknexthop, nexthoppointer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmLockRoute(rtmreghandle: Long, routehandle: Long, exclusive: Bool, lockroute: Bool, routepointer: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmLockRoute(rtmreghandle.toString(), routehandle.toString(), exclusive, lockroute, (routepointer?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmLockRoute(rtmreghandle: Long, routehandle: Long, exclusive: Bool, lockroute: Bool, routepointer: MutPtr<MutPtr<RtmRouteInfo>>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmLockRoute(rtmreghandle.toString(), routehandle.toString(), exclusive, lockroute, routepointer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtmMarkDestForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, markdest: Bool): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), markdest).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), markdest).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReferenceHandles(rtmreghandle: Long, numhandles: UInt, rtmhandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles(rtmreghandle.toString(), numhandles.toInt(), (rtmhandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReferenceHandles(rtmreghandle: Long, numhandles: UInt, rtmhandles: MutPtr<Handle>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles(rtmreghandle.toString(), numhandles.toInt(), rtmhandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmRegisterEntity(rtmentityinfo: COpaquePointer?, exportmethods: COpaquePointer?, eventcallback: RtmEventCallback, reserveopaquepointer: Bool, rtmregprofile: COpaquePointer?, rtmreghandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity((rtmentityinfo?.value ?: 0L).toString(), (exportmethods?.value ?: 0L).toString(), 0L.toString(), reserveopaquepointer, (rtmregprofile?.value ?: 0L).toString(), (rtmreghandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmRegisterEntity(rtmentityinfo: MutPtr<RtmEntityInfo>, exportmethods: MutPtr<RtmEntityExportMethods>, eventcallback: RtmEventCallback, reserveopaquepointer: Bool, rtmregprofile: MutPtr<RtmRegnProfile>, rtmreghandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity(rtmentityinfo.rawAddress.toString(), exportmethods.rawAddress.toString(), 0L.toString(), reserveopaquepointer, rtmregprofile.rawAddress.toString(), rtmreghandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmRegisterForChangeNotification(rtmreghandle: Long, targetviews: UInt, notifyflags: UInt, notifycontext: COpaquePointer?, notifyhandle: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification(rtmreghandle.toString(), targetviews.toInt(), notifyflags.toInt(), (notifycontext?.value ?: 0L).toString(), (notifyhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmRegisterForChangeNotification(rtmreghandle: Long, targetviews: UInt, notifyflags: UInt, notifycontext: MutPtr<CVoid>, notifyhandle: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification(rtmreghandle.toString(), targetviews.toInt(), notifyflags.toInt(), notifycontext.rawAddress.toString(), notifyhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), (changeddests?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), changeddests.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseDestInfo(rtmreghandle: Long, destinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo(rtmreghandle.toString(), (destinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseDestInfo(rtmreghandle: Long, destinfo: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo(rtmreghandle.toString(), destinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseDests(rtmreghandle: Long, numdests: UInt, destinfos: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests(rtmreghandle.toString(), numdests.toInt(), (destinfos?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseDests(rtmreghandle: Long, numdests: UInt, destinfos: MutPtr<RtmDestInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests(rtmreghandle.toString(), numdests.toInt(), destinfos.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseEntities(rtmreghandle: Long, numentities: UInt, entityhandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities(rtmreghandle.toString(), numentities.toInt(), (entityhandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseEntities(rtmreghandle: Long, numentities: UInt, entityhandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities(rtmreghandle.toString(), numentities.toInt(), entityhandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseEntityInfo(rtmreghandle: Long, entityinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo(rtmreghandle.toString(), (entityinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseEntityInfo(rtmreghandle: Long, entityinfo: MutPtr<RtmEntityInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo(rtmreghandle.toString(), entityinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseNextHopInfo(rtmreghandle: Long, nexthopinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo(rtmreghandle.toString(), (nexthopinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseNextHopInfo(rtmreghandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo(rtmreghandle.toString(), nexthopinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseNextHops(rtmreghandle: Long, numnexthops: UInt, nexthophandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops(rtmreghandle.toString(), numnexthops.toInt(), (nexthophandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseNextHops(rtmreghandle: Long, numnexthops: UInt, nexthophandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops(rtmreghandle.toString(), numnexthops.toInt(), nexthophandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseRouteInfo(rtmreghandle: Long, routeinfo: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo(rtmreghandle.toString(), (routeinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseRouteInfo(rtmreghandle: Long, routeinfo: MutPtr<RtmRouteInfo>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo(rtmreghandle.toString(), routeinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmReleaseRoutes(rtmreghandle: Long, numroutes: UInt, routehandles: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes(rtmreghandle.toString(), numroutes.toInt(), (routehandles?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmReleaseRoutes(rtmreghandle: Long, numroutes: UInt, routehandles: MutPtr<Long>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes(rtmreghandle.toString(), numroutes.toInt(), routehandles.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtmUpdateAndUnlockRoute(rtmreghandle: Long, routehandle: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute(rtmreghandle.toString(), routehandle.toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), (changeflags?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rtmUpdateAndUnlockRoute(rtmreghandle: Long, routehandle: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: MutPtr<UInt>): UInt =
+    if (windowsWin32NetworkmanagementRrasNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute(rtmreghandle.toString(), routehandle.toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), changeflags.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

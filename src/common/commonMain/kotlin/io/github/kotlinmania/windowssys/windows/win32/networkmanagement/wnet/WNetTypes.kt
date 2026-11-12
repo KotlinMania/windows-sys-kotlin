@@ -1,11 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 
 public typealias ConnectdlgstructFlags = UInt
 
@@ -26,31 +29,31 @@ public typealias NpdirectoryNotifyOperation = UInt
 public typealias NpPropertyDialogSelection = UInt
 
 public fun interface PfAddConnectNotifyFn {
-    public operator fun invoke(lpnotifyinfo: COpaquePointer?, lpaddinfo: COpaquePointer?): UInt
+    public operator fun invoke(lpnotifyinfo: MutPtr<Notifyinfo>, lpaddinfo: ConstPtr<Notifyadd>): UInt
 }
 
 public typealias PfAddConnectNotify = PfAddConnectNotifyFn?
 
 public fun interface PfCancelConnectNotifyFn {
-    public operator fun invoke(lpnotifyinfo: COpaquePointer?, lpcancelinfo: COpaquePointer?): UInt
+    public operator fun invoke(lpnotifyinfo: MutPtr<Notifyinfo>, lpcancelinfo: ConstPtr<Notifycancel>): UInt
 }
 
 public typealias PfCancelConnectNotify = PfCancelConnectNotifyFn?
 
 public fun interface PfNpaddConnectionFn {
-    public operator fun invoke(lpnetresource: COpaquePointer?, lppassword: Pcwstr, lpusername: Pcwstr): UInt
+    public operator fun invoke(lpnetresource: ConstPtr<Netresourcew>, lppassword: Pcwstr, lpusername: Pcwstr): UInt
 }
 
 public typealias PfNpaddConnection = PfNpaddConnectionFn?
 
 public fun interface PfNpaddConnection3Fn {
-    public operator fun invoke(hwndowner: Hwnd, lpnetresource: COpaquePointer?, lppassword: Pcwstr, lpusername: Pcwstr, dwflags: UInt): UInt
+    public operator fun invoke(hwndowner: Hwnd, lpnetresource: ConstPtr<Netresourcew>, lppassword: Pcwstr, lpusername: Pcwstr, dwflags: UInt): UInt
 }
 
 public typealias PfNpaddConnection3 = PfNpaddConnection3Fn?
 
 public fun interface PfNpaddConnection4Fn {
-    public operator fun invoke(hwndowner: Hwnd, lpnetresource: COpaquePointer?, lpauthbuffer: COpaquePointer?, cbauthbuffer: UInt, dwflags: UInt, lpuseoptions: COpaquePointer?, cbuseoptions: UInt): UInt
+    public operator fun invoke(hwndowner: Hwnd, lpnetresource: ConstPtr<Netresourcew>, lpauthbuffer: ConstPtr<CVoid>, cbauthbuffer: UInt, dwflags: UInt, lpuseoptions: ConstPtr<UByte>, cbuseoptions: UInt): UInt
 }
 
 public typealias PfNpaddConnection4 = PfNpaddConnection4Fn?
@@ -86,7 +89,7 @@ public fun interface PfNpdirectoryNotifyFn {
 public typealias PfNpdirectoryNotify = PfNpdirectoryNotifyFn?
 
 public fun interface PfNpenumResourceFn {
-    public operator fun invoke(henum: Handle, lpccount: COpaquePointer?, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?): UInt
+    public operator fun invoke(henum: Handle, lpccount: MutPtr<UInt>, lpbuffer: MutPtr<CVoid>, lpbuffersize: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpenumResource = PfNpenumResourceFn?
@@ -104,13 +107,13 @@ public fun interface PfNpfmxgetPermCapsFn {
 public typealias PfNpfmxgetPermCaps = PfNpfmxgetPermCapsFn?
 
 public fun interface PfNpfmxgetPermHelpFn {
-    public operator fun invoke(lpdrivename: Pcwstr, ndialogtype: UInt, fdirectory: Bool, lpfilenamebuffer: COpaquePointer?, lpbuffersize: COpaquePointer?, lpnhelpcontext: COpaquePointer?): UInt
+    public operator fun invoke(lpdrivename: Pcwstr, ndialogtype: UInt, fdirectory: Bool, lpfilenamebuffer: MutPtr<CVoid>, lpbuffersize: MutPtr<UInt>, lpnhelpcontext: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpfmxgetPermHelp = PfNpfmxgetPermHelpFn?
 
 public fun interface PfNpformatNetworkNameFn {
-    public operator fun invoke(lpremotename: Pcwstr, lpformattedname: Pwstr, lpnlength: COpaquePointer?, dwflags: UInt, dwavecharperline: UInt): UInt
+    public operator fun invoke(lpremotename: Pcwstr, lpformattedname: Pwstr, lpnlength: MutPtr<UInt>, dwflags: UInt, dwavecharperline: UInt): UInt
 }
 
 public typealias PfNpformatNetworkName = PfNpformatNetworkNameFn?
@@ -122,31 +125,31 @@ public fun interface PfNpgetCapsFn {
 public typealias PfNpgetCaps = PfNpgetCapsFn?
 
 public fun interface PfNpgetConnectionFn {
-    public operator fun invoke(lplocalname: Pcwstr, lpremotename: Pwstr, lpnbufferlen: COpaquePointer?): UInt
+    public operator fun invoke(lplocalname: Pcwstr, lpremotename: Pwstr, lpnbufferlen: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpgetConnection = PfNpgetConnectionFn?
 
 public fun interface PfNpgetConnection3Fn {
-    public operator fun invoke(lplocalname: Pcwstr, dwlevel: UInt, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?): UInt
+    public operator fun invoke(lplocalname: Pcwstr, dwlevel: UInt, lpbuffer: MutPtr<CVoid>, lpbuffersize: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpgetConnection3 = PfNpgetConnection3Fn?
 
 public fun interface PfNpgetConnectionPerformanceFn {
-    public operator fun invoke(lpremotename: Pcwstr, lpnetconnectinfo: COpaquePointer?): UInt
+    public operator fun invoke(lpremotename: Pcwstr, lpnetconnectinfo: MutPtr<Netconnectinfostruct>): UInt
 }
 
 public typealias PfNpgetConnectionPerformance = PfNpgetConnectionPerformanceFn?
 
 public fun interface PfNpgetDirectoryTypeFn {
-    public operator fun invoke(lpname: Pcwstr, lptype: COpaquePointer?, bflushcache: Bool): UInt
+    public operator fun invoke(lpname: Pcwstr, lptype: ConstPtr<Int>, bflushcache: Bool): UInt
 }
 
 public typealias PfNpgetDirectoryType = PfNpgetDirectoryTypeFn?
 
 public fun interface PfNpgetPersistentUseOptionsForConnectionFn {
-    public operator fun invoke(lpremotepath: Pcwstr, lpreaduseoptions: COpaquePointer?, cbreaduseoptions: UInt, lpwriteuseoptions: COpaquePointer?, lpsizewriteuseoptions: COpaquePointer?): UInt
+    public operator fun invoke(lpremotepath: Pcwstr, lpreaduseoptions: ConstPtr<UByte>, cbreaduseoptions: UInt, lpwriteuseoptions: MutPtr<UByte>, lpsizewriteuseoptions: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpgetPersistentUseOptionsForConnection = PfNpgetPersistentUseOptionsForConnectionFn?
@@ -158,43 +161,43 @@ public fun interface PfNpgetPropertyTextFn {
 public typealias PfNpgetPropertyText = PfNpgetPropertyTextFn?
 
 public fun interface PfNpgetResourceInformationFn {
-    public operator fun invoke(lpnetresource: COpaquePointer?, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?, lplpsystem: COpaquePointer?): UInt
+    public operator fun invoke(lpnetresource: ConstPtr<Netresourcew>, lpbuffer: MutPtr<CVoid>, lpbuffersize: MutPtr<UInt>, lplpsystem: MutPtr<Pwstr>): UInt
 }
 
 public typealias PfNpgetResourceInformation = PfNpgetResourceInformationFn?
 
 public fun interface PfNpgetResourceParentFn {
-    public operator fun invoke(lpnetresource: COpaquePointer?, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?): UInt
+    public operator fun invoke(lpnetresource: ConstPtr<Netresourcew>, lpbuffer: MutPtr<CVoid>, lpbuffersize: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpgetResourceParent = PfNpgetResourceParentFn?
 
 public fun interface PfNpgetUniversalNameFn {
-    public operator fun invoke(lplocalpath: Pcwstr, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpnbuffersize: COpaquePointer?): UInt
+    public operator fun invoke(lplocalpath: Pcwstr, dwinfolevel: UInt, lpbuffer: MutPtr<CVoid>, lpnbuffersize: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpgetUniversalName = PfNpgetUniversalNameFn?
 
 public fun interface PfNpgetUserFn {
-    public operator fun invoke(lpname: Pcwstr, lpusername: Pwstr, lpnbufferlen: COpaquePointer?): UInt
+    public operator fun invoke(lpname: Pcwstr, lpusername: Pwstr, lpnbufferlen: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpgetUser = PfNpgetUserFn?
 
 public fun interface PfNplogonNotifyFn {
-    public operator fun invoke(lplogonid: COpaquePointer?, lpauthentinfotype: Pcwstr, lpauthentinfo: COpaquePointer?, lppreviousauthentinfotype: Pcwstr, lppreviousauthentinfo: COpaquePointer?, lpstationname: Pcwstr, stationhandle: COpaquePointer?, lplogonscript: COpaquePointer?): UInt
+    public operator fun invoke(lplogonid: ConstPtr<Luid>, lpauthentinfotype: Pcwstr, lpauthentinfo: ConstPtr<CVoid>, lppreviousauthentinfotype: Pcwstr, lppreviousauthentinfo: ConstPtr<CVoid>, lpstationname: Pcwstr, stationhandle: ConstPtr<CVoid>, lplogonscript: MutPtr<Pwstr>): UInt
 }
 
 public typealias PfNplogonNotify = PfNplogonNotifyFn?
 
 public fun interface PfNpopenEnumFn {
-    public operator fun invoke(dwscope: UInt, dwtype: UInt, dwusage: UInt, lpnetresource: COpaquePointer?, lphenum: COpaquePointer?): UInt
+    public operator fun invoke(dwscope: UInt, dwtype: UInt, dwusage: UInt, lpnetresource: ConstPtr<Netresourcew>, lphenum: MutPtr<Handle>): UInt
 }
 
 public typealias PfNpopenEnum = PfNpopenEnumFn?
 
 public fun interface PfNppasswordChangeNotifyFn {
-    public operator fun invoke(lpauthentinfotype: Pcwstr, lpauthentinfo: COpaquePointer?, lppreviousauthentinfotype: Pcwstr, lppreviousauthentinfo: COpaquePointer?, lpstationname: Pcwstr, stationhandle: COpaquePointer?, dwchangeinfo: UInt): UInt
+    public operator fun invoke(lpauthentinfotype: Pcwstr, lpauthentinfo: ConstPtr<CVoid>, lppreviousauthentinfotype: Pcwstr, lppreviousauthentinfo: ConstPtr<CVoid>, lpstationname: Pcwstr, stationhandle: ConstPtr<CVoid>, dwchangeinfo: UInt): UInt
 }
 
 public typealias PfNppasswordChangeNotify = PfNppasswordChangeNotifyFn?
@@ -206,7 +209,7 @@ public fun interface PfNppropertyDialogFn {
 public typealias PfNppropertyDialog = PfNppropertyDialogFn?
 
 public fun interface PfNpsearchDialogFn {
-    public operator fun invoke(hwndparent: Hwnd, lpnetresource: COpaquePointer?, lpbuffer: COpaquePointer?, cbbuffer: UInt, lpnflags: COpaquePointer?): UInt
+    public operator fun invoke(hwndparent: Hwnd, lpnetresource: ConstPtr<Netresourcew>, lpbuffer: MutPtr<CVoid>, cbbuffer: UInt, lpnflags: MutPtr<UInt>): UInt
 }
 
 public typealias PfNpsearchDialog = PfNpsearchDialogFn?

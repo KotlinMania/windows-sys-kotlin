@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_coCreateActivity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesCoCreateActivity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piunknown = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coCreateAct
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_coEnterServiceDomain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pconfigobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coEnterServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_coGetDefaultContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t apttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -134,7 +134,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coGetDefaul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_coLeaveServiceDomain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -156,7 +156,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coLeaveServ
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_getDispenserManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesGetDispenserManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_getDispense
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_getManagedExtensions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesGetManagedExtensions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dwexts = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -206,7 +206,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_getManagedE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_mTSCreateActivity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesMTSCreateActivity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -233,7 +233,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_mTSCreateAc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_recycleSurrogate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesRecycleSurrogate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lreasoncode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -258,7 +258,7 @@ static Napi::Value windowssys_windows_win32_system_componentservices_recycleSurr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_componentservices_safeRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComponentservicesSafeRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -286,15 +286,15 @@ static Napi::Value windowssys_windows_win32_system_componentservices_safeRef_nap
 }
 
 static void register_windows_win32_system_componentservices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_componentservices_coCreateActivity", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_coCreateActivity_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_coEnterServiceDomain", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_coEnterServiceDomain_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_coGetDefaultContext", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_coGetDefaultContext_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_coLeaveServiceDomain", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_coLeaveServiceDomain_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_getDispenserManager", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_getDispenserManager_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_getManagedExtensions", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_getManagedExtensions_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_mTSCreateActivity", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_mTSCreateActivity_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_recycleSurrogate", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_recycleSurrogate_napi));
-    exports.Set("windowssys_windows_win32_system_componentservices_safeRef", Napi::Function::New(env, windowssys_windows_win32_system_componentservices_safeRef_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesCoCreateActivity", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesCoCreateActivity_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesGetDispenserManager", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesGetDispenserManager_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesGetManagedExtensions", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesGetManagedExtensions_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesMTSCreateActivity", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesMTSCreateActivity_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesRecycleSurrogate", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesRecycleSurrogate_napi));
+    exports.Set("windowssysWindowsWin32SystemComponentservicesSafeRef", Napi::Function::New(env, windowssysWindowsWin32SystemComponentservicesSafeRef_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_componentservices_napi, nullptr };

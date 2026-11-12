@@ -2,86 +2,90 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_winVerifyTrust
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_winVerifyTrustEx
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustAddActionID
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustRemoveActionID
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWinVerifyTrust
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustAddActionID
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.cinterop.windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
 public actual fun openPersonalTrustDBDialog(hwndparent: Hwnd): Bool =
-    windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog(hwndparent?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog(hwndparent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openPersonalTrustDBDialogEx(hwndparent: Hwnd, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx(hwndparent?.value?.toCPointer<ByteVar>(), dwflags, pvreserved?.value?.toCPointer<ByteVar>())
+public actual fun openPersonalTrustDBDialogEx(hwndparent: Hwnd, dwflags: UInt, pvreserved: MutPtr<MutPtr<CVoid>>): Bool =
+    windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx(hwndparent.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wTHelperCertCheckValidSignature(pprovdata: COpaquePointer?): Hresult =
-    windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature(pprovdata?.value?.toCPointer<ByteVar>())
+public actual fun wTHelperCertCheckValidSignature(pprovdata: MutPtr<CryptProviderData>): Hresult =
+    windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature(pprovdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wTHelperCertIsSelfSigned(dwencoding: UInt, pcert: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned(dwencoding, pcert?.value?.toCPointer<ByteVar>())
+public actual fun wTHelperCertIsSelfSigned(dwencoding: UInt, pcert: MutPtr<CertInfo>): Bool =
+    windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned(dwencoding, pcert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wTHelperGetProvCertFromChain(psgnr: COpaquePointer?, idxcert: UInt): COpaquePointer? =
-    windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain(psgnr?.value?.toCPointer<ByteVar>(), idxcert)?.let { COpaquePointer(it.toLong()) }
+public actual fun wTHelperGetProvCertFromChain(psgnr: MutPtr<CryptProviderSgnr>, idxcert: UInt): MutPtr<CryptProviderCert> =
+    MutPtr(windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain(psgnr.rawAddress.toCPointer<ByteVar>(), idxcert)?.toLong() ?: 0L)
 
-public actual fun wTHelperGetProvPrivateDataFromChain(pprovdata: COpaquePointer?, pgproviderid: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain(pprovdata?.value?.toCPointer<ByteVar>(), pgproviderid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun wTHelperGetProvPrivateDataFromChain(pprovdata: MutPtr<CryptProviderData>, pgproviderid: MutPtr<Guid>): MutPtr<CryptProviderPrivdata> =
+    MutPtr(windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain(pprovdata.rawAddress.toCPointer<ByteVar>(), pgproviderid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun wTHelperGetProvSignerFromChain(pprovdata: COpaquePointer?, idxsigner: UInt, fcountersigner: Bool, idxcountersigner: UInt): COpaquePointer? =
-    windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain(pprovdata?.value?.toCPointer<ByteVar>(), idxsigner, fcountersigner, idxcountersigner)?.let { COpaquePointer(it.toLong()) }
+public actual fun wTHelperGetProvSignerFromChain(pprovdata: MutPtr<CryptProviderData>, idxsigner: UInt, fcountersigner: Bool, idxcountersigner: UInt): MutPtr<CryptProviderSgnr> =
+    MutPtr(windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain(pprovdata.rawAddress.toCPointer<ByteVar>(), idxsigner, fcountersigner, idxcountersigner)?.toLong() ?: 0L)
 
-public actual fun wTHelperProvDataFromStateData(hstatedata: Handle): COpaquePointer? =
-    windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData(hstatedata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun wTHelperProvDataFromStateData(hstatedata: Handle): MutPtr<CryptProviderData> =
+    MutPtr(windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData(hstatedata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun winVerifyTrust(hwnd: Hwnd, pgactionid: COpaquePointer?, pwvtdata: COpaquePointer?): Int =
-    windowssys_windows_win32_security_wintrust_winVerifyTrust(hwnd?.value?.toCPointer<ByteVar>(), pgactionid?.value?.toCPointer<ByteVar>(), pwvtdata?.value?.toCPointer<ByteVar>())
+public actual fun winVerifyTrust(hwnd: Hwnd, pgactionid: MutPtr<Guid>, pwvtdata: MutPtr<CVoid>): Int =
+    windowssysWindowsWin32SecurityWintrustWinVerifyTrust(hwnd.rawAddress.toCPointer<ByteVar>(), pgactionid.rawAddress.toCPointer<ByteVar>(), pwvtdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun winVerifyTrustEx(hwnd: Hwnd, pgactionid: COpaquePointer?, pwintrustdata: COpaquePointer?): Int =
-    windowssys_windows_win32_security_wintrust_winVerifyTrustEx(hwnd?.value?.toCPointer<ByteVar>(), pgactionid?.value?.toCPointer<ByteVar>(), pwintrustdata?.value?.toCPointer<ByteVar>())
+public actual fun winVerifyTrustEx(hwnd: Hwnd, pgactionid: MutPtr<Guid>, pwintrustdata: MutPtr<WintrustData>): Int =
+    windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx(hwnd.rawAddress.toCPointer<ByteVar>(), pgactionid.rawAddress.toCPointer<ByteVar>(), pwintrustdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wintrustAddActionID(pgactionid: COpaquePointer?, fdwflags: UInt, psprovinfo: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_wintrustAddActionID(pgactionid?.value?.toCPointer<ByteVar>(), fdwflags, psprovinfo?.value?.toCPointer<ByteVar>())
+public actual fun wintrustAddActionID(pgactionid: ConstPtr<Guid>, fdwflags: UInt, psprovinfo: ConstPtr<CryptRegisterActionid>): Bool =
+    windowssysWindowsWin32SecurityWintrustWintrustAddActionID(pgactionid.rawAddress.toCPointer<ByteVar>(), fdwflags, psprovinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wintrustAddDefaultForUsage(pszusageoid: Pcstr, psdefusage: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage(pszusageoid?.value?.toCPointer<ByteVar>(), psdefusage?.value?.toCPointer<ByteVar>())
+public actual fun wintrustAddDefaultForUsage(pszusageoid: Pcstr, psdefusage: ConstPtr<CryptProviderRegdefusage>): Bool =
+    windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage(pszusageoid.rawAddress.toCPointer<ByteVar>(), psdefusage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wintrustGetDefaultForUsage(dwaction: WintrustGetDefaultForUsageAction, pszusageoid: Pcstr, psusage: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage(dwaction, pszusageoid?.value?.toCPointer<ByteVar>(), psusage?.value?.toCPointer<ByteVar>())
+public actual fun wintrustGetDefaultForUsage(dwaction: WintrustGetDefaultForUsageAction, pszusageoid: Pcstr, psusage: MutPtr<CryptProviderDefusage>): Bool =
+    windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage(dwaction, pszusageoid.rawAddress.toCPointer<ByteVar>(), psusage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wintrustGetRegPolicyFlags(pdwpolicyflags: COpaquePointer?) {
-    windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags(pdwpolicyflags?.value?.toCPointer<ByteVar>())
+public actual fun wintrustGetRegPolicyFlags(pdwpolicyflags: MutPtr<WintrustPolicyFlags>) {
+    windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags(pdwpolicyflags.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wintrustLoadFunctionPointers(pgactionid: COpaquePointer?, ppfns: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers(pgactionid?.value?.toCPointer<ByteVar>(), ppfns?.value?.toCPointer<ByteVar>())
+public actual fun wintrustLoadFunctionPointers(pgactionid: MutPtr<Guid>, ppfns: MutPtr<CryptProviderFunctions>): Bool =
+    windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers(pgactionid.rawAddress.toCPointer<ByteVar>(), ppfns.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wintrustRemoveActionID(pgactionid: COpaquePointer?): Bool =
-    windowssys_windows_win32_security_wintrust_wintrustRemoveActionID(pgactionid?.value?.toCPointer<ByteVar>())
+public actual fun wintrustRemoveActionID(pgactionid: ConstPtr<Guid>): Bool =
+    windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID(pgactionid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: Bool) {
-    windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes)
+    windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes(fincludepepagehashes)
 }
 
 public actual fun wintrustSetRegPolicyFlags(dwpolicyflags: WintrustPolicyFlags): Bool =
-    windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags(dwpolicyflags)
+    windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags(dwpolicyflags)

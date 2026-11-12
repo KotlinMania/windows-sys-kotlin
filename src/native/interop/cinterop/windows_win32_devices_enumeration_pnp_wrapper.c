@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose(void* hswdevice) {
+void windowssysWindowsWin32DevicesEnumerationPnpSwDeviceClose(void* hswdevice) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose(void* hswdev
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate(void* pszenumeratorname, void* pszparentdeviceinstance, void* pcreateinfo, uint32_t cpropertycount, void* pproperties, void* pcallback, void* pcontext, void* phswdevice) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDeviceCreate(void* pszenumeratorname, void* pszparentdeviceinstance, void* pcreateinfo, uint32_t cpropertycount, void* pproperties, void* pcallback, void* pcontext, void* phswdevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime(void* hswdevice, void* plifetime) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDeviceGetLifetime(void* hswdevice, void* plifetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet(void* hswdevice, void* pszdeviceinterfaceid, uint32_t cpropertycount, void* pproperties) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfacePropertySet(void* hswdevice, void* pszdeviceinterfaceid, uint32_t cpropertycount, void* pproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceProper
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister(void* hswdevice, void* pinterfaceclassguid, void* pszreferencestring, uint32_t cpropertycount, void* pproperties, int32_t fenabled, void* ppszdeviceinterfaceid) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfaceRegister(void* hswdevice, void* pinterfaceclassguid, void* pszreferencestring, uint32_t cpropertycount, void* pproperties, int32_t fenabled, void* ppszdeviceinterfaceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegist
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState(void* hswdevice, void* pszdeviceinterfaceid, int32_t fenabled) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfaceSetState(void* hswdevice, void* pszdeviceinterfaceid, int32_t fenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetSta
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet(void* hswdevice, uint32_t cpropertycount, void* pproperties) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDevicePropertySet(void* hswdevice, uint32_t cpropertycount, void* pproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime(void* hswdevice, int32_t lifetime) {
+int32_t windowssysWindowsWin32DevicesEnumerationPnpSwDeviceSetLifetime(void* hswdevice, int32_t lifetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ int32_t windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime(voi
 #endif
 }
 
-void windowssys_windows_win32_devices_enumeration_pnp_swMemFree(void* pmem) {
+void windowssysWindowsWin32DevicesEnumerationPnpSwMemFree(void* pmem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

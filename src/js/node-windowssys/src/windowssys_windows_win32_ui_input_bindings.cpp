@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_defRawInputProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputDefRawInputProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* parawinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ninput = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_ui_input_defRawInputProc_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getCIMSSM_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetCIMSSM_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* inputmessagesource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getCIMSSM_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getCurrentInputMessageSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetCurrentInputMessageSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* inputmessagesource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getCurrentInputMessageSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getRawInputBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetRawInputBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputBuffer_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getRawInputData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetRawInputData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrawinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uicommand = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputData_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetRawInputDeviceInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uicommand = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceInfoA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetRawInputDeviceInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uicommand = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceInfoW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetRawInputDeviceList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prawinputdevicelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puinumdevices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceList_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_getRegisteredRawInputDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputGetRegisteredRawInputDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prawinputdevices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puinumdevices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -312,7 +312,7 @@ static Napi::Value windowssys_windows_win32_ui_input_getRegisteredRawInputDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_registerRawInputDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputRegisterRawInputDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prawinputdevices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uinumdevices = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -342,16 +342,16 @@ static Napi::Value windowssys_windows_win32_ui_input_registerRawInputDevices_nap
 }
 
 static void register_windows_win32_ui_input_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_input_defRawInputProc", Napi::Function::New(env, windowssys_windows_win32_ui_input_defRawInputProc_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getCIMSSM", Napi::Function::New(env, windowssys_windows_win32_ui_input_getCIMSSM_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getCurrentInputMessageSource", Napi::Function::New(env, windowssys_windows_win32_ui_input_getCurrentInputMessageSource_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getRawInputBuffer", Napi::Function::New(env, windowssys_windows_win32_ui_input_getRawInputBuffer_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getRawInputData", Napi::Function::New(env, windowssys_windows_win32_ui_input_getRawInputData_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getRawInputDeviceInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_input_getRawInputDeviceInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getRawInputDeviceInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_input_getRawInputDeviceInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getRawInputDeviceList", Napi::Function::New(env, windowssys_windows_win32_ui_input_getRawInputDeviceList_napi));
-    exports.Set("windowssys_windows_win32_ui_input_getRegisteredRawInputDevices", Napi::Function::New(env, windowssys_windows_win32_ui_input_getRegisteredRawInputDevices_napi));
-    exports.Set("windowssys_windows_win32_ui_input_registerRawInputDevices", Napi::Function::New(env, windowssys_windows_win32_ui_input_registerRawInputDevices_napi));
+    exports.Set("windowssysWindowsWin32UiInputDefRawInputProc", Napi::Function::New(env, windowssysWindowsWin32UiInputDefRawInputProc_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetCIMSSM", Napi::Function::New(env, windowssysWindowsWin32UiInputGetCIMSSM_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetCurrentInputMessageSource", Napi::Function::New(env, windowssysWindowsWin32UiInputGetCurrentInputMessageSource_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetRawInputBuffer", Napi::Function::New(env, windowssysWindowsWin32UiInputGetRawInputBuffer_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetRawInputData", Napi::Function::New(env, windowssysWindowsWin32UiInputGetRawInputData_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetRawInputDeviceInfoA", Napi::Function::New(env, windowssysWindowsWin32UiInputGetRawInputDeviceInfoA_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetRawInputDeviceInfoW", Napi::Function::New(env, windowssysWindowsWin32UiInputGetRawInputDeviceInfoW_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetRawInputDeviceList", Napi::Function::New(env, windowssysWindowsWin32UiInputGetRawInputDeviceList_napi));
+    exports.Set("windowssysWindowsWin32UiInputGetRegisteredRawInputDevices", Napi::Function::New(env, windowssysWindowsWin32UiInputGetRegisteredRawInputDevices_napi));
+    exports.Set("windowssysWindowsWin32UiInputRegisterRawInputDevices", Napi::Function::New(env, windowssysWindowsWin32UiInputRegisterRawInputDevices_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_input_napi, nullptr };

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState(void* hwndapp, uint32_t dwutilitystatemask, uint32_t dwutilitystate) {
+int32_t windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState(void* hwndapp, uint32_t dwutilitystatemask, uint32_t dwutilitystate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_accessibleChildren(void* pacccontainer, int32_t ichildstart, int32_t cchildren, void* rgvarchildren, void* pcobtained) {
+int32_t windowssysWindowsWin32UiAccessibilityAccessibleChildren(void* pacccontainer, int32_t ichildstart, int32_t cchildren, void* rgvarchildren, void* pcobtained) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ int32_t windowssys_windows_win32_ui_accessibility_accessibleChildren(void* paccc
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent(void* hwnd, uint32_t dwid, uint32_t dwchildid, void* ppacc, void* pvarchild) {
+int32_t windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent(void* hwnd, uint32_t dwid, uint32_t dwchildid, void* ppacc, void* pvarchild) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ int32_t windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow(void* hwnd, uint32_t dwid, void* riid, void* ppvobject) {
+int32_t windowssysWindowsWin32UiAccessibilityAccessibleObjectFromWindow(void* hwnd, uint32_t dwid, void* riid, void* ppvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -116,7 +116,7 @@ int32_t windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_createStdAccessibleObject(void* hwnd, int32_t idobject, void* riid, void* ppvobject) {
+int32_t windowssysWindowsWin32UiAccessibilityCreateStdAccessibleObject(void* hwnd, int32_t idobject, void* riid, void* ppvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_ui_accessibility_createStdAccessibleObject(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA(void* hwnd, void* pclassname, int32_t idobject, void* riid, void* ppvobject) {
+int32_t windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyA(void* hwnd, void* pclassname, int32_t idobject, void* riid, void* ppvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -167,7 +167,7 @@ int32_t windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW(void* hwnd, void* pclassname, int32_t idobject, void* riid, void* ppvobject) {
+int32_t windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyW(void* hwnd, void* pclassname, int32_t idobject, void* riid, void* ppvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ int32_t windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition(void* hobj, int32_t dockposition) {
+int32_t windowssysWindowsWin32UiAccessibilityDockPatternSetDockPosition(void* hobj, int32_t dockposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -216,7 +216,7 @@ int32_t windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityExpandCollapsePatternCollapse(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -238,7 +238,7 @@ int32_t windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityExpandCollapsePatternExpand(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -260,7 +260,7 @@ int32_t windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand(vo
 #endif
 }
 
-void windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo(void* pver, void* pbuild) {
+void windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo(void* pver, void* pbuild) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -282,7 +282,7 @@ void windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo(void* pver, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_accessibility_getRoleTextA(uint32_t lrole, void* lpszrole, uint32_t cchrolemax) {
+uint32_t windowssysWindowsWin32UiAccessibilityGetRoleTextA(uint32_t lrole, void* lpszrole, uint32_t cchrolemax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -306,7 +306,7 @@ uint32_t windowssys_windows_win32_ui_accessibility_getRoleTextA(uint32_t lrole, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_accessibility_getRoleTextW(uint32_t lrole, void* lpszrole, uint32_t cchrolemax) {
+uint32_t windowssysWindowsWin32UiAccessibilityGetRoleTextW(uint32_t lrole, void* lpszrole, uint32_t cchrolemax) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -330,7 +330,7 @@ uint32_t windowssys_windows_win32_ui_accessibility_getRoleTextW(uint32_t lrole, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_accessibility_getStateTextA(uint32_t lstatebit, void* lpszstate, uint32_t cchstate) {
+uint32_t windowssysWindowsWin32UiAccessibilityGetStateTextA(uint32_t lstatebit, void* lpszstate, uint32_t cchstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -354,7 +354,7 @@ uint32_t windowssys_windows_win32_ui_accessibility_getStateTextA(uint32_t lstate
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_accessibility_getStateTextW(uint32_t lstatebit, void* lpszstate, uint32_t cchstate) {
+uint32_t windowssysWindowsWin32UiAccessibilityGetStateTextW(uint32_t lstatebit, void* lpszstate, uint32_t cchstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -378,7 +378,7 @@ uint32_t windowssys_windows_win32_ui_accessibility_getStateTextW(uint32_t lstate
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_gridPatternGetItem(void* hobj, int32_t row, int32_t column, void* presult) {
+int32_t windowssysWindowsWin32UiAccessibilityGridPatternGetItem(void* hobj, int32_t row, int32_t column, void* presult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ int32_t windowssys_windows_win32_ui_accessibility_gridPatternGetItem(void* hobj,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_invokePatternInvoke(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityInvokePatternInvoke(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -425,7 +425,7 @@ int32_t windowssys_windows_win32_ui_accessibility_invokePatternInvoke(void* hobj
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled(uint32_t event) {
+int32_t windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(uint32_t event) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -447,7 +447,7 @@ int32_t windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternDoDefaultAction(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible(void* hobj, void* paccessible) {
+int32_t windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternGetIaccessible(void* hobj, void* paccessible) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -492,7 +492,7 @@ int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIac
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect(void* hobj, int32_t flagsselect) {
+int32_t windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSelect(void* hobj, int32_t flagsselect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +515,7 @@ int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue(void* hobj, void* szvalue) {
+int32_t windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSetValue(void* hobj, void* szvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -538,7 +538,7 @@ int32_t windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetVal
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_accessibility_lresultFromObject(void* riid, uint64_t wparam, void* punk) {
+int64_t windowssysWindowsWin32UiAccessibilityLresultFromObject(void* riid, uint64_t wparam, void* punk) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -562,7 +562,7 @@ int64_t windowssys_windows_win32_ui_accessibility_lresultFromObject(void* riid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName(void* hobj, int32_t viewid, void* ppstr) {
+int32_t windowssysWindowsWin32UiAccessibilityMultipleViewPatternGetViewName(void* hobj, int32_t viewid, void* ppstr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -586,7 +586,7 @@ int32_t windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView(void* hobj, int32_t viewid) {
+int32_t windowssysWindowsWin32UiAccessibilityMultipleViewPatternSetCurrentView(void* hobj, int32_t viewid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -609,7 +609,7 @@ int32_t windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentV
 #endif
 }
 
-void windowssys_windows_win32_ui_accessibility_notifyWinEvent(uint32_t event, void* hwnd, int32_t idobject, int32_t idchild) {
+void windowssysWindowsWin32UiAccessibilityNotifyWinEvent(uint32_t event, void* hwnd, int32_t idobject, int32_t idchild) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ void windowssys_windows_win32_ui_accessibility_notifyWinEvent(uint32_t event, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_objectFromLresult(int64_t lresult, void* riid, uint64_t wparam, void* ppvobject) {
+int32_t windowssysWindowsWin32UiAccessibilityObjectFromLresult(int64_t lresult, void* riid, uint64_t wparam, void* ppvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -658,7 +658,7 @@ int32_t windowssys_windows_win32_ui_accessibility_objectFromLresult(int64_t lres
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue(void* hobj, double val) {
+int32_t windowssysWindowsWin32UiAccessibilityRangeValuePatternSetValue(void* hobj, double val) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -681,7 +681,7 @@ int32_t windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_registerPointerInputTarget(void* hwnd, int32_t pointertype) {
+int32_t windowssysWindowsWin32UiAccessibilityRegisterPointerInputTarget(void* hwnd, int32_t pointertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -704,7 +704,7 @@ int32_t windowssys_windows_win32_ui_accessibility_registerPointerInputTarget(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx(void* hwnd, int32_t pointertype, int32_t fobserve) {
+int32_t windowssysWindowsWin32UiAccessibilityRegisterPointerInputTargetEx(void* hwnd, int32_t pointertype, int32_t fobserve) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -728,7 +728,7 @@ int32_t windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityScrollItemPatternScrollIntoView(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -750,7 +750,7 @@ int32_t windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoVie
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_scrollPatternScroll(void* hobj, int32_t horizontalamount, int32_t verticalamount) {
+int32_t windowssysWindowsWin32UiAccessibilityScrollPatternScroll(void* hobj, int32_t horizontalamount, int32_t verticalamount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ int32_t windowssys_windows_win32_ui_accessibility_scrollPatternScroll(void* hobj
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent(void* hobj, double horizontalpercent, double verticalpercent) {
+int32_t windowssysWindowsWin32UiAccessibilityScrollPatternSetScrollPercent(void* hobj, double horizontalpercent, double verticalpercent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -798,7 +798,7 @@ int32_t windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilitySelectionItemPatternAddToSelection(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -820,7 +820,7 @@ int32_t windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelec
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilitySelectionItemPatternRemoveFromSelection(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -842,7 +842,7 @@ int32_t windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFrom
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilitySelectionItemPatternSelect(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -864,7 +864,7 @@ int32_t windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect(voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_accessibility_setWinEventHook(uint32_t eventmin, uint32_t eventmax, void* hmodwineventproc, void* pfnwineventproc, uint32_t idprocess, uint32_t idthread, uint32_t dwflags) {
+void* windowssysWindowsWin32UiAccessibilitySetWinEventHook(uint32_t eventmin, uint32_t eventmax, void* hmodwineventproc, void* pfnwineventproc, uint32_t idprocess, uint32_t idthread, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ void* windowssys_windows_win32_ui_accessibility_setWinEventHook(uint32_t eventmi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternCancel(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +914,7 @@ int32_t windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening(void* hobj, int32_t inputtype) {
+int32_t windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternStartListening(void* hobj, int32_t inputtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -937,7 +937,7 @@ int32_t windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartL
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textPatternGetSelection(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextPatternGetSelection(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -960,7 +960,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textPatternGetSelection(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextPatternGetVisibleRanges(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -983,7 +983,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild(void* hobj, void* hnodechild, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextPatternRangeFromChild(void* hobj, void* hnodechild, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextPatternGetDocumentRange(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1030,7 +1030,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextPatternGetSupportedTextSelection(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1053,7 +1053,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSel
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeAddToSelection(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeAddToSelection(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1075,7 +1075,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeAddToSelection(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeClone(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeClone(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1098,7 +1098,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeClone(void* hobj, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeCompare(void* hobj, void* range, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeCompare(void* hobj, void* range, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1122,7 +1122,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeCompare(void* hobj, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints(void* hobj, int32_t endpoint, void* targetrange, int32_t targetendpoint, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeCompareEndpoints(void* hobj, int32_t endpoint, void* targetrange, int32_t targetendpoint, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1148,7 +1148,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit(void* hobj, int32_t unit) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(void* hobj, int32_t unit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1171,7 +1171,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeFindText(void* hobj, void* text, int32_t backward, int32_t ignorecase, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeFindText(void* hobj, void* text, int32_t backward, int32_t ignorecase, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1197,7 +1197,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeFindText(void* hobj, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue(void* hobj, int32_t attributeid, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeGetAttributeValue(void* hobj, int32_t attributeid, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1221,7 +1221,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeGetBoundingRectangles(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1244,7 +1244,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeGetChildren(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeGetChildren(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1267,7 +1267,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeGetChildren(void* hob
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement(void* hobj, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeGetEnclosingElement(void* hobj, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1290,7 +1290,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeGetText(void* hobj, int32_t maxlength, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeGetText(void* hobj, int32_t maxlength, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1314,7 +1314,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeGetText(void* hobj, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeMove(void* hobj, int32_t unit, int32_t count, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeMove(void* hobj, int32_t unit, int32_t count, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1339,7 +1339,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeMove(void* hobj, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange(void* hobj, int32_t endpoint, void* targetrange, int32_t targetendpoint) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByRange(void* hobj, int32_t endpoint, void* targetrange, int32_t targetendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1364,7 +1364,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit(void* hobj, int32_t endpoint, int32_t unit, int32_t count, void* pretval) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByUnit(void* hobj, int32_t endpoint, int32_t unit, int32_t count, void* pretval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1390,7 +1390,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeRemoveFromSelection(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1412,7 +1412,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView(void* hobj, int32_t aligntotop) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeScrollIntoView(void* hobj, int32_t aligntotop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_textRangeSelect(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityTextRangeSelect(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1457,7 +1457,7 @@ int32_t windowssys_windows_win32_ui_accessibility_textRangeSelect(void* hobj) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_togglePatternToggle(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityTogglePatternToggle(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ int32_t windowssys_windows_win32_ui_accessibility_togglePatternToggle(void* hobj
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_transformPatternMove(void* hobj, double x, double y) {
+int32_t windowssysWindowsWin32UiAccessibilityTransformPatternMove(void* hobj, double x, double y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1503,7 +1503,7 @@ int32_t windowssys_windows_win32_ui_accessibility_transformPatternMove(void* hob
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_transformPatternResize(void* hobj, double width, double height) {
+int32_t windowssysWindowsWin32UiAccessibilityTransformPatternResize(void* hobj, double width, double height) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1527,7 +1527,7 @@ int32_t windowssys_windows_win32_ui_accessibility_transformPatternResize(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_transformPatternRotate(void* hobj, double degrees) {
+int32_t windowssysWindowsWin32UiAccessibilityTransformPatternRotate(void* hobj, double degrees) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1550,7 +1550,7 @@ int32_t windowssys_windows_win32_ui_accessibility_transformPatternRotate(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaAddEvent(void* hnode, int32_t eventid, void* pcallback, int32_t scope, void* pproperties, int32_t cproperties, void* prequest, void* phevent) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaAddEvent(void* hnode, int32_t eventid, void* pcallback, int32_t scope, void* pproperties, int32_t cproperties, void* prequest, void* phevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1579,7 +1579,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaAddEvent(void* hnode, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaClientsAreListening(void) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaClientsAreListening(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1600,7 +1600,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaClientsAreListening(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders(void) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1621,7 +1621,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider(void* pprovider) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider(void* pprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1643,7 +1643,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider(void* pp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaEventAddWindow(void* hevent, void* hwnd) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaEventAddWindow(void* hevent, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1666,7 +1666,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaEventAddWindow(void* hevent
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow(void* hevent, void* hwnd) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaEventRemoveWindow(void* hevent, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1689,7 +1689,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow(void* hev
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaFind(void* hnode, void* pparams, void* prequest, void* pprequesteddata, void* ppoffsets, void* pptreestructures) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaFind(void* hnode, void* pparams, void* prequest, void* pprequesteddata, void* ppoffsets, void* pptreestructures) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1716,7 +1716,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaFind(void* hnode, void* ppa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription(void* pdescription) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetErrorDescription(void* pdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1738,7 +1738,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider(void* hnode, int32_t patternid, void* phobj) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetPatternProvider(void* hnode, int32_t patternid, void* phobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1762,7 +1762,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider(void* hn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue(void* hnode, int32_t propertyid, void* pvalue) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetPropertyValue(void* hnode, int32_t propertyid, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1786,7 +1786,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue(void* hnod
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue(void* punkmixedattributevalue) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetReservedMixedAttributeValue(void* punkmixedattributevalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1808,7 +1808,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeVa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue(void* punknotsupportedvalue) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetReservedNotSupportedValue(void* punknotsupportedvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1830,7 +1830,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValu
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetRootNode(void* phnode) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetRootNode(void* phnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1852,7 +1852,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetRootNode(void* phnode) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId(void* hnode, void* pruntimeid) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetRuntimeId(void* hnode, void* pruntimeid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1875,7 +1875,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId(void* hnode, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache(void* hnode, void* prequest, int32_t normalizestate, void* pnormalizecondition, void* pprequesteddata, void* pptreestructure) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaGetUpdatedCache(void* hnode, void* prequest, int32_t normalizestate, void* pnormalizecondition, void* pprequesteddata, void* pptreestructure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1902,7 +1902,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache(void* hnode
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant(void* pvar, void* phobj) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaHPatternObjectFromVariant(void* pvar, void* phobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1925,7 +1925,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant(void* pvar, void* phtextrange) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaHTextRangeFromVariant(void* pvar, void* phtextrange) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1948,7 +1948,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant(void* pvar, void* phnode) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaHUiaNodeFromVariant(void* pvar, void* phnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1971,7 +1971,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider(void* hwnd) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaHasServerSideProvider(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1993,7 +1993,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd(void* hwnd, void* ppprovider) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaHostProviderFromHwnd(void* hwnd, void* ppprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2016,7 +2016,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider(void* pprovider, uint32_t dwflags, void* ppaccessible, void* pvarchild) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaIAccessibleFromProvider(void* pprovider, uint32_t dwflags, void* ppaccessible, void* pvarchild) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2041,7 +2041,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaLookupId(int32_t type, void* pguid) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaLookupId(int32_t type, void* pguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2064,7 +2064,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaLookupId(int32_t type, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaNavigate(void* hnode, int32_t direction, void* pcondition, void* prequest, void* pprequesteddata, void* pptreestructure) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaNavigate(void* hnode, int32_t direction, void* pcondition, void* prequest, void* pprequesteddata, void* pptreestructure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2091,7 +2091,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaNavigate(void* hnode, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus(void* prequest, void* pprequesteddata, void* pptreestructure) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaNodeFromFocus(void* prequest, void* pprequesteddata, void* pptreestructure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2115,7 +2115,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus(void* preques
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle(void* hwnd, void* phnode) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaNodeFromHandle(void* hwnd, void* phnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2138,7 +2138,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint(double x, double y, void* prequest, void* pprequesteddata, void* pptreestructure) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaNodeFromPoint(double x, double y, void* prequest, void* pprequesteddata, void* pptreestructure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, double, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2164,7 +2164,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint(double x, dou
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider(void* pprovider, void* phnode) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaNodeFromProvider(void* pprovider, void* phnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2187,7 +2187,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider(void* ppro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaNodeRelease(void* hnode) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaNodeRelease(void* hnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2209,7 +2209,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaNodeRelease(void* hnode) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaPatternRelease(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaPatternRelease(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2231,7 +2231,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaPatternRelease(void* hobj) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient(void* hwnd, int32_t idobject, int32_t idchild, void* ppprovider) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaProviderForNonClient(void* hwnd, int32_t idobject, int32_t idchild, void* ppprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2256,7 +2256,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible(void* paccessible, int32_t idchild, uint32_t dwflags, void* ppprovider) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaProviderFromIAccessible(void* paccessible, int32_t idchild, uint32_t dwflags, void* ppprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2281,7 +2281,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent(void* provider, void* textrange) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseActiveTextPositionChangedEvent(void* provider, void* textrange) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2304,7 +2304,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChan
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent(void* pprovider, int32_t asynccontentloadedstate, double percentcomplete) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseAsyncContentLoadedEvent(void* pprovider, int32_t asynccontentloadedstate, double percentcomplete) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -2328,7 +2328,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEven
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent(void* pprovider, int32_t id) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(void* pprovider, int32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2351,7 +2351,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent(void* pprovider, int32_t eventidcount, void* puiachanges) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseChangesEvent(void* pprovider, int32_t eventidcount, void* puiachanges) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2375,7 +2375,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent(void* ppr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent(void* provider, int32_t notificationkind, int32_t notificationprocessing, void* displaystring, void* activityid) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseNotificationEvent(void* provider, int32_t notificationkind, int32_t notificationprocessing, void* displaystring, void* activityid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2401,7 +2401,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent(void* pprovider, int32_t structurechangetype, void* pruntimeid, int32_t cruntimeidlen) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseStructureChangedEvent(void* pprovider, int32_t structurechangetype, void* pruntimeid, int32_t cruntimeidlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2426,7 +2426,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent(void* pprovider, int32_t texteditchangetype, void* pchangeddata) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRaiseTextEditTextChangedEvent(void* pprovider, int32_t texteditchangetype, void* pchangeddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2450,7 +2450,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEve
 #endif
 }
 
-void windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback(void* pcallback) {
+void windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback(void* pcallback) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2471,7 +2471,7 @@ void windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaRemoveEvent(void* hevent) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaRemoveEvent(void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2493,7 +2493,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaRemoveEvent(void* hevent) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider(void* hwnd, uint64_t wparam, int64_t lparam, void* el) {
+int64_t windowssysWindowsWin32UiAccessibilityUiaReturnRawElementProvider(void* hwnd, uint64_t wparam, int64_t lparam, void* el) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2518,7 +2518,7 @@ int64_t windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaSetFocus(void* hnode) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaSetFocus(void* hnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2540,7 +2540,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaSetFocus(void* hnode) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityUiaTextRangeRelease(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2562,7 +2562,7 @@ int32_t windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease(void* hobj
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_unhookWinEvent(void* hwineventhook) {
+int32_t windowssysWindowsWin32UiAccessibilityUnhookWinEvent(void* hwineventhook) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2584,7 +2584,7 @@ int32_t windowssys_windows_win32_ui_accessibility_unhookWinEvent(void* hwinevent
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget(void* hwnd, int32_t pointertype) {
+int32_t windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTarget(void* hwnd, int32_t pointertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2607,7 +2607,7 @@ int32_t windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx(void* hwnd, int32_t pointertype) {
+int32_t windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTargetEx(void* hwnd, int32_t pointertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2630,7 +2630,7 @@ int32_t windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_valuePatternSetValue(void* hobj, void* pval) {
+int32_t windowssysWindowsWin32UiAccessibilityValuePatternSetValue(void* hobj, void* pval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2653,7 +2653,7 @@ int32_t windowssys_windows_win32_ui_accessibility_valuePatternSetValue(void* hob
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityVirtualizedItemPatternRealize(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2675,7 +2675,7 @@ int32_t windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject(void* param0, void* phwnd) {
+int32_t windowssysWindowsWin32UiAccessibilityWindowFromAccessibleObject(void* param0, void* phwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2698,7 +2698,7 @@ int32_t windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_windowPatternClose(void* hobj) {
+int32_t windowssysWindowsWin32UiAccessibilityWindowPatternClose(void* hobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2720,7 +2720,7 @@ int32_t windowssys_windows_win32_ui_accessibility_windowPatternClose(void* hobj)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState(void* hobj, int32_t state) {
+int32_t windowssysWindowsWin32UiAccessibilityWindowPatternSetWindowVisualState(void* hobj, int32_t state) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2743,7 +2743,7 @@ int32_t windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualSt
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle(void* hobj, int32_t milliseconds, void* presult) {
+int32_t windowssysWindowsWin32UiAccessibilityWindowPatternWaitForInputIdle(void* hobj, int32_t milliseconds, void* presult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

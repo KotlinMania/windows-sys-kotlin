@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapGetLastError(void) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapGetLastError(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapGetLastError(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(uint32_t ldaperror) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapMapErrorToWin32(uint32_t ldaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode(void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapUTF8ToUnicode(void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode(void* lpsrcst
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8(void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8(void* lpsrcstr, int32_t cchsrc, void* lpdeststr, int32_t cchdest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8(void* lpsrcst
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_berAllocT(int32_t options) {
+void* windowssysWindowsWin32NetworkingLdapBerAllocT(int32_t options) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ void* windowssys_windows_win32_networking_ldap_berAllocT(int32_t options) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_berBvdup(void* pberval) {
+void* windowssysWindowsWin32NetworkingLdapBerBvdup(void* pberval) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ void* windowssys_windows_win32_networking_ldap_berBvdup(void* pberval) {
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_berBvecfree(void* pberval) {
+void windowssysWindowsWin32NetworkingLdapBerBvecfree(void* pberval) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -173,7 +173,7 @@ void windowssys_windows_win32_networking_ldap_berBvecfree(void* pberval) {
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_berBvfree(void* bv) {
+void windowssysWindowsWin32NetworkingLdapBerBvfree(void* bv) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -194,7 +194,7 @@ void windowssys_windows_win32_networking_ldap_berBvfree(void* bv) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_berFirstElement(void* pberelement, void* plen, void* ppopaque) {
+uint32_t windowssysWindowsWin32NetworkingLdapBerFirstElement(void* pberelement, void* plen, void* ppopaque) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ uint32_t windowssys_windows_win32_networking_ldap_berFirstElement(void* pberelem
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_berFlatten(void* pberelement, void* pberval) {
+int32_t windowssysWindowsWin32NetworkingLdapBerFlatten(void* pberelement, void* pberval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -241,7 +241,7 @@ int32_t windowssys_windows_win32_networking_ldap_berFlatten(void* pberelement, v
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_berFree(void* pberelement, int32_t fbuf) {
+void windowssysWindowsWin32NetworkingLdapBerFree(void* pberelement, int32_t fbuf) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -263,7 +263,7 @@ void windowssys_windows_win32_networking_ldap_berFree(void* pberelement, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_berInit(void* pberval) {
+void* windowssysWindowsWin32NetworkingLdapBerInit(void* pberval) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -285,7 +285,7 @@ void* windowssys_windows_win32_networking_ldap_berInit(void* pberval) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_berNextElement(void* pberelement, void* plen, void* opaque) {
+uint32_t windowssysWindowsWin32NetworkingLdapBerNextElement(void* pberelement, void* plen, void* opaque) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ uint32_t windowssys_windows_win32_networking_ldap_berNextElement(void* pbereleme
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_berPeekTag(void* pberelement, void* plen) {
+uint32_t windowssysWindowsWin32NetworkingLdapBerPeekTag(void* pberelement, void* plen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -332,7 +332,7 @@ uint32_t windowssys_windows_win32_networking_ldap_berPeekTag(void* pberelement, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_berPrintf(void* pberelement, void* fmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32NetworkingLdapBerPrintf(void* pberelement, void* fmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -366,7 +366,7 @@ int32_t windowssys_windows_win32_networking_ldap_berPrintf(void* pberelement, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_berScanf(void* pberelement, void* fmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+uint32_t windowssysWindowsWin32NetworkingLdapBerScanf(void* pberelement, void* fmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef uint32_t (*km_fn_t)(void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -400,7 +400,7 @@ uint32_t windowssys_windows_win32_networking_ldap_berScanf(void* pberelement, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_berSkipTag(void* pberelement, void* plen) {
+uint32_t windowssysWindowsWin32NetworkingLdapBerSkipTag(void* pberelement, void* plen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -423,7 +423,7 @@ uint32_t windowssys_windows_win32_networking_ldap_berSkipTag(void* pberelement, 
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_cldapOpen(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapCldapOpen(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -446,7 +446,7 @@ void* windowssys_windows_win32_networking_ldap_cldapOpen(void* hostname, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_cldapOpenA(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapCldapOpenA(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ void* windowssys_windows_win32_networking_ldap_cldapOpenA(void* hostname, uint32
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_cldapOpenW(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapCldapOpenW(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -492,7 +492,7 @@ void* windowssys_windows_win32_networking_ldap_cldapOpenW(void* hostname, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAbandon(void* ld, uint32_t msgid) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAbandon(void* ld, uint32_t msgid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +515,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAbandon(void* ld, uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAdd(void* ld, void* dn, void* attrs) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAdd(void* ld, void* dn, void* attrs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -539,7 +539,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAdd(void* ld, void* dn, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddA(void* ld, void* dn, void* attrs) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddA(void* ld, void* dn, void* attrs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -563,7 +563,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddA(void* ld, void* dn, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddW(void* ld, void* dn, void* attrs) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddW(void* ld, void* dn, void* attrs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -587,7 +587,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddW(void* ld, void* dn, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddExt(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddExt(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -614,7 +614,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddExt(void* ld, void* dn,
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtA(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddExtA(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -641,7 +641,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtA(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtW(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddExtW(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -668,7 +668,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtW(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtS(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddExtS(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -694,7 +694,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtS(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtSA(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddExtSA(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -720,7 +720,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtSA(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtSW(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddExtSW(void* ld, void* dn, void* attrs, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -746,7 +746,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddExtSW(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddS(void* ld, void* dn, void* attrs) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddS(void* ld, void* dn, void* attrs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -770,7 +770,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddS(void* ld, void* dn, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddSA(void* ld, void* dn, void* attrs) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddSA(void* ld, void* dn, void* attrs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -794,7 +794,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddSA(void* ld, void* dn, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapAddSW(void* ld, void* dn, void* attrs) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapAddSW(void* ld, void* dn, void* attrs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -818,7 +818,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapAddSW(void* ld, void* dn, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapBind(void* ld, void* dn, void* cred, uint32_t method) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapBind(void* ld, void* dn, void* cred, uint32_t method) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -843,7 +843,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapBind(void* ld, void* dn, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapBindA(void* ld, void* dn, void* cred, uint32_t method) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapBindA(void* ld, void* dn, void* cred, uint32_t method) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -868,7 +868,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapBindA(void* ld, void* dn, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapBindW(void* ld, void* dn, void* cred, uint32_t method) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapBindW(void* ld, void* dn, void* cred, uint32_t method) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -893,7 +893,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapBindW(void* ld, void* dn, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapBindS(void* ld, void* dn, void* cred, uint32_t method) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapBindS(void* ld, void* dn, void* cred, uint32_t method) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -918,7 +918,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapBindS(void* ld, void* dn, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapBindSA(void* ld, void* dn, void* cred, uint32_t method) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapBindSA(void* ld, void* dn, void* cred, uint32_t method) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapBindSA(void* ld, void* dn,
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapBindSW(void* ld, void* dn, void* cred, uint32_t method) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapBindSW(void* ld, void* dn, void* cred, uint32_t method) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -968,7 +968,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapBindSW(void* ld, void* dn,
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCheckFilterA(void* ld, void* searchfilter) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCheckFilterA(void* ld, void* searchfilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -991,7 +991,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCheckFilterA(void* ld, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCheckFilterW(void* ld, void* searchfilter) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCheckFilterW(void* ld, void* searchfilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1014,7 +1014,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCheckFilterW(void* ld, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCleanup(void* hinstance) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCleanup(void* hinstance) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1036,7 +1036,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCleanup(void* hinstance) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp(void* ld, uint32_t messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp(void* ld, uint32_t messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1059,7 +1059,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp(void* ld, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompare(void* ld, void* dn, void* attr, void* value) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompare(void* ld, void* dn, void* attr, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1084,7 +1084,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompare(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareA(void* ld, void* dn, void* attr, void* value) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareA(void* ld, void* dn, void* attr, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareA(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareW(void* ld, void* dn, void* attr, void* value) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareW(void* ld, void* dn, void* attr, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1134,7 +1134,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareW(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExt(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareExt(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1163,7 +1163,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExt(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtA(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareExtA(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1192,7 +1192,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtA(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtW(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareExtW(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1221,7 +1221,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtW(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtS(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareExtS(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1249,7 +1249,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtS(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtSA(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareExtSA(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtSA(void* ld, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtSW(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareExtSW(void* ld, void* dn, void* attr, void* value, void* data, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1305,7 +1305,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareExtSW(void* ld, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareS(void* ld, void* dn, void* attr, void* value) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareS(void* ld, void* dn, void* attr, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1330,7 +1330,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareS(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareSA(void* ld, void* dn, void* attr, void* value) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareSA(void* ld, void* dn, void* attr, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1355,7 +1355,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareSA(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCompareSW(void* ld, void* dn, void* attr, void* value) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCompareSW(void* ld, void* dn, void* attr, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1380,7 +1380,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCompareSW(void* ld, void* 
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapConnFromMsg(void* primaryconn, void* res) {
+void* windowssysWindowsWin32NetworkingLdapLdapConnFromMsg(void* primaryconn, void* res) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1403,7 +1403,7 @@ void* windowssys_windows_win32_networking_ldap_ldapConnFromMsg(void* primaryconn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapConnect(void* ld, void* timeout) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapConnect(void* ld, void* timeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1426,7 +1426,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapConnect(void* ld, void* ti
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapControlFree(void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapControlFree(void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1448,7 +1448,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapControlFree(void* control)
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapControlFreeA(void* controls) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapControlFreeA(void* controls) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1470,7 +1470,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapControlFreeA(void* control
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapControlFreeW(void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapControlFreeW(void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1492,7 +1492,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapControlFreeW(void* control
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapControlsFree(void* controls) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapControlsFree(void* controls) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1514,7 +1514,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapControlsFree(void* control
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapControlsFreeA(void* controls) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapControlsFreeA(void* controls) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1536,7 +1536,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapControlsFreeA(void* contro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapControlsFreeW(void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapControlsFreeW(void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1558,7 +1558,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapControlsFreeW(void* contro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCountEntries(void* ld, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCountEntries(void* ld, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1581,7 +1581,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCountEntries(void* ld, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCountReferences(void* ld, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCountReferences(void* ld, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1604,7 +1604,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCountReferences(void* ld, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCountValues(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCountValues(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1626,7 +1626,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCountValues(void* vals) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCountValuesA(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCountValuesA(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1648,7 +1648,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCountValuesA(void* vals) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCountValuesW(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCountValuesW(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1670,7 +1670,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCountValuesW(void* vals) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCountValuesLen(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCountValuesLen(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCountValuesLen(void* vals)
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCreatePageControl(void* externalhandle, uint32_t pagesize, void* cookie, uint8_t iscritical, void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCreatePageControl(void* externalhandle, uint32_t pagesize, void* cookie, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1718,7 +1718,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCreatePageControl(void* ex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCreatePageControlA(void* externalhandle, uint32_t pagesize, void* cookie, uint8_t iscritical, void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA(void* externalhandle, uint32_t pagesize, void* cookie, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1744,7 +1744,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCreatePageControlA(void* e
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCreatePageControlW(void* externalhandle, uint32_t pagesize, void* cookie, uint8_t iscritical, void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW(void* externalhandle, uint32_t pagesize, void* cookie, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1770,7 +1770,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCreatePageControlW(void* e
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCreateSortControl(void* externalhandle, void* sortkeys, uint8_t iscritical, void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCreateSortControl(void* externalhandle, void* sortkeys, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1795,7 +1795,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCreateSortControl(void* ex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCreateSortControlA(void* externalhandle, void* sortkeys, uint8_t iscritical, void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA(void* externalhandle, void* sortkeys, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1820,7 +1820,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCreateSortControlA(void* e
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapCreateSortControlW(void* externalhandle, void* sortkeys, uint8_t iscritical, void* control) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW(void* externalhandle, void* sortkeys, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1845,7 +1845,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapCreateSortControlW(void* e
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA(void* externalhandle, void* vlvinfo, uint8_t iscritical, void* control) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA(void* externalhandle, void* vlvinfo, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1870,7 +1870,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA(void* ext
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW(void* externalhandle, void* vlvinfo, uint8_t iscritical, void* control) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW(void* externalhandle, void* vlvinfo, uint8_t iscritical, void* control) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1895,7 +1895,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW(void* ext
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDelete(void* ld, void* dn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDelete(void* ld, void* dn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1918,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDelete(void* ld, void* dn)
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteA(void* ld, void* dn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteA(void* ld, void* dn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1941,7 +1941,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteA(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteW(void* ld, void* dn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteW(void* ld, void* dn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1964,7 +1964,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteW(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExt(void* ld, void* dn, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteExt(void* ld, void* dn, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1990,7 +1990,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExt(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtA(void* ld, void* dn, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteExtA(void* ld, void* dn, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2016,7 +2016,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtA(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtW(void* ld, void* dn, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteExtW(void* ld, void* dn, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2042,7 +2042,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtW(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtS(void* ld, void* dn, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteExtS(void* ld, void* dn, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2067,7 +2067,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtS(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtSA(void* ld, void* dn, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA(void* ld, void* dn, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2092,7 +2092,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtSA(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtSW(void* ld, void* dn, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW(void* ld, void* dn, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2117,7 +2117,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteExtSW(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteS(void* ld, void* dn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteS(void* ld, void* dn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2140,7 +2140,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteS(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteSA(void* ld, void* dn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteSA(void* ld, void* dn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2163,7 +2163,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteSA(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteSW(void* ld, void* dn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapDeleteSW(void* ld, void* dn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2186,7 +2186,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapDeleteSW(void* ld, void* d
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapDn2ufn(void* dn) {
+void* windowssysWindowsWin32NetworkingLdapLdapDn2ufn(void* dn) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2208,7 +2208,7 @@ void* windowssys_windows_win32_networking_ldap_ldapDn2ufn(void* dn) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapDn2ufnA(void* dn) {
+void* windowssysWindowsWin32NetworkingLdapLdapDn2ufnA(void* dn) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2230,7 +2230,7 @@ void* windowssys_windows_win32_networking_ldap_ldapDn2ufnA(void* dn) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapDn2ufnW(void* dn) {
+void* windowssysWindowsWin32NetworkingLdapLdapDn2ufnW(void* dn) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2252,7 +2252,7 @@ void* windowssys_windows_win32_networking_ldap_ldapDn2ufnW(void* dn) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA(void* externalhandle, void* sortkeys, void* control, bool criticality) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA(void* externalhandle, void* sortkeys, void* control, bool criticality) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2277,7 +2277,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA(void* e
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW(void* externalhandle, void* sortkeys, void* control, bool criticality) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW(void* externalhandle, void* sortkeys, void* control, bool criticality) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2302,7 +2302,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW(void* e
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapErr2string(uint32_t err) {
+void* windowssysWindowsWin32NetworkingLdapLdapErr2string(uint32_t err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2324,7 +2324,7 @@ void* windowssys_windows_win32_networking_ldap_ldapErr2string(uint32_t err) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapErr2stringA(uint32_t err) {
+void* windowssysWindowsWin32NetworkingLdapLdapErr2stringA(uint32_t err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2346,7 +2346,7 @@ void* windowssys_windows_win32_networking_ldap_ldapErr2stringA(uint32_t err) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapErr2stringW(uint32_t err) {
+void* windowssysWindowsWin32NetworkingLdapLdapErr2stringW(uint32_t err) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2368,7 +2368,7 @@ void* windowssys_windows_win32_networking_ldap_ldapErr2stringW(uint32_t err) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement(void* sourcefilterelement, uint32_t sourcelength, void* destfilterelement, uint32_t destlength) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElement(void* sourcefilterelement, uint32_t sourcelength, void* destfilterelement, uint32_t destlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2393,7 +2393,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA(void* sourcefilterelement, uint32_t sourcelength, void* destfilterelement, uint32_t destlength) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementA(void* sourcefilterelement, uint32_t sourcelength, void* destfilterelement, uint32_t destlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2418,7 +2418,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW(void* sourcefilterelement, uint32_t sourcelength, void* destfilterelement, uint32_t destlength) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW(void* sourcefilterelement, uint32_t sourcelength, void* destfilterelement, uint32_t destlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2443,7 +2443,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW(void*
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapExplodeDn(void* dn, uint32_t notypes) {
+void* windowssysWindowsWin32NetworkingLdapLdapExplodeDn(void* dn, uint32_t notypes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2466,7 +2466,7 @@ void* windowssys_windows_win32_networking_ldap_ldapExplodeDn(void* dn, uint32_t 
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapExplodeDnA(void* dn, uint32_t notypes) {
+void* windowssysWindowsWin32NetworkingLdapLdapExplodeDnA(void* dn, uint32_t notypes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2489,7 +2489,7 @@ void* windowssys_windows_win32_networking_ldap_ldapExplodeDnA(void* dn, uint32_t
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapExplodeDnW(void* dn, uint32_t notypes) {
+void* windowssysWindowsWin32NetworkingLdapLdapExplodeDnW(void* dn, uint32_t notypes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2512,7 +2512,7 @@ void* windowssys_windows_win32_networking_ldap_ldapExplodeDnW(void* dn, uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperation(void* ld, void* oid, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapExtendedOperation(void* ld, void* oid, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2539,7 +2539,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperation(void* ld
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationA(void* ld, void* oid, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA(void* ld, void* oid, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2566,7 +2566,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationA(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationW(void* ld, void* oid, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW(void* ld, void* oid, void* data, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2593,7 +2593,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationW(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA(void* externalhandle, void* oid, void* data, void* servercontrols, void* clientcontrols, void* returnedoid, void* returneddata) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA(void* externalhandle, void* oid, void* data, void* servercontrols, void* clientcontrols, void* returnedoid, void* returneddata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2621,7 +2621,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW(void* externalhandle, void* oid, void* data, void* servercontrols, void* clientcontrols, void* returnedoid, void* returneddata) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW(void* externalhandle, void* oid, void* data, void* servercontrols, void* clientcontrols, void* returnedoid, void* returneddata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2649,7 +2649,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapFirstAttribute(void* ld, void* entry, void* ptr) {
+void* windowssysWindowsWin32NetworkingLdapLdapFirstAttribute(void* ld, void* entry, void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2673,7 +2673,7 @@ void* windowssys_windows_win32_networking_ldap_ldapFirstAttribute(void* ld, void
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapFirstAttributeA(void* ld, void* entry, void* ptr) {
+void* windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA(void* ld, void* entry, void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2697,7 +2697,7 @@ void* windowssys_windows_win32_networking_ldap_ldapFirstAttributeA(void* ld, voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapFirstAttributeW(void* ld, void* entry, void* ptr) {
+void* windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW(void* ld, void* entry, void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2721,7 +2721,7 @@ void* windowssys_windows_win32_networking_ldap_ldapFirstAttributeW(void* ld, voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapFirstEntry(void* ld, void* res) {
+void* windowssysWindowsWin32NetworkingLdapLdapFirstEntry(void* ld, void* res) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2744,7 +2744,7 @@ void* windowssys_windows_win32_networking_ldap_ldapFirstEntry(void* ld, void* re
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapFirstReference(void* ld, void* res) {
+void* windowssysWindowsWin32NetworkingLdapLdapFirstReference(void* ld, void* res) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2767,7 +2767,7 @@ void* windowssys_windows_win32_networking_ldap_ldapFirstReference(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapFreeControls(void* controls) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapFreeControls(void* controls) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2789,7 +2789,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapFreeControls(void* control
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapFreeControlsA(void* controls) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapFreeControlsA(void* controls) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2811,7 +2811,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapFreeControlsA(void* contro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapFreeControlsW(void* controls) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapFreeControlsW(void* controls) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2833,7 +2833,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapFreeControlsW(void* contro
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetDn(void* ld, void* entry) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetDn(void* ld, void* entry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2856,7 +2856,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetDn(void* ld, void* entry) 
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetDnA(void* ld, void* entry) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetDnA(void* ld, void* entry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2879,7 +2879,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetDnA(void* ld, void* entry)
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetDnW(void* ld, void* entry) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetDnW(void* ld, void* entry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2902,7 +2902,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetDnW(void* ld, void* entry)
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapGetNextPage(void* externalhandle, int64_t searchhandle, uint32_t pagesize, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapGetNextPage(void* externalhandle, int64_t searchhandle, uint32_t pagesize, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2927,7 +2927,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapGetNextPage(void* external
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapGetNextPageS(void* externalhandle, int64_t searchhandle, void* timeout, uint32_t pagesize, void* totalcount, void* results) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapGetNextPageS(void* externalhandle, int64_t searchhandle, void* timeout, uint32_t pagesize, void* totalcount, void* results) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2954,7 +2954,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapGetNextPageS(void* externa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapGetOption(void* ld, int32_t option, void* outvalue) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapGetOption(void* ld, int32_t option, void* outvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2978,7 +2978,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapGetOption(void* ld, int32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapGetOptionW(void* ld, int32_t option, void* outvalue) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapGetOptionW(void* ld, int32_t option, void* outvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3002,7 +3002,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapGetOptionW(void* ld, int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapGetPagedCount(void* externalhandle, int64_t searchblock, void* totalcount, void* results) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapGetPagedCount(void* externalhandle, int64_t searchblock, void* totalcount, void* results) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3027,7 +3027,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapGetPagedCount(void* extern
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetValues(void* ld, void* entry, void* attr) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetValues(void* ld, void* entry, void* attr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3051,7 +3051,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetValues(void* ld, void* ent
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetValuesA(void* ld, void* entry, void* attr) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetValuesA(void* ld, void* entry, void* attr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3075,7 +3075,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetValuesA(void* ld, void* en
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetValuesW(void* ld, void* entry, void* attr) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetValuesW(void* ld, void* entry, void* attr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3099,7 +3099,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetValuesW(void* ld, void* en
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetValuesLen(void* externalhandle, void* message, void* attr) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetValuesLen(void* externalhandle, void* message, void* attr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3123,7 +3123,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetValuesLen(void* externalha
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetValuesLenA(void* externalhandle, void* message, void* attr) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA(void* externalhandle, void* message, void* attr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3147,7 +3147,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetValuesLenA(void* externalh
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapGetValuesLenW(void* externalhandle, void* message, void* attr) {
+void* windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW(void* externalhandle, void* message, void* attr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3171,7 +3171,7 @@ void* windowssys_windows_win32_networking_ldap_ldapGetValuesLenW(void* externalh
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapInit(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapLdapInit(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3194,7 +3194,7 @@ void* windowssys_windows_win32_networking_ldap_ldapInit(void* hostname, uint32_t
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapInitA(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapLdapInitA(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3217,7 +3217,7 @@ void* windowssys_windows_win32_networking_ldap_ldapInitA(void* hostname, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapInitW(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapLdapInitW(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3240,7 +3240,7 @@ void* windowssys_windows_win32_networking_ldap_ldapInitW(void* hostname, uint32_
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_ldapMemfree(void* block) {
+void windowssysWindowsWin32NetworkingLdapLdapMemfree(void* block) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3261,7 +3261,7 @@ void windowssys_windows_win32_networking_ldap_ldapMemfree(void* block) {
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_ldapMemfreeA(void* block) {
+void windowssysWindowsWin32NetworkingLdapLdapMemfreeA(void* block) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3282,7 +3282,7 @@ void windowssys_windows_win32_networking_ldap_ldapMemfreeA(void* block) {
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_ldapMemfreeW(void* block) {
+void windowssysWindowsWin32NetworkingLdapLdapMemfreeW(void* block) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3303,7 +3303,7 @@ void windowssys_windows_win32_networking_ldap_ldapMemfreeW(void* block) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModify(void* ld, void* dn, void* mods) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModify(void* ld, void* dn, void* mods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3327,7 +3327,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModify(void* ld, void* dn,
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyA(void* ld, void* dn, void* mods) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyA(void* ld, void* dn, void* mods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3351,7 +3351,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyA(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyW(void* ld, void* dn, void* mods) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyW(void* ld, void* dn, void* mods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3375,7 +3375,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyW(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExt(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyExt(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3402,7 +3402,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExt(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtA(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyExtA(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3429,7 +3429,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtA(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtW(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyExtW(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3456,7 +3456,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtW(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtS(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyExtS(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3482,7 +3482,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtS(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtSA(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyExtSA(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3508,7 +3508,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtSA(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtSW(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyExtSW(void* ld, void* dn, void* mods, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3534,7 +3534,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyExtSW(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifyS(void* ld, void* dn, void* mods) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifyS(void* ld, void* dn, void* mods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3558,7 +3558,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifyS(void* ld, void* dn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifySA(void* ld, void* dn, void* mods) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifySA(void* ld, void* dn, void* mods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3582,7 +3582,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifySA(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModifySW(void* ld, void* dn, void* mods) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModifySW(void* ld, void* dn, void* mods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3606,7 +3606,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModifySW(void* ld, void* d
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3630,7 +3630,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn(void* externalhandl
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn2(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3655,7 +3655,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2(void* externalhand
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2A(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn2A(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3680,7 +3680,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2A(void* externalhan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2W(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn2W(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3705,7 +3705,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2W(void* externalhan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2S(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn2S(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3730,7 +3730,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2S(void* externalhan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2SA(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn2SA(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3755,7 +3755,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2SA(void* externalha
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2SW(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdn2SW(void* externalhandle, void* distinguishedname, void* newdistinguishedname, int32_t deleteoldrdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3780,7 +3780,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdn2SW(void* externalha
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnA(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdnA(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3804,7 +3804,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnA(void* externalhand
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnW(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdnW(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3828,7 +3828,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnW(void* externalhand
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnS(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdnS(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3852,7 +3852,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnS(void* externalhand
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnSA(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdnSA(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3876,7 +3876,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnSA(void* externalhan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnSW(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapModrdnSW(void* externalhandle, void* distinguishedname, void* newdistinguishedname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3900,7 +3900,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapModrdnSW(void* externalhan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapMsgfree(void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapMsgfree(void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3922,7 +3922,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapMsgfree(void* res) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapNextAttribute(void* ld, void* entry, void* ptr) {
+void* windowssysWindowsWin32NetworkingLdapLdapNextAttribute(void* ld, void* entry, void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3946,7 +3946,7 @@ void* windowssys_windows_win32_networking_ldap_ldapNextAttribute(void* ld, void*
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapNextAttributeA(void* ld, void* entry, void* ptr) {
+void* windowssysWindowsWin32NetworkingLdapLdapNextAttributeA(void* ld, void* entry, void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3970,7 +3970,7 @@ void* windowssys_windows_win32_networking_ldap_ldapNextAttributeA(void* ld, void
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapNextAttributeW(void* ld, void* entry, void* ptr) {
+void* windowssysWindowsWin32NetworkingLdapLdapNextAttributeW(void* ld, void* entry, void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3994,7 +3994,7 @@ void* windowssys_windows_win32_networking_ldap_ldapNextAttributeW(void* ld, void
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapNextEntry(void* ld, void* entry) {
+void* windowssysWindowsWin32NetworkingLdapLdapNextEntry(void* ld, void* entry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4017,7 +4017,7 @@ void* windowssys_windows_win32_networking_ldap_ldapNextEntry(void* ld, void* ent
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapNextReference(void* ld, void* entry) {
+void* windowssysWindowsWin32NetworkingLdapLdapNextReference(void* ld, void* entry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4040,7 +4040,7 @@ void* windowssys_windows_win32_networking_ldap_ldapNextReference(void* ld, void*
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapOpen(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapLdapOpen(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4063,7 +4063,7 @@ void* windowssys_windows_win32_networking_ldap_ldapOpen(void* hostname, uint32_t
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapOpenA(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapLdapOpenA(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4086,7 +4086,7 @@ void* windowssys_windows_win32_networking_ldap_ldapOpenA(void* hostname, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapOpenW(void* hostname, uint32_t portnumber) {
+void* windowssysWindowsWin32NetworkingLdapLdapOpenW(void* hostname, uint32_t portnumber) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4109,7 +4109,7 @@ void* windowssys_windows_win32_networking_ldap_ldapOpenW(void* hostname, uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA(void* connection, void* resultmessage, void* resultoid, void* resultdata, bool freeit) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA(void* connection, void* resultmessage, void* resultoid, void* resultdata, bool freeit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4135,7 +4135,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW(void* connection, void* resultmessage, void* resultoid, void* resultdata, bool freeit) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW(void* connection, void* resultmessage, void* resultoid, void* resultdata, bool freeit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4161,7 +4161,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParsePageControl(void* externalhandle, void* servercontrols, void* totalcount, void* cookie) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParsePageControl(void* externalhandle, void* servercontrols, void* totalcount, void* cookie) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4186,7 +4186,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParsePageControl(void* ext
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParsePageControlA(void* externalhandle, void* servercontrols, void* totalcount, void* cookie) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParsePageControlA(void* externalhandle, void* servercontrols, void* totalcount, void* cookie) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4211,7 +4211,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParsePageControlA(void* ex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParsePageControlW(void* externalhandle, void* servercontrols, void* totalcount, void* cookie) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParsePageControlW(void* externalhandle, void* servercontrols, void* totalcount, void* cookie) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4236,7 +4236,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParsePageControlW(void* ex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseReference(void* connection, void* resultmessage, void* referrals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseReference(void* connection, void* resultmessage, void* referrals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4260,7 +4260,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseReference(void* conne
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseReferenceA(void* connection, void* resultmessage, void* referrals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseReferenceA(void* connection, void* resultmessage, void* referrals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4284,7 +4284,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseReferenceA(void* conn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseReferenceW(void* connection, void* resultmessage, void* referrals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseReferenceW(void* connection, void* resultmessage, void* referrals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4308,7 +4308,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseReferenceW(void* conn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseResult(void* connection, void* resultmessage, void* returncode, void* matcheddns, void* errormessage, void* referrals, void* servercontrols, bool freeit) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseResult(void* connection, void* resultmessage, void* returncode, void* matcheddns, void* errormessage, void* referrals, void* servercontrols, bool freeit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4337,7 +4337,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseResult(void* connecti
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseResultA(void* connection, void* resultmessage, void* returncode, void* matcheddns, void* errormessage, void* referrals, void* servercontrols, bool freeit) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseResultA(void* connection, void* resultmessage, void* returncode, void* matcheddns, void* errormessage, void* referrals, void* servercontrols, bool freeit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4366,7 +4366,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseResultA(void* connect
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseResultW(void* connection, void* resultmessage, void* returncode, void* matcheddns, void* errormessage, void* referrals, void* servercontrols, bool freeit) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseResultW(void* connection, void* resultmessage, void* returncode, void* matcheddns, void* errormessage, void* referrals, void* servercontrols, bool freeit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4395,7 +4395,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseResultW(void* connect
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseSortControl(void* externalhandle, void* control, void* result, void* attribute) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseSortControl(void* externalhandle, void* control, void* result, void* attribute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4420,7 +4420,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseSortControl(void* ext
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseSortControlA(void* externalhandle, void* control, void* result, void* attribute) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseSortControlA(void* externalhandle, void* control, void* result, void* attribute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4445,7 +4445,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseSortControlA(void* ex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapParseSortControlW(void* externalhandle, void* control, void* result, void* attribute) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapParseSortControlW(void* externalhandle, void* control, void* result, void* attribute) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4470,7 +4470,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapParseSortControlW(void* ex
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapParseVlvControlA(void* externalhandle, void* control, void* targetpos, void* listcount, void* context, void* errcode) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA(void* externalhandle, void* control, void* targetpos, void* listcount, void* context, void* errcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4497,7 +4497,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapParseVlvControlA(void* exte
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapParseVlvControlW(void* externalhandle, void* control, void* targetpos, void* listcount, void* context, void* errcode) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW(void* externalhandle, void* control, void* targetpos, void* listcount, void* context, void* errcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4524,7 +4524,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapParseVlvControlW(void* exte
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_ldapPerror(void* ld, void* msg) {
+void windowssysWindowsWin32NetworkingLdapLdapPerror(void* ld, void* msg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4546,7 +4546,7 @@ void windowssys_windows_win32_networking_ldap_ldapPerror(void* ld, void* msg) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExt(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapRenameExt(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4575,7 +4575,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExt(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtA(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapRenameExtA(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4604,7 +4604,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtA(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtW(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapRenameExtW(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4633,7 +4633,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtW(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtS(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapRenameExtS(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4661,7 +4661,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtS(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtSA(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapRenameExtSA(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4689,7 +4689,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtSA(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtSW(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapRenameExtSW(void* ld, void* dn, void* newrdn, void* newparent, int32_t deleteoldrdn, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4717,7 +4717,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapRenameExtSW(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapResult(void* ld, uint32_t msgid, uint32_t all, void* timeout, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapResult(void* ld, uint32_t msgid, uint32_t all, void* timeout, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4743,7 +4743,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapResult(void* ld, uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapResult2error(void* ld, void* res, uint32_t freeit) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapResult2error(void* ld, void* res, uint32_t freeit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4767,7 +4767,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapResult2error(void* ld, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindA(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* messagenumber) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapSaslBindA(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* messagenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4795,7 +4795,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindA(void* externalhan
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindW(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* messagenumber) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapSaslBindW(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* messagenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4823,7 +4823,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindW(void* externalhan
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindSA(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* serverdata) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapSaslBindSA(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* serverdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4851,7 +4851,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindSA(void* externalha
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindSW(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* serverdata) {
+int32_t windowssysWindowsWin32NetworkingLdapLdapSaslBindSW(void* externalhandle, void* distname, void* authmechanism, void* cred, void* serverctrls, void* clientctrls, void* serverdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4879,7 +4879,7 @@ int32_t windowssys_windows_win32_networking_ldap_ldapSaslBindSW(void* externalha
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearch(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearch(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4906,7 +4906,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearch(void* ld, void* bas
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4933,7 +4933,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchA(void* ld, void* ba
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4960,7 +4960,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchW(void* ld, void* ba
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(void* externalhandle, int64_t searchblock) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage(void* externalhandle, int64_t searchblock) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4983,7 +4983,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(void* ex
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExt(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, uint32_t timelimit, uint32_t sizelimit, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchExt(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, uint32_t timelimit, uint32_t sizelimit, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5015,7 +5015,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExt(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, uint32_t timelimit, uint32_t sizelimit, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchExtA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, uint32_t timelimit, uint32_t sizelimit, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5047,7 +5047,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtA(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, uint32_t timelimit, uint32_t sizelimit, void* messagenumber) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchExtW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, uint32_t timelimit, uint32_t sizelimit, void* messagenumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5079,7 +5079,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtW(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtS(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, void* timeout, uint32_t sizelimit, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchExtS(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, void* timeout, uint32_t sizelimit, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5111,7 +5111,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtS(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtSA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, void* timeout, uint32_t sizelimit, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchExtSA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, void* timeout, uint32_t sizelimit, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5143,7 +5143,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtSA(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtSW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, void* timeout, uint32_t sizelimit, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchExtSW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* servercontrols, void* clientcontrols, void* timeout, uint32_t sizelimit, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5175,7 +5175,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchExtSW(void* ld, void
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_ldap_ldapSearchInitPage(void* externalhandle, void* distinguishedname, uint32_t scopeofsearch, void* searchfilter, void* attributelist, uint32_t attributesonly, void* servercontrols, void* clientcontrols, uint32_t pagetimelimit, uint32_t totalsizelimit, void* sortkeys) {
+int64_t windowssysWindowsWin32NetworkingLdapLdapSearchInitPage(void* externalhandle, void* distinguishedname, uint32_t scopeofsearch, void* searchfilter, void* attributelist, uint32_t attributesonly, void* servercontrols, void* clientcontrols, uint32_t pagetimelimit, uint32_t totalsizelimit, void* sortkeys) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5207,7 +5207,7 @@ int64_t windowssys_windows_win32_networking_ldap_ldapSearchInitPage(void* extern
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(void* externalhandle, void* distinguishedname, uint32_t scopeofsearch, void* searchfilter, void* attributelist, uint32_t attributesonly, void* servercontrols, void* clientcontrols, uint32_t pagetimelimit, uint32_t totalsizelimit, void* sortkeys) {
+int64_t windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA(void* externalhandle, void* distinguishedname, uint32_t scopeofsearch, void* searchfilter, void* attributelist, uint32_t attributesonly, void* servercontrols, void* clientcontrols, uint32_t pagetimelimit, uint32_t totalsizelimit, void* sortkeys) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5239,7 +5239,7 @@ int64_t windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(void* exter
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(void* externalhandle, void* distinguishedname, uint32_t scopeofsearch, void* searchfilter, void* attributelist, uint32_t attributesonly, void* servercontrols, void* clientcontrols, uint32_t pagetimelimit, uint32_t totalsizelimit, void* sortkeys) {
+int64_t windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW(void* externalhandle, void* distinguishedname, uint32_t scopeofsearch, void* searchfilter, void* attributelist, uint32_t attributesonly, void* servercontrols, void* clientcontrols, uint32_t pagetimelimit, uint32_t totalsizelimit, void* sortkeys) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5271,7 +5271,7 @@ int64_t windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(void* exter
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchS(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchS(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5299,7 +5299,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchS(void* ld, void* ba
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchSA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchSA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5327,7 +5327,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchSA(void* ld, void* b
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchSW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchSW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5355,7 +5355,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchSW(void* ld, void* b
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchSt(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* timeout, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchSt(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* timeout, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5384,7 +5384,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchSt(void* ld, void* b
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchStA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* timeout, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchStA(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* timeout, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5413,7 +5413,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchStA(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSearchStW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* timeout, void* res) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSearchStW(void* ld, void* base, uint32_t scope, void* filter, void* attrs, uint32_t attrsonly, void* timeout, void* res) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5442,7 +5442,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSearchStW(void* ld, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(uint32_t newflags) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSetDbgFlags(uint32_t newflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5464,7 +5464,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(uint32_t newfl
 #endif
 }
 
-void windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(void* debugprintroutine) {
+void windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine(void* debugprintroutine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5485,7 +5485,7 @@ void windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(void* debugprint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSetOption(void* ld, int32_t option, void* invalue) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSetOption(void* ld, int32_t option, void* invalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5509,7 +5509,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSetOption(void* ld, int32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSetOptionW(void* ld, int32_t option, void* invalue) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSetOptionW(void* ld, int32_t option, void* invalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5533,7 +5533,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSetOptionW(void* ld, int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBind(void* ld, void* dn, void* passwd) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSimpleBind(void* ld, void* dn, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5557,7 +5557,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBind(void* ld, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindA(void* ld, void* dn, void* passwd) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSimpleBindA(void* ld, void* dn, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5581,7 +5581,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindA(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindW(void* ld, void* dn, void* passwd) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSimpleBindW(void* ld, void* dn, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5605,7 +5605,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindW(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindS(void* ld, void* dn, void* passwd) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSimpleBindS(void* ld, void* dn, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5629,7 +5629,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindS(void* ld, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindSA(void* ld, void* dn, void* passwd) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA(void* ld, void* dn, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5653,7 +5653,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindSA(void* ld, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindSW(void* ld, void* dn, void* passwd) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW(void* ld, void* dn, void* passwd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5677,7 +5677,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapSimpleBindSW(void* ld, voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapSslinit(void* hostname, uint32_t portnumber, int32_t secure) {
+void* windowssysWindowsWin32NetworkingLdapLdapSslinit(void* hostname, uint32_t portnumber, int32_t secure) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5701,7 +5701,7 @@ void* windowssys_windows_win32_networking_ldap_ldapSslinit(void* hostname, uint3
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapSslinitA(void* hostname, uint32_t portnumber, int32_t secure) {
+void* windowssysWindowsWin32NetworkingLdapLdapSslinitA(void* hostname, uint32_t portnumber, int32_t secure) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5725,7 +5725,7 @@ void* windowssys_windows_win32_networking_ldap_ldapSslinitA(void* hostname, uint
 #endif
 }
 
-void* windowssys_windows_win32_networking_ldap_ldapSslinitW(void* hostname, uint32_t portnumber, int32_t secure) {
+void* windowssysWindowsWin32NetworkingLdapLdapSslinitW(void* hostname, uint32_t portnumber, int32_t secure) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5749,7 +5749,7 @@ void* windowssys_windows_win32_networking_ldap_ldapSslinitW(void* hostname, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapStartTlsSA(void* externalhandle, void* serverreturnvalue, void* result, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapStartTlsSA(void* externalhandle, void* serverreturnvalue, void* result, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5775,7 +5775,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapStartTlsSA(void* externalh
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapStartTlsSW(void* externalhandle, void* serverreturnvalue, void* result, void* servercontrols, void* clientcontrols) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapStartTlsSW(void* externalhandle, void* serverreturnvalue, void* result, void* servercontrols, void* clientcontrols) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5801,7 +5801,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapStartTlsSW(void* externalh
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapStartup(void* version, void* instance) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapStartup(void* version, void* instance) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5824,7 +5824,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapStartup(void* version, voi
 #endif
 }
 
-bool windowssys_windows_win32_networking_ldap_ldapStopTlsS(void* externalhandle) {
+bool windowssysWindowsWin32NetworkingLdapLdapStopTlsS(void* externalhandle) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5846,7 +5846,7 @@ bool windowssys_windows_win32_networking_ldap_ldapStopTlsS(void* externalhandle)
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapUfn2dn(void* ufn, void* pdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapUfn2dn(void* ufn, void* pdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5869,7 +5869,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapUfn2dn(void* ufn, void* pd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapUfn2dnA(void* ufn, void* pdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapUfn2dnA(void* ufn, void* pdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5892,7 +5892,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapUfn2dnA(void* ufn, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapUfn2dnW(void* ufn, void* pdn) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapUfn2dnW(void* ufn, void* pdn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5915,7 +5915,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapUfn2dnW(void* ufn, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapUnbind(void* ld) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapUnbind(void* ld) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5937,7 +5937,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapUnbind(void* ld) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapUnbindS(void* ld) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapUnbindS(void* ld) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5959,7 +5959,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapUnbindS(void* ld) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapValueFree(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapValueFree(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5981,7 +5981,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapValueFree(void* vals) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapValueFreeA(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapValueFreeA(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6003,7 +6003,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapValueFreeA(void* vals) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapValueFreeW(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapValueFreeW(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6025,7 +6025,7 @@ uint32_t windowssys_windows_win32_networking_ldap_ldapValueFreeW(void* vals) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_ldap_ldapValueFreeLen(void* vals) {
+uint32_t windowssysWindowsWin32NetworkingLdapLdapValueFreeLen(void* vals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

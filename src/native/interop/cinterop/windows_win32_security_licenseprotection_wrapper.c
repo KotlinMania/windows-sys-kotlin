@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration(void* licensekey, uint32_t validityindays, void* status) {
+int32_t windowssysWindowsWin32SecurityLicenseprotectionRegisterLicenseKeyWithExpiration(void* licensekey, uint32_t validityindays, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection(void* licensekey, void* notvalidbefore, void* notvalidafter, void* status) {
+int32_t windowssysWindowsWin32SecurityLicenseprotectionValidateLicenseKeyProtection(void* licensekey, void* notvalidbefore, void* notvalidafter, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

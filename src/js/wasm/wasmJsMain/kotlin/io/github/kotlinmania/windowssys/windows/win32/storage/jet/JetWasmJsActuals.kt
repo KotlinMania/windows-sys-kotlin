@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetApiPtr
@@ -10,1380 +12,1380 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.
 import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetTableid
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32StorageJetNapiAddon(): Boolean
+private external fun initWindowsWin32StorageJetNapiAddon(): Boolean
 
-private val _windowsWin32StorageJetNapiAvailable: Boolean = _initWindowsWin32StorageJetNapiAddon()
+private val windowsWin32StorageJetNapiAvailable: Boolean = initWindowsWin32StorageJetNapiAddon()
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetAddColumnA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetAddColumnA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetAddColumnA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetAddColumnA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetAddColumnW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetAddColumnW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetAddColumnW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetAddColumnW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetAttachDatabase2A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabase2A(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetAttachDatabase2A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetAttachDatabase2A(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetAttachDatabase2W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabase2W(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetAttachDatabase2W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetAttachDatabase2W(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetAttachDatabaseA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabaseA(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetAttachDatabaseA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetAttachDatabaseA(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetAttachDatabaseW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabaseW(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetAttachDatabaseW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetAttachDatabaseW(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBackupA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBackupA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBackupA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBackupA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBackupInstanceA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBackupInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBackupInstanceA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBackupInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBackupInstanceW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBackupInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBackupInstanceW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBackupInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBackupW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBackupW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBackupW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBackupW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginExternalBackup(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginExternalBackup(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginExternalBackup(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginExternalBackup(p0: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginSessionA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginSessionA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginSessionA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginSessionA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginSessionW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginSessionW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginSessionW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginSessionW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginTransaction(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginTransaction(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginTransaction(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginTransaction(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginTransaction2(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginTransaction2(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginTransaction2(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginTransaction2(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetBeginTransaction3(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetBeginTransaction3(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetBeginTransaction3(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetBeginTransaction3(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCloseDatabase(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCloseDatabase(p0: String, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCloseDatabase(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCloseDatabase(p0: String, p1: Int, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCloseFile(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCloseFile(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCloseFile(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCloseFile(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCloseFileInstance(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCloseFileInstance(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCloseFileInstance(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCloseFileInstance(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCloseTable(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCloseTable(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCloseTable(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCloseTable(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCommitTransaction(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCommitTransaction(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCommitTransaction(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCommitTransaction(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCommitTransaction2(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCommitTransaction2(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCommitTransaction2(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCommitTransaction2(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCompactA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCompactA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCompactA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCompactA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCompactW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCompactW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCompactW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCompactW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetComputeStats(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetComputeStats(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetComputeStats(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetComputeStats(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(p0: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateDatabase2A(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabase2A(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateDatabase2A(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateDatabase2A(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateDatabase2W(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabase2W(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateDatabase2W(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateDatabase2W(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateDatabaseA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabaseA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateDatabaseA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateDatabaseA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateDatabaseW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabaseW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateDatabaseW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateDatabaseW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndex2A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex2A(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndex2A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndex2A(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndex2W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex2W(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndex2W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndex2W(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndex3A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex3A(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndex3A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndex3A(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndex3W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex3W(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndex3W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndex3W(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndex4A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex4A(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndex4A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndex4A(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndex4W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex4W(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndex4W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndex4W(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndexA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndexA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndexA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndexA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateIndexW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateIndexW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateIndexW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateIndexW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateInstance2A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateInstance2A(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateInstance2A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateInstance2A(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateInstance2W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateInstance2W(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateInstance2W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateInstance2W(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateInstanceA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateInstanceA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateInstanceA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateInstanceA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateInstanceW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateInstanceW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateInstanceW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateInstanceW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableA(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableA(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2A(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex2A(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2W(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex2W(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3A(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex3A(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3W(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex3W(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4A(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex4A(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4W(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex4W(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndexA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndexA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableColumnIndexW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndexW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetCreateTableW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetCreateTableW(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetCreateTableW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetCreateTableW(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDefragment2A(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDefragment2A(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDefragment2A(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDefragment2A(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDefragment2W(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDefragment2W(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDefragment2W(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDefragment2W(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDefragment3A(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDefragment3A(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDefragment3A(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDefragment3A(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDefragment3W(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDefragment3W(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDefragment3W(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDefragment3W(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDefragmentA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDefragmentA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDefragmentA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDefragmentA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDefragmentW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDefragmentW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDefragmentW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDefragmentW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDelete(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDelete(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDelete(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDelete(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteColumn2A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumn2A(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteColumn2A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteColumn2A(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteColumn2W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumn2W(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteColumn2W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteColumn2W(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteColumnA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumnA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteColumnA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteColumnA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteColumnW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumnW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteColumnW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteColumnW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteIndexA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteIndexA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteIndexA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteIndexA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteIndexW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteIndexW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteIndexW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteIndexW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteTableA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteTableA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteTableA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteTableA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDeleteTableW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDeleteTableW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDeleteTableW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDeleteTableW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDetachDatabase2A(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabase2A(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDetachDatabase2A(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDetachDatabase2A(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDetachDatabase2W(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabase2W(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDetachDatabase2W(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDetachDatabase2W(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDetachDatabaseA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabaseA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDetachDatabaseA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDetachDatabaseA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDetachDatabaseW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabaseW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDetachDatabaseW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDetachDatabaseW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDupCursor(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDupCursor(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDupCursor(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDupCursor(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetDupSession(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetDupSession(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetDupSession(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetDupSession(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEnableMultiInstanceA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEnableMultiInstanceA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEnableMultiInstanceW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEnableMultiInstanceW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEndExternalBackup()")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEndExternalBackup(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEndExternalBackup()")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEndExternalBackup(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEndExternalBackupInstance(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEndSession(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEndSession(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEndSession(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEndSession(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEnumerateColumns(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEnumerateColumns(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEnumerateColumns(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEnumerateColumns(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetEscrowUpdate(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetEscrowUpdate(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetEscrowUpdate(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetEscrowUpdate(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetExternalRestore2A(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetExternalRestore2A(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetExternalRestore2A(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetExternalRestore2A(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetExternalRestore2W(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetExternalRestore2W(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetExternalRestore2W(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetExternalRestore2W(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetExternalRestoreA(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetExternalRestoreA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetExternalRestoreA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetExternalRestoreA(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetExternalRestoreW(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetExternalRestoreW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetExternalRestoreW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetExternalRestoreW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int, p7: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetFreeBuffer(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetFreeBuffer(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetFreeBuffer(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetFreeBuffer(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetAttachInfoA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetAttachInfoA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetAttachInfoW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetAttachInfoW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetBookmark(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetBookmark(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetBookmark(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetBookmark(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetColumnInfoA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetColumnInfoA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetColumnInfoA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetColumnInfoA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetColumnInfoW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetColumnInfoW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetColumnInfoW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetColumnInfoW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetCurrentIndexA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetCurrentIndexA(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetCurrentIndexW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetCurrentIndexW(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetCursorInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetCursorInfo(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetCursorInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetCursorInfo(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetDatabaseFileInfoA(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetDatabaseFileInfoW(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetDatabaseInfoA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetDatabaseInfoA(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetDatabaseInfoW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetDatabaseInfoW(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetErrorInfoW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetErrorInfoW(p0: String, p1: String, p2: Int, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetErrorInfoW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetErrorInfoW(p0: String, p1: String, p2: Int, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetIndexInfoA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetIndexInfoA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetIndexInfoA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetIndexInfoA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetIndexInfoW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetIndexInfoW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetIndexInfoW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetIndexInfoW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetInstanceInfoA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetInstanceInfoA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetInstanceInfoA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetInstanceInfoA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetInstanceInfoW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetInstanceInfoW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetInstanceInfoW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetInstanceInfoW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetInstanceMiscInfo(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetInstanceMiscInfo(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLS(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLS(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLS(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLS(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLock(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLock(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLock(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLock(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLogInfoA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoA(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLogInfoA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLogInfoA(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLogInfoInstance2A(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstance2A(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLogInfoInstance2W(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstance2W(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLogInfoInstanceA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLogInfoInstanceW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetLogInfoW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoW(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetLogInfoW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetLogInfoW(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetObjectInfoA(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetObjectInfoA(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetObjectInfoA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetObjectInfoA(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetObjectInfoW(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetObjectInfoW(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetObjectInfoW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetObjectInfoW(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetRecordPosition(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetRecordPosition(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetRecordPosition(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetRecordPosition(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetRecordSize(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetRecordSize(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetRecordSize(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetRecordSize(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetRecordSize2(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetRecordSize2(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetRecordSize2(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetRecordSize2(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int, p7: String, p8: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetSecondaryIndexBookmark(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetSecondaryIndexBookmark(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int, p7: String, p8: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetSessionParameter(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetSessionParameter(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetSessionParameter(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetSessionParameter(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetSystemParameterA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetSystemParameterA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetSystemParameterA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetSystemParameterA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetSystemParameterW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetSystemParameterW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetSystemParameterW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetSystemParameterW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTableColumnInfoA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTableColumnInfoA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTableColumnInfoW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTableColumnInfoW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTableIndexInfoA(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTableIndexInfoA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTableIndexInfoW(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTableIndexInfoW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTableInfoA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTableInfoA(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTableInfoA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTableInfoA(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTableInfoW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTableInfoW(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTableInfoW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTableInfoW(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetThreadStats(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetThreadStats(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetThreadStats(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetThreadStats(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceA(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceW(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGetVersion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGetVersion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGetVersion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGetVersion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGotoBookmark(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGotoBookmark(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGotoBookmark(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGotoBookmark(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGotoPosition(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGotoPosition(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGotoPosition(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGotoPosition(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGotoSecondaryIndexBookmark(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGotoSecondaryIndexBookmark(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetGrowDatabase(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetGrowDatabase(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetGrowDatabase(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetGrowDatabase(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetIdle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetIdle(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetIdle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetIdle(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetIndexRecordCount(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetIndexRecordCount(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetIndexRecordCount(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetIndexRecordCount(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetInit(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetInit(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetInit(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetInit(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetInit2(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetInit2(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetInit2(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetInit2(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetInit3A(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetInit3A(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetInit3A(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetInit3A(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetInit3W(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetInit3W(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetInit3W(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetInit3W(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetIntersectIndexes(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetIntersectIndexes(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetIntersectIndexes(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetIntersectIndexes(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetMakeKey(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetMakeKey(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetMakeKey(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetMakeKey(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetMove(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetMove(p0: String, p1: String, p2: Int, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetMove(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetMove(p0: String, p1: String, p2: Int, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotAbort(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotAbort(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotEnd(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotEnd(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotFreezeA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotFreezeA(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotFreezeW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotFreezeW(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoA(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoW(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotPrepare(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotPrepare(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotThaw(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotThaw(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenDatabaseA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenDatabaseA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenDatabaseA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenDatabaseA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenDatabaseW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenDatabaseW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenDatabaseW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenDatabaseW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenFileA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenFileA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenFileA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenFileA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenFileInstanceA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenFileInstanceA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenFileInstanceW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenFileInstanceW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenFileW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenFileW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenFileW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenFileW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTableA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTableA(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTableA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTableA(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTableW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTableW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTableW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTableW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTempTable(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTempTable(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTempTable(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTempTable(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTempTable2(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTempTable2(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTempTable2(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTempTable2(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTempTable3(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTempTable3(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTempTable3(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTempTable3(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTemporaryTable(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTemporaryTable(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetOpenTemporaryTable2(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetOpenTemporaryTable2(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetPrepareUpdate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetPrepareUpdate(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetPrepareUpdate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetPrepareUpdate(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetPrereadIndexRanges(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetPrereadIndexRanges(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int, p7: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetPrereadKeys(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetPrereadKeys(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetPrereadKeys(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetPrereadKeys(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetReadFile(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetReadFile(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetReadFile(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetReadFile(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetReadFileInstance(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetReadFileInstance(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetReadFileInstance(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetReadFileInstance(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRegisterCallback(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRegisterCallback(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRegisterCallback(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRegisterCallback(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRenameColumnA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRenameColumnA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRenameColumnA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRenameColumnA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRenameColumnW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRenameColumnW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRenameColumnW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRenameColumnW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRenameTableA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRenameTableA(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRenameTableA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRenameTableA(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRenameTableW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRenameTableW(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRenameTableW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRenameTableW(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetResetSessionContext(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetResetSessionContext(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetResetSessionContext(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetResetSessionContext(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetResetTableSequential(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetResetTableSequential(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetResetTableSequential(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetResetTableSequential(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetResizeDatabase(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetResizeDatabase(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetResizeDatabase(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetResizeDatabase(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRestore2A(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRestore2A(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRestore2A(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRestore2A(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRestore2W(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRestore2W(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRestore2W(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRestore2W(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRestoreA(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRestoreA(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRestoreA(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRestoreA(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRestoreInstanceA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRestoreInstanceA(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRestoreInstanceA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRestoreInstanceA(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRestoreInstanceW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRestoreInstanceW(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRestoreInstanceW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRestoreInstanceW(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRestoreW(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRestoreW(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRestoreW(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRestoreW(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRetrieveColumn(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRetrieveColumn(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRetrieveColumn(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRetrieveColumn(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: Int, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRetrieveColumns(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRetrieveColumns(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRetrieveColumns(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRetrieveColumns(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRetrieveKey(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRetrieveKey(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRetrieveKey(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRetrieveKey(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetRollback(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetRollback(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetRollback(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetRollback(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSeek(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSeek(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSeek(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSeek(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetColumn(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetColumn(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetColumn(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetColumn(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetColumnDefaultValueA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetColumnDefaultValueA(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetColumnDefaultValueW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetColumnDefaultValueW(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetColumns(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetColumns(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetColumns(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetColumns(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndex2A(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex2A(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndex2W(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex2W(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndex3A(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex3A(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndex3W(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex3W(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndex4A(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex4A(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndex4W(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex4W(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndexA(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndexA(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCurrentIndexW(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndexW(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetCursorFilter(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetCursorFilter(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetCursorFilter(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetCursorFilter(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetDatabaseSizeA(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetDatabaseSizeA(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetDatabaseSizeW(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetDatabaseSizeW(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetIndexRange(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetIndexRange(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetIndexRange(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetIndexRange(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetLS(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetLS(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetLS(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetLS(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetSessionContext(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetSessionContext(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetSessionContext(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetSessionContext(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetSessionParameter(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetSessionParameter(p0: String, p1: Int, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetSessionParameter(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetSessionParameter(p0: String, p1: Int, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetSystemParameterA(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetSystemParameterA(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetSystemParameterA(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetSystemParameterA(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetSystemParameterW(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetSystemParameterW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetSystemParameterW(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetSystemParameterW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetSetTableSequential(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetSetTableSequential(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetSetTableSequential(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetSetTableSequential(p0: String, p1: String, p2: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetStopBackup()")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetStopBackup(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetStopBackup()")
+private external fun wasmWindowssysWindowsWin32StorageJetJetStopBackup(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetStopBackupInstance(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetStopBackupInstance(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetStopBackupInstance(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetStopBackupInstance(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetStopService()")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetStopService(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetStopService()")
+private external fun wasmWindowssysWindowsWin32StorageJetJetStopService(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetStopServiceInstance(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetStopServiceInstance(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetStopServiceInstance(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetStopServiceInstance(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetStopServiceInstance2(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetStopServiceInstance2(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetStopServiceInstance2(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetStopServiceInstance2(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetTerm(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetTerm(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetTerm(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetTerm(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetTerm2(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetTerm2(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetTerm2(p0, p1)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetTerm2(p0: String, p1: Int): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetTruncateLog()")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetTruncateLog(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetTruncateLog()")
+private external fun wasmWindowssysWindowsWin32StorageJetJetTruncateLog(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetTruncateLogInstance(p0)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetTruncateLogInstance(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetTruncateLogInstance(p0)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetTruncateLogInstance(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetUnregisterCallback(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetUnregisterCallback(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetUnregisterCallback(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetUnregisterCallback(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetUpdate(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetUpdate(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetUpdate(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetUpdate(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_storage_jet_jetUpdate2(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_storage_jet_jetUpdate2(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageJetJetUpdate2(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32StorageJetJetUpdate2(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
 
-public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pcolumndef: COpaquePointer?, pvdefault: COpaquePointer?, cbdefault: UInt, pcolumnid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetAddColumnA(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString(), (pcolumndef?.value ?: 0L).toString(), (pvdefault?.value ?: 0L).toString(), cbdefault.toInt(), (pcolumnid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, pcolumndef: ConstPtr<JetColumndef>, pvdefault: ConstPtr<CVoid>, cbdefault: UInt, pcolumnid: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetAddColumnA(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString(), pcolumndef.rawAddress.toString(), pvdefault.rawAddress.toString(), cbdefault.toInt(), pcolumnid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pcolumndef: COpaquePointer?, pvdefault: COpaquePointer?, cbdefault: UInt, pcolumnid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetAddColumnW(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString(), (pcolumndef?.value ?: 0L).toString(), (pvdefault?.value ?: 0L).toString(), cbdefault.toInt(), (pcolumnid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, pcolumndef: ConstPtr<JetColumndef>, pvdefault: ConstPtr<CVoid>, cbdefault: UInt, pcolumnid: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetAddColumnW(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString(), pcolumndef.rawAddress.toString(), pvdefault.rawAddress.toString(), cbdefault.toInt(), pcolumnid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabase2A(sesid.toString(), (szfilename?.value ?: 0L).toString(), cpgdatabasesizemax.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetAttachDatabase2A(sesid.toString(), szfilename.rawAddress.toString(), cpgdatabasesizemax.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabase2W(sesid.toString(), (szfilename?.value ?: 0L).toString(), cpgdatabasesizemax.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetAttachDatabase2W(sesid.toString(), szfilename.rawAddress.toString(), cpgdatabasesizemax.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabaseA(sesid.toString(), (szfilename?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetAttachDatabaseA(sesid.toString(), szfilename.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetAttachDatabaseW(sesid.toString(), (szfilename?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetAttachDatabaseW(sesid.toString(), szfilename.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetBackupA(szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBackupA((szbackuppath?.value ?: 0L).toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetBackupA(szbackuppath: ConstPtr<Byte>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBackupA(szbackuppath.rawAddress.toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBackupInstanceA(instance.toString(), (szbackuppath?.value ?: 0L).toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: ConstPtr<Byte>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBackupInstanceA(instance.toString(), szbackuppath.rawAddress.toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBackupInstanceW(instance.toString(), (szbackuppath?.value ?: 0L).toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBackupInstanceW(instance.toString(), szbackuppath.rawAddress.toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetBackupW(szbackuppath: COpaquePointer?, grbit: UInt, pfnstatus: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBackupW((szbackuppath?.value ?: 0L).toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetBackupW(szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBackupW(szbackuppath.rawAddress.toString(), grbit.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetBeginExternalBackup(grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginExternalBackup(grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginExternalBackup(grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetBeginExternalBackupInstance(instance: JetInstance, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetBeginSessionA(instance: JetInstance, psesid: COpaquePointer?, szusername: COpaquePointer?, szpassword: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginSessionA(instance.toString(), (psesid?.value ?: 0L).toString(), (szusername?.value ?: 0L).toString(), (szpassword?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetBeginSessionA(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<Byte>, szpassword: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginSessionA(instance.toString(), psesid.rawAddress.toString(), szusername.rawAddress.toString(), szpassword.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetBeginSessionW(instance: JetInstance, psesid: COpaquePointer?, szusername: COpaquePointer?, szpassword: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginSessionW(instance.toString(), (psesid?.value ?: 0L).toString(), (szusername?.value ?: 0L).toString(), (szpassword?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetBeginSessionW(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<UShort>, szpassword: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginSessionW(instance.toString(), psesid.rawAddress.toString(), szusername.rawAddress.toString(), szpassword.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetBeginTransaction(sesid: JetSesid): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginTransaction(sesid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginTransaction(sesid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetBeginTransaction2(sesid: JetSesid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginTransaction2(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginTransaction2(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetBeginTransaction3(sesid: JetSesid, trxid: Long, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetBeginTransaction3(sesid.toString(), trxid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetBeginTransaction3(sesid.toString(), trxid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetCloseDatabase(sesid: JetSesid, dbid: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCloseDatabase(sesid.toString(), dbid.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCloseDatabase(sesid.toString(), dbid.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetCloseFile(hffile: JetHandle): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCloseFile(hffile.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCloseFile(hffile.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetCloseFileInstance(instance: JetInstance, hffile: JetHandle): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCloseFileInstance(instance.toString(), hffile.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCloseFileInstance(instance.toString(), hffile.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetCloseTable(sesid: JetSesid, tableid: JetTableid): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCloseTable(sesid.toString(), tableid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCloseTable(sesid.toString(), tableid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetCommitTransaction(sesid: JetSesid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCommitTransaction(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCommitTransaction(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCommitTransaction2(sesid.toString(), grbit.toInt(), cmsecdurablecommit.toInt(), (pcommitid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: MutPtr<JetCommitId>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCommitTransaction2(sesid.toString(), grbit.toInt(), cmsecdurablecommit.toInt(), pcommitid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: COpaquePointer?, szdatabasedest: COpaquePointer?, pfnstatus: JetPfnstatus, pconvert: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCompactA(sesid.toString(), (szdatabasesrc?.value ?: 0L).toString(), (szdatabasedest?.value ?: 0L).toString(), 0L.toString(), (pconvert?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: ConstPtr<Byte>, szdatabasedest: ConstPtr<Byte>, pfnstatus: JetPfnstatus, pconvert: ConstPtr<JetConvertA>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCompactA(sesid.toString(), szdatabasesrc.rawAddress.toString(), szdatabasedest.rawAddress.toString(), 0L.toString(), pconvert.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: COpaquePointer?, szdatabasedest: COpaquePointer?, pfnstatus: JetPfnstatus, pconvert: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCompactW(sesid.toString(), (szdatabasesrc?.value ?: 0L).toString(), (szdatabasedest?.value ?: 0L).toString(), 0L.toString(), (pconvert?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: ConstPtr<UShort>, szdatabasedest: ConstPtr<UShort>, pfnstatus: JetPfnstatus, pconvert: ConstPtr<JetConvertW>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCompactW(sesid.toString(), szdatabasesrc.rawAddress.toString(), szdatabasedest.rawAddress.toString(), 0L.toString(), pconvert.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetComputeStats(sesid: JetSesid, tableid: JetTableid): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetComputeStats(sesid.toString(), tableid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetComputeStats(sesid.toString(), tableid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetConfigureProcessForCrashDump(grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, pdbid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabase2A(sesid.toString(), (szfilename?.value ?: 0L).toString(), cpgdatabasesizemax.toInt(), (pdbid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateDatabase2A(sesid.toString(), szfilename.rawAddress.toString(), cpgdatabasesizemax.toInt(), pdbid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, cpgdatabasesizemax: UInt, pdbid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabase2W(sesid.toString(), (szfilename?.value ?: 0L).toString(), cpgdatabasesizemax.toInt(), (pdbid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateDatabase2W(sesid.toString(), szfilename.rawAddress.toString(), cpgdatabasesizemax.toInt(), pdbid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabaseA(sesid.toString(), (szfilename?.value ?: 0L).toString(), (szconnect?.value ?: 0L).toString(), (pdbid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateDatabaseA(sesid.toString(), szfilename.rawAddress.toString(), szconnect.rawAddress.toString(), pdbid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateDatabaseW(sesid.toString(), (szfilename?.value ?: 0L).toString(), (szconnect?.value ?: 0L).toString(), (pdbid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, szconnect: ConstPtr<UShort>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateDatabaseW(sesid.toString(), szfilename.rawAddress.toString(), szconnect.rawAddress.toString(), pdbid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex2A(sesid.toString(), tableid.toString(), (pindexcreate?.value ?: 0L).toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreateA>, cindexcreate: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndex2A(sesid.toString(), tableid.toString(), pindexcreate.rawAddress.toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex2W(sesid.toString(), tableid.toString(), (pindexcreate?.value ?: 0L).toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreateW>, cindexcreate: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndex2W(sesid.toString(), tableid.toString(), pindexcreate.rawAddress.toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex3A(sesid.toString(), tableid.toString(), (pindexcreate?.value ?: 0L).toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate2A>, cindexcreate: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndex3A(sesid.toString(), tableid.toString(), pindexcreate.rawAddress.toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex3W(sesid.toString(), tableid.toString(), (pindexcreate?.value ?: 0L).toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate2W>, cindexcreate: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndex3W(sesid.toString(), tableid.toString(), pindexcreate.rawAddress.toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex4A(sesid.toString(), tableid.toString(), (pindexcreate?.value ?: 0L).toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate3A>, cindexcreate: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndex4A(sesid.toString(), tableid.toString(), pindexcreate.rawAddress.toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: COpaquePointer?, cindexcreate: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndex4W(sesid.toString(), tableid.toString(), (pindexcreate?.value ?: 0L).toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate3W>, cindexcreate: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndex4W(sesid.toString(), tableid.toString(), pindexcreate.rawAddress.toString(), cindexcreate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndexA(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), grbit.toInt(), (szkey?.value ?: 0L).toString(), cbkey.toInt(), ldensity.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndexA(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), grbit.toInt(), szkey.rawAddress.toString(), cbkey.toInt(), ldensity.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateIndexW(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), grbit.toInt(), (szkey?.value ?: 0L).toString(), cbkey.toInt(), ldensity.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateIndexW(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), grbit.toInt(), szkey.rawAddress.toString(), cbkey.toInt(), ldensity.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateInstance2A(pinstance: COpaquePointer?, szinstancename: COpaquePointer?, szdisplayname: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateInstance2A((pinstance?.value ?: 0L).toString(), (szinstancename?.value ?: 0L).toString(), (szdisplayname?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateInstance2A(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<Byte>, szdisplayname: ConstPtr<Byte>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateInstance2A(pinstance.rawAddress.toString(), szinstancename.rawAddress.toString(), szdisplayname.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateInstance2W(pinstance: COpaquePointer?, szinstancename: COpaquePointer?, szdisplayname: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateInstance2W((pinstance?.value ?: 0L).toString(), (szinstancename?.value ?: 0L).toString(), (szdisplayname?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateInstance2W(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<UShort>, szdisplayname: ConstPtr<UShort>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateInstance2W(pinstance.rawAddress.toString(), szinstancename.rawAddress.toString(), szdisplayname.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateInstanceA(pinstance: COpaquePointer?, szinstancename: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateInstanceA((pinstance?.value ?: 0L).toString(), (szinstancename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateInstanceA(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateInstanceA(pinstance.rawAddress.toString(), szinstancename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateInstanceW(pinstance: COpaquePointer?, szinstancename: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateInstanceW((pinstance?.value ?: 0L).toString(), (szinstancename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateInstanceW(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateInstanceW(pinstance.rawAddress.toString(), szinstancename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, lpages: UInt, ldensity: UInt, ptableid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), lpages.toInt(), ldensity.toInt(), (ptableid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, lpages: UInt, ldensity: UInt, ptableid: MutPtr<JetTableid>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), lpages.toInt(), ldensity.toInt(), ptableid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate2A>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex2A(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate2W>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex2W(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate3A>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex3A(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate3W>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex3W(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate4A>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex4A(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate4W>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndex4W(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreateA>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndexA(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(sesid.toString(), dbid.toInt(), (ptablecreate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreateW>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableColumnIndexW(sesid.toString(), dbid.toInt(), ptablecreate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, lpages: UInt, ldensity: UInt, ptableid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetCreateTableW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), lpages.toInt(), ldensity.toInt(), (ptableid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, lpages: UInt, ldensity: UInt, ptableid: MutPtr<JetTableid>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetCreateTableW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), lpages.toInt(), ldensity.toInt(), ptableid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDefragment2A(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pcpasses?.value ?: 0L).toString(), (pcseconds?.value ?: 0L).toString(), 0L.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDefragment2A(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pcpasses.rawAddress.toString(), pcseconds.rawAddress.toString(), 0L.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDefragment2W(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pcpasses?.value ?: 0L).toString(), (pcseconds?.value ?: 0L).toString(), 0L.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDefragment2W(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pcpasses.rawAddress.toString(), pcseconds.rawAddress.toString(), 0L.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: COpaquePointer?, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, pvcontext: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDefragment3A(sesid.toString(), (szdatabasename?.value ?: 0L).toString(), (sztablename?.value ?: 0L).toString(), (pcpasses?.value ?: 0L).toString(), (pcseconds?.value ?: 0L).toString(), 0L.toString(), (pvcontext?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: ConstPtr<Byte>, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, pvcontext: ConstPtr<CVoid>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDefragment3A(sesid.toString(), szdatabasename.rawAddress.toString(), sztablename.rawAddress.toString(), pcpasses.rawAddress.toString(), pcseconds.rawAddress.toString(), 0L.toString(), pvcontext.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: COpaquePointer?, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, callback: JetCallback, pvcontext: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDefragment3W(sesid.toString(), (szdatabasename?.value ?: 0L).toString(), (sztablename?.value ?: 0L).toString(), (pcpasses?.value ?: 0L).toString(), (pcseconds?.value ?: 0L).toString(), 0L.toString(), (pvcontext?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: ConstPtr<UShort>, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, pvcontext: ConstPtr<CVoid>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDefragment3W(sesid.toString(), szdatabasename.rawAddress.toString(), sztablename.rawAddress.toString(), pcpasses.rawAddress.toString(), pcseconds.rawAddress.toString(), 0L.toString(), pvcontext.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDefragmentA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pcpasses?.value ?: 0L).toString(), (pcseconds?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDefragmentA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pcpasses.rawAddress.toString(), pcseconds.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcpasses: COpaquePointer?, pcseconds: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDefragmentW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pcpasses?.value ?: 0L).toString(), (pcseconds?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDefragmentW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pcpasses.rawAddress.toString(), pcseconds.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetDelete(sesid: JetSesid, tableid: JetTableid): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDelete(sesid.toString(), tableid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDelete(sesid.toString(), tableid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumn2A(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteColumn2A(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumn2W(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteColumn2W(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumnA(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteColumnA(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteColumnW(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteColumnW(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteIndexA(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteIndexA(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteIndexW(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteIndexW(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteTableA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteTableA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDeleteTableW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDeleteTableW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabase2A(sesid.toString(), (szfilename?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDetachDatabase2A(sesid.toString(), szfilename.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabase2W(sesid.toString(), (szfilename?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDetachDatabase2W(sesid.toString(), szfilename.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabaseA(sesid.toString(), (szfilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDetachDatabaseA(sesid.toString(), szfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDetachDatabaseW(sesid.toString(), (szfilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDetachDatabaseW(sesid.toString(), szfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDupCursor(sesid.toString(), tableid.toString(), (ptableid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: MutPtr<JetTableid>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDupCursor(sesid.toString(), tableid.toString(), ptableid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetDupSession(sesid: JetSesid, psesid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetDupSession(sesid.toString(), (psesid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetDupSession(sesid: JetSesid, psesid: MutPtr<JetSesid>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetDupSession(sesid.toString(), psesid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetEnableMultiInstanceA(psetsysparam: COpaquePointer?, csetsysparam: UInt, pcsetsucceed: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA((psetsysparam?.value ?: 0L).toString(), csetsysparam.toInt(), (pcsetsucceed?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetEnableMultiInstanceA(psetsysparam: ConstPtr<JetSetsysparamA>, csetsysparam: UInt, pcsetsucceed: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEnableMultiInstanceA(psetsysparam.rawAddress.toString(), csetsysparam.toInt(), pcsetsucceed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetEnableMultiInstanceW(psetsysparam: COpaquePointer?, csetsysparam: UInt, pcsetsucceed: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW((psetsysparam?.value ?: 0L).toString(), csetsysparam.toInt(), (pcsetsucceed?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetEnableMultiInstanceW(psetsysparam: ConstPtr<JetSetsysparamW>, csetsysparam: UInt, pcsetsucceed: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEnableMultiInstanceW(psetsysparam.rawAddress.toString(), csetsysparam.toInt(), pcsetsucceed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetEndExternalBackup(): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEndExternalBackup() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEndExternalBackup() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetEndExternalBackupInstance(instance: JetInstance): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetEndExternalBackupInstance2(instance: JetInstance, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetEndSession(sesid: JetSesid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEndSession(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEndSession(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: COpaquePointer?, pcenumcolumn: COpaquePointer?, prgenumcolumn: COpaquePointer?, pfnrealloc: JetPfnrealloc, pvrealloccontext: COpaquePointer?, cbdatamost: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEnumerateColumns(sesid.toString(), tableid.toString(), cenumcolumnid.toInt(), (rgenumcolumnid?.value ?: 0L).toString(), (pcenumcolumn?.value ?: 0L).toString(), (prgenumcolumn?.value ?: 0L).toString(), 0L.toString(), (pvrealloccontext?.value ?: 0L).toString(), cbdatamost.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: ConstPtr<JetEnumcolumnid>, pcenumcolumn: MutPtr<UInt>, prgenumcolumn: MutPtr<MutPtr<JetEnumcolumn>>, pfnrealloc: JetPfnrealloc, pvrealloccontext: ConstPtr<CVoid>, cbdatamost: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEnumerateColumns(sesid.toString(), tableid.toString(), cenumcolumnid.toInt(), rgenumcolumnid.rawAddress.toString(), pcenumcolumn.rawAddress.toString(), prgenumcolumn.rawAddress.toString(), 0L.toString(), pvrealloccontext.rawAddress.toString(), cbdatamost.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: COpaquePointer?, cbmax: UInt, pvold: COpaquePointer?, cboldmax: UInt, pcboldactual: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetEscrowUpdate(sesid.toString(), tableid.toString(), columnid.toInt(), (pv?.value ?: 0L).toString(), cbmax.toInt(), (pvold?.value ?: 0L).toString(), cboldmax.toInt(), (pcboldactual?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: ConstPtr<CVoid>, cbmax: UInt, pvold: MutPtr<CVoid>, cboldmax: UInt, pcboldactual: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetEscrowUpdate(sesid.toString(), tableid.toString(), columnid.toInt(), pv.rawAddress.toString(), cbmax.toInt(), pvold.rawAddress.toString(), cboldmax.toInt(), pcboldactual.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetExternalRestore2A(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, ploginfo: COpaquePointer?, sztargetinstancename: COpaquePointer?, sztargetinstancelogpath: COpaquePointer?, sztargetinstancecheckpointpath: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetExternalRestore2A((szcheckpointfilepath?.value ?: 0L).toString(), (szlogpath?.value ?: 0L).toString(), (rgrstmap?.value ?: 0L).toString(), crstfilemap, (szbackuplogpath?.value ?: 0L).toString(), (ploginfo?.value ?: 0L).toString(), (sztargetinstancename?.value ?: 0L).toString(), (sztargetinstancelogpath?.value ?: 0L).toString(), (sztargetinstancecheckpointpath?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetExternalRestore2A(szcheckpointfilepath: ConstPtr<Byte>, szlogpath: ConstPtr<Byte>, rgrstmap: ConstPtr<JetRstmapA>, crstfilemap: Int, szbackuplogpath: ConstPtr<Byte>, ploginfo: MutPtr<JetLoginfoA>, sztargetinstancename: ConstPtr<Byte>, sztargetinstancelogpath: ConstPtr<Byte>, sztargetinstancecheckpointpath: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetExternalRestore2A(szcheckpointfilepath.rawAddress.toString(), szlogpath.rawAddress.toString(), rgrstmap.rawAddress.toString(), crstfilemap, szbackuplogpath.rawAddress.toString(), ploginfo.rawAddress.toString(), sztargetinstancename.rawAddress.toString(), sztargetinstancelogpath.rawAddress.toString(), sztargetinstancecheckpointpath.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetExternalRestore2W(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, ploginfo: COpaquePointer?, sztargetinstancename: COpaquePointer?, sztargetinstancelogpath: COpaquePointer?, sztargetinstancecheckpointpath: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetExternalRestore2W((szcheckpointfilepath?.value ?: 0L).toString(), (szlogpath?.value ?: 0L).toString(), (rgrstmap?.value ?: 0L).toString(), crstfilemap, (szbackuplogpath?.value ?: 0L).toString(), (ploginfo?.value ?: 0L).toString(), (sztargetinstancename?.value ?: 0L).toString(), (sztargetinstancelogpath?.value ?: 0L).toString(), (sztargetinstancecheckpointpath?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetExternalRestore2W(szcheckpointfilepath: ConstPtr<UShort>, szlogpath: ConstPtr<UShort>, rgrstmap: ConstPtr<JetRstmapW>, crstfilemap: Int, szbackuplogpath: ConstPtr<UShort>, ploginfo: MutPtr<JetLoginfoW>, sztargetinstancename: ConstPtr<UShort>, sztargetinstancelogpath: ConstPtr<UShort>, sztargetinstancecheckpointpath: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetExternalRestore2W(szcheckpointfilepath.rawAddress.toString(), szlogpath.rawAddress.toString(), rgrstmap.rawAddress.toString(), crstfilemap, szbackuplogpath.rawAddress.toString(), ploginfo.rawAddress.toString(), sztargetinstancename.rawAddress.toString(), sztargetinstancelogpath.rawAddress.toString(), sztargetinstancecheckpointpath.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetExternalRestoreA(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetExternalRestoreA((szcheckpointfilepath?.value ?: 0L).toString(), (szlogpath?.value ?: 0L).toString(), (rgrstmap?.value ?: 0L).toString(), crstfilemap, (szbackuplogpath?.value ?: 0L).toString(), genlow, genhigh, 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetExternalRestoreA(szcheckpointfilepath: ConstPtr<Byte>, szlogpath: ConstPtr<Byte>, rgrstmap: ConstPtr<JetRstmapA>, crstfilemap: Int, szbackuplogpath: ConstPtr<Byte>, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetExternalRestoreA(szcheckpointfilepath.rawAddress.toString(), szlogpath.rawAddress.toString(), rgrstmap.rawAddress.toString(), crstfilemap, szbackuplogpath.rawAddress.toString(), genlow, genhigh, 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetExternalRestoreW(szcheckpointfilepath: COpaquePointer?, szlogpath: COpaquePointer?, rgrstmap: COpaquePointer?, crstfilemap: Int, szbackuplogpath: COpaquePointer?, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetExternalRestoreW((szcheckpointfilepath?.value ?: 0L).toString(), (szlogpath?.value ?: 0L).toString(), (rgrstmap?.value ?: 0L).toString(), crstfilemap, (szbackuplogpath?.value ?: 0L).toString(), genlow, genhigh, 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetExternalRestoreW(szcheckpointfilepath: ConstPtr<UShort>, szlogpath: ConstPtr<UShort>, rgrstmap: ConstPtr<JetRstmapW>, crstfilemap: Int, szbackuplogpath: ConstPtr<UShort>, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetExternalRestoreW(szcheckpointfilepath.rawAddress.toString(), szlogpath.rawAddress.toString(), rgrstmap.rawAddress.toString(), crstfilemap, szbackuplogpath.rawAddress.toString(), genlow, genhigh, 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetFreeBuffer(pbbuf: Pcstr): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetFreeBuffer((pbbuf?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetFreeBuffer(pbbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetAttachInfoA(szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoA((szzdatabases?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetAttachInfoA(szzdatabases: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoA(szzdatabases.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(instance.toString(), (szzdatabases?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoInstanceA(instance.toString(), szzdatabases.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(instance.toString(), (szzdatabases?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoInstanceW(instance.toString(), szzdatabases.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetAttachInfoW(wszzdatabases: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetAttachInfoW((wszzdatabases?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetAttachInfoW(wszzdatabases: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetAttachInfoW(wszzdatabases.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetBookmark(sesid.toString(), tableid.toString(), (pvbookmark?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetBookmark(sesid.toString(), tableid.toString(), pvbookmark.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pcolumnnameorid: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetColumnInfoA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pcolumnnameorid?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcolumnnameorid: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetColumnInfoA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pcolumnnameorid.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pwcolumnnameorid: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetColumnInfoW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pwcolumnnameorid?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pwcolumnnameorid: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetColumnInfoW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pwcolumnnameorid.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, cbindexname: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), cbindexname.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr<Byte>, cbindexname: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetCurrentIndexA(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), cbindexname.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, cbindexname: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), cbindexname.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr<UShort>, cbindexname: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetCurrentIndexW(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), cbindexname.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetCursorInfo(sesid.toString(), tableid.toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetCursorInfo(sesid.toString(), tableid.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetDatabaseFileInfoA(szdatabasename: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA((szdatabasename?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetDatabaseFileInfoA(szdatabasename: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetDatabaseFileInfoA(szdatabasename.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetDatabaseFileInfoW(szdatabasename: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW((szdatabasename?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetDatabaseFileInfoW(szdatabasename: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetDatabaseFileInfoW(szdatabasename.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(sesid.toString(), dbid.toInt(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetDatabaseInfoA(sesid.toString(), dbid.toInt(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(sesid.toString(), dbid.toInt(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetDatabaseInfoW(sesid.toString(), dbid.toInt(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetErrorInfoW(pvcontext: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetErrorInfoW((pvcontext?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetErrorInfoW(pvcontext: ConstPtr<CVoid>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetErrorInfoW(pvcontext.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetIndexInfoA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (szindexname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, szindexname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetIndexInfoA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), szindexname.rawAddress.toString(), pvresult.rawAddress.toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetIndexInfoW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (szindexname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, szindexname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetIndexInfoW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), szindexname.rawAddress.toString(), pvresult.rawAddress.toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetInstanceInfoA(pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetInstanceInfoA((pcinstanceinfo?.value ?: 0L).toString(), (painstanceinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetInstanceInfoA(pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetInstanceInfoA(pcinstanceinfo.rawAddress.toString(), painstanceinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetInstanceInfoW(pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetInstanceInfoW((pcinstanceinfo?.value ?: 0L).toString(), (painstanceinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetInstanceInfoW(pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetInstanceInfoW(pcinstanceinfo.rawAddress.toString(), painstanceinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(instance.toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetInstanceMiscInfo(instance.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLS(sesid.toString(), tableid.toString(), (pls?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: MutPtr<JetLs>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLS(sesid.toString(), tableid.toString(), pls.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetGetLock(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLock(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLock(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLogInfoA(szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoA((szzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLogInfoA(szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLogInfoA(szzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, ploginfo: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(instance.toString(), (szzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString(), (ploginfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>, ploginfo: MutPtr<JetLoginfoA>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstance2A(instance.toString(), szzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString(), ploginfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, ploginfo: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(instance.toString(), (wszzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString(), (ploginfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>, ploginfo: MutPtr<JetLoginfoW>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstance2W(instance.toString(), wszzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString(), ploginfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(instance.toString(), (szzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstanceA(instance.toString(), szzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(instance.toString(), (wszzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLogInfoInstanceW(instance.toString(), wszzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetLogInfoW(szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetLogInfoW((szzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetLogInfoW(szzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetLogInfoW(szzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: COpaquePointer?, szobjectname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetObjectInfoA(sesid.toString(), dbid.toInt(), objtyp.toInt(), (szcontainername?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr<Byte>, szobjectname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetObjectInfoA(sesid.toString(), dbid.toInt(), objtyp.toInt(), szcontainername.rawAddress.toString(), szobjectname.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: COpaquePointer?, szobjectname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetObjectInfoW(sesid.toString(), dbid.toInt(), objtyp.toInt(), (szcontainername?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr<UShort>, szobjectname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetObjectInfoW(sesid.toString(), dbid.toInt(), objtyp.toInt(), szcontainername.rawAddress.toString(), szobjectname.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: COpaquePointer?, cbrecpos: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetRecordPosition(sesid.toString(), tableid.toString(), (precpos?.value ?: 0L).toString(), cbrecpos.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: MutPtr<JetRecpos>, cbrecpos: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetRecordPosition(sesid.toString(), tableid.toString(), precpos.rawAddress.toString(), cbrecpos.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetRecordSize(sesid.toString(), tableid.toString(), (precsize?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr<JetRecsize>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetRecordSize(sesid.toString(), tableid.toString(), precsize.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetRecordSize2(sesid.toString(), tableid.toString(), (precsize?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr<JetRecsize2>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetRecordSize2(sesid.toString(), tableid.toString(), precsize.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: COpaquePointer?, cbsecondarykeymax: UInt, pcbsecondarykeyactual: COpaquePointer?, pvprimarybookmark: COpaquePointer?, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(sesid.toString(), tableid.toString(), (pvsecondarykey?.value ?: 0L).toString(), cbsecondarykeymax.toInt(), (pcbsecondarykeyactual?.value ?: 0L).toString(), (pvprimarybookmark?.value ?: 0L).toString(), cbprimarybookmarkmax.toInt(), (pcbprimarybookmarkactual?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: MutPtr<CVoid>, cbsecondarykeymax: UInt, pcbsecondarykeyactual: MutPtr<UInt>, pvprimarybookmark: MutPtr<CVoid>, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetSecondaryIndexBookmark(sesid.toString(), tableid.toString(), pvsecondarykey.rawAddress.toString(), cbsecondarykeymax.toInt(), pcbsecondarykeyactual.rawAddress.toString(), pvprimarybookmark.rawAddress.toString(), cbprimarybookmarkmax.toInt(), pcbprimarybookmarkactual.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: COpaquePointer?, cbparammax: UInt, pcbparamactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetSessionParameter(sesid.toString(), sesparamid.toInt(), (pvparam?.value ?: 0L).toString(), cbparammax.toInt(), (pcbparamactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: MutPtr<CVoid>, cbparammax: UInt, pcbparamactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetSessionParameter(sesid.toString(), sesparamid.toInt(), pvparam.rawAddress.toString(), cbparammax.toInt(), pcbparamactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: COpaquePointer?, szparam: COpaquePointer?, cbmax: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetSystemParameterA(instance.toString(), sesid.toString(), paramid.toInt(), (plparam?.value ?: 0L).toString(), (szparam?.value ?: 0L).toString(), cbmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr<JetApiPtr>, szparam: MutPtr<Byte>, cbmax: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetSystemParameterA(instance.toString(), sesid.toString(), paramid.toInt(), plparam.rawAddress.toString(), szparam.rawAddress.toString(), cbmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: COpaquePointer?, szparam: COpaquePointer?, cbmax: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetSystemParameterW(instance.toString(), sesid.toString(), paramid.toInt(), (plparam?.value ?: 0L).toString(), (szparam?.value ?: 0L).toString(), cbmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr<JetApiPtr>, szparam: MutPtr<UShort>, cbmax: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetSystemParameterW(instance.toString(), sesid.toString(), paramid.toInt(), plparam.rawAddress.toString(), szparam.rawAddress.toString(), cbmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTableColumnInfoA(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: COpaquePointer?, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(sesid.toString(), tableid.toString(), (szcolumnname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTableColumnInfoW(sesid.toString(), tableid.toString(), szcolumnname.rawAddress.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTableIndexInfoA(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), pvresult.rawAddress.toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pvresult: COpaquePointer?, cbresult: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), (pvresult?.value ?: 0L).toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTableIndexInfoW(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), pvresult.rawAddress.toString(), cbresult.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTableInfoA(sesid.toString(), tableid.toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTableInfoA(sesid.toString(), tableid.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: COpaquePointer?, cbmax: UInt, infolevel: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTableInfoW(sesid.toString(), tableid.toString(), (pvresult?.value ?: 0L).toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTableInfoW(sesid.toString(), tableid.toString(), pvresult.rawAddress.toString(), cbmax.toInt(), infolevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetThreadStats(pvresult: COpaquePointer?, cbmax: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetThreadStats((pvresult?.value ?: 0L).toString(), cbmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetThreadStats(pvresult: MutPtr<CVoid>, cbmax: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetThreadStats(pvresult.rawAddress.toString(), cbmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(instance.toString(), (szzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceA(instance.toString(), szzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(instance.toString(), (wszzlogs?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceW(instance.toString(), wszzlogs.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGetVersion(sesid: JetSesid, pwversion: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGetVersion(sesid.toString(), (pwversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGetVersion(sesid: JetSesid, pwversion: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGetVersion(sesid.toString(), pwversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGotoBookmark(sesid.toString(), tableid.toString(), (pvbookmark?.value ?: 0L).toString(), cbbookmark.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: ConstPtr<CVoid>, cbbookmark: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGotoBookmark(sesid.toString(), tableid.toString(), pvbookmark.rawAddress.toString(), cbbookmark.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGotoPosition(sesid.toString(), tableid.toString(), (precpos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: ConstPtr<JetRecpos>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGotoPosition(sesid.toString(), tableid.toString(), precpos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: COpaquePointer?, cbsecondarykey: UInt, pvprimarybookmark: COpaquePointer?, cbprimarybookmark: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(sesid.toString(), tableid.toString(), (pvsecondarykey?.value ?: 0L).toString(), cbsecondarykey.toInt(), (pvprimarybookmark?.value ?: 0L).toString(), cbprimarybookmark.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: ConstPtr<CVoid>, cbsecondarykey: UInt, pvprimarybookmark: ConstPtr<CVoid>, cbprimarybookmark: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGotoSecondaryIndexBookmark(sesid.toString(), tableid.toString(), pvsecondarykey.rawAddress.toString(), cbsecondarykey.toInt(), pvprimarybookmark.rawAddress.toString(), cbprimarybookmark.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetGrowDatabase(sesid.toString(), dbid.toInt(), cpg.toInt(), (pcpgreal?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: ConstPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetGrowDatabase(sesid.toString(), dbid.toInt(), cpg.toInt(), pcpgreal.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetIdle(sesid: JetSesid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetIdle(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetIdle(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: COpaquePointer?, crecmax: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetIndexRecordCount(sesid.toString(), tableid.toString(), (pcrec?.value ?: 0L).toString(), crecmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: MutPtr<UInt>, crecmax: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetIndexRecordCount(sesid.toString(), tableid.toString(), pcrec.rawAddress.toString(), crecmax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetInit(pinstance: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetInit((pinstance?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetInit(pinstance: MutPtr<JetInstance>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetInit(pinstance.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetInit2(pinstance: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetInit2((pinstance?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetInit2(pinstance: MutPtr<JetInstance>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetInit2(pinstance.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetInit3A(pinstance: COpaquePointer?, prstinfo: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetInit3A((pinstance?.value ?: 0L).toString(), (prstinfo?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetInit3A(pinstance: MutPtr<JetInstance>, prstinfo: ConstPtr<JetRstinfoA>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetInit3A(pinstance.rawAddress.toString(), prstinfo.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetInit3W(pinstance: COpaquePointer?, prstinfo: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetInit3W((pinstance?.value ?: 0L).toString(), (prstinfo?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetInit3W(pinstance: MutPtr<JetInstance>, prstinfo: ConstPtr<JetRstinfoW>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetInit3W(pinstance.rawAddress.toString(), prstinfo.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: COpaquePointer?, cindexrange: UInt, precordlist: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetIntersectIndexes(sesid.toString(), (rgindexrange?.value ?: 0L).toString(), cindexrange.toInt(), (precordlist?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: ConstPtr<JetIndexrange>, cindexrange: UInt, precordlist: MutPtr<JetRecordlist>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetIntersectIndexes(sesid.toString(), rgindexrange.rawAddress.toString(), cindexrange.toInt(), precordlist.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetMakeKey(sesid.toString(), tableid.toString(), (pvdata?.value ?: 0L).toString(), cbdata.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetMakeKey(sesid.toString(), tableid.toString(), pvdata.rawAddress.toString(), cbdata.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetMove(sesid: JetSesid, tableid: JetTableid, crow: Int, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetMove(sesid.toString(), tableid.toString(), crow, grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetMove(sesid.toString(), tableid.toString(), crow, grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetOSSnapshotAbort(snapid: JetOssnapid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotAbort(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetOSSnapshotEnd(snapid: JetOssnapid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(snapid.toString(), (pcinstanceinfo?.value ?: 0L).toString(), (painstanceinfo?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotFreezeA(snapid.toString(), pcinstanceinfo.rawAddress.toString(), painstanceinfo.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(snapid.toString(), (pcinstanceinfo?.value ?: 0L).toString(), (painstanceinfo?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotFreezeW(snapid.toString(), pcinstanceinfo.rawAddress.toString(), painstanceinfo.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(snapid.toString(), (pcinstanceinfo?.value ?: 0L).toString(), (painstanceinfo?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoA(snapid.toString(), pcinstanceinfo.rawAddress.toString(), painstanceinfo.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(snapid.toString(), (pcinstanceinfo?.value ?: 0L).toString(), (painstanceinfo?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoW(snapid.toString(), pcinstanceinfo.rawAddress.toString(), painstanceinfo.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOSSnapshotPrepare(psnapid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare((psnapid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOSSnapshotPrepare(psnapid: MutPtr<JetOssnapid>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotPrepare(psnapid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetOSSnapshotPrepareInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(snapid.toString(), instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(snapid.toString(), instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetOSSnapshotThaw(snapid: JetOssnapid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotThaw(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetOSSnapshotTruncateLog(snapid: JetOssnapid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(snapid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetOSSnapshotTruncateLogInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(snapid.toString(), instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid.toString(), instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenDatabaseA(sesid.toString(), (szfilename?.value ?: 0L).toString(), (szconnect?.value ?: 0L).toString(), (pdbid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenDatabaseA(sesid.toString(), szfilename.rawAddress.toString(), szconnect.rawAddress.toString(), pdbid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenDatabaseW(sesid.toString(), (szfilename?.value ?: 0L).toString(), (szconnect?.value ?: 0L).toString(), (pdbid?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, szconnect: ConstPtr<UShort>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenDatabaseW(sesid.toString(), szfilename.rawAddress.toString(), szconnect.rawAddress.toString(), pdbid.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenFileA(szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenFileA((szfilename?.value ?: 0L).toString(), (phffile?.value ?: 0L).toString(), (pulfilesizelow?.value ?: 0L).toString(), (pulfilesizehigh?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenFileA(szfilename: ConstPtr<Byte>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenFileA(szfilename.rawAddress.toString(), phffile.rawAddress.toString(), pulfilesizelow.rawAddress.toString(), pulfilesizehigh.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(instance.toString(), (szfilename?.value ?: 0L).toString(), (phffile?.value ?: 0L).toString(), (pulfilesizelow?.value ?: 0L).toString(), (pulfilesizehigh?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: ConstPtr<Byte>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenFileInstanceA(instance.toString(), szfilename.rawAddress.toString(), phffile.rawAddress.toString(), pulfilesizelow.rawAddress.toString(), pulfilesizehigh.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(instance.toString(), (szfilename?.value ?: 0L).toString(), (phffile?.value ?: 0L).toString(), (pulfilesizelow?.value ?: 0L).toString(), (pulfilesizehigh?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: ConstPtr<UShort>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenFileInstanceW(instance.toString(), szfilename.rawAddress.toString(), phffile.rawAddress.toString(), pulfilesizelow.rawAddress.toString(), pulfilesizehigh.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenFileW(szfilename: COpaquePointer?, phffile: COpaquePointer?, pulfilesizelow: COpaquePointer?, pulfilesizehigh: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenFileW((szfilename?.value ?: 0L).toString(), (phffile?.value ?: 0L).toString(), (pulfilesizelow?.value ?: 0L).toString(), (pulfilesizehigh?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenFileW(szfilename: ConstPtr<UShort>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenFileW(szfilename.rawAddress.toString(), phffile.rawAddress.toString(), pulfilesizelow.rawAddress.toString(), pulfilesizehigh.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pvparameters: COpaquePointer?, cbparameters: UInt, grbit: UInt, ptableid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTableA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pvparameters?.value ?: 0L).toString(), cbparameters.toInt(), grbit.toInt(), (ptableid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pvparameters: ConstPtr<CVoid>, cbparameters: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTableA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pvparameters.rawAddress.toString(), cbparameters.toInt(), grbit.toInt(), ptableid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, pvparameters: COpaquePointer?, cbparameters: UInt, grbit: UInt, ptableid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTableW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (pvparameters?.value ?: 0L).toString(), cbparameters.toInt(), grbit.toInt(), (ptableid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pvparameters: ConstPtr<CVoid>, cbparameters: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTableW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), pvparameters.rawAddress.toString(), cbparameters.toInt(), grbit.toInt(), ptableid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTempTable(sesid.toString(), (prgcolumndef?.value ?: 0L).toString(), ccolumn.toInt(), grbit.toInt(), (ptableid?.value ?: 0L).toString(), (prgcolumnid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTempTable(sesid.toString(), prgcolumndef.rawAddress.toString(), ccolumn.toInt(), grbit.toInt(), ptableid.rawAddress.toString(), prgcolumnid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTempTable2(sesid.toString(), (prgcolumndef?.value ?: 0L).toString(), ccolumn.toInt(), lcid.toInt(), grbit.toInt(), (ptableid?.value ?: 0L).toString(), (prgcolumnid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTempTable2(sesid.toString(), prgcolumndef.rawAddress.toString(), ccolumn.toInt(), lcid.toInt(), grbit.toInt(), ptableid.rawAddress.toString(), prgcolumnid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: COpaquePointer?, ccolumn: UInt, pidxunicode: COpaquePointer?, grbit: UInt, ptableid: COpaquePointer?, prgcolumnid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTempTable3(sesid.toString(), (prgcolumndef?.value ?: 0L).toString(), ccolumn.toInt(), (pidxunicode?.value ?: 0L).toString(), grbit.toInt(), (ptableid?.value ?: 0L).toString(), (prgcolumnid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, pidxunicode: ConstPtr<JetUnicodeindex>, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTempTable3(sesid.toString(), prgcolumndef.rawAddress.toString(), ccolumn.toInt(), pidxunicode.rawAddress.toString(), grbit.toInt(), ptableid.rawAddress.toString(), prgcolumnid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(sesid.toString(), (popentemporarytable?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: ConstPtr<JetOpentemporarytable>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTemporaryTable(sesid.toString(), popentemporarytable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(sesid.toString(), (popentemporarytable?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: ConstPtr<JetOpentemporarytable2>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetOpenTemporaryTable2(sesid.toString(), popentemporarytable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetPrepareUpdate(sesid: JetSesid, tableid: JetTableid, prep: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetPrepareUpdate(sesid.toString(), tableid.toString(), prep.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetPrepareUpdate(sesid.toString(), tableid.toString(), prep.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: COpaquePointer?, cindexranges: UInt, pcrangespreread: COpaquePointer?, rgcolumnidpreread: COpaquePointer?, ccolumnidpreread: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(sesid.toString(), tableid.toString(), (rgindexranges?.value ?: 0L).toString(), cindexranges.toInt(), (pcrangespreread?.value ?: 0L).toString(), (rgcolumnidpreread?.value ?: 0L).toString(), ccolumnidpreread.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: ConstPtr<JetIndexRange>, cindexranges: UInt, pcrangespreread: MutPtr<UInt>, rgcolumnidpreread: ConstPtr<UInt>, ccolumnidpreread: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetPrereadIndexRanges(sesid.toString(), tableid.toString(), rgindexranges.rawAddress.toString(), cindexranges.toInt(), pcrangespreread.rawAddress.toString(), rgcolumnidpreread.rawAddress.toString(), ccolumnidpreread.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: COpaquePointer?, rgcbkeys: COpaquePointer?, ckeys: Int, pckeyspreread: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetPrereadKeys(sesid.toString(), tableid.toString(), (rgpvkeys?.value ?: 0L).toString(), (rgcbkeys?.value ?: 0L).toString(), ckeys, (pckeyspreread?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: ConstPtr<ConstPtr<CVoid>>, rgcbkeys: ConstPtr<UInt>, ckeys: Int, pckeyspreread: MutPtr<Int>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetPrereadKeys(sesid.toString(), tableid.toString(), rgpvkeys.rawAddress.toString(), rgcbkeys.rawAddress.toString(), ckeys, pckeyspreread.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetReadFile(hffile: JetHandle, pv: COpaquePointer?, cb: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetReadFile(hffile.toString(), (pv?.value ?: 0L).toString(), cb.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetReadFile(hffile: JetHandle, pv: MutPtr<CVoid>, cb: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetReadFile(hffile.toString(), pv.rawAddress.toString(), cb.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: COpaquePointer?, cb: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetReadFileInstance(instance.toString(), hffile.toString(), (pv?.value ?: 0L).toString(), cb.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: MutPtr<CVoid>, cb: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetReadFileInstance(instance.toString(), hffile.toString(), pv.rawAddress.toString(), cb.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: COpaquePointer?, phcallbackid: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRegisterCallback(sesid.toString(), tableid.toString(), cbtyp.toInt(), 0L.toString(), (pvcontext?.value ?: 0L).toString(), (phcallbackid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: ConstPtr<CVoid>, phcallbackid: ConstPtr<JetHandle>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRegisterCallback(sesid.toString(), tableid.toString(), cbtyp.toInt(), 0L.toString(), pvcontext.rawAddress.toString(), phcallbackid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: COpaquePointer?, sznamenew: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRenameColumnA(sesid.toString(), tableid.toString(), (szname?.value ?: 0L).toString(), (sznamenew?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr<Byte>, sznamenew: ConstPtr<Byte>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRenameColumnA(sesid.toString(), tableid.toString(), szname.rawAddress.toString(), sznamenew.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: COpaquePointer?, sznamenew: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRenameColumnW(sesid.toString(), tableid.toString(), (szname?.value ?: 0L).toString(), (sznamenew?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr<UShort>, sznamenew: ConstPtr<UShort>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRenameColumnW(sesid.toString(), tableid.toString(), szname.rawAddress.toString(), sznamenew.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: COpaquePointer?, sznamenew: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRenameTableA(sesid.toString(), dbid.toInt(), (szname?.value ?: 0L).toString(), (sznamenew?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: ConstPtr<Byte>, sznamenew: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRenameTableA(sesid.toString(), dbid.toInt(), szname.rawAddress.toString(), sznamenew.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: COpaquePointer?, sznamenew: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRenameTableW(sesid.toString(), dbid.toInt(), (szname?.value ?: 0L).toString(), (sznamenew?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: ConstPtr<UShort>, sznamenew: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRenameTableW(sesid.toString(), dbid.toInt(), szname.rawAddress.toString(), sznamenew.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetResetSessionContext(sesid: JetSesid): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetResetSessionContext(sesid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetResetSessionContext(sesid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetResetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetResetTableSequential(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetResetTableSequential(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetResizeDatabase(sesid.toString(), dbid.toInt(), cpgtarget.toInt(), (pcpgactual?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetResizeDatabase(sesid.toString(), dbid.toInt(), cpgtarget.toInt(), pcpgactual.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRestore2A(sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRestore2A((sz?.value ?: 0L).toString(), (szdest?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRestore2A(sz: ConstPtr<Byte>, szdest: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRestore2A(sz.rawAddress.toString(), szdest.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRestore2W(sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRestore2W((sz?.value ?: 0L).toString(), (szdest?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRestore2W(sz: ConstPtr<UShort>, szdest: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRestore2W(sz.rawAddress.toString(), szdest.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRestoreA(szsource: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRestoreA((szsource?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRestoreA(szsource: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRestoreA(szsource.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRestoreInstanceA(instance: JetInstance, sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRestoreInstanceA(instance.toString(), (sz?.value ?: 0L).toString(), (szdest?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRestoreInstanceA(instance: JetInstance, sz: ConstPtr<Byte>, szdest: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRestoreInstanceA(instance.toString(), sz.rawAddress.toString(), szdest.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRestoreInstanceW(instance: JetInstance, sz: COpaquePointer?, szdest: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRestoreInstanceW(instance.toString(), (sz?.value ?: 0L).toString(), (szdest?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRestoreInstanceW(instance: JetInstance, sz: ConstPtr<UShort>, szdest: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRestoreInstanceW(instance.toString(), sz.rawAddress.toString(), szdest.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRestoreW(szsource: COpaquePointer?, pfn: JetPfnstatus): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRestoreW((szsource?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRestoreW(szsource: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRestoreW(szsource.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: COpaquePointer?, cbdata: UInt, pcbactual: COpaquePointer?, grbit: UInt, pretinfo: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRetrieveColumn(sesid.toString(), tableid.toString(), columnid.toInt(), (pvdata?.value ?: 0L).toString(), cbdata.toInt(), (pcbactual?.value ?: 0L).toString(), grbit.toInt(), (pretinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: MutPtr<CVoid>, cbdata: UInt, pcbactual: MutPtr<UInt>, grbit: UInt, pretinfo: MutPtr<JetRetinfo>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRetrieveColumn(sesid.toString(), tableid.toString(), columnid.toInt(), pvdata.rawAddress.toString(), cbdata.toInt(), pcbactual.rawAddress.toString(), grbit.toInt(), pretinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: COpaquePointer?, cretrievecolumn: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRetrieveColumns(sesid.toString(), tableid.toString(), (pretrievecolumn?.value ?: 0L).toString(), cretrievecolumn.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: MutPtr<JetRetrievecolumn>, cretrievecolumn: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRetrieveColumns(sesid.toString(), tableid.toString(), pretrievecolumn.rawAddress.toString(), cretrievecolumn.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: COpaquePointer?, cbmax: UInt, pcbactual: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRetrieveKey(sesid.toString(), tableid.toString(), (pvkey?.value ?: 0L).toString(), cbmax.toInt(), (pcbactual?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: MutPtr<CVoid>, cbmax: UInt, pcbactual: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRetrieveKey(sesid.toString(), tableid.toString(), pvkey.rawAddress.toString(), cbmax.toInt(), pcbactual.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetRollback(sesid: JetSesid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetRollback(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetRollback(sesid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetSeek(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSeek(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSeek(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt, psetinfo: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetColumn(sesid.toString(), tableid.toString(), columnid.toInt(), (pvdata?.value ?: 0L).toString(), cbdata.toInt(), grbit.toInt(), (psetinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt, psetinfo: ConstPtr<JetSetinfo>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetColumn(sesid.toString(), tableid.toString(), columnid.toInt(), pvdata.rawAddress.toString(), cbdata.toInt(), grbit.toInt(), psetinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szcolumnname: COpaquePointer?, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (szcolumnname?.value ?: 0L).toString(), (pvdata?.value ?: 0L).toString(), cbdata.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, szcolumnname: ConstPtr<Byte>, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetColumnDefaultValueA(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), szcolumnname.rawAddress.toString(), pvdata.rawAddress.toString(), cbdata.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: COpaquePointer?, szcolumnname: COpaquePointer?, pvdata: COpaquePointer?, cbdata: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(sesid.toString(), dbid.toInt(), (sztablename?.value ?: 0L).toString(), (szcolumnname?.value ?: 0L).toString(), (pvdata?.value ?: 0L).toString(), cbdata.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, szcolumnname: ConstPtr<UShort>, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetColumnDefaultValueW(sesid.toString(), dbid.toInt(), sztablename.rawAddress.toString(), szcolumnname.rawAddress.toString(), pvdata.rawAddress.toString(), cbdata.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: COpaquePointer?, csetcolumn: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetColumns(sesid.toString(), tableid.toString(), (psetcolumn?.value ?: 0L).toString(), csetcolumn.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: ConstPtr<JetSetcolumn>, csetcolumn: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetColumns(sesid.toString(), tableid.toString(), psetcolumn.rawAddress.toString(), csetcolumn.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex2A(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex2W(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt, itagsequence: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex3A(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt, itagsequence: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex3W(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pindexid: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), (pindexid?.value ?: 0L).toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, pindexid: ConstPtr<JetIndexid>, grbit: UInt, itagsequence: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex4A(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), pindexid.rawAddress.toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?, pindexid: COpaquePointer?, grbit: UInt, itagsequence: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString(), (pindexid?.value ?: 0L).toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, pindexid: ConstPtr<JetIndexid>, grbit: UInt, itagsequence: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndex4W(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString(), pindexid.rawAddress.toString(), grbit.toInt(), itagsequence.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndexA(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(sesid.toString(), tableid.toString(), (szindexname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCurrentIndexW(sesid.toString(), tableid.toString(), szindexname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: COpaquePointer?, ccolumnfilters: UInt, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetCursorFilter(sesid.toString(), tableid.toString(), (rgcolumnfilters?.value ?: 0L).toString(), ccolumnfilters.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: ConstPtr<JetIndexColumn>, ccolumnfilters: UInt, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetCursorFilter(sesid.toString(), tableid.toString(), rgcolumnfilters.rawAddress.toString(), ccolumnfilters.toInt(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: COpaquePointer?, cpg: UInt, pcpgreal: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(sesid.toString(), (szdatabasename?.value ?: 0L).toString(), cpg.toInt(), (pcpgreal?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: ConstPtr<Byte>, cpg: UInt, pcpgreal: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetDatabaseSizeA(sesid.toString(), szdatabasename.rawAddress.toString(), cpg.toInt(), pcpgreal.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: COpaquePointer?, cpg: UInt, pcpgreal: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(sesid.toString(), (szdatabasename?.value ?: 0L).toString(), cpg.toInt(), (pcpgreal?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: ConstPtr<UShort>, cpg: UInt, pcpgreal: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetDatabaseSizeW(sesid.toString(), szdatabasename.rawAddress.toString(), cpg.toInt(), pcpgreal.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetSetIndexRange(sesid: JetSesid, tableidsrc: JetTableid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetIndexRange(sesid.toString(), tableidsrc.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetIndexRange(sesid.toString(), tableidsrc.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetSetLS(sesid: JetSesid, tableid: JetTableid, ls: JetLs, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetLS(sesid.toString(), tableid.toString(), ls.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetLS(sesid.toString(), tableid.toString(), ls.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetSetSessionContext(sesid: JetSesid, ulcontext: JetApiPtr): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetSessionContext(sesid.toString(), ulcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetSessionContext(sesid.toString(), ulcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: COpaquePointer?, cbparam: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetSessionParameter(sesid.toString(), sesparamid.toInt(), (pvparam?.value ?: 0L).toString(), cbparam.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: ConstPtr<CVoid>, cbparam: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetSessionParameter(sesid.toString(), sesparamid.toInt(), pvparam.rawAddress.toString(), cbparam.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetSystemParameterA(pinstance: COpaquePointer?, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetSystemParameterA((pinstance?.value ?: 0L).toString(), sesid.toString(), paramid.toInt(), lparam.toString(), (szparam?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetSystemParameterA(pinstance: MutPtr<JetInstance>, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr<Byte>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetSystemParameterA(pinstance.rawAddress.toString(), sesid.toString(), paramid.toInt(), lparam.toString(), szparam.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetSetSystemParameterW(pinstance: COpaquePointer?, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetSystemParameterW((pinstance?.value ?: 0L).toString(), sesid.toString(), paramid.toInt(), lparam.toString(), (szparam?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetSetSystemParameterW(pinstance: MutPtr<JetInstance>, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr<UShort>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetSystemParameterW(pinstance.rawAddress.toString(), sesid.toString(), paramid.toInt(), lparam.toString(), szparam.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetSetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetSetTableSequential(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetSetTableSequential(sesid.toString(), tableid.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetStopBackup(): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetStopBackup() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetStopBackup() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetStopBackupInstance(instance: JetInstance): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetStopBackupInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetStopBackupInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetStopService(): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetStopService() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetStopService() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetStopServiceInstance(instance: JetInstance): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetStopServiceInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetStopServiceInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetStopServiceInstance2(instance: JetInstance, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetStopServiceInstance2(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetStopServiceInstance2(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetTerm(instance: JetInstance): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetTerm(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetTerm(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetTerm2(instance: JetInstance, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetTerm2(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetTerm2(instance.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetTruncateLog(): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetTruncateLog() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetTruncateLog() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetTruncateLogInstance(instance: JetInstance): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetTruncateLogInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetTruncateLogInstance(instance.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jetUnregisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, hcallbackid: JetHandle): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetUnregisterCallback(sesid.toString(), tableid.toString(), cbtyp.toInt(), hcallbackid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetUnregisterCallback(sesid.toString(), tableid.toString(), cbtyp.toInt(), hcallbackid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt, pcbactual: COpaquePointer?): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetUpdate(sesid.toString(), tableid.toString(), (pvbookmark?.value ?: 0L).toString(), cbbookmark.toInt(), (pcbactual?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetUpdate(sesid.toString(), tableid.toString(), pvbookmark.rawAddress.toString(), cbbookmark.toInt(), pcbactual.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: COpaquePointer?, cbbookmark: UInt, pcbactual: COpaquePointer?, grbit: UInt): Int =
-    if (_windowsWin32StorageJetNapiAvailable) _wasm_windowssys_windows_win32_storage_jet_jetUpdate2(sesid.toString(), tableid.toString(), (pvbookmark?.value ?: 0L).toString(), cbbookmark.toInt(), (pcbactual?.value ?: 0L).toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>, grbit: UInt): Int =
+    if (windowsWin32StorageJetNapiAvailable) wasmWindowssysWindowsWin32StorageJetJetUpdate2(sesid.toString(), tableid.toString(), pvbookmark.rawAddress.toString(), cbbookmark.toInt(), pcbactual.rawAddress.toString(), grbit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

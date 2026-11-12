@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public val DCDC_DEFAULT: DialogControlDpiChangeBehaviors = 0
 
@@ -16,15 +17,15 @@ public val DDC_DISABLE_CONTROL_RELAYOUT: DialogDpiChangeBehaviors = 4
 
 public val DDC_DISABLE_RESIZE: DialogDpiChangeBehaviors = 2
 
-public val DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DpiAwarenessContext = COpaquePointer((-3).toLong())
+public val DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DpiAwarenessContext = MutPtr<CVoid>((-3).toLong())
 
-public val DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DpiAwarenessContext = COpaquePointer((-4).toLong())
+public val DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DpiAwarenessContext = MutPtr<CVoid>((-4).toLong())
 
-public val DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DpiAwarenessContext = COpaquePointer((-2).toLong())
+public val DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DpiAwarenessContext = MutPtr<CVoid>((-2).toLong())
 
-public val DPI_AWARENESS_CONTEXT_UNAWARE: DpiAwarenessContext = COpaquePointer((-1).toLong())
+public val DPI_AWARENESS_CONTEXT_UNAWARE: DpiAwarenessContext = MutPtr<CVoid>((-1).toLong())
 
-public val DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DpiAwarenessContext = COpaquePointer((-5).toLong())
+public val DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DpiAwarenessContext = MutPtr<CVoid>((-5).toLong())
 
 public val DPI_AWARENESS_INVALID: DpiAwareness = -1
 

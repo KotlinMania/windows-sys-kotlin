@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserFree_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -99,7 +99,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserFree64_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserMarshal_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserMarshal64
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserSize_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserSize64_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -244,7 +244,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -273,7 +273,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserFre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -321,7 +321,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserFre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -350,7 +350,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserMar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -379,7 +379,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserMar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -408,7 +408,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserSiz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -437,7 +437,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserSiz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -466,7 +466,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserUnm
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -495,7 +495,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserUnm
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coGetMarshalSizeMax_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoGetMarshalSizeMax_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -530,7 +530,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetMarshalSizeM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStandardMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoGetStandardMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -565,7 +565,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStandardMars
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoGetStdMarshalEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t smexflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -594,7 +594,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalHresult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoMarshalHresult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t hresult = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -621,7 +621,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalHresult_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterThreadInterfaceInStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoMarshalInterThreadInterfaceInStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -650,7 +650,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterThr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoMarshalInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -685,7 +685,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterfac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coReleaseMarshalData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoReleaseMarshalData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -710,7 +710,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coReleaseMarshalD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coUnmarshalHresult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoUnmarshalHresult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -737,7 +737,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coUnmarshalHresul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_coUnmarshalInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalCoUnmarshalInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -766,7 +766,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coUnmarshalInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -790,7 +790,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserFree_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -814,7 +814,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserFree64_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -843,7 +843,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserMarshal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserMarshal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -901,7 +901,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserSize_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -930,7 +930,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserSize64_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -959,7 +959,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserUnmarsh
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -988,7 +988,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserUnmarsh
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserFree_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1036,7 +1036,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserFree64
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1065,7 +1065,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserMarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1094,7 +1094,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserMarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1123,7 +1123,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserSize_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1152,7 +1152,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserSize64
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserUnmars
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1210,7 +1210,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserUnmars
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1234,7 +1234,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserFree_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1258,7 +1258,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserFree64_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1287,7 +1287,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserMarshal_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1316,7 +1316,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserMarshal64_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1345,7 +1345,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserSize_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1374,7 +1374,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserSize64_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1403,7 +1403,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1432,7 +1432,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal6
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1456,7 +1456,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserFree_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1480,7 +1480,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserFree64
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1509,7 +1509,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserMarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1538,7 +1538,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserMarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1567,7 +1567,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserSize_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1596,7 +1596,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserSize64
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1625,7 +1625,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserUnmars
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1654,7 +1654,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserUnmars
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1678,7 +1678,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserFree_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1702,7 +1702,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserFree64_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1731,7 +1731,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserMarshal_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1760,7 +1760,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserMarshal6
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1789,7 +1789,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserSize_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1818,7 +1818,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserSize64_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1847,7 +1847,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserUnmarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1876,7 +1876,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserUnmarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1900,7 +1900,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserFree_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1924,7 +1924,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserFree64_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1953,7 +1953,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserMarshal_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1982,7 +1982,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserMarshal6
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2011,7 +2011,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserSize_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2040,7 +2040,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserSize64_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2069,7 +2069,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserUnmarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2098,7 +2098,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserUnmarsha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2122,7 +2122,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserFree_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2146,7 +2146,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserFree6
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2175,7 +2175,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserMarsh
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2204,7 +2204,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserMarsh
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2233,7 +2233,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserSize_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2262,7 +2262,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserSize6
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2291,7 +2291,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserUnmar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2320,7 +2320,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserUnmar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2344,7 +2344,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserFree_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2368,7 +2368,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserFree64_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2397,7 +2397,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserMarshal_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2426,7 +2426,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserMarshal64
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2455,7 +2455,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserSize_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2484,7 +2484,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserSize64_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2513,7 +2513,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2542,7 +2542,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2566,7 +2566,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserFr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2590,7 +2590,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserFr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2619,7 +2619,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserMa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2648,7 +2648,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserMa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2677,7 +2677,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2706,7 +2706,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2735,7 +2735,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserUn
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2764,7 +2764,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserUn
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2788,7 +2788,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserFree_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2812,7 +2812,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserFree64_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2841,7 +2841,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserMarshal_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2870,7 +2870,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserMarshal64_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2899,7 +2899,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserSize_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2928,7 +2928,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserSize64_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2957,7 +2957,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserUnmarshal_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2986,7 +2986,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserUnmarshal6
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3010,7 +3010,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3034,7 +3034,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3063,7 +3063,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserMars
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3092,7 +3092,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserMars
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3121,7 +3121,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserSize
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3150,7 +3150,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserSize
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3179,7 +3179,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserUnma
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3209,119 +3209,119 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserUnma
 }
 
 static void register_windows_win32_system_com_marshal_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coGetMarshalSizeMax", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coGetMarshalSizeMax_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coGetStandardMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coGetStandardMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coMarshalHresult", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coMarshalHresult_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coMarshalInterThreadInterfaceInStream", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coMarshalInterThreadInterfaceInStream_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coMarshalInterface", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coMarshalInterface_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coReleaseMarshalData", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coReleaseMarshalData_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coUnmarshalHresult", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coUnmarshalHresult_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_coUnmarshalInterface", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_coUnmarshalInterface_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_snbUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_snbUserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserFree", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserFree_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserSize", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserSize_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoGetMarshalSizeMax", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoGetMarshalSizeMax_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoGetStandardMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoGetStandardMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoGetStdMarshalEx", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoGetStdMarshalEx_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoMarshalHresult", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoMarshalHresult_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoMarshalInterThreadInterfaceInStream", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoMarshalInterThreadInterfaceInStream_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoMarshalInterface", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoMarshalInterface_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoReleaseMarshalData", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoReleaseMarshalData_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoUnmarshalHresult", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoUnmarshalHresult_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalCoUnmarshalInterface", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalCoUnmarshalInterface_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserFree", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserFree_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserFree64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserFree64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserSize", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserSize_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserSize64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserSize64_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal_napi));
+    exports.Set("windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal64", Napi::Function::New(env, windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal64_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_com_marshal_napi, nullptr };

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListAllocateBufferAndSerialize(JNIEnv* km_env, jclass km_clazz, jlong sourcecollection, jlong ptargetbuffersizeinbytes, jlong ptargetbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListAllocateBufferAndSerialize(JNIEnv* km_env, jclass km_clazz, jlong sourcecollection, jlong ptargetbuffersizeinbytes, jlong ptargetbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListCopyAndMarshall(JNIEnv* km_env, jclass km_clazz, jlong target, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListCopyAndMarshall(JNIEnv* km_env, jclass km_clazz, jlong target, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListDeserializeFromBuffer(JNIEnv* km_env, jclass km_clazz, jint sourcebuffersizeinbytes, jlong sourcebuffer, jlong targetcollection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListDeserializeFromBuffer(JNIEnv* km_env, jclass km_clazz, jint sourcebuffersizeinbytes, jlong sourcebuffer, jlong targetcollection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListGetFillableCount(JNIEnv* km_env, jclass km_clazz, jint buffersizebytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListGetFillableCount(JNIEnv* km_env, jclass km_clazz, jint buffersizebytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListGetMarshalledSize(JNIEnv* km_env, jclass km_clazz, jlong collection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSize(JNIEnv* km_env, jclass km_clazz, jlong collection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListGetMarshalledSizeWithoutSerialization(JNIEnv* km_env, jclass km_clazz, jlong collection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSizeWithoutSerialization(JNIEnv* km_env, jclass km_clazz, jlong collection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -174,7 +174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListGetSerializedSize(JNIEnv* km_env, jclass km_clazz, jlong collection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListGetSerializedSize(JNIEnv* km_env, jclass km_clazz, jlong collection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListMarshall(JNIEnv* km_env, jclass km_clazz, jlong target) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListMarshall(JNIEnv* km_env, jclass km_clazz, jlong target) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -224,7 +224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListSerializeToBuffer(JNIEnv* km_env, jclass km_clazz, jlong sourcecollection, jint targetbuffersizeinbytes, jlong targetbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListSerializeToBuffer(JNIEnv* km_env, jclass km_clazz, jlong sourcecollection, jint targetbuffersizeinbytes, jlong targetbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -251,7 +251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListSortSubscribedActivitiesByConfidence(JNIEnv* km_env, jclass km_clazz, jlong thresholds, jlong pcollection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListSortSubscribedActivitiesByConfidence(JNIEnv* km_env, jclass km_clazz, jlong thresholds, jlong pcollection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -277,7 +277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1collectionsListUpdateMarshalledPointer(JNIEnv* km_env, jclass km_clazz, jlong collection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsCollectionsListUpdateMarshalledPointer(JNIEnv* km_env, jclass km_clazz, jlong collection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -302,7 +302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1evaluateActivityThresholds(JNIEnv* km_env, jclass km_clazz, jlong newsample, jlong oldsample, jlong thresholds) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsEvaluateActivityThresholds(JNIEnv* km_env, jclass km_clazz, jlong newsample, jlong oldsample, jlong thresholds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -329,7 +329,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1getPerformanceTime(JNIEnv* km_env, jclass km_clazz, jlong timems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsGetPerformanceTime(JNIEnv* km_env, jclass km_clazz, jlong timems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -354,7 +354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1initPropVariantFromCLSIDArray(JNIEnv* km_env, jclass km_clazz, jlong members, jint size, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsInitPropVariantFromCLSIDArray(JNIEnv* km_env, jclass km_clazz, jlong members, jint size, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -381,7 +381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1initPropVariantFromFloat(JNIEnv* km_env, jclass km_clazz, jfloat fltval, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsInitPropVariantFromFloat(JNIEnv* km_env, jclass km_clazz, jfloat fltval, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -407,7 +407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1isCollectionListSame(JNIEnv* km_env, jclass km_clazz, jlong lista, jlong listb) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsIsCollectionListSame(JNIEnv* km_env, jclass km_clazz, jlong lista, jlong listb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,7 +433,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1isGUIDPresentInList(JNIEnv* km_env, jclass km_clazz, jlong guidarray, jint arraylength, jlong guidelem) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsIsGUIDPresentInList(JNIEnv* km_env, jclass km_clazz, jlong guidarray, jint arraylength, jlong guidelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -460,7 +460,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1isKeyPresentInCollectionList(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsIsKeyPresentInCollectionList(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -486,7 +486,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1isKeyPresentInPropertyList(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsIsKeyPresentInPropertyList(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -512,7 +512,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetBool(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetBool(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetDouble(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetDouble(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -566,7 +566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetFileTime(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFileTime(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetFloat(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFloat(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -620,7 +620,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetGuid(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetGuid(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -647,7 +647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetInt32(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt32(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -674,7 +674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetInt64(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt64(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -701,7 +701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetNthInt64(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jint occurrence, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthInt64(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jint occurrence, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -729,7 +729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetNthUlong(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jint occurrence, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUlong(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jint occurrence, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -757,7 +757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetNthUshort(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jint occurrence, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUshort(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jint occurrence, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -785,7 +785,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetPropVariant(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jboolean typecheck, jlong pvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetPropVariant(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jboolean typecheck, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -813,7 +813,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetUlong(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUlong(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -840,7 +840,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeyGetUshort(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUshort(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jlong pretvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -867,7 +867,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propKeyFindKeySetPropVariant(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jboolean typecheck, jlong pvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropKeyFindKeySetPropVariant(JNIEnv* km_env, jclass km_clazz, jlong plist, jlong pkey, jboolean typecheck, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -895,7 +895,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propVariantGetInformation(JNIEnv* km_env, jclass km_clazz, jlong propvariantvalue, jlong propvariantoffset, jlong propvariantsize, jlong propvariantpointer, jlong remappedtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropVariantGetInformation(JNIEnv* km_env, jclass km_clazz, jlong propvariantvalue, jlong propvariantoffset, jlong propvariantsize, jlong propvariantpointer, jlong remappedtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -924,7 +924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propertiesListCopy(JNIEnv* km_env, jclass km_clazz, jlong target, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropertiesListCopy(JNIEnv* km_env, jclass km_clazz, jlong target, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -950,7 +950,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1propertiesListGetFillableCount(JNIEnv* km_env, jclass km_clazz, jint buffersizebytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsPropertiesListGetFillableCount(JNIEnv* km_env, jclass km_clazz, jint buffersizebytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -975,7 +975,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1sensorCollectionGetAt(JNIEnv* km_env, jclass km_clazz, jint arg_0_index, jlong psensorslist, jlong pkey, jlong pvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsSensorCollectionGetAt(JNIEnv* km_env, jclass km_clazz, jint arg0Index, jlong psensorslist, jlong pkey, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -987,13 +987,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((uint32_t)arg_0_index, (void*)(uintptr_t)psensorslist, (void*)(uintptr_t)pkey, (void*)(uintptr_t)pvalue);
+        km_res = km_fn_ptr((uint32_t)arg0Index, (void*)(uintptr_t)psensorslist, (void*)(uintptr_t)pkey, (void*)(uintptr_t)pvalue);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_index;
+    (void)arg0Index;
     (void)psensorslist;
     (void)pkey;
     (void)pvalue;
@@ -1003,7 +1003,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1serializationBufferAllocate(JNIEnv* km_env, jclass km_clazz, jint sizeinbytes, jlong pbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsSerializationBufferAllocate(JNIEnv* km_env, jclass km_clazz, jint sizeinbytes, jlong pbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1029,7 +1029,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssys_1windows_1win32_1devices_1sensors_1serializationBufferFree(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_sensors_WindowsWin32DevicesSensorsJniBridge_windowssysWindowsWin32DevicesSensorsSerializationBufferFree(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

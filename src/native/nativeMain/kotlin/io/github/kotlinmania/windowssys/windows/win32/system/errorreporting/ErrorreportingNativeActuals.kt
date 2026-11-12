@@ -2,178 +2,181 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_addERExcludedApplicationA
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_addERExcludedApplicationW
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_reportFault
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werAddExcludedApplication
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werFreeString
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werGetFlags
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterAdditionalProcess
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterAppLocalDump
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterCustomMetadata
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterExcludedMemoryBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterFile
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterMemoryBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRegisterRuntimeExceptionModule
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werRemoveExcludedApplication
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportAddDump
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportAddFile
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportCloseHandle
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportCreate
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportHang
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportSetParameter
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportSetUIOption
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werReportSubmit
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werSetFlags
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreClose
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreGetFirstReportKey
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreGetNextReportKey
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreGetReportCount
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreGetSizeOnDisk
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreOpen
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStorePurge
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV1
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV2
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV3
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werStoreUploadReport
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterAdditionalProcess
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterAppLocalDump
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterCustomMetadata
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterExcludedMemoryBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterFile
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterMemoryBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssys_windows_win32_system_errorreporting_werUnregisterRuntimeExceptionModule
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingReportFault
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerFreeString
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerGetFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterFile
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportAddDump
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportAddFile
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportCreate
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportHang
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportSetParameter
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerReportSubmit
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerSetFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreClose
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreOpen
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStorePurge
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterFile
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.errorreporting.cinterop.windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun addERExcludedApplicationA(szapplication: Pcstr): Bool =
-    windowssys_windows_win32_system_errorreporting_addERExcludedApplicationA(szapplication?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA(szapplication.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addERExcludedApplicationW(wszapplication: Pcwstr): Bool =
-    windowssys_windows_win32_system_errorreporting_addERExcludedApplicationW(wszapplication?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW(wszapplication.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportFault(pep: COpaquePointer?, dwopt: UInt): EFaultRepRetVal =
-    windowssys_windows_win32_system_errorreporting_reportFault(pep?.value?.toCPointer<ByteVar>(), dwopt)
+public actual fun reportFault(pep: ConstPtr<ExceptionPointers>, dwopt: UInt): EFaultRepRetVal =
+    windowssysWindowsWin32SystemErrorreportingReportFault(pep.rawAddress.toCPointer<ByteVar>(), dwopt)
 
 public actual fun werAddExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
-    windowssys_windows_win32_system_errorreporting_werAddExcludedApplication(pwzexename?.value?.toCPointer<ByteVar>(), ballusers)
+    windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication(pwzexename.rawAddress.toCPointer<ByteVar>(), ballusers)
 
 public actual fun werFreeString(pwszstr: Pcwstr) {
-    windowssys_windows_win32_system_errorreporting_werFreeString(pwszstr?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerFreeString(pwszstr.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun werGetFlags(hprocess: Handle, pdwflags: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werGetFlags(hprocess?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
+public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr<WerFaultReporting>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerGetFlags(hprocess.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterAdditionalProcess(processid, captureextrainfoforthreadid)
+    windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(processid, captureextrainfoforthreadid)
 
 public actual fun werRegisterAppLocalDump(localappdatarelativepath: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterAppLocalDump(localappdatarelativepath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump(localappdatarelativepath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werRegisterCustomMetadata(key: Pcwstr, value: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterCustomMetadata(key?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata(key.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werRegisterExcludedMemoryBlock(address: COpaquePointer?, size: UInt): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterExcludedMemoryBlock(address?.value?.toCPointer<ByteVar>(), size)
+public actual fun werRegisterExcludedMemoryBlock(address: ConstPtr<CVoid>, size: UInt): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock(address.rawAddress.toCPointer<ByteVar>(), size)
 
 public actual fun werRegisterFile(pwzfile: Pcwstr, regfiletype: WerRegisterFileType, dwflags: WerFile): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterFile(pwzfile?.value?.toCPointer<ByteVar>(), regfiletype, dwflags)
+    windowssysWindowsWin32SystemErrorreportingWerRegisterFile(pwzfile.rawAddress.toCPointer<ByteVar>(), regfiletype, dwflags)
 
-public actual fun werRegisterMemoryBlock(pvaddress: COpaquePointer?, dwsize: UInt): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterMemoryBlock(pvaddress?.value?.toCPointer<ByteVar>(), dwsize)
+public actual fun werRegisterMemoryBlock(pvaddress: ConstPtr<CVoid>, dwsize: UInt): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock(pvaddress.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll?.value?.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
+public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werRemoveExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
-    windowssys_windows_win32_system_errorreporting_werRemoveExcludedApplication(pwzexename?.value?.toCPointer<ByteVar>(), ballusers)
+    windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication(pwzexename.rawAddress.toCPointer<ByteVar>(), ballusers)
 
-public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: COpaquePointer?, pdumpcustomoptions: COpaquePointer?, dwflags: UInt): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportAddDump(hreporthandle?.value?.toCPointer<ByteVar>(), hprocess?.value?.toCPointer<ByteVar>(), hthread?.value?.toCPointer<ByteVar>(), dumptype, pexceptionparam?.value?.toCPointer<ByteVar>(), pdumpcustomoptions?.value?.toCPointer<ByteVar>(), dwflags)
+public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: ConstPtr<WerExceptionInformation>, pdumpcustomoptions: ConstPtr<WerDumpCustomOptions>, dwflags: UInt): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerReportAddDump(hreporthandle.rawAddress.toCPointer<ByteVar>(), hprocess.rawAddress.toCPointer<ByteVar>(), hthread.rawAddress.toCPointer<ByteVar>(), dumptype, pexceptionparam.rawAddress.toCPointer<ByteVar>(), pdumpcustomoptions.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repfiletype: WerFileType, dwfileflags: WerFile): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportAddFile(hreporthandle?.value?.toCPointer<ByteVar>(), pwzpath?.value?.toCPointer<ByteVar>(), repfiletype, dwfileflags)
+    windowssysWindowsWin32SystemErrorreportingWerReportAddFile(hreporthandle.rawAddress.toCPointer<ByteVar>(), pwzpath.rawAddress.toCPointer<ByteVar>(), repfiletype, dwfileflags)
 
 public actual fun werReportCloseHandle(hreporthandle: Hreport): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportCloseHandle(hreporthandle?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle(hreporthandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: COpaquePointer?, phreporthandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportCreate(pwzeventtype?.value?.toCPointer<ByteVar>(), reptype, preportinformation?.value?.toCPointer<ByteVar>(), phreporthandle?.value?.toCPointer<ByteVar>())
+public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: ConstPtr<WerReportInformation>, phreporthandle: MutPtr<Hreport>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerReportCreate(pwzeventtype.rawAddress.toCPointer<ByteVar>(), reptype, preportinformation.rawAddress.toCPointer<ByteVar>(), phreporthandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werReportHang(hwndhungapp: Hwnd, pwzhungapplicationname: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportHang(hwndhungapp?.value?.toCPointer<ByteVar>(), pwzhungapplicationname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerReportHang(hwndhungapp.rawAddress.toCPointer<ByteVar>(), pwzhungapplicationname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werReportSetParameter(hreporthandle: Hreport, dwparamid: UInt, pwzname: Pcwstr, pwzvalue: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportSetParameter(hreporthandle?.value?.toCPointer<ByteVar>(), dwparamid, pwzname?.value?.toCPointer<ByteVar>(), pwzvalue?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerReportSetParameter(hreporthandle.rawAddress.toCPointer<ByteVar>(), dwparamid, pwzname.rawAddress.toCPointer<ByteVar>(), pwzvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werReportSetUIOption(hreporthandle: Hreport, repuitypeid: WerReportUi, pwzvalue: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportSetUIOption(hreporthandle?.value?.toCPointer<ByteVar>(), repuitypeid, pwzvalue?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption(hreporthandle.rawAddress.toCPointer<ByteVar>(), repuitypeid, pwzvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werReportSubmit(hreporthandle?.value?.toCPointer<ByteVar>(), consent, dwflags, psubmitresult?.value?.toCPointer<ByteVar>())
+public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerReportSubmit(hreporthandle.rawAddress.toCPointer<ByteVar>(), consent, dwflags, psubmitresult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werSetFlags(dwflags: WerFaultReporting): Hresult =
-    windowssys_windows_win32_system_errorreporting_werSetFlags(dwflags)
+    windowssysWindowsWin32SystemErrorreportingWerSetFlags(dwflags)
 
 public actual fun werStoreClose(hreportstore: Hreportstore) {
-    windowssys_windows_win32_system_errorreporting_werStoreClose(hreportstore?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerStoreClose(hreportstore.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreGetFirstReportKey(hreportstore?.value?.toCPointer<ByteVar>(), ppszreportkey?.value?.toCPointer<ByteVar>())
+public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey(hreportstore.rawAddress.toCPointer<ByteVar>(), ppszreportkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreGetNextReportKey(hreportstore?.value?.toCPointer<ByteVar>(), ppszreportkey?.value?.toCPointer<ByteVar>())
+public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey(hreportstore.rawAddress.toCPointer<ByteVar>(), ppszreportkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreGetReportCount(hreportstore?.value?.toCPointer<ByteVar>(), pdwreportcount?.value?.toCPointer<ByteVar>())
+public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount(hreportstore.rawAddress.toCPointer<ByteVar>(), pdwreportcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreGetSizeOnDisk(hreportstore?.value?.toCPointer<ByteVar>(), pqwsizeinbytes?.value?.toCPointer<ByteVar>())
+public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: MutPtr<ULong>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk(hreportstore.rawAddress.toCPointer<ByteVar>(), pqwsizeinbytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreOpen(repstoretype, phreportstore?.value?.toCPointer<ByteVar>())
+public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: MutPtr<Hreportstore>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreOpen(repstoretype, phreportstore.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werStorePurge(): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStorePurge()
+    windowssysWindowsWin32SystemErrorreportingWerStorePurge()
 
-public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV1(hreportstore?.value?.toCPointer<ByteVar>(), pszreportkey?.value?.toCPointer<ByteVar>(), preportmetadata?.value?.toCPointer<ByteVar>())
+public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV1>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1(hreportstore.rawAddress.toCPointer<ByteVar>(), pszreportkey.rawAddress.toCPointer<ByteVar>(), preportmetadata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV2(hreportstore?.value?.toCPointer<ByteVar>(), pszreportkey?.value?.toCPointer<ByteVar>(), preportmetadata?.value?.toCPointer<ByteVar>())
+public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV2>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2(hreportstore.rawAddress.toCPointer<ByteVar>(), pszreportkey.rawAddress.toCPointer<ByteVar>(), preportmetadata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV3(hreportstore?.value?.toCPointer<ByteVar>(), pszreportkey?.value?.toCPointer<ByteVar>(), preportmetadata?.value?.toCPointer<ByteVar>())
+public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV3>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3(hreportstore.rawAddress.toCPointer<ByteVar>(), pszreportkey.rawAddress.toCPointer<ByteVar>(), preportmetadata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werStoreUploadReport(hreportstore?.value?.toCPointer<ByteVar>(), pszreportkey?.value?.toCPointer<ByteVar>(), dwflags, psubmitresult?.value?.toCPointer<ByteVar>())
+public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport(hreportstore.rawAddress.toCPointer<ByteVar>(), pszreportkey.rawAddress.toCPointer<ByteVar>(), dwflags, psubmitresult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werUnregisterAdditionalProcess(processid: UInt): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterAdditionalProcess(processid)
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(processid)
 
 public actual fun werUnregisterAppLocalDump(): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterAppLocalDump()
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump()
 
 public actual fun werUnregisterCustomMetadata(key: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterCustomMetadata(key?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata(key.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werUnregisterExcludedMemoryBlock(address: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterExcludedMemoryBlock(address?.value?.toCPointer<ByteVar>())
+public actual fun werUnregisterExcludedMemoryBlock(address: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun werUnregisterFile(pwzfilepath: Pcwstr): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterFile(pwzfilepath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterFile(pwzfilepath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werUnregisterMemoryBlock(pvaddress: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterMemoryBlock(pvaddress?.value?.toCPointer<ByteVar>())
+public actual fun werUnregisterMemoryBlock(pvaddress: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock(pvaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_errorreporting_werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll?.value?.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
+public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())

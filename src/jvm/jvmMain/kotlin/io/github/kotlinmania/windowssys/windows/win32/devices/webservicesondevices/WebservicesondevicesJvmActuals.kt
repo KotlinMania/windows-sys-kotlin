@@ -2,207 +2,261 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.webservicesondevices
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32DevicesWebservicesondevicesJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32DevicesWebservicesondevicesJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory(pparent: Long, cbsize: Long): Long
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory(pparent: Long, cbsize: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory(pparent: Long, pchild: Long)
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory(pparent: Long, pchild: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost(pszlocalid: Long, pcontext: Long, ppdevicehost: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost(pszlocalid: Long, pcontext: Long, ppdevicehost: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2(pszlocalid: Long, pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, ppdevicehost: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2(pszlocalid: Long, pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, ppdevicehost: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced(pszlocalid: Long, pcontext: Long, pphostaddresses: Long, dwhostaddresscount: Int, ppdevicehost: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced(pszlocalid: Long, pcontext: Long, pphostaddresses: Long, dwhostaddresscount: Int, ppdevicehost: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy(pszdeviceid: Long, pszlocalid: Long, pcontext: Long, ppdeviceproxy: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy(pszdeviceid: Long, pszlocalid: Long, pcontext: Long, ppdeviceproxy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2(pszdeviceid: Long, pszlocalid: Long, pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, ppdeviceproxy: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2(pszdeviceid: Long, pszlocalid: Long, pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, ppdeviceproxy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced(pszdeviceid: Long, pdeviceaddress: Long, pszlocalid: Long, pcontext: Long, ppdeviceproxy: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced(pszdeviceid: Long, pdeviceaddress: Long, pszlocalid: Long, pcontext: Long, ppdeviceproxy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider(pcontext: Long, ppprovider: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider(pcontext: Long, ppprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2(pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, ppprovider: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2(pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, ppprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher(pcontext: Long, pppublisher: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher(pcontext: Long, pppublisher: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2(pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, pppublisher: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2(pcontext: Long, pconfigparams: Long, dwconfigparamcount: Int, pppublisher: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress(ppaddress: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress(ppaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters(pptxparams: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters(pptxparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment(ppattachment: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment(ppattachment: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress(ppaddress: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress(ppaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters(pptxparams: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters(pptxparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory(pvoid: Long)
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory(pvoid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory(pvoid: Long)
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory(pvoid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault(pszcode: Long, pszsubcode: Long, pszreason: Long, pszdetail: Long, pcontext: Long, ppfault: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault(pszcode: Long, pszsubcode: Long, pszreason: Long, pszdetail: Long, pcontext: Long, ppfault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx(pcode: Long, psubcode: Long, preasons: Long, pszdetail: Long, ppfault: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx(pcode: Long, psubcode: Long, preasons: Long, pszdetail: Long, ppfault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption(dwoption: Int, pvoid: Long, cboutbuffer: Int): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption(dwoption: Int, pvoid: Long, cboutbuffer: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption(dwoption: Int, pvoid: Long, cbinbuffer: Int): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption(dwoption: Int, pvoid: Long, cbinbuffer: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode(source: Long, cchsource: Int, destout: Long, cchdestout: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode(source: Long, cchsource: Int, destout: Long, cchdestout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode(source: Long, cchsource: Int, destout: Long, cchdestout: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode(source: Long, cchsource: Int, destout: Long, cchdestout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild(pparent: Long, pchild: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild(pparent: Long, pchild: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling(pfirst: Long, psecond: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling(pfirst: Long, psecond: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement(pelementname: Long, psztext: Long, ppany: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement(pelementname: Long, psztext: Long, ppany: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement(pany: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement(pany: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext(ppcontext: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext(ppcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace(psznamespace: Long, pszname: Long, ppname: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace(psznamespace: Long, pszname: Long, ppname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny(psznamespace: Long, pszname: Long, pany: Long, ppszvalue: Long): Int
+    external fun windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny(psznamespace: Long, pszname: Long, pany: Long, ppszvalue: Long): Int
 }
 
-public actual fun wSDAllocateLinkedMemory(pparent: COpaquePointer?, cbsize: ULong): COpaquePointer? =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory((pparent?.value ?: 0L), cbsize.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun wSDAllocateLinkedMemory(pparent: MutPtr<CVoid>, cbsize: ULong): MutPtr<CVoid> =
+    MutPtr(WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory(pparent.rawAddress, cbsize.toLong()))
 
-public actual fun wSDAttachLinkedMemory(pparent: COpaquePointer?, pchild: COpaquePointer?) {
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory((pparent?.value ?: 0L), (pchild?.value ?: 0L))
+public actual fun wSDAttachLinkedMemory(pparent: MutPtr<CVoid>, pchild: MutPtr<CVoid>) {
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory(pparent.rawAddress, pchild.rawAddress)
 }
 
-public actual fun wSDCreateDeviceHost(pszlocalid: Pcwstr, pcontext: COpaquePointer?, ppdevicehost: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost((pszlocalid?.value ?: 0L), (pcontext?.value ?: 0L), (ppdevicehost?.value ?: 0L))
+public actual fun wSDCreateDeviceHost(pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, ppdevicehost: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost(pszlocalid.rawAddress, pcontext.rawAddress, ppdevicehost.rawAddress)
 
-public actual fun wSDCreateDeviceHost2(pszlocalid: Pcwstr, pcontext: COpaquePointer?, pconfigparams: COpaquePointer?, dwconfigparamcount: UInt, ppdevicehost: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2((pszlocalid?.value ?: 0L), (pcontext?.value ?: 0L), (pconfigparams?.value ?: 0L), dwconfigparamcount.toInt(), (ppdevicehost?.value ?: 0L))
+public actual fun wSDCreateDeviceHost2(pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, ppdevicehost: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2(pszlocalid.rawAddress, pcontext.rawAddress, pconfigparams.rawAddress, dwconfigparamcount.toInt(), ppdevicehost.rawAddress)
 
-public actual fun wSDCreateDeviceHostAdvanced(pszlocalid: Pcwstr, pcontext: COpaquePointer?, pphostaddresses: COpaquePointer?, dwhostaddresscount: UInt, ppdevicehost: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced((pszlocalid?.value ?: 0L), (pcontext?.value ?: 0L), (pphostaddresses?.value ?: 0L), dwhostaddresscount.toInt(), (ppdevicehost?.value ?: 0L))
+public actual fun wSDCreateDeviceHostAdvanced(pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, pphostaddresses: ConstPtr<MutPtr<CVoid>>, dwhostaddresscount: UInt, ppdevicehost: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced(pszlocalid.rawAddress, pcontext.rawAddress, pphostaddresses.rawAddress, dwhostaddresscount.toInt(), ppdevicehost.rawAddress)
 
-public actual fun wSDCreateDeviceProxy(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: COpaquePointer?, ppdeviceproxy: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy((pszdeviceid?.value ?: 0L), (pszlocalid?.value ?: 0L), (pcontext?.value ?: 0L), (ppdeviceproxy?.value ?: 0L))
+public actual fun wSDCreateDeviceProxy(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, ppdeviceproxy: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy(pszdeviceid.rawAddress, pszlocalid.rawAddress, pcontext.rawAddress, ppdeviceproxy.rawAddress)
 
-public actual fun wSDCreateDeviceProxy2(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: COpaquePointer?, pconfigparams: COpaquePointer?, dwconfigparamcount: UInt, ppdeviceproxy: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2((pszdeviceid?.value ?: 0L), (pszlocalid?.value ?: 0L), (pcontext?.value ?: 0L), (pconfigparams?.value ?: 0L), dwconfigparamcount.toInt(), (ppdeviceproxy?.value ?: 0L))
+public actual fun wSDCreateDeviceProxy2(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, ppdeviceproxy: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2(pszdeviceid.rawAddress, pszlocalid.rawAddress, pcontext.rawAddress, pconfigparams.rawAddress, dwconfigparamcount.toInt(), ppdeviceproxy.rawAddress)
 
-public actual fun wSDCreateDeviceProxyAdvanced(pszdeviceid: Pcwstr, pdeviceaddress: COpaquePointer?, pszlocalid: Pcwstr, pcontext: COpaquePointer?, ppdeviceproxy: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced((pszdeviceid?.value ?: 0L), (pdeviceaddress?.value ?: 0L), (pszlocalid?.value ?: 0L), (pcontext?.value ?: 0L), (ppdeviceproxy?.value ?: 0L))
+public actual fun wSDCreateDeviceProxyAdvanced(pszdeviceid: Pcwstr, pdeviceaddress: MutPtr<CVoid>, pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, ppdeviceproxy: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced(pszdeviceid.rawAddress, pdeviceaddress.rawAddress, pszlocalid.rawAddress, pcontext.rawAddress, ppdeviceproxy.rawAddress)
 
-public actual fun wSDCreateDiscoveryProvider(pcontext: COpaquePointer?, ppprovider: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider((pcontext?.value ?: 0L), (ppprovider?.value ?: 0L))
+public actual fun wSDCreateDiscoveryProvider(pcontext: MutPtr<CVoid>, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider(pcontext.rawAddress, ppprovider.rawAddress)
 
-public actual fun wSDCreateDiscoveryProvider2(pcontext: COpaquePointer?, pconfigparams: COpaquePointer?, dwconfigparamcount: UInt, ppprovider: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2((pcontext?.value ?: 0L), (pconfigparams?.value ?: 0L), dwconfigparamcount.toInt(), (ppprovider?.value ?: 0L))
+public actual fun wSDCreateDiscoveryProvider2(pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2(pcontext.rawAddress, pconfigparams.rawAddress, dwconfigparamcount.toInt(), ppprovider.rawAddress)
 
-public actual fun wSDCreateDiscoveryPublisher(pcontext: COpaquePointer?, pppublisher: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher((pcontext?.value ?: 0L), (pppublisher?.value ?: 0L))
+public actual fun wSDCreateDiscoveryPublisher(pcontext: MutPtr<CVoid>, pppublisher: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher(pcontext.rawAddress, pppublisher.rawAddress)
 
-public actual fun wSDCreateDiscoveryPublisher2(pcontext: COpaquePointer?, pconfigparams: COpaquePointer?, dwconfigparamcount: UInt, pppublisher: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2((pcontext?.value ?: 0L), (pconfigparams?.value ?: 0L), dwconfigparamcount.toInt(), (pppublisher?.value ?: 0L))
+public actual fun wSDCreateDiscoveryPublisher2(pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, pppublisher: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2(pcontext.rawAddress, pconfigparams.rawAddress, dwconfigparamcount.toInt(), pppublisher.rawAddress)
 
-public actual fun wSDCreateHttpAddress(ppaddress: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress((ppaddress?.value ?: 0L))
+public actual fun wSDCreateHttpAddress(ppaddress: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress(ppaddress.rawAddress)
 
-public actual fun wSDCreateHttpMessageParameters(pptxparams: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters((pptxparams?.value ?: 0L))
+public actual fun wSDCreateHttpMessageParameters(pptxparams: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters(pptxparams.rawAddress)
 
-public actual fun wSDCreateOutboundAttachment(ppattachment: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment((ppattachment?.value ?: 0L))
+public actual fun wSDCreateOutboundAttachment(ppattachment: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment(ppattachment.rawAddress)
 
-public actual fun wSDCreateUdpAddress(ppaddress: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress((ppaddress?.value ?: 0L))
+public actual fun wSDCreateUdpAddress(ppaddress: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress(ppaddress.rawAddress)
 
-public actual fun wSDCreateUdpMessageParameters(pptxparams: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters((pptxparams?.value ?: 0L))
+public actual fun wSDCreateUdpMessageParameters(pptxparams: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters(pptxparams.rawAddress)
 
-public actual fun wSDDetachLinkedMemory(pvoid: COpaquePointer?) {
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory((pvoid?.value ?: 0L))
+public actual fun wSDDetachLinkedMemory(pvoid: MutPtr<CVoid>) {
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory(pvoid.rawAddress)
 }
 
-public actual fun wSDFreeLinkedMemory(pvoid: COpaquePointer?) {
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory((pvoid?.value ?: 0L))
+public actual fun wSDFreeLinkedMemory(pvoid: MutPtr<CVoid>) {
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory(pvoid.rawAddress)
 }
 
-public actual fun wSDGenerateFault(pszcode: Pcwstr, pszsubcode: Pcwstr, pszreason: Pcwstr, pszdetail: Pcwstr, pcontext: COpaquePointer?, ppfault: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault((pszcode?.value ?: 0L), (pszsubcode?.value ?: 0L), (pszreason?.value ?: 0L), (pszdetail?.value ?: 0L), (pcontext?.value ?: 0L), (ppfault?.value ?: 0L))
+public actual fun wSDGenerateFault(pszcode: Pcwstr, pszsubcode: Pcwstr, pszreason: Pcwstr, pszdetail: Pcwstr, pcontext: MutPtr<CVoid>, ppfault: MutPtr<MutPtr<WsdSoapFault>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault(pszcode.rawAddress, pszsubcode.rawAddress, pszreason.rawAddress, pszdetail.rawAddress, pcontext.rawAddress, ppfault.rawAddress)
 
-public actual fun wSDGenerateFaultEx(pcode: COpaquePointer?, psubcode: COpaquePointer?, preasons: COpaquePointer?, pszdetail: Pcwstr, ppfault: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx((pcode?.value ?: 0L), (psubcode?.value ?: 0L), (preasons?.value ?: 0L), (pszdetail?.value ?: 0L), (ppfault?.value ?: 0L))
+public actual fun wSDGenerateFaultEx(pcode: ConstPtr<WsdxmlName>, psubcode: ConstPtr<WsdxmlName>, preasons: ConstPtr<WsdLocalizedStringList>, pszdetail: Pcwstr, ppfault: MutPtr<MutPtr<WsdSoapFault>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx(pcode.rawAddress, psubcode.rawAddress, preasons.rawAddress, pszdetail.rawAddress, ppfault.rawAddress)
 
-public actual fun wSDGetConfigurationOption(dwoption: UInt, pvoid: COpaquePointer?, cboutbuffer: UInt): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption(dwoption.toInt(), (pvoid?.value ?: 0L), cboutbuffer.toInt())
+public actual fun wSDGetConfigurationOption(dwoption: UInt, pvoid: MutPtr<CVoid>, cboutbuffer: UInt): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption(dwoption.toInt(), pvoid.rawAddress, cboutbuffer.toInt())
 
-public actual fun wSDSetConfigurationOption(dwoption: UInt, pvoid: COpaquePointer?, cbinbuffer: UInt): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption(dwoption.toInt(), (pvoid?.value ?: 0L), cbinbuffer.toInt())
+public actual fun wSDSetConfigurationOption(dwoption: UInt, pvoid: ConstPtr<CVoid>, cbinbuffer: UInt): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption(dwoption.toInt(), pvoid.rawAddress, cbinbuffer.toInt())
 
-public actual fun wSDUriDecode(source: Pcwstr, cchsource: UInt, destout: COpaquePointer?, cchdestout: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode((source?.value ?: 0L), cchsource.toInt(), (destout?.value ?: 0L), (cchdestout?.value ?: 0L))
+public actual fun wSDUriDecode(source: Pcwstr, cchsource: UInt, destout: MutPtr<Pwstr>, cchdestout: MutPtr<UInt>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode(source.rawAddress, cchsource.toInt(), destout.rawAddress, cchdestout.rawAddress)
 
-public actual fun wSDUriEncode(source: Pcwstr, cchsource: UInt, destout: COpaquePointer?, cchdestout: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode((source?.value ?: 0L), cchsource.toInt(), (destout?.value ?: 0L), (cchdestout?.value ?: 0L))
+public actual fun wSDUriEncode(source: Pcwstr, cchsource: UInt, destout: MutPtr<Pwstr>, cchdestout: MutPtr<UInt>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode(source.rawAddress, cchsource.toInt(), destout.rawAddress, cchdestout.rawAddress)
 
-public actual fun wSDXMLAddChild(pparent: COpaquePointer?, pchild: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild((pparent?.value ?: 0L), (pchild?.value ?: 0L))
+public actual fun wSDXMLAddChild(pparent: MutPtr<WsdxmlElement>, pchild: MutPtr<WsdxmlElement>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild(pparent.rawAddress, pchild.rawAddress)
 
-public actual fun wSDXMLAddSibling(pfirst: COpaquePointer?, psecond: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling((pfirst?.value ?: 0L), (psecond?.value ?: 0L))
+public actual fun wSDXMLAddSibling(pfirst: MutPtr<WsdxmlElement>, psecond: MutPtr<WsdxmlElement>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling(pfirst.rawAddress, psecond.rawAddress)
 
-public actual fun wSDXMLBuildAnyForSingleElement(pelementname: COpaquePointer?, psztext: Pcwstr, ppany: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement((pelementname?.value ?: 0L), (psztext?.value ?: 0L), (ppany?.value ?: 0L))
+public actual fun wSDXMLBuildAnyForSingleElement(pelementname: MutPtr<WsdxmlName>, psztext: Pcwstr, ppany: MutPtr<MutPtr<WsdxmlElement>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement(pelementname.rawAddress, psztext.rawAddress, ppany.rawAddress)
 
-public actual fun wSDXMLCleanupElement(pany: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement((pany?.value ?: 0L))
+public actual fun wSDXMLCleanupElement(pany: MutPtr<WsdxmlElement>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement(pany.rawAddress)
 
-public actual fun wSDXMLCreateContext(ppcontext: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext((ppcontext?.value ?: 0L))
+public actual fun wSDXMLCreateContext(ppcontext: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext(ppcontext.rawAddress)
 
-public actual fun wSDXMLGetNameFromBuiltinNamespace(psznamespace: Pcwstr, pszname: Pcwstr, ppname: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace((psznamespace?.value ?: 0L), (pszname?.value ?: 0L), (ppname?.value ?: 0L))
+public actual fun wSDXMLGetNameFromBuiltinNamespace(psznamespace: Pcwstr, pszname: Pcwstr, ppname: MutPtr<MutPtr<WsdxmlName>>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace(psznamespace.rawAddress, pszname.rawAddress, ppname.rawAddress)
 
-public actual fun wSDXMLGetValueFromAny(psznamespace: Pcwstr, pszname: Pcwstr, pany: COpaquePointer?, ppszvalue: COpaquePointer?): Hresult =
-    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny((psznamespace?.value ?: 0L), (pszname?.value ?: 0L), (pany?.value ?: 0L), (ppszvalue?.value ?: 0L))
+public actual fun wSDXMLGetValueFromAny(psznamespace: Pcwstr, pszname: Pcwstr, pany: MutPtr<WsdxmlElement>, ppszvalue: MutPtr<Pcwstr>): Hresult =
+    WindowsWin32DevicesWebservicesondevicesJniBridge.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny(psznamespace.rawAddress, pszname.rawAddress, pany.rawAddress, ppszvalue.rawAddress)

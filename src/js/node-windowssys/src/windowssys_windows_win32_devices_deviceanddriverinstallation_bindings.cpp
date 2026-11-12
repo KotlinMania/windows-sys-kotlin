@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmpWaitNoPendingInstallEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmpWaitNoPendingInstallEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plclogconf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConfEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConfEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plclogconf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -140,7 +140,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIda_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIda_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -198,7 +198,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -229,7 +229,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ullstartvalue = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t ullendvalue = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -291,7 +291,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t lclogconf = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -326,7 +326,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t lclogconf = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -417,7 +417,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -448,7 +448,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -479,7 +479,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -512,7 +512,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateRangeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateRangeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prlh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -572,7 +572,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -599,7 +599,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -628,7 +628,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDevNodeKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevnode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -657,7 +657,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDevNodeKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevnode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -688,7 +688,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -742,7 +742,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -771,7 +771,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -800,7 +800,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ullstartvalue = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t ullendvalue = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -831,7 +831,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflict_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflict_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t resourceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -866,7 +866,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflictEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflictEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t resourceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisableDevNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -930,7 +930,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisableDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -959,7 +959,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisconnectMachine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisconnectMachine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmachine = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -984,7 +984,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmDupRangeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDupRangeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rlhold = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t rlhnew = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1013,7 +1013,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1040,7 +1040,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1069,7 +1069,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClasses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClasses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulclassindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1098,7 +1098,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClassesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClassesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulclassindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1129,7 +1129,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulenumindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1160,7 +1160,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulenumindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1191,7 +1191,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulenumindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1224,7 +1224,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulenumindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1257,7 +1257,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFindRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFindRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ullstart = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1294,7 +1294,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFirstRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFirstRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rlh = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pullstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1327,7 +1327,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t lclogconftobefreed = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1354,7 +1354,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConfEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t lclogconftobefreed = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1383,7 +1383,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConfHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t lclogconf = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1408,7 +1408,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeRangeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeRangeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rlh = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1435,7 +1435,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1464,7 +1464,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1495,7 +1495,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rdresdes = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1520,7 +1520,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResourceConflictHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResourceConflictHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t clconflictlist = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1545,7 +1545,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1574,7 +1574,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChildEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChildEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1605,7 +1605,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1636,7 +1636,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1667,7 +1667,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1700,7 +1700,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1733,7 +1733,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1764,7 +1764,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1795,7 +1795,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1828,7 +1828,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1861,7 +1861,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1896,7 +1896,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1933,7 +1933,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1964,7 +1964,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeysEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeysEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1997,7 +1997,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2034,7 +2034,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2071,7 +2071,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepth_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepth_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puldepth = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2100,7 +2100,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepthEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepthEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puldepth = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszcustompropertyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2166,7 +2166,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszcustompropertyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2201,7 +2201,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszcustompropertyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2238,7 +2238,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszcustompropertyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2275,7 +2275,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2310,7 +2310,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2347,7 +2347,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2378,7 +2378,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeysEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeysEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2411,7 +2411,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2446,7 +2446,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2481,7 +2481,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2518,7 +2518,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2555,7 +2555,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulproblemnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2586,7 +2586,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatusEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatusEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulproblemnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2619,7 +2619,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIda_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIda_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2650,7 +2650,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2681,7 +2681,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2714,7 +2714,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2747,7 +2747,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2778,7 +2778,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2809,7 +2809,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2842,7 +2842,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2875,7 +2875,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2904,7 +2904,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2933,7 +2933,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2964,7 +2964,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2995,7 +2995,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3024,7 +3024,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3055,7 +3055,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* aliasinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3088,7 +3088,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* aliasinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3121,7 +3121,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* aliasinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3156,7 +3156,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* aliasinterfaceguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3191,7 +3191,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3224,7 +3224,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3257,7 +3257,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3292,7 +3292,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3327,7 +3327,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3358,7 +3358,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3389,7 +3389,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3422,7 +3422,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pullen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3455,7 +3455,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3490,7 +3490,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3527,7 +3527,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3558,7 +3558,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3591,7 +3591,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plclogconf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3620,7 +3620,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConfEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConfEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plclogconf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3651,7 +3651,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3678,7 +3678,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalStateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalStateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3707,7 +3707,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3738,7 +3738,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3769,7 +3769,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3802,7 +3802,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3835,7 +3835,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phwprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3864,7 +3864,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phwprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3893,7 +3893,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phwprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3924,7 +3924,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phwprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3955,7 +3955,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t lclogconf = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* ppriority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3984,7 +3984,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriorityEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriorityEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t lclogconf = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* ppriority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4015,7 +4015,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plclogconf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t lclogconf = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4044,7 +4044,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConfEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConfEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plclogconf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t lclogconf = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4075,7 +4075,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4108,7 +4108,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4143,7 +4143,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4172,7 +4172,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParentEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParentEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4203,7 +4203,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rdresdes = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4234,7 +4234,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rdresdes = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4267,7 +4267,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4296,7 +4296,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4327,7 +4327,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t clconflictlist = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pulcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4354,7 +4354,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t clconflictlist = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t ulindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4383,7 +4383,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t clconflictlist = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t ulindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4412,7 +4412,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSibling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSibling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4441,7 +4441,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSiblingEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSiblingEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4472,7 +4472,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
@@ -4495,7 +4495,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetVersionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmachine = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4520,7 +4520,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmIntersectRangeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIntersectRangeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rlhold1 = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t rlhold2 = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4551,7 +4551,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmInvertRangeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmInvertRangeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rlhold = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t rlhnew = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4582,7 +4582,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbpresent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4607,7 +4607,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresentEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresentEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbpresent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hmachine = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4634,7 +4634,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversion = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4659,7 +4659,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailableEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversion = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t hmachine = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4686,7 +4686,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4715,7 +4715,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4744,7 +4744,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4775,7 +4775,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdndevinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4806,7 +4806,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmMapCrToWin32Err_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMapCrToWin32Err_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cmreturncode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t defaulterr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4833,7 +4833,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmMergeRangeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMergeRangeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t rlhold1 = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t rlhold2 = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4864,7 +4864,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4899,7 +4899,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prdresdes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rdresdes = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4936,7 +4936,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnfromdevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dntodevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4965,7 +4965,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnfromdevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dntodevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4996,7 +4996,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmNextRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmNextRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preelement = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pullstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5027,7 +5027,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5062,7 +5062,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5097,7 +5097,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5134,7 +5134,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5171,7 +5171,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevnode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5206,7 +5206,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevnode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5243,7 +5243,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5276,7 +5276,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5309,7 +5309,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5344,7 +5344,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5379,7 +5379,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5412,7 +5412,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5445,7 +5445,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5480,7 +5480,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5515,7 +5515,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t datalen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5548,7 +5548,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t datalen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5583,7 +5583,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5614,7 +5614,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pulsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5647,7 +5647,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5674,7 +5674,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTreeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTreeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5703,7 +5703,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryResourceConflictList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryResourceConflictList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pclconflictlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5740,7 +5740,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmReenumerateDevNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5767,7 +5767,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmReenumerateDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5796,7 +5796,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5823,7 +5823,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriverEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriverEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5852,7 +5852,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5887,7 +5887,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5922,7 +5922,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5959,7 +5959,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* interfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5996,7 +5996,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6027,7 +6027,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6054,7 +6054,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTreeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTreeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dnancestor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6083,7 +6083,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6116,7 +6116,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6149,7 +6149,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6184,7 +6184,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvetotype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6219,7 +6219,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestEjectPc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -6242,7 +6242,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPcEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestEjectPcEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmachine = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6267,7 +6267,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6292,7 +6292,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetectionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetectionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t hmachine = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6319,7 +6319,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6354,7 +6354,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6391,7 +6391,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6426,7 +6426,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6461,7 +6461,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproblem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6490,7 +6490,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblemEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblemEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproblem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6521,7 +6521,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6556,7 +6556,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6593,7 +6593,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6626,7 +6626,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6659,7 +6659,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6694,7 +6694,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6729,7 +6729,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6764,7 +6764,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6801,7 +6801,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6828,7 +6828,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulhardwareprofile = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6857,7 +6857,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulconfig = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6888,7 +6888,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulconfig = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6919,7 +6919,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulconfig = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6952,7 +6952,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdeviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulconfig = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6985,7 +6985,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetupDevNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7012,7 +7012,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetupDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7041,7 +7041,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmTestRangeAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmTestRangeAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ullstartvalue = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t ullendvalue = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7072,7 +7072,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUninstallDevNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7099,7 +7099,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUninstallDevNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dndevinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7128,7 +7128,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7155,7 +7155,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7182,7 +7182,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7211,7 +7211,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdeviceinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7240,7 +7240,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notifycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7265,7 +7265,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t deviceinfoset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7300,7 +7300,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7331,7 +7331,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7362,7 +7362,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diRollbackDriver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiRollbackDriver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7395,7 +7395,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t deviceinfoset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7428,7 +7428,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDriver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDriver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7459,7 +7459,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t deviceinfoset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7492,7 +7492,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7523,7 +7523,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7554,7 +7554,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* window = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* modulehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7582,7 +7582,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* window = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* modulehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7610,7 +7610,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7645,7 +7645,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7680,7 +7680,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7717,7 +7717,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7754,7 +7754,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetfilespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7789,7 +7789,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetfilespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7824,7 +7824,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7851,7 +7851,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7878,7 +7878,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* driveroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7911,7 +7911,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* driveroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7944,7 +7944,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupBackupErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7979,7 +7979,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupBackupErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8014,7 +8014,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCancelTemporarySourceList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -8037,7 +8037,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseFileQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseFileQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8062,7 +8062,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseInfFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseInfFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8084,7 +8084,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -8104,7 +8104,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8135,7 +8135,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8166,7 +8166,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8195,7 +8195,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8224,7 +8224,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8269,7 +8269,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8314,7 +8314,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourceinffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oemsourcemedialocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8353,7 +8353,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourceinffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oemsourcemedialocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8392,7 +8392,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reserved1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved2 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8421,7 +8421,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reserved1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved2 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8450,7 +8450,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8479,7 +8479,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8508,7 +8508,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t notification = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8539,7 +8539,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t notification = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8570,7 +8570,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8603,7 +8603,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8636,7 +8636,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDestroyDiskSpaceList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDestroyDiskSpaceList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8661,7 +8661,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiAskForOEMDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiAskForOEMDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8688,7 +8688,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8719,7 +8719,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8754,7 +8754,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8789,7 +8789,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildDriverInfoList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildDriverInfoList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8818,7 +8818,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCallClassInstaller_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCallClassInstaller_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t installfunction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t deviceinfoset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8847,7 +8847,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCancelDriverInfoSearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8872,7 +8872,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiChangeState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiChangeState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8899,7 +8899,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8930,7 +8930,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8965,7 +8965,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9000,7 +9000,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguidlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9031,7 +9031,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9062,7 +9062,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9097,7 +9097,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9132,7 +9132,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9163,7 +9163,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9200,7 +9200,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9237,7 +9237,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* devicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9274,7 +9274,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9301,7 +9301,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9332,7 +9332,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9363,7 +9363,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* devicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9400,7 +9400,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9435,7 +9435,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9470,7 +9470,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9505,7 +9505,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9540,7 +9540,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDevRegKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDevRegKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9573,7 +9573,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9600,7 +9600,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9627,7 +9627,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceRegKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceRegKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9656,7 +9656,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyClassImageList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyClassImageList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classimagelistdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9681,7 +9681,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDeviceInfoList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9706,7 +9706,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDriverInfoList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDriverInfoList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9735,7 +9735,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t memberindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9764,7 +9764,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9797,7 +9797,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9830,7 +9830,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9863,7 +9863,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9898,7 +9898,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9933,7 +9933,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9968,7 +9968,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10007,7 +10007,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10046,7 +10046,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10081,7 +10081,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassBitmapIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassBitmapIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* miniiconindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10108,7 +10108,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10139,7 +10139,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10174,7 +10174,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10209,7 +10209,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10240,7 +10240,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10275,7 +10275,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10310,7 +10310,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumerator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10341,7 +10341,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumerator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10378,7 +10378,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumerator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10415,7 +10415,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumerator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10446,7 +10446,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classimagelistdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10475,7 +10475,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classimagelistdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10500,7 +10500,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classimagelistdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* machinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10529,7 +10529,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classimagelistdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* machinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10558,7 +10558,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10591,7 +10591,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10624,7 +10624,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10665,7 +10665,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10698,7 +10698,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeysExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeysExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykeyarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10735,7 +10735,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10772,7 +10772,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t property = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10811,7 +10811,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t property = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10850,7 +10850,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10889,7 +10889,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10928,7 +10928,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10955,7 +10955,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfosetdetaildata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10982,7 +10982,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfosetdetaildata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11009,7 +11009,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11038,7 +11038,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11067,7 +11067,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11100,7 +11100,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11133,7 +11133,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceAlias_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceAlias_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11164,7 +11164,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11199,7 +11199,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11234,7 +11234,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11269,7 +11269,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11308,7 +11308,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11343,7 +11343,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11382,7 +11382,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11419,7 +11419,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11456,7 +11456,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11491,7 +11491,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11526,7 +11526,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11557,7 +11557,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11588,7 +11588,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hwprofile = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* friendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11619,7 +11619,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hwprofile = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* friendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11654,7 +11654,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hwprofile = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* friendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11689,7 +11689,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hwprofile = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* friendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11720,7 +11720,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwprofilelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t hwprofilelistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11751,7 +11751,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwprofilelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t hwprofilelistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11786,7 +11786,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwprofilelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t hwprofilelistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11821,7 +11821,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11854,7 +11854,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11887,7 +11887,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11914,7 +11914,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11943,7 +11943,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11972,7 +11972,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetWizardPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetWizardPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12005,7 +12005,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12036,7 +12036,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12073,7 +12073,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12110,7 +12110,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* inffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12141,7 +12141,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12168,7 +12168,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDeviceInterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDeviceInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12195,7 +12195,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDriverFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDriverFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12222,7 +12222,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadClassIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadClassIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* largeicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12251,7 +12251,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadDeviceIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadDeviceIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12286,7 +12286,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12313,7 +12313,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12346,7 +12346,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12379,7 +12379,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDevRegKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDevRegKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12414,7 +12414,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12447,7 +12447,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12480,7 +12480,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* devicepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12511,7 +12511,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceRegKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceRegKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12542,7 +12542,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* devicepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12573,7 +12573,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterCoDeviceInstallers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterCoDeviceInstallers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12600,7 +12600,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12635,7 +12635,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12662,7 +12662,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDeviceInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDeviceInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12689,7 +12689,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRestartDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRestartDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12716,7 +12716,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectBestCompatDrv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectBestCompatDrv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12743,7 +12743,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12770,7 +12770,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectOEMDrv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectOEMDrv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t deviceinfoset = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -12799,7 +12799,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12830,7 +12830,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12861,7 +12861,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12900,7 +12900,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertykey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12935,7 +12935,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t property = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12970,7 +12970,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* classguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t property = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13005,7 +13005,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13034,7 +13034,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13063,7 +13063,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfaceDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfaceDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13094,7 +13094,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfacePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinterfacedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13131,7 +13131,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDevicePropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDevicePropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13168,7 +13168,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13201,7 +13201,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13234,7 +13234,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13265,7 +13265,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13296,7 +13296,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13323,7 +13323,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13352,7 +13352,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13381,7 +13381,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiUnremoveDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiUnremoveDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t deviceinfoset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceinfodata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13408,7 +13408,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reserved1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13439,7 +13439,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reserved1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13470,10 +13470,10 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* sizeneeded = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
@@ -13486,14 +13486,14 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(infhandle, arg_1_index, buffer, size, sizeneeded);
+        km_res = km_fn_ptr(infhandle, arg1Index, buffer, size, sizeneeded);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)infhandle;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)buffer;
     (void)size;
     (void)sizeneeded;
@@ -13503,10 +13503,10 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* sizeneeded = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
@@ -13519,14 +13519,14 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(infhandle, arg_1_index, buffer, size, sizeneeded);
+        km_res = km_fn_ptr(infhandle, arg1Index, buffer, size, sizeneeded);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)infhandle;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)buffer;
     (void)size;
     (void)sizeneeded;
@@ -13536,7 +13536,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* section = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13567,7 +13567,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* section = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13598,7 +13598,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextLine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextLine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* contextin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* contextout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13625,7 +13625,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* contextin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13654,7 +13654,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* contextin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13683,7 +13683,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13710,7 +13710,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13737,7 +13737,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* backupparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13764,7 +13764,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* backupparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13791,7 +13791,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBinaryField_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBinaryField_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13824,7 +13824,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFieldCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFieldCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13849,7 +13849,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* actualsourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13882,7 +13882,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* actualsourcefilenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13919,7 +13919,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* actualsourcefilenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13956,7 +13956,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* actualsourcefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13989,7 +13989,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subqueuefileop = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14018,7 +14018,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* flags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14045,7 +14045,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14080,7 +14080,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14115,7 +14115,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directorypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infstyle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14148,7 +14148,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directorypath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infstyle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14181,7 +14181,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t searchcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14214,7 +14214,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t searchcontrol = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14247,7 +14247,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverstorelocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* returnbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14278,7 +14278,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverstorelocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* returnbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14309,7 +14309,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetIntField_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetIntField_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14338,11 +14338,11 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* section = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
@@ -14353,7 +14353,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(infhandle, section, arg_2_index, context);
+        km_res = km_fn_ptr(infhandle, section, arg2Index, context);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -14361,7 +14361,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
 #else
     (void)infhandle;
     (void)section;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)context;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -14369,11 +14369,11 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* section = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
@@ -14384,7 +14384,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(infhandle, section, arg_2_index, context);
+        km_res = km_fn_ptr(infhandle, section, arg2Index, context);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -14392,7 +14392,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
 #else
     (void)infhandle;
     (void)section;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)context;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -14400,7 +14400,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* section = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14427,7 +14427,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* section = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14454,7 +14454,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14491,7 +14491,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14528,7 +14528,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14561,7 +14561,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14594,7 +14594,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetNonInteractiveMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -14617,7 +14617,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14654,7 +14654,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14691,7 +14691,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14726,7 +14726,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14761,7 +14761,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sourceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14796,7 +14796,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sourceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14831,7 +14831,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14864,7 +14864,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fieldindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14897,7 +14897,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14932,7 +14932,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14967,7 +14967,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetThreadLogToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetThreadLogToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
@@ -14990,7 +14990,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ownerwindow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -15015,7 +15015,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallbackEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallbackEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ownerwindow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateprogresswindow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15048,7 +15048,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -15075,7 +15075,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -15102,7 +15102,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15141,7 +15141,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15182,7 +15182,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15223,7 +15223,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15262,7 +15262,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* layoutinfhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15297,7 +15297,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* layoutinfhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15332,7 +15332,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15377,7 +15377,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15422,7 +15422,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15451,7 +15451,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15488,7 +15488,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15525,7 +15525,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15554,7 +15554,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cabinetfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -15585,7 +15585,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cabinetfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -15616,7 +15616,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* messagestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t severity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -15643,7 +15643,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* messagestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t severity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -15670,7 +15670,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15711,7 +15711,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15752,7 +15752,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15781,7 +15781,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15810,7 +15810,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenFileQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenFileQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -15833,7 +15833,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15864,7 +15864,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15895,7 +15895,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t erase = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -15920,7 +15920,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenMasterInf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenMasterInf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -15943,7 +15943,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* backuppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -15972,7 +15972,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* backuppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16001,7 +16001,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16044,7 +16044,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16087,7 +16087,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptReboot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptReboot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16116,7 +16116,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* returnbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16147,7 +16147,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* returnbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16178,7 +16178,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16215,7 +16215,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16252,7 +16252,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -16285,7 +16285,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -16318,7 +16318,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -16349,7 +16349,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -16380,7 +16380,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -16415,7 +16415,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t infindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -16450,7 +16450,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16479,7 +16479,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16508,7 +16508,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* drivespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16541,7 +16541,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* drivespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16574,7 +16574,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcerootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16615,7 +16615,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* copyparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -16640,7 +16640,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* copyparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -16665,7 +16665,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcerootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16700,7 +16700,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcerootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16735,7 +16735,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcerootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16776,7 +16776,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16811,7 +16811,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16846,7 +16846,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pathpart1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16875,7 +16875,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16906,7 +16906,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16937,7 +16937,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pathpart1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16966,7 +16966,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -16999,7 +16999,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17030,7 +17030,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17061,7 +17061,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17094,7 +17094,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17123,7 +17123,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17152,7 +17152,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetfilespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17185,7 +17185,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetfilespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17218,7 +17218,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17245,7 +17245,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17272,7 +17272,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17307,7 +17307,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17342,7 +17342,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17379,7 +17379,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* diskspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17416,7 +17416,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17451,7 +17451,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dialogtitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17486,7 +17486,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17521,7 +17521,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17556,7 +17556,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17585,7 +17585,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17620,7 +17620,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17655,7 +17655,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17684,7 +17684,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17713,7 +17713,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queuehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* alternateplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17742,7 +17742,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flagmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -17771,7 +17771,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetNonInteractiveMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetNonInteractiveMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t noninteractiveflag = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -17796,7 +17796,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* override = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -17821,7 +17821,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* override = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -17846,7 +17846,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17875,7 +17875,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -17904,7 +17904,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetThreadLogToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetThreadLogToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t logtoken = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -17926,7 +17926,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupTermDefaultQueueCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTermDefaultQueueCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -17948,7 +17948,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupTerminateFileLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTerminateFileLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileloghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -17973,7 +17973,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallNewlyCopiedInfs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallNewlyCopiedInfs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filequeue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -18002,7 +18002,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* inffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -18031,7 +18031,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* inffilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -18060,7 +18060,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* altplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -18089,7 +18089,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* altplatforminfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -18118,7 +18118,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t logtoken = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t category = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -18158,7 +18158,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t logtoken = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t category = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -18200,7 +18200,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogInfLine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogInfLine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t logtoken = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -18228,7 +18228,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hardwareid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -18261,7 +18261,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hardwareid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -18295,580 +18295,580 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
 }
 
 static void register_windows_win32_devices_deviceanddriverinstallation_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmpWaitNoPendingInstallEvents", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmpWaitNoPendingInstallEvents_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConf", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConf_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConfEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConfEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIda", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIda_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdw", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdw_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddRange", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddRange_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDes", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDes_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDesEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateRangeList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateRangeList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKeyEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKeyEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKeyEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKeyEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteRange", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteRange_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflict", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflict_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflictEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflictEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNodeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNodeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisconnectMachine", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisconnectMachine_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmDupRangeList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmDupRangeList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNodeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNodeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClasses", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClasses_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClassesEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClassesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFindRange", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFindRange_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFirstRange", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFirstRange_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConf", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConf_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfHandle", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfHandle_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeRangeList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeRangeList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDes", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDes_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesHandle", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesHandle_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResourceConflictHandle", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResourceConflictHandle_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChild", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChild_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChildEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChildEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeys", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeys_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeysEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeysEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepth", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepth_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepthEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepthEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeys", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeys_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeysEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeysEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatus", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatusEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatusEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIda", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIda_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdw", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdw_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSize", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSize_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSizeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSizeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConf", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConf_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConfEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConfEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalState", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalState_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalStateEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalStateEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriority", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriority_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriorityEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriorityEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConf", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConf_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConfEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConfEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDes", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDes_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDesEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParent", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParent_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParentEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParentEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesData", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesData_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSize", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSize_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSizeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSizeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictCount", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictCount_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSibling", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSibling_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSiblingEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSiblingEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersion", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersion_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersionEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersionEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmIntersectRangeList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmIntersectRangeList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmInvertRangeList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmInvertRangeList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresent", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresent_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresentEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresentEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailable", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailable_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailableEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailableEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmMapCrToWin32Err", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmMapCrToWin32Err_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmMergeRangeList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmMergeRangeList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDes", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDes_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDesEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNodeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNodeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmNextRange", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmNextRange_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKeyEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKeyEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeData", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeData_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeDataEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeDataEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSize", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSize_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSizeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSizeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTree", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTree_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTreeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTreeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryResourceConflictList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryResourceConflictList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNodeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNodeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriver", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriver_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriverEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriverEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterNotification_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTree", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTree_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTreeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTreeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPc", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPc_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPcEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPcEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetection", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetection_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetectionEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetectionEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblem", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblem_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblemEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblemEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProf", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProf_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNodeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNodeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmTestRangeAvailable", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmTestRangeAvailable_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNodeEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNodeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterNotification", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterNotification_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diRollbackDriver", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diRollbackDriver_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDriver", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDriver_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCancelTemporarySourceList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCancelTemporarySourceList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseFileQueue", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseFileQueue_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseInfFile", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseInfFile_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseLog", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseLog_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDestroyDiskSpaceList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDestroyDiskSpaceList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiAskForOEMDisk", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiAskForOEMDisk_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildDriverInfoList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildDriverInfoList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCallClassInstaller", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCallClassInstaller_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCancelDriverInfoSearch", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCancelDriverInfoSearch_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiChangeState", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiChangeState_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDevRegKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDevRegKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceData", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceData_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceRegKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceRegKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyClassImageList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyClassImageList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDeviceInfoList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDeviceInfoList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDriverInfoList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDriverInfoList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInterfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassBitmapIndex", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassBitmapIndex_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageIndex", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageIndex_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeys", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeys_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeysExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeysExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListClass", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListClass_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceAlias", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceAlias_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyKeys", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyKeys_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyKeys", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyKeys_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileList", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileList_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetWizardPage", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetWizardPage_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDeviceInterfaces", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDeviceInterfaces_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDriverFiles", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDriverFiles_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadClassIcon", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadClassIcon_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadDeviceIcon", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadDeviceIcon_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDevRegKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDevRegKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceRegKey", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceRegKey_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterCoDeviceInstallers", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterCoDeviceInstallers_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDeviceInterface", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDeviceInterface_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRestartDevices", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRestartDevices_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectBestCompatDrv", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectBestCompatDrv_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectOEMDrv", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectOEMDrv_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfaceDefault", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfaceDefault_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfacePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfacePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDevicePropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDevicePropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiUnremoveDevice", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiUnremoveDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextLine", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextLine_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBinaryField", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBinaryField_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFieldCount", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFieldCount_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueCount", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueCount_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueFlags", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueFlags_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetIntField", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetIntField_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetNonInteractiveMode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetNonInteractiveMode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetThreadLogToken", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetThreadLogToken_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallback", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallbackEx", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallbackEx_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenFileQueue", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenFileQueue_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenLog", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenLog_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenMasterInf", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenMasterInf_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptReboot", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptReboot_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueFlags", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueFlags_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetNonInteractiveMode", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetNonInteractiveMode_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetThreadLogToken", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetThreadLogToken_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupTermDefaultQueueCallback", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupTermDefaultQueueCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupTerminateFileLog", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupTerminateFileLog_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallNewlyCopiedInfs", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallNewlyCopiedInfs_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileW_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLog", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLog_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogError", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogError_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogInfLine", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogInfLine_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesA", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesA_napi));
-    exports.Set("windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesW", Napi::Function::New(env, windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmpWaitNoPendingInstallEvents", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmpWaitNoPendingInstallEvents_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConf", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConf_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConfEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConfEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIda", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIda_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdw", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdw_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddIdExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddRange", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddRange_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDes", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDes_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDesEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDesEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateRangeList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateRangeList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKeyEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKeyEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDevNodeKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDevNodeKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDevNodeKeyEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDevNodeKeyEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteDeviceInterfaceKeyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteRange", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteRange_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflict", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflict_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflictEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflictEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisableDevNode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisableDevNode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisableDevNodeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisableDevNodeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisconnectMachine", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDisconnectMachine_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDupRangeList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDupRangeList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNodeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNodeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClasses", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClasses_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClassesEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClassesEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFindRange", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFindRange_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFirstRange", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFirstRange_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConf", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConf_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConfEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConfEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConfHandle", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeLogConfHandle_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeRangeList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeRangeList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDes", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDes_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesHandle", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesHandle_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResourceConflictHandle", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResourceConflictHandle_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChild", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChild_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChildEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChildEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeys", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeys_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeysEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeysEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepth", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepth_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepthEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepthEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeys", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeys_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeysEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeysEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatus", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatus_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatusEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatusEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIda", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIda_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdw", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdw_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSize", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSize_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSizeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSizeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConf", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConf_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConfEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConfEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalState", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalState_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalStateEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalStateEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriority", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriority_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriorityEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriorityEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConf", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConf_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConfEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConfEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDes", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDes_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDesEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDesEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParent", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParent_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParentEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParentEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesData", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesData_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSize", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSize_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSizeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSizeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictCount", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictCount_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSibling", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSibling_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSiblingEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSiblingEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetVersion", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetVersion_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetVersionEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetVersionEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIntersectRangeList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIntersectRangeList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmInvertRangeList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmInvertRangeList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresent", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresent_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresentEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresentEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailable", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailable_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMapCrToWin32Err", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMapCrToWin32Err_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMergeRangeList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMergeRangeList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDes", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDes_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDesEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDesEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNodeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNodeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmNextRange", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmNextRange_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKeyEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKeyEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeData", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeData_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeDataEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeDataEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSize", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSize_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSizeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSizeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTree", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTree_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTreeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTreeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryResourceConflictList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryResourceConflictList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmReenumerateDevNode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmReenumerateDevNode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmReenumerateDevNodeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmReenumerateDevNodeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriver", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriver_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriverEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriverEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterNotification", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterNotification_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTree", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTree_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTreeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTreeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestEjectPc", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestEjectPc_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestEjectPcEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestEjectPcEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetection", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetection_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetectionEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetectionEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblem", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblem_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblemEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblemEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProf", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProf_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetHwProfFlagsExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetupDevNode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetupDevNode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetupDevNodeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetupDevNodeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmTestRangeAvailable", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmTestRangeAvailable_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUninstallDevNode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUninstallDevNode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUninstallDevNodeEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUninstallDevNodeEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterDeviceInterfaceExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterNotification", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterNotification_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiRollbackDriver", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiRollbackDriver_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDriver", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDriver_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupBackupErrorA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupBackupErrorA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupBackupErrorW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupBackupErrorW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseFileQueue", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseFileQueue_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseInfFile", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseInfFile_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseLog", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseLog_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDestroyDiskSpaceList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDestroyDiskSpaceList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiAskForOEMDisk", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiAskForOEMDisk_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildDriverInfoList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildDriverInfoList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCallClassInstaller", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCallClassInstaller_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiChangeState", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiChangeState_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDevRegKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDevRegKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceData", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceData_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceRegKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceRegKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyClassImageList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyClassImageList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDriverInfoList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDriverInfoList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInterfaces", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInterfaces_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassBitmapIndex", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassBitmapIndex_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageIndex", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageIndex_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeys", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeys_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeysExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeysExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListClass", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListClass_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceAlias", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceAlias_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyKeys", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyKeys_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyKeys", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyKeys_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileList", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileList_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetWizardPage", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetWizardPage_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDeviceInterfaces", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDeviceInterfaces_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDriverFiles", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDriverFiles_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadClassIcon", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadClassIcon_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadDeviceIcon", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadDeviceIcon_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDevRegKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDevRegKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceRegKey", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceRegKey_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterCoDeviceInstallers", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterCoDeviceInstallers_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterDeviceInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterDeviceInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDeviceInterface", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDeviceInterface_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRestartDevices", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRestartDevices_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectBestCompatDrv", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectBestCompatDrv_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectOEMDrv", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectOEMDrv_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfaceDefault", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfaceDefault_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfacePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfacePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDevicePropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDevicePropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiUnremoveDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiUnremoveDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextLine", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextLine_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBinaryField", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBinaryField_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFieldCount", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFieldCount_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueCount", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueCount_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueFlags", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueFlags_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetIntField", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetIntField_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetThreadLogToken", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetThreadLogToken_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallback", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallback_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallbackEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallbackEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenFileQueue", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenFileQueue_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenMasterInf", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenMasterInf_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptReboot", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptReboot_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueFlags", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueFlags_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetNonInteractiveMode", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetNonInteractiveMode_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetThreadLogToken", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetThreadLogToken_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTermDefaultQueueCallback", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTermDefaultQueueCallback_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTerminateFileLog", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTerminateFileLog_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallNewlyCopiedInfs", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallNewlyCopiedInfs_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileW_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLog", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLog_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogError", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogError_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogInfLine", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogInfLine_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesA", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesA_napi));
+    exports.Set("windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesW", Napi::Function::New(env, windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_deviceanddriverinstallation_napi, nullptr };

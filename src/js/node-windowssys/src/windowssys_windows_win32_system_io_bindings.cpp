@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_io_bindIoCompletionCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoBindIoCompletionCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* function = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_system_io_bindIoCompletionCallback_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_cancelIo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoCancelIo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_io_cancelIo_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_cancelIoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoCancelIoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_system_io_cancelIoEx_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_cancelSynchronousIo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoCancelSynchronousIo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_system_io_cancelSynchronousIo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_createIoCompletionPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoCreateIoCompletionPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* existingcompletionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -188,7 +188,7 @@ static Napi::Value windowssys_windows_win32_system_io_createIoCompletionPort_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_deviceIoControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoDeviceIoControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwiocontrolcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_system_io_deviceIoControl_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_getOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -258,7 +258,7 @@ static Napi::Value windowssys_windows_win32_system_io_getOverlappedResult_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_getOverlappedResultEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoGetOverlappedResultEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -291,7 +291,7 @@ static Napi::Value windowssys_windows_win32_system_io_getOverlappedResultEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoGetQueuedCompletionStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnumberofbytestransferred = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatus_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatusEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoGetQueuedCompletionStatusEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcompletionportentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatusE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_io_postQueuedCompletionStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemIoPostQueuedCompletionStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumberofbytestransferred = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -391,17 +391,17 @@ static Napi::Value windowssys_windows_win32_system_io_postQueuedCompletionStatus
 }
 
 static void register_windows_win32_system_io_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_io_bindIoCompletionCallback", Napi::Function::New(env, windowssys_windows_win32_system_io_bindIoCompletionCallback_napi));
-    exports.Set("windowssys_windows_win32_system_io_cancelIo", Napi::Function::New(env, windowssys_windows_win32_system_io_cancelIo_napi));
-    exports.Set("windowssys_windows_win32_system_io_cancelIoEx", Napi::Function::New(env, windowssys_windows_win32_system_io_cancelIoEx_napi));
-    exports.Set("windowssys_windows_win32_system_io_cancelSynchronousIo", Napi::Function::New(env, windowssys_windows_win32_system_io_cancelSynchronousIo_napi));
-    exports.Set("windowssys_windows_win32_system_io_createIoCompletionPort", Napi::Function::New(env, windowssys_windows_win32_system_io_createIoCompletionPort_napi));
-    exports.Set("windowssys_windows_win32_system_io_deviceIoControl", Napi::Function::New(env, windowssys_windows_win32_system_io_deviceIoControl_napi));
-    exports.Set("windowssys_windows_win32_system_io_getOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_system_io_getOverlappedResult_napi));
-    exports.Set("windowssys_windows_win32_system_io_getOverlappedResultEx", Napi::Function::New(env, windowssys_windows_win32_system_io_getOverlappedResultEx_napi));
-    exports.Set("windowssys_windows_win32_system_io_getQueuedCompletionStatus", Napi::Function::New(env, windowssys_windows_win32_system_io_getQueuedCompletionStatus_napi));
-    exports.Set("windowssys_windows_win32_system_io_getQueuedCompletionStatusEx", Napi::Function::New(env, windowssys_windows_win32_system_io_getQueuedCompletionStatusEx_napi));
-    exports.Set("windowssys_windows_win32_system_io_postQueuedCompletionStatus", Napi::Function::New(env, windowssys_windows_win32_system_io_postQueuedCompletionStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemIoBindIoCompletionCallback", Napi::Function::New(env, windowssysWindowsWin32SystemIoBindIoCompletionCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemIoCancelIo", Napi::Function::New(env, windowssysWindowsWin32SystemIoCancelIo_napi));
+    exports.Set("windowssysWindowsWin32SystemIoCancelIoEx", Napi::Function::New(env, windowssysWindowsWin32SystemIoCancelIoEx_napi));
+    exports.Set("windowssysWindowsWin32SystemIoCancelSynchronousIo", Napi::Function::New(env, windowssysWindowsWin32SystemIoCancelSynchronousIo_napi));
+    exports.Set("windowssysWindowsWin32SystemIoCreateIoCompletionPort", Napi::Function::New(env, windowssysWindowsWin32SystemIoCreateIoCompletionPort_napi));
+    exports.Set("windowssysWindowsWin32SystemIoDeviceIoControl", Napi::Function::New(env, windowssysWindowsWin32SystemIoDeviceIoControl_napi));
+    exports.Set("windowssysWindowsWin32SystemIoGetOverlappedResult", Napi::Function::New(env, windowssysWindowsWin32SystemIoGetOverlappedResult_napi));
+    exports.Set("windowssysWindowsWin32SystemIoGetOverlappedResultEx", Napi::Function::New(env, windowssysWindowsWin32SystemIoGetOverlappedResultEx_napi));
+    exports.Set("windowssysWindowsWin32SystemIoGetQueuedCompletionStatus", Napi::Function::New(env, windowssysWindowsWin32SystemIoGetQueuedCompletionStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemIoGetQueuedCompletionStatusEx", Napi::Function::New(env, windowssysWindowsWin32SystemIoGetQueuedCompletionStatusEx_napi));
+    exports.Set("windowssysWindowsWin32SystemIoPostQueuedCompletionStatus", Napi::Function::New(env, windowssysWindowsWin32SystemIoPostQueuedCompletionStatus_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_io_napi, nullptr };

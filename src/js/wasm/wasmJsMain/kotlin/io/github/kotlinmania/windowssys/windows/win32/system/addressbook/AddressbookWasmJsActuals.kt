@@ -2,238 +2,241 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.addressbook
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32SystemAddressbookNapiAddon(): Boolean
+private external fun initWindowsWin32SystemAddressbookNapiAddon(): Boolean
 
-private val _windowsWin32SystemAddressbookNapiAvailable: Boolean = _initWindowsWin32SystemAddressbookNapiAddon()
+private val windowsWin32SystemAddressbookNapiAvailable: Boolean = initWindowsWin32SystemAddressbookNapiAddon()
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_buildDisplayTable(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_buildDisplayTable(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: Int, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookBuildDisplayTable(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookBuildDisplayTable(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: Int, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_changeIdleRoutine(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_changeIdleRoutine(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: Int)
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookChangeIdleRoutine(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookChangeIdleRoutine(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: Int)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_createIProp(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_createIProp(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookCreateIProp(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookCreateIProp(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_createTable(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_createTable(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookCreateTable(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookCreateTable(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int, p7: String, p8: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_deinitMapiUtil()")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_deinitMapiUtil()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookDeinitMapiUtil()")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookDeinitMapiUtil()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_deregisterIdleRoutine(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_deregisterIdleRoutine(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_enableIdleRoutine(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_enableIdleRoutine(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookEnableIdleRoutine(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookEnableIdleRoutine(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_fEqualNames(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_fEqualNames(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFEqualNames(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFEqualNames(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_fPropCompareProp(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_fPropCompareProp(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFPropCompareProp(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFPropCompareProp(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_fPropContainsProp(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_fPropContainsProp(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFPropContainsProp(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFPropContainsProp(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_fPropExists(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_fPropExists(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFPropExists(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFPropExists(p0: String, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_freePadrlist(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_freePadrlist(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFreePadrlist(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFreePadrlist(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_freeProws(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_freeProws(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFreeProws(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFreeProws(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine(p0: String, p1: String, p2: Int, p3: Int, p4: Int): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine(p0: String, p1: String, p2: Int, p3: Int, p4: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrAddColumns(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrAddColumns(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrAddColumns(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrAddColumns(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrAddColumnsEx(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrAddColumnsEx(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrAddColumnsEx(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrAddColumnsEx(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrAllocAdviseSink(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrAllocAdviseSink(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrAllocAdviseSink(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrDispatchNotifications(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrDispatchNotifications(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrDispatchNotifications(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrDispatchNotifications(p0: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrGetOneProp(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrGetOneProp(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrGetOneProp(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrGetOneProp(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrIStorageFromStream(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrIStorageFromStream(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrIStorageFromStream(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrIStorageFromStream(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrQueryAllRows(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrQueryAllRows(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrQueryAllRows(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrQueryAllRows(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrSetOneProp(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrSetOneProp(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrSetOneProp(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrSetOneProp(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_lPropCompareProp(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_lPropCompareProp(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookLPropCompareProp(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookLPropCompareProp(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_lpValFindProp(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_lpValFindProp(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookLpValFindProp(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookLpValFindProp(p0: Int, p1: Int, p2: String): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_mAPIDeinitIdle()")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_mAPIDeinitIdle()
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle()")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookMAPIDeinitIdle()
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc()")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc()")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc(): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_mAPIInitIdle(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_mAPIInitIdle(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookMAPIInitIdle(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookMAPIInitIdle(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_openStreamOnFile(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_openStreamOnFile(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookOpenStreamOnFile(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookOpenStreamOnFile(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_ppropFindProp(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_ppropFindProp(p0: String, p1: Int, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookPpropFindProp(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookPpropFindProp(p0: String, p1: Int, p2: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_propCopyMore(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_propCopyMore(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookPropCopyMore(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookPropCopyMore(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_rTFSync(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_rTFSync(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookRTFSync(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookRTFSync(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scCopyNotifications(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scCopyNotifications(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScCopyNotifications(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScCopyNotifications(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scCopyProps(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scCopyProps(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScCopyProps(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScCopyProps(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scCountNotifications(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scCountNotifications(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScCountNotifications(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScCountNotifications(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scCountProps(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scCountProps(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScCountProps(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScCountProps(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scCreateConversationIndex(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scCreateConversationIndex(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScCreateConversationIndex(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScCreateConversationIndex(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scDupPropset(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scDupPropset(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScDupPropset(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScDupPropset(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scInitMapiUtil(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scInitMapiUtil(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScInitMapiUtil(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScInitMapiUtil(p0: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scLocalPathFromUNC(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scLocalPathFromUNC(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScLocalPathFromUNC(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scRelocNotifications(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scRelocNotifications(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScRelocNotifications(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScRelocNotifications(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scRelocProps(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scRelocProps(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScRelocProps(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScRelocProps(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_scUNCFromLocalPath(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_scUNCFromLocalPath(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookScUNCFromLocalPath(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_szFindCh(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_szFindCh(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookSzFindCh(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookSzFindCh(p0: String, p1: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_szFindLastCh(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_szFindLastCh(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookSzFindLastCh(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookSzFindLastCh(p0: String, p1: Int): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_szFindSz(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_szFindSz(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookSzFindSz(p0, p1)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookSzFindSz(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_uFromSz(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_uFromSz(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookUFromSz(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookUFromSz(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_ulAddRef(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_ulAddRef(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookUlAddRef(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookUlAddRef(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_ulPropSize(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_ulPropSize(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookUlPropSize(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookUlPropSize(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_ulRelease(p0)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_ulRelease(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookUlRelease(p0)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookUlRelease(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_addressbook_wrapStoreEntryID(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_system_addressbook_wrapStoreEntryID(p0: Int, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemAddressbookWrapStoreEntryID(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32SystemAddressbookWrapStoreEntryID(p0: Int, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, hinstance: Hinstance, cpages: UInt, lppage: COpaquePointer?, ulflags: UInt, lpptable: COpaquePointer?, lpptbldata: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_buildDisplayTable(0L.toString(), 0L.toString(), 0L.toString(), (lpmalloc?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), cpages.toInt(), (lppage?.value ?: 0L).toString(), ulflags.toInt(), (lpptable?.value ?: 0L).toString(), (lpptbldata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr<CVoid>, hinstance: Hinstance, cpages: UInt, lppage: MutPtr<Dtpage>, ulflags: UInt, lpptable: MutPtr<MutPtr<CVoid>>, lpptbldata: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookBuildDisplayTable(0L.toString(), 0L.toString(), 0L.toString(), lpmalloc.rawAddress.toString(), hinstance.rawAddress.toString(), cpages.toInt(), lppage.rawAddress.toString(), ulflags.toInt(), lpptable.rawAddress.toString(), lpptbldata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun changeIdleRoutine(ftg: COpaquePointer?, lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_changeIdleRoutine((ftg?.value ?: 0L).toString(), 0L.toString(), (lpvidleparam?.value ?: 0L).toString(), priidle.toInt(), csecidle.toInt(), iroidle.toInt(), ircidle.toInt())
+public actual fun changeIdleRoutine(ftg: MutPtr<CVoid>, lpfnidle: Pfnidle, lpvidleparam: MutPtr<CVoid>, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookChangeIdleRoutine(ftg.rawAddress.toString(), 0L.toString(), lpvidleparam.rawAddress.toString(), priidle.toInt(), csecidle.toInt(), iroidle.toInt(), ircidle.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun createIProp(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, lpppropdata: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_createIProp((lpinterface?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString(), (lpvreserved?.value ?: 0L).toString(), (lpppropdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createIProp(lpinterface: MutPtr<Guid>, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr<CVoid>, lpppropdata: MutPtr<MutPtr<CVoid>>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookCreateIProp(lpinterface.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), lpvreserved.rawAddress.toString(), lpppropdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createTable(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: COpaquePointer?, lpptabledata: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_createTable((lpinterface?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString(), (lpvreserved?.value ?: 0L).toString(), ultabletype.toInt(), ulproptagindexcolumn.toInt(), (lpsproptagarraycolumns?.value ?: 0L).toString(), (lpptabledata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createTable(lpinterface: MutPtr<Guid>, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr<CVoid>, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: MutPtr<SPropTagArray>, lpptabledata: MutPtr<MutPtr<CVoid>>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookCreateTable(lpinterface.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), lpvreserved.rawAddress.toString(), ultabletype.toInt(), ulproptagindexcolumn.toInt(), lpsproptagarraycolumns.rawAddress.toString(), lpptabledata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deinitMapiUtil() {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_deinitMapiUtil()
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookDeinitMapiUtil()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun deregisterIdleRoutine(ftg: COpaquePointer?) {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_deregisterIdleRoutine((ftg?.value ?: 0L).toString())
+public actual fun deregisterIdleRoutine(ftg: MutPtr<CVoid>) {
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine(ftg.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun enableIdleRoutine(ftg: COpaquePointer?, fenable: Bool) {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_enableIdleRoutine((ftg?.value ?: 0L).toString(), fenable)
+public actual fun enableIdleRoutine(ftg: MutPtr<CVoid>, fenable: Bool) {
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookEnableIdleRoutine(ftg.rawAddress.toString(), fenable)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun fEqualNames(lpname1: COpaquePointer?, lpname2: COpaquePointer?): Bool =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_fEqualNames((lpname1?.value ?: 0L).toString(), (lpname2?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fEqualNames(lpname1: MutPtr<Mapinameid>, lpname2: MutPtr<Mapinameid>): Bool =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookFEqualNames(lpname1.rawAddress.toString(), lpname2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fPropCompareProp(lpspropvalue1: COpaquePointer?, ulrelop: UInt, lpspropvalue2: COpaquePointer?): Bool =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_fPropCompareProp((lpspropvalue1?.value ?: 0L).toString(), ulrelop.toInt(), (lpspropvalue2?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fPropCompareProp(lpspropvalue1: MutPtr<SPropValue>, ulrelop: UInt, lpspropvalue2: MutPtr<SPropValue>): Bool =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookFPropCompareProp(lpspropvalue1.rawAddress.toString(), ulrelop.toInt(), lpspropvalue2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fPropContainsProp(lpspropvaluedst: COpaquePointer?, lpspropvaluesrc: COpaquePointer?, ulfuzzylevel: UInt): Bool =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_fPropContainsProp((lpspropvaluedst?.value ?: 0L).toString(), (lpspropvaluesrc?.value ?: 0L).toString(), ulfuzzylevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fPropContainsProp(lpspropvaluedst: MutPtr<SPropValue>, lpspropvaluesrc: MutPtr<SPropValue>, ulfuzzylevel: UInt): Bool =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookFPropContainsProp(lpspropvaluedst.rawAddress.toString(), lpspropvaluesrc.rawAddress.toString(), ulfuzzylevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fPropExists(lpmapiprop: COpaquePointer?, ulproptag: UInt): Bool =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_fPropExists((lpmapiprop?.value ?: 0L).toString(), ulproptag.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fPropExists(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt): Bool =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookFPropExists(lpmapiprop.rawAddress.toString(), ulproptag.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun freePadrlist(lpadrlist: COpaquePointer?) {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_freePadrlist((lpadrlist?.value ?: 0L).toString())
+public actual fun freePadrlist(lpadrlist: MutPtr<Adrlist>) {
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookFreePadrlist(lpadrlist.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun freeProws(lprows: COpaquePointer?) {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_freeProws((lprows?.value ?: 0L).toString())
+public actual fun freeProws(lprows: MutPtr<SRowSet>) {
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookFreeProws(lprows.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
@@ -254,124 +257,124 @@ public actual fun ftNegFt(ft: Filetime): Filetime =
 public actual fun ftSubFt(ftminuend: Filetime, ftsubtrahend: Filetime): Filetime =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine(0L.toString(), (lpvidleparam?.value ?: 0L).toString(), priidle.toInt(), csecidle.toInt(), iroidle.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: MutPtr<CVoid>, priidle: Short, csecidle: UInt, iroidle: UShort): MutPtr<CVoid> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine(0L.toString(), lpvidleparam.rawAddress.toString(), priidle.toInt(), csecidle.toInt(), iroidle.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrAddColumns(lptbl: COpaquePointer?, lpproptagcolumnsnew: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrAddColumns((lptbl?.value ?: 0L).toString(), (lpproptagcolumnsnew?.value ?: 0L).toString(), 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrAddColumns(lptbl: MutPtr<CVoid>, lpproptagcolumnsnew: MutPtr<SPropTagArray>, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrAddColumns(lptbl.rawAddress.toString(), lpproptagcolumnsnew.rawAddress.toString(), 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrAddColumnsEx(lptbl: COpaquePointer?, lpproptagcolumnsnew: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrAddColumnsEx((lptbl?.value ?: 0L).toString(), (lpproptagcolumnsnew?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), lpfnfiltercolumns.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrAddColumnsEx(lptbl: MutPtr<CVoid>, lpproptagcolumnsnew: MutPtr<SPropTagArray>, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrAddColumnsEx(lptbl.rawAddress.toString(), lpproptagcolumnsnew.rawAddress.toString(), 0L.toString(), 0L.toString(), lpfnfiltercolumns.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: COpaquePointer?, lppadvisesink: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrAllocAdviseSink(0L.toString(), (lpvcontext?.value ?: 0L).toString(), (lppadvisesink?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: MutPtr<CVoid>, lppadvisesink: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrAllocAdviseSink(0L.toString(), lpvcontext.rawAddress.toString(), lppadvisesink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hrDispatchNotifications(ulflags: UInt): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrDispatchNotifications(ulflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrGetOneProp(lpmapiprop: COpaquePointer?, ulproptag: UInt, lppprop: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrGetOneProp((lpmapiprop?.value ?: 0L).toString(), ulproptag.toInt(), (lppprop?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrGetOneProp(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt, lppprop: MutPtr<MutPtr<SPropValue>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrGetOneProp(lpmapiprop.rawAddress.toString(), ulproptag.toInt(), lppprop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrIStorageFromStream(lpunkin: COpaquePointer?, lpinterface: COpaquePointer?, ulflags: UInt, lppstorageout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrIStorageFromStream((lpunkin?.value ?: 0L).toString(), (lpinterface?.value ?: 0L).toString(), ulflags.toInt(), (lppstorageout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrIStorageFromStream(lpunkin: MutPtr<CVoid>, lpinterface: MutPtr<Guid>, ulflags: UInt, lppstorageout: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrIStorageFromStream(lpunkin.rawAddress.toString(), lpinterface.rawAddress.toString(), ulflags.toInt(), lppstorageout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrQueryAllRows(lptable: COpaquePointer?, lpproptags: COpaquePointer?, lprestriction: COpaquePointer?, lpsortorderset: COpaquePointer?, crowsmax: Int, lpprows: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrQueryAllRows((lptable?.value ?: 0L).toString(), (lpproptags?.value ?: 0L).toString(), (lprestriction?.value ?: 0L).toString(), (lpsortorderset?.value ?: 0L).toString(), crowsmax, (lpprows?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrQueryAllRows(lptable: MutPtr<CVoid>, lpproptags: MutPtr<SPropTagArray>, lprestriction: MutPtr<SRestriction>, lpsortorderset: MutPtr<SSortOrderSet>, crowsmax: Int, lpprows: MutPtr<MutPtr<SRowSet>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrQueryAllRows(lptable.rawAddress.toString(), lpproptags.rawAddress.toString(), lprestriction.rawAddress.toString(), lpsortorderset.rawAddress.toString(), crowsmax, lpprows.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrSetOneProp(lpmapiprop: COpaquePointer?, lpprop: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrSetOneProp((lpmapiprop?.value ?: 0L).toString(), (lpprop?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrSetOneProp(lpmapiprop: MutPtr<CVoid>, lpprop: MutPtr<SPropValue>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrSetOneProp(lpmapiprop.rawAddress.toString(), lpprop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrThisThreadAdviseSink(lpadvisesink: COpaquePointer?, lppadvisesink: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink((lpadvisesink?.value ?: 0L).toString(), (lppadvisesink?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrThisThreadAdviseSink(lpadvisesink: MutPtr<CVoid>, lppadvisesink: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink(lpadvisesink.rawAddress.toString(), lppadvisesink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lPropCompareProp(lpspropvaluea: COpaquePointer?, lpspropvalueb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_lPropCompareProp((lpspropvaluea?.value ?: 0L).toString(), (lpspropvalueb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun lPropCompareProp(lpspropvaluea: MutPtr<SPropValue>, lpspropvalueb: MutPtr<SPropValue>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookLPropCompareProp(lpspropvaluea.rawAddress.toString(), lpspropvalueb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_lpValFindProp(ulproptag.toInt(), cvalues.toInt(), (lpproparray?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: MutPtr<SPropValue>): MutPtr<SPropValue> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookLpValFindProp(ulproptag.toInt(), cvalues.toInt(), lpproparray.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mAPIDeinitIdle() {
-    if (_windowsWin32SystemAddressbookNapiAvailable) {
-        _wasm_windowssys_windows_win32_system_addressbook_mAPIDeinitIdle()
+    if (windowsWin32SystemAddressbookNapiAvailable) {
+        wasmWindowssysWindowsWin32SystemAddressbookMAPIDeinitIdle()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun mAPIGetDefaultMalloc(): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mAPIGetDefaultMalloc(): MutPtr<CVoid> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mAPIInitIdle(lpvreserved: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_mAPIInitIdle((lpvreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun mAPIInitIdle(lpvreserved: MutPtr<CVoid>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookMAPIInitIdle(lpvreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: COpaquePointer?, lpszprefix: COpaquePointer?, lppstream: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_openStreamOnFile(0L.toString(), 0L.toString(), ulflags.toInt(), (lpszfilename?.value ?: 0L).toString(), (lpszprefix?.value ?: 0L).toString(), (lppstream?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: ConstPtr<Byte>, lpszprefix: ConstPtr<Byte>, lppstream: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookOpenStreamOnFile(0L.toString(), 0L.toString(), ulflags.toInt(), lpszfilename.rawAddress.toString(), lpszprefix.rawAddress.toString(), lppstream.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ppropFindProp(lpproparray: COpaquePointer?, cvalues: UInt, ulproptag: UInt): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_ppropFindProp((lpproparray?.value ?: 0L).toString(), cvalues.toInt(), ulproptag.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ppropFindProp(lpproparray: MutPtr<SPropValue>, cvalues: UInt, ulproptag: UInt): MutPtr<SPropValue> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookPpropFindProp(lpproparray.rawAddress.toString(), cvalues.toInt(), ulproptag.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun propCopyMore(lpspropvaluedest: COpaquePointer?, lpspropvaluesrc: COpaquePointer?, lpfallocmore: Lpallocatemore, lpvobject: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_propCopyMore((lpspropvaluedest?.value ?: 0L).toString(), (lpspropvaluesrc?.value ?: 0L).toString(), 0L.toString(), (lpvobject?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun propCopyMore(lpspropvaluedest: MutPtr<SPropValue>, lpspropvaluesrc: MutPtr<SPropValue>, lpfallocmore: Lpallocatemore, lpvobject: MutPtr<CVoid>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookPropCopyMore(lpspropvaluedest.rawAddress.toString(), lpspropvaluesrc.rawAddress.toString(), 0L.toString(), lpvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rTFSync(lpmessage: COpaquePointer?, ulflags: UInt, lpfmessageupdated: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_rTFSync((lpmessage?.value ?: 0L).toString(), ulflags.toInt(), (lpfmessageupdated?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun rTFSync(lpmessage: MutPtr<CVoid>, ulflags: UInt, lpfmessageupdated: MutPtr<Bool>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookRTFSync(lpmessage.rawAddress.toString(), ulflags.toInt(), lpfmessageupdated.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scCopyNotifications(cnotification: Int, lpnotifications: COpaquePointer?, lpvdst: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scCopyNotifications(cnotification, (lpnotifications?.value ?: 0L).toString(), (lpvdst?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scCopyNotifications(cnotification: Int, lpnotifications: MutPtr<Notification>, lpvdst: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScCopyNotifications(cnotification, lpnotifications.rawAddress.toString(), lpvdst.rawAddress.toString(), lpcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scCopyProps(cvalues: Int, lpproparray: COpaquePointer?, lpvdst: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scCopyProps(cvalues, (lpproparray?.value ?: 0L).toString(), (lpvdst?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scCopyProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpvdst: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScCopyProps(cvalues, lpproparray.rawAddress.toString(), lpvdst.rawAddress.toString(), lpcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scCountNotifications(cnotifications: Int, lpnotifications: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scCountNotifications(cnotifications, (lpnotifications?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scCountNotifications(cnotifications: Int, lpnotifications: MutPtr<Notification>, lpcb: MutPtr<UInt>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScCountNotifications(cnotifications, lpnotifications.rawAddress.toString(), lpcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scCountProps(cvalues: Int, lpproparray: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scCountProps(cvalues, (lpproparray?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scCountProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpcb: MutPtr<UInt>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScCountProps(cvalues, lpproparray.rawAddress.toString(), lpcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scCreateConversationIndex(cbparent: UInt, lpbparent: COpaquePointer?, lpcbconvindex: COpaquePointer?, lppbconvindex: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scCreateConversationIndex(cbparent.toInt(), (lpbparent?.value ?: 0L).toString(), (lpcbconvindex?.value ?: 0L).toString(), (lppbconvindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scCreateConversationIndex(cbparent: UInt, lpbparent: MutPtr<UByte>, lpcbconvindex: MutPtr<UInt>, lppbconvindex: MutPtr<MutPtr<UByte>>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScCreateConversationIndex(cbparent.toInt(), lpbparent.rawAddress.toString(), lpcbconvindex.rawAddress.toString(), lppbconvindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scDupPropset(cvalues: Int, lpproparray: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lppproparray: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scDupPropset(cvalues, (lpproparray?.value ?: 0L).toString(), 0L.toString(), (lppproparray?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scDupPropset(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpallocatebuffer: Lpallocatebuffer, lppproparray: MutPtr<MutPtr<SPropValue>>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScDupPropset(cvalues, lpproparray.rawAddress.toString(), 0L.toString(), lppproparray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun scInitMapiUtil(ulflags: UInt): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scInitMapiUtil(ulflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScInitMapiUtil(ulflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun scLocalPathFromUNC(lpszunc: Pcstr, lpszlocal: Pcstr, cchlocal: UInt): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scLocalPathFromUNC((lpszunc?.value ?: 0L).toString(), (lpszlocal?.value ?: 0L).toString(), cchlocal.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScLocalPathFromUNC(lpszunc.rawAddress.toString(), lpszlocal.rawAddress.toString(), cchlocal.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scRelocNotifications(cnotification: Int, lpnotifications: COpaquePointer?, lpvbaseold: COpaquePointer?, lpvbasenew: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scRelocNotifications(cnotification, (lpnotifications?.value ?: 0L).toString(), (lpvbaseold?.value ?: 0L).toString(), (lpvbasenew?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scRelocNotifications(cnotification: Int, lpnotifications: MutPtr<Notification>, lpvbaseold: MutPtr<CVoid>, lpvbasenew: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScRelocNotifications(cnotification, lpnotifications.rawAddress.toString(), lpvbaseold.rawAddress.toString(), lpvbasenew.rawAddress.toString(), lpcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scRelocProps(cvalues: Int, lpproparray: COpaquePointer?, lpvbaseold: COpaquePointer?, lpvbasenew: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scRelocProps(cvalues, (lpproparray?.value ?: 0L).toString(), (lpvbaseold?.value ?: 0L).toString(), (lpvbasenew?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun scRelocProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpvbaseold: MutPtr<CVoid>, lpvbasenew: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScRelocProps(cvalues, lpproparray.rawAddress.toString(), lpvbaseold.rawAddress.toString(), lpvbasenew.rawAddress.toString(), lpcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun scUNCFromLocalPath(lpszlocal: Pcstr, lpszunc: Pcstr, cchunc: UInt): Int =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_scUNCFromLocalPath((lpszlocal?.value ?: 0L).toString(), (lpszunc?.value ?: 0L).toString(), cchunc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookScUNCFromLocalPath(lpszlocal.rawAddress.toString(), lpszunc.rawAddress.toString(), cchunc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun szFindCh(lpsz: COpaquePointer?, ch: UShort): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_szFindCh((lpsz?.value ?: 0L).toString(), ch.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun szFindCh(lpsz: MutPtr<Byte>, ch: UShort): MutPtr<Byte> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookSzFindCh(lpsz.rawAddress.toString(), ch.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun szFindLastCh(lpsz: COpaquePointer?, ch: UShort): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_szFindLastCh((lpsz?.value ?: 0L).toString(), ch.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun szFindLastCh(lpsz: MutPtr<Byte>, ch: UShort): MutPtr<Byte> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookSzFindLastCh(lpsz.rawAddress.toString(), ch.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun szFindSz(lpsz: COpaquePointer?, lpszkey: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_szFindSz((lpsz?.value ?: 0L).toString(), (lpszkey?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun szFindSz(lpsz: MutPtr<Byte>, lpszkey: MutPtr<Byte>): MutPtr<Byte> =
+    if (windowsWin32SystemAddressbookNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemAddressbookSzFindSz(lpsz.rawAddress.toString(), lpszkey.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uFromSz(lpsz: COpaquePointer?): UInt =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_uFromSz((lpsz?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun uFromSz(lpsz: MutPtr<Byte>): UInt =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookUFromSz(lpsz.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulAddRef(lpunk: COpaquePointer?): UInt =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_ulAddRef((lpunk?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ulAddRef(lpunk: MutPtr<CVoid>): UInt =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookUlAddRef(lpunk.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulPropSize(lpspropvalue: COpaquePointer?): UInt =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_ulPropSize((lpspropvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ulPropSize(lpspropvalue: MutPtr<SPropValue>): UInt =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookUlPropSize(lpspropvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulRelease(lpunk: COpaquePointer?): UInt =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_ulRelease((lpunk?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ulRelease(lpunk: MutPtr<CVoid>): UInt =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookUlRelease(lpunk.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wrapCompressedRTFStream(lpcompressedrtfstream: COpaquePointer?, ulflags: UInt, lpuncompressedrtfstream: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream((lpcompressedrtfstream?.value ?: 0L).toString(), ulflags.toInt(), (lpuncompressedrtfstream?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wrapCompressedRTFStream(lpcompressedrtfstream: MutPtr<CVoid>, ulflags: UInt, lpuncompressedrtfstream: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream(lpcompressedrtfstream.rawAddress.toString(), ulflags.toInt(), lpuncompressedrtfstream.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wrapStoreEntryID(ulflags: UInt, lpszdllname: COpaquePointer?, cborigentry: UInt, lporigentry: COpaquePointer?, lpcbwrappedentry: COpaquePointer?, lppwrappedentry: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemAddressbookNapiAvailable) _wasm_windowssys_windows_win32_system_addressbook_wrapStoreEntryID(ulflags.toInt(), (lpszdllname?.value ?: 0L).toString(), cborigentry.toInt(), (lporigentry?.value ?: 0L).toString(), (lpcbwrappedentry?.value ?: 0L).toString(), (lppwrappedentry?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wrapStoreEntryID(ulflags: UInt, lpszdllname: ConstPtr<Byte>, cborigentry: UInt, lporigentry: ConstPtr<Entryid>, lpcbwrappedentry: MutPtr<UInt>, lppwrappedentry: MutPtr<MutPtr<Entryid>>): Hresult =
+    if (windowsWin32SystemAddressbookNapiAvailable) wasmWindowssysWindowsWin32SystemAddressbookWrapStoreEntryID(ulflags.toInt(), lpszdllname.rawAddress.toString(), cborigentry.toInt(), lporigentry.rawAddress.toString(), lpcbwrappedentry.rawAddress.toString(), lppwrappedentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

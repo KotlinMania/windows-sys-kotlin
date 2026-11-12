@@ -1,9 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public fun interface OndemandNotificationCallbackFn {
-    public operator fun invoke(param0: COpaquePointer?)
+    public operator fun invoke(param0: ConstPtr<CVoid>)
 }
 
 public typealias OndemandNotificationCallback = OndemandNotificationCallbackFn?

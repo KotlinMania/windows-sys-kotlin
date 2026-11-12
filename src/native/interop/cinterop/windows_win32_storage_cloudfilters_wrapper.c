@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_storage_cloudfilters_cfCloseHandle(void* filehandle) {
+void windowssysWindowsWin32StorageCloudfiltersCfCloseHandle(void* filehandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_storage_cloudfilters_cfCloseHandle(void* filehandl
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot(void* syncrootpath, void* callbacktable, void* callbackcontext, int32_t connectflags, void* connectionkey) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfConnectSyncRoot(void* syncrootpath, void* callbacktable, void* callbackcontext, int32_t connectflags, void* connectionkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot(void* sy
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder(void* filehandle, void* fileidentity, uint32_t fileidentitylength, int32_t convertflags, void* convertusn, void* overlapped) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfConvertToPlaceholder(void* filehandle, void* fileidentity, uint32_t fileidentitylength, int32_t convertflags, void* convertusn, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders(void* basedirectorypath, void* placeholderarray, uint32_t placeholdercount, int32_t createflags, void* entriesprocessed) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfCreatePlaceholders(void* basedirectorypath, void* placeholderarray, uint32_t placeholdercount, int32_t createflags, void* entriesprocessed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder(void* filehandle, int64_t startingoffset, int64_t length, int32_t dehydrateflags, void* overlapped) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfDehydratePlaceholder(void* filehandle, int64_t startingoffset, int64_t length, int32_t dehydrateflags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot(int64_t connectionkey) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot(int64_t connectionkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -163,7 +163,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfExecute(void* opinfo, void* opparams) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfExecute(void* opinfo, void* opparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfExecute(void* opinfo, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector(void* filehandle, void* correlationvector) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetCorrelationVector(void* filehandle, void* correlationvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -209,7 +209,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo(void* filehandle, int32_t infoclass, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderInfo(void* filehandle, int32_t infoclass, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -235,7 +235,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo(void* filehandle, int32_t infoclass, int64_t startingoffset, int64_t length, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfo(void* filehandle, int32_t infoclass, int64_t startingoffset, int64_t length, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int64_t, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -263,7 +263,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoForHydration(int64_t connectionkey, int64_t transferkey, int64_t fileid, int32_t infoclass, int64_t startingoffset, int64_t rangelength, void* infobuffer, uint32_t infobuffersize, void* infobufferwritten) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfoForHydration(int64_t connectionkey, int64_t transferkey, int64_t fileid, int32_t infoclass, int64_t startingoffset, int64_t rangelength, void* infobuffer, uint32_t infobuffersize, void* infobufferwritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int32_t, int64_t, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoF
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromAttributeTag(uint32_t fileattributes, uint32_t reparsetag) {
+uint32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromAttributeTag(uint32_t fileattributes, uint32_t reparsetag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ uint32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFrom
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFileInfo(void* infobuffer, int32_t infoclass) {
+uint32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFileInfo(void* infobuffer, int32_t infoclass) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ uint32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFrom
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFindData(void* finddata) {
+uint32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFindData(void* finddata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -361,7 +361,7 @@ uint32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFrom
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo(void* platformversion) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetPlatformInfo(void* platformversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -383,7 +383,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo(void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle(void* filehandle, int32_t infoclass, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByHandle(void* filehandle, int32_t infoclass, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath(void* filepath, int32_t infoclass, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByPath(void* filepath, int32_t infoclass, void* infobuffer, uint32_t infobufferlength, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey(void* filehandle, void* transferkey) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfGetTransferKey(void* filehandle, void* transferkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey(void* fil
 #endif
 }
 
-void* windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtectedHandle(void* protectedhandle) {
+void* windowssysWindowsWin32StorageCloudfiltersCfGetWin32HandleFromProtectedHandle(void* protectedhandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ void* windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtecte
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder(void* filehandle, int64_t startingoffset, int64_t length, int32_t hydrateflags, void* overlapped) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfHydratePlaceholder(void* filehandle, int64_t startingoffset, int64_t length, int32_t hydrateflags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock(void* filepath, int32_t flags, void* protectedhandle) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfOpenFileWithOplock(void* filepath, int32_t flags, void* protectedhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus(int64_t connectionkey, void* providerstatus) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfQuerySyncProviderStatus(int64_t connectionkey, void* providerstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -553,7 +553,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus(
 #endif
 }
 
-bool windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle(void* protectedhandle) {
+bool windowssysWindowsWin32StorageCloudfiltersCfReferenceProtectedHandle(void* protectedhandle) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -575,7 +575,7 @@ bool windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot(void* syncrootpath, void* registration, void* policies, int32_t registerflags) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfRegisterSyncRoot(void* syncrootpath, void* registration, void* policies, int32_t registerflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot(void* s
 #endif
 }
 
-void windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle(void* protectedhandle) {
+void windowssysWindowsWin32StorageCloudfiltersCfReleaseProtectedHandle(void* protectedhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ void windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle(void
 #endif
 }
 
-void windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey(void* filehandle, void* transferkey) {
+void windowssysWindowsWin32StorageCloudfiltersCfReleaseTransferKey(void* filehandle, void* transferkey) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -643,7 +643,7 @@ void windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey(void* fi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress(int64_t connectionkey, int64_t transferkey, int64_t providerprogresstotal, int64_t providerprogresscompleted) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress(int64_t connectionkey, int64_t transferkey, int64_t providerprogresstotal, int64_t providerprogresscompleted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -668,7 +668,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress(i
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2(int64_t connectionkey, int64_t transferkey, int64_t requestkey, int64_t providerprogresstotal, int64_t providerprogresscompleted, uint32_t targetsessionid) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2(int64_t connectionkey, int64_t transferkey, int64_t requestkey, int64_t providerprogresstotal, int64_t providerprogresscompleted, uint32_t targetsessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int64_t, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -695,7 +695,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus(void* syncrootpath, void* syncstatus) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus(void* syncrootpath, void* syncstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus(void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder(void* filehandle, int32_t revertflags, void* overlapped) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfRevertPlaceholder(void* filehandle, int32_t revertflags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -742,7 +742,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector(void* filehandle, void* correlationvector) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfSetCorrelationVector(void* filehandle, void* correlationvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -765,7 +765,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState(void* filehandle, int32_t insyncstate, int32_t insyncflags, void* insyncusn) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfSetInSyncState(void* filehandle, int32_t insyncstate, int32_t insyncflags, void* insyncusn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -790,7 +790,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState(void* fil
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfSetPinState(void* filehandle, int32_t pinstate, int32_t pinflags, void* overlapped) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfSetPinState(void* filehandle, int32_t pinstate, int32_t pinflags, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -815,7 +815,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfSetPinState(void* fileha
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot(void* syncrootpath) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfUnregisterSyncRoot(void* syncrootpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -837,7 +837,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder(void* filehandle, void* fsmetadata, void* fileidentity, uint32_t fileidentitylength, void* dehydraterangearray, uint32_t dehydraterangecount, int32_t updateflags, void* updateusn, void* overlapped) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfUpdatePlaceholder(void* filehandle, void* fsmetadata, void* fileidentity, uint32_t fileidentitylength, void* dehydraterangearray, uint32_t dehydraterangecount, int32_t updateflags, void* updateusn, void* overlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -867,7 +867,7 @@ int32_t windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncProviderStatus(int64_t connectionkey, uint32_t providerstatus) {
+int32_t windowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus(int64_t connectionkey, uint32_t providerstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

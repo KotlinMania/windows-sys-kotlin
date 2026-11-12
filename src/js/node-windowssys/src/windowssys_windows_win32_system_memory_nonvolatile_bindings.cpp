@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNonVolatileFlush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlDrainNonVolatileFlush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFillNonVolatileMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlFillNonVolatileMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nvdestination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFillNon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -140,7 +140,7 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemoryRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemoryRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nvranges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -171,7 +171,7 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNonVolatileToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlFreeNonVolatileToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -196,7 +196,7 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonVolatileToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlGetNonVolatileToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNonVolatileMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMemoryNonvolatileRtlWriteNonVolatileMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nvtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nvdestination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -259,13 +259,13 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNo
 }
 
 static void register_windows_win32_system_memory_nonvolatile_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNonVolatileFlush", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNonVolatileFlush_napi));
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlFillNonVolatileMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlFillNonVolatileMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemory_napi));
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemoryRanges", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemoryRanges_napi));
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNonVolatileToken", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNonVolatileToken_napi));
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonVolatileToken", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonVolatileToken_napi));
-    exports.Set("windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNonVolatileMemory", Napi::Function::New(env, windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNonVolatileMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlDrainNonVolatileFlush", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlDrainNonVolatileFlush_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlFillNonVolatileMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlFillNonVolatileMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemoryRanges", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemoryRanges_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlFreeNonVolatileToken", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlFreeNonVolatileToken_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlGetNonVolatileToken", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlGetNonVolatileToken_napi));
+    exports.Set("windowssysWindowsWin32SystemMemoryNonvolatileRtlWriteNonVolatileMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMemoryNonvolatileRtlWriteNonVolatileMemory_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_memory_nonvolatile_napi, nullptr };

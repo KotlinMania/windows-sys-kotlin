@@ -2,21 +2,121 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Metaheader
 
-public data class BitmapData(
-    public var width: UInt = 0u,
-    public var height: UInt = 0u,
-    public var stride: Int = 0,
-    public var pixelFormat: Int = 0,
-    public var scan0: COpaquePointer? = null,
-    public var reserved: Int = 0,
-)
+public class BitmapData internal constructor(
+    public var width: UInt,
+    public var height: UInt,
+    public var stride: Int,
+    public var pixelFormat: Int,
+    scan0CtorArg: MutPtr<CVoid>,
+    public var reserved: Int,
+) {
+    public var scan0: MutPtr<CVoid> = scan0CtorArg
+        internal set
+
+    public constructor() : this(
+        width = 0u,
+        height = 0u,
+        stride = 0,
+        pixelFormat = 0,
+        scan0CtorArg = MutPtr(0L),
+        reserved = 0,
+    )
+
+    public operator fun component1(): UInt = this.width
+
+    public operator fun component2(): UInt = this.height
+
+    public operator fun component3(): Int = this.stride
+
+    public operator fun component4(): Int = this.pixelFormat
+
+    public operator fun component5(): MutPtr<CVoid> = this.scan0
+
+    public operator fun component6(): Int = this.reserved
+
+    public fun copy(width: UInt = this.width, height: UInt = this.height, stride: Int = this.stride, pixelFormat: Int = this.pixelFormat, scan0: MutPtr<CVoid> = this.scan0, reserved: Int = this.reserved): BitmapData = BitmapData(width = width, height = height, stride = stride, pixelFormat = pixelFormat, scan0CtorArg = scan0, reserved = reserved)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is BitmapData) return false
+        if (this.width != other.width) return false
+        if (this.height != other.height) return false
+        if (this.stride != other.stride) return false
+        if (this.pixelFormat != other.pixelFormat) return false
+        if (this.scan0 != other.scan0) return false
+        if (this.reserved != other.reserved) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.width.hashCode()
+        result = 31 * result + this.height.hashCode()
+        result = 31 * result + this.stride.hashCode()
+        result = 31 * result + this.pixelFormat.hashCode()
+        result = 31 * result + this.scan0.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<BitmapData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<BitmapData> {
+                override val sizeBytes: Long = 32L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): BitmapData =
+                    BitmapData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: BitmapData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.width)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.height)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.stride)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.pixelFormat)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 16L, value.scan0)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.reserved)
+                }
+            }
+
+        public operator fun invoke(
+            width: UInt = 0u,
+            height: UInt = 0u,
+            stride: Int = 0,
+            pixelFormat: Int = 0,
+            scan0: MutPtr<CVoid> = MutPtr(0L),
+            reserved: Int = 0,
+        ): BitmapData =
+            BitmapData(
+                width = width,
+                height = height,
+                stride = stride,
+                pixelFormat = pixelFormat,
+                scan0CtorArg = scan0,
+                reserved = reserved,
+            )
+    }
+}
 
 public data class Blur(
     public var base: Effect = Effect(),
@@ -34,17 +134,64 @@ public data class BrightnessContrast(
 public data class BrightnessContrastParams(
     public var brightnessLevel: Int = 0,
     public var contrastLevel: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<BrightnessContrastParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<BrightnessContrastParams> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): BrightnessContrastParams =
+                    BrightnessContrastParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: BrightnessContrastParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.brightnessLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.contrastLevel)
+                }
+            }
+    }
+}
 
 public data class CharacterRange(
     public var first: Int = 0,
     public var length: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CharacterRange> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CharacterRange> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): CharacterRange =
+                    CharacterRange(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: CharacterRange) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.first)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.length)
+                }
+            }
+    }
+}
 
 public data class Color(
     public var argb: UInt = 0u,
 ) {
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Color> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Color> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Color =
+                    Color(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: Color) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.argb)
+                }
+            }
+
         public val ALICE_BLUE: Int = -984833
 
         public val ANTIQUE_WHITE: Int = -332841
@@ -353,7 +500,26 @@ public data class ColorBalanceParams(
     public var cyanRed: Int = 0,
     public var magentaGreen: Int = 0,
     public var yellowBlue: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorBalanceParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorBalanceParams> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ColorBalanceParams =
+                    ColorBalanceParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: ColorBalanceParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.cyanRed)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.magentaGreen)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.yellowBlue)
+                }
+            }
+    }
+}
 
 public data class ColorCurve(
     public var base: Effect = Effect(),
@@ -363,7 +529,26 @@ public data class ColorCurveParams(
     public var adjustment: CurveAdjustments = 0,
     public var channel: CurveChannel = 0,
     public var adjustValue: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorCurveParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorCurveParams> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ColorCurveParams =
+                    ColorCurveParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: ColorCurveParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.adjustment)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.channel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.adjustValue)
+                }
+            }
+    }
+}
 
 public data class ColorLUT(
     public var base: Effect = Effect(),
@@ -392,12 +577,74 @@ public data class ColorLUTParams(
         result = 31 * result + this.lutA.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorLUTParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorLUTParams> {
+                override val sizeBytes: Long = 1024L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): ColorLUTParams =
+                    ColorLUTParams(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                        ).readNative(addr + 256L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                        ).readNative(addr + 512L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                        ).readNative(addr + 768L),
+                    )
+                override fun writeNative(addr: Long, value: ColorLUTParams) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                    ).writeNative(addr, value.lutB)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                    ).writeNative(addr + 256L, value.lutG)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                    ).writeNative(addr + 512L, value.lutR)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                    ).writeNative(addr + 768L, value.lutA)
+                }
+            }
+    }
 }
 
 public data class ColorMap(
     public var oldColor: Color = Color(),
     public var newColor: Color = Color(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorMap> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorMap> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ColorMap =
+                    ColorMap(
+                        (Color.typeLayout()).readNative(addr),
+                        (Color.typeLayout()).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: ColorMap) {
+                    (Color.typeLayout()).writeNative(addr, value.oldColor)
+                    (Color.typeLayout()).writeNative(addr + 4L, value.newColor)
+                }
+            }
+    }
+}
 
 public data class ColorMatrix(
     public var m: FloatArray = FloatArray(25),
@@ -410,6 +657,27 @@ public data class ColorMatrix(
     }
 
     override fun hashCode(): Int = this.m.contentHashCode()
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorMatrix> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorMatrix> {
+                override val sizeBytes: Long = 100L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ColorMatrix =
+                    ColorMatrix(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (25).toInt())
+                        ).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: ColorMatrix) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (25).toInt())
+                    ).writeNative(addr, value.m)
+                }
+            }
+    }
 }
 
 public data class ColorMatrixEffect(
@@ -436,6 +704,31 @@ public data class ColorPalette(
         result = 31 * result + this.entries.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorPalette> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ColorPalette> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ColorPalette =
+                    ColorPalette(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: ColorPalette) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.count)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
+                    ).writeNative(addr + 8L, value.entries)
+                }
+            }
+    }
 }
 
 public data class Enhmetaheader3(
@@ -452,24 +745,147 @@ public data class Enhmetaheader3(
     public var nDescription: UInt = 0u,
     public var offDescription: UInt = 0u,
     public var nPalEntries: UInt = 0u,
-    public var szlDevice: io.github.kotlinmania.windowssys.windows.win32.foundation.Size = io.github.kotlinmania.windowssys.windows.win32.foundation.Size(),
-    public var szlMillimeters: io.github.kotlinmania.windowssys.windows.win32.foundation.Size = io.github.kotlinmania.windowssys.windows.win32.foundation.Size(),
+    public var szlDevice: io.github.kotlinmania.windowssys.windows.win32.foundation.Size =
+        io.github.kotlinmania.windowssys.windows.win32.foundation
+            .Size(),
+    public var szlMillimeters: io.github.kotlinmania.windowssys.windows.win32.foundation.Size =
+        io.github.kotlinmania.windowssys.windows.win32.foundation
+            .Size(),
 )
 
-public data class Effect(
-    public var lpVtbl: COpaquePointer? = null,
-    public var nativeEffect: Int? = null,
-    public var auxDataSize: Int = 0,
-    public var auxData: COpaquePointer? = null,
-    public var useAuxData: Bool = 0,
-)
+public class Effect internal constructor(
+    lpVtblCtorArg: MutPtr<MutPtr<CVoid>>,
+    nativeEffectCtorArg: MutPtr<CGpEffect>,
+    public var auxDataSize: Int,
+    auxDataCtorArg: MutPtr<CVoid>,
+    public var useAuxData: Bool,
+) {
+    public var lpVtbl: MutPtr<MutPtr<CVoid>> = lpVtblCtorArg
+        internal set
 
-public data class EncoderParameter(
-    public var guid: Guid = Guid(),
-    public var numberOfValues: UInt = 0u,
-    public var type: UInt = 0u,
-    public var value: COpaquePointer? = null,
-)
+    public var nativeEffect: MutPtr<CGpEffect> = nativeEffectCtorArg
+        internal set
+
+    public var auxData: MutPtr<CVoid> = auxDataCtorArg
+        internal set
+
+    public constructor() : this(
+        lpVtblCtorArg = MutPtr(0L),
+        nativeEffectCtorArg = MutPtr(0L),
+        auxDataSize = 0,
+        auxDataCtorArg = MutPtr(0L),
+        useAuxData = 0,
+    )
+
+    public operator fun component1(): MutPtr<MutPtr<CVoid>> = this.lpVtbl
+
+    public operator fun component2(): MutPtr<CGpEffect> = this.nativeEffect
+
+    public operator fun component3(): Int = this.auxDataSize
+
+    public operator fun component4(): MutPtr<CVoid> = this.auxData
+
+    public operator fun component5(): Bool = this.useAuxData
+
+    public fun copy(lpVtbl: MutPtr<MutPtr<CVoid>> = this.lpVtbl, nativeEffect: MutPtr<CGpEffect> = this.nativeEffect, auxDataSize: Int = this.auxDataSize, auxData: MutPtr<CVoid> = this.auxData, useAuxData: Bool = this.useAuxData): Effect = Effect(lpVtblCtorArg = lpVtbl, nativeEffectCtorArg = nativeEffect, auxDataSize = auxDataSize, auxDataCtorArg = auxData, useAuxData = useAuxData)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Effect) return false
+        if (this.lpVtbl != other.lpVtbl) return false
+        if (this.nativeEffect != other.nativeEffect) return false
+        if (this.auxDataSize != other.auxDataSize) return false
+        if (this.auxData != other.auxData) return false
+        if (this.useAuxData != other.useAuxData) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.lpVtbl.hashCode()
+        result = 31 * result + this.nativeEffect.hashCode()
+        result = 31 * result + this.auxDataSize.hashCode()
+        result = 31 * result + this.auxData.hashCode()
+        result = 31 * result + this.useAuxData.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            lpVtbl: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            nativeEffect: MutPtr<CGpEffect> = MutPtr(0L),
+            auxDataSize: Int = 0,
+            auxData: MutPtr<CVoid> = MutPtr(0L),
+            useAuxData: Bool = 0,
+        ): Effect =
+            Effect(
+                lpVtblCtorArg = lpVtbl,
+                nativeEffectCtorArg = nativeEffect,
+                auxDataSize = auxDataSize,
+                auxDataCtorArg = auxData,
+                useAuxData = useAuxData,
+            )
+    }
+}
+
+public class EncoderParameter internal constructor(
+    public var guid: Guid,
+    public var numberOfValues: UInt,
+    public var type: UInt,
+    valueCtorArg: MutPtr<CVoid>,
+) {
+    public var value: MutPtr<CVoid> = valueCtorArg
+        internal set
+
+    public constructor() : this(
+        guid = Guid(),
+        numberOfValues = 0u,
+        type = 0u,
+        valueCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Guid = this.guid
+
+    public operator fun component2(): UInt = this.numberOfValues
+
+    public operator fun component3(): UInt = this.type
+
+    public operator fun component4(): MutPtr<CVoid> = this.value
+
+    public fun copy(guid: Guid = this.guid, numberOfValues: UInt = this.numberOfValues, type: UInt = this.type, value: MutPtr<CVoid> = this.value): EncoderParameter = EncoderParameter(guid = guid, numberOfValues = numberOfValues, type = type, valueCtorArg = value)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is EncoderParameter) return false
+        if (this.guid != other.guid) return false
+        if (this.numberOfValues != other.numberOfValues) return false
+        if (this.type != other.type) return false
+        if (this.value != other.value) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.guid.hashCode()
+        result = 31 * result + this.numberOfValues.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.value.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            guid: Guid = Guid(),
+            numberOfValues: UInt = 0u,
+            type: UInt = 0u,
+            value: MutPtr<CVoid> = MutPtr(0L),
+        ): EncoderParameter =
+            EncoderParameter(
+                guid = guid,
+                numberOfValues = numberOfValues,
+                type = type,
+                valueCtorArg = value,
+            )
+    }
+}
 
 public data class EncoderParameters(
     public var count: UInt = 0u,
@@ -491,7 +907,24 @@ public data class GdiplusStartupInputEx(
 public data class GdiplusStartupOutput(
     public var notificationHook: Int = 0,
     public var notificationUnhook: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GdiplusStartupOutput> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GdiplusStartupOutput> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): GdiplusStartupOutput =
+                    GdiplusStartupOutput(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: GdiplusStartupOutput) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.notificationHook)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.notificationUnhook)
+                }
+            }
+    }
+}
 
 public data class GpAdjustableArrowCap(
     public var value: UByte = 0u,
@@ -501,6 +934,21 @@ public data class GpAdjustableArrowCap(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpAdjustableArrowCap> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpAdjustableArrowCap> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpAdjustableArrowCap =
+                    GpAdjustableArrowCap(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpAdjustableArrowCap) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpBitmap(
@@ -511,6 +959,21 @@ public data class GpBitmap(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpBitmap> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpBitmap> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpBitmap =
+                    GpBitmap(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpBitmap) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpBrush(
@@ -521,6 +984,21 @@ public data class GpBrush(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpBrush> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpBrush> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpBrush =
+                    GpBrush(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpBrush) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpCachedBitmap(
@@ -531,6 +1009,21 @@ public data class GpCachedBitmap(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpCachedBitmap> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpCachedBitmap> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpCachedBitmap =
+                    GpCachedBitmap(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpCachedBitmap) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpCustomLineCap(
@@ -541,6 +1034,21 @@ public data class GpCustomLineCap(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpCustomLineCap> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpCustomLineCap> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpCustomLineCap =
+                    GpCustomLineCap(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpCustomLineCap) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpFont(
@@ -551,6 +1059,21 @@ public data class GpFont(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpFont> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpFont> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpFont =
+                    GpFont(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpFont) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpFontCollection(
@@ -561,6 +1084,21 @@ public data class GpFontCollection(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpFontCollection> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpFontCollection> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpFontCollection =
+                    GpFontCollection(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpFontCollection) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpFontFamily(
@@ -571,6 +1109,21 @@ public data class GpFontFamily(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpFontFamily> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpFontFamily> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpFontFamily =
+                    GpFontFamily(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpFontFamily) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpGraphics(
@@ -581,6 +1134,21 @@ public data class GpGraphics(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpGraphics> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpGraphics> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpGraphics =
+                    GpGraphics(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpGraphics) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpHatch(
@@ -591,6 +1159,21 @@ public data class GpHatch(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpHatch> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpHatch> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpHatch =
+                    GpHatch(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpHatch) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpImage(
@@ -601,6 +1184,21 @@ public data class GpImage(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpImage> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpImage> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpImage =
+                    GpImage(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpImage) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpImageAttributes(
@@ -611,6 +1209,21 @@ public data class GpImageAttributes(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpImageAttributes> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpImageAttributes> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpImageAttributes =
+                    GpImageAttributes(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpImageAttributes) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpInstalledFontCollection(
@@ -621,6 +1234,21 @@ public data class GpInstalledFontCollection(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpInstalledFontCollection> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpInstalledFontCollection> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpInstalledFontCollection =
+                    GpInstalledFontCollection(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpInstalledFontCollection) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpLineGradient(
@@ -631,6 +1259,21 @@ public data class GpLineGradient(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpLineGradient> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpLineGradient> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpLineGradient =
+                    GpLineGradient(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpLineGradient) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpMetafile(
@@ -641,6 +1284,21 @@ public data class GpMetafile(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpMetafile> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpMetafile> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpMetafile =
+                    GpMetafile(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpMetafile) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpPath(
@@ -651,6 +1309,21 @@ public data class GpPath(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPath> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPath> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpPath =
+                    GpPath(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpPath) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpPathGradient(
@@ -661,6 +1334,21 @@ public data class GpPathGradient(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPathGradient> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPathGradient> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpPathGradient =
+                    GpPathGradient(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpPathGradient) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpPathIterator(
@@ -671,6 +1359,21 @@ public data class GpPathIterator(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPathIterator> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPathIterator> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpPathIterator =
+                    GpPathIterator(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpPathIterator) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpPen(
@@ -681,6 +1384,21 @@ public data class GpPen(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPen> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPen> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpPen =
+                    GpPen(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpPen) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpPrivateFontCollection(
@@ -691,6 +1409,21 @@ public data class GpPrivateFontCollection(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPrivateFontCollection> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpPrivateFontCollection> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpPrivateFontCollection =
+                    GpPrivateFontCollection(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpPrivateFontCollection) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpRegion(
@@ -701,6 +1434,21 @@ public data class GpRegion(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpRegion> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpRegion> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpRegion =
+                    GpRegion(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpRegion) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpSolidFill(
@@ -711,6 +1459,21 @@ public data class GpSolidFill(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpSolidFill> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpSolidFill> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpSolidFill =
+                    GpSolidFill(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpSolidFill) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpStringFormat(
@@ -721,6 +1484,21 @@ public data class GpStringFormat(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpStringFormat> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpStringFormat> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpStringFormat =
+                    GpStringFormat(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpStringFormat) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class GpTexture(
@@ -731,6 +1509,21 @@ public data class GpTexture(
         set(v) {
             value = v
         }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpTexture> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GpTexture> {
+                override val sizeBytes: Long = 1L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): GpTexture =
+                    GpTexture(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GpTexture) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.value)
+                }
+            }
+    }
 }
 
 public data class HueSaturationLightness(
@@ -741,33 +1534,300 @@ public data class HueSaturationLightnessParams(
     public var hueLevel: Int = 0,
     public var saturationLevel: Int = 0,
     public var lightnessLevel: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HueSaturationLightnessParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HueSaturationLightnessParams> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): HueSaturationLightnessParams =
+                    HueSaturationLightnessParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: HueSaturationLightnessParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.hueLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.saturationLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.lightnessLevel)
+                }
+            }
+    }
+}
 
-public data class ImageCodecInfo(
-    public var clsid: Guid = Guid(),
-    public var formatID: Guid = Guid(),
-    public var codecName: Pcwstr = null,
-    public var dllName: Pcwstr = null,
-    public var formatDescription: Pcwstr = null,
-    public var filenameExtension: Pcwstr = null,
-    public var mimeType: Pcwstr = null,
-    public var flags: UInt = 0u,
-    public var version: UInt = 0u,
-    public var sigCount: UInt = 0u,
-    public var sigSize: UInt = 0u,
-    public var sigPattern: COpaquePointer? = null,
-    public var sigMask: COpaquePointer? = null,
-)
+public class ImageCodecInfo internal constructor(
+    public var clsid: Guid,
+    public var formatID: Guid,
+    codecNameCtorArg: Pcwstr,
+    dllNameCtorArg: Pcwstr,
+    formatDescriptionCtorArg: Pcwstr,
+    filenameExtensionCtorArg: Pcwstr,
+    mimeTypeCtorArg: Pcwstr,
+    public var flags: UInt,
+    public var version: UInt,
+    public var sigCount: UInt,
+    public var sigSize: UInt,
+    sigPatternCtorArg: ConstPtr<UByte>,
+    sigMaskCtorArg: ConstPtr<UByte>,
+) {
+    public var codecName: Pcwstr = codecNameCtorArg
+        internal set
 
-public data class ImageItemData(
-    public var size: UInt = 0u,
-    public var position: UInt = 0u,
-    public var desc: COpaquePointer? = null,
-    public var descSize: UInt = 0u,
-    public var data: COpaquePointer? = null,
-    public var dataSize: UInt = 0u,
-    public var cookie: UInt = 0u,
-)
+    public var dllName: Pcwstr = dllNameCtorArg
+        internal set
+
+    public var formatDescription: Pcwstr = formatDescriptionCtorArg
+        internal set
+
+    public var filenameExtension: Pcwstr = filenameExtensionCtorArg
+        internal set
+
+    public var mimeType: Pcwstr = mimeTypeCtorArg
+        internal set
+
+    public var sigPattern: ConstPtr<UByte> = sigPatternCtorArg
+        internal set
+
+    public var sigMask: ConstPtr<UByte> = sigMaskCtorArg
+        internal set
+
+    public constructor() : this(
+        clsid = Guid(),
+        formatID = Guid(),
+        codecNameCtorArg = ConstPtr(0L),
+        dllNameCtorArg = ConstPtr(0L),
+        formatDescriptionCtorArg = ConstPtr(0L),
+        filenameExtensionCtorArg = ConstPtr(0L),
+        mimeTypeCtorArg = ConstPtr(0L),
+        flags = 0u,
+        version = 0u,
+        sigCount = 0u,
+        sigSize = 0u,
+        sigPatternCtorArg = ConstPtr(0L),
+        sigMaskCtorArg = ConstPtr(0L),
+    )
+
+    public operator fun component1(): Guid = this.clsid
+
+    public operator fun component2(): Guid = this.formatID
+
+    public operator fun component3(): Pcwstr = this.codecName
+
+    public operator fun component4(): Pcwstr = this.dllName
+
+    public operator fun component5(): Pcwstr = this.formatDescription
+
+    public operator fun component6(): Pcwstr = this.filenameExtension
+
+    public operator fun component7(): Pcwstr = this.mimeType
+
+    public operator fun component8(): UInt = this.flags
+
+    public operator fun component9(): UInt = this.version
+
+    public operator fun component10(): UInt = this.sigCount
+
+    public operator fun component11(): UInt = this.sigSize
+
+    public operator fun component12(): ConstPtr<UByte> = this.sigPattern
+
+    public operator fun component13(): ConstPtr<UByte> = this.sigMask
+
+    public fun copy(clsid: Guid = this.clsid, formatID: Guid = this.formatID, codecName: Pcwstr = this.codecName, dllName: Pcwstr = this.dllName, formatDescription: Pcwstr = this.formatDescription, filenameExtension: Pcwstr = this.filenameExtension, mimeType: Pcwstr = this.mimeType, flags: UInt = this.flags, version: UInt = this.version, sigCount: UInt = this.sigCount, sigSize: UInt = this.sigSize, sigPattern: ConstPtr<UByte> = this.sigPattern, sigMask: ConstPtr<UByte> = this.sigMask): ImageCodecInfo = ImageCodecInfo(clsid = clsid, formatID = formatID, codecNameCtorArg = codecName, dllNameCtorArg = dllName, formatDescriptionCtorArg = formatDescription, filenameExtensionCtorArg = filenameExtension, mimeTypeCtorArg = mimeType, flags = flags, version = version, sigCount = sigCount, sigSize = sigSize, sigPatternCtorArg = sigPattern, sigMaskCtorArg = sigMask)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ImageCodecInfo) return false
+        if (this.clsid != other.clsid) return false
+        if (this.formatID != other.formatID) return false
+        if (this.codecName != other.codecName) return false
+        if (this.dllName != other.dllName) return false
+        if (this.formatDescription != other.formatDescription) return false
+        if (this.filenameExtension != other.filenameExtension) return false
+        if (this.mimeType != other.mimeType) return false
+        if (this.flags != other.flags) return false
+        if (this.version != other.version) return false
+        if (this.sigCount != other.sigCount) return false
+        if (this.sigSize != other.sigSize) return false
+        if (this.sigPattern != other.sigPattern) return false
+        if (this.sigMask != other.sigMask) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.clsid.hashCode()
+        result = 31 * result + this.formatID.hashCode()
+        result = 31 * result + this.codecName.hashCode()
+        result = 31 * result + this.dllName.hashCode()
+        result = 31 * result + this.formatDescription.hashCode()
+        result = 31 * result + this.filenameExtension.hashCode()
+        result = 31 * result + this.mimeType.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.version.hashCode()
+        result = 31 * result + this.sigCount.hashCode()
+        result = 31 * result + this.sigSize.hashCode()
+        result = 31 * result + this.sigPattern.hashCode()
+        result = 31 * result + this.sigMask.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            clsid: Guid = Guid(),
+            formatID: Guid = Guid(),
+            codecName: Pcwstr = ConstPtr(0L),
+            dllName: Pcwstr = ConstPtr(0L),
+            formatDescription: Pcwstr = ConstPtr(0L),
+            filenameExtension: Pcwstr = ConstPtr(0L),
+            mimeType: Pcwstr = ConstPtr(0L),
+            flags: UInt = 0u,
+            version: UInt = 0u,
+            sigCount: UInt = 0u,
+            sigSize: UInt = 0u,
+            sigPattern: ConstPtr<UByte> = ConstPtr(0L),
+            sigMask: ConstPtr<UByte> = ConstPtr(0L),
+        ): ImageCodecInfo =
+            ImageCodecInfo(
+                clsid = clsid,
+                formatID = formatID,
+                codecNameCtorArg = codecName,
+                dllNameCtorArg = dllName,
+                formatDescriptionCtorArg = formatDescription,
+                filenameExtensionCtorArg = filenameExtension,
+                mimeTypeCtorArg = mimeType,
+                flags = flags,
+                version = version,
+                sigCount = sigCount,
+                sigSize = sigSize,
+                sigPatternCtorArg = sigPattern,
+                sigMaskCtorArg = sigMask,
+            )
+    }
+}
+
+public class ImageItemData internal constructor(
+    public var size: UInt,
+    public var position: UInt,
+    descCtorArg: MutPtr<CVoid>,
+    public var descSize: UInt,
+    dataCtorArg: MutPtr<CVoid>,
+    public var dataSize: UInt,
+    public var cookie: UInt,
+) {
+    public var desc: MutPtr<CVoid> = descCtorArg
+        internal set
+
+    public var data: MutPtr<CVoid> = dataCtorArg
+        internal set
+
+    public constructor() : this(
+        size = 0u,
+        position = 0u,
+        descCtorArg = MutPtr(0L),
+        descSize = 0u,
+        dataCtorArg = MutPtr(0L),
+        dataSize = 0u,
+        cookie = 0u,
+    )
+
+    public operator fun component1(): UInt = this.size
+
+    public operator fun component2(): UInt = this.position
+
+    public operator fun component3(): MutPtr<CVoid> = this.desc
+
+    public operator fun component4(): UInt = this.descSize
+
+    public operator fun component5(): MutPtr<CVoid> = this.data
+
+    public operator fun component6(): UInt = this.dataSize
+
+    public operator fun component7(): UInt = this.cookie
+
+    public fun copy(size: UInt = this.size, position: UInt = this.position, desc: MutPtr<CVoid> = this.desc, descSize: UInt = this.descSize, data: MutPtr<CVoid> = this.data, dataSize: UInt = this.dataSize, cookie: UInt = this.cookie): ImageItemData = ImageItemData(size = size, position = position, descCtorArg = desc, descSize = descSize, dataCtorArg = data, dataSize = dataSize, cookie = cookie)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ImageItemData) return false
+        if (this.size != other.size) return false
+        if (this.position != other.position) return false
+        if (this.desc != other.desc) return false
+        if (this.descSize != other.descSize) return false
+        if (this.data != other.data) return false
+        if (this.dataSize != other.dataSize) return false
+        if (this.cookie != other.cookie) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.size.hashCode()
+        result = 31 * result + this.position.hashCode()
+        result = 31 * result + this.desc.hashCode()
+        result = 31 * result + this.descSize.hashCode()
+        result = 31 * result + this.data.hashCode()
+        result = 31 * result + this.dataSize.hashCode()
+        result = 31 * result + this.cookie.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ImageItemData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ImageItemData> {
+                override val sizeBytes: Long = 40L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): ImageItemData =
+                    ImageItemData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                    )
+                override fun writeNative(addr: Long, value: ImageItemData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.position)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.desc)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.descSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 24L, value.data)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dataSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.cookie)
+                }
+            }
+
+        public operator fun invoke(
+            size: UInt = 0u,
+            position: UInt = 0u,
+            desc: MutPtr<CVoid> = MutPtr(0L),
+            descSize: UInt = 0u,
+            data: MutPtr<CVoid> = MutPtr(0L),
+            dataSize: UInt = 0u,
+            cookie: UInt = 0u,
+        ): ImageItemData =
+            ImageItemData(
+                size = size,
+                position = position,
+                descCtorArg = desc,
+                descSize = descSize,
+                dataCtorArg = data,
+                dataSize = dataSize,
+                cookie = cookie,
+            )
+    }
+}
 
 public data class Levels(
     public var base: Effect = Effect(),
@@ -777,7 +1837,26 @@ public data class LevelsParams(
     public var highlight: Int = 0,
     public var midtone: Int = 0,
     public var shadow: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<LevelsParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<LevelsParams> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): LevelsParams =
+                    LevelsParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: LevelsParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.highlight)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.midtone)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.shadow)
+                }
+            }
+    }
+}
 
 public data class MetafileHeader(
     public var type: MetafileType = 0,
@@ -806,47 +1885,282 @@ public data class PWMFRect16(
     public var top: Short = 0,
     public var right: Short = 0,
     public var bottom: Short = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PWMFRect16> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PWMFRect16> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): PWMFRect16 =
+                    PWMFRect16(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 6L),
+                    )
+                override fun writeNative(addr: Long, value: PWMFRect16) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr, value.left)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 2L, value.top)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 4L, value.right)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 6L, value.bottom)
+                }
+            }
+    }
+}
 
 public data class Point(
     public var x: Int = 0,
     public var y: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Point> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Point> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Point =
+                    Point(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Point) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.x)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.y)
+                }
+            }
+    }
+}
 
 public data class PointF(
     public var x: Float = 0.0f,
     public var y: Float = 0.0f,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PointF> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PointF> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): PointF =
+                    PointF(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: PointF) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr, value.x)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 4L, value.y)
+                }
+            }
+    }
+}
 
-public data class PropertyItem(
-    public var id: UInt = 0u,
-    public var length: UInt = 0u,
-    public var type: UShort = 0u,
-    public var value: COpaquePointer? = null,
-)
+public class PropertyItem internal constructor(
+    public var id: UInt,
+    public var length: UInt,
+    public var type: UShort,
+    valueCtorArg: MutPtr<CVoid>,
+) {
+    public var value: MutPtr<CVoid> = valueCtorArg
+        internal set
+
+    public constructor() : this(
+        id = 0u,
+        length = 0u,
+        type = 0u,
+        valueCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.id
+
+    public operator fun component2(): UInt = this.length
+
+    public operator fun component3(): UShort = this.type
+
+    public operator fun component4(): MutPtr<CVoid> = this.value
+
+    public fun copy(id: UInt = this.id, length: UInt = this.length, type: UShort = this.type, value: MutPtr<CVoid> = this.value): PropertyItem = PropertyItem(id = id, length = length, type = type, valueCtorArg = value)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is PropertyItem) return false
+        if (this.id != other.id) return false
+        if (this.length != other.length) return false
+        if (this.type != other.type) return false
+        if (this.value != other.value) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.id.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.value.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PropertyItem> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PropertyItem> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): PropertyItem =
+                    PropertyItem(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: PropertyItem) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.id)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.type)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 16L, value.value)
+                }
+            }
+
+        public operator fun invoke(
+            id: UInt = 0u,
+            length: UInt = 0u,
+            type: UShort = 0u,
+            value: MutPtr<CVoid> = MutPtr(0L),
+        ): PropertyItem =
+            PropertyItem(
+                id = id,
+                length = length,
+                type = type,
+                valueCtorArg = value,
+            )
+    }
+}
 
 public data class Rect(
     public var x: Int = 0,
     public var y: Int = 0,
     public var width: Int = 0,
     public var height: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rect> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rect> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Rect =
+                    Rect(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: Rect) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.x)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.y)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.width)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.height)
+                }
+            }
+    }
+}
 
 public data class RectF(
     public var x: Float = 0.0f,
     public var y: Float = 0.0f,
     public var width: Float = 0.0f,
     public var height: Float = 0.0f,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RectF> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RectF> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): RectF =
+                    RectF(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: RectF) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr, value.x)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 4L, value.y)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 8L, value.width)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 12L, value.height)
+                }
+            }
+    }
+}
 
 public data class RedEyeCorrection(
     public var base: Effect = Effect(),
 )
 
-public data class RedEyeCorrectionParams(
-    public var numberOfAreas: UInt = 0u,
-    public var areas: io.github.kotlinmania.windowssys.windows.win32.foundation.Rect? = null,
-)
+public class RedEyeCorrectionParams internal constructor(
+    public var numberOfAreas: UInt,
+    areasCtorArg: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>,
+) {
+    public var areas: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = areasCtorArg
+        internal set
+
+    public constructor() : this(
+        numberOfAreas = 0u,
+        areasCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.numberOfAreas
+
+    public operator fun component2(): MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = this.areas
+
+    public fun copy(numberOfAreas: UInt = this.numberOfAreas, areas: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = this.areas): RedEyeCorrectionParams = RedEyeCorrectionParams(numberOfAreas = numberOfAreas, areasCtorArg = areas)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is RedEyeCorrectionParams) return false
+        if (this.numberOfAreas != other.numberOfAreas) return false
+        if (this.areas != other.areas) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.numberOfAreas.hashCode()
+        result = 31 * result + this.areas.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RedEyeCorrectionParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RedEyeCorrectionParams> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): RedEyeCorrectionParams =
+                    RedEyeCorrectionParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: RedEyeCorrectionParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfAreas)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>(64)
+                    ).writeNative(addr + 8L, value.areas)
+                }
+            }
+
+        public operator fun invoke(
+            numberOfAreas: UInt = 0u,
+            areas: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = MutPtr(0L),
+        ): RedEyeCorrectionParams =
+            RedEyeCorrectionParams(
+                numberOfAreas = numberOfAreas,
+                areasCtorArg = areas,
+            )
+    }
+}
 
 public data class Sharpen(
     public var base: Effect = Effect(),
@@ -855,17 +2169,68 @@ public data class Sharpen(
 public data class SharpenParams(
     public var radius: Float = 0.0f,
     public var amount: Float = 0.0f,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SharpenParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SharpenParams> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): SharpenParams =
+                    SharpenParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: SharpenParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr, value.radius)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 4L, value.amount)
+                }
+            }
+    }
+}
 
 public data class Size(
     public var width: Int = 0,
     public var height: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Size> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Size> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Size =
+                    Size(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Size) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.width)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.height)
+                }
+            }
+    }
+}
 
 public data class SizeF(
     public var width: Float = 0.0f,
     public var height: Float = 0.0f,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SizeF> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SizeF> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): SizeF =
+                    SizeF(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: SizeF) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr, value.width)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 4L, value.height)
+                }
+            }
+    }
+}
 
 public data class Tint(
     public var base: Effect = Effect(),
@@ -874,7 +2239,24 @@ public data class Tint(
 public data class TintParams(
     public var hue: Int = 0,
     public var amount: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TintParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TintParams> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): TintParams =
+                    TintParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: TintParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.hue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.amount)
+                }
+            }
+    }
+}
 
 public data class WmfPlaceableFileHeader(
     public var key: UInt = 0u,
@@ -883,4 +2265,29 @@ public data class WmfPlaceableFileHeader(
     public var inch: Short = 0,
     public var reserved: UInt = 0u,
     public var checksum: Short = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WmfPlaceableFileHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WmfPlaceableFileHeader> {
+                override val sizeBytes: Long = 22L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): WmfPlaceableFileHeader =
+                    WmfPlaceableFileHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 4L),
+                        (PWMFRect16.typeLayout()).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 14L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: WmfPlaceableFileHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.key)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 4L, value.hmf)
+                    (PWMFRect16.typeLayout()).writeNative(addr + 6L, value.boundingBox)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 14L, value.inch)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reserved)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 20L, value.checksum)
+                }
+            }
+    }
+}

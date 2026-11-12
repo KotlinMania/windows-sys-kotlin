@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1addSecureMemoryCacheCallback(JNIEnv* km_env, jclass km_clazz, jlong pfncallback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryAddSecureMemoryCacheCallback(JNIEnv* km_env, jclass km_clazz, jlong pfncallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1allocateUserPhysicalPages(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofpages, jlong pagearray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofpages, jlong pagearray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1allocateUserPhysicalPages2(JNIEnv* km_env, jclass km_clazz, jlong objecthandle, jlong numberofpages, jlong pagearray, jlong extendedparameters, jint extendedparametercount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPages2(JNIEnv* km_env, jclass km_clazz, jlong objecthandle, jlong numberofpages, jlong pagearray, jlong extendedparameters, jint extendedparametercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1allocateUserPhysicalPagesNuma(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofpages, jlong pagearray, jint nndpreferred) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryAllocateUserPhysicalPagesNuma(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofpages, jlong pagearray, jint nndpreferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -128,7 +128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createFileMapping2(JNIEnv* km_env, jclass km_clazz, jlong file, jlong securityattributes, jint desiredaccess, jint pageprotection, jint allocationattributes, jlong maximumsize, jlong name, jlong extendedparameters, jint parametercount) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateFileMapping2(JNIEnv* km_env, jclass km_clazz, jlong file, jlong securityattributes, jint desiredaccess, jint pageprotection, jint allocationattributes, jlong maximumsize, jlong name, jlong extendedparameters, jint parametercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -161,7 +161,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createFileMappingA(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateFileMappingA(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -191,7 +191,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createFileMappingFromApp(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong securityattributes, jint pageprotection, jlong maximumsize, jlong name) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateFileMappingFromApp(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong securityattributes, jint pageprotection, jlong maximumsize, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -220,7 +220,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createFileMappingNumaA(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname, jint nndpreferred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateFileMappingNumaA(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname, jint nndpreferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -251,7 +251,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createFileMappingNumaW(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname, jint nndpreferred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateFileMappingNumaW(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname, jint nndpreferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -282,7 +282,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createFileMappingW(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateFileMappingW(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpfilemappingattributes, jint flprotect, jint dwmaximumsizehigh, jint dwmaximumsizelow, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -312,7 +312,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1createMemoryResourceNotification(JNIEnv* km_env, jclass km_clazz, jint notificationtype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryCreateMemoryResourceNotification(JNIEnv* km_env, jclass km_clazz, jint notificationtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -337,7 +337,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1discardVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryDiscardVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -363,7 +363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1flushViewOfFile(JNIEnv* km_env, jclass km_clazz, jlong lpbaseaddress, jlong dwnumberofbytestoflush) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryFlushViewOfFile(JNIEnv* km_env, jclass km_clazz, jlong lpbaseaddress, jlong dwnumberofbytestoflush) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1freeUserPhysicalPages(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofpages, jlong pagearray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryFreeUserPhysicalPages(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofpages, jlong pagearray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -416,7 +416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getLargePageMinimum(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetLargePageMinimum(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -440,7 +440,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getMemoryErrorHandlingCapabilities(JNIEnv* km_env, jclass km_clazz, jlong capabilities) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetMemoryErrorHandlingCapabilities(JNIEnv* km_env, jclass km_clazz, jlong capabilities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -465,7 +465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getProcessHeap(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetProcessHeap(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -489,7 +489,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getProcessHeaps(JNIEnv* km_env, jclass km_clazz, jint numberofheaps, jlong processheaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetProcessHeaps(JNIEnv* km_env, jclass km_clazz, jint numberofheaps, jlong processheaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -515,7 +515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getProcessWorkingSetSizeEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpminimumworkingsetsize, jlong lpmaximumworkingsetsize, jlong flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetProcessWorkingSetSizeEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpminimumworkingsetsize, jlong lpmaximumworkingsetsize, jlong flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -543,7 +543,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getSystemFileCacheSize(JNIEnv* km_env, jclass km_clazz, jlong lpminimumfilecachesize, jlong lpmaximumfilecachesize, jlong lpflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetSystemFileCacheSize(JNIEnv* km_env, jclass km_clazz, jlong lpminimumfilecachesize, jlong lpmaximumfilecachesize, jlong lpflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -570,7 +570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1getWriteWatch(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpbaseaddress, jlong dwregionsize, jlong lpaddresses, jlong lpdwcount, jlong lpdwgranularity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGetWriteWatch(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpbaseaddress, jlong dwregionsize, jlong lpaddresses, jlong lpdwcount, jlong lpdwgranularity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -600,7 +600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalAlloc(JNIEnv* km_env, jclass km_clazz, jint uflags, jlong dwbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalAlloc(JNIEnv* km_env, jclass km_clazz, jint uflags, jlong dwbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -626,7 +626,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalFlags(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalFlags(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -651,7 +651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalHandle(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalHandle(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -676,7 +676,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalLock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalLock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -701,7 +701,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalReAlloc(JNIEnv* km_env, jclass km_clazz, jlong hmem, jlong dwbytes, jint uflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalReAlloc(JNIEnv* km_env, jclass km_clazz, jlong hmem, jlong dwbytes, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -728,7 +728,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalSize(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalSize(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -753,7 +753,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1globalUnlock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryGlobalUnlock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -778,7 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapAlloc(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong dwbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapAlloc(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong dwbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -805,7 +805,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapCompact(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapCompact(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -831,7 +831,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapCreate(JNIEnv* km_env, jclass km_clazz, jint floptions, jlong dwinitialsize, jlong dwmaximumsize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapCreate(JNIEnv* km_env, jclass km_clazz, jint floptions, jlong dwinitialsize, jlong dwmaximumsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -858,7 +858,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapDestroy(JNIEnv* km_env, jclass km_clazz, jlong hheap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapDestroy(JNIEnv* km_env, jclass km_clazz, jlong hheap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -883,7 +883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapFree(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapFree(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -910,7 +910,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapLock(JNIEnv* km_env, jclass km_clazz, jlong hheap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapLock(JNIEnv* km_env, jclass km_clazz, jlong hheap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapQueryInformation(JNIEnv* km_env, jclass km_clazz, jlong heaphandle, jint heapinformationclass, jlong heapinformation, jlong heapinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapQueryInformation(JNIEnv* km_env, jclass km_clazz, jlong heaphandle, jint heapinformationclass, jlong heapinformation, jlong heapinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -964,7 +964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapReAlloc(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem, jlong dwbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapReAlloc(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem, jlong dwbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -992,7 +992,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapSetInformation(JNIEnv* km_env, jclass km_clazz, jlong heaphandle, jint heapinformationclass, jlong heapinformation, jlong heapinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapSetInformation(JNIEnv* km_env, jclass km_clazz, jlong heaphandle, jint heapinformationclass, jlong heapinformation, jlong heapinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1020,7 +1020,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapSize(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapSize(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1047,7 +1047,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapSummary(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpsummary) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapSummary(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpsummary) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1074,7 +1074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapUnlock(JNIEnv* km_env, jclass km_clazz, jlong hheap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapUnlock(JNIEnv* km_env, jclass km_clazz, jlong hheap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1099,7 +1099,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapValidate(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapValidate(JNIEnv* km_env, jclass km_clazz, jlong hheap, jint dwflags, jlong lpmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1126,7 +1126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1heapWalk(JNIEnv* km_env, jclass km_clazz, jlong hheap, jlong lpentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryHeapWalk(JNIEnv* km_env, jclass km_clazz, jlong hheap, jlong lpentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1152,7 +1152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1isBadReadPtr(JNIEnv* km_env, jclass km_clazz, jlong lp, jlong ucb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryIsBadReadPtr(JNIEnv* km_env, jclass km_clazz, jlong lp, jlong ucb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1178,7 +1178,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1isBadStringPtrA(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jlong ucchmax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryIsBadStringPtrA(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jlong ucchmax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1204,7 +1204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1isBadStringPtrW(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jlong ucchmax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryIsBadStringPtrW(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jlong ucchmax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1230,7 +1230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1isBadWritePtr(JNIEnv* km_env, jclass km_clazz, jlong lp, jlong ucb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryIsBadWritePtr(JNIEnv* km_env, jclass km_clazz, jlong lp, jlong ucb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1256,7 +1256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localAlloc(JNIEnv* km_env, jclass km_clazz, jint uflags, jlong ubytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalAlloc(JNIEnv* km_env, jclass km_clazz, jint uflags, jlong ubytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1282,7 +1282,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localFlags(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalFlags(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1307,7 +1307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localHandle(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalHandle(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1332,7 +1332,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localLock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalLock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1357,7 +1357,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localReAlloc(JNIEnv* km_env, jclass km_clazz, jlong hmem, jlong ubytes, jint uflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalReAlloc(JNIEnv* km_env, jclass km_clazz, jlong hmem, jlong ubytes, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1384,7 +1384,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localSize(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalSize(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1409,7 +1409,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1localUnlock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryLocalUnlock(JNIEnv* km_env, jclass km_clazz, jlong hmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1434,7 +1434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1mapUserPhysicalPages(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong numberofpages, jlong pagearray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryMapUserPhysicalPages(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong numberofpages, jlong pagearray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1461,7 +1461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1mapUserPhysicalPagesScatter(JNIEnv* km_env, jclass km_clazz, jlong virtualaddresses, jlong numberofpages, jlong pagearray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryMapUserPhysicalPagesScatter(JNIEnv* km_env, jclass km_clazz, jlong virtualaddresses, jlong numberofpages, jlong pagearray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1488,7 +1488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1offerVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong size, jint priority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryOfferVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong size, jint priority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1515,7 +1515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1openDedicatedMemoryPartition(JNIEnv* km_env, jclass km_clazz, jlong partition, jlong dedicatedmemorytypeid, jint desiredaccess, jint inherithandle) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryOpenDedicatedMemoryPartition(JNIEnv* km_env, jclass km_clazz, jlong partition, jlong dedicatedmemorytypeid, jint desiredaccess, jint inherithandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1543,7 +1543,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1openFileMappingA(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryOpenFileMappingA(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1570,7 +1570,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1openFileMappingFromApp(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint inherithandle, jlong name) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryOpenFileMappingFromApp(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint inherithandle, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1597,7 +1597,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1openFileMappingW(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryOpenFileMappingW(JNIEnv* km_env, jclass km_clazz, jint dwdesiredaccess, jint binherithandle, jlong lpname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1624,7 +1624,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1prefetchVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofentries, jlong virtualaddresses, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryPrefetchVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong numberofentries, jlong virtualaddresses, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1652,7 +1652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1queryMemoryResourceNotification(JNIEnv* km_env, jclass km_clazz, jlong resourcenotificationhandle, jlong resourcestate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryQueryMemoryResourceNotification(JNIEnv* km_env, jclass km_clazz, jlong resourcenotificationhandle, jlong resourcestate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1678,7 +1678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1queryPartitionInformation(JNIEnv* km_env, jclass km_clazz, jlong partition, jint partitioninformationclass, jlong partitioninformation, jint partitioninformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryQueryPartitionInformation(JNIEnv* km_env, jclass km_clazz, jlong partition, jint partitioninformationclass, jlong partitioninformation, jint partitioninformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1706,7 +1706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1queryVirtualMemoryInformation(JNIEnv* km_env, jclass km_clazz, jlong process, jlong virtualaddress, jint memoryinformationclass, jlong memoryinformation, jlong memoryinformationsize, jlong returnsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryQueryVirtualMemoryInformation(JNIEnv* km_env, jclass km_clazz, jlong process, jlong virtualaddress, jint memoryinformationclass, jlong memoryinformation, jlong memoryinformationsize, jlong returnsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1736,7 +1736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1reclaimVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryReclaimVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1762,7 +1762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1registerBadMemoryNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryRegisterBadMemoryNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1787,7 +1787,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1removeSecureMemoryCacheCallback(JNIEnv* km_env, jclass km_clazz, jlong pfncallback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryRemoveSecureMemoryCacheCallback(JNIEnv* km_env, jclass km_clazz, jlong pfncallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1812,7 +1812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1resetWriteWatch(JNIEnv* km_env, jclass km_clazz, jlong lpbaseaddress, jlong dwregionsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryResetWriteWatch(JNIEnv* km_env, jclass km_clazz, jlong lpbaseaddress, jlong dwregionsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1838,7 +1838,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1rtlCompareMemory(JNIEnv* km_env, jclass km_clazz, jlong source1, jlong source2, jlong length) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryRtlCompareMemory(JNIEnv* km_env, jclass km_clazz, jlong source1, jlong source2, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1865,7 +1865,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1rtlCrc32(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong size, jint initialcrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryRtlCrc32(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong size, jint initialcrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1892,7 +1892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1rtlCrc64(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong size, jlong initialcrc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryRtlCrc64(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong size, jlong initialcrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1919,7 +1919,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1rtlIsZeroMemory(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong length) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryRtlIsZeroMemory(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1945,7 +1945,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1setProcessValidCallTargets(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong virtualaddress, jlong regionsize, jint numberofoffsets, jlong offsetinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemorySetProcessValidCallTargets(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong virtualaddress, jlong regionsize, jint numberofoffsets, jlong offsetinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1974,7 +1974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1setProcessValidCallTargetsForMappedView(JNIEnv* km_env, jclass km_clazz, jlong process, jlong virtualaddress, jlong regionsize, jint numberofoffsets, jlong offsetinformation, jlong section, jlong expectedfileoffset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemorySetProcessValidCallTargetsForMappedView(JNIEnv* km_env, jclass km_clazz, jlong process, jlong virtualaddress, jlong regionsize, jint numberofoffsets, jlong offsetinformation, jlong section, jlong expectedfileoffset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2005,7 +2005,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1setProcessWorkingSetSizeEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong dwminimumworkingsetsize, jlong dwmaximumworkingsetsize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemorySetProcessWorkingSetSizeEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong dwminimumworkingsetsize, jlong dwmaximumworkingsetsize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2033,7 +2033,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1setSystemFileCacheSize(JNIEnv* km_env, jclass km_clazz, jlong minimumfilecachesize, jlong maximumfilecachesize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemorySetSystemFileCacheSize(JNIEnv* km_env, jclass km_clazz, jlong minimumfilecachesize, jlong maximumfilecachesize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2060,7 +2060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1unregisterBadMemoryNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryUnregisterBadMemoryNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2085,7 +2085,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualAlloc(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize, jint flallocationtype, jint flprotect) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualAlloc(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize, jint flallocationtype, jint flprotect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2113,7 +2113,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualAlloc2(JNIEnv* km_env, jclass km_clazz, jlong process, jlong baseaddress, jlong size, jint allocationtype, jint pageprotection, jlong extendedparameters, jint parametercount) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualAlloc2(JNIEnv* km_env, jclass km_clazz, jlong process, jlong baseaddress, jlong size, jint allocationtype, jint pageprotection, jlong extendedparameters, jint parametercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2144,7 +2144,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualAlloc2FromApp(JNIEnv* km_env, jclass km_clazz, jlong process, jlong baseaddress, jlong size, jint allocationtype, jint pageprotection, jlong extendedparameters, jint parametercount) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualAlloc2FromApp(JNIEnv* km_env, jclass km_clazz, jlong process, jlong baseaddress, jlong size, jint allocationtype, jint pageprotection, jlong extendedparameters, jint parametercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2175,7 +2175,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualAllocEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint flallocationtype, jint flprotect) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualAllocEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint flallocationtype, jint flprotect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2204,7 +2204,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualAllocExNuma(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint flallocationtype, jint flprotect, jint nndpreferred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualAllocExNuma(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint flallocationtype, jint flprotect, jint nndpreferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2234,7 +2234,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualAllocFromApp(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong size, jint allocationtype, jint protection) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualAllocFromApp(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong size, jint allocationtype, jint protection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2262,7 +2262,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualFree(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize, jint dwfreetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualFree(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize, jint dwfreetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2289,7 +2289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualFreeEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint dwfreetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualFreeEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint dwfreetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2317,7 +2317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualLock(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualLock(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2343,7 +2343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualProtect(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize, jint flnewprotect, jlong lpfloldprotect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualProtect(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize, jint flnewprotect, jlong lpfloldprotect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2371,7 +2371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualProtectEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint flnewprotect, jlong lpfloldprotect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualProtectEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong dwsize, jint flnewprotect, jlong lpfloldprotect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2400,7 +2400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualProtectFromApp(JNIEnv* km_env, jclass km_clazz, jlong address, jlong size, jint newprotection, jlong oldprotection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualProtectFromApp(JNIEnv* km_env, jclass km_clazz, jlong address, jlong size, jint newprotection, jlong oldprotection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2428,7 +2428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualQuery(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong lpbuffer, jlong dwlength) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualQuery(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong lpbuffer, jlong dwlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2455,7 +2455,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualQueryEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong lpbuffer, jlong dwlength) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualQueryEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpaddress, jlong lpbuffer, jlong dwlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2483,7 +2483,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualUnlock(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualUnlock(JNIEnv* km_env, jclass km_clazz, jlong lpaddress, jlong dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2509,7 +2509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssys_1windows_1win32_1system_1memory_1virtualUnlockEx(JNIEnv* km_env, jclass km_clazz, jlong process, jlong address, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_WindowsWin32SystemMemoryJniBridge_windowssysWindowsWin32SystemMemoryVirtualUnlockEx(JNIEnv* km_env, jclass km_clazz, jlong process, jlong address, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

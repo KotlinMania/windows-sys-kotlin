@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQADsPathToFormatName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsadspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQADsPathToFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQBeginTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQBeginTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pptransaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQBeginTransac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCloseCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQCloseCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCloseCursor_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCloseQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQCloseQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hqueue = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCloseQueue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCreateCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQCreateCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hqueue = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* phcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -182,7 +182,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCreateCursor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCreateQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQCreateQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqueueprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -213,7 +213,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCreateQueue_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQDeleteQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQDeleteQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -238,7 +238,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQDeleteQueue_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQFreeMemory_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQFreeSecurityContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsecuritycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -282,7 +282,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQFreeSecurity
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetMachineProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidmachineid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -311,7 +311,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetMachinePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -336,7 +336,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetOverlappe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetPrivateComputerInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcscomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprivateprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetPrivateCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetQueueProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqueueprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetQueueProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetQueueSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t requestedinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetQueueSecu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcertbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcertbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -452,7 +452,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetSecurityC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcertbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcertbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetSecurityC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQHandleToFormatName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hqueue = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -510,7 +510,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQHandleToForm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQInstanceToFormatName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -539,7 +539,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQInstanceToFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateBegin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQLocateBegin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcscontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prestriction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -572,7 +572,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateBegin_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQLocateEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -597,7 +597,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateEnd_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQLocateNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -626,7 +626,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateNext_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQMarkMessageRejected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ulllookupid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -653,7 +653,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMarkMessageR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMgmtAction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQMgmtAction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -682,7 +682,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMgmtAction_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQMgmtGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -711,7 +711,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMoveMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQMoveMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hsourcequeue = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdestinationqueue = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -742,7 +742,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMoveMessage_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQOpenQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQOpenQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -773,7 +773,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQOpenQueue_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQPathNameToFormatName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcspathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -802,7 +802,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQPathNameToFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQPurgeQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQPurgeQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hqueue = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQPurgeQueue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQReceiveMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hsource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -866,7 +866,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQReceiveMessageByLookupId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hsource = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t ulllookupid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQRegisterCertificate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcertbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -932,7 +932,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQRegisterCert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSendMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQSendMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdestinationqueue = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pmessageprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -961,7 +961,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSendMessage_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQSetQueueProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqueueprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -988,7 +988,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSetQueueProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemMessagequeuingMQSetQueueSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwcsformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1018,40 +1018,40 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSetQueueSecu
 }
 
 static void register_windows_win32_system_messagequeuing_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQBeginTransaction", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQBeginTransaction_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQCloseCursor", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQCloseCursor_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQCloseQueue", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQCloseQueue_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQCreateCursor", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQCreateCursor_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQCreateQueue", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQCreateQueue_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQDeleteQueue", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQDeleteQueue_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQFreeMemory", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQLocateBegin", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQLocateBegin_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQLocateEnd", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQLocateEnd_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQLocateNext", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQLocateNext_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQMgmtAction", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQMgmtAction_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQMoveMessage", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQMoveMessage_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQOpenQueue", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQOpenQueue_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQPurgeQueue", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQPurgeQueue_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQReceiveMessage", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQReceiveMessage_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQSendMessage", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQSendMessage_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties_napi));
-    exports.Set("windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity", Napi::Function::New(env, windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQADsPathToFormatName", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQADsPathToFormatName_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQBeginTransaction", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQBeginTransaction_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQCloseCursor", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQCloseCursor_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQCloseQueue", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQCloseQueue_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQCreateCursor", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQCreateCursor_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQCreateQueue", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQCreateQueue_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQDeleteQueue", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQDeleteQueue_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQFreeMemory", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQFreeMemory_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQFreeSecurityContext", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQFreeSecurityContext_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetMachineProperties", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetMachineProperties_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetOverlappedResult", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetOverlappedResult_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetPrivateComputerInformation", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetPrivateComputerInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetQueueProperties", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetQueueProperties_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetQueueSecurity", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetQueueSecurity_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContext", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContext_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContextEx", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContextEx_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQHandleToFormatName", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQHandleToFormatName_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQInstanceToFormatName", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQInstanceToFormatName_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQLocateBegin", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQLocateBegin_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQLocateEnd", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQLocateEnd_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQLocateNext", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQLocateNext_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQMarkMessageRejected", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQMarkMessageRejected_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQMgmtAction", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQMgmtAction_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQMgmtGetInfo", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQMgmtGetInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQMoveMessage", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQMoveMessage_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQOpenQueue", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQOpenQueue_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQPathNameToFormatName", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQPathNameToFormatName_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQPurgeQueue", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQPurgeQueue_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQReceiveMessage", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQReceiveMessage_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQReceiveMessageByLookupId", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQReceiveMessageByLookupId_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQRegisterCertificate", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQRegisterCertificate_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQSendMessage", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQSendMessage_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQSetQueueProperties", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQSetQueueProperties_napi));
+    exports.Set("windowssysWindowsWin32SystemMessagequeuingMQSetQueueSecurity", Napi::Function::New(env, windowssysWindowsWin32SystemMessagequeuingMQSetQueueSecurity_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_messagequeuing_napi, nullptr };

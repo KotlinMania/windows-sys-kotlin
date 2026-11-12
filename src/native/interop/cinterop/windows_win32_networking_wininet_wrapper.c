@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheCheckManifest(void* pwszmasterurl, void* pwszmanifesturl, void* pbmanifestdata, uint32_t dwmanifestdatasize, void* pbmanifestresponseheaders, uint32_t dwmanifestresponseheaderssize, void* pestate, void* phnewappcache) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheCheckManifest(void* pwszmasterurl, void* pwszmanifesturl, void* pbmanifestdata, uint32_t dwmanifestdatasize, void* pbmanifestresponseheaders, uint32_t dwmanifestresponseheaderssize, void* pestate, void* phnewappcache) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -44,7 +44,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheCheckManifest(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_appCacheCloseHandle(void* happcache) {
+void windowssysWindowsWin32NetworkingWininetAppCacheCloseHandle(void* happcache) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ void windowssys_windows_win32_networking_wininet_appCacheCloseHandle(void* happc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile(void* happcache, void* pwszsourcefilepath, void* pwszurl, void* pbresponseheaders, uint32_t dwresponseheaderssize) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheCreateAndCommitFile(void* happcache, void* pwszsourcefilepath, void* pwszurl, void* pbresponseheaders, uint32_t dwresponseheaderssize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheDeleteGroup(void* pwszmanifesturl) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheDeleteGroup(void* pwszmanifesturl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheDeleteGroup(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup(void* pwszmanifesturl) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheDeleteIEGroup(void* pwszmanifesturl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle(void* happcache, void* phduplicatedappcache) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheDuplicateHandle(void* happcache, void* phduplicatedappcache) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheFinalize(void* happcache, void* pbmanifestdata, uint32_t dwmanifestdatasize, void* pestate) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheFinalize(void* happcache, void* pbmanifestdata, uint32_t dwmanifestdatasize, void* pestate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheFinalize(void* happ
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList(void* pdownloadlist) {
+void windowssysWindowsWin32NetworkingWininetAppCacheFreeDownloadList(void* pdownloadlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -204,7 +204,7 @@ void windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList(void* 
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_appCacheFreeGroupList(void* pappcachegrouplist) {
+void windowssysWindowsWin32NetworkingWininetAppCacheFreeGroupList(void* pappcachegrouplist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ void windowssys_windows_win32_networking_wininet_appCacheFreeGroupList(void* pap
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheGetDownloadList(void* happcache, void* pdownloadlist) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheGetDownloadList(void* happcache, void* pdownloadlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -248,7 +248,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheGetDownloadList(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl(void* happcache, void* pwszurl, void* ppwszfallbackurl) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheGetFallbackUrl(void* happcache, void* pwszurl, void* ppwszfallbackurl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -272,7 +272,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheGetGroupList(void* pappcachegrouplist) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheGetGroupList(void* pappcachegrouplist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -294,7 +294,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheGetGroupList(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList(void* pappcachegrouplist) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheGetIEGroupList(void* pappcachegrouplist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheGetInfo(void* happcache, void* pappcacheinfo) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheGetInfo(void* happcache, void* pappcacheinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheGetInfo(void* happc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl(void* happcache, void* ppwszmanifesturl) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheGetManifestUrl(void* happcache, void* ppwszmanifesturl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_appCacheLookup(void* pwszurl, uint32_t dwflags, void* phappcache) {
+uint32_t windowssysWindowsWin32NetworkingWininetAppCacheLookup(void* pwszurl, uint32_t dwflags, void* phappcache) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ uint32_t windowssys_windows_win32_networking_wininet_appCacheLookup(void* pwszur
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_createMD5SSOHash(void* pszchallengeinfo, void* pwszrealm, void* pwsztarget, void* pbhexhash) {
+int32_t windowssysWindowsWin32NetworkingWininetCreateMD5SSOHash(void* pszchallengeinfo, void* pwszrealm, void* pwsztarget, void* pbhexhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -411,7 +411,7 @@ int32_t windowssys_windows_win32_networking_wininet_createMD5SSOHash(void* pszch
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_createUrlCacheContainerA(void* name, void* lpcacheprefix, void* lpszcachepath, uint32_t kbcachelimit, uint32_t dwcontainertype, uint32_t dwoptions, void* pvbuffer, void* cbbuffer) {
+int32_t windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerA(void* name, void* lpcacheprefix, void* lpszcachepath, uint32_t kbcachelimit, uint32_t dwcontainertype, uint32_t dwoptions, void* pvbuffer, void* cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -440,7 +440,7 @@ int32_t windowssys_windows_win32_networking_wininet_createUrlCacheContainerA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_createUrlCacheContainerW(void* name, void* lpcacheprefix, void* lpszcachepath, uint32_t kbcachelimit, uint32_t dwcontainertype, uint32_t dwoptions, void* pvbuffer, void* cbbuffer) {
+int32_t windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerW(void* name, void* lpcacheprefix, void* lpszcachepath, uint32_t kbcachelimit, uint32_t dwcontainertype, uint32_t dwoptions, void* pvbuffer, void* cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_networking_wininet_createUrlCacheContainerW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_createUrlCacheEntryA(void* lpszurlname, uint32_t dwexpectedfilesize, void* lpszfileextension, void* lpszfilename, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryA(void* lpszurlname, uint32_t dwexpectedfilesize, void* lpszfileextension, void* lpszfilename, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -495,7 +495,7 @@ int32_t windowssys_windows_win32_networking_wininet_createUrlCacheEntryA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW(void* lpszurlname, uint32_t dwexpectedfilesize, void* lpszfileextension, void* lpszfilename, uint32_t dwreserved, int32_t fpreserveincomingfilename) {
+int32_t windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryExW(void* lpszurlname, uint32_t dwexpectedfilesize, void* lpszfileextension, void* lpszfilename, uint32_t dwreserved, int32_t fpreserveincomingfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -522,7 +522,7 @@ int32_t windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_createUrlCacheEntryW(void* lpszurlname, uint32_t dwexpectedfilesize, void* lpszfileextension, void* lpszfilename, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryW(void* lpszurlname, uint32_t dwexpectedfilesize, void* lpszfileextension, void* lpszfilename, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -548,7 +548,7 @@ int32_t windowssys_windows_win32_networking_wininet_createUrlCacheEntryW(void* l
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_wininet_createUrlCacheGroup(uint32_t dwflags, void* lpreserved) {
+int64_t windowssysWindowsWin32NetworkingWininetCreateUrlCacheGroup(uint32_t dwflags, void* lpreserved) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -571,7 +571,7 @@ int64_t windowssys_windows_win32_networking_wininet_createUrlCacheGroup(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_deleteIE3Cache(void* hwnd, void* hinst, void* lpszcmd, int32_t ncmdshow) {
+uint32_t windowssysWindowsWin32NetworkingWininetDeleteIE3Cache(void* hwnd, void* hinst, void* lpszcmd, int32_t ncmdshow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ uint32_t windowssys_windows_win32_networking_wininet_deleteIE3Cache(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA(void* name, uint32_t dwoptions) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerA(void* name, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW(void* name, uint32_t dwoptions) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteUrlCacheContainerW(void* name, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -642,7 +642,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry(void* lpszurlname) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntry(void* lpszurlname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA(void* lpszurlname) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryA(void* lpszurlname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -686,7 +686,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW(void* lpszurlname) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryW(void* lpszurlname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -708,7 +708,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(int64_t groupid, uint32_t dwflags, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteUrlCacheGroup(int64_t groupid, uint32_t dwflags, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -732,7 +732,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(int32_t param0) {
+int32_t windowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks(int32_t param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -754,7 +754,7 @@ int32_t windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_detectAutoProxyUrl(void* pszautoproxyurl, uint32_t cchautoproxyurl, uint32_t dwdetectflags) {
+int32_t windowssysWindowsWin32NetworkingWininetDetectAutoProxyUrl(void* pszautoproxyurl, uint32_t cchautoproxyurl, uint32_t dwdetectflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -778,7 +778,7 @@ int32_t windowssys_windows_win32_networking_wininet_detectAutoProxyUrl(void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_doConnectoidsExist(void) {
+int32_t windowssysWindowsWin32NetworkingWininetDoConnectoidsExist(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -799,7 +799,7 @@ int32_t windowssys_windows_win32_networking_wininet_doConnectoidsExist(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_exportCookieFileA(void* szfilename, int32_t fappend) {
+int32_t windowssysWindowsWin32NetworkingWininetExportCookieFileA(void* szfilename, int32_t fappend) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ int32_t windowssys_windows_win32_networking_wininet_exportCookieFileA(void* szfi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_exportCookieFileW(void* szfilename, int32_t fappend) {
+int32_t windowssysWindowsWin32NetworkingWininetExportCookieFileW(void* szfilename, int32_t fappend) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -845,7 +845,7 @@ int32_t windowssys_windows_win32_networking_wininet_exportCookieFileW(void* szfi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findCloseUrlCache(void* henumhandle) {
+int32_t windowssysWindowsWin32NetworkingWininetFindCloseUrlCache(void* henumhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -867,7 +867,7 @@ int32_t windowssys_windows_win32_networking_wininet_findCloseUrlCache(void* henu
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA(void* pdwmodified, void* lpcontainerinfo, void* lpcbcontainerinfo, uint32_t dwoptions) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerA(void* pdwmodified, void* lpcontainerinfo, void* lpcbcontainerinfo, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA(vo
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW(void* pdwmodified, void* lpcontainerinfo, void* lpcbcontainerinfo, uint32_t dwoptions) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerW(void* pdwmodified, void* lpcontainerinfo, void* lpcbcontainerinfo, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW(vo
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA(void* lpszurlsearchpattern, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryA(void* lpszurlsearchpattern, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA(void* 
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA(void* lpszurlsearchpattern, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExA(void* lpszurlsearchpattern, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -971,7 +971,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA(void
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW(void* lpszurlsearchpattern, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExW(void* lpszurlsearchpattern, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1001,7 +1001,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW(void
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW(void* lpszurlsearchpattern, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryW(void* lpszurlsearchpattern, void* lpfirstcacheentryinfo, void* lpcbcacheentryinfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1025,7 +1025,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(uint32_t dwflags, uint32_t dwfilter, void* lpsearchcondition, uint32_t dwsearchcondition, void* lpgroupid, void* lpreserved) {
+void* windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheGroup(uint32_t dwflags, uint32_t dwfilter, void* lpsearchcondition, uint32_t dwsearchcondition, void* lpgroupid, void* lpreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1052,7 +1052,7 @@ void* windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA(void* henumhandle, void* lpcontainerinfo, void* lpcbcontainerinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerA(void* henumhandle, void* lpcontainerinfo, void* lpcbcontainerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1076,7 +1076,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW(void* henumhandle, void* lpcontainerinfo, void* lpcbcontainerinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerW(void* henumhandle, void* lpcontainerinfo, void* lpcbcontainerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1100,7 +1100,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryA(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1124,7 +1124,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExA(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1151,7 +1151,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExW(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo, void* lpgroupattributes, void* lpcbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1178,7 +1178,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryW(void* henumhandle, void* lpnextcacheentryinfo, void* lpcbcacheentryinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1202,7 +1202,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup(void* hfind, void* lpgroupid, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetFindNextUrlCacheGroup(void* hfind, void* lpgroupid, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1226,7 +1226,7 @@ int32_t windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_findP3PPolicySymbol(void* pszsymbol) {
+int32_t windowssysWindowsWin32NetworkingWininetFindP3PPolicySymbol(void* pszsymbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1248,7 +1248,7 @@ int32_t windowssys_windows_win32_networking_wininet_findP3PPolicySymbol(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA(void* lpszcachepath, uint32_t dwsize, uint32_t dwfilter) {
+int32_t windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceA(void* lpszcachepath, uint32_t dwsize, uint32_t dwfilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1272,7 +1272,7 @@ int32_t windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW(void* lpszcachepath, uint32_t dwsize, uint32_t dwfilter) {
+int32_t windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceW(void* lpszcachepath, uint32_t dwsize, uint32_t dwfilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1296,7 +1296,7 @@ int32_t windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpCommandA(void* hconnect, int32_t fexpectresponse, uint32_t dwflags, void* lpszcommand, uint64_t dwcontext, void* phftpcommand) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpCommandA(void* hconnect, int32_t fexpectresponse, uint32_t dwflags, void* lpszcommand, uint64_t dwcontext, void* phftpcommand) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1323,7 +1323,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpCommandA(void* hconnect, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpCommandW(void* hconnect, int32_t fexpectresponse, uint32_t dwflags, void* lpszcommand, uint64_t dwcontext, void* phftpcommand) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpCommandW(void* hconnect, int32_t fexpectresponse, uint32_t dwflags, void* lpszcommand, uint64_t dwcontext, void* phftpcommand) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1350,7 +1350,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpCommandW(void* hconnect, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA(void* hconnect, void* lpszdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryA(void* hconnect, void* lpszdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1373,7 +1373,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW(void* hconnect, void* lpszdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryW(void* hconnect, void* lpszdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1396,7 +1396,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpDeleteFileA(void* hconnect, void* lpszfilename) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpDeleteFileA(void* hconnect, void* lpszfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1419,7 +1419,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpDeleteFileA(void* hconnec
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpDeleteFileW(void* hconnect, void* lpszfilename) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpDeleteFileW(void* hconnect, void* lpszfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1442,7 +1442,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpDeleteFileW(void* hconnec
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_ftpFindFirstFileA(void* hconnect, void* lpszsearchfile, void* lpfindfiledata, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetFtpFindFirstFileA(void* hconnect, void* lpszsearchfile, void* lpfindfiledata, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1468,7 +1468,7 @@ void* windowssys_windows_win32_networking_wininet_ftpFindFirstFileA(void* hconne
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_ftpFindFirstFileW(void* hconnect, void* lpszsearchfile, void* lpfindfiledata, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetFtpFindFirstFileW(void* hconnect, void* lpszsearchfile, void* lpfindfiledata, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1494,7 +1494,7 @@ void* windowssys_windows_win32_networking_wininet_ftpFindFirstFileW(void* hconne
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA(void* hconnect, void* lpszcurrentdirectory, void* lpdwcurrentdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryA(void* hconnect, void* lpszcurrentdirectory, void* lpdwcurrentdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1518,7 +1518,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW(void* hconnect, void* lpszcurrentdirectory, void* lpdwcurrentdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryW(void* hconnect, void* lpszcurrentdirectory, void* lpdwcurrentdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1542,7 +1542,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpGetFileA(void* hconnect, void* lpszremotefile, void* lpsznewfile, int32_t ffailifexists, uint32_t dwflagsandattributes, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpGetFileA(void* hconnect, void* lpszremotefile, void* lpsznewfile, int32_t ffailifexists, uint32_t dwflagsandattributes, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpGetFileA(void* hconnect, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpGetFileEx(void* hftpsession, void* lpszremotefile, void* lpsznewfile, int32_t ffailifexists, uint32_t dwflagsandattributes, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpGetFileEx(void* hftpsession, void* lpszremotefile, void* lpsznewfile, int32_t ffailifexists, uint32_t dwflagsandattributes, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1598,7 +1598,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpGetFileEx(void* hftpsessi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_ftpGetFileSize(void* hfile, void* lpdwfilesizehigh) {
+uint32_t windowssysWindowsWin32NetworkingWininetFtpGetFileSize(void* hfile, void* lpdwfilesizehigh) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1621,7 +1621,7 @@ uint32_t windowssys_windows_win32_networking_wininet_ftpGetFileSize(void* hfile,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpGetFileW(void* hconnect, void* lpszremotefile, void* lpsznewfile, int32_t ffailifexists, uint32_t dwflagsandattributes, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpGetFileW(void* hconnect, void* lpszremotefile, void* lpsznewfile, int32_t ffailifexists, uint32_t dwflagsandattributes, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1649,7 +1649,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpGetFileW(void* hconnect, 
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_ftpOpenFileA(void* hconnect, void* lpszfilename, uint32_t dwaccess, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetFtpOpenFileA(void* hconnect, void* lpszfilename, uint32_t dwaccess, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1675,7 +1675,7 @@ void* windowssys_windows_win32_networking_wininet_ftpOpenFileA(void* hconnect, v
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_ftpOpenFileW(void* hconnect, void* lpszfilename, uint32_t dwaccess, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetFtpOpenFileW(void* hconnect, void* lpszfilename, uint32_t dwaccess, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1701,7 +1701,7 @@ void* windowssys_windows_win32_networking_wininet_ftpOpenFileW(void* hconnect, v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpPutFileA(void* hconnect, void* lpszlocalfile, void* lpsznewremotefile, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpPutFileA(void* hconnect, void* lpszlocalfile, void* lpsznewremotefile, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1727,7 +1727,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpPutFileA(void* hconnect, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpPutFileEx(void* hftpsession, void* lpszlocalfile, void* lpsznewremotefile, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpPutFileEx(void* hftpsession, void* lpszlocalfile, void* lpsznewremotefile, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1753,7 +1753,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpPutFileEx(void* hftpsessi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpPutFileW(void* hconnect, void* lpszlocalfile, void* lpsznewremotefile, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpPutFileW(void* hconnect, void* lpszlocalfile, void* lpsznewremotefile, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1779,7 +1779,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpPutFileW(void* hconnect, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA(void* hconnect, void* lpszdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryA(void* hconnect, void* lpszdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1802,7 +1802,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW(void* hconnect, void* lpszdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryW(void* hconnect, void* lpszdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1825,7 +1825,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpRenameFileA(void* hconnect, void* lpszexisting, void* lpsznew) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpRenameFileA(void* hconnect, void* lpszexisting, void* lpsznew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1849,7 +1849,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpRenameFileA(void* hconnec
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpRenameFileW(void* hconnect, void* lpszexisting, void* lpsznew) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpRenameFileW(void* hconnect, void* lpszexisting, void* lpsznew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1873,7 +1873,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpRenameFileW(void* hconnec
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA(void* hconnect, void* lpszdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryA(void* hconnect, void* lpszdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1896,7 +1896,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW(void* hconnect, void* lpszdirectory) {
+int32_t windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryW(void* hconnect, void* lpszdirectory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1919,7 +1919,7 @@ int32_t windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getDiskInfoA(void* pszpath, void* pdwclustersize, void* pdlavail, void* pdltotal) {
+int32_t windowssysWindowsWin32NetworkingWininetGetDiskInfoA(void* pszpath, void* pdwclustersize, void* pdlavail, void* pdltotal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1944,7 +1944,7 @@ int32_t windowssys_windows_win32_networking_wininet_getDiskInfoA(void* pszpath, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA(void* lpcacheconfiginfo, void* lpcbcacheconfiginfo, uint32_t dwfieldcontrol) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoA(void* lpcacheconfiginfo, void* lpcbcacheconfiginfo, uint32_t dwfieldcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1968,7 +1968,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW(void* lpcacheconfiginfo, void* lpcbcacheconfiginfo, uint32_t dwfieldcontrol) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoW(void* lpcacheconfiginfo, void* lpcbcacheconfiginfo, uint32_t dwfieldcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1992,7 +1992,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob(void* pwszurlname, void* dwtype, void* pftexpiretime, void* pftaccesstime, void* pftmodifiedtime, void* ppbblob, void* pcbblob) {
+uint32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryBinaryBlob(void* pwszurlname, void* dwtype, void* pftexpiretime, void* pftaccesstime, void* pftmodifiedtime, void* ppbblob, void* pcbblob) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2020,7 +2020,7 @@ uint32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoA(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2044,7 +2044,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA(void* lpszurl, void* lpcacheentryinfo, void* lpcbcacheentryinfo, void* lpszredirecturl, void* lpcbredirecturl, void* lpreserved, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExA(void* lpszurl, void* lpcacheentryinfo, void* lpcbcacheentryinfo, void* lpszredirecturl, void* lpcbredirecturl, void* lpreserved, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2072,7 +2072,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW(void* lpszurl, void* lpcacheentryinfo, void* lpcbcacheentryinfo, void* lpszredirecturl, void* lpcbredirecturl, void* lpreserved, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExW(void* lpszurl, void* lpcacheentryinfo, void* lpcbcacheentryinfo, void* lpszredirecturl, void* lpcbredirecturl, void* lpreserved, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2100,7 +2100,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoW(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2124,7 +2124,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpcbgroupinfo, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeA(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpcbgroupinfo, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2151,7 +2151,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpcbgroupinfo, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeW(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpcbgroupinfo, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2178,7 +2178,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(uint32_t nidx, void* lpdwdata) {
+int32_t windowssysWindowsWin32NetworkingWininetGetUrlCacheHeaderData(uint32_t nidx, void* lpdwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2201,7 +2201,7 @@ int32_t windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_gopherCreateLocatorA(void* lpszhost, uint16_t nserverport, void* lpszdisplaystring, void* lpszselectorstring, uint32_t dwgophertype, void* lpszlocator, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetGopherCreateLocatorA(void* lpszhost, uint16_t nserverport, void* lpszdisplaystring, void* lpszselectorstring, uint32_t dwgophertype, void* lpszlocator, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2229,7 +2229,7 @@ int32_t windowssys_windows_win32_networking_wininet_gopherCreateLocatorA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_gopherCreateLocatorW(void* lpszhost, uint16_t nserverport, void* lpszdisplaystring, void* lpszselectorstring, uint32_t dwgophertype, void* lpszlocator, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetGopherCreateLocatorW(void* lpszhost, uint16_t nserverport, void* lpszdisplaystring, void* lpszselectorstring, uint32_t dwgophertype, void* lpszlocator, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2257,7 +2257,7 @@ int32_t windowssys_windows_win32_networking_wininet_gopherCreateLocatorW(void* l
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_gopherFindFirstFileA(void* hconnect, void* lpszlocator, void* lpszsearchstring, void* lpfinddata, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetGopherFindFirstFileA(void* hconnect, void* lpszlocator, void* lpszsearchstring, void* lpfinddata, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2284,7 +2284,7 @@ void* windowssys_windows_win32_networking_wininet_gopherFindFirstFileA(void* hco
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_gopherFindFirstFileW(void* hconnect, void* lpszlocator, void* lpszsearchstring, void* lpfinddata, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetGopherFindFirstFileW(void* hconnect, void* lpszlocator, void* lpszsearchstring, void* lpfinddata, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2311,7 +2311,7 @@ void* windowssys_windows_win32_networking_wininet_gopherFindFirstFileW(void* hco
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_gopherGetAttributeA(void* hconnect, void* lpszlocator, void* lpszattributename, void* lpbuffer, uint32_t dwbufferlength, void* lpdwcharactersreturned, void* lpfnenumerator, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetGopherGetAttributeA(void* hconnect, void* lpszlocator, void* lpszattributename, void* lpbuffer, uint32_t dwbufferlength, void* lpdwcharactersreturned, void* lpfnenumerator, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2340,7 +2340,7 @@ int32_t windowssys_windows_win32_networking_wininet_gopherGetAttributeA(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_gopherGetAttributeW(void* hconnect, void* lpszlocator, void* lpszattributename, void* lpbuffer, uint32_t dwbufferlength, void* lpdwcharactersreturned, void* lpfnenumerator, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetGopherGetAttributeW(void* hconnect, void* lpszlocator, void* lpszattributename, void* lpbuffer, uint32_t dwbufferlength, void* lpdwcharactersreturned, void* lpfnenumerator, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2369,7 +2369,7 @@ int32_t windowssys_windows_win32_networking_wininet_gopherGetAttributeW(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA(void* lpszlocator, void* lpdwgophertype) {
+int32_t windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeA(void* lpszlocator, void* lpdwgophertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2392,7 +2392,7 @@ int32_t windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW(void* lpszlocator, void* lpdwgophertype) {
+int32_t windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeW(void* lpszlocator, void* lpdwgophertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2415,7 +2415,7 @@ int32_t windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_gopherOpenFileA(void* hconnect, void* lpszlocator, void* lpszview, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetGopherOpenFileA(void* hconnect, void* lpszlocator, void* lpszview, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2441,7 +2441,7 @@ void* windowssys_windows_win32_networking_wininet_gopherOpenFileA(void* hconnect
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_gopherOpenFileW(void* hconnect, void* lpszlocator, void* lpszview, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetGopherOpenFileW(void* hconnect, void* lpszlocator, void* lpszview, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2467,7 +2467,7 @@ void* windowssys_windows_win32_networking_wininet_gopherOpenFileW(void* hconnect
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwmodifiers) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersA(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwmodifiers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2492,7 +2492,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwmodifiers) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersW(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwmodifiers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2517,7 +2517,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA(void* lpszurl, void* lpszcompliancetoken, void* lpffound, void* hwnd, void* lpvreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceA(void* lpszurl, void* lpszcompliancetoken, void* lpffound, void* hwnd, void* lpvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2543,7 +2543,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW(void* lpszurl, void* lpszcompliancetoken, void* lpffound, void* hwnd, void* lpvreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceW(void* lpszurl, void* lpszcompliancetoken, void* lpffound, void* hwnd, void* lpvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2569,7 +2569,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW(void
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle(void* hdependencyhandle) {
+void windowssysWindowsWin32NetworkingWininetHttpCloseDependencyHandle(void* hdependencyhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2590,7 +2590,7 @@ void windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle(void* hdependencyhandle, void* phduplicateddependencyhandle) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpDuplicateDependencyHandle(void* hdependencyhandle, void* phduplicateddependencyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2613,7 +2613,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHand
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpEndRequestA(void* hrequest, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpEndRequestA(void* hrequest, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2638,7 +2638,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpEndRequestA(void* hreque
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpEndRequestW(void* hrequest, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpEndRequestW(void* hrequest, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2663,7 +2663,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpEndRequestW(void* hreque
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpGetServerCredentials(void* pwszurl, void* ppwszusername, void* ppwszpassword) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpGetServerCredentials(void* pwszurl, void* ppwszusername, void* ppwszpassword) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2687,7 +2687,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpGetServerCredentials(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete(void* hdependencyhandle) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpIndicatePageLoadComplete(void* hdependencyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2709,7 +2709,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplet
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled(void* pcwszurl, void* pfishsts) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpIsHostHstsEnabled(void* pcwszurl, void* pfishsts) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2732,7 +2732,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle(void* hrequesthandle, int32_t fbackground, void* phdependencyhandle) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpOpenDependencyHandle(void* hrequesthandle, int32_t fbackground, void* phdependencyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2756,7 +2756,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle(vo
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_httpOpenRequestA(void* hconnect, void* lpszverb, void* lpszobjectname, void* lpszversion, void* lpszreferrer, void* lplpszaccepttypes, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetHttpOpenRequestA(void* hconnect, void* lpszverb, void* lpszobjectname, void* lpszversion, void* lpszreferrer, void* lplpszaccepttypes, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2785,7 +2785,7 @@ void* windowssys_windows_win32_networking_wininet_httpOpenRequestA(void* hconnec
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_httpOpenRequestW(void* hconnect, void* lpszverb, void* lpszobjectname, void* lpszversion, void* lpszreferrer, void* lplpszaccepttypes, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetHttpOpenRequestW(void* hconnect, void* lpszverb, void* lpszobjectname, void* lpszversion, void* lpszreferrer, void* lplpszaccepttypes, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2814,7 +2814,7 @@ void* windowssys_windows_win32_networking_wininet_httpOpenRequestW(void* hconnec
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_httpPushClose(void* hwait) {
+void windowssysWindowsWin32NetworkingWininetHttpPushClose(void* hwait) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2835,7 +2835,7 @@ void windowssys_windows_win32_networking_wininet_httpPushClose(void* hwait) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpPushEnable(void* hrequest, void* ptransportsetting, void* phwait) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpPushEnable(void* hrequest, void* ptransportsetting, void* phwait) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2859,7 +2859,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpPushEnable(void* hreque
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_httpPushWait(void* hwait, int32_t etype, void* pnotificationstatus) {
+uint32_t windowssysWindowsWin32NetworkingWininetHttpPushWait(void* hwait, int32_t etype, void* pnotificationstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2883,7 +2883,7 @@ uint32_t windowssys_windows_win32_networking_wininet_httpPushWait(void* hwait, i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpQueryInfoA(void* hrequest, uint32_t dwinfolevel, void* lpbuffer, void* lpdwbufferlength, void* lpdwindex) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpQueryInfoA(void* hrequest, uint32_t dwinfolevel, void* lpbuffer, void* lpdwbufferlength, void* lpdwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2909,7 +2909,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpQueryInfoA(void* hreques
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpQueryInfoW(void* hrequest, uint32_t dwinfolevel, void* lpbuffer, void* lpdwbufferlength, void* lpdwindex) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpQueryInfoW(void* hrequest, uint32_t dwinfolevel, void* lpbuffer, void* lpdwbufferlength, void* lpdwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2935,7 +2935,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpQueryInfoW(void* hreques
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpSendRequestA(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, void* lpoptional, uint32_t dwoptionallength) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpSendRequestA(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, void* lpoptional, uint32_t dwoptionallength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2961,7 +2961,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpSendRequestA(void* hrequ
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpSendRequestExA(void* hrequest, void* lpbuffersin, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpSendRequestExA(void* hrequest, void* lpbuffersin, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2987,7 +2987,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpSendRequestExA(void* hre
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpSendRequestExW(void* hrequest, void* lpbuffersin, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpSendRequestExW(void* hrequest, void* lpbuffersin, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3013,7 +3013,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpSendRequestExW(void* hre
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpSendRequestW(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, void* lpoptional, uint32_t dwoptionallength) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpSendRequestW(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, void* lpoptional, uint32_t dwoptionallength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3039,7 +3039,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpSendRequestW(void* hrequ
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpWebSocketClose(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpWebSocketClose(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3064,7 +3064,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpWebSocketClose(void* hwe
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade(void* hrequest, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetHttpWebSocketCompleteUpgrade(void* hrequest, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3087,7 +3087,7 @@ void* windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus(void* hwebsocket, void* pusstatus, void* pvreason, uint32_t dwreasonlength, void* pdwreasonlengthconsumed) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpWebSocketQueryCloseStatus(void* hwebsocket, void* pusstatus, void* pvreason, uint32_t dwreasonlength, void* pdwreasonlengthconsumed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3113,7 +3113,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpWebSocketReceive(void* hwebsocket, void* pvbuffer, uint32_t dwbufferlength, void* pdwbytesread, void* pbuffertype) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpWebSocketReceive(void* hwebsocket, void* pvbuffer, uint32_t dwbufferlength, void* pdwbytesread, void* pbuffertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3139,7 +3139,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpWebSocketReceive(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpWebSocketSend(void* hwebsocket, int32_t buffertype, void* pvbuffer, uint32_t dwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpWebSocketSend(void* hwebsocket, int32_t buffertype, void* pvbuffer, uint32_t dwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3164,7 +3164,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpWebSocketSend(void* hweb
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_httpWebSocketShutdown(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
+int32_t windowssysWindowsWin32NetworkingWininetHttpWebSocketShutdown(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3189,7 +3189,7 @@ int32_t windowssys_windows_win32_networking_wininet_httpWebSocketShutdown(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_importCookieFileA(void* szfilename) {
+int32_t windowssysWindowsWin32NetworkingWininetImportCookieFileA(void* szfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3211,7 +3211,7 @@ int32_t windowssys_windows_win32_networking_wininet_importCookieFileA(void* szfi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_importCookieFileW(void* szfilename) {
+int32_t windowssysWindowsWin32NetworkingWininetImportCookieFileW(void* szfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3233,7 +3233,7 @@ int32_t windowssys_windows_win32_networking_wininet_importCookieFileW(void* szfi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(uint32_t nidx, void* lpdwdata) {
+int32_t windowssysWindowsWin32NetworkingWininetIncrementUrlCacheHeaderData(uint32_t nidx, void* lpdwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3256,7 +3256,7 @@ int32_t windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internalInternetGetCookie(void* lpszurl, void* lpszcookiedata, void* lpdwdatasize) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternalInternetGetCookie(void* lpszurl, void* lpszcookiedata, void* lpdwdatasize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3280,7 +3280,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internalInternetGetCookie(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(uint32_t ai, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringA(uint32_t ai, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3305,7 +3305,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(uint32_t ai, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringW(uint32_t ai, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3330,7 +3330,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetAttemptConnect(uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetAttemptConnect(uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3352,7 +3352,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetAttemptConnect(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetAutodial(uint32_t dwflags, void* hwndparent) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetAutodial(uint32_t dwflags, void* hwndparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3375,7 +3375,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetAutodial(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetAutodialHangup(uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetAutodialHangup(uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3397,7 +3397,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetAutodialHangup(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA(void* lpszurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlA(void* lpszurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3422,7 +3422,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW(void* lpszurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlW(void* lpszurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3447,7 +3447,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCheckConnectionA(void* lpszurl, uint32_t dwflags, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCheckConnectionA(void* lpszurl, uint32_t dwflags, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3471,7 +3471,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCheckConnectionA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCheckConnectionW(void* lpszurl, uint32_t dwflags, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCheckConnectionW(void* lpszurl, uint32_t dwflags, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3495,7 +3495,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCheckConnectionW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions(void) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3516,7 +3516,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCooki
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCloseHandle(void* hinternet) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCloseHandle(void* hinternet) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3538,7 +3538,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCloseHandle(void* hi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCombineUrlA(void* lpszbaseurl, void* lpszrelativeurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCombineUrlA(void* lpszbaseurl, void* lpszrelativeurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3564,7 +3564,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCombineUrlA(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCombineUrlW(void* lpszbaseurl, void* lpszrelativeurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCombineUrlW(void* lpszbaseurl, void* lpszrelativeurl, void* lpszbuffer, void* lpdwbufferlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3590,7 +3590,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCombineUrlW(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing(void* hwnd, void* szurlprev, void* szurlnew, int32_t bpost) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossing(void* hwnd, void* szurlprev, void* szurlnew, int32_t bpost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3615,7 +3615,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA(void* hwnd, void* szurlprev, void* szurlnew, int32_t bpost) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingA(void* hwnd, void* szurlprev, void* szurlnew, int32_t bpost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3640,7 +3640,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW(void* hwnd, void* szurlprev, void* szurlnew, int32_t bpost) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingW(void* hwnd, void* szurlprev, void* szurlnew, int32_t bpost) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3665,7 +3665,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetConnectA(void* hinternet, void* lpszservername, uint16_t nserverport, void* lpszusername, void* lpszpassword, uint32_t dwservice, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetInternetConnectA(void* hinternet, void* lpszservername, uint16_t nserverport, void* lpszusername, void* lpszpassword, uint32_t dwservice, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t, void*, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3694,7 +3694,7 @@ void* windowssys_windows_win32_networking_wininet_internetConnectA(void* hintern
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetConnectW(void* hinternet, void* lpszservername, uint16_t nserverport, void* lpszusername, void* lpszpassword, uint32_t dwservice, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetInternetConnectW(void* hinternet, void* lpszservername, uint16_t nserverport, void* lpszusername, void* lpszpassword, uint32_t dwservice, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t, void*, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3723,7 +3723,7 @@ void* windowssys_windows_win32_networking_wininet_internetConnectW(void* hintern
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar(void* pcszurl, uint32_t cchurl, void* pcwszbaseurl, uint32_t dwcodepagehost, uint32_t dwcodepagepath, int32_t fencodepathextra, uint32_t dwcodepageextra, void* ppwszconvertedurl) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetConvertUrlFromWireToWideChar(void* pcszurl, uint32_t cchurl, void* pcwszbaseurl, uint32_t dwcodepagehost, uint32_t dwcodepagepath, int32_t fencodepathextra, uint32_t dwcodepageextra, void* ppwszconvertedurl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3752,7 +3752,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireT
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCrackUrlA(void* lpszurl, uint32_t dwurllength, uint32_t dwflags, void* lpurlcomponents) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCrackUrlA(void* lpszurl, uint32_t dwurllength, uint32_t dwflags, void* lpurlcomponents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3777,7 +3777,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCrackUrlA(void* lpsz
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCrackUrlW(void* lpszurl, uint32_t dwurllength, uint32_t dwflags, void* lpurlcomponents) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCrackUrlW(void* lpszurl, uint32_t dwurllength, uint32_t dwflags, void* lpurlcomponents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3802,7 +3802,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCrackUrlW(void* lpsz
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCreateUrlA(void* lpurlcomponents, uint32_t dwflags, void* lpszurl, void* lpdwurllength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCreateUrlA(void* lpurlcomponents, uint32_t dwflags, void* lpszurl, void* lpdwurllength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3827,7 +3827,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCreateUrlA(void* lpu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetCreateUrlW(void* lpurlcomponents, uint32_t dwflags, void* lpszurl, void* lpdwurllength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetCreateUrlW(void* lpurlcomponents, uint32_t dwflags, void* lpszurl, void* lpdwurllength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3852,7 +3852,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetCreateUrlW(void* lpu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetDial(void* hwndparent, void* lpszconnectoid, uint32_t dwflags, void* lpdwconnection, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetDial(void* hwndparent, void* lpszconnectoid, uint32_t dwflags, void* lpdwconnection, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3878,7 +3878,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetDial(void* hwndpare
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetDialA(void* hwndparent, void* lpszconnectoid, uint32_t dwflags, void* lpdwconnection, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetDialA(void* hwndparent, void* lpszconnectoid, uint32_t dwflags, void* lpdwconnection, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3904,7 +3904,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetDialA(void* hwndpar
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetDialW(void* hwndparent, void* lpszconnectoid, uint32_t dwflags, void* lpdwconnection, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetDialW(void* hwndparent, void* lpszconnectoid, uint32_t dwflags, void* lpdwconnection, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3930,7 +3930,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetDialW(void* hwndpar
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA(void* pszsitename, void* pcsitenamesize, void* pdwdecision, uint32_t dwindex) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionA(void* pszsitename, void* pcsitenamesize, void* pdwdecision, uint32_t dwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3955,7 +3955,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDec
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW(void* pszsitename, void* pcsitenamesize, void* pdwdecision, uint32_t dwindex) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionW(void* pszsitename, void* pcsitenamesize, void* pdwdecision, uint32_t dwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3980,7 +3980,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDec
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetErrorDlg(void* hwnd, void* hrequest, uint32_t dwerror, uint32_t dwflags, void* lppvdata) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetErrorDlg(void* hwnd, void* hrequest, uint32_t dwerror, uint32_t dwflags, void* lppvdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4006,7 +4006,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetErrorDlg(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetFindNextFileA(void* hfind, void* lpvfinddata) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetFindNextFileA(void* hfind, void* lpvfinddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4029,7 +4029,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetFindNextFileA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetFindNextFileW(void* hfind, void* lpvfinddata) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetFindNextFileW(void* hfind, void* lpvfinddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4052,7 +4052,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetFindNextFileW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetFortezzaCommand(uint32_t dwcommand, void* hwnd, uint64_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetFortezzaCommand(uint32_t dwcommand, void* hwnd, uint64_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4076,7 +4076,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetFortezzaCommand(uint
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_internetFreeCookies(void* pcookies, uint32_t dwcookiecount) {
+void windowssysWindowsWin32NetworkingWininetInternetFreeCookies(void* pcookies, uint32_t dwcookiecount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4098,7 +4098,7 @@ void windowssys_windows_win32_networking_wininet_internetFreeCookies(void* pcook
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList(void* pproxyinfolist) {
+void windowssysWindowsWin32NetworkingWininetInternetFreeProxyInfoList(void* pproxyinfolist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4119,7 +4119,7 @@ void windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedState(void* lpdwflags, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetConnectedState(void* lpdwflags, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4142,7 +4142,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedState(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx(void* lpdwflags, void* lpszconnectionname, uint32_t dwnamelen, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateEx(void* lpdwflags, void* lpszconnectionname, uint32_t dwnamelen, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4167,7 +4167,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA(void* lpdwflags, void* lpszconnectionname, uint32_t cchnamelen, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExA(void* lpdwflags, void* lpszconnectionname, uint32_t cchnamelen, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4192,7 +4192,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW(void* lpdwflags, void* lpszconnectionname, uint32_t cchnamelen, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExW(void* lpdwflags, void* lpszconnectionname, uint32_t cchnamelen, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4217,7 +4217,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetCookieA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetCookieA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4242,7 +4242,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetCookieA(void* lps
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetGetCookieEx2(void* pcwszurl, void* pcwszcookiename, uint32_t dwflags, void* ppcookies, void* pdwcookiecount) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetGetCookieEx2(void* pcwszurl, void* pcwszcookiename, uint32_t dwflags, void* ppcookies, void* pdwcookiecount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4268,7 +4268,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetGetCookieEx2(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetCookieExA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize, uint32_t dwflags, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetCookieExA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize, uint32_t dwflags, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4295,7 +4295,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetCookieExA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetCookieExW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize, uint32_t dwflags, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetCookieExW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize, uint32_t dwflags, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4322,7 +4322,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetCookieExW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetCookieW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetCookieW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, void* lpdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4347,7 +4347,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetCookieW(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA(void* lpdwerror, void* lpszbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoA(void* lpdwerror, void* lpszbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4371,7 +4371,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW(void* lpdwerror, void* lpszbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoW(void* lpdwerror, void* lpszbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4395,7 +4395,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA(void* pchhostname, void* presult) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionA(void* pchhostname, void* presult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4418,7 +4418,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDeci
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW(void* pchhostname, void* presult) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionW(void* pchhostname, void* presult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4441,7 +4441,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDeci
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetGetProxyForUrl(void* hinternet, void* pcwszurl, void* pproxyinfolist) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetGetProxyForUrl(void* hinternet, void* pcwszurl, void* pproxyinfolist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4465,7 +4465,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetGetProxyForUrl(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL(void* lpszurl, void* ppcertchain, void* pdwsecureflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURL(void* lpszurl, void* ppcertchain, void* pdwsecureflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4489,7 +4489,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA(void* lpszurl, void* ppcertchain, void* pdwsecureflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLA(void* lpszurl, void* ppcertchain, void* pdwsecureflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4513,7 +4513,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW(void* lpszurl, void* ppcertchain, void* pdwsecureflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLW(void* lpszurl, void* ppcertchain, void* pdwsecureflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4537,7 +4537,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGoOnline(void* lpszurl, void* hwndparent, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGoOnline(void* lpszurl, void* hwndparent, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4561,7 +4561,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGoOnline(void* lpszu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGoOnlineA(void* lpszurl, void* hwndparent, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGoOnlineA(void* lpszurl, void* hwndparent, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4585,7 +4585,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGoOnlineA(void* lpsz
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetGoOnlineW(void* lpszurl, void* hwndparent, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetGoOnlineW(void* lpszurl, void* hwndparent, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4609,7 +4609,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetGoOnlineW(void* lpsz
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetHangUp(uint64_t dwconnection, uint32_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetHangUp(uint64_t dwconnection, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4632,7 +4632,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetHangUp(uint64_t dwc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll(uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4654,7 +4654,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyD
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetLockRequestFile(void* hinternet, void* lphlockrequestinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetLockRequestFile(void* hinternet, void* lphlockrequestinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4677,7 +4677,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetLockRequestFile(void
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetOpenA(void* lpszagent, uint32_t dwaccesstype, void* lpszproxy, void* lpszproxybypass, uint32_t dwflags) {
+void* windowssysWindowsWin32NetworkingWininetInternetOpenA(void* lpszagent, uint32_t dwaccesstype, void* lpszproxy, void* lpszproxybypass, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4703,7 +4703,7 @@ void* windowssys_windows_win32_networking_wininet_internetOpenA(void* lpszagent,
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetOpenUrlA(void* hinternet, void* lpszurl, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetInternetOpenUrlA(void* hinternet, void* lpszurl, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4730,7 +4730,7 @@ void* windowssys_windows_win32_networking_wininet_internetOpenUrlA(void* hintern
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetOpenUrlW(void* hinternet, void* lpszurl, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwflags, uint64_t dwcontext) {
+void* windowssysWindowsWin32NetworkingWininetInternetOpenUrlW(void* hinternet, void* lpszurl, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4757,7 +4757,7 @@ void* windowssys_windows_win32_networking_wininet_internetOpenUrlW(void* hintern
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetOpenW(void* lpszagent, uint32_t dwaccesstype, void* lpszproxy, void* lpszproxybypass, uint32_t dwflags) {
+void* windowssysWindowsWin32NetworkingWininetInternetOpenW(void* lpszagent, uint32_t dwaccesstype, void* lpszproxy, void* lpszproxybypass, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4783,7 +4783,7 @@ void* windowssys_windows_win32_networking_wininet_internetOpenW(void* lpszagent,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetQueryDataAvailable(void* hfile, void* lpdwnumberofbytesavailable, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetQueryDataAvailable(void* hfile, void* lpdwnumberofbytesavailable, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4808,7 +4808,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetQueryDataAvailable(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus(void* pdwstatus, uint64_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetQueryFortezzaStatus(void* pdwstatus, uint64_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4831,7 +4831,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetQueryOptionA(void* hinternet, uint32_t dwoption, void* lpbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetQueryOptionA(void* hinternet, uint32_t dwoption, void* lpbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4856,7 +4856,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetQueryOptionA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetQueryOptionW(void* hinternet, uint32_t dwoption, void* lpbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetQueryOptionW(void* hinternet, uint32_t dwoption, void* lpbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4881,7 +4881,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetQueryOptionW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetReadFile(void* hfile, void* lpbuffer, uint32_t dwnumberofbytestoread, void* lpdwnumberofbytesread) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetReadFile(void* hfile, void* lpbuffer, uint32_t dwnumberofbytestoread, void* lpdwnumberofbytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4906,7 +4906,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetReadFile(void* hfile
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetReadFileExA(void* hfile, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetReadFileExA(void* hfile, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4931,7 +4931,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetReadFileExA(void* hf
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetReadFileExW(void* hfile, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetReadFileExW(void* hfile, void* lpbuffersout, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4956,7 +4956,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetReadFileExW(void* hf
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(uint32_t dwprotocol, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringA(uint32_t dwprotocol, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4981,7 +4981,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSecurityProtocolToSt
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(uint32_t dwprotocol, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringW(uint32_t dwprotocol, void* lpstr, void* lpdwstrlength, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5006,7 +5006,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSecurityProtocolToSt
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetCookieA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetCookieA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5030,7 +5030,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetCookieA(void* lps
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetSetCookieEx2(void* pcwszurl, void* pcookie, void* pcwszp3ppolicy, uint32_t dwflags, void* pdwcookiestate) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetSetCookieEx2(void* pcwszurl, void* pcookie, void* pcwszp3ppolicy, uint32_t dwflags, void* pdwcookiestate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5056,7 +5056,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetSetCookieEx2(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetSetCookieExA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, uint32_t dwflags, uint64_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetSetCookieExA(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, uint32_t dwflags, uint64_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5082,7 +5082,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetSetCookieExA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetSetCookieExW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, uint32_t dwflags, uint64_t dwreserved) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetSetCookieExW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata, uint32_t dwflags, uint64_t dwreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5108,7 +5108,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetSetCookieExW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetCookieW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetCookieW(void* lpszurl, void* lpszcookiename, void* lpszcookiedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5132,7 +5132,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetCookieW(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetDialState(void* lpszconnectoid, uint32_t dwstate, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetDialState(void* lpszconnectoid, uint32_t dwstate, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5156,7 +5156,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetDialState(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetDialStateA(void* lpszconnectoid, uint32_t dwstate, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetDialStateA(void* lpszconnectoid, uint32_t dwstate, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5180,7 +5180,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetDialStateA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetDialStateW(void* lpszconnectoid, uint32_t dwstate, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetDialStateW(void* lpszconnectoid, uint32_t dwstate, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5204,7 +5204,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetDialStateW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_internetSetFilePointer(void* hfile, int32_t ldistancetomove, void* lpdistancetomovehigh, uint32_t dwmovemethod, uint64_t dwcontext) {
+uint32_t windowssysWindowsWin32NetworkingWininetInternetSetFilePointer(void* hfile, int32_t ldistancetomove, void* lpdistancetomovehigh, uint32_t dwmovemethod, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5230,7 +5230,7 @@ uint32_t windowssys_windows_win32_networking_wininet_internetSetFilePointer(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetOptionA(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetOptionA(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5255,7 +5255,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetOptionA(void* hin
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetOptionExA(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetOptionExA(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5281,7 +5281,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetOptionExA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetOptionExW(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetOptionExW(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5307,7 +5307,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetOptionExW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetOptionW(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetOptionW(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5332,7 +5332,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetOptionW(void* hin
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA(void* pchhostname, uint32_t dwdecision) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionA(void* pchhostname, uint32_t dwdecision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5355,7 +5355,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDeci
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW(void* pchhostname, uint32_t dwdecision) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionW(void* pchhostname, uint32_t dwdecision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5378,7 +5378,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDeci
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetSetStatusCallback(void* hinternet, void* lpfninternetcallback) {
+void* windowssysWindowsWin32NetworkingWininetInternetSetStatusCallback(void* hinternet, void* lpfninternetcallback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5401,7 +5401,7 @@ void* windowssys_windows_win32_networking_wininet_internetSetStatusCallback(void
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA(void* hinternet, void* lpfninternetcallback) {
+void* windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackA(void* hinternet, void* lpfninternetcallback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5424,7 +5424,7 @@ void* windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA(voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW(void* hinternet, void* lpfninternetcallback) {
+void* windowssysWindowsWin32NetworkingWininetInternetSetStatusCallbackW(void* hinternet, void* lpfninternetcallback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5447,7 +5447,7 @@ void* windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL(void* lpszurl, void* hwndparent) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURL(void* lpszurl, void* hwndparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5470,7 +5470,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByUR
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA(void* lpszurl, void* hwndparent) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLA(void* lpszurl, void* hwndparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5493,7 +5493,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByUR
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW(void* lpszurl, void* hwndparent) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLW(void* lpszurl, void* hwndparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5516,7 +5516,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByUR
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime(void* pst, uint32_t dwrfc, void* lpsztime, uint32_t cbtime) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTime(void* pst, uint32_t dwrfc, void* lpsztime, uint32_t cbtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5541,7 +5541,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA(void* pst, uint32_t dwrfc, void* lpsztime, uint32_t cbtime) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeA(void* pst, uint32_t dwrfc, void* lpsztime, uint32_t cbtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5566,7 +5566,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW(void* pst, uint32_t dwrfc, void* lpsztime, uint32_t cbtime) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeW(void* pst, uint32_t dwrfc, void* lpsztime, uint32_t cbtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5591,7 +5591,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetTimeToSystemTime(void* lpsztime, void* pst, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTime(void* lpsztime, void* pst, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5615,7 +5615,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetTimeToSystemTime(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA(void* lpsztime, void* pst, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeA(void* lpsztime, void* pst, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5639,7 +5639,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW(void* lpsztime, void* pst, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeW(void* lpsztime, void* pst, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5663,7 +5663,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetUnlockRequestFile(void* hlockrequestinfo) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetUnlockRequestFile(void* hlockrequestinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5685,7 +5685,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetUnlockRequestFile(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetWriteFile(void* hfile, void* lpbuffer, uint32_t dwnumberofbytestowrite, void* lpdwnumberofbyteswritten) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetWriteFile(void* hfile, void* lpbuffer, uint32_t dwnumberofbytestowrite, void* lpdwnumberofbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5710,7 +5710,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetWriteFile(void* hfil
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetWriteFileExA(void* hfile, void* lpbuffersin, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetWriteFileExA(void* hfile, void* lpbuffersin, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5735,7 +5735,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetWriteFileExA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_internetWriteFileExW(void* hfile, void* lpbuffersin, uint32_t dwflags, uint64_t dwcontext) {
+int32_t windowssysWindowsWin32NetworkingWininetInternetWriteFileExW(void* hfile, void* lpbuffersin, uint32_t dwflags, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5760,7 +5760,7 @@ int32_t windowssys_windows_win32_networking_wininet_internetWriteFileExW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA(void* pchdomain, void* pchfulldomain) {
+int32_t windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainA(void* pchdomain, void* pchfulldomain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5783,7 +5783,7 @@ int32_t windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW(void* pchdomain, void* pchfulldomain) {
+int32_t windowssysWindowsWin32NetworkingWininetIsDomainLegalCookieDomainW(void* pchdomain, void* pchfulldomain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5806,7 +5806,7 @@ int32_t windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(int32_t tscheme, void* lpszhost, uint32_t cchhost) {
+int32_t windowssysWindowsWin32NetworkingWininetIsHostInProxyBypassList(int32_t tscheme, void* lpszhost, uint32_t cchhost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5830,7 +5830,7 @@ int32_t windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(int3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_isProfilesEnabled(void) {
+int32_t windowssysWindowsWin32NetworkingWininetIsProfilesEnabled(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5851,7 +5851,7 @@ int32_t windowssys_windows_win32_networking_wininet_isProfilesEnabled(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA(void* lpszurlname, uint32_t dwflags, void* pftlastmodified) {
+int32_t windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredA(void* lpszurlname, uint32_t dwflags, void* pftlastmodified) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5875,7 +5875,7 @@ int32_t windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW(void* lpszurlname, uint32_t dwflags, void* pftlastmodified) {
+int32_t windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredW(void* lpszurlname, uint32_t dwflags, void* pftlastmodified) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5899,7 +5899,7 @@ int32_t windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_loadUrlCacheContent(void) {
+int32_t windowssysWindowsWin32NetworkingWininetLoadUrlCacheContent(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5920,7 +5920,7 @@ int32_t windowssys_windows_win32_networking_wininet_loadUrlCacheContent(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry(void* lpcert, uint32_t cbcert, void* lpszlistboxentry, void* lpdwlistboxentry) {
+uint32_t windowssysWindowsWin32NetworkingWininetParseX509EncodedCertificateForListBoxEntry(void* lpcert, uint32_t cbcert, void* lpszlistboxentry, void* lpdwlistboxentry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5945,7 +5945,7 @@ uint32_t windowssys_windows_win32_networking_wininet_parseX509EncodedCertificate
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA(void* pszurlsearchpattern, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* preserved1, void* pdwreserved2, void* preserved3, void* op, void* poperatordata) {
+int32_t windowssysWindowsWin32NetworkingWininetPerformOperationOverUrlCacheA(void* pszurlsearchpattern, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* preserved1, void* pdwreserved2, void* preserved3, void* op, void* poperatordata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5975,7 +5975,7 @@ int32_t windowssys_windows_win32_networking_wininet_performOperationOverUrlCache
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(uint32_t dwzone, uint32_t dwtype, void* pdwtemplate, void* pszbuffer, void* pdwbufferlength) {
+uint32_t windowssysWindowsWin32NetworkingWininetPrivacyGetZonePreferenceW(uint32_t dwzone, uint32_t dwtype, void* pdwtemplate, void* pszbuffer, void* pdwbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6001,7 +6001,7 @@ uint32_t windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(uint32_t dwzone, uint32_t dwtype, uint32_t dwtemplate, void* pszpreference) {
+uint32_t windowssysWindowsWin32NetworkingWininetPrivacySetZonePreferenceW(uint32_t dwzone, uint32_t dwtype, uint32_t dwtemplate, void* pszpreference) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6026,7 +6026,7 @@ uint32_t windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(u
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks(void* pcnetworks, void* pppwsznetworkguids, void* pppbstrnetworknames, void* pppwszgwmacs, void* pcgatewaymacs, void* pdwflags) {
+int32_t windowssysWindowsWin32NetworkingWininetReadGuidsForConnectedNetworks(void* pcnetworks, void* pppwsznetworkguids, void* pppbstrnetworknames, void* pppwszgwmacs, void* pcgatewaymacs, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6053,7 +6053,7 @@ int32_t windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetwork
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream(void* hurlcachestream, uint32_t dwlocation, void* lpbuffer, void* lpdwlen, uint32_t reserved) {
+int32_t windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStream(void* hurlcachestream, uint32_t dwlocation, void* lpbuffer, void* lpdwlen, uint32_t reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6079,7 +6079,7 @@ int32_t windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx(void* hurlcachestream, uint64_t qwlocation, void* lpbuffer, void* lpdwlen) {
+int32_t windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStreamEx(void* hurlcachestream, uint64_t qwlocation, void* lpbuffer, void* lpdwlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6104,7 +6104,7 @@ int32_t windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_registerUrlCacheNotification(void* hwnd, uint32_t umsg, int64_t gid, uint32_t dwopsfilter, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetRegisterUrlCacheNotification(void* hwnd, uint32_t umsg, int64_t gid, uint32_t dwopsfilter, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6130,7 +6130,7 @@ int32_t windowssys_windows_win32_networking_wininet_registerUrlCacheNotification
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_resumeSuspendedDownload(void* hrequest, uint32_t dwresultcode) {
+int32_t windowssysWindowsWin32NetworkingWininetResumeSuspendedDownload(void* hrequest, uint32_t dwresultcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6153,7 +6153,7 @@ int32_t windowssys_windows_win32_networking_wininet_resumeSuspendedDownload(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileA(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6178,7 +6178,7 @@ int32_t windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileW(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6203,7 +6203,7 @@ int32_t windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW(v
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, int32_t frandomread, uint32_t dwreserved) {
+void* windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamA(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, int32_t frandomread, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6229,7 +6229,7 @@ void* windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA(v
 #endif
 }
 
-void* windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, int32_t frandomread, uint32_t dwreserved) {
+void* windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamW(void* lpszurlname, void* lpcacheentryinfo, void* lpcbcacheentryinfo, int32_t frandomread, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6255,7 +6255,7 @@ void* windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_runOnceUrlCache(void* hwnd, void* hinst, void* lpszcmd, int32_t ncmdshow) {
+uint32_t windowssysWindowsWin32NetworkingWininetRunOnceUrlCache(void* hwnd, void* hinst, void* lpszcmd, int32_t ncmdshow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6280,7 +6280,7 @@ uint32_t windowssys_windows_win32_networking_wininet_runOnceUrlCache(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA(void* lpcacheconfiginfo, uint32_t dwfieldcontrol) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoA(void* lpcacheconfiginfo, uint32_t dwfieldcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6303,7 +6303,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW(void* lpcacheconfiginfo, uint32_t dwfieldcontrol) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoW(void* lpcacheconfiginfo, uint32_t dwfieldcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6326,7 +6326,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup(void* lpszurlname, uint32_t dwflags, int64_t groupid, void* pbgroupattributes, uint32_t cbgroupattributes, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroup(void* lpszurlname, uint32_t dwflags, int64_t groupid, void* pbgroupattributes, uint32_t cbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6353,7 +6353,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA(void* lpszurlname, uint32_t dwflags, int64_t groupid, void* pbgroupattributes, uint32_t cbgroupattributes, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupA(void* lpszurlname, uint32_t dwflags, int64_t groupid, void* pbgroupattributes, uint32_t cbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6380,7 +6380,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW(void* lpszurlname, uint32_t dwflags, int64_t groupid, void* pbgroupattributes, uint32_t cbgroupattributes, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupW(void* lpszurlname, uint32_t dwflags, int64_t groupid, void* pbgroupattributes, uint32_t cbgroupattributes, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6407,7 +6407,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA(void* lpszurlname, void* lpcacheentryinfo, uint32_t dwfieldcontrol) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoA(void* lpszurlname, void* lpcacheentryinfo, uint32_t dwfieldcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6431,7 +6431,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW(void* lpszurlname, void* lpcacheentryinfo, uint32_t dwfieldcontrol) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoW(void* lpszurlname, void* lpcacheentryinfo, uint32_t dwfieldcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6455,7 +6455,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeA(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6481,7 +6481,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeW(int64_t gid, uint32_t dwflags, uint32_t dwattributes, void* lpgroupinfo, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6507,7 +6507,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(uint32_t nidx, uint32_t dwdata) {
+int32_t windowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData(uint32_t nidx, uint32_t dwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6530,7 +6530,7 @@ int32_t windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_showClientAuthCerts(void* hwndparent) {
+uint32_t windowssysWindowsWin32NetworkingWininetShowClientAuthCerts(void* hwndparent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6552,7 +6552,7 @@ uint32_t windowssys_windows_win32_networking_wininet_showClientAuthCerts(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_showSecurityInfo(void* hwndparent, void* psecurityinfo) {
+uint32_t windowssysWindowsWin32NetworkingWininetShowSecurityInfo(void* hwndparent, void* psecurityinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6575,7 +6575,7 @@ uint32_t windowssys_windows_win32_networking_wininet_showSecurityInfo(void* hwnd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_showX509EncodedCertificate(void* hwndparent, void* lpcert, uint32_t cbcert) {
+uint32_t windowssysWindowsWin32NetworkingWininetShowX509EncodedCertificate(void* hwndparent, void* lpcert, uint32_t cbcert) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6599,7 +6599,7 @@ uint32_t windowssys_windows_win32_networking_wininet_showX509EncodedCertificate(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile(void* lpszurlname, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFile(void* lpszurlname, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6622,7 +6622,7 @@ int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA(void* lpszurlname, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileA(void* lpszurlname, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6645,7 +6645,7 @@ int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW(void* lpszurlname, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryFileW(void* lpszurlname, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6668,7 +6668,7 @@ int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream(void* hurlcachestream, uint32_t reserved) {
+int32_t windowssysWindowsWin32NetworkingWininetUnlockUrlCacheEntryStream(void* hurlcachestream, uint32_t reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6691,7 +6691,7 @@ int32_t windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath(void* sznewpath) {
+int32_t windowssysWindowsWin32NetworkingWininetUpdateUrlCacheContentPath(void* sznewpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6713,7 +6713,7 @@ int32_t windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist(void* rgpwszurls, uint32_t centries, void* rgfexist) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheCheckEntriesExist(void* rgpwszurls, uint32_t centries, void* rgfexist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6737,7 +6737,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist(v
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle(void* hentryfile) {
+void windowssysWindowsWin32NetworkingWininetUrlCacheCloseEntryHandle(void* hentryfile) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6758,7 +6758,7 @@ void windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge(void* pwszprefix, uint32_t dwentrymaxage) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheContainerSetEntryMaximumAge(void* pwszprefix, uint32_t dwentrymaxage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6781,7 +6781,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheCreateContainer(void* pwszname, void* pwszprefix, void* pwszdirectory, uint64_t ulllimit, uint32_t dwoptions) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheCreateContainer(void* pwszname, void* pwszprefix, void* pwszdirectory, uint64_t ulllimit, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6807,7 +6807,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheCreateContainer(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry(void* pwszprefix, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* pcacheentryinfo, void* phfind) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheFindFirstEntry(void* pwszprefix, uint32_t dwflags, uint32_t dwfilter, int64_t groupid, void* pcacheentryinfo, void* phfind) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6834,7 +6834,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry(void* hfind, void* pcacheentryinfo) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheFindNextEntry(void* hfind, void* pcacheentryinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6857,7 +6857,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry(void*
 #endif
 }
 
-void windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo(void* pcacheentryinfo) {
+void windowssysWindowsWin32NetworkingWininetUrlCacheFreeEntryInfo(void* pcacheentryinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6878,7 +6878,7 @@ void windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo(void* pca
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(uint64_t ulltargetsize, uint32_t dwfilter) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheFreeGlobalSpace(uint64_t ulltargetsize, uint32_t dwfilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6901,7 +6901,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths(void* pppwszdirectories, void* pcdirectories) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheGetContentPaths(void* pppwszdirectories, void* pcdirectories) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6924,7 +6924,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo(void* happcache, void* pcwszurl, void* pcacheentryinfo) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheGetEntryInfo(void* happcache, void* pcwszurl, void* pcacheentryinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6948,7 +6948,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(uint32_t dwfilter, void* pullsize, void* pulllimit) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalCacheSize(uint32_t dwfilter, void* pullsize, void* pulllimit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6972,7 +6972,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(int32_t limittype, void* pulllimit) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalLimit(int32_t limittype, void* pulllimit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6995,7 +6995,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(int3
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream(void* hurlcachestream, uint64_t ulllocation, void* pbuffer, uint32_t dwbufferlen, void* pdwbufferlen) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheReadEntryStream(void* hurlcachestream, uint64_t ulllocation, void* pbuffer, uint32_t dwbufferlen, void* pdwbufferlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7021,7 +7021,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheReloadSettings(void) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheReloadSettings(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7042,7 +7042,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheReloadSettings(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile(void* happcache, void* pcwszurl, void* pcacheentryinfo, void* phentryfile) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryFile(void* happcache, void* pcwszurl, void* pcacheentryinfo, void* phentryfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7067,7 +7067,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream(void* happcache, void* pcwszurl, int32_t frandomread, void* pcacheentryinfo, void* phentrystream) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryStream(void* happcache, void* pcwszurl, int32_t frandomread, void* pcacheentryinfo, void* phentrystream) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7093,7 +7093,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheServer(void) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheServer(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7114,7 +7114,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheServer(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(int32_t limittype, uint64_t ulllimit) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheSetGlobalLimit(int32_t limittype, uint64_t ulllimit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7137,7 +7137,7 @@ uint32_t windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(int3
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData(void* happcache, void* pcwszurl, void* pbextradata, uint32_t cbextradata) {
+uint32_t windowssysWindowsWin32NetworkingWininetUrlCacheUpdateEntryExtraData(void* happcache, void* pcwszurl, void* pbextradata, uint32_t cbextradata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

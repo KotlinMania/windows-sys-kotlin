@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_power_callNtPowerInformation(int32_t informationlevel, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
+int32_t windowssysWindowsWin32SystemPowerCallNtPowerInformation(int32_t informationlevel, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_system_power_callNtPowerInformation(int32_t inf
 #endif
 }
 
-bool windowssys_windows_win32_system_power_canUserWritePwrScheme(void) {
+bool windowssysWindowsWin32SystemPowerCanUserWritePwrScheme(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ bool windowssys_windows_win32_system_power_canUserWritePwrScheme(void) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_deletePwrScheme(uint32_t uiid) {
+bool windowssysWindowsWin32SystemPowerDeletePwrScheme(uint32_t uiid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ bool windowssys_windows_win32_system_power_deletePwrScheme(uint32_t uiid) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_devicePowerClose(void) {
+bool windowssysWindowsWin32SystemPowerDevicePowerClose(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ bool windowssys_windows_win32_system_power_devicePowerClose(void) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_devicePowerEnumDevices(uint32_t queryindex, uint32_t queryinterpretationflags, uint32_t queryflags, void* preturnbuffer, void* pbuffersize) {
+bool windowssysWindowsWin32SystemPowerDevicePowerEnumDevices(uint32_t queryindex, uint32_t queryinterpretationflags, uint32_t queryflags, void* preturnbuffer, void* pbuffersize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ bool windowssys_windows_win32_system_power_devicePowerEnumDevices(uint32_t query
 #endif
 }
 
-bool windowssys_windows_win32_system_power_devicePowerOpen(uint32_t debugmask) {
+bool windowssysWindowsWin32SystemPowerDevicePowerOpen(uint32_t debugmask) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -153,7 +153,7 @@ bool windowssys_windows_win32_system_power_devicePowerOpen(uint32_t debugmask) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_devicePowerSetDeviceState(void* devicedescription, uint32_t setflags, void* setdata) {
+uint32_t windowssysWindowsWin32SystemPowerDevicePowerSetDeviceState(void* devicedescription, uint32_t setflags, void* setdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ uint32_t windowssys_windows_win32_system_power_devicePowerSetDeviceState(void* d
 #endif
 }
 
-bool windowssys_windows_win32_system_power_enumPwrSchemes(void* lpfn, int64_t lparam) {
+bool windowssysWindowsWin32SystemPowerEnumPwrSchemes(void* lpfn, int64_t lparam) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -200,7 +200,7 @@ bool windowssys_windows_win32_system_power_enumPwrSchemes(void* lpfn, int64_t lp
 #endif
 }
 
-bool windowssys_windows_win32_system_power_getActivePwrScheme(void* puiid) {
+bool windowssysWindowsWin32SystemPowerGetActivePwrScheme(void* puiid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ bool windowssys_windows_win32_system_power_getActivePwrScheme(void* puiid) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_getCurrentPowerPolicies(void* pglobalpowerpolicy, void* ppowerpolicy) {
+bool windowssysWindowsWin32SystemPowerGetCurrentPowerPolicies(void* pglobalpowerpolicy, void* ppowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ bool windowssys_windows_win32_system_power_getCurrentPowerPolicies(void* pglobal
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_getDevicePowerState(void* hdevice, void* pfon) {
+int32_t windowssysWindowsWin32SystemPowerGetDevicePowerState(void* hdevice, void* pfon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_system_power_getDevicePowerState(void* hdevice,
 #endif
 }
 
-bool windowssys_windows_win32_system_power_getPwrCapabilities(void* lpspc) {
+bool windowssysWindowsWin32SystemPowerGetPwrCapabilities(void* lpspc) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -290,7 +290,7 @@ bool windowssys_windows_win32_system_power_getPwrCapabilities(void* lpspc) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_getPwrDiskSpindownRange(void* puimax, void* puimin) {
+bool windowssysWindowsWin32SystemPowerGetPwrDiskSpindownRange(void* puimax, void* puimin) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -313,7 +313,7 @@ bool windowssys_windows_win32_system_power_getPwrDiskSpindownRange(void* puimax,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_getSystemPowerStatus(void* lpsystempowerstatus) {
+int32_t windowssysWindowsWin32SystemPowerGetSystemPowerStatus(void* lpsystempowerstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -335,7 +335,7 @@ int32_t windowssys_windows_win32_system_power_getSystemPowerStatus(void* lpsyste
 #endif
 }
 
-bool windowssys_windows_win32_system_power_isAdminOverrideActive(void* papp) {
+bool windowssysWindowsWin32SystemPowerIsAdminOverrideActive(void* papp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -357,7 +357,7 @@ bool windowssys_windows_win32_system_power_isAdminOverrideActive(void* papp) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_isPwrHibernateAllowed(void) {
+bool windowssysWindowsWin32SystemPowerIsPwrHibernateAllowed(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -378,7 +378,7 @@ bool windowssys_windows_win32_system_power_isPwrHibernateAllowed(void) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_isPwrShutdownAllowed(void) {
+bool windowssysWindowsWin32SystemPowerIsPwrShutdownAllowed(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -399,7 +399,7 @@ bool windowssys_windows_win32_system_power_isPwrShutdownAllowed(void) {
 #endif
 }
 
-bool windowssys_windows_win32_system_power_isPwrSuspendAllowed(void) {
+bool windowssysWindowsWin32SystemPowerIsPwrSuspendAllowed(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -420,7 +420,7 @@ bool windowssys_windows_win32_system_power_isPwrSuspendAllowed(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_isSystemResumeAutomatic(void) {
+int32_t windowssysWindowsWin32SystemPowerIsSystemResumeAutomatic(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -441,7 +441,7 @@ int32_t windowssys_windows_win32_system_power_isSystemResumeAutomatic(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerCanRestoreIndividualDefaultPowerScheme(void* schemeguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerCanRestoreIndividualDefaultPowerScheme(void* schemeguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -463,7 +463,7 @@ uint32_t windowssys_windows_win32_system_power_powerCanRestoreIndividualDefaultP
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_powerClearRequest(void* powerrequest, int32_t requesttype) {
+int32_t windowssysWindowsWin32SystemPowerPowerClearRequest(void* powerrequest, int32_t requesttype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -486,7 +486,7 @@ int32_t windowssys_windows_win32_system_power_powerClearRequest(void* powerreque
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerCreatePossibleSetting(void* rootsystempowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerCreatePossibleSetting(void* rootsystempowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -511,7 +511,7 @@ uint32_t windowssys_windows_win32_system_power_powerCreatePossibleSetting(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_power_powerCreateRequest(void* context) {
+void* windowssysWindowsWin32SystemPowerPowerCreateRequest(void* context) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ void* windowssys_windows_win32_system_power_powerCreateRequest(void* context) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerCreateSetting(void* rootsystempowerkey, void* subgroupofpowersettingsguid, void* powersettingguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerCreateSetting(void* rootsystempowerkey, void* subgroupofpowersettingsguid, void* powersettingguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -557,7 +557,7 @@ uint32_t windowssys_windows_win32_system_power_powerCreateSetting(void* rootsyst
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerDeleteScheme(void* rootpowerkey, void* schemeguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerDeleteScheme(void* rootpowerkey, void* schemeguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -580,7 +580,7 @@ uint32_t windowssys_windows_win32_system_power_powerDeleteScheme(void* rootpower
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_powerDeterminePlatformRole(void) {
+int32_t windowssysWindowsWin32SystemPowerPowerDeterminePlatformRole(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -601,7 +601,7 @@ int32_t windowssys_windows_win32_system_power_powerDeterminePlatformRole(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_powerDeterminePlatformRoleEx(uint32_t version) {
+int32_t windowssysWindowsWin32SystemPowerPowerDeterminePlatformRoleEx(uint32_t version) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -623,7 +623,7 @@ int32_t windowssys_windows_win32_system_power_powerDeterminePlatformRoleEx(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerDuplicateScheme(void* rootpowerkey, void* sourceschemeguid, void* destinationschemeguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerDuplicateScheme(void* rootpowerkey, void* sourceschemeguid, void* destinationschemeguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -647,7 +647,7 @@ uint32_t windowssys_windows_win32_system_power_powerDuplicateScheme(void* rootpo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerEnumerate(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, int32_t accessflags, uint32_t arg_4_index, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerEnumerate(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, int32_t accessflags, uint32_t arg4Index, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -658,7 +658,7 @@ uint32_t windowssys_windows_win32_system_power_powerEnumerate(void* rootpowerkey
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, accessflags, arg_4_index, buffer, buffersize);
+        return km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, accessflags, arg4Index, buffer, buffersize);
     }
     errno = ENOSYS;
     return 0;
@@ -667,7 +667,7 @@ uint32_t windowssys_windows_win32_system_power_powerEnumerate(void* rootpowerkey
     (void)schemeguid;
     (void)subgroupofpowersettingsguid;
     (void)accessflags;
-    (void)arg_4_index;
+    (void)arg4Index;
     (void)buffer;
     (void)buffersize;
     errno = ENOSYS;
@@ -675,7 +675,7 @@ uint32_t windowssys_windows_win32_system_power_powerEnumerate(void* rootpowerkey
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerGetActiveScheme(void* userrootpowerkey, void* activepolicyguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerGetActiveScheme(void* userrootpowerkey, void* activepolicyguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -698,7 +698,7 @@ uint32_t windowssys_windows_win32_system_power_powerGetActiveScheme(void* userro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerImportPowerScheme(void* rootpowerkey, void* importfilenamepath, void* destinationschemeguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerImportPowerScheme(void* rootpowerkey, void* importfilenamepath, void* destinationschemeguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ uint32_t windowssys_windows_win32_system_power_powerImportPowerScheme(void* root
 #endif
 }
 
-bool windowssys_windows_win32_system_power_powerIsSettingRangeDefined(void* subkeyguid, void* settingguid) {
+bool windowssysWindowsWin32SystemPowerPowerIsSettingRangeDefined(void* subkeyguid, void* settingguid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -745,7 +745,7 @@ bool windowssys_windows_win32_system_power_powerIsSettingRangeDefined(void* subk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerOpenSystemPowerKey(void* phsystempowerkey, uint32_t access, int32_t openexisting) {
+uint32_t windowssysWindowsWin32SystemPowerPowerOpenSystemPowerKey(void* phsystempowerkey, uint32_t access, int32_t openexisting) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -769,7 +769,7 @@ uint32_t windowssys_windows_win32_system_power_powerOpenSystemPowerKey(void* phs
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerOpenUserPowerKey(void* phuserpowerkey, uint32_t access, int32_t openexisting) {
+uint32_t windowssysWindowsWin32SystemPowerPowerOpenUserPowerKey(void* phuserpowerkey, uint32_t access, int32_t openexisting) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -793,7 +793,7 @@ uint32_t windowssys_windows_win32_system_power_powerOpenUserPowerKey(void* phuse
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadACDefaultIndex(void* rootpowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* acdefaultindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadACDefaultIndex(void* rootpowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* acdefaultindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -819,7 +819,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadACDefaultIndex(void* roo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadACValue(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* type, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadACValue(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* type, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -847,7 +847,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadACValue(void* rootpowerk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadACValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* acvalueindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadACValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* acvalueindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -873,7 +873,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadACValueIndex(void* rootp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadDCDefaultIndex(void* rootpowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* dcdefaultindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadDCDefaultIndex(void* rootpowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* dcdefaultindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -899,7 +899,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadDCDefaultIndex(void* roo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadDCValue(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* type, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadDCValue(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* type, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -927,7 +927,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadDCValue(void* rootpowerk
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadDCValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* dcvalueindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadDCValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* dcvalueindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -953,7 +953,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadDCValueIndex(void* rootp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadDescription(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadDescription(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -980,7 +980,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadDescription(void* rootpo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadFriendlyName(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadFriendlyName(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadFriendlyName(void* rootp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadIconResourceSpecifier(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadIconResourceSpecifier(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1034,7 +1034,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadIconResourceSpecifier(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadPossibleDescription(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadPossibleDescription(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1061,7 +1061,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadPossibleDescription(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadPossibleFriendlyName(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadPossibleFriendlyName(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1088,7 +1088,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadPossibleFriendlyName(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadPossibleValue(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* type, uint32_t possiblesettingindex, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadPossibleValue(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* type, uint32_t possiblesettingindex, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1116,7 +1116,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadPossibleValue(void* root
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadSettingAttributes(void* subgroupguid, void* powersettingguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadSettingAttributes(void* subgroupguid, void* powersettingguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1139,7 +1139,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadSettingAttributes(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadValueIncrement(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* valueincrement) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadValueIncrement(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* valueincrement) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1164,7 +1164,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadValueIncrement(void* roo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadValueMax(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* valuemaximum) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadValueMax(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* valuemaximum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1189,7 +1189,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadValueMax(void* rootpower
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadValueMin(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* valueminimum) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadValueMin(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* valueminimum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1214,7 +1214,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadValueMin(void* rootpower
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReadValueUnitsSpecifier(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReadValueUnitsSpecifier(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1240,7 +1240,7 @@ uint32_t windowssys_windows_win32_system_power_powerReadValueUnitsSpecifier(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_powerRegisterForEffectivePowerModeNotifications(uint32_t version, void* callback, void* context, void* registrationhandle) {
+int32_t windowssysWindowsWin32SystemPowerPowerRegisterForEffectivePowerModeNotifications(uint32_t version, void* callback, void* context, void* registrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1265,7 +1265,7 @@ int32_t windowssys_windows_win32_system_power_powerRegisterForEffectivePowerMode
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerRegisterSuspendResumeNotification(uint32_t flags, void* recipient, void* registrationhandle) {
+uint32_t windowssysWindowsWin32SystemPowerPowerRegisterSuspendResumeNotification(uint32_t flags, void* recipient, void* registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1289,7 +1289,7 @@ uint32_t windowssys_windows_win32_system_power_powerRegisterSuspendResumeNotific
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerRemovePowerSetting(void* powersettingsubkeyguid, void* powersettingguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerRemovePowerSetting(void* powersettingsubkeyguid, void* powersettingguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1312,7 +1312,7 @@ uint32_t windowssys_windows_win32_system_power_powerRemovePowerSetting(void* pow
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReplaceDefaultPowerSchemes(void) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReplaceDefaultPowerSchemes(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1333,7 +1333,7 @@ uint32_t windowssys_windows_win32_system_power_powerReplaceDefaultPowerSchemes(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerReportThermalEvent(void* event) {
+uint32_t windowssysWindowsWin32SystemPowerPowerReportThermalEvent(void* event) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1355,7 +1355,7 @@ uint32_t windowssys_windows_win32_system_power_powerReportThermalEvent(void* eve
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerRestoreDefaultPowerSchemes(void) {
+uint32_t windowssysWindowsWin32SystemPowerPowerRestoreDefaultPowerSchemes(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1376,7 +1376,7 @@ uint32_t windowssys_windows_win32_system_power_powerRestoreDefaultPowerSchemes(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerRestoreIndividualDefaultPowerScheme(void* schemeguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerRestoreIndividualDefaultPowerScheme(void* schemeguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1398,7 +1398,7 @@ uint32_t windowssys_windows_win32_system_power_powerRestoreIndividualDefaultPowe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerSetActiveScheme(void* userrootpowerkey, void* schemeguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerSetActiveScheme(void* userrootpowerkey, void* schemeguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1421,7 +1421,7 @@ uint32_t windowssys_windows_win32_system_power_powerSetActiveScheme(void* userro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_powerSetRequest(void* powerrequest, int32_t requesttype) {
+int32_t windowssysWindowsWin32SystemPowerPowerSetRequest(void* powerrequest, int32_t requesttype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ int32_t windowssys_windows_win32_system_power_powerSetRequest(void* powerrequest
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerSettingAccessCheck(int32_t accessflags, void* powerguid) {
+uint32_t windowssysWindowsWin32SystemPowerPowerSettingAccessCheck(int32_t accessflags, void* powerguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1467,7 +1467,7 @@ uint32_t windowssys_windows_win32_system_power_powerSettingAccessCheck(int32_t a
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerSettingAccessCheckEx(int32_t accessflags, void* powerguid, uint32_t accesstype) {
+uint32_t windowssysWindowsWin32SystemPowerPowerSettingAccessCheckEx(int32_t accessflags, void* powerguid, uint32_t accesstype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1491,7 +1491,7 @@ uint32_t windowssys_windows_win32_system_power_powerSettingAccessCheckEx(int32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerSettingRegisterNotification(void* settingguid, uint32_t flags, void* recipient, void* registrationhandle) {
+uint32_t windowssysWindowsWin32SystemPowerPowerSettingRegisterNotification(void* settingguid, uint32_t flags, void* recipient, void* registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1516,7 +1516,7 @@ uint32_t windowssys_windows_win32_system_power_powerSettingRegisterNotification(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerSettingUnregisterNotification(int64_t registrationhandle) {
+uint32_t windowssysWindowsWin32SystemPowerPowerSettingUnregisterNotification(int64_t registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1538,7 +1538,7 @@ uint32_t windowssys_windows_win32_system_power_powerSettingUnregisterNotificatio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications(void* registrationhandle) {
+int32_t windowssysWindowsWin32SystemPowerPowerUnregisterFromEffectivePowerModeNotifications(void* registrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1560,7 +1560,7 @@ int32_t windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerM
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification(int64_t registrationhandle) {
+uint32_t windowssysWindowsWin32SystemPowerPowerUnregisterSuspendResumeNotification(int64_t registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1582,7 +1582,7 @@ uint32_t windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotif
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteACDefaultIndex(void* rootsystempowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t defaultacindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteACDefaultIndex(void* rootsystempowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t defaultacindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1608,7 +1608,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteACDefaultIndex(void* ro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteACValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t acvalueindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteACValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t acvalueindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1634,7 +1634,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteACValueIndex(void* root
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteDCDefaultIndex(void* rootsystempowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t defaultdcindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteDCDefaultIndex(void* rootsystempowerkey, void* schemepersonalityguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t defaultdcindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1660,7 +1660,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteDCDefaultIndex(void* ro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteDCValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t dcvalueindex) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteDCValueIndex(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t dcvalueindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteDCValueIndex(void* root
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteDescription(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteDescription(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1713,7 +1713,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteDescription(void* rootp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteFriendlyName(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteFriendlyName(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1740,7 +1740,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteFriendlyName(void* root
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteIconResourceSpecifier(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteIconResourceSpecifier(void* rootpowerkey, void* schemeguid, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1767,7 +1767,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteIconResourceSpecifier(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWritePossibleDescription(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWritePossibleDescription(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1794,7 +1794,7 @@ uint32_t windowssys_windows_win32_system_power_powerWritePossibleDescription(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWritePossibleFriendlyName(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWritePossibleFriendlyName(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t possiblesettingindex, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1821,7 +1821,7 @@ uint32_t windowssys_windows_win32_system_power_powerWritePossibleFriendlyName(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWritePossibleValue(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t type, uint32_t possiblesettingindex, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWritePossibleValue(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t type, uint32_t possiblesettingindex, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1849,7 +1849,7 @@ uint32_t windowssys_windows_win32_system_power_powerWritePossibleValue(void* roo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteSettingAttributes(void* subgroupguid, void* powersettingguid, uint32_t attributes) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteSettingAttributes(void* subgroupguid, void* powersettingguid, uint32_t attributes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1873,7 +1873,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteSettingAttributes(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteValueIncrement(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t valueincrement) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteValueIncrement(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t valueincrement) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1898,7 +1898,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteValueIncrement(void* ro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteValueMax(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t valuemaximum) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteValueMax(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t valuemaximum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1923,7 +1923,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteValueMax(void* rootpowe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteValueMin(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t valueminimum) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteValueMin(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, uint32_t valueminimum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1948,7 +1948,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteValueMin(void* rootpowe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
+uint32_t windowssysWindowsWin32SystemPowerPowerWriteValueUnitsSpecifier(void* rootpowerkey, void* subgroupofpowersettingsguid, void* powersettingguid, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1974,7 +1974,7 @@ uint32_t windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier(voi
 #endif
 }
 
-bool windowssys_windows_win32_system_power_readGlobalPwrPolicy(void* pglobalpowerpolicy) {
+bool windowssysWindowsWin32SystemPowerReadGlobalPwrPolicy(void* pglobalpowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1996,7 +1996,7 @@ bool windowssys_windows_win32_system_power_readGlobalPwrPolicy(void* pglobalpowe
 #endif
 }
 
-bool windowssys_windows_win32_system_power_readProcessorPwrScheme(uint32_t uiid, void* pmachineprocessorpowerpolicy) {
+bool windowssysWindowsWin32SystemPowerReadProcessorPwrScheme(uint32_t uiid, void* pmachineprocessorpowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2019,7 +2019,7 @@ bool windowssys_windows_win32_system_power_readProcessorPwrScheme(uint32_t uiid,
 #endif
 }
 
-bool windowssys_windows_win32_system_power_readPwrScheme(uint32_t uiid, void* ppowerpolicy) {
+bool windowssysWindowsWin32SystemPowerReadPwrScheme(uint32_t uiid, void* ppowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2042,7 +2042,7 @@ bool windowssys_windows_win32_system_power_readPwrScheme(uint32_t uiid, void* pp
 #endif
 }
 
-int64_t windowssys_windows_win32_system_power_registerPowerSettingNotification(void* hrecipient, void* powersettingguid, uint32_t flags) {
+int64_t windowssysWindowsWin32SystemPowerRegisterPowerSettingNotification(void* hrecipient, void* powersettingguid, uint32_t flags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2066,7 +2066,7 @@ int64_t windowssys_windows_win32_system_power_registerPowerSettingNotification(v
 #endif
 }
 
-int64_t windowssys_windows_win32_system_power_registerSuspendResumeNotification(void* hrecipient, uint32_t flags) {
+int64_t windowssysWindowsWin32SystemPowerRegisterSuspendResumeNotification(void* hrecipient, uint32_t flags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2089,7 +2089,7 @@ int64_t windowssys_windows_win32_system_power_registerSuspendResumeNotification(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_requestWakeupLatency(int32_t latency) {
+int32_t windowssysWindowsWin32SystemPowerRequestWakeupLatency(int32_t latency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2111,7 +2111,7 @@ int32_t windowssys_windows_win32_system_power_requestWakeupLatency(int32_t laten
 #endif
 }
 
-bool windowssys_windows_win32_system_power_setActivePwrScheme(uint32_t uiid, void* pglobalpowerpolicy, void* ppowerpolicy) {
+bool windowssysWindowsWin32SystemPowerSetActivePwrScheme(uint32_t uiid, void* pglobalpowerpolicy, void* ppowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2135,7 +2135,7 @@ bool windowssys_windows_win32_system_power_setActivePwrScheme(uint32_t uiid, voi
 #endif
 }
 
-bool windowssys_windows_win32_system_power_setSuspendState(bool bhibernate, bool bforce, bool bwakeupeventsdisabled) {
+bool windowssysWindowsWin32SystemPowerSetSuspendState(bool bhibernate, bool bforce, bool bwakeupeventsdisabled) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2159,7 +2159,7 @@ bool windowssys_windows_win32_system_power_setSuspendState(bool bhibernate, bool
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_setSystemPowerState(int32_t fsuspend, int32_t fforce) {
+int32_t windowssysWindowsWin32SystemPowerSetSystemPowerState(int32_t fsuspend, int32_t fforce) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2182,7 +2182,7 @@ int32_t windowssys_windows_win32_system_power_setSystemPowerState(int32_t fsuspe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_power_setThreadExecutionState(uint32_t esflags) {
+uint32_t windowssysWindowsWin32SystemPowerSetThreadExecutionState(uint32_t esflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2204,7 +2204,7 @@ uint32_t windowssys_windows_win32_system_power_setThreadExecutionState(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_unregisterPowerSettingNotification(int64_t handle) {
+int32_t windowssysWindowsWin32SystemPowerUnregisterPowerSettingNotification(int64_t handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2226,7 +2226,7 @@ int32_t windowssys_windows_win32_system_power_unregisterPowerSettingNotification
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_unregisterSuspendResumeNotification(int64_t handle) {
+int32_t windowssysWindowsWin32SystemPowerUnregisterSuspendResumeNotification(int64_t handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2248,7 +2248,7 @@ int32_t windowssys_windows_win32_system_power_unregisterSuspendResumeNotificatio
 #endif
 }
 
-bool windowssys_windows_win32_system_power_validatePowerPolicies(void* pglobalpowerpolicy, void* ppowerpolicy) {
+bool windowssysWindowsWin32SystemPowerValidatePowerPolicies(void* pglobalpowerpolicy, void* ppowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2271,7 +2271,7 @@ bool windowssys_windows_win32_system_power_validatePowerPolicies(void* pglobalpo
 #endif
 }
 
-bool windowssys_windows_win32_system_power_writeGlobalPwrPolicy(void* pglobalpowerpolicy) {
+bool windowssysWindowsWin32SystemPowerWriteGlobalPwrPolicy(void* pglobalpowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2293,7 +2293,7 @@ bool windowssys_windows_win32_system_power_writeGlobalPwrPolicy(void* pglobalpow
 #endif
 }
 
-bool windowssys_windows_win32_system_power_writeProcessorPwrScheme(uint32_t uiid, void* pmachineprocessorpowerpolicy) {
+bool windowssysWindowsWin32SystemPowerWriteProcessorPwrScheme(uint32_t uiid, void* pmachineprocessorpowerpolicy) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2316,7 +2316,7 @@ bool windowssys_windows_win32_system_power_writeProcessorPwrScheme(uint32_t uiid
 #endif
 }
 
-bool windowssys_windows_win32_system_power_writePwrScheme(void* puiid, void* lpszschemename, void* lpszdescription, void* lpscheme) {
+bool windowssysWindowsWin32SystemPowerWritePwrScheme(void* puiid, void* lpszschemename, void* lpszdescription, void* lpscheme) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

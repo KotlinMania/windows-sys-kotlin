@@ -1,18 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowExStyle
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowStyle
 
-public expect fun adjustWindowRectExForDpi(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool
+public expect fun adjustWindowRectExForDpi(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool
 
 public expect fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool
 
@@ -26,7 +29,7 @@ public expect fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehavio
 
 public expect fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext
 
-public expect fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: COpaquePointer?, dpiy: COpaquePointer?): Hresult
+public expect fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr<UInt>, dpiy: MutPtr<UInt>): Hresult
 
 public expect fun getDpiForSystem(): UInt
 
@@ -34,7 +37,7 @@ public expect fun getDpiForWindow(hwnd: Hwnd): UInt
 
 public expect fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt
 
-public expect fun getProcessDpiAwareness(hprocess: Handle, value: COpaquePointer?): Hresult
+public expect fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr<ProcessDpiAwareness>): Hresult
 
 public expect fun getSystemDpiForProcess(hprocess: Handle): UInt
 
@@ -50,11 +53,11 @@ public expect fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior
 
 public expect fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool
 
-public expect fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
+public expect fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool
 
 public expect fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme
 
-public expect fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
+public expect fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool
 
 public expect fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool
 
@@ -68,4 +71,4 @@ public expect fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext):
 
 public expect fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior
 
-public expect fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: COpaquePointer?, fwinini: UInt, dpi: UInt): Bool
+public expect fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool

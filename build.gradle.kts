@@ -572,6 +572,9 @@ kotlin {
             if (swiftExportLinkFreeCompilerArgs.isNotEmpty()) {
                 toolOptions.freeCompilerArgs.addAll(swiftExportLinkFreeCompilerArgs)
             }
+            if ((optimized || name.contains("Release", ignoreCase = true)) && nativeReleaseLinkFreeCompilerArgs.isNotEmpty()) {
+                toolOptions.freeCompilerArgs.addAll(nativeReleaseLinkFreeCompilerArgs)
+            }
         }
         swiftExportModuleExports
             .filter { it.visibility == SwiftExportModuleVisibility.EXPOSED }
@@ -601,7 +604,7 @@ kotlin {
     if (nativeReleaseLinkFreeCompilerArgs.isNotEmpty()) {
         tasks
             .withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink>()
-            .matching { it.optimized }
+            .matching { it.optimized && !it.name.startsWith("linkSwiftExportBinary") }
             .configureEach {
                 toolOptions.freeCompilerArgs.addAll(nativeReleaseLinkFreeCompilerArgs)
             }
@@ -1094,20 +1097,11 @@ listOf("js", "wasmJs", "wasmWasi").forEach { targetPrefix ->
 // ============================================================================
 // JNI & N-API FFI Tasks
 // ============================================================================
+FfiBuildSupport.configureHostTestDependencyNatives(project, jvmFfiEnabled, ffiName)
+
 if (jvmFfiEnabled) {
     val packageFfiJni = FfiBuildSupport.registerJniTasks(project, ffiName, ffiNameLower, projectNamespace)
     kotlin.sourceSets.named("jvmMain") { resources.srcDir(packageFfiJni) }
-
-    tasks.withType<Test>().matching { it.name == "jvmTest" || it.name == "testAndroidHostTest" }.configureEach {
-        dependsOn("compile${ffiName}Jni")
-        systemProperty(
-            "java.library.path",
-            layout.buildDirectory
-                .dir("natives")
-                .get()
-                .asFile.absolutePath,
-        )
-    }
 
     val packagedJniTest =
         tasks.register<Test>("packagedJniTest") {

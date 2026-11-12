@@ -2,181 +2,239 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hsyntheticpointerdevice
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerDeviceCursorInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerDeviceInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerDeviceProperty
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PointerTypeInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
 private object WindowsWin32UiInputPointerJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32UiInputPointerJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_enableMouseInPointer(fenable: Int): Int
+    external fun windowssysWindowsWin32UiInputPointerEnableMouseInPointer(fenable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerCursorId(pointerid: Int, cursorid: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerCursorId(pointerid: Int, cursorid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerDevice(device: Long, pointerdevice: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerDevice(device: Long, pointerdevice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors(device: Long, cursorcount: Long, devicecursors: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerDeviceCursors(device: Long, cursorcount: Long, devicecursors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties(device: Long, propertycount: Long, pointerproperties: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerDeviceProperties(device: Long, propertycount: Long, pointerproperties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects(device: Long, pointerdevicerect: Long, displayrect: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerDeviceRects(device: Long, pointerdevicerect: Long, displayrect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerDevices(devicecount: Long, pointerdevices: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerDevices(devicecount: Long, pointerdevices: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo(pointerid: Int, pointercount: Long, pointerinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerFrameInfo(pointerid: Int, pointercount: Long, pointerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory(pointerid: Int, entriescount: Long, pointercount: Long, pointerinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerFrameInfoHistory(pointerid: Int, entriescount: Long, pointercount: Long, pointerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo(pointerid: Int, pointercount: Long, peninfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerFramePenInfo(pointerid: Int, pointercount: Long, peninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory(pointerid: Int, entriescount: Long, pointercount: Long, peninfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerFramePenInfoHistory(pointerid: Int, entriescount: Long, pointercount: Long, peninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo(pointerid: Int, pointercount: Long, touchinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfo(pointerid: Int, pointercount: Long, touchinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory(pointerid: Int, entriescount: Long, pointercount: Long, touchinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfoHistory(pointerid: Int, entriescount: Long, pointercount: Long, touchinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerInfo(pointerid: Int, pointerinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerInfo(pointerid: Int, pointerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory(pointerid: Int, entriescount: Long, pointerinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerInfoHistory(pointerid: Int, entriescount: Long, pointerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerInputTransform(pointerid: Int, historycount: Int, inputtransform: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerInputTransform(pointerid: Int, historycount: Int, inputtransform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerPenInfo(pointerid: Int, peninfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerPenInfo(pointerid: Int, peninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory(pointerid: Int, entriescount: Long, peninfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerPenInfoHistory(pointerid: Int, entriescount: Long, peninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo(pointerid: Int, touchinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerTouchInfo(pointerid: Int, touchinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory(pointerid: Int, entriescount: Long, touchinfo: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerTouchInfoHistory(pointerid: Int, entriescount: Long, touchinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getPointerType(pointerid: Int, pointertype: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetPointerType(pointerid: Int, pointertype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData(pointerid: Int, historycount: Int, propertiescount: Int, pproperties: Long, pvalues: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerGetRawPointerDeviceData(pointerid: Int, historycount: Int, propertiescount: Int, pproperties: Long, pvalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos(): Int
+    external fun windowssysWindowsWin32UiInputPointerGetUnpredictedMessagePos(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_initializeTouchInjection(maxcount: Int, dwmode: Int): Int
+    external fun windowssysWindowsWin32UiInputPointerInitializeTouchInjection(maxcount: Int, dwmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput(device: Long, pointerinfo: Long, count: Int): Int
+    external fun windowssysWindowsWin32UiInputPointerInjectSyntheticPointerInput(device: Long, pointerinfo: Long, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_injectTouchInput(count: Int, contacts: Long): Int
+    external fun windowssysWindowsWin32UiInputPointerInjectTouchInput(count: Int, contacts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled(): Int
+    external fun windowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages(pointerid: Int): Int
+    external fun windowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(pointerid: Int): Int
 }
 
 public actual fun enableMouseInPointer(fenable: Bool): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_enableMouseInPointer(fenable)
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerEnableMouseInPointer(fenable)
 
-public actual fun getPointerCursorId(pointerid: UInt, cursorid: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerCursorId(pointerid.toInt(), (cursorid?.value ?: 0L))
+public actual fun getPointerCursorId(pointerid: UInt, cursorid: MutPtr<UInt>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerCursorId(pointerid.toInt(), cursorid.rawAddress)
 
-public actual fun getPointerDevice(device: Handle, pointerdevice: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerDevice((device?.value ?: 0L), (pointerdevice?.value ?: 0L))
+public actual fun getPointerDevice(device: Handle, pointerdevice: MutPtr<PointerDeviceInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerDevice(device.rawAddress, pointerdevice.rawAddress)
 
-public actual fun getPointerDeviceCursors(device: Handle, cursorcount: COpaquePointer?, devicecursors: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors((device?.value ?: 0L), (cursorcount?.value ?: 0L), (devicecursors?.value ?: 0L))
+public actual fun getPointerDeviceCursors(device: Handle, cursorcount: MutPtr<UInt>, devicecursors: MutPtr<PointerDeviceCursorInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerDeviceCursors(device.rawAddress, cursorcount.rawAddress, devicecursors.rawAddress)
 
-public actual fun getPointerDeviceProperties(device: Handle, propertycount: COpaquePointer?, pointerproperties: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties((device?.value ?: 0L), (propertycount?.value ?: 0L), (pointerproperties?.value ?: 0L))
+public actual fun getPointerDeviceProperties(device: Handle, propertycount: MutPtr<UInt>, pointerproperties: MutPtr<PointerDeviceProperty>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerDeviceProperties(device.rawAddress, propertycount.rawAddress, pointerproperties.rawAddress)
 
-public actual fun getPointerDeviceRects(device: Handle, pointerdevicerect: COpaquePointer?, displayrect: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects((device?.value ?: 0L), (pointerdevicerect?.value ?: 0L), (displayrect?.value ?: 0L))
+public actual fun getPointerDeviceRects(device: Handle, pointerdevicerect: MutPtr<Rect>, displayrect: MutPtr<Rect>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerDeviceRects(device.rawAddress, pointerdevicerect.rawAddress, displayrect.rawAddress)
 
-public actual fun getPointerDevices(devicecount: COpaquePointer?, pointerdevices: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerDevices((devicecount?.value ?: 0L), (pointerdevices?.value ?: 0L))
+public actual fun getPointerDevices(devicecount: MutPtr<UInt>, pointerdevices: MutPtr<PointerDeviceInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerDevices(devicecount.rawAddress, pointerdevices.rawAddress)
 
-public actual fun getPointerFrameInfo(pointerid: UInt, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo(pointerid.toInt(), (pointercount?.value ?: 0L), (pointerinfo?.value ?: 0L))
+public actual fun getPointerFrameInfo(pointerid: UInt, pointercount: MutPtr<UInt>, pointerinfo: MutPtr<PointerInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerFrameInfo(pointerid.toInt(), pointercount.rawAddress, pointerinfo.rawAddress)
 
-public actual fun getPointerFrameInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L), (pointercount?.value ?: 0L), (pointerinfo?.value ?: 0L))
+public actual fun getPointerFrameInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointercount: MutPtr<UInt>, pointerinfo: MutPtr<PointerInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerFrameInfoHistory(pointerid.toInt(), entriescount.rawAddress, pointercount.rawAddress, pointerinfo.rawAddress)
 
-public actual fun getPointerFramePenInfo(pointerid: UInt, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo(pointerid.toInt(), (pointercount?.value ?: 0L), (peninfo?.value ?: 0L))
+public actual fun getPointerFramePenInfo(pointerid: UInt, pointercount: MutPtr<UInt>, peninfo: MutPtr<PointerPenInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerFramePenInfo(pointerid.toInt(), pointercount.rawAddress, peninfo.rawAddress)
 
-public actual fun getPointerFramePenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L), (pointercount?.value ?: 0L), (peninfo?.value ?: 0L))
+public actual fun getPointerFramePenInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointercount: MutPtr<UInt>, peninfo: MutPtr<PointerPenInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerFramePenInfoHistory(pointerid.toInt(), entriescount.rawAddress, pointercount.rawAddress, peninfo.rawAddress)
 
-public actual fun getPointerFrameTouchInfo(pointerid: UInt, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo(pointerid.toInt(), (pointercount?.value ?: 0L), (touchinfo?.value ?: 0L))
+public actual fun getPointerFrameTouchInfo(pointerid: UInt, pointercount: MutPtr<UInt>, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfo(pointerid.toInt(), pointercount.rawAddress, touchinfo.rawAddress)
 
-public actual fun getPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L), (pointercount?.value ?: 0L), (touchinfo?.value ?: 0L))
+public actual fun getPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointercount: MutPtr<UInt>, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfoHistory(pointerid.toInt(), entriescount.rawAddress, pointercount.rawAddress, touchinfo.rawAddress)
 
-public actual fun getPointerInfo(pointerid: UInt, pointerinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerInfo(pointerid.toInt(), (pointerinfo?.value ?: 0L))
+public actual fun getPointerInfo(pointerid: UInt, pointerinfo: MutPtr<PointerInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerInfo(pointerid.toInt(), pointerinfo.rawAddress)
 
-public actual fun getPointerInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L), (pointerinfo?.value ?: 0L))
+public actual fun getPointerInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, pointerinfo: MutPtr<PointerInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerInfoHistory(pointerid.toInt(), entriescount.rawAddress, pointerinfo.rawAddress)
 
-public actual fun getPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerInputTransform(pointerid.toInt(), historycount.toInt(), (inputtransform?.value ?: 0L))
+public actual fun getPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: MutPtr<InputTransform>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerInputTransform(pointerid.toInt(), historycount.toInt(), inputtransform.rawAddress)
 
-public actual fun getPointerPenInfo(pointerid: UInt, peninfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerPenInfo(pointerid.toInt(), (peninfo?.value ?: 0L))
+public actual fun getPointerPenInfo(pointerid: UInt, peninfo: MutPtr<PointerPenInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerPenInfo(pointerid.toInt(), peninfo.rawAddress)
 
-public actual fun getPointerPenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L), (peninfo?.value ?: 0L))
+public actual fun getPointerPenInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, peninfo: MutPtr<PointerPenInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerPenInfoHistory(pointerid.toInt(), entriescount.rawAddress, peninfo.rawAddress)
 
-public actual fun getPointerTouchInfo(pointerid: UInt, touchinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo(pointerid.toInt(), (touchinfo?.value ?: 0L))
+public actual fun getPointerTouchInfo(pointerid: UInt, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerTouchInfo(pointerid.toInt(), touchinfo.rawAddress)
 
-public actual fun getPointerTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L), (touchinfo?.value ?: 0L))
+public actual fun getPointerTouchInfoHistory(pointerid: UInt, entriescount: MutPtr<UInt>, touchinfo: MutPtr<PointerTouchInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerTouchInfoHistory(pointerid.toInt(), entriescount.rawAddress, touchinfo.rawAddress)
 
-public actual fun getPointerType(pointerid: UInt, pointertype: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getPointerType(pointerid.toInt(), (pointertype?.value ?: 0L))
+public actual fun getPointerType(pointerid: UInt, pointertype: MutPtr<PointerInputType>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetPointerType(pointerid.toInt(), pointertype.rawAddress)
 
-public actual fun getRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: COpaquePointer?, pvalues: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData(pointerid.toInt(), historycount.toInt(), propertiescount.toInt(), (pproperties?.value ?: 0L), (pvalues?.value ?: 0L))
+public actual fun getRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: ConstPtr<PointerDeviceProperty>, pvalues: MutPtr<Int>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetRawPointerDeviceData(pointerid.toInt(), historycount.toInt(), propertiescount.toInt(), pproperties.rawAddress, pvalues.rawAddress)
 
 public actual fun getUnpredictedMessagePos(): UInt =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos().toUInt()
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerGetUnpredictedMessagePos().toUInt()
 
 public actual fun initializeTouchInjection(maxcount: UInt, dwmode: TouchFeedbackMode): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_initializeTouchInjection(maxcount.toInt(), dwmode.toInt())
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerInitializeTouchInjection(maxcount.toInt(), dwmode.toInt())
 
-public actual fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: COpaquePointer?, count: UInt): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput((device?.value ?: 0L), (pointerinfo?.value ?: 0L), count.toInt())
+public actual fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: ConstPtr<PointerTypeInfo>, count: UInt): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerInjectSyntheticPointerInput(device.rawAddress, pointerinfo.rawAddress, count.toInt())
 
-public actual fun injectTouchInput(count: UInt, contacts: COpaquePointer?): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_injectTouchInput(count.toInt(), (contacts?.value ?: 0L))
+public actual fun injectTouchInput(count: UInt, contacts: ConstPtr<PointerTouchInfo>): Bool =
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerInjectTouchInput(count.toInt(), contacts.rawAddress)
 
 public actual fun isMouseInPointerEnabled(): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled()
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled()
 
 public actual fun skipPointerFrameMessages(pointerid: UInt): Bool =
-    WindowsWin32UiInputPointerJniBridge.windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages(pointerid.toInt())
+    WindowsWin32UiInputPointerJniBridge.windowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(pointerid.toInt())

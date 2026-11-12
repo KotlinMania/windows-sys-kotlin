@@ -2,2225 +2,2228 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32DevicesAlljoynNapiAddon(): Boolean
+private external fun initWindowsWin32DevicesAlljoynNapiAddon(): Boolean
 
-private val _windowsWin32DevicesAlljoynNapiAvailable: Boolean = _initWindowsWin32DevicesAlljoynNapiAddon()
+private val windowsWin32DevicesAlljoynNapiAvailable: Boolean = initWindowsWin32DevicesAlljoynNapiAddon()
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynAcceptBusConnection(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynAcceptBusConnection(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynCloseBusHandle(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynCloseBusHandle(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynConnectToBus(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynConnectToBus(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynCreateBus(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynCreateBus(p0: Int, p1: Int, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynCreateBus(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynCreateBus(p0: Int, p1: Int, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynEnumEvents(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynEnumEvents(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynEventSelect(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynEventSelect(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynEventSelect(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynEventSelect(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynReceiveFromBus(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynReceiveFromBus(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_allJoynSendToBus(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_allJoynSendToBus(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAllJoynSendToBus(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAllJoynSendToBus(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_qccStatusText(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_qccStatusText(p0: Int): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynQccStatusText(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynQccStatusText(p0: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreate(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreate(p0: String): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty(): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateFull(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateFull(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefrommsgarg(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefrommsgarg(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefromxml(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefromxml(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetaboutdata(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetaboutdata(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetajsoftwareversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetajsoftwareversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappid(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappid(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappname(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappname(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdateofmanufacture(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdateofmanufacture(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdefaultlanguage(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdefaultlanguage(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdescription(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdescription(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdeviceid(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdeviceid(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdevicename(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdevicename(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfield(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfield(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfields(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfields(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfieldsignature(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfieldsignature(p0: String, p1: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGethardwareversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGethardwareversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmanufacturer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmanufacturer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmodelnumber(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmodelnumber(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsoftwareversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsoftwareversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupportedlanguages(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupportedlanguages(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupporturl(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupporturl(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldannounced(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldannounced(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldlocalized(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldlocalized(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldrequired(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldrequired(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsvalid(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsvalid(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappid(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappid(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappidFromstring(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappidFromstring(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappname(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappname(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdateofmanufacture(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdateofmanufacture(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdefaultlanguage(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdefaultlanguage(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdescription(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdescription(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdeviceid(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdeviceid(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdevicename(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdevicename(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetfield(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetfield(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSethardwareversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSethardwareversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmanufacturer(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmanufacturer(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmodelnumber(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmodelnumber(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsoftwareversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsoftwareversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupportedlanguage(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupportedlanguage(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupporturl(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupporturl(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate(): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGetcontent(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGetcontent(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGeturl(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGeturl(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontent(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontent(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSeturl(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSeturl(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(p0: String, p1: String, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyCreate(p0: String, p1: String, p2: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGetversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGetversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(p0: String, p1: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate(): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfacepaths(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfacepaths(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfaces(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfaces(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetpaths(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetpaths(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterface(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterfaceatpath(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterfaceatpath(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHaspath(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHaspath(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(p0: String, p1: String, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyCreate(p0: String, p1: String, p2: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetaboutdata(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetaboutdata(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetversion(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetversion(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse(p0: String, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerRequestcredentialsresponse(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerRequestcredentialsresponse(p0: String, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerSetsharedsecret(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerSetsharedsecret(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerVerifycredentialsresponse(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerVerifycredentialsresponse(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAdddestination(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAdddestination(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(p0: String, p1: String, p2: String, p3: Int)
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAddpinggroup(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAddpinggroup(p0: String, p1: String, p2: String, p3: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovedestination(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovedestination(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovepinggroup(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovepinggroup(p0: String, p1: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerSetpinginterval(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerSetpinginterval(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddlogonentry(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddlogonentry(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddmatch(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddmatch(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAdvertisename(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAdvertisename(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentBindsessionport(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentBindsessionport(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCanceladvertisename(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCanceladvertisename(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisedname(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisedname(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisednamebytransport(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisednamebytransport(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterface(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterfaces(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterfaces(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeys(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeys(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentConnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentConnect(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate(p0: String, p1: Int): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreate(p0: String, p1: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency(p0: String, p1: Int, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateConcurrency(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateConcurrency(p0: String, p1: Int, p2: Int): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterface(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterface(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfaceSecure(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfaceSecure(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfacesfromxml(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfacesfromxml(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeletedefaultkeystore(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeletedefaultkeystore(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDisconnect(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDisconnect(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecurity(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecurity(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisedname(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisedname(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisednamebytransport(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisednamebytransport(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconnectspec(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconnectspec(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetglobalguidstring(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetglobalguidstring(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterface(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterfaces(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterfaces(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetkeyexpiration(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetkeyexpiration(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpeerguid(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpeerguid(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(p0: String): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetuniquename(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetuniquename(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsession(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsession(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsessionasync(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsessionasync(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentNamehasowner(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentNamehasowner(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentPing(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentPing(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReleasename(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReleasename(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovematch(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovematch(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovesessionmember(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovesessionmember(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRequestname(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRequestname(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnection(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnection(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnectionasync(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnectionasync(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetdaemondebug(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetdaemondebug(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetkeyexpiration(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetkeyexpiration(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeout(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeout(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeoutasync(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeoutasync(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(p0: String, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(p0: String, p1: Int, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(p0: String, p1: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterface(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterfaces(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterfaces(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandlers(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandlers(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate(p0: String, p1: Int, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCreate(p0: String, p1: Int, p2: String, p3: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged(p0: String, p1: String, p2: String, p3: String, p4: Int)
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertieschanged(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertieschanged(p0: String, p1: String, p2: String, p3: String, p4: Int)
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged(p0: String, p1: String, p2: String, p3: String, p4: Int)
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertychanged(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertychanged(p0: String, p1: String, p2: String, p3: String, p4: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetannouncedinterfacenames(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetannouncedinterfacenames(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetname(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetname(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetpath(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetpath(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyErr(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyErr(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(p0: String, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(p0: String, p1: String, p2: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate(): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetcertchain(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetcertchain(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetlogonentry(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetlogonentry(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetpassword(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetpassword(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetprivateKey(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetprivateKey(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetusername(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetusername(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetcertchain(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetcertchain(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetlogonentry(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetlogonentry(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetpassword(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetpassword(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetprivatekey(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetprivatekey(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetusername(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetusername(p0: String, p1: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynGetbuildinfo()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynGetbuildinfo(): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynGetversion()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynGetversion(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynGetversion()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynGetversion(): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInit()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInit(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInit()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInit(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddannotation(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddannotation(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddargannotation(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddargannotation(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmember(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmember(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmemberannotation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmemberannotation(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmethod(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmethod(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddproperty(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddproperty(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddpropertyannotation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddpropertyannotation(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddsignal(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddsignal(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotation(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotation(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String)
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationatindex(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationatindex(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount(p0: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetargdescriptionforlanguage(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetargdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionforlanguage(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages2(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages2(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptiontranslationcallback(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptiontranslationcallback(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptiontranslationcallback(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptiontranslationcallback(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmember(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmember(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberannotation(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberannotation(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberargannotation(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberargannotation(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberdescriptionforlanguage(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmembers(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmembers(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmethod(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmethod(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetname(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetname(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperties(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperties(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperty(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperty(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertyannotation(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertyannotation(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertydescriptionforlanguage(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertydescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsignal(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsignal(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasmember(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasmember(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperty(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperty(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIntrospect(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIntrospect(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescription(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescription(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescriptionforlanguage(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescription(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescription(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionforlanguage(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionforlanguage(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionlanguage(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionlanguage(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptiontranslationcallback(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptiontranslationcallback(p0: String, p1: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescription(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescription(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescriptionforlanguage(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescriptionforlanguage(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescription(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescription(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescriptionforlanguage(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescriptionforlanguage(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerGetkeys(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerGetkeys(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerPutkeys(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerPutkeys(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerWithSynchronizationCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerWithSynchronizationCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageDescription(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageDescription(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageEql(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageEql(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetargs(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetargs(p0: String, p1: String, p2: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetauthmechanism(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetauthmechanism(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetdestination(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetdestination(p0: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGeterrorname(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGeterrorname(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetinterface(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetinterface(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetmembername(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetmembername(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetobjectpath(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetobjectpath(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreceiveendpointname(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreceiveendpointname(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsender(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsender(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsignature(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsignature(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsexpired(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsexpired(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageParseargs(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageParseargs(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess(p0: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMessageTostring(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageTostring(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayGet(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayGet(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySet(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySet(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String, p8: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySetOffset(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySetOffset(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String, p8: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySignature(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySignature(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring(p0: String, p1: String, p2: String, p3: String, p4: String): String
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayTostring(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayTostring(p0: String, p1: String, p2: String, p3: String, p4: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone(p0: String, p1: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(p0: String): String
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate(): String
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate(): String
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): String
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreateAndSet(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreateAndSet(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGet(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGet(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement(p0: String, p1: String, p2: String)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElement(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElement(p0: String, p1: String, p2: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElementsignature(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElementsignature(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBool(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBool(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBoolArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBoolArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDouble(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDouble(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDoubleArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDoubleArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetObjectpath(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetObjectpath(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetSignature(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetSignature(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetString(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetString(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariantArray(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariantArray(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetdictelement(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetdictelement(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargHassignature(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargHassignature(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSet(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSet(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetAndStabilize(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetAndStabilize(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBoolArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBoolArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble(p0: String, p1: Double): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(p0: String, p1: Double): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDoubleArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDoubleArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpath(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpath(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpathArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpathArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignature(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignature(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignatureArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignatureArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetString(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetString(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetStringArray(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetStringArray(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8Array(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8Array(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSignature(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSignature(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize(p0: String)
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(p0: String, p1: String, p2: String, p3: String): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynMsgargTostring(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargTostring(p0: String, p1: String, p2: String, p3: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverCreate(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverGet(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGet(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(p0: String, p1: String, p2: Int)
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(p0: String, p1: String, p2: Int)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(p0: String, p1: String)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener(p0: String, p1: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPasswordmanagerSetcredentials(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPasswordmanagerSetcredentials(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificatechainDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificatechainDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidCleanup(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidCleanup(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidarrayCleanup(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidarrayCleanup(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorClaim(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorClaim(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetapplicationstate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetapplicationstate(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilities(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilities(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(p0: String, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultpolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultpolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentity(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentity(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentitycertificateid(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentitycertificateid(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifests(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifests(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifesttemplate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifesttemplate(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmembershipsummaries(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmembershipsummaries(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpublickey(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpublickey(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(p0: String, p1: String, p2: String, p3: Int): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmanifests(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmanifests(p0: String, p1: String, p2: String, p3: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmembership(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmembership(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifestarrayCleanup(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifestarrayCleanup(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifesttemplateDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifesttemplateDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPolicyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPolicyDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPublickeyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPublickeyDestroy(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorRemovemembership(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorRemovemembership(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetmanifesttemplatefromxml(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetmanifesttemplatefromxml(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdateidentity(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdateidentity(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdatepolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdatepolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterfaceByName(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterfaceByName(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(p0: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreate(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure(p0: String, p1: String, p2: String, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreateSecure(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreateSecure(p0: String, p1: String, p2: String, p3: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching(p0: String)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallproperties(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallproperties(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallpropertiesasync(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallpropertiesasync(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchild(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchild(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchildren(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchildren(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterface(p0: String, p1: String): String
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces(p0: String, p1: String, p2: String): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterfaces(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterfaces(p0: String, p1: String, p2: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpath(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpath(p0: String): String
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetproperty(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetproperty(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpropertyasync(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpropertyasync(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetservicename(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetservicename(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetuniquename(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetuniquename(p0: String): String
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectImplementsinterface(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectImplementsinterface(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(p0: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobjectasync(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobjectasync(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcall(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcall(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallNoreply(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallNoreply(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int, p8: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallasync(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallasync(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int, p8: Int): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectParsexml(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectParsexml(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet(p0: String): String
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(p0: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRegisterpropertieschangedlistener(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRegisterpropertieschangedlistener(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRemovechild(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRemovechild(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync(p0: String, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(p0: String, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetproperty(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetproperty(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetpropertyasync(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetpropertyasync(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectUnregisterpropertieschangedlistener(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectUnregisterpropertieschangedlistener(p0: String, p1: String, p2: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynRouterinit()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynRouterinit(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynRouterinit()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynRouterinitwithconfig(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinitwithconfig(p0: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown(): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyClaim(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyClaim(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyComputemanifestdigest(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyComputemanifestdigest(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(p0: String, p1: String, p2: Int): String
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyCreate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyCreate(p0: String, p1: String, p2: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDigestDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDigestDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEccpublickeyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEccpublickeyDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetapplicationstate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetapplicationstate(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilities(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilities(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetdefaultpolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetdefaultpolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGeteccpublickey(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGeteccpublickey(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetmanifesttemplate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetmanifesttemplate(p0: String, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyInstallmembership(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyInstallmembership(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifestDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifestDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifesttemplateDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifesttemplateDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyPolicyDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyPolicyDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySetmanifestsignature(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySetmanifestsignature(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySignmanifest(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySignmanifest(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdateidentity(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdateidentity(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdatepolicy(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdatepolicy(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate(p0: Int, p1: Int, p2: Int, p3: Int): String
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(p0: Int, p1: Int, p2: Int, p3: Int): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(p0: String)
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports(p0: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(p0: String, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(p0: String, p1: Int)
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports(p0: String, p1: Int)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate(p0: String, p1: String): String
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerCreate(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerCreate(p0: String, p1: String): String
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy(p0: String)
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynShutdown()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynShutdown(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynShutdown()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown(): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess()")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess()")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess(): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly(p0)")
-private external fun _wasm_windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly(p0: Int)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(p0)")
+private external fun wasmWindowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(p0: Int)
 
 public actual fun allJoynAcceptBusConnection(serverbushandle: Handle, abortevent: Handle): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection((serverbushandle?.value ?: 0L).toString(), (abortevent?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAllJoynAcceptBusConnection(serverbushandle.rawAddress.toString(), abortevent.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun allJoynCloseBusHandle(bushandle: Handle): Bool =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle((bushandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAllJoynCloseBusHandle(bushandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun allJoynConnectToBus(connectionspec: Pcwstr): Handle =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus((connectionspec?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesAlljoynAllJoynConnectToBus(connectionspec.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun allJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: COpaquePointer?): Handle =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynCreateBus(outbuffersize.toInt(), inbuffersize.toInt(), (lpsecurityattributes?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun allJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+    if (windowsWin32DevicesAlljoynNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesAlljoynAllJoynCreateBus(outbuffersize.toInt(), inbuffersize.toInt(), lpsecurityattributes.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun allJoynEnumEvents(connectedbushandle: Handle, eventtoreset: Handle, eventtypes: COpaquePointer?): Bool =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents((connectedbushandle?.value ?: 0L).toString(), (eventtoreset?.value ?: 0L).toString(), (eventtypes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun allJoynEnumEvents(connectedbushandle: Handle, eventtoreset: Handle, eventtypes: MutPtr<UInt>): Bool =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAllJoynEnumEvents(connectedbushandle.rawAddress.toString(), eventtoreset.rawAddress.toString(), eventtypes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun allJoynEventSelect(connectedbushandle: Handle, eventhandle: Handle, eventtypes: UInt): Bool =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynEventSelect((connectedbushandle?.value ?: 0L).toString(), (eventhandle?.value ?: 0L).toString(), eventtypes.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAllJoynEventSelect(connectedbushandle.rawAddress.toString(), eventhandle.rawAddress.toString(), eventtypes.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun allJoynReceiveFromBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestoread: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus((connectedbushandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), bytestoread.toInt(), (bytestransferred?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun allJoynReceiveFromBus(connectedbushandle: Handle, buffer: MutPtr<CVoid>, bytestoread: UInt, bytestransferred: MutPtr<UInt>, reserved: MutPtr<CVoid>): Bool =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAllJoynReceiveFromBus(connectedbushandle.rawAddress.toString(), buffer.rawAddress.toString(), bytestoread.toInt(), bytestransferred.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun allJoynSendToBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestowrite: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_allJoynSendToBus((connectedbushandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), bytestowrite.toInt(), (bytestransferred?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun allJoynSendToBus(connectedbushandle: Handle, buffer: ConstPtr<CVoid>, bytestowrite: UInt, bytestransferred: MutPtr<UInt>, reserved: MutPtr<CVoid>): Bool =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAllJoynSendToBus(connectedbushandle.rawAddress.toString(), buffer.rawAddress.toString(), bytestowrite.toInt(), bytestransferred.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun qccStatusText(status: QStatus): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_qccStatusText(status).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynQccStatusText(status).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataCreate(defaultlanguage: Pcstr): AlljoynAboutdata =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate((defaultlanguage?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreate(defaultlanguage.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataCreateEmpty(): AlljoynAboutdata =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataCreateFull(arg: AlljoynMsgarg, language: Pcstr): AlljoynAboutdata =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(arg.toString(), (language?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateFull(arg.toString(), language.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataCreatefrommsgarg(data: AlljoynAboutdata, arg: AlljoynMsgarg, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(data.toString(), arg.toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefrommsgarg(data.toString(), arg.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataCreatefromxml(data: AlljoynAboutdata, aboutdataxml: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(data.toString(), (aboutdataxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefromxml(data.toString(), aboutdataxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(data.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy(data.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAboutdataGetaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(data.toString(), msgarg.toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetaboutdata(data.toString(), msgarg.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(data.toString(), (ajsoftwareversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetajsoftwareversion(data.toString(), ajsoftwareversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataGetannouncedaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(data.toString(), msgarg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(data.toString(), msgarg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(data.toString(), (appid?.value ?: 0L).toString(), (num?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: MutPtr<MutPtr<UByte>>, num: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappid(data.toString(), appid.rawAddress.toString(), num.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: COpaquePointer?, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(data.toString(), (appname?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappname(data.toString(), appname.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(data.toString(), (dateofmanufacture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdateofmanufacture(data.toString(), dateofmanufacture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(data.toString(), (defaultlanguage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdefaultlanguage(data.toString(), defaultlanguage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: COpaquePointer?, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(data.toString(), (description?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdescription(data.toString(), description.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(data.toString(), (deviceid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdeviceid(data.toString(), deviceid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: COpaquePointer?, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(data.toString(), (devicename?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdevicename(data.toString(), devicename.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: COpaquePointer?, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(data.toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: MutPtr<AlljoynMsgarg>, language: Pcstr): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfield(data.toString(), name.rawAddress.toString(), value.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: COpaquePointer?, numFields: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(data.toString(), (fields?.value ?: 0L).toString(), numFields.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: ConstPtr<ConstPtr<Byte>>, numFields: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfields(data.toString(), fields.rawAddress.toString(), numFields.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataGetfieldsignature(data: AlljoynAboutdata, fieldname: Pcstr): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(data.toString(), (fieldname?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfieldsignature(data.toString(), fieldname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(data.toString(), (hardwareversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGethardwareversion(data.toString(), hardwareversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: COpaquePointer?, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(data.toString(), (manufacturer?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: MutPtr<MutPtr<Byte>>, language: Pcstr): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmanufacturer(data.toString(), manufacturer.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(data.toString(), (modelnumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmodelnumber(data.toString(), modelnumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(data.toString(), (softwareversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsoftwareversion(data.toString(), softwareversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: COpaquePointer?, num: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(data.toString(), (languagetags?.value ?: 0L).toString(), num.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: ConstPtr<ConstPtr<Byte>>, num: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupportedlanguages(data.toString(), languagetags.rawAddress.toString(), num.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(data.toString(), (supporturl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupporturl(data.toString(), supporturl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataIsfieldannounced(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(data.toString(), (fieldname?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldannounced(data.toString(), fieldname.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataIsfieldlocalized(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(data.toString(), (fieldname?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldlocalized(data.toString(), fieldname.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataIsfieldrequired(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(data.toString(), (fieldname?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldrequired(data.toString(), fieldname.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataIsvalid(data: AlljoynAboutdata, language: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(data.toString(), (language?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsvalid(data.toString(), language.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(data.toString(), (appid?.value ?: 0L).toString(), num.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: ConstPtr<UByte>, num: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappid(data.toString(), appid.rawAddress.toString(), num.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetappidFromstring(data: AlljoynAboutdata, appid: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(data.toString(), (appid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappidFromstring(data.toString(), appid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetappname(data: AlljoynAboutdata, appname: Pcstr, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(data.toString(), (appname?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappname(data.toString(), appname.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(data.toString(), (dateofmanufacture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdateofmanufacture(data.toString(), dateofmanufacture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(data.toString(), (defaultlanguage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdefaultlanguage(data.toString(), defaultlanguage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetdescription(data: AlljoynAboutdata, description: Pcstr, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(data.toString(), (description?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdescription(data.toString(), description.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetdeviceid(data: AlljoynAboutdata, deviceid: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(data.toString(), (deviceid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdeviceid(data.toString(), deviceid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetdevicename(data: AlljoynAboutdata, devicename: Pcstr, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(data.toString(), (devicename?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdevicename(data.toString(), devicename.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetfield(data: AlljoynAboutdata, name: Pcstr, value: AlljoynMsgarg, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(data.toString(), (name?.value ?: 0L).toString(), value.toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetfield(data.toString(), name.rawAddress.toString(), value.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSethardwareversion(data: AlljoynAboutdata, hardwareversion: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(data.toString(), (hardwareversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSethardwareversion(data.toString(), hardwareversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetmanufacturer(data: AlljoynAboutdata, manufacturer: Pcstr, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(data.toString(), (manufacturer?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmanufacturer(data.toString(), manufacturer.rawAddress.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetmodelnumber(data: AlljoynAboutdata, modelnumber: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(data.toString(), (modelnumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmodelnumber(data.toString(), modelnumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetsoftwareversion(data: AlljoynAboutdata, softwareversion: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(data.toString(), (softwareversion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsoftwareversion(data.toString(), softwareversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetsupportedlanguage(data: AlljoynAboutdata, language: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(data.toString(), (language?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupportedlanguage(data.toString(), language.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdataSetsupporturl(data: AlljoynAboutdata, supporturl: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(data.toString(), (supporturl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupporturl(data.toString(), supporturl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutdatalistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAboutdatalistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutdatalistenerCreate(callbacks: ConstPtr<AlljoynAboutdatalistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynAboutdatalistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(icon.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear(icon.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAbouticonCreate(): AlljoynAbouticon =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(icon.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(icon.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(icon.toString(), (data?.value ?: 0L).toString(), (size?.value ?: 0L).toString())
+public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: ConstPtr<ConstPtr<UByte>>, size: MutPtr<ULong>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGetcontent(icon.toString(), data.rawAddress.toString(), size.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(icon.toString(), (type?.value ?: 0L).toString(), (url?.value ?: 0L).toString())
+public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: ConstPtr<ConstPtr<Byte>>, url: ConstPtr<ConstPtr<Byte>>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGeturl(icon.toString(), type.rawAddress.toString(), url.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: COpaquePointer?, csize: ULong, ownsdata: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(icon.toString(), (type?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), csize.toString(), ownsdata.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: MutPtr<UByte>, csize: ULong, ownsdata: UByte): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontent(icon.toString(), type.rawAddress.toString(), data.rawAddress.toString(), csize.toString(), ownsdata.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAbouticonSetcontentFrommsgarg(icon: AlljoynAbouticon, arg: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(icon.toString(), arg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(icon.toString(), arg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, url: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(icon.toString(), (type?.value ?: 0L).toString(), (url?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSeturl(icon.toString(), type.rawAddress.toString(), url.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(bus.toString(), icon.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(bus.toString(), icon.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(icon.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(icon.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAbouticonproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAbouticonproxy =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(bus.toString(), (busname?.value ?: 0L).toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyCreate(bus.toString(), busname.rawAddress.toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(proxy.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy(proxy.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(proxy.toString(), icon.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(proxy.toString(), icon.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(proxy.toString(), (version?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGetversion(proxy.toString(), version.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynAboutlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate((callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutlistenerCreate(callback: ConstPtr<AlljoynAboutlistenerCallback>, context: ConstPtr<CVoid>): AlljoynAboutlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerCreate(callback.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(obj.toString(), sessionport.toInt(), aboutdata.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(obj.toString(), sessionport.toInt(), aboutdata.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj, sessionport: UShort, aboutlistener: AlljoynAboutdatalistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(obj.toString(), sessionport.toInt(), aboutlistener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(obj.toString(), sessionport.toInt(), aboutlistener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(bus.toString(), isannounced).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(bus.toString(), isannounced).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(obj.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(obj.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(obj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(obj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(description.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(description.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): AlljoynAboutobjectdescription =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(arg.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(arg.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(description.toString(), arg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(description.toString(), arg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(description.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(description.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: COpaquePointer?, numpaths: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(description.toString(), (interfacename?.value ?: 0L).toString(), (paths?.value ?: 0L).toString(), numpaths.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: ConstPtr<ConstPtr<Byte>>, numpaths: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfacepaths(description.toString(), interfacename.rawAddress.toString(), paths.rawAddress.toString(), numpaths.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(description.toString(), (path?.value ?: 0L).toString(), (interfaces?.value ?: 0L).toString(), numinterfaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: ConstPtr<ConstPtr<Byte>>, numinterfaces: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfaces(description.toString(), path.rawAddress.toString(), interfaces.rawAddress.toString(), numinterfaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionGetmsgarg(description: AlljoynAboutobjectdescription, msgarg: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(description.toString(), msgarg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(description.toString(), msgarg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: COpaquePointer?, numpaths: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(description.toString(), (paths?.value ?: 0L).toString(), numpaths.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: ConstPtr<ConstPtr<Byte>>, numpaths: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetpaths(description.toString(), paths.rawAddress.toString(), numpaths.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionHasinterface(description: AlljoynAboutobjectdescription, interfacename: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(description.toString(), (interfacename?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterface(description.toString(), interfacename.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionHasinterfaceatpath(description: AlljoynAboutobjectdescription, path: Pcstr, interfacename: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(description.toString(), (path?.value ?: 0L).toString(), (interfacename?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterfaceatpath(description.toString(), path.rawAddress.toString(), interfacename.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutobjectdescriptionHaspath(description: AlljoynAboutobjectdescription, path: Pcstr): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(description.toString(), (path?.value ?: 0L).toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHaspath(description.toString(), path.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAboutproxy =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(bus.toString(), (busname?.value ?: 0L).toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyCreate(bus.toString(), busname.rawAddress.toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(proxy.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy(proxy.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, language: Pcstr, data: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(proxy.toString(), (language?.value ?: 0L).toString(), data.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetaboutdata(proxy.toString(), language.rawAddress.toString(), data.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAboutproxyGetobjectdescription(proxy: AlljoynAboutproxy, objectdesc: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(proxy.toString(), objectdesc.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(proxy.toString(), objectdesc.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(proxy.toString(), (version?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetversion(proxy.toString(), version.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynApplicationstatelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynApplicationstatelistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynApplicationstatelistenerCreate(callbacks: ConstPtr<AlljoynApplicationstatelistenerCallbacks>, context: MutPtr<CVoid>): AlljoynApplicationstatelistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynAuthlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAuthlistenerCreate(callbacks: ConstPtr<AlljoynAuthlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynAuthlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int, credentials: AlljoynCredentials): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse(listener.toString(), (authcontext?.value ?: 0L).toString(), accept, credentials.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: MutPtr<CVoid>, accept: Int, credentials: AlljoynCredentials): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerRequestcredentialsresponse(listener.toString(), authcontext.rawAddress.toString(), accept, credentials.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAuthlistenerSetsharedsecret(listener: AlljoynAuthlistener, sharedsecret: COpaquePointer?, sharedsecretsize: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret(listener.toString(), (sharedsecret?.value ?: 0L).toString(), sharedsecretsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAuthlistenerSetsharedsecret(listener: AlljoynAuthlistener, sharedsecret: ConstPtr<UByte>, sharedsecretsize: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerSetsharedsecret(listener.toString(), sharedsecret.rawAddress.toString(), sharedsecretsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAuthlistenerVerifycredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse(listener.toString(), (authcontext?.value ?: 0L).toString(), accept) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAuthlistenerVerifycredentialsresponse(listener: AlljoynAuthlistener, authcontext: MutPtr<CVoid>, accept: Int): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerVerifycredentialsresponse(listener.toString(), authcontext.rawAddress.toString(), accept) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynAuthlistenerasyncCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynAuthlistenerasyncCreate(callbacks: ConstPtr<AlljoynAuthlistenerasyncCallbacks>, context: ConstPtr<CVoid>): AlljoynAuthlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAutopingerAdddestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(autopinger.toString(), (group?.value ?: 0L).toString(), (destination?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAdddestination(autopinger.toString(), group.rawAddress.toString(), destination.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(autopinger.toString(), (group?.value ?: 0L).toString(), listener.toString(), pinginterval.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAddpinggroup(autopinger.toString(), group.rawAddress.toString(), listener.toString(), pinginterval.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(autopinger.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(autopinger.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(autopinger.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause(autopinger.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAutopingerRemovedestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr, removeall: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(autopinger.toString(), (group?.value ?: 0L).toString(), (destination?.value ?: 0L).toString(), removeall) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovedestination(autopinger.toString(), group.rawAddress.toString(), destination.rawAddress.toString(), removeall) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(autopinger.toString(), (group?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovepinggroup(autopinger.toString(), group.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(autopinger.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume(autopinger.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynAutopingerSetpinginterval(autopinger: AlljoynAutopinger, group: Pcstr, pinginterval: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(autopinger.toString(), (group?.value ?: 0L).toString(), pinginterval.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerSetpinginterval(autopinger.toString(), group.rawAddress.toString(), pinginterval.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentAddlogonentry(bus: AlljoynBusattachment, authmechanism: Pcstr, username: Pcstr, password: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry(bus.toString(), (authmechanism?.value ?: 0L).toString(), (username?.value ?: 0L).toString(), (password?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddlogonentry(bus.toString(), authmechanism.rawAddress.toString(), username.rawAddress.toString(), password.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentAddmatch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch(bus.toString(), (rule?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddmatch(bus.toString(), rule.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentAdvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename(bus.toString(), (name?.value ?: 0L).toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAdvertisename(bus.toString(), name.rawAddress.toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: COpaquePointer?, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(bus.toString(), (sessionport?.value ?: 0L).toString(), opts.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: MutPtr<UShort>, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentBindsessionport(bus.toString(), sessionport.rawAddress.toString(), opts.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCanceladvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename(bus.toString(), (name?.value ?: 0L).toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCanceladvertisename(bus.toString(), name.rawAddress.toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCancelfindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname(bus.toString(), (nameprefix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisedname(bus.toString(), nameprefix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCancelfindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport(bus.toString(), (nameprefix?.value ?: 0L).toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisednamebytransport(bus.toString(), nameprefix.rawAddress.toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCancelwhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface(bus.toString(), (implementsinterface?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterface(bus.toString(), implementsinterface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces(bus.toString(), (implementsinterfaces?.value ?: 0L).toString(), numberinterfaces.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: ConstPtr<ConstPtr<Byte>>, numberinterfaces: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterfaces(bus.toString(), implementsinterfaces.rawAddress.toString(), numberinterfaces.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentClearkeys(bus: AlljoynBusattachment, guid: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys(bus.toString(), (guid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeys(bus.toString(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore(bus.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore(bus.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentConnect(bus: AlljoynBusattachment, connectspec: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect(bus.toString(), (connectspec?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentConnect(bus.toString(), connectspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCreate(applicationname: Pcstr, allowremotemessages: Int): AlljoynBusattachment =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate((applicationname?.value ?: 0L).toString(), allowremotemessages).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreate(applicationname.rawAddress.toString(), allowremotemessages).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCreateConcurrency(applicationname: Pcstr, allowremotemessages: Int, concurrency: UInt): AlljoynBusattachment =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency((applicationname?.value ?: 0L).toString(), allowremotemessages, concurrency.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateConcurrency(applicationname.rawAddress.toString(), allowremotemessages, concurrency.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentCreateinterface(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface(bus.toString(), (name?.value ?: 0L).toString(), (iface?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentCreateinterface(bus: AlljoynBusattachment, name: Pcstr, iface: MutPtr<AlljoynInterfacedescription>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterface(bus.toString(), name.rawAddress.toString(), iface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentCreateinterfaceSecure(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?, secpolicy: AlljoynInterfacedescriptionSecuritypolicy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure(bus.toString(), (name?.value ?: 0L).toString(), (iface?.value ?: 0L).toString(), secpolicy) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentCreateinterfaceSecure(bus: AlljoynBusattachment, name: Pcstr, iface: MutPtr<AlljoynInterfacedescription>, secpolicy: AlljoynInterfacedescriptionSecuritypolicy): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfaceSecure(bus.toString(), name.rawAddress.toString(), iface.rawAddress.toString(), secpolicy) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentCreateinterfacesfromxml(bus: AlljoynBusattachment, xml: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml(bus.toString(), (xml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfacesfromxml(bus.toString(), xml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore((applicationname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeletedefaultkeystore(applicationname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(bus.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(bus.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(bus.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(bus.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentDisconnect(bus: AlljoynBusattachment, unused: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect(bus.toString(), (unused?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDisconnect(bus.toString(), unused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks(bus.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks(bus.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentEnablepeersecurity(bus: AlljoynBusattachment, authmechanisms: Pcstr, listener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity(bus.toString(), (authmechanisms?.value ?: 0L).toString(), listener.toString(), (keystorefilename?.value ?: 0L).toString(), isshared) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecurity(bus.toString(), authmechanisms.rawAddress.toString(), listener.toString(), keystorefilename.rawAddress.toString(), isshared) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus: AlljoynBusattachment, authmechanisms: Pcstr, authlistener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int, permissionconfigurationlistener: AlljoynPermissionconfigurationlistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus.toString(), (authmechanisms?.value ?: 0L).toString(), authlistener.toString(), (keystorefilename?.value ?: 0L).toString(), isshared, permissionconfigurationlistener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus.toString(), authmechanisms.rawAddress.toString(), authlistener.toString(), keystorefilename.rawAddress.toString(), isshared, permissionconfigurationlistener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentFindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname(bus.toString(), (nameprefix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisedname(bus.toString(), nameprefix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentFindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport(bus.toString(), (nameprefix?.value ?: 0L).toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisednamebytransport(bus.toString(), nameprefix.rawAddress.toString(), transports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetalljoyndebugobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetalljoynproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetconcurrency(bus: AlljoynBusattachment): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency(bus.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(bus.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetconnectspec(bus: AlljoynBusattachment): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec(bus.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconnectspec(bus.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetdbusproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetglobalguidstring(bus: AlljoynBusattachment): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring(bus.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetglobalguidstring(bus.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetinterface(bus: AlljoynBusattachment, name: Pcstr): AlljoynInterfacedescription =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(bus.toString(), (name?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterface(bus.toString(), name.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentGetinterfaces(bus: AlljoynBusattachment, ifaces: COpaquePointer?, numifaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces(bus.toString(), (ifaces?.value ?: 0L).toString(), numifaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentGetinterfaces(bus: AlljoynBusattachment, ifaces: ConstPtr<AlljoynInterfacedescription>, numifaces: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterfaces(bus.toString(), ifaces.rawAddress.toString(), numifaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentGetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration(bus.toString(), (guid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentGetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: MutPtr<UInt>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetkeyexpiration(bus.toString(), guid.rawAddress.toString(), timeout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, name: Pcstr, guid: Pcstr, guidsz: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid(bus.toString(), (name?.value ?: 0L).toString(), (guid?.value ?: 0L).toString(), (guidsz?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, name: Pcstr, guid: Pcstr, guidsz: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpeerguid(bus.toString(), name.rawAddress.toString(), guid.rawAddress.toString(), guidsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetpermissionconfigurator(bus: AlljoynBusattachment): AlljoynPermissionconfigurator =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGettimestamp(): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentGetuniquename(bus: AlljoynBusattachment): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename(bus.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetuniquename(bus.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentIsconnected(bus: AlljoynBusattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentIspeersecurityenabled(bus: AlljoynBusattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentIsstarted(bus: AlljoynBusattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentIsstopping(bus: AlljoynBusattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentJoin(bus: AlljoynBusattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: COpaquePointer?, opts: AlljoynSessionopts): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(bus.toString(), (sessionhost?.value ?: 0L).toString(), sessionport.toInt(), listener.toString(), (sessionid?.value ?: 0L).toString(), opts.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: MutPtr<UInt>, opts: AlljoynSessionopts): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsession(bus.toString(), sessionhost.rawAddress.toString(), sessionport.toInt(), listener.toString(), sessionid.rawAddress.toString(), opts.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(bus.toString(), (sessionhost?.value ?: 0L).toString(), sessionport.toInt(), listener.toString(), opts.toString(), 0L.toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsessionasync(bus.toString(), sessionhost.rawAddress.toString(), sessionport.toInt(), listener.toString(), opts.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentLeavesession(bus: AlljoynBusattachment, sessionid: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession(bus.toString(), sessionid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(bus.toString(), sessionid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner(bus.toString(), (name?.value ?: 0L).toString(), (hasowner?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentNamehasowner(bus.toString(), name.rawAddress.toString(), hasowner.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentPing(bus: AlljoynBusattachment, name: Pcstr, timeout: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(bus.toString(), (name?.value ?: 0L).toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentPing(bus.toString(), name.rawAddress.toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(bus.toString(), aboutlistener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener(bus.toString(), aboutlistener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(bus.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(bus.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(bus.toString(), listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(bus.toString(), listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject(bus.toString(), obj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(bus.toString(), obj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRegisterbusobjectSecure(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure(bus.toString(), obj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(bus.toString(), obj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRegisterkeystorelistener(bus: AlljoynBusattachment, listener: AlljoynKeystorelistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener(bus.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(bus.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRegistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -2229,83 +2232,83 @@ public actual fun alljoynBusattachmentRegistersignalhandlerwithrule(bus: Alljoyn
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentReleasename(bus: AlljoynBusattachment, name: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename(bus.toString(), (name?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReleasename(bus.toString(), name.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentReloadkeystore(bus: AlljoynBusattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRemovematch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch(bus.toString(), (rule?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovematch(bus.toString(), rule.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRemovesessionmember(bus: AlljoynBusattachment, sessionid: UInt, membername: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember(bus.toString(), sessionid.toInt(), (membername?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovesessionmember(bus.toString(), sessionid.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentRequestname(bus: AlljoynBusattachment, requestedname: Pcstr, flags: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname(bus.toString(), (requestedname?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRequestname(bus.toString(), requestedname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentSecureconnection(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection(bus.toString(), (name?.value ?: 0L).toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnection(bus.toString(), name.rawAddress.toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentSecureconnectionasync(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync(bus.toString(), (name?.value ?: 0L).toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnectionasync(bus.toString(), name.rawAddress.toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentSetdaemondebug(bus: AlljoynBusattachment, module: Pcstr, level: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug(bus.toString(), (module?.value ?: 0L).toString(), level.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetdaemondebug(bus.toString(), module.rawAddress.toString(), level.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentSetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration(bus.toString(), (guid?.value ?: 0L).toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetkeyexpiration(bus.toString(), guid.rawAddress.toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentSetlinktimeout(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout(bus.toString(), sessionid.toInt(), (linktimeout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentSetlinktimeout(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: MutPtr<UInt>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeout(bus.toString(), sessionid.toInt(), linktimeout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: UInt, callback: AlljoynBusattachmentSetlinktimeoutcbPtr, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync(bus.toString(), sessionid.toInt(), linktimeout.toInt(), 0L.toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: UInt, callback: AlljoynBusattachmentSetlinktimeoutcbPtr, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeoutasync(bus.toString(), sessionid.toInt(), linktimeout.toInt(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentSetsessionlistener(bus: AlljoynBusattachment, sessionid: UInt, listener: AlljoynSessionlistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(bus.toString(), sessionid.toInt(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(bus.toString(), sessionid.toInt(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentStart(bus: AlljoynBusattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentStop(bus: AlljoynBusattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachment, sessionport: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport(bus.toString(), sessionport.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(bus.toString(), sessionport.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(bus.toString(), aboutlistener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(bus.toString(), aboutlistener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners(bus.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners(bus.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(bus.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(bus.toString(), listener.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(bus.toString(), listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(bus.toString(), listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject(bus.toString(), obj.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject(bus.toString(), obj.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
@@ -2318,337 +2321,333 @@ public actual fun alljoynBusattachmentUnregistersignalhandlerwithrule(bus: Alljo
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusattachmentWhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface(bus.toString(), (implementsinterface?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterface(bus.toString(), implementsinterface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces(bus.toString(), (implementsinterfaces?.value ?: 0L).toString(), numberinterfaces.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: ConstPtr<ConstPtr<Byte>>, numberinterfaces: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterfaces(bus.toString(), implementsinterfaces.rawAddress.toString(), numberinterfaces.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBuslistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynBuslistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBuslistenerCreate(callbacks: ConstPtr<AlljoynBuslistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynBuslistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(bus.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(bus.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectAddinterfaceAnnounced(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(bus.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(bus.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: COpaquePointer?): QStatus =
+public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: MutPtr<CVoid>): QStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entries: COpaquePointer?, numentries: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers(bus.toString(), (entries?.value ?: 0L).toString(), numentries.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entries: ConstPtr<AlljoynBusobjectMethodentry>, numentries: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandlers(bus.toString(), entries.rawAddress.toString(), numentries.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectCancelsessionlessmessage(bus: AlljoynBusobject, msg: AlljoynMessage): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage(bus.toString(), msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(bus.toString(), msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectCancelsessionlessmessageSerial(bus: AlljoynBusobject, serialnumber: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial(bus.toString(), serialnumber.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(bus.toString(), serialnumber.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: COpaquePointer?, contextIn: COpaquePointer?): AlljoynBusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate((path?.value ?: 0L).toString(), isplaceholder, (callbacksIn?.value ?: 0L).toString(), (contextIn?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: ConstPtr<AlljoynBusobjectCallbacks>, contextIn: ConstPtr<CVoid>): AlljoynBusobject =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCreate(path.rawAddress.toString(), isplaceholder, callbacksIn.rawAddress.toString(), contextIn.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectDestroy(bus: AlljoynBusobject) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy(bus.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy(bus.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: COpaquePointer?, numprops: ULong, id: UInt) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged(bus.toString(), (ifcname?.value ?: 0L).toString(), (propnames?.value ?: 0L).toString(), numprops.toString(), id.toInt())
+public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: ConstPtr<ConstPtr<Byte>>, numprops: ULong, id: UInt) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertieschanged(bus.toString(), ifcname.rawAddress.toString(), propnames.rawAddress.toString(), numprops.toString(), id.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged(bus.toString(), (ifcname?.value ?: 0L).toString(), (propname?.value ?: 0L).toString(), value.toString(), id.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertychanged(bus.toString(), ifcname.rawAddress.toString(), propname.rawAddress.toString(), value.toString(), id.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames(bus.toString(), (interfaces?.value ?: 0L).toString(), numinterfaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: ConstPtr<ConstPtr<Byte>>, numinterfaces: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetannouncedinterfacenames(bus.toString(), interfaces.rawAddress.toString(), numinterfaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectGetbusattachment(bus: AlljoynBusobject): AlljoynBusattachment =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectGetname(bus: AlljoynBusobject, buffer: Pcstr, buffersz: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname(bus.toString(), (buffer?.value ?: 0L).toString(), buffersz.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetname(bus.toString(), buffer.rawAddress.toString(), buffersz.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectGetpath(bus: AlljoynBusobject): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath(bus.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetpath(bus.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectIssecure(bus: AlljoynBusobject): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(bus.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectMethodreplyArgs(bus: AlljoynBusobject, msg: AlljoynMessage, args: AlljoynMsgarg, numargs: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs(bus.toString(), msg.toString(), args.toString(), numargs.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(bus.toString(), msg.toString(), args.toString(), numargs.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectMethodreplyErr(bus: AlljoynBusobject, msg: AlljoynMessage, error: Pcstr, errormessage: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr(bus.toString(), msg.toString(), (error?.value ?: 0L).toString(), (errormessage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyErr(bus.toString(), msg.toString(), error.rawAddress.toString(), errormessage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectMethodreplyStatus(bus: AlljoynBusobject, msg: AlljoynMessage, status: QStatus): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus(bus.toString(), msg.toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(bus.toString(), msg.toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: AlljoynInterfacedescription, isannounced: AlljoynAboutAnnounceflag): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(bus.toString(), iface.toString(), isannounced) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(bus.toString(), iface.toString(), isannounced) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsClear(cred: AlljoynCredentials) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear(cred.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear(cred.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsCreate(): AlljoynCredentials =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsDestroy(cred: AlljoynCredentials) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy(cred.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(cred.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsGetcertchain(cred: AlljoynCredentials): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain(cred.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetcertchain(cred.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsGetexpiration(cred: AlljoynCredentials): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration(cred.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration(cred.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsGetlogonentry(cred: AlljoynCredentials): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry(cred.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetlogonentry(cred.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsGetpassword(cred: AlljoynCredentials): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword(cred.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetpassword(cred.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsGetprivateKey(cred: AlljoynCredentials): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey(cred.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetprivateKey(cred.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsGetusername(cred: AlljoynCredentials): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername(cred.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetusername(cred.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsIsset(cred: AlljoynCredentials, creds: UShort): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset(cred.toString(), creds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(cred.toString(), creds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain(cred.toString(), (certchain?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetcertchain(cred.toString(), certchain.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration(cred.toString(), expiration.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration(cred.toString(), expiration.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry(cred.toString(), (logonentry?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetlogonentry(cred.toString(), logonentry.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword(cred.toString(), (pwd?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetpassword(cred.toString(), pwd.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey(cred.toString(), (pk?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetprivatekey(cred.toString(), pk.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername(cred.toString(), (username?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetusername(cred.toString(), username.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynGetbuildinfo(): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynGetbuildinfo().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynGetnumericversion(): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynGetversion(): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynGetversion().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynGetversion().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInit(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInit() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInit() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(iface.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(iface.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynInterfacedescriptionAddannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(iface.toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddannotation(iface.toString(), name.rawAddress.toString(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(iface.toString(), (member?.value ?: 0L).toString(), (argname?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddargannotation(iface.toString(), member.rawAddress.toString(), argname.rawAddress.toString(), name.rawAddress.toString(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddmember(iface: AlljoynInterfacedescription, type: AlljoynMessagetype, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(iface.toString(), type, (name?.value ?: 0L).toString(), (inputsig?.value ?: 0L).toString(), (outsig?.value ?: 0L).toString(), (argnames?.value ?: 0L).toString(), annotation.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmember(iface.toString(), type, name.rawAddress.toString(), inputsig.rawAddress.toString(), outsig.rawAddress.toString(), argnames.rawAddress.toString(), annotation.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(iface.toString(), (member?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmemberannotation(iface.toString(), member.rawAddress.toString(), name.rawAddress.toString(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddmethod(iface: AlljoynInterfacedescription, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(iface.toString(), (name?.value ?: 0L).toString(), (inputsig?.value ?: 0L).toString(), (outsig?.value ?: 0L).toString(), (argnames?.value ?: 0L).toString(), annotation.toInt(), (accessperms?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmethod(iface.toString(), name.rawAddress.toString(), inputsig.rawAddress.toString(), outsig.rawAddress.toString(), argnames.rawAddress.toString(), annotation.toInt(), accessperms.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddproperty(iface: AlljoynInterfacedescription, name: Pcstr, signature: Pcstr, access: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(iface.toString(), (name?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), access.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddproperty(iface.toString(), name.rawAddress.toString(), signature.rawAddress.toString(), access.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(iface.toString(), (property?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddpropertyannotation(iface.toString(), property.rawAddress.toString(), name.rawAddress.toString(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionAddsignal(iface: AlljoynInterfacedescription, name: Pcstr, sig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(iface.toString(), (name?.value ?: 0L).toString(), (sig?.value ?: 0L).toString(), (argnames?.value ?: 0L).toString(), annotation.toInt(), (accessperms?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddsignal(iface.toString(), name.rawAddress.toString(), sig.rawAddress.toString(), argnames.rawAddress.toString(), annotation.toInt(), accessperms.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescription, other: AlljoynInterfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(iface.toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotation(iface.toString(), name.rawAddress.toString(), value.rawAddress.toString(), valueSize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(iface.toString(), index.toString(), (name?.value ?: 0L).toString(), (nameSize?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString())
+public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationatindex(iface.toString(), index.toString(), name.rawAddress.toString(), nameSize.rawAddress.toString(), value.rawAddress.toString(), valueSize.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynInterfacedescriptionGetannotationscount(iface: AlljoynInterfacedescription): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(iface.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount(iface.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (arg?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetargdescriptionforlanguage(iface.toString(), member.rawAddress.toString(), arg.rawAddress.toString(), description.rawAddress.toString(), maxlanguagelength.toString(), languagetag.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(iface.toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionforlanguage(iface.toString(), description.rawAddress.toString(), maxlanguagelength.toString(), languagetag.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: COpaquePointer?, size: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(iface.toString(), (languages?.value ?: 0L).toString(), size.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: ConstPtr<ConstPtr<Byte>>, size: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages(iface.toString(), languages.rawAddress.toString(), size.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetdescriptionlanguages2(iface: AlljoynInterfacedescription, languages: Pcstr, languagessize: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(iface.toString(), (languages?.value ?: 0L).toString(), languagessize.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages2(iface.toString(), languages.rawAddress.toString(), languagessize.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetdescriptiontranslationcallback(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionTranslationCallbackPtr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(iface.toString(), (name?.value ?: 0L).toString(), (member?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmember(iface.toString(), name.rawAddress.toString(), member.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(iface.toString(), (member?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberannotation(iface.toString(), member.rawAddress.toString(), name.rawAddress.toString(), value.rawAddress.toString(), valueSize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(iface.toString(), (member?.value ?: 0L).toString(), (argname?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberargannotation(iface.toString(), member.rawAddress.toString(), argname.rawAddress.toString(), name.rawAddress.toString(), value.rawAddress.toString(), valueSize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface.toString(), member.rawAddress.toString(), description.rawAddress.toString(), maxlanguagelength.toString(), languagetag.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: COpaquePointer?, nummembers: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(iface.toString(), (members?.value ?: 0L).toString(), nummembers.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: MutPtr<AlljoynInterfacedescriptionMember>, nummembers: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmembers(iface.toString(), members.rawAddress.toString(), nummembers.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(iface.toString(), (name?.value ?: 0L).toString(), (member?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmethod(iface.toString(), name.rawAddress.toString(), member.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetname(iface: AlljoynInterfacedescription): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(iface.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetname(iface.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: COpaquePointer?, numprops: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(iface.toString(), (props?.value ?: 0L).toString(), numprops.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: MutPtr<AlljoynInterfacedescriptionProperty>, numprops: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperties(iface.toString(), props.rawAddress.toString(), numprops.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(iface.toString(), (name?.value ?: 0L).toString(), (property?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: MutPtr<AlljoynInterfacedescriptionProperty>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperty(iface.toString(), name.rawAddress.toString(), property.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(iface.toString(), (property?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (strSize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: MutPtr<ULong>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertyannotation(iface.toString(), property.rawAddress.toString(), name.rawAddress.toString(), value.rawAddress.toString(), strSize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, property: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface.toString(), (property?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface.toString(), property.rawAddress.toString(), description.rawAddress.toString(), maxlanguagelength.toString(), languagetag.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionGetsecuritypolicy(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionSecuritypolicy =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(iface.toString(), (name?.value ?: 0L).toString(), (member?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsignal(iface.toString(), name.rawAddress.toString(), member.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionHasdescription(iface: AlljoynInterfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacedescription, name: Pcstr, insig: Pcstr, outsig: Pcstr): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(iface.toString(), (name?.value ?: 0L).toString(), (insig?.value ?: 0L).toString(), (outsig?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasmember(iface.toString(), name.rawAddress.toString(), insig.rawAddress.toString(), outsig.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionHasproperties(iface: AlljoynInterfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionHasproperty(iface: AlljoynInterfacedescription, name: Pcstr): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(iface.toString(), (name?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperty(iface.toString(), name.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionIntrospect(iface: AlljoynInterfacedescription, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(iface.toString(), (str?.value ?: 0L).toString(), buf.toString(), indent.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIntrospect(iface.toString(), str.rawAddress.toString(), buf.toString(), indent.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionIssecure(iface: AlljoynInterfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedescriptionMember, other: AlljoynInterfacedescriptionMember): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI addon is not available")
-}
+public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: AlljoynInterfacedescriptionMember): ULong =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI addon is not available")
-}
+public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionMemberGetargannotationscount(member: AlljoynInterfacedescriptionMember, argname: Pcstr): ULong =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -2656,752 +2655,750 @@ public actual fun alljoynInterfacedescriptionMemberGetargannotationscount(member
 public actual fun alljoynInterfacedescriptionPropertyEql(one: AlljoynInterfacedescriptionProperty, other: AlljoynInterfacedescriptionProperty): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI addon is not available")
-}
+public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: MutPtr<ULong>, value: Pcstr, valueSize: MutPtr<ULong>): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionPropertyGetannotationscount(property: AlljoynInterfacedescriptionProperty): ULong =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetargdescription(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, description: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(iface.toString(), (member?.value ?: 0L).toString(), (argname?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescription(iface.toString(), member.rawAddress.toString(), argname.rawAddress.toString(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (arg?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescriptionforlanguage(iface.toString(), member.rawAddress.toString(), arg.rawAddress.toString(), description.rawAddress.toString(), languagetag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(iface.toString(), (description?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescription(iface.toString(), description.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynInterfacedescriptionSetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, languagetag: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(iface.toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionforlanguage(iface.toString(), description.rawAddress.toString(), languagetag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(iface.toString(), (language?.value ?: 0L).toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionlanguage(iface.toString(), language.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface.toString(), 0L.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptiontranslationcallback(iface.toString(), 0L.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynInterfacedescriptionSetmemberdescription(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(iface.toString(), (member?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescription(iface.toString(), member.rawAddress.toString(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface.toString(), member.rawAddress.toString(), description.rawAddress.toString(), languagetag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetpropertydescription(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(iface.toString(), (name?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescription(iface.toString(), name.rawAddress.toString(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface.toString(), (name?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface.toString(), name.rawAddress.toString(), description.rawAddress.toString(), languagetag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynKeystorelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynKeystorelistenerCreate(callbacks: ConstPtr<AlljoynKeystorelistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynKeystorelistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(listener.toString(), keystore.toString(), (sink?.value ?: 0L).toString(), (sinkSz?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerGetkeys(listener.toString(), keystore.toString(), sink.rawAddress.toString(), sinkSz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynKeystorelistenerPutkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, source: Pcstr, password: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys(listener.toString(), keystore.toString(), (source?.value ?: 0L).toString(), (password?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerPutkeys(listener.toString(), keystore.toString(), source.rawAddress.toString(), password.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: ConstPtr<AlljoynKeystorelistenerWithSynchronizationCallbacks>, context: MutPtr<CVoid>): AlljoynKeystorelistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerWithSynchronizationCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageCreate(bus: AlljoynBusattachment): AlljoynMessage =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(bus.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageDescription(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription(msg.toString(), (str?.value ?: 0L).toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageDescription(msg.toString(), str.rawAddress.toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageDestroy(msg: AlljoynMessage) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy(msg.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy(msg.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageEql(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetarg(msg: AlljoynMessage, argn: ULong): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg(msg.toString(), argn.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(msg.toString(), argn.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: COpaquePointer?, args: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs(msg.toString(), (numargs?.value ?: 0L).toString(), (args?.value ?: 0L).toString())
+public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: MutPtr<ULong>, args: MutPtr<AlljoynMsgarg>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetargs(msg.toString(), numargs.rawAddress.toString(), args.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMessageGetauthmechanism(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetauthmechanism(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetcallserial(msg: AlljoynMessage): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetcompressiontoken(msg: AlljoynMessage): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetdestination(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetdestination(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMessageGeterrorname(msg: AlljoynMessage, errormessage: Pcstr, errormessageSize: COpaquePointer?): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname(msg.toString(), (errormessage?.value ?: 0L).toString(), (errormessageSize?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMessageGeterrorname(msg: AlljoynMessage, errormessage: Pcstr, errormessageSize: MutPtr<ULong>): Pcstr =
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGeterrorname(msg.toString(), errormessage.rawAddress.toString(), errormessageSize.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetflags(msg: AlljoynMessage): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags(msg.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags(msg.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetinterface(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetinterface(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetmembername(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetmembername(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetobjectpath(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetobjectpath(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetreceiveendpointname(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreceiveendpointname(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetreplyserial(msg: AlljoynMessage): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetsender(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsender(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetsessionid(msg: AlljoynMessage): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGetsignature(msg: AlljoynMessage): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature(msg.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsignature(msg.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGettimestamp(msg: AlljoynMessage): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp(msg.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageGettype(msg: AlljoynMessage): AlljoynMessagetype =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageIsbroadcastsignal(msg: AlljoynMessage): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageIsencrypted(msg: AlljoynMessage): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: COpaquePointer?): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired(msg.toString(), (tillexpirems?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: MutPtr<UInt>): Int =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsexpired(msg.toString(), tillexpirems.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageIsglobalbroadcast(msg: AlljoynMessage): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageIssessionless(msg: AlljoynMessage): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageIsunreliable(msg: AlljoynMessage): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(msg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageParseargs(msg: AlljoynMessage, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs(msg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageParseargs(msg.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMessageSetendianess(endian: Byte) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess(endian.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess(endian.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMessageTostring(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring(msg.toString(), (str?.value ?: 0L).toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMessageTostring(msg.toString(), str.rawAddress.toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargArrayCreate(size: ULong): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate(size.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(size.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargArrayElement(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement(arg.toString(), index.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(arg.toString(), index.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargArrayGet(args: AlljoynMsgarg, numargs: ULong, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet(args.toString(), numargs.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayGet(args.toString(), numargs.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargArraySet(args: AlljoynMsgarg, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet(args.toString(), (numargs?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargArraySet(args: AlljoynMsgarg, numargs: MutPtr<ULong>, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySet(args.toString(), numargs.rawAddress.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargArraySetOffset(args: AlljoynMsgarg, argoffset: ULong, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset(args.toString(), argoffset.toString(), (numargs?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargArraySetOffset(args: AlljoynMsgarg, argoffset: ULong, numargs: MutPtr<ULong>, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySetOffset(args.toString(), argoffset.toString(), numargs.rawAddress.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargArraySignature(values: AlljoynMsgarg, numvalues: ULong, str: Pcstr, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature(values.toString(), numvalues.toString(), (str?.value ?: 0L).toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySignature(values.toString(), numvalues.toString(), str.rawAddress.toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargArrayTostring(args: AlljoynMsgarg, numargs: ULong, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring(args.toString(), numargs.toString(), (str?.value ?: 0L).toString(), buf.toString(), indent.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayTostring(args.toString(), numargs.toString(), str.rawAddress.toString(), buf.toString(), indent.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargClear(arg: AlljoynMsgarg) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear(arg.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear(arg.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone(destination.toString(), source.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone(destination.toString(), source.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMsgargCopy(source: AlljoynMsgarg): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy(source.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(source.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargCreate(): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargCreateAndSet(signature: Pcstr, vararg variadicArgs: Long): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet((signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreateAndSet(signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy(arg.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy(arg.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual(lhv.toString(), rhv.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(lhv.toString(), rhv.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet(arg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGet(arg.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement(arg.toString(), index.toString(), (element?.value ?: 0L).toString())
+public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: MutPtr<AlljoynMsgarg>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElement(arg.toString(), index.toString(), element.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMsgargGetArrayElementsignature(arg: AlljoynMsgarg, index: ULong): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature(arg.toString(), index.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElementsignature(arg.toString(), index.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetArrayNumberofelements(arg: AlljoynMsgarg): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements(arg.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements(arg.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetBool(arg: AlljoynMsgarg, b: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool(arg.toString(), (b?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetBool(arg: AlljoynMsgarg, b: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBool(arg.toString(), b.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetBoolArray(arg: AlljoynMsgarg, length: COpaquePointer?, ab: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray(arg.toString(), (length?.value ?: 0L).toString(), (ab?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetBoolArray(arg: AlljoynMsgarg, length: MutPtr<ULong>, ab: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBoolArray(arg.toString(), length.rawAddress.toString(), ab.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetDouble(arg: AlljoynMsgarg, d: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble(arg.toString(), (d?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetDouble(arg: AlljoynMsgarg, d: MutPtr<Double>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDouble(arg.toString(), d.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetDoubleArray(arg: AlljoynMsgarg, length: COpaquePointer?, ad: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray(arg.toString(), (length?.value ?: 0L).toString(), (ad?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetDoubleArray(arg: AlljoynMsgarg, length: MutPtr<ULong>, ad: MutPtr<Double>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDoubleArray(arg.toString(), length.rawAddress.toString(), ad.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetInt16(arg: AlljoynMsgarg, n: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16(arg.toString(), (n?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetInt16(arg: AlljoynMsgarg, n: MutPtr<Short>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16(arg.toString(), n.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetInt16Array(arg: AlljoynMsgarg, length: COpaquePointer?, an: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array(arg.toString(), (length?.value ?: 0L).toString(), (an?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetInt16Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, an: MutPtr<Short>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16Array(arg.toString(), length.rawAddress.toString(), an.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetInt32(arg: AlljoynMsgarg, i: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32(arg.toString(), (i?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetInt32(arg: AlljoynMsgarg, i: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32(arg.toString(), i.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetInt32Array(arg: AlljoynMsgarg, length: COpaquePointer?, ai: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array(arg.toString(), (length?.value ?: 0L).toString(), (ai?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetInt32Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, ai: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32Array(arg.toString(), length.rawAddress.toString(), ai.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetInt64(arg: AlljoynMsgarg, x: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64(arg.toString(), (x?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetInt64(arg: AlljoynMsgarg, x: MutPtr<Long>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64(arg.toString(), x.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetInt64Array(arg: AlljoynMsgarg, length: COpaquePointer?, ax: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array(arg.toString(), (length?.value ?: 0L).toString(), (ax?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetInt64Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, ax: MutPtr<Long>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64Array(arg.toString(), length.rawAddress.toString(), ax.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetObjectpath(arg: AlljoynMsgarg, o: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath(arg.toString(), (o?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetObjectpath(arg: AlljoynMsgarg, o: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetObjectpath(arg.toString(), o.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetSignature(arg: AlljoynMsgarg, g: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature(arg.toString(), (g?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetSignature(arg: AlljoynMsgarg, g: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetSignature(arg.toString(), g.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetString(arg: AlljoynMsgarg, s: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString(arg.toString(), (s?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetString(arg: AlljoynMsgarg, s: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetString(arg.toString(), s.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint16(arg: AlljoynMsgarg, q: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16(arg.toString(), (q?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint16(arg: AlljoynMsgarg, q: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16(arg.toString(), q.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint16Array(arg: AlljoynMsgarg, length: COpaquePointer?, aq: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array(arg.toString(), (length?.value ?: 0L).toString(), (aq?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint16Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, aq: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16Array(arg.toString(), length.rawAddress.toString(), aq.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint32(arg: AlljoynMsgarg, u: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32(arg.toString(), (u?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint32(arg: AlljoynMsgarg, u: MutPtr<UInt>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32(arg.toString(), u.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint32Array(arg: AlljoynMsgarg, length: COpaquePointer?, au: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array(arg.toString(), (length?.value ?: 0L).toString(), (au?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint32Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, au: MutPtr<UInt>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32Array(arg.toString(), length.rawAddress.toString(), au.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint64(arg: AlljoynMsgarg, t: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64(arg.toString(), (t?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint64(arg: AlljoynMsgarg, t: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64(arg.toString(), t.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint64Array(arg: AlljoynMsgarg, length: COpaquePointer?, at: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array(arg.toString(), (length?.value ?: 0L).toString(), (at?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint64Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, at: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64Array(arg.toString(), length.rawAddress.toString(), at.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint8(arg: AlljoynMsgarg, y: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8(arg.toString(), (y?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint8(arg: AlljoynMsgarg, y: MutPtr<UByte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8(arg.toString(), y.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: COpaquePointer?, ay: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array(arg.toString(), (length?.value ?: 0L).toString(), (ay?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: MutPtr<ULong>, ay: MutPtr<UByte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8Array(arg.toString(), length.rawAddress.toString(), ay.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetVariant(arg: AlljoynMsgarg, v: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant(arg.toString(), v.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(arg.toString(), v.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: COpaquePointer?, av: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray(arg.toString(), (signature?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), (av?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: MutPtr<ULong>, av: MutPtr<AlljoynMsgarg>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariantArray(arg.toString(), signature.rawAddress.toString(), length.rawAddress.toString(), av.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetdictelement(arg: AlljoynMsgarg, elemsig: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement(arg.toString(), (elemsig?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetdictelement(arg.toString(), elemsig.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetkey(arg: AlljoynMsgarg): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey(arg.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(arg.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetmember(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember(arg.toString(), index.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(arg.toString(), index.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetnummembers(arg: AlljoynMsgarg): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers(arg.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(arg.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGettype(arg: AlljoynMsgarg): AlljoynTypeid =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype(arg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(arg.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargGetvalue(arg: AlljoynMsgarg): AlljoynMsgarg =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue(arg.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(arg.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargHassignature(arg: AlljoynMsgarg, signature: Pcstr): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature(arg.toString(), (signature?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargHassignature(arg.toString(), signature.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet(arg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSet(arg.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetAndStabilize(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize(arg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetAndStabilize(arg.toString(), signature.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetBool(arg: AlljoynMsgarg, b: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool(arg.toString(), b) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(arg.toString(), b) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray(arg.toString(), length.toString(), (ab?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBoolArray(arg.toString(), length.toString(), ab.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetDouble(arg: AlljoynMsgarg, d: Double): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble(arg.toString(), d) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(arg.toString(), d) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray(arg.toString(), length.toString(), (ad?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: MutPtr<Double>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDoubleArray(arg.toString(), length.toString(), ad.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetInt16(arg: AlljoynMsgarg, n: Short): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16(arg.toString(), n.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(arg.toString(), n.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array(arg.toString(), length.toString(), (an?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: MutPtr<Short>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16Array(arg.toString(), length.toString(), an.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetInt32(arg: AlljoynMsgarg, i: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32(arg.toString(), i) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(arg.toString(), i) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array(arg.toString(), length.toString(), (ai?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: MutPtr<Int>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32Array(arg.toString(), length.toString(), ai.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetInt64(arg: AlljoynMsgarg, x: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64(arg.toString(), x.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(arg.toString(), x.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array(arg.toString(), length.toString(), (ax?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: MutPtr<Long>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64Array(arg.toString(), length.toString(), ax.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetObjectpath(arg: AlljoynMsgarg, o: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath(arg.toString(), (o?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpath(arg.toString(), o.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetObjectpathArray(arg: AlljoynMsgarg, length: ULong, ao: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray(arg.toString(), length.toString(), (ao?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetObjectpathArray(arg: AlljoynMsgarg, length: ULong, ao: ConstPtr<ConstPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpathArray(arg.toString(), length.toString(), ao.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetSignature(arg: AlljoynMsgarg, g: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature(arg.toString(), (g?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignature(arg.toString(), g.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetSignatureArray(arg: AlljoynMsgarg, length: ULong, ag: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray(arg.toString(), length.toString(), (ag?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetSignatureArray(arg: AlljoynMsgarg, length: ULong, ag: ConstPtr<ConstPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignatureArray(arg.toString(), length.toString(), ag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetString(arg: AlljoynMsgarg, s: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString(arg.toString(), (s?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetString(arg.toString(), s.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong, asTarget: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray(arg.toString(), length.toString(), (asTarget?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong, asTarget: ConstPtr<ConstPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetStringArray(arg.toString(), length.toString(), asTarget.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetUint16(arg: AlljoynMsgarg, q: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16(arg.toString(), q.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(arg.toString(), q.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array(arg.toString(), length.toString(), (aq?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16Array(arg.toString(), length.toString(), aq.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetUint32(arg: AlljoynMsgarg, u: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32(arg.toString(), u.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(arg.toString(), u.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array(arg.toString(), length.toString(), (au?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: MutPtr<UInt>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32Array(arg.toString(), length.toString(), au.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetUint64(arg: AlljoynMsgarg, t: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64(arg.toString(), t.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(arg.toString(), t.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array(arg.toString(), length.toString(), (at?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64Array(arg.toString(), length.toString(), at.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetUint8(arg: AlljoynMsgarg, y: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8(arg.toString(), y.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(arg.toString(), y.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array(arg.toString(), length.toString(), (ay?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: MutPtr<UByte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8Array(arg.toString(), length.toString(), ay.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetdictentry(arg: AlljoynMsgarg, key: AlljoynMsgarg, value: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry(arg.toString(), key.toString(), value.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(arg.toString(), key.toString(), value.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSetstruct(arg: AlljoynMsgarg, structMembers: AlljoynMsgarg, numMembers: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct(arg.toString(), structMembers.toString(), numMembers.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(arg.toString(), structMembers.toString(), numMembers.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargSignature(arg: AlljoynMsgarg, str: Pcstr, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature(arg.toString(), (str?.value ?: 0L).toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSignature(arg.toString(), str.rawAddress.toString(), buf.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynMsgargStabilize(arg: AlljoynMsgarg) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize(arg.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize(arg.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynMsgargTostring(arg: AlljoynMsgarg, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(arg.toString(), (str?.value ?: 0L).toString(), buf.toString(), indent.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargTostring(arg.toString(), str.rawAddress.toString(), buf.toString(), indent.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: COpaquePointer?, nummandatoryinterfaces: ULong): AlljoynObserver =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(bus.toString(), (mandatoryinterfaces?.value ?: 0L).toString(), nummandatoryinterfaces.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: ConstPtr<ConstPtr<Byte>>, nummandatoryinterfaces: ULong): AlljoynObserver =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverCreate(bus.toString(), mandatoryinterfaces.rawAddress.toString(), nummandatoryinterfaces.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynObserverDestroy(observer: AlljoynObserver) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(observer.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy(observer.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: Pcstr, objectpath: Pcstr): AlljoynProxybusobjectRef =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(observer.toString(), (uniquebusname?.value ?: 0L).toString(), (objectpath?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGet(observer.toString(), uniquebusname.rawAddress.toString(), objectpath.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynProxybusobjectRef =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(observer.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(observer.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(observer.toString(), proxyref.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(observer.toString(), proxyref.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(observer.toString(), listener.toString(), triggeronexisting)
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(observer.toString(), listener.toString(), triggeronexisting)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(observer.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners(observer.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(observer.toString(), listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener(observer.toString(), listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynObserverlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynObserverlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate((callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynObserverlistenerCreate(callback: ConstPtr<AlljoynObserverlistenerCallback>, context: ConstPtr<CVoid>): AlljoynObserverlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerCreate(callback.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, password: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials((authmechanism?.value ?: 0L).toString(), (password?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPasswordmanagerSetcredentials(authmechanism.rawAddress.toString(), password.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynPermissionconfigurationlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: ConstPtr<AlljoynPermissionconfigurationlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynPermissionconfigurationlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy((certificatechain?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificatechainDestroy(certificatechain.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup((certificateid?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: MutPtr<AlljoynCertificateid>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidCleanup(certificateid.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup((certificateidarray?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: MutPtr<AlljoynCertificateidarray>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(configurator.toString(), (cakey?.value ?: 0L).toString(), (identitycertificatechain?.value ?: 0L).toString(), (groupid?.value ?: 0L).toString(), groupsize.toString(), (groupauthority?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: MutPtr<Byte>, identitycertificatechain: MutPtr<Byte>, groupid: ConstPtr<UByte>, groupsize: ULong, groupauthority: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorClaim(configurator.toString(), cakey.rawAddress.toString(), identitycertificatechain.rawAddress.toString(), groupid.rawAddress.toString(), groupsize.toString(), groupauthority.rawAddress.toString(), manifestsxmls.rawAddress.toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorEndmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(configurator.toString(), (state?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: MutPtr<AlljoynApplicationstate>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetapplicationstate(configurator.toString(), state.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(configurator.toString(), (claimcapabilities?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilities(configurator.toString(), claimcapabilities.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator.toString(), (additionalinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator.toString(), additionalinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorGetdefaultclaimcapabilities(): UShort =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(configurator.toString(), (policyxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultpolicy(configurator.toString(), policyxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(configurator.toString(), (identitycertificatechain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentity(configurator.toString(), identitycertificatechain.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(configurator.toString(), (certificateid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: MutPtr<AlljoynCertificateid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentitycertificateid(configurator.toString(), certificateid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(configurator.toString(), (manifestarray?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: MutPtr<AlljoynManifestarray>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifests(configurator.toString(), manifestarray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(configurator.toString(), (manifesttemplatexml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifesttemplate(configurator.toString(), manifesttemplatexml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(configurator.toString(), (certificateids?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: MutPtr<AlljoynCertificateidarray>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmembershipsummaries(configurator.toString(), certificateids.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(configurator.toString(), (policyxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpolicy(configurator.toString(), policyxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(configurator.toString(), (publickey?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpublickey(configurator.toString(), publickey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: COpaquePointer?, manifestscount: ULong, append: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(configurator.toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString(), append) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong, append: Int): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmanifests(configurator.toString(), manifestsxmls.rawAddress.toString(), manifestscount.toString(), append) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(configurator.toString(), (membershipcertificatechain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: MutPtr<Byte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmembership(configurator.toString(), membershipcertificatechain.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup((manifestarray?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: MutPtr<AlljoynManifestarray>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifestarrayCleanup(manifestarray.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy((manifesttemplatexml?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy((policyxml?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPolicyDestroy(policyxml.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy((publickey?.value ?: 0L).toString())
+public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPublickeyDestroy(publickey.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: COpaquePointer?, seriallen: ULong, issuerpublickey: COpaquePointer?, issueraki: COpaquePointer?, issuerakilen: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(configurator.toString(), (serial?.value ?: 0L).toString(), seriallen.toString(), (issuerpublickey?.value ?: 0L).toString(), (issueraki?.value ?: 0L).toString(), issuerakilen.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: ConstPtr<UByte>, seriallen: ULong, issuerpublickey: MutPtr<Byte>, issueraki: ConstPtr<UByte>, issuerakilen: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorRemovemembership(configurator.toString(), serial.rawAddress.toString(), seriallen.toString(), issuerpublickey.rawAddress.toString(), issueraki.rawAddress.toString(), issuerakilen.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorReset(configurator: AlljoynPermissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorResetpolicy(configurator: AlljoynPermissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorSetapplicationstate(configurator: AlljoynPermissionconfigurator, state: AlljoynApplicationstate): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(configurator.toString(), state) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(configurator.toString(), state) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(configurator.toString(), claimcapabilities.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(configurator.toString(), claimcapabilities.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator.toString(), additionalinfo.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator.toString(), additionalinfo.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator.toString(), (manifesttemplatexml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: MutPtr<Byte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator.toString(), manifesttemplatexml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPermissionconfiguratorStartmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(configurator.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(configurator.toString(), (identitycertificatechain?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdateidentity(configurator.toString(), identitycertificatechain.rawAddress.toString(), manifestsxmls.rawAddress.toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(configurator.toString(), (policyxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: MutPtr<Byte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdatepolicy(configurator.toString(), policyxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynPinglistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynPinglistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate((callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynPinglistenerCreate(callback: ConstPtr<AlljoynPinglistenerCallback>, context: ConstPtr<CVoid>): AlljoynPinglistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerCreate(callback.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(proxyobj.toString(), child.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(proxyobj.toString(), child.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectAddinterface(proxyobj: AlljoynProxybusobject, iface: AlljoynInterfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(proxyobj.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(proxyobj.toString(), iface.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxybusobject, name: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName(proxyobj.toString(), (name?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterfaceByName(proxyobj.toString(), name.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectCopy(source: AlljoynProxybusobject): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy(source.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(source.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectCreate(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate(bus.toString(), (service?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreate(bus.toString(), service.rawAddress.toString(), path.rawAddress.toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectCreateSecure(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure(bus.toString(), (service?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreateSecure(bus.toString(), service.rawAddress.toString(), path.rawAddress.toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy(proxyobj.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy(proxyobj.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching(proxyobj.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching(proxyobj.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynProxybusobjectGetallproperties(proxyobj: AlljoynProxybusobject, iface: Pcstr, values: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties(proxyobj.toString(), (iface?.value ?: 0L).toString(), values.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallproperties(proxyobj.toString(), iface.rawAddress.toString(), values.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectGetallpropertiesasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerGetallpropertiescbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync(proxyobj.toString(), (iface?.value ?: 0L).toString(), 0L.toString(), timeout.toInt(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectGetallpropertiesasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerGetallpropertiescbPtr, timeout: UInt, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallpropertiesasync(proxyobj.toString(), iface.rawAddress.toString(), 0L.toString(), timeout.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetchild(proxyobj: AlljoynProxybusobject, path: Pcstr): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild(proxyobj.toString(), (path?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchild(proxyobj.toString(), path.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectGetchildren(proxyobj: AlljoynProxybusobject, children: COpaquePointer?, numchildren: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren(proxyobj.toString(), (children?.value ?: 0L).toString(), numchildren.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectGetchildren(proxyobj: AlljoynProxybusobject, children: MutPtr<AlljoynProxybusobject>, numchildren: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchildren(proxyobj.toString(), children.rawAddress.toString(), numchildren.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): AlljoynInterfacedescription =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(proxyobj.toString(), (iface?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterface(proxyobj.toString(), iface.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectGetinterfaces(proxyobj: AlljoynProxybusobject, ifaces: COpaquePointer?, numifaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces(proxyobj.toString(), (ifaces?.value ?: 0L).toString(), numifaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectGetinterfaces(proxyobj: AlljoynProxybusobject, ifaces: ConstPtr<AlljoynInterfacedescription>, numifaces: ULong): ULong =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterfaces(proxyobj.toString(), ifaces.rawAddress.toString(), numifaces.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetpath(proxyobj: AlljoynProxybusobject): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath(proxyobj.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpath(proxyobj.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), value.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetproperty(proxyobj.toString(), iface.rawAddress.toString(), property.rawAddress.toString(), value.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectGetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, callback: AlljoynProxybusobjectListenerGetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), 0L.toString(), timeout.toInt(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectGetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, callback: AlljoynProxybusobjectListenerGetpropertycbPtr, timeout: UInt, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpropertyasync(proxyobj.toString(), iface.rawAddress.toString(), property.rawAddress.toString(), 0L.toString(), timeout.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetservicename(proxyobj: AlljoynProxybusobject): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename(proxyobj.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetservicename(proxyobj.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetsessionid(proxyobj: AlljoynProxybusobject): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid(proxyobj.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid(proxyobj.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectGetuniquename(proxyobj: AlljoynProxybusobject): Pcstr =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename(proxyobj.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetuniquename(proxyobj.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectImplementsinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface(proxyobj.toString(), (iface?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectImplementsinterface(proxyobj.toString(), iface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectIntrospectremoteobject(proxyobj: AlljoynProxybusobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject(proxyobj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(proxyobj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj.toString(), 0L.toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobjectasync(proxyobj.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectIssecure(proxyobj: AlljoynProxybusobject): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure(proxyobj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(proxyobj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectIsvalid(proxyobj: AlljoynProxybusobject): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid(proxyobj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(proxyobj.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectMethodcall(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall(proxyobj.toString(), (ifacename?.value ?: 0L).toString(), (methodname?.value ?: 0L).toString(), args.toString(), numargs.toString(), replymsg.toString(), timeout.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcall(proxyobj.toString(), ifacename.rawAddress.toString(), methodname.rawAddress.toString(), args.toString(), numargs.toString(), replymsg.toString(), timeout.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectMethodcallMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -3410,269 +3407,269 @@ public actual fun alljoynProxybusobjectMethodcallMemberNoreply(proxyobj: Alljoyn
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectMethodcallNoreply(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply(proxyobj.toString(), (ifacename?.value ?: 0L).toString(), (methodname?.value ?: 0L).toString(), args.toString(), numargs.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallNoreply(proxyobj.toString(), ifacename.rawAddress.toString(), methodname.rawAddress.toString(), args.toString(), numargs.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectMethodcallasync(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync(proxyobj.toString(), (ifacename?.value ?: 0L).toString(), (methodname?.value ?: 0L).toString(), 0L.toString(), args.toString(), numargs.toString(), (context?.value ?: 0L).toString(), timeout.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectMethodcallasync(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: MutPtr<CVoid>, timeout: UInt, flags: UByte): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallasync(proxyobj.toString(), ifacename.rawAddress.toString(), methodname.rawAddress.toString(), 0L.toString(), args.toString(), numargs.toString(), context.rawAddress.toString(), timeout.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectMethodcallasyncMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus =
+public actual fun alljoynProxybusobjectMethodcallasyncMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: MutPtr<CVoid>, timeout: UInt, flags: UByte): QStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectParsexml(proxyobj: AlljoynProxybusobject, xml: Pcstr, identifier: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml(proxyobj.toString(), (xml?.value ?: 0L).toString(), (identifier?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectParsexml(proxyobj.toString(), xml.rawAddress.toString(), identifier.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectRefCreate(proxy: AlljoynProxybusobject): AlljoynProxybusobjectRef =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate(proxy.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(proxy.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref(ref.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(ref.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynProxybusobjectRefGet(ref: AlljoynProxybusobjectRef): AlljoynProxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet(ref.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(ref.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref(ref.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(ref.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: COpaquePointer?, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj.toString(), (iface?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), numproperties.toString(), 0L.toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: ConstPtr<ConstPtr<Byte>>, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj.toString(), iface.rawAddress.toString(), properties.rawAddress.toString(), numproperties.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectRemovechild(proxyobj: AlljoynProxybusobject, path: Pcstr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild(proxyobj.toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRemovechild(proxyobj.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectSecureconnection(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection(proxyobj.toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(proxyobj.toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectSecureconnectionasync(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync(proxyobj.toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(proxyobj.toString(), forceauth) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectSetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), value.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetproperty(proxyobj.toString(), iface.rawAddress.toString(), property.rawAddress.toString(), value.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynProxybusobjectSetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg, callback: AlljoynProxybusobjectListenerSetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), value.toString(), 0L.toString(), timeout.toInt(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynProxybusobjectSetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg, callback: AlljoynProxybusobjectListenerSetpropertycbPtr, timeout: UInt, context: MutPtr<CVoid>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetpropertyasync(proxyobj.toString(), iface.rawAddress.toString(), property.rawAddress.toString(), value.toString(), 0L.toString(), timeout.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerPropertieschangedPtr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj.toString(), (iface?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj.toString(), iface.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynRouterinit(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynRouterinit() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynRouterinitwithconfig(configxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig((configxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynRouterinitwithconfig(configxml: MutPtr<Byte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinitwithconfig(configxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynRoutershutdown(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(proxy.toString(), (cakey?.value ?: 0L).toString(), (identitycertificatechain?.value ?: 0L).toString(), (groupid?.value ?: 0L).toString(), groupsize.toString(), (groupauthority?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: MutPtr<Byte>, identitycertificatechain: MutPtr<Byte>, groupid: ConstPtr<UByte>, groupsize: ULong, groupauthority: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyClaim(proxy.toString(), cakey.rawAddress.toString(), identitycertificatechain.rawAddress.toString(), groupid.rawAddress.toString(), groupsize.toString(), groupauthority.rawAddress.toString(), manifestsxmls.rawAddress.toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, digest: COpaquePointer?, digestsize: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest((unsignedmanifestxml?.value ?: 0L).toString(), (identitycertificatepem?.value ?: 0L).toString(), (digest?.value ?: 0L).toString(), (digestsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, digest: MutPtr<MutPtr<UByte>>, digestsize: MutPtr<ULong>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml.rawAddress.toString(), identitycertificatepem.rawAddress.toString(), digest.rawAddress.toString(), digestsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: COpaquePointer?, sessionid: UInt): AlljoynSecurityapplicationproxy =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(bus.toString(), (appbusname?.value ?: 0L).toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: MutPtr<Byte>, sessionid: UInt): AlljoynSecurityapplicationproxy =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyCreate(bus.toString(), appbusname.rawAddress.toString(), sessionid.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(proxy.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy(proxy.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy((digest?.value ?: 0L).toString())
+public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: MutPtr<UByte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDigestDestroy(digest.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy((eccpublickey?.value ?: 0L).toString())
+public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(proxy.toString(), (applicationstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: MutPtr<AlljoynApplicationstate>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetapplicationstate(proxy.toString(), applicationstate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(proxy.toString(), (capabilities?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilities(proxy.toString(), capabilities.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy.toString(), (additionalinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: MutPtr<UShort>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy.toString(), additionalinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(proxy.toString(), (policyxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetdefaultpolicy(proxy.toString(), policyxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(proxy.toString(), (eccpublickey?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGeteccpublickey(proxy.toString(), eccpublickey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(proxy.toString(), (manifesttemplatexml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetmanifesttemplate(proxy.toString(), manifesttemplatexml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): UShort =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(proxy.toString(), (policyxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpolicy(proxy.toString(), policyxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(proxy.toString(), (membershipcertificatechain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: MutPtr<Byte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyInstallmembership(proxy.toString(), membershipcertificatechain.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy((signedmanifestxml?.value ?: 0L).toString())
+public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy((manifesttemplatexml?.value ?: 0L).toString())
+public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaquePointer?) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy((policyxml?.value ?: 0L).toString())
+public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: MutPtr<Byte>) {
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyPolicyDestroy(policyxml.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSecurityapplicationproxyResetpolicy(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signature: COpaquePointer?, signaturesize: ULong, signedmanifestxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature((unsignedmanifestxml?.value ?: 0L).toString(), (identitycertificatepem?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), signaturesize.toString(), (signedmanifestxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, signature: ConstPtr<UByte>, signaturesize: ULong, signedmanifestxml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml.rawAddress.toString(), identitycertificatepem.rawAddress.toString(), signature.rawAddress.toString(), signaturesize.toString(), signedmanifestxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signingprivatekeypem: COpaquePointer?, signedmanifestxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest((unsignedmanifestxml?.value ?: 0L).toString(), (identitycertificatepem?.value ?: 0L).toString(), (signingprivatekeypem?.value ?: 0L).toString(), (signedmanifestxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, signingprivatekeypem: MutPtr<Byte>, signedmanifestxml: MutPtr<MutPtr<Byte>>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml.rawAddress.toString(), identitycertificatepem.rawAddress.toString(), signingprivatekeypem.rawAddress.toString(), signedmanifestxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSecurityapplicationproxyStartmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(proxy.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(proxy.toString(), (identitycertificatechain?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdateidentity(proxy.toString(), identitycertificatechain.rawAddress.toString(), manifestsxmls.rawAddress.toString(), manifestscount.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(proxy.toString(), (policyxml?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: MutPtr<Byte>): QStatus =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdatepolicy(proxy.toString(), policyxml.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynSessionlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSessionlistenerCreate(callbacks: ConstPtr<AlljoynSessionlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynSessionlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsCreate(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): AlljoynSessionopts =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy(opts.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(opts.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSessionoptsGetMultipoint(opts: AlljoynSessionopts): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint(opts.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(opts.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsGetProximity(opts: AlljoynSessionopts): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity(opts.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(opts.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsGetTraffic(opts: AlljoynSessionopts): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic(opts.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic(opts.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsGetTransports(opts: AlljoynSessionopts): UShort =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports(opts.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports(opts.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsIscompatible(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(one.toString(), other.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint(opts.toString(), ismultipoint)
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(opts.toString(), ismultipoint)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity(opts.toString(), proximity.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity(opts.toString(), proximity.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic(opts.toString(), traffic.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic(opts.toString(), traffic.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(opts.toString(), transports.toInt())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports(opts.toString(), transports.toInt())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoynSessionportlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionportlistener =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun alljoynSessionportlistenerCreate(callbacks: ConstPtr<AlljoynSessionportlistenerCallbacks>, context: ConstPtr<CVoid>): AlljoynSessionportlistener =
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerCreate(callbacks.rawAddress.toString(), context.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(listener.toString())
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy(listener.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun alljoynShutdown(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynShutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynUnityDeferredCallbacksProcess(): Int =
-    if (_windowsWin32DevicesAlljoynNapiAvailable) _wasm_windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DevicesAlljoynNapiAvailable) wasmWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int) {
-    if (_windowsWin32DevicesAlljoynNapiAvailable) {
-        _wasm_windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly)
+    if (windowsWin32DevicesAlljoynNapiAvailable) {
+        wasmWindowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly)
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }

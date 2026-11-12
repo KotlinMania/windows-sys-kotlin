@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_setupandmigration_oOBEComplete(void* isoobecomplete);
-int32_t windowssys_windows_win32_system_setupandmigration_registerWaitUntilOOBECompleted(void* oobecompletedcallback, void* callbackcontext, void* waithandle);
-int32_t windowssys_windows_win32_system_setupandmigration_unregisterWaitUntilOOBECompleted(void* waithandle);
+int32_t windowssysWindowsWin32SystemSetupandmigrationOOBEComplete(void* isoobecomplete);
+int32_t windowssysWindowsWin32SystemSetupandmigrationRegisterWaitUntilOOBECompleted(void* oobecompletedcallback, void* callbackcontext, void* waithandle);
+int32_t windowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(void* waithandle);
 
 #ifdef __cplusplus
 }

@@ -1,1232 +1,1510 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.system.services.ScHandle
 
+// The host must provide the C companion wrapper exports in import module windowssys.
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringAddClusterGroupDependency(hdependentgroup: Long, hprovidergroup: Long): Int
+
 public actual fun addClusterGroupDependency(hdependentgroup: Hgroup, hprovidergroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringAddClusterGroupDependency(hdependentgroup, hprovidergroup).toUInt()
 
 public actual fun addClusterGroupDependencyEx(hdependentgroup: Hgroup, hprovidergroup: Hgroup, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterGroupDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependency(hdependentgroupset: Long, hprovidergroupset: Long): Int
 
 public actual fun addClusterGroupSetDependency(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependency(hdependentgroupset, hprovidergroupset).toUInt()
 
 public actual fun addClusterGroupSetDependencyEx(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterGroupSetDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependency(hdependentgroup: Long, hprovidergroupset: Long): Int
 
 public actual fun addClusterGroupToGroupSetDependency(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependency(hdependentgroup, hprovidergroupset).toUInt()
 
 public actual fun addClusterGroupToGroupSetDependencyEx(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependencyEx")
 
-public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hnode =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterNode")
 
-public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hnode =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterNodeEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringAddClusterResourceDependency(hresource: Long, hdependson: Long): Int
 
 public actual fun addClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringAddClusterResourceDependency(hresource, hdependson).toUInt()
 
 public actual fun addClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterResourceDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringAddClusterResourceNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringAddClusterResourceNode(hresource: Long, hnode: Long): Int
 
 public actual fun addClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringAddClusterResourceNode(hresource, hnode).toUInt()
 
 public actual fun addClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterResourceNodeEx")
 
-public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddClusterStorageNode")
 
 public actual fun addCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringAddCrossClusterGroupSetDependency")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringAddResourceToClusterSharedVolumes")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringAddResourceToClusterSharedVolumes(hresource: Long): Int
 
 public actual fun addResourceToClusterSharedVolumes(hresource: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringAddResourceToClusterSharedVolumes(hresource).toUInt()
 
 public actual fun backupClusterDatabase(hcluster: Hcluster, lpszpathname: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringBackupClusterDatabase")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCanResourceBeDependent")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCanResourceBeDependent(hresource: Long, hresourcedependent: Long): Int
 
 public actual fun canResourceBeDependent(hresource: Hresource, hresourcedependent: Hresource): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCanResourceBeDependent(hresource, hresourcedependent).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation(hgroup: Long, dwcancelflagsReserved: Int): Int
 
 public actual fun cancelClusterGroupOperation(hgroup: Hgroup, dwcancelflagsReserved: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation(hgroup, dwcancelflagsReserved.toInt()).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroup(hresource: Long, hgroup: Long): Int
 
 public actual fun changeClusterResourceGroup(hresource: Hresource, hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroup(hresource, hgroup).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx(hresource: Long, hgroup: Long, flags: Long): Int
 
 public actual fun changeClusterResourceGroupEx(hresource: Hresource, hgroup: Hgroup, flags: ULong): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx(hresource, hgroup, flags.toLong()).toUInt()
 
 public actual fun changeClusterResourceGroupEx2(hresource: Hresource, hgroup: Hgroup, flags: ULong, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringChangeClusterResourceGroupEx2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseCluster")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseCluster(hcluster: Long): Int
 
 public actual fun closeCluster(hcluster: Hcluster): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseCluster(hcluster).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider(hcluscryptprovider: Long): Int
 
 public actual fun closeClusterCryptProvider(hcluscryptprovider: Hcluscryptprovider): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider(hcluscryptprovider).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroup(hgroup: Long): Int
 
 public actual fun closeClusterGroup(hgroup: Hgroup): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroup(hgroup).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet(hgroupset: Long): Int
 
 public actual fun closeClusterGroupSet(hgroupset: Hgroupset): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet(hgroupset).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface(hnetinterface: Long): Int
 
 public actual fun closeClusterNetInterface(hnetinterface: Hnetinterface): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface(hnetinterface).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNetwork")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetwork(hnetwork: Long): Int
 
 public actual fun closeClusterNetwork(hnetwork: Hnetwork): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetwork(hnetwork).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNode(hnode: Long): Int
 
 public actual fun closeClusterNode(hnode: Hnode): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNode(hnode).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort(hchange: Long): Int
 
 public actual fun closeClusterNotifyPort(hchange: Hchange): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort(hchange).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterResource(hresource: Long): Int
 
 public actual fun closeClusterResource(hresource: Hresource): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterResource(hresource).toInt()
 
-public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: COpaquePointer?, param2: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: ConstPtr<ClusterHealthFault>, param2: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusAddClusterHealthFault")
 
-public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: COpaquePointer?, flags: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: MutPtr<ClusterHealthFaultArray>, flags: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusGetClusterHealthFaults")
 
 public actual fun clusRemoveClusterHealthFault(hcluster: Hcluster, id: Pcwstr, flags: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusRemoveClusterHealthFault")
 
-public actual fun clusWorkerCheckTerminate(lpworker: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusWorkerCheckTerminate(lpworker: MutPtr<ClusWorker>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusWorkerCheckTerminate")
 
-public actual fun clusWorkerCreate(lpworker: COpaquePointer?, lpstartaddress: PworkerStartRoutine, lpparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusWorkerCreate(lpworker: MutPtr<ClusWorker>, lpstartaddress: PworkerStartRoutine, lpparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusWorkerCreate")
 
-public actual fun clusWorkerTerminate(lpworker: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun clusWorkerTerminate(lpworker: ConstPtr<ClusWorker>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusWorkerTerminate")
 
-public actual fun clusWorkerTerminateEx(clusworker: COpaquePointer?, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusWorkerTerminateEx(clusworker: MutPtr<ClusWorker>, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusWorkerTerminateEx")
 
-public actual fun clusWorkersTerminate(clusworkers: COpaquePointer?, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusWorkersTerminate(clusworkers: MutPtr<MutPtr<ClusWorker>>, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusWorkersTerminate")
 
-public actual fun clusapiSetReasonHandler(lphandler: COpaquePointer?): COpaquePointer? =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusapiSetReasonHandler(lphandler: ConstPtr<ClusapiReasonHandler>): MutPtr<ClusapiReasonHandler> =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusapiSetReasonHandler")
 
 public actual fun clusterAddGroupToAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterAddGroupToAffinityRule")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSet")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSet(hgroupset: Long, hgroup: Long): Int
 
 public actual fun clusterAddGroupToGroupSet(hgroupset: Hgroupset, hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSet(hgroupset, hgroup).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomains")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomains(hgroupset: Long, hgroup: Long, faultdomain: Int, updatedomain: Int): Int
 
 public actual fun clusterAddGroupToGroupSetWithDomains(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomains(hgroupset, hgroup, faultdomain.toInt(), updatedomain.toInt()).toUInt()
 
 public actual fun clusterAddGroupToGroupSetWithDomainsEx(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomainsEx")
 
-public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterAffinityRuleControl")
 
 public actual fun clusterClearBackupStateForSharedVolume(lpszvolumepathname: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterClearBackupStateForSharedVolume")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterCloseEnum(henum: Long): Int
 
 public actual fun clusterCloseEnum(henum: Hclusenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterCloseEnum(henum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx(hclusterenum: Long): Int
 
 public actual fun clusterCloseEnumEx(hclusterenum: Hclusenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx(hclusterenum).toUInt()
 
-public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterControl")
 
-public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterControlEx")
 
 public actual fun clusterCreateAffinityRule(hcluster: Hcluster, rulename: Pcwstr, ruletype: ClusAffinityRuleType): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterCreateAffinityRule")
 
-public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: COpaquePointer?, cbcryptinput: UInt, ppcryptoutput: COpaquePointer?, pcbcryptoutput: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: ConstPtr<UByte>, cbcryptinput: UInt, ppcryptoutput: MutPtr<MutPtr<UByte>>, pcbcryptoutput: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterDecrypt")
 
-public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: COpaquePointer?, cbdata: UInt, ppdata: COpaquePointer?, pcbdata: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: ConstPtr<UByte>, cbdata: UInt, ppdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterEncrypt")
 
-public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterEnum")
 
-public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: MutPtr<ClusterEnumItem>, cbitem: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterEnumEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGetEnumCount(henum: Long): Int
 
 public actual fun clusterGetEnumCount(henum: Hclusenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGetEnumCount(henum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGetEnumCountEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGetEnumCountEx(hclusterenum: Long): Int
 
 public actual fun clusterGetEnumCountEx(hclusterenum: Hclusenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGetEnumCountEx(hclusterenum).toUInt()
 
 public actual fun clusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pwstr, cchbufferlength: UInt): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGetVolumeNameForVolumeMountPoint")
 
 public actual fun clusterGetVolumePathName(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGetVolumePathName")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnum(hgroupenum: Long): Int
 
 public actual fun clusterGroupCloseEnum(hgroupenum: Hgroupenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnum(hgroupenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx(hgroupenumex: Long): Int
 
 public actual fun clusterGroupCloseEnumEx(hgroupenumex: Hgroupenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx(hgroupenumex).toUInt()
 
-public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupControl")
 
-public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupControlEx")
 
-public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszresourcename: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszresourcename: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupEnum")
 
-public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: MutPtr<ClusterGroupEnumItem>, cbitem: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupEnumEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCount(hgroupenum: Long): Int
 
 public actual fun clusterGroupGetEnumCount(hgroupenum: Hgroupenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCount(hgroupenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCountEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCountEx(hgroupenumex: Long): Int
 
 public actual fun clusterGroupGetEnumCountEx(hgroupenumex: Hgroupenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupGetEnumCountEx(hgroupenumex).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum(hgroup: Long, dwtype: Int): Long
 
 public actual fun clusterGroupOpenEnum(hgroup: Hgroup, dwtype: UInt): Hgroupenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum(hgroup, dwtype.toInt()).toLong()
 
 public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hgroupenumex =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnumEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum(hgroupsetenum: Long): Int
 
 public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum(hgroupsetenum).toUInt()
 
-public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupSetControl")
 
-public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupSetControlEx")
 
-public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupSetEnum")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupSetGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetGetEnumCount(hgroupsetenum: Long): Int
 
 public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetGetEnumCount(hgroupsetenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum(hcluster: Long): Long
 
 public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum(hcluster).toLong()
 
 public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterIsPathOnSharedVolume")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum(hnetinterfaceenum: Long): Int
 
 public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum(hnetinterfaceenum).toUInt()
 
-public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControl")
 
-public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControlEx")
 
-public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceEnum")
 
 public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceOpenEnum")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum(hnetworkenum: Long): Int
 
 public actual fun clusterNetworkCloseEnum(hnetworkenum: Hnetworkenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum(hnetworkenum).toUInt()
 
-public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetworkControl")
 
-public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetworkControlEx")
 
-public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNetworkEnum")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNetworkGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkGetEnumCount(hnetworkenum: Long): Int
 
 public actual fun clusterNetworkGetEnumCount(hnetworkenum: Hnetworkenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkGetEnumCount(hnetworkenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum(hnetwork: Long, dwtype: Int): Long
 
 public actual fun clusterNetworkOpenEnum(hnetwork: Hnetwork, dwtype: UInt): Hnetworkenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum(hnetwork, dwtype.toInt()).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum(hnodeenum: Long): Int
 
 public actual fun clusterNodeCloseEnum(hnodeenum: Hnodeenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum(hnodeenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx(hnodeenum: Long): Int
 
 public actual fun clusterNodeCloseEnumEx(hnodeenum: Hnodeenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx(hnodeenum).toUInt()
 
-public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeControl")
 
-public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeControlEx")
 
-public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeEnum")
 
-public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: MutPtr<ClusterEnumItem>, cbitem: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeEnumEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCount(hnodeenum: Long): Int
 
 public actual fun clusterNodeGetEnumCount(hnodeenum: Hnodeenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCount(hnodeenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCountEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCountEx(hnodeenum: Long): Int
 
 public actual fun clusterNodeGetEnumCountEx(hnodeenum: Hnodeenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeGetEnumCountEx(hnodeenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum(hnode: Long, dwtype: Int): Long
 
 public actual fun clusterNodeOpenEnum(hnode: Hnode, dwtype: UInt): Hnodeenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum(hnode, dwtype.toInt()).toLong()
 
-public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: COpaquePointer?): Hnodeenumex =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: ConstPtr<CVoid>): Hnodeenumex =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnumEx")
 
 public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent: Pcwstr, lpsznodenamenew: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeReplacement")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterOpenEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterOpenEnum(hcluster: Long, dwtype: Int): Long
 
 public actual fun clusterOpenEnum(hcluster: Hcluster, dwtype: UInt): Hclusenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterOpenEnum(hcluster, dwtype.toInt()).toLong()
 
-public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: COpaquePointer?): Hclusenumex =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: ConstPtr<CVoid>): Hclusenumex =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterOpenEnumEx")
 
-public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: COpaquePointer?, lpszvolumename: Pwstr, lpcchvolumename: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: MutPtr<UInt>, lpszvolumename: Pwstr, lpcchvolumename: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterPrepareSharedVolumeForBackup")
 
-public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: COpaquePointer?, cbdata: UInt): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: ConstPtr<CVoid>, cbdata: UInt): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegBatchAddCommand")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification(hbatchnotification: Long): Int
 
 public actual fun clusterRegBatchCloseNotification(hbatchnotification: Hregbatchnotification): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification(hbatchnotification).toInt()
 
-public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: MutPtr<ClusterBatchCommand>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegBatchReadCommand")
 
-public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: MutPtr<Int>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatch")
 
-public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: MutPtr<Int>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort(hbatchnotifyport: Long): Int
 
 public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort(hbatchnotifyport).toInt()
 
 public actual fun clusterRegCloseKey(hkey: Hkey): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCloseKey")
 
-public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: MutPtr<Hregreadbatchreply>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatch")
 
-public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: MutPtr<Hregreadbatchreply>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply(hregreadbatchreply: Long): Int
 
 public actual fun clusterRegCloseReadBatchReply(hregreadbatchreply: Hregreadbatchreply): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply(hregreadbatchreply).toInt()
 
-public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: MutPtr<Hregbatch>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatch")
 
-public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: MutPtr<Hregbatchport>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatchNotifyPort")
 
-public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCreateKey")
 
-public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?, lpszreason: Pcwstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>, lpszreason: Pcwstr): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCreateKeyEx")
 
-public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: MutPtr<Hregreadbatch>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCreateReadBatch")
 
 public actual fun clusterRegDeleteKey(hkey: Hkey, lpszsubkey: Pcwstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKey")
 
 public actual fun clusterRegDeleteKeyEx(hkey: Hkey, lpsubkey: Pcwstr, lpszreason: Pcwstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegDeleteKeyEx")
 
 public actual fun clusterRegDeleteValue(hkey: Hkey, lpszvaluename: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValue")
 
 public actual fun clusterRegDeleteValueEx(hkey: Hkey, lpszvaluename: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValueEx")
 
-public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>, lpftlastwritetime: MutPtr<Filetime>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegEnumKey")
 
-public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: COpaquePointer?, lpdwtype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: MutPtr<UInt>, lpdwtype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegEnumValue")
 
-public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: MutPtr<Hregbatchnotification>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegGetBatchNotification")
 
-public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr<UInt>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegGetKeySecurity")
 
-public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: MutPtr<Hkey>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegOpenKey")
 
-public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: COpaquePointer?, lpcchmaxsubkeylen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcchmaxvaluenamelen: COpaquePointer?, lpcbmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: ConstPtr<UInt>, lpcchmaxsubkeylen: ConstPtr<UInt>, lpcvalues: ConstPtr<UInt>, lpcchmaxvaluenamelen: ConstPtr<UInt>, lpcbmaxvaluelen: ConstPtr<UInt>, lpcbsecuritydescriptor: ConstPtr<UInt>, lpftlastwritetime: ConstPtr<Filetime>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegQueryInfoKey")
 
-public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegQueryValue")
 
 public actual fun clusterRegReadBatchAddCommand(hregreadbatch: Hregreadbatch, wzsubkeyname: Pcwstr, wzvaluename: Pcwstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchAddCommand")
 
-public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: COpaquePointer?): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: MutPtr<ClusterReadBatchCommand>): Int =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchReplyNextCommand")
 
 public actual fun clusterRegSetKeySecurity(hkey: Hkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurity")
 
 public actual fun clusterRegSetKeySecurityEx(hkey: Hkey, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, lpszreason: Pcwstr): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurityEx")
 
-public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegSetValue")
 
-public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegSetValueEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase(hcluster: Long, flags: Int): Int
 
 public actual fun clusterRegSyncDatabase(hcluster: Hcluster, flags: UInt): Int =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase(hcluster, flags.toInt()).toInt()
 
 public actual fun clusterRemoveAffinityRule(hcluster: Hcluster, rulename: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRemoveAffinityRule")
 
 public actual fun clusterRemoveGroupFromAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromAffinityRule")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSet")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSet(hgroup: Long): Int
 
 public actual fun clusterRemoveGroupFromGroupSet(hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSet(hgroup).toUInt()
 
 public actual fun clusterRemoveGroupFromGroupSetEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRemoveGroupFromGroupSetEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnum(hresenum: Long): Int
 
 public actual fun clusterResourceCloseEnum(hresenum: Hresenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnum(hresenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx(hresourceenumex: Long): Int
 
 public actual fun clusterResourceCloseEnumEx(hresourceenumex: Hresenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx(hresourceenumex).toUInt()
 
-public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceControl")
 
-public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUser")
 
-public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUserEx")
 
-public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceControlEx")
 
-public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceEnum")
 
-public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: MutPtr<ClusterResourceEnumItem>, cbitem: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceEnumEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCount(hresenum: Long): Int
 
 public actual fun clusterResourceGetEnumCount(hresenum: Hresenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCount(hresenum).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCountEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCountEx(hresourceenumex: Long): Int
 
 public actual fun clusterResourceGetEnumCountEx(hresourceenumex: Hresenumex): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceGetEnumCountEx(hresourceenumex).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum(hresource: Long, dwtype: Int): Long
 
 public actual fun clusterResourceOpenEnum(hresource: Hresource, dwtype: UInt): Hresenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum(hresource, dwtype.toInt()).toLong()
 
 public actual fun clusterResourceOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hresenumex =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnumEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum(hrestypeenum: Long): Int
 
 public actual fun clusterResourceTypeCloseEnum(hrestypeenum: Hrestypeenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum(hrestypeenum).toUInt()
 
-public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControl")
 
-public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUser")
 
-public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUserEx")
 
-public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlEx")
 
-public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceTypeEnum")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterResourceTypeGetEnumCount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceTypeGetEnumCount(hrestypeenum: Long): Int
 
 public actual fun clusterResourceTypeGetEnumCount(hrestypeenum: Hrestypeenum): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceTypeGetEnumCount(hrestypeenum).toUInt()
 
 public actual fun clusterResourceTypeOpenEnum(hcluster: Hcluster, lpszresourcetypename: Pcwstr, dwtype: UInt): Hrestypeenum =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceTypeOpenEnum")
 
 public actual fun clusterSetAccountAccess(hcluster: Hcluster, szaccountsid: Pcwstr, dwaccess: UInt, dwcontroltype: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterSetAccountAccess")
 
 public actual fun clusterSharedVolumeSetSnapshotState(guidsnapshotset: Guid, lpszvolumename: Pcwstr, state: ClusterSharedVolumeSnapshotState): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterSharedVolumeSetSnapshotState")
 
-public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: ConstPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterUpgradeFunctionalLevel")
 
-public actual fun createCluster(pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun createCluster(pconfig: ConstPtr<CreateClusterConfig>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hcluster =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateCluster")
 
-public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: COpaquePointer?): Hgroupset =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: ConstPtr<ClusterAvailabilitySetConfig>): Hgroupset =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterAvailabilitySet")
 
 public actual fun createClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterGroup")
 
-public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: COpaquePointer?): Hgroup =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: ConstPtr<ClusterCreateGroupInfo>): Hgroup =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterGroupEx")
 
 public actual fun createClusterGroupSet(hcluster: Hcluster, groupsetname: Pcwstr): Hgroupset =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterGroupSet")
 
-public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: ConstPtr<CreateClusterNameAccount>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterNameAccount")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort(hchange: Long, hcluster: Long, dwfilter: Int, dwnotifykey: Long): Long
 
 public actual fun createClusterNotifyPort(hchange: Hchange, hcluster: Hcluster, dwfilter: UInt, dwnotifykey: ULong): Hchange =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort(hchange, hcluster, dwfilter.toInt(), dwnotifykey.toLong()).toLong()
 
-public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: COpaquePointer?, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: ConstPtr<NotifyFilterAndType>, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPortV2")
 
 public actual fun createClusterResource(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterResource")
 
 public actual fun createClusterResourceEx(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt, lpszreason: Pcwstr): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterResourceEx")
 
 public actual fun createClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterResourceType")
 
 public actual fun createClusterResourceTypeEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterResourceTypeEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringDeleteClusterGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringDeleteClusterGroup(hgroup: Long): Int
 
 public actual fun deleteClusterGroup(hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringDeleteClusterGroup(hgroup).toUInt()
 
 public actual fun deleteClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSet")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSet(hgroupset: Long): Int
 
 public actual fun deleteClusterGroupSet(hgroupset: Hgroupset): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSet(hgroupset).toUInt()
 
 public actual fun deleteClusterGroupSetEx(hgroupset: Hgroupset, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDeleteClusterGroupSetEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringDeleteClusterResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringDeleteClusterResource(hresource: Long): Int
 
 public actual fun deleteClusterResource(hresource: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringDeleteClusterResource(hresource).toUInt()
 
 public actual fun deleteClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceEx")
 
 public actual fun deleteClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceType")
 
 public actual fun deleteClusterResourceTypeEx(hcluster: Hcluster, lpsztypename: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceTypeEx")
 
-public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, fdeletevirtualcomputerobjects: Bool): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>, fdeletevirtualcomputerobjects: Bool): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDestroyCluster")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringDestroyClusterGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringDestroyClusterGroup(hgroup: Long): Int
 
 public actual fun destroyClusterGroup(hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringDestroyClusterGroup(hgroup).toUInt()
 
 public actual fun destroyClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDestroyClusterGroupEx")
 
-public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: MutPtr<ClusterMgmtPointRestype>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromCluster")
 
-public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcnorestype: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: ConstPtr<Pcwstr>, pcnorestype: MutPtr<ClusterMgmtPointRestype>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromNodelist")
 
-public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: MutPtr<ClusterCloudType>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromCluster")
 
-public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcloudtype: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: ConstPtr<Pcwstr>, pcloudtype: MutPtr<ClusterCloudType>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromNodelist")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringEvictClusterNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringEvictClusterNode(hnode: Long): Int
 
 public actual fun evictClusterNode(hnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringEvictClusterNode(hnode).toUInt()
 
-public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr<Hresult>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx")
 
-public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr<Hresult>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringFailClusterResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringFailClusterResource(hresource: Long): Int
 
 public actual fun failClusterResource(hresource: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringFailClusterResource(hresource).toUInt()
 
 public actual fun failClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringFailClusterResourceEx")
 
-public actual fun freeClusterCrypt(pcryptinfo: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun freeClusterCrypt(pcryptinfo: ConstPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringFreeClusterCrypt")
 
-public actual fun freeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun freeClusterHealthFault(clusterhealthfault: MutPtr<ClusterHealthFault>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFault")
 
-public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr<ClusterHealthFaultArray>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFaultArray")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromGroup(hgroup: Long): Long
 
 public actual fun getClusterFromGroup(hgroup: Hgroup): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromGroup(hgroup).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface(hnetinterface: Long): Long
 
 public actual fun getClusterFromNetInterface(hnetinterface: Hnetinterface): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface(hnetinterface).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork(hnetwork: Long): Long
 
 public actual fun getClusterFromNetwork(hnetwork: Hnetwork): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork(hnetwork).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNode(hnode: Long): Long
 
 public actual fun getClusterFromNode(hnode: Hnode): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNode(hnode).toLong()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromResource(hresource: Long): Long
 
 public actual fun getClusterFromResource(hresource: Hresource): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromResource(hresource).toLong()
 
 public actual fun getClusterGroupKey(hgroup: Hgroup, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterGroupKey")
 
-public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?): ClusterGroupState =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: MutPtr<UInt>): ClusterGroupState =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterGroupState")
 
-public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: COpaquePointer?, lpclusterinfo: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: MutPtr<UInt>, lpclusterinfo: MutPtr<Clusterversioninfo>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterInformation")
 
 public actual fun getClusterKey(hcluster: Hcluster, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterKey")
 
-public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNetInterface")
 
 public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceKey")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState(hnetinterface: Long): Int
 
 public actual fun getClusterNetInterfaceState(hnetinterface: Hnetinterface): ClusterNetinterfaceState =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState(hnetinterface).toInt()
 
-public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNetworkId")
 
 public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNetworkKey")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterNetworkState")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetworkState(hnetwork: Long): Int
 
 public actual fun getClusterNetworkState(hnetwork: Hnetwork): ClusterNetworkState =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetworkState(hnetwork).toInt()
 
-public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNodeId")
 
 public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNodeKey")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterNodeState")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNodeState(hnode: Long): Int
 
 public actual fun getClusterNodeState(hnode: Hnode): ClusterNodeState =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNodeState(hnode).toInt()
 
-public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: COpaquePointer?, lpdwfiltertype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, dwmilliseconds: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, lpdwfiltertype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, dwmilliseconds: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNotify")
 
-public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: COpaquePointer?, pfilterandtype: COpaquePointer?, buffer: COpaquePointer?, lpbbuffersize: COpaquePointer?, lpszobjectid: Pwstr, lpcchobjectid: COpaquePointer?, lpszparentid: Pwstr, lpcchparentid: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, lpsztype: Pwstr, lpcchtype: COpaquePointer?, dwmilliseconds: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, pfilterandtype: MutPtr<NotifyFilterAndType>, buffer: MutPtr<UByte>, lpbbuffersize: MutPtr<UInt>, lpszobjectid: Pwstr, lpcchobjectid: MutPtr<UInt>, lpszparentid: Pwstr, lpcchparentid: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, lpsztype: Pwstr, lpcchtype: MutPtr<UInt>, dwmilliseconds: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNotifyV2")
 
-public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: COpaquePointer?, lpszdevicename: Pwstr, lpcchdevicename: COpaquePointer?, lpdwmaxquorumlogsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: MutPtr<UInt>, lpszdevicename: Pwstr, lpcchdevicename: MutPtr<UInt>, lpdwmaxquorumlogsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterQuorumResource")
 
-public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterResourceDependencyExpression")
 
 public actual fun getClusterResourceKey(hresource: Hresource, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterResourceKey")
 
-public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterResourceNetworkName")
 
-public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?, lpszgroupname: Pwstr, lpcchgroupname: COpaquePointer?): ClusterResourceState =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: MutPtr<UInt>, lpszgroupname: Pwstr, lpcchgroupname: MutPtr<UInt>): ClusterResourceState =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterResourceState")
 
 public actual fun getClusterResourceTypeKey(hcluster: Hcluster, lpsztypename: Pcwstr, samdesired: UInt): Hkey =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterResourceTypeKey")
 
-public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetNodeCloudTypeDW")
 
-public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetNodeClusterState")
 
-public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: MutPtr<Handle>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetNotifyEventHandle")
 
-public actual fun initializeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun initializeClusterHealthFault(clusterhealthfault: MutPtr<ClusterHealthFault>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFault")
 
-public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr<ClusterHealthFaultArray>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFaultArray")
 
-public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: MutPtr<Bool>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringIsFileOnClusterSharedVolume")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringMoveClusterGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringMoveClusterGroup(hgroup: Long, hdestinationnode: Long): Int
 
 public actual fun moveClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringMoveClusterGroup(hgroup, hdestinationnode).toUInt()
 
-public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx")
 
-public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringOfflineClusterGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringOfflineClusterGroup(hgroup: Long): Int
 
 public actual fun offlineClusterGroup(hgroup: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringOfflineClusterGroup(hgroup).toUInt()
 
-public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx")
 
-public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringOfflineClusterResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringOfflineClusterResource(hresource: Long): Int
 
 public actual fun offlineClusterResource(hresource: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringOfflineClusterResource(hresource).toUInt()
 
-public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx")
 
-public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringOnlineClusterGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringOnlineClusterGroup(hgroup: Long, hdestinationnode: Long): Int
 
 public actual fun onlineClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringOnlineClusterGroup(hgroup, hdestinationnode).toUInt()
 
-public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx")
 
-public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringOnlineClusterResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringOnlineClusterResource(hresource: Long): Int
 
 public actual fun onlineClusterResource(hresource: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringOnlineClusterResource(hresource).toUInt()
 
-public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx")
 
-public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx2")
 
 public actual fun openCluster(lpszclustername: Pcwstr): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenCluster")
 
-public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: ConstPtr<Byte>, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProvider")
 
-public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: ConstPtr<Byte>, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProviderEx")
 
-public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: COpaquePointer?): Hcluster =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: MutPtr<UInt>): Hcluster =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterEx")
 
 public actual fun openClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterGroup")
 
-public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hgroup =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hgroup =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterGroupEx")
 
 public actual fun openClusterGroupSet(hcluster: Hcluster, lpszgroupsetname: Pcwstr): Hgroupset =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterGroupSet")
 
 public actual fun openClusterNetInterface(hcluster: Hcluster, lpszinterfacename: Pcwstr): Hnetinterface =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterface")
 
-public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetinterface =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnetinterface =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterfaceEx")
 
 public actual fun openClusterNetwork(hcluster: Hcluster, lpsznetworkname: Pcwstr): Hnetwork =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNetwork")
 
-public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetwork =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnetwork =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNetworkEx")
 
 public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hnode =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNode")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringOpenClusterNodeById")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringOpenClusterNodeById(hcluster: Long, nodeid: Int): Long
 
 public actual fun openClusterNodeById(hcluster: Hcluster, nodeid: UInt): Hnode =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringOpenClusterNodeById(hcluster, nodeid.toInt()).toLong()
 
-public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnode =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnode =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNodeEx")
 
 public actual fun openClusterResource(hcluster: Hcluster, lpszresourcename: Pcwstr): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterResource")
 
-public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hresource =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterResourceEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringPauseClusterNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringPauseClusterNode(hnode: Long): Int
 
 public actual fun pauseClusterNode(hnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringPauseClusterNode(hnode).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx(hnode: Long, bdrainnode: Int, dwpauseflags: Int, hnodedraintarget: Long): Int
 
 public actual fun pauseClusterNodeEx(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx(hnode, bdrainnode, dwpauseflags.toInt(), hnodedraintarget).toUInt()
 
 public actual fun pauseClusterNodeEx2(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx2")
 
-public actual fun queryAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: COpaquePointer?, instanceversionlow: COpaquePointer?, versionstatus: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun queryAppInstanceVersion(appinstanceid: ConstPtr<Guid>, instanceversionhigh: MutPtr<ULong>, instanceversionlow: MutPtr<ULong>, versionstatus: MutPtr<Ntstatus>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringQueryAppInstanceVersion")
 
-public actual fun registerAppInstance(processhandle: Handle, appinstanceid: COpaquePointer?, childreninheritappinstance: Bool): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun registerAppInstance(processhandle: Handle, appinstanceid: ConstPtr<Guid>, childreninheritappinstance: Bool): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRegisterAppInstance")
 
-public actual fun registerAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun registerAppInstanceVersion(appinstanceid: ConstPtr<Guid>, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRegisterAppInstanceVersion")
 
 public actual fun registerClusterNotify(hchange: Hchange, dwfiltertype: UInt, hobject: Handle, dwnotifykey: ULong): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRegisterClusterNotify")
 
 public actual fun registerClusterNotifyV2(hchange: Hchange, filter: NotifyFilterAndType, hobject: Handle, dwnotifykey: ULong): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRegisterClusterNotifyV2")
 
 public actual fun registerClusterResourceTypeNotifyV2(hchange: Hchange, hcluster: Hcluster, flags: Long, restypename: Pcwstr, dwnotifykey: ULong): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRegisterClusterResourceTypeNotifyV2")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependency(hgroup: Long, hdependson: Long): Int
 
 public actual fun removeClusterGroupDependency(hgroup: Hgroup, hdependson: Hgroup): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependency(hgroup, hdependson).toUInt()
 
 public actual fun removeClusterGroupDependencyEx(hgroup: Hgroup, hdependson: Hgroup, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependency(hgroupset: Long, hdependson: Long): Int
 
 public actual fun removeClusterGroupSetDependency(hgroupset: Hgroupset, hdependson: Hgroupset): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependency(hgroupset, hdependson).toUInt()
 
 public actual fun removeClusterGroupSetDependencyEx(hgroupset: Hgroupset, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupSetDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependency(hgroup: Long, hdependson: Long): Int
 
 public actual fun removeClusterGroupToGroupSetDependency(hgroup: Hgroup, hdependson: Hgroupset): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependency(hgroup, hdependson).toUInt()
 
 public actual fun removeClusterGroupToGroupSetDependencyEx(hgroup: Hgroup, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveClusterGroupToGroupSetDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveClusterNameAccount")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterNameAccount(hcluster: Long, bdeletecomputerobjects: Int): Int
 
 public actual fun removeClusterNameAccount(hcluster: Hcluster, bdeletecomputerobjects: Bool): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterNameAccount(hcluster, bdeletecomputerobjects).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependency")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependency(hresource: Long, hdependson: Long): Int
 
 public actual fun removeClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependency(hresource, hdependson).toUInt()
 
 public actual fun removeClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceDependencyEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNode(hresource: Long, hnode: Long): Int
 
 public actual fun removeClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNode(hresource, hnode).toUInt()
 
 public actual fun removeClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveClusterResourceNodeEx")
 
 public actual fun removeClusterStorageNode(hcluster: Hcluster, lpszclusterstorageenclosurename: Pcwstr, dwtimeout: UInt, dwflags: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveClusterStorageNode")
 
 public actual fun removeCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRemoveCrossClusterGroupSetDependency")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes(hresource: Long): Int
 
 public actual fun removeResourceFromClusterSharedVolumes(hresource: Hresource): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes(hresource).toUInt()
 
-public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, pcboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilAddUnknownProperties")
 
 public actual fun resUtilCreateDirectoryTree(pszpath: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilCreateDirectoryTree")
 
-public actual fun resUtilDupGroup(group: Hgroup, copy: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilDupGroup(group: Hgroup, copy: MutPtr<Hgroup>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilDupGroup")
 
-public actual fun resUtilDupParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilDupParameterBlock(poutparams: MutPtr<UByte>, pinparams: ConstPtr<UByte>, ppropertytable: ConstPtr<ResutilPropertyItem>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilDupParameterBlock")
 
-public actual fun resUtilDupResource(group: Hresource, copy: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilDupResource(group: Hresource, copy: MutPtr<Hresource>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilDupResource")
 
 public actual fun resUtilDupString(pszinstring: Pcwstr): Pwstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilDupString")
 
-public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumGroups")
 
-public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumGroupsEx")
 
-public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumPrivateProperties")
 
-public actual fun resUtilEnumProperties(ppropertytable: COpaquePointer?, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumProperties(ppropertytable: ConstPtr<ResutilPropertyItem>, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumProperties")
 
-public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumResources")
 
-public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx")
 
-public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?, dwdesiredaccess: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>, dwdesiredaccess: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx2")
 
 public actual fun resUtilExpandEnvironmentStrings(pszsrc: Pcwstr): Pwstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilExpandEnvironmentStrings")
 
-public actual fun resUtilFindBinaryProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindBinaryProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: MutPtr<MutPtr<UByte>>, pcbpropertyvaluesize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindBinaryProperty")
 
-public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindDependentDiskResourceDriveLetter")
 
-public actual fun resUtilFindDwordProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindDwordProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindDwordProperty")
 
-public actual fun resUtilFindExpandSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindExpandSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindExpandSzProperty")
 
-public actual fun resUtilFindExpandedSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindExpandedSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindExpandedSzProperty")
 
-public actual fun resUtilFindFileTimeProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindFileTimeProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: MutPtr<Filetime>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindFileTimeProperty")
 
-public actual fun resUtilFindLongProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindLongProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr<Int>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindLongProperty")
 
-public actual fun resUtilFindMultiSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindMultiSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>, pcbpropertyvaluesize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindMultiSzProperty")
 
-public actual fun resUtilFindSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindSzProperty")
 
-public actual fun resUtilFindULargeIntegerProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFindULargeIntegerProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr<ULong>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFindULargeIntegerProperty")
 
-public actual fun resUtilFreeEnvironment(lpenvironment: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilFreeEnvironment(lpenvironment: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFreeEnvironment")
 
-public actual fun resUtilFreeParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun resUtilFreeParameterBlock(poutparams: MutPtr<UByte>, pinparams: ConstPtr<UByte>, ppropertytable: ConstPtr<ResutilPropertyItem>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilFreeParameterBlock")
 
-public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetAllProperties")
 
-public actual fun resUtilGetBinaryProperty(ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pboldvalue: COpaquePointer?, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetBinaryProperty(ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropBinary>, pboldvalue: ConstPtr<UByte>, cboldvaluesize: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryProperty")
 
-public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryValue")
 
-public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: MutPtr<ClusgroupType>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetClusterGroupType")
 
-public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: MutPtr<Guid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetClusterId")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState(hcluster: Long, eclusterrole: Int): Int
 
 public actual fun resUtilGetClusterRoleState(hcluster: Hcluster, eclusterrole: ClusterRole): ClusterRoleState =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState(hcluster, eclusterrole).toInt()
 
-public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: COpaquePointer?, phclusteripaddressresource: COpaquePointer?, phclusterquorumresource: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: MutPtr<Hresource>, phclusteripaddressresource: MutPtr<Hresource>, phclusterquorumresource: MutPtr<Hresource>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResources")
 
-public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: COpaquePointer?, phclusterquorumresourceout: COpaquePointer?, dwdesiredaccess: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: MutPtr<Hresource>, phclusterquorumresourceout: MutPtr<Hresource>, dwdesiredaccess: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResourcesEx")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup(hcluster: Long): Long
 
 public actual fun resUtilGetCoreGroup(hcluster: Hcluster): Hgroup =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup(hcluster).toLong()
 
-public actual fun resUtilGetDwordProperty(pdwoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetDwordProperty(pdwoutvalue: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropDword>, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetDwordProperty")
 
-public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: COpaquePointer?, dwdefaultvalue: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: MutPtr<UInt>, dwdefaultvalue: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetDwordValue")
 
-public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): COpaquePointer? =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): MutPtr<CVoid> =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetEnvironmentWithNetName")
 
-public actual fun resUtilGetFileTimeProperty(pftoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetFileTimeProperty(pftoutvalue: MutPtr<Filetime>, pvaluestruct: ConstPtr<CluspropFiletime>, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetFileTimeProperty")
 
-public actual fun resUtilGetLongProperty(ploutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetLongProperty(ploutvalue: MutPtr<Int>, pvaluestruct: ConstPtr<CluspropLong>, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetLongProperty")
 
-public actual fun resUtilGetMultiSzProperty(ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetMultiSzProperty(ppszoutvalue: MutPtr<Pwstr>, pcboutvaluesize: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropSz>, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetMultiSzProperty")
 
-public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetPrivateProperties")
 
-public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetProperties")
 
-public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutparams: COpaquePointer?, bcheckforrequiredproperties: Bool, psznameofpropinerror: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutparams: MutPtr<UByte>, bcheckforrequiredproperties: Bool, psznameofpropinerror: MutPtr<Pwstr>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetPropertiesToParameterBlock")
 
-public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, poutpropertyitem: COpaquePointer?, pcboutpropertyitemsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr<ResutilPropertyItem>, poutpropertyitem: MutPtr<MutPtr<CVoid>>, pcboutpropertyitemsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetProperty")
 
-public actual fun resUtilGetPropertyFormats(ppropertytable: COpaquePointer?, poutpropertyformatlist: COpaquePointer?, cbpropertyformatlistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetPropertyFormats(ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertyformatlist: MutPtr<CVoid>, cbpropertyformatlistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetPropertyFormats")
 
-public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pnpropertycount: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr<ResutilPropertyItem>, pcboutpropertylistsize: MutPtr<UInt>, pnpropertycount: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetPropertySize")
 
-public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: COpaquePointer?, qwdefaultvalue: ULong): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: MutPtr<ULong>, qwdefaultvalue: ULong): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetQwordValue")
 
 public actual fun resUtilGetResourceDependency(hself: Handle, lpszresourcetype: Pcwstr): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependency")
 
-public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: MutPtr<ClusResourceClassInfo>, brecurse: Bool): Hresource =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClass")
 
-public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: MutPtr<ClusResourceClassInfo>, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClassEx")
 
 public actual fun resUtilGetResourceDependencyByName(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByName")
 
 public actual fun resUtilGetResourceDependencyByNameEx(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByNameEx")
 
 public actual fun resUtilGetResourceDependencyEx(hself: Handle, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyEx")
 
-public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: COpaquePointer?, pszsubnetmask: Pwstr, pcchsubnetmask: COpaquePointer?, psznetwork: Pwstr, pcchnetwork: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: MutPtr<UInt>, pszsubnetmask: Pwstr, pcchsubnetmask: MutPtr<UInt>, psznetwork: Pwstr, pcchnetwork: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependentIPAddressProps")
 
-public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceName")
 
 public actual fun resUtilGetResourceNameDependency(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependency")
 
 public actual fun resUtilGetResourceNameDependencyEx(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependencyEx")
 
-public actual fun resUtilGetSzProperty(ppszoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGetSzProperty(ppszoutvalue: MutPtr<Pwstr>, pvaluestruct: ConstPtr<CluspropSz>, pszoldvalue: Pcwstr, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetSzProperty")
 
 public actual fun resUtilGetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr): Pwstr =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetSzValue")
 
-public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: MutPtr<Bool>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGroupsEqual")
 
 public actual fun resUtilIsPathValid(pszpath: Pcwstr): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilIsPathValid")
 
-public actual fun resUtilIsResourceClassEqual(prci: COpaquePointer?, hresource: Hresource): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilIsResourceClassEqual(prci: MutPtr<ClusResourceClassInfo>, hresource: Hresource): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilIsResourceClassEqual")
 
-public actual fun resUtilLeftPaxosIsLessThanRight(left: COpaquePointer?, right: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilLeftPaxosIsLessThanRight(left: ConstPtr<PaxosTagCStruct>, right: ConstPtr<PaxosTagCStruct>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilLeftPaxosIsLessThanRight")
 
-public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilNodeEnum")
 
-public actual fun resUtilPaxosComparer(left: COpaquePointer?, right: COpaquePointer?): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilPaxosComparer(left: ConstPtr<PaxosTagCStruct>, right: ConstPtr<PaxosTagCStruct>): Bool =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilPaxosComparer")
 
-public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pinparams: COpaquePointer?, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, pcboutpropertylistsize: MutPtr<UInt>, pinparams: ConstPtr<UByte>, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilPropertyListFromParameterBlock")
 
 public actual fun resUtilRemoveResourceServiceEnvironment(pszservicename: Pcwstr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilRemoveResourceServiceEnvironment")
 
-public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilResourceDepEnum")
 
 public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresource: Hresource): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilResourceTypesEqual")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual(hself: Long, hresource: Long): Int
 
 public actual fun resUtilResourcesEqual(hself: Hresource, hresource: Hresource): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual(hself, hresource).toInt()
 
-public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: COpaquePointer?, cbnewvaluesize: UInt, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: ConstPtr<UByte>, cbnewvaluesize: UInt, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetBinaryValue")
 
-public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetDwordValue")
 
-public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr<Pwstr>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetExpandSzValue")
 
-public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: MutPtr<Pwstr>, pcboutvaluesize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetMultiSzValue")
 
-public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetPrivatePropertyList")
 
-public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, pinparams: ConstPtr<UByte>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlock")
 
-public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, pinparams: ConstPtr<UByte>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr<UByte>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlockEx")
 
-public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: ConstPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTable")
 
-public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr<UByte>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTableEx")
 
-public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: MutPtr<ULong>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetQwordValue")
 
 public actual fun resUtilSetResourceServiceEnvironment(pszservicename: Pcwstr, hresource: Hresource, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceEnvironment")
 
-public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr<ScHandle>, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParameters")
 
-public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr<ScHandle>, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParametersEx")
 
-public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr<Pwstr>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetSzValue")
 
-public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetUnknownProperties")
 
-public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: COpaquePointer?, valuesize: UInt, flags: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr<UByte>, valuesize: UInt, flags: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetValueEx")
 
-public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: MutPtr<ScHandle>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilStartResourceService")
 
 public actual fun resUtilStopResourceService(pszservicename: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilStopResourceService")
 
 public actual fun resUtilStopService(hservicehandle: ScHandle): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilStopService")
 
-public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: MutPtr<UInt>, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilTerminateServiceProcessFromResDll")
 
-public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilVerifyPrivatePropertyList")
 
-public actual fun resUtilVerifyPropertyTable(ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilVerifyPropertyTable(ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: ConstPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilVerifyPropertyTable")
 
 public actual fun resUtilVerifyResourceService(pszservicename: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilVerifyResourceService")
 
 public actual fun resUtilVerifyService(hservicehandle: ScHandle): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilVerifyService")
 
-public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilVerifyShutdownSafe")
 
 public actual fun resUtilsDeleteKeyTree(key: Hkey, keyname: Pcwstr, treatnokeyaserror: Bool): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilsDeleteKeyTree")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringResetAllAppInstanceVersions")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringResetAllAppInstanceVersions(): Int
 
 public actual fun resetAllAppInstanceVersions(): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringResetAllAppInstanceVersions().toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringRestartClusterResource")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringRestartClusterResource(hresource: Long, dwflags: Int): Int
 
 public actual fun restartClusterResource(hresource: Hresource, dwflags: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringRestartClusterResource(hresource, dwflags.toInt()).toUInt()
 
 public actual fun restartClusterResourceEx(hresource: Hresource, dwflags: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRestartClusterResourceEx")
 
 public actual fun restoreClusterDatabase(lpszpathname: Pcwstr, bforce: Bool, lpszquorumdriveletter: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringRestoreClusterDatabase")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringResumeClusterNode")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringResumeClusterNode(hnode: Long): Int
 
 public actual fun resumeClusterNode(hnode: Hnode): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringResumeClusterNode(hnode).toUInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx")
+private external fun wasiWindowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx(hnode: Long, eresumefailbacktype: Int, dwresumeflagsreserved: Int): Int
 
 public actual fun resumeClusterNodeEx(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx(hnode, eresumefailbacktype, dwresumeflagsreserved.toInt()).toUInt()
 
 public actual fun resumeClusterNodeEx2(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResumeClusterNodeEx2")
 
 public actual fun setAppInstanceCsvFlags(processhandle: Handle, mask: UInt, flags: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetAppInstanceCsvFlags")
 
 public actual fun setClusterGroupName(hgroup: Hgroup, lpszgroupname: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterGroupName")
 
 public actual fun setClusterGroupNameEx(hgroup: Hgroup, lpszgroupname: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterGroupNameEx")
 
-public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr<Hnode>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeList")
 
-public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr<Hnode>, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeListEx")
 
 public actual fun setClusterGroupSetDependencyExpression(hgroupset: Hgroupset, lpszdependencyexprssion: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpression")
 
 public actual fun setClusterGroupSetDependencyExpressionEx(hgroupset: Hgroupset, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterGroupSetDependencyExpressionEx")
 
 public actual fun setClusterName(hcluster: Hcluster, lpsznewclustername: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterName")
 
 public actual fun setClusterNameEx(hcluster: Hcluster, lpsznewclustername: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterNameEx")
 
 public actual fun setClusterNetworkName(hnetwork: Hnetwork, lpszname: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterNetworkName")
 
 public actual fun setClusterNetworkNameEx(hnetwork: Hnetwork, lpszname: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterNetworkNameEx")
 
-public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: ConstPtr<Hnetwork>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterNetworkPriorityOrder")
 
 public actual fun setClusterQuorumResource(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquologsize: UInt): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResource")
 
 public actual fun setClusterQuorumResourceEx(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquorumlogsize: UInt, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterQuorumResourceEx")
 
 public actual fun setClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterResourceDependencyExpression")
 
 public actual fun setClusterResourceName(hresource: Hresource, lpszresourcename: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterResourceName")
 
 public actual fun setClusterResourceNameEx(hresource: Hresource, lpszresourcename: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterResourceNameEx")
 
-public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: COpaquePointer?, lpcbreturnstatusbuffersize: COpaquePointer?): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: MutPtr<ClusterSetPasswordStatus>, lpcbreturnstatusbuffersize: MutPtr<UInt>): UInt =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetClusterServiceAccountPassword")
 
 public actual fun setGroupDependencyExpression(hgroup: Hgroup, lpszdependencyexpression: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpression")
 
 public actual fun setGroupDependencyExpressionEx(hgroup: Hgroup, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringSetGroupDependencyExpressionEx")

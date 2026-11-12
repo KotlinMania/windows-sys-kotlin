@@ -2,675 +2,692 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Decimal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Custdata
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Dispparams
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Dvtargetdevice
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Excepinfo
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Formatetc
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearraybound
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgmedium
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Olestream
 import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Msg
 
-private val _windowsWin32SystemOleNapiAddon: dynamic =
+private val windowsWin32SystemOleNapiAddon: dynamic =
     js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun bstrFromVector(psa: COpaquePointer?, pbstr: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_bstrFromVector((psa?.value ?: 0L).toString(), (pbstr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun bstrFromVector(psa: ConstPtr<Safearray>, pbstr: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleBstrFromVector(psa.rawAddress.toString(), pbstr.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clearCustData(pcustdata: COpaquePointer?) {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_clearCustData((pcustdata?.value ?: 0L).toString())
+public actual fun clearCustData(pcustdata: MutPtr<Custdata>) {
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleClearCustData(pcustdata.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun createDispTypeInfo(pidata: COpaquePointer?, lcid: UInt, pptinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_createDispTypeInfo((pidata?.value ?: 0L).toString(), lcid.toInt(), (pptinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createDispTypeInfo(pidata: MutPtr<Interfacedata>, lcid: UInt, pptinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleCreateDispTypeInfo(pidata.rawAddress.toString(), lcid.toInt(), pptinfo.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createErrorInfo(pperrinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_createErrorInfo((pperrinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createErrorInfo(pperrinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleCreateErrorInfo(pperrinfo.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createOleAdviseHolder(ppoaholder: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_createOleAdviseHolder((ppoaholder?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createOleAdviseHolder(ppoaholder: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleCreateOleAdviseHolder(ppoaholder.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createStdDispatch(punkouter: COpaquePointer?, pvthis: COpaquePointer?, ptinfo: COpaquePointer?, ppunkstddisp: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_createStdDispatch((punkouter?.value ?: 0L).toString(), (pvthis?.value ?: 0L).toString(), (ptinfo?.value ?: 0L).toString(), (ppunkstddisp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createStdDispatch(punkouter: MutPtr<CVoid>, pvthis: MutPtr<CVoid>, ptinfo: MutPtr<CVoid>, ppunkstddisp: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleCreateStdDispatch(punkouter.rawAddress.toString(), pvthis.rawAddress.toString(), ptinfo.rawAddress.toString(), ppunkstddisp.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_createTypeLib(syskind, (szfile?.value ?: 0L).toString(), (ppctlib?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleCreateTypeLib(syskind, szfile.rawAddress.toString(), ppctlib.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_createTypeLib2(syskind, (szfile?.value ?: 0L).toString(), (ppctlib?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleCreateTypeLib2(syskind, szfile.rawAddress.toString(), ppctlib.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispCallFunc(pvinstance: COpaquePointer?, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: COpaquePointer?, prgpvarg: COpaquePointer?, pvargresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_dispCallFunc((pvinstance?.value ?: 0L).toString(), ovft.toString(), cc, vtreturn.toInt(), cactuals.toInt(), (prgvt?.value ?: 0L).toString(), (prgpvarg?.value ?: 0L).toString(), (pvargresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dispCallFunc(pvinstance: ConstPtr<CVoid>, ovft: ULong, cc: Callconv, vtreturn: Variant.Varenum, cactuals: UInt, prgvt: ConstPtr<UShort>, prgpvarg: ConstPtr<ConstPtr<Variant.Variant>>, pvargresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleDispCallFunc(pvinstance.rawAddress.toString(), ovft.toString(), cc, vtreturn.toInt(), cactuals.toInt(), prgvt.rawAddress.toString(), prgpvarg.rawAddress.toString(), pvargresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispGetIDsOfNames(ptinfo: COpaquePointer?, rgsznames: COpaquePointer?, cnames: UInt, rgdispid: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_dispGetIDsOfNames((ptinfo?.value ?: 0L).toString(), (rgsznames?.value ?: 0L).toString(), cnames.toInt(), (rgdispid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dispGetIDsOfNames(ptinfo: MutPtr<CVoid>, rgsznames: ConstPtr<Pcwstr>, cnames: UInt, rgdispid: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleDispGetIDsOfNames(ptinfo.rawAddress.toString(), rgsznames.rawAddress.toString(), cnames.toInt(), rgdispid.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispGetParam(pdispparams: COpaquePointer?, position: UInt, vttarg: Varenum, pvarresult: COpaquePointer?, puargerr: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_dispGetParam((pdispparams?.value ?: 0L).toString(), position.toInt(), vttarg.toInt(), (pvarresult?.value ?: 0L).toString(), (puargerr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dispGetParam(pdispparams: ConstPtr<Dispparams>, position: UInt, vttarg: Variant.Varenum, pvarresult: MutPtr<Variant.Variant>, puargerr: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleDispGetParam(pdispparams.rawAddress.toString(), position.toInt(), vttarg.toInt(), pvarresult.rawAddress.toString(), puargerr.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispInvoke(thisRef: COpaquePointer?, ptinfo: COpaquePointer?, dispidmember: Int, wflags: UShort, pparams: COpaquePointer?, pvarresult: COpaquePointer?, pexcepinfo: COpaquePointer?, puargerr: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_dispInvoke((thisRef?.value ?: 0L).toString(), (ptinfo?.value ?: 0L).toString(), dispidmember, wflags.toInt(), (pparams?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString(), (pexcepinfo?.value ?: 0L).toString(), (puargerr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dispInvoke(thisRef: MutPtr<CVoid>, ptinfo: MutPtr<CVoid>, dispidmember: Int, wflags: UShort, pparams: MutPtr<Dispparams>, pvarresult: MutPtr<Variant.Variant>, pexcepinfo: MutPtr<Excepinfo>, puargerr: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleDispInvoke(thisRef.rawAddress.toString(), ptinfo.rawAddress.toString(), dispidmember, wflags.toInt(), pparams.rawAddress.toString(), pvarresult.rawAddress.toString(), pexcepinfo.rawAddress.toString(), puargerr.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun doDragDrop(pdataobj: COpaquePointer?, pdropsource: COpaquePointer?, dwokeffects: Dropeffect, pdweffect: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_doDragDrop((pdataobj?.value ?: 0L).toString(), (pdropsource?.value ?: 0L).toString(), dwokeffects.toInt(), (pdweffect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun doDragDrop(pdataobj: MutPtr<CVoid>, pdropsource: MutPtr<CVoid>, dwokeffects: Dropeffect, pdweffect: MutPtr<Dropeffect>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleDoDragDrop(pdataobj.rawAddress.toString(), pdropsource.rawAddress.toString(), dwokeffects.toInt(), pdweffect.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getActiveObject(rclsid: COpaquePointer?, pvreserved: COpaquePointer?, ppunk: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_getActiveObject((rclsid?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (ppunk?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getActiveObject(rclsid: ConstPtr<Guid>, pvreserved: MutPtr<CVoid>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleGetActiveObject(rclsid.rawAddress.toString(), pvreserved.rawAddress.toString(), ppunk.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAltMonthNames(lcid: UInt, prgp: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_getAltMonthNames(lcid.toInt(), (prgp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getAltMonthNames(lcid: UInt, prgp: MutPtr<MutPtr<Pwstr>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleGetAltMonthNames(lcid.toInt(), prgp.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRecordInfoFromGuids(rguidtypelib: COpaquePointer?, uvermajor: UInt, uverminor: UInt, lcid: UInt, rguidtypeinfo: COpaquePointer?, pprecinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_getRecordInfoFromGuids((rguidtypelib?.value ?: 0L).toString(), uvermajor.toInt(), uverminor.toInt(), lcid.toInt(), (rguidtypeinfo?.value ?: 0L).toString(), (pprecinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getRecordInfoFromGuids(rguidtypelib: ConstPtr<Guid>, uvermajor: UInt, uverminor: UInt, lcid: UInt, rguidtypeinfo: ConstPtr<Guid>, pprecinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleGetRecordInfoFromGuids(rguidtypelib.rawAddress.toString(), uvermajor.toInt(), uverminor.toInt(), lcid.toInt(), rguidtypeinfo.rawAddress.toString(), pprecinfo.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRecordInfoFromTypeInfo(ptypeinfo: COpaquePointer?, pprecinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo((ptypeinfo?.value ?: 0L).toString(), (pprecinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getRecordInfoFromTypeInfo(ptypeinfo: MutPtr<CVoid>, pprecinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleGetRecordInfoFromTypeInfo(ptypeinfo.rawAddress.toString(), pprecinfo.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrgnUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserFree((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString())
+public actual fun hrgnUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hrgn>) {
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserFree(param0.rawAddress.toString(), param1.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun hrgnUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserFree64((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString())
+public actual fun hrgnUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hrgn>) {
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserFree64(param0.rawAddress.toString(), param1.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun hrgnUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserMarshal((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrgnUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hrgn>): MutPtr<UByte> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserMarshal(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrgnUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserMarshal64((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrgnUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hrgn>): MutPtr<UByte> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserMarshal64(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrgnUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserSize((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrgnUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hrgn>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserSize(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrgnUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserSize64((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrgnUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hrgn>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserSize64(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrgnUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserUnmarshal((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrgnUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hrgn>): MutPtr<UByte> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserUnmarshal(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hrgnUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_hrgnUserUnmarshal64((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun hrgnUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hrgn>): MutPtr<UByte> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleHrgnUserUnmarshal64(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isAccelerator(haccel: Haccel, caccelentries: Int, lpmsg: COpaquePointer?, lpwcmd: COpaquePointer?): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_isAccelerator((haccel?.value ?: 0L).toString(), caccelentries, (lpmsg?.value ?: 0L).toString(), (lpwcmd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun isAccelerator(haccel: Haccel, caccelentries: Int, lpmsg: ConstPtr<Msg>, lpwcmd: MutPtr<UShort>): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleIsAccelerator(haccel.rawAddress.toString(), caccelentries, lpmsg.rawAddress.toString(), lpwcmd.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lHashValOfNameSys(syskind: Syskind, lcid: UInt, szname: Pcwstr): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_lHashValOfNameSys(syskind, lcid.toInt(), (szname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleLHashValOfNameSys(syskind, lcid.toInt(), szname.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lHashValOfNameSysA(syskind: Syskind, lcid: UInt, szname: Pcstr): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_lHashValOfNameSysA(syskind, lcid.toInt(), (szname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleLHashValOfNameSysA(syskind, lcid.toInt(), szname.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadRegTypeLib(rguid: COpaquePointer?, wvermajor: UShort, wverminor: UShort, lcid: UInt, pptlib: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_loadRegTypeLib((rguid?.value ?: 0L).toString(), wvermajor.toInt(), wverminor.toInt(), lcid.toInt(), (pptlib?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun loadRegTypeLib(rguid: ConstPtr<Guid>, wvermajor: UShort, wverminor: UShort, lcid: UInt, pptlib: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleLoadRegTypeLib(rguid.rawAddress.toString(), wvermajor.toInt(), wverminor.toInt(), lcid.toInt(), pptlib.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadTypeLib(szfile: Pcwstr, pptlib: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_loadTypeLib((szfile?.value ?: 0L).toString(), (pptlib?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun loadTypeLib(szfile: Pcwstr, pptlib: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleLoadTypeLib(szfile.rawAddress.toString(), pptlib.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadTypeLibEx(szfile: Pcwstr, regkind: Regkind, pptlib: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_loadTypeLibEx((szfile?.value ?: 0L).toString(), regkind, (pptlib?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun loadTypeLibEx(szfile: Pcwstr, regkind: Regkind, pptlib: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleLoadTypeLibEx(szfile.rawAddress.toString(), regkind, pptlib.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oaBuildVersion(): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oaBuildVersion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOaBuildVersion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oaEnablePerUserTLibRegistration() {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration()
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOaEnablePerUserTLibRegistration()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
 public actual fun oleBuildVersion(): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleBuildVersion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleBuildVersion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleConvertOLESTREAMToIStorage2(lpolestream: COpaquePointer?, pstg: COpaquePointer?, ptd: COpaquePointer?, opt: UInt, pvcallbackcontext: COpaquePointer?, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2((lpolestream?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ptd?.value ?: 0L).toString(), opt.toInt(), (pvcallbackcontext?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleConvertOLESTREAMToIStorage2(lpolestream: ConstPtr<Olestream>, pstg: MutPtr<CVoid>, ptd: ConstPtr<Dvtargetdevice>, opt: UInt, pvcallbackcontext: ConstPtr<CVoid>, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorage2(lpolestream.rawAddress.toString(), pstg.rawAddress.toString(), ptd.rawAddress.toString(), opt.toInt(), pvcallbackcontext.rawAddress.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleConvertOLESTREAMToIStorageEx2(polestm: COpaquePointer?, pstg: COpaquePointer?, pcfformat: COpaquePointer?, plwwidth: COpaquePointer?, plheight: COpaquePointer?, pdwsize: COpaquePointer?, pmedium: COpaquePointer?, opt: UInt, pvcallbackcontext: COpaquePointer?, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2((polestm?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (pcfformat?.value ?: 0L).toString(), (plwwidth?.value ?: 0L).toString(), (plheight?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString(), (pmedium?.value ?: 0L).toString(), opt.toInt(), (pvcallbackcontext?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleConvertOLESTREAMToIStorageEx2(polestm: ConstPtr<Olestream>, pstg: MutPtr<CVoid>, pcfformat: MutPtr<UShort>, plwwidth: MutPtr<Int>, plheight: MutPtr<Int>, pdwsize: MutPtr<UInt>, pmedium: MutPtr<Stgmedium>, opt: UInt, pvcallbackcontext: ConstPtr<CVoid>, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorageEx2(polestm.rawAddress.toString(), pstg.rawAddress.toString(), pcfformat.rawAddress.toString(), plwwidth.rawAddress.toString(), plheight.rawAddress.toString(), pdwsize.rawAddress.toString(), pmedium.rawAddress.toString(), opt.toInt(), pvcallbackcontext.rawAddress.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreate(rclsid: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreate((rclsid?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), renderopt.toInt(), (pformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreate(rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, renderopt: UInt, pformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreate(rclsid.rawAddress.toString(), riid.rawAddress.toString(), renderopt.toInt(), pformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateDefaultHandler(clsid: COpaquePointer?, punkouter: COpaquePointer?, riid: COpaquePointer?, lplpobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateDefaultHandler((clsid?.value ?: 0L).toString(), (punkouter?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (lplpobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateDefaultHandler(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, lplpobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateDefaultHandler(clsid.rawAddress.toString(), punkouter.rawAddress.toString(), riid.rawAddress.toString(), lplpobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateEmbeddingHelper(clsid: COpaquePointer?, punkouter: COpaquePointer?, flags: EmbdhlpFlags, pcf: COpaquePointer?, riid: COpaquePointer?, lplpobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper((clsid?.value ?: 0L).toString(), (punkouter?.value ?: 0L).toString(), flags.toInt(), (pcf?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (lplpobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateEmbeddingHelper(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, flags: EmbdhlpFlags, pcf: MutPtr<CVoid>, riid: ConstPtr<Guid>, lplpobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateEmbeddingHelper(clsid.rawAddress.toString(), punkouter.rawAddress.toString(), flags.toInt(), pcf.rawAddress.toString(), riid.rawAddress.toString(), lplpobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateEx(rclsid: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateEx((rclsid?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), (rgadvf?.value ?: 0L).toString(), (rgformatetc?.value ?: 0L).toString(), (lpadvisesink?.value ?: 0L).toString(), (rgdwconnection?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateEx(rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr<UInt>, rgformatetc: ConstPtr<Formatetc>, lpadvisesink: MutPtr<CVoid>, rgdwconnection: MutPtr<UInt>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateEx(rclsid.rawAddress.toString(), riid.rawAddress.toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), rgadvf.rawAddress.toString(), rgformatetc.rawAddress.toString(), lpadvisesink.rawAddress.toString(), rgdwconnection.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateFontIndirect(lpfontdesc: COpaquePointer?, riid: COpaquePointer?, lplpvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateFontIndirect((lpfontdesc?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (lplpvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateFontIndirect(lpfontdesc: ConstPtr<Fontdesc>, riid: ConstPtr<Guid>, lplpvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateFontIndirect(lpfontdesc.rawAddress.toString(), riid.rawAddress.toString(), lplpvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateFromData(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateFromData((psrcdataobj?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), renderopt.toInt(), (pformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateFromData(psrcdataobj: MutPtr<CVoid>, riid: ConstPtr<Guid>, renderopt: UInt, pformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateFromData(psrcdataobj.rawAddress.toString(), riid.rawAddress.toString(), renderopt.toInt(), pformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateFromDataEx(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateFromDataEx((psrcdataobj?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), (rgadvf?.value ?: 0L).toString(), (rgformatetc?.value ?: 0L).toString(), (lpadvisesink?.value ?: 0L).toString(), (rgdwconnection?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateFromDataEx(psrcdataobj: MutPtr<CVoid>, riid: ConstPtr<Guid>, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr<UInt>, rgformatetc: ConstPtr<Formatetc>, lpadvisesink: MutPtr<CVoid>, rgdwconnection: MutPtr<UInt>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateFromDataEx(psrcdataobj.rawAddress.toString(), riid.rawAddress.toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), rgadvf.rawAddress.toString(), rgformatetc.rawAddress.toString(), lpadvisesink.rawAddress.toString(), rgdwconnection.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateFromFile(rclsid: COpaquePointer?, lpszfilename: Pcwstr, riid: COpaquePointer?, renderopt: UInt, lpformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateFromFile((rclsid?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), renderopt.toInt(), (lpformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateFromFile(rclsid: ConstPtr<Guid>, lpszfilename: Pcwstr, riid: ConstPtr<Guid>, renderopt: UInt, lpformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateFromFile(rclsid.rawAddress.toString(), lpszfilename.rawAddress.toString(), riid.rawAddress.toString(), renderopt.toInt(), lpformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateFromFileEx(rclsid: COpaquePointer?, lpszfilename: Pcwstr, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateFromFileEx((rclsid?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), (rgadvf?.value ?: 0L).toString(), (rgformatetc?.value ?: 0L).toString(), (lpadvisesink?.value ?: 0L).toString(), (rgdwconnection?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateFromFileEx(rclsid: ConstPtr<Guid>, lpszfilename: Pcwstr, riid: ConstPtr<Guid>, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr<UInt>, rgformatetc: ConstPtr<Formatetc>, lpadvisesink: MutPtr<CVoid>, rgdwconnection: MutPtr<UInt>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateFromFileEx(rclsid.rawAddress.toString(), lpszfilename.rawAddress.toString(), riid.rawAddress.toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), rgadvf.rawAddress.toString(), rgformatetc.rawAddress.toString(), lpadvisesink.rawAddress.toString(), rgdwconnection.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateLink(pmklinksrc: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, lpformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateLink((pmklinksrc?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), renderopt.toInt(), (lpformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateLink(pmklinksrc: MutPtr<CVoid>, riid: ConstPtr<Guid>, renderopt: UInt, lpformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateLink(pmklinksrc.rawAddress.toString(), riid.rawAddress.toString(), renderopt.toInt(), lpformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateLinkEx(pmklinksrc: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateLinkEx((pmklinksrc?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), (rgadvf?.value ?: 0L).toString(), (rgformatetc?.value ?: 0L).toString(), (lpadvisesink?.value ?: 0L).toString(), (rgdwconnection?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateLinkEx(pmklinksrc: MutPtr<CVoid>, riid: ConstPtr<Guid>, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr<UInt>, rgformatetc: ConstPtr<Formatetc>, lpadvisesink: MutPtr<CVoid>, rgdwconnection: MutPtr<UInt>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateLinkEx(pmklinksrc.rawAddress.toString(), riid.rawAddress.toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), rgadvf.rawAddress.toString(), rgformatetc.rawAddress.toString(), lpadvisesink.rawAddress.toString(), rgdwconnection.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateLinkFromData(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateLinkFromData((psrcdataobj?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), renderopt.toInt(), (pformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateLinkFromData(psrcdataobj: MutPtr<CVoid>, riid: ConstPtr<Guid>, renderopt: UInt, pformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateLinkFromData(psrcdataobj.rawAddress.toString(), riid.rawAddress.toString(), renderopt.toInt(), pformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateLinkFromDataEx(psrcdataobj: COpaquePointer?, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx((psrcdataobj?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), (rgadvf?.value ?: 0L).toString(), (rgformatetc?.value ?: 0L).toString(), (lpadvisesink?.value ?: 0L).toString(), (rgdwconnection?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateLinkFromDataEx(psrcdataobj: MutPtr<CVoid>, riid: ConstPtr<Guid>, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr<UInt>, rgformatetc: ConstPtr<Formatetc>, lpadvisesink: MutPtr<CVoid>, rgdwconnection: MutPtr<UInt>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateLinkFromDataEx(psrcdataobj.rawAddress.toString(), riid.rawAddress.toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), rgadvf.rawAddress.toString(), rgformatetc.rawAddress.toString(), lpadvisesink.rawAddress.toString(), rgdwconnection.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateLinkToFile(lpszfilename: Pcwstr, riid: COpaquePointer?, renderopt: UInt, lpformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateLinkToFile((lpszfilename?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), renderopt.toInt(), (lpformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateLinkToFile(lpszfilename: Pcwstr, riid: ConstPtr<Guid>, renderopt: UInt, lpformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateLinkToFile(lpszfilename.rawAddress.toString(), riid.rawAddress.toString(), renderopt.toInt(), lpformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateLinkToFileEx(lpszfilename: Pcwstr, riid: COpaquePointer?, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: COpaquePointer?, rgformatetc: COpaquePointer?, lpadvisesink: COpaquePointer?, rgdwconnection: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateLinkToFileEx((lpszfilename?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), (rgadvf?.value ?: 0L).toString(), (rgformatetc?.value ?: 0L).toString(), (lpadvisesink?.value ?: 0L).toString(), (rgdwconnection?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateLinkToFileEx(lpszfilename: Pcwstr, riid: ConstPtr<Guid>, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr<UInt>, rgformatetc: ConstPtr<Formatetc>, lpadvisesink: MutPtr<CVoid>, rgdwconnection: MutPtr<UInt>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateLinkToFileEx(lpszfilename.rawAddress.toString(), riid.rawAddress.toString(), dwflags.toInt(), renderopt.toInt(), cformats.toInt(), rgadvf.rawAddress.toString(), rgformatetc.rawAddress.toString(), lpadvisesink.rawAddress.toString(), rgdwconnection.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateMenuDescriptor(hmenucombined: Hmenu, lpmenuwidths: COpaquePointer?): Long =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateMenuDescriptor((hmenucombined?.value ?: 0L).toString(), (lpmenuwidths?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateMenuDescriptor(hmenucombined: Hmenu, lpmenuwidths: ConstPtr<Olemenugroupwidths>): Long =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateMenuDescriptor(hmenucombined.rawAddress.toString(), lpmenuwidths.rawAddress.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreatePictureIndirect(lppictdesc: COpaquePointer?, riid: COpaquePointer?, fown: Bool, lplpvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreatePictureIndirect((lppictdesc?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), fown, (lplpvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreatePictureIndirect(lppictdesc: ConstPtr<Pictdesc>, riid: ConstPtr<Guid>, fown: Bool, lplpvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreatePictureIndirect(lppictdesc.rawAddress.toString(), riid.rawAddress.toString(), fown, lplpvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreatePropertyFrame(hwndowner: Hwnd, x: UInt, y: UInt, lpszcaption: Pcwstr, cobjects: UInt, ppunk: COpaquePointer?, cpages: UInt, ppageclsid: COpaquePointer?, lcid: UInt, dwreserved: UInt, pvreserved: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreatePropertyFrame((hwndowner?.value ?: 0L).toString(), x.toInt(), y.toInt(), (lpszcaption?.value ?: 0L).toString(), cobjects.toInt(), (ppunk?.value ?: 0L).toString(), cpages.toInt(), (ppageclsid?.value ?: 0L).toString(), lcid.toInt(), dwreserved.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreatePropertyFrame(hwndowner: Hwnd, x: UInt, y: UInt, lpszcaption: Pcwstr, cobjects: UInt, ppunk: ConstPtr<MutPtr<CVoid>>, cpages: UInt, ppageclsid: ConstPtr<Guid>, lcid: UInt, dwreserved: UInt, pvreserved: ConstPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreatePropertyFrame(hwndowner.rawAddress.toString(), x.toInt(), y.toInt(), lpszcaption.rawAddress.toString(), cobjects.toInt(), ppunk.rawAddress.toString(), cpages.toInt(), ppageclsid.rawAddress.toString(), lcid.toInt(), dwreserved.toInt(), pvreserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreatePropertyFrameIndirect(lpparams: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect((lpparams?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreatePropertyFrameIndirect(lpparams: ConstPtr<Ocpfiparams>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreatePropertyFrameIndirect(lpparams.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleCreateStaticFromData(psrcdataobj: COpaquePointer?, iid: COpaquePointer?, renderopt: UInt, pformatetc: COpaquePointer?, pclientsite: COpaquePointer?, pstg: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleCreateStaticFromData((psrcdataobj?.value ?: 0L).toString(), (iid?.value ?: 0L).toString(), renderopt.toInt(), (pformatetc?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleCreateStaticFromData(psrcdataobj: MutPtr<CVoid>, iid: ConstPtr<Guid>, renderopt: UInt, pformatetc: ConstPtr<Formatetc>, pclientsite: MutPtr<CVoid>, pstg: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleCreateStaticFromData(psrcdataobj.rawAddress.toString(), iid.rawAddress.toString(), renderopt.toInt(), pformatetc.rawAddress.toString(), pclientsite.rawAddress.toString(), pstg.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleDestroyMenuDescriptor(holemenu: Long): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor(holemenu.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleDestroyMenuDescriptor(holemenu.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleDoAutoConvert(pstg: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleDoAutoConvert((pstg?.value ?: 0L).toString(), (pclsidnew?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleDoAutoConvert(pstg: MutPtr<CVoid>, pclsidnew: MutPtr<Guid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleDoAutoConvert(pstg.rawAddress.toString(), pclsidnew.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleDraw(punknown: COpaquePointer?, dwaspect: UInt, hdcdraw: Hdc, lprcbounds: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleDraw((punknown?.value ?: 0L).toString(), dwaspect.toInt(), (hdcdraw?.value ?: 0L).toString(), (lprcbounds?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleDraw(punknown: MutPtr<CVoid>, dwaspect: UInt, hdcdraw: Hdc, lprcbounds: ConstPtr<Rect>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleDraw(punknown.rawAddress.toString(), dwaspect.toInt(), hdcdraw.rawAddress.toString(), lprcbounds.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleDuplicateData(hsrc: Handle, cfformat: ClipboardFormat, uiflags: GlobalAllocFlags): Handle =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleDuplicateData((hsrc?.value ?: 0L).toString(), cfformat.toInt(), uiflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleDuplicateData(hsrc.rawAddress.toString(), cfformat.toInt(), uiflags.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleFlushClipboard(): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleFlushClipboard() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleFlushClipboard() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleGetAutoConvert(clsidold: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleGetAutoConvert((clsidold?.value ?: 0L).toString(), (pclsidnew?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleGetAutoConvert(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<Guid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleGetAutoConvert(clsidold.rawAddress.toString(), pclsidnew.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleGetClipboard(ppdataobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleGetClipboard((ppdataobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleGetClipboard(ppdataobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleGetClipboard(ppdataobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleGetClipboardWithEnterpriseInfo(dataobject: COpaquePointer?, dataenterpriseid: COpaquePointer?, sourcedescription: COpaquePointer?, targetdescription: COpaquePointer?, datadescription: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo((dataobject?.value ?: 0L).toString(), (dataenterpriseid?.value ?: 0L).toString(), (sourcedescription?.value ?: 0L).toString(), (targetdescription?.value ?: 0L).toString(), (datadescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleGetClipboardWithEnterpriseInfo(dataobject: MutPtr<MutPtr<CVoid>>, dataenterpriseid: MutPtr<Pwstr>, sourcedescription: MutPtr<Pwstr>, targetdescription: MutPtr<Pwstr>, datadescription: MutPtr<Pwstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleGetClipboardWithEnterpriseInfo(dataobject.rawAddress.toString(), dataenterpriseid.rawAddress.toString(), sourcedescription.rawAddress.toString(), targetdescription.rawAddress.toString(), datadescription.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleGetIconOfClass(rclsid: COpaquePointer?, lpszlabel: Pcwstr, fusetypeaslabel: Bool): Hglobal =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleGetIconOfClass((rclsid?.value ?: 0L).toString(), (lpszlabel?.value ?: 0L).toString(), fusetypeaslabel) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleGetIconOfClass(rclsid: ConstPtr<Guid>, lpszlabel: Pcwstr, fusetypeaslabel: Bool): Hglobal =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleGetIconOfClass(rclsid.rawAddress.toString(), lpszlabel.rawAddress.toString(), fusetypeaslabel) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleGetIconOfFile(lpszpath: Pcwstr, fusefileaslabel: Bool): Hglobal =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleGetIconOfFile((lpszpath?.value ?: 0L).toString(), fusefileaslabel) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleGetIconOfFile(lpszpath.rawAddress.toString(), fusefileaslabel) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleIconToCursor(hinstexe: Hinstance, hicon: Hicon): Hcursor =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleIconToCursor((hinstexe?.value ?: 0L).toString(), (hicon?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleIconToCursor(hinstexe.rawAddress.toString(), hicon.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleInitialize(pvreserved: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleInitialize((pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleInitialize(pvreserved: ConstPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleInitialize(pvreserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleIsCurrentClipboard(pdataobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleIsCurrentClipboard((pdataobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleIsCurrentClipboard(pdataobj: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleIsCurrentClipboard(pdataobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleIsRunning(pobject: COpaquePointer?): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleIsRunning((pobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleIsRunning(pobject: MutPtr<CVoid>): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleIsRunning(pobject.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoad(pstg: COpaquePointer?, riid: COpaquePointer?, pclientsite: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleLoad((pstg?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (pclientsite?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleLoad(pstg: MutPtr<CVoid>, riid: ConstPtr<Guid>, pclientsite: MutPtr<CVoid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleLoad(pstg.rawAddress.toString(), riid.rawAddress.toString(), pclientsite.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadFromStream(pstm: COpaquePointer?, iidinterface: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleLoadFromStream((pstm?.value ?: 0L).toString(), (iidinterface?.value ?: 0L).toString(), (ppvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleLoadFromStream(pstm: MutPtr<CVoid>, iidinterface: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleLoadFromStream(pstm.rawAddress.toString(), iidinterface.rawAddress.toString(), ppvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPicture(lpstream: COpaquePointer?, lsize: Int, frunmode: Bool, riid: COpaquePointer?, lplpvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleLoadPicture((lpstream?.value ?: 0L).toString(), lsize, frunmode, (riid?.value ?: 0L).toString(), (lplpvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleLoadPicture(lpstream: MutPtr<CVoid>, lsize: Int, frunmode: Bool, riid: ConstPtr<Guid>, lplpvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleLoadPicture(lpstream.rawAddress.toString(), lsize, frunmode, riid.rawAddress.toString(), lplpvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPictureEx(lpstream: COpaquePointer?, lsize: Int, frunmode: Bool, riid: COpaquePointer?, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleLoadPictureEx((lpstream?.value ?: 0L).toString(), lsize, frunmode, (riid?.value ?: 0L).toString(), xsizedesired.toInt(), ysizedesired.toInt(), dwflags.toInt(), (lplpvobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleLoadPictureEx(lpstream: MutPtr<CVoid>, lsize: Int, frunmode: Bool, riid: ConstPtr<Guid>, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleLoadPictureEx(lpstream.rawAddress.toString(), lsize, frunmode, riid.rawAddress.toString(), xsizedesired.toInt(), ysizedesired.toInt(), dwflags.toInt(), lplpvobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: COpaquePointer?): Hresult =
+public actual fun oleLoadPictureFile(varfilename: Variant.Variant, lplpdisppicture: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: COpaquePointer?): Hresult =
+public actual fun oleLoadPictureFileEx(varfilename: Variant.Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: COpaquePointer?, dwreserved: UInt, clrreserved: UInt, riid: COpaquePointer?, ppvret: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleLoadPicturePath((szurlorpath?.value ?: 0L).toString(), (punkcaller?.value ?: 0L).toString(), dwreserved.toInt(), clrreserved.toInt(), (riid?.value ?: 0L).toString(), (ppvret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr<CVoid>, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr<Guid>, ppvret: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleLoadPicturePath(szurlorpath.rawAddress.toString(), punkcaller.rawAddress.toString(), dwreserved.toInt(), clrreserved.toInt(), riid.rawAddress.toString(), ppvret.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLockRunning(punknown: COpaquePointer?, flock: Bool, flastunlockcloses: Bool): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleLockRunning((punknown?.value ?: 0L).toString(), flock, flastunlockcloses) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleLockRunning(punknown: MutPtr<CVoid>, flock: Bool, flastunlockcloses: Bool): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleLockRunning(punknown.rawAddress.toString(), flock, flastunlockcloses) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleMetafilePictFromIconAndLabel(hicon: Hicon, lpszlabel: Pcwstr, lpszsourcefile: Pcwstr, iiconindex: UInt): Hglobal =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel((hicon?.value ?: 0L).toString(), (lpszlabel?.value ?: 0L).toString(), (lpszsourcefile?.value ?: 0L).toString(), iiconindex.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleMetafilePictFromIconAndLabel(hicon.rawAddress.toString(), lpszlabel.rawAddress.toString(), lpszsourcefile.rawAddress.toString(), iiconindex.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleNoteObjectVisible(punknown: COpaquePointer?, fvisible: Bool): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleNoteObjectVisible((punknown?.value ?: 0L).toString(), fvisible) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleNoteObjectVisible(punknown: MutPtr<CVoid>, fvisible: Bool): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleNoteObjectVisible(punknown.rawAddress.toString(), fvisible) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleQueryCreateFromData(psrcdataobject: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleQueryCreateFromData((psrcdataobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleQueryCreateFromData(psrcdataobject: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleQueryCreateFromData(psrcdataobject.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleQueryLinkFromData(psrcdataobject: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleQueryLinkFromData((psrcdataobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleQueryLinkFromData(psrcdataobject: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleQueryLinkFromData(psrcdataobject.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleRegEnumFormatEtc(clsid: COpaquePointer?, dwdirection: UInt, ppenum: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleRegEnumFormatEtc((clsid?.value ?: 0L).toString(), dwdirection.toInt(), (ppenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleRegEnumFormatEtc(clsid: ConstPtr<Guid>, dwdirection: UInt, ppenum: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleRegEnumFormatEtc(clsid.rawAddress.toString(), dwdirection.toInt(), ppenum.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleRegEnumVerbs(clsid: COpaquePointer?, ppenum: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleRegEnumVerbs((clsid?.value ?: 0L).toString(), (ppenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleRegEnumVerbs(clsid: ConstPtr<Guid>, ppenum: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleRegEnumVerbs(clsid.rawAddress.toString(), ppenum.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleRegGetMiscStatus(clsid: COpaquePointer?, dwaspect: UInt, pdwstatus: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleRegGetMiscStatus((clsid?.value ?: 0L).toString(), dwaspect.toInt(), (pdwstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleRegGetMiscStatus(clsid: ConstPtr<Guid>, dwaspect: UInt, pdwstatus: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleRegGetMiscStatus(clsid.rawAddress.toString(), dwaspect.toInt(), pdwstatus.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleRegGetUserType(clsid: COpaquePointer?, dwformoftype: UInt, pszusertype: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleRegGetUserType((clsid?.value ?: 0L).toString(), dwformoftype.toInt(), (pszusertype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleRegGetUserType(clsid: ConstPtr<Guid>, dwformoftype: UInt, pszusertype: MutPtr<Pwstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleRegGetUserType(clsid.rawAddress.toString(), dwformoftype.toInt(), pszusertype.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleRun(punknown: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleRun((punknown?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleRun(punknown: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleRun(punknown.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSave(pps: COpaquePointer?, pstg: COpaquePointer?, fsameasload: Bool): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSave((pps?.value ?: 0L).toString(), (pstg?.value ?: 0L).toString(), fsameasload) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSave(pps: MutPtr<CVoid>, pstg: MutPtr<CVoid>, fsameasload: Bool): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSave(pps.rawAddress.toString(), pstg.rawAddress.toString(), fsameasload) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSavePictureFile(lpdisppicture: COpaquePointer?, bstrfilename: Bstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSavePictureFile((lpdisppicture?.value ?: 0L).toString(), (bstrfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSavePictureFile(lpdisppicture: MutPtr<CVoid>, bstrfilename: Bstr): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSavePictureFile(lpdisppicture.rawAddress.toString(), bstrfilename.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSaveToStream(ppstm: COpaquePointer?, pstm: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSaveToStream((ppstm?.value ?: 0L).toString(), (pstm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSaveToStream(ppstm: MutPtr<CVoid>, pstm: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSaveToStream(ppstm.rawAddress.toString(), pstm.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSetAutoConvert(clsidold: COpaquePointer?, clsidnew: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSetAutoConvert((clsidold?.value ?: 0L).toString(), (clsidnew?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSetAutoConvert(clsidold: ConstPtr<Guid>, clsidnew: ConstPtr<Guid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSetAutoConvert(clsidold.rawAddress.toString(), clsidnew.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSetClipboard(pdataobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSetClipboard((pdataobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSetClipboard(pdataobj: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSetClipboard(pdataobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSetContainedObject(punknown: COpaquePointer?, fcontained: Bool): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSetContainedObject((punknown?.value ?: 0L).toString(), fcontained) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSetContainedObject(punknown: MutPtr<CVoid>, fcontained: Bool): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSetContainedObject(punknown.rawAddress.toString(), fcontained) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSetMenuDescriptor(holemenu: Long, hwndframe: Hwnd, hwndactiveobject: Hwnd, lpframe: COpaquePointer?, lpactiveobj: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleSetMenuDescriptor(holemenu.toString(), (hwndframe?.value ?: 0L).toString(), (hwndactiveobject?.value ?: 0L).toString(), (lpframe?.value ?: 0L).toString(), (lpactiveobj?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleSetMenuDescriptor(holemenu: Long, hwndframe: Hwnd, hwndactiveobject: Hwnd, lpframe: MutPtr<CVoid>, lpactiveobj: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleSetMenuDescriptor(holemenu.toString(), hwndframe.rawAddress.toString(), hwndactiveobject.rawAddress.toString(), lpframe.rawAddress.toString(), lpactiveobj.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleTranslateAccelerator(lpframe: COpaquePointer?, lpframeinfo: COpaquePointer?, lpmsg: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleTranslateAccelerator((lpframe?.value ?: 0L).toString(), (lpframeinfo?.value ?: 0L).toString(), (lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleTranslateAccelerator(lpframe: MutPtr<CVoid>, lpframeinfo: ConstPtr<Oleinplaceframeinfo>, lpmsg: ConstPtr<Msg>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleTranslateAccelerator(lpframe.rawAddress.toString(), lpframeinfo.rawAddress.toString(), lpmsg.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleTranslateColor(clr: UInt, hpal: Hpalette, lpcolorref: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleTranslateColor(clr.toInt(), (hpal?.value ?: 0L).toString(), (lpcolorref?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleTranslateColor(clr: UInt, hpal: Hpalette, lpcolorref: MutPtr<Colorref>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleTranslateColor(clr.toInt(), hpal.rawAddress.toString(), lpcolorref.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIAddVerbMenuA(lpoleobj: COpaquePointer?, lpszshorttype: Pcstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: COpaquePointer?): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIAddVerbMenuA((lpoleobj?.value ?: 0L).toString(), (lpszshorttype?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString(), upos.toInt(), uidverbmin.toInt(), uidverbmax.toInt(), baddconvert, idconvert.toInt(), (lphmenu?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIAddVerbMenuA(lpoleobj: MutPtr<CVoid>, lpszshorttype: Pcstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: MutPtr<Hmenu>): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIAddVerbMenuA(lpoleobj.rawAddress.toString(), lpszshorttype.rawAddress.toString(), hmenu.rawAddress.toString(), upos.toInt(), uidverbmin.toInt(), uidverbmax.toInt(), baddconvert, idconvert.toInt(), lphmenu.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIAddVerbMenuW(lpoleobj: COpaquePointer?, lpszshorttype: Pcwstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: COpaquePointer?): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIAddVerbMenuW((lpoleobj?.value ?: 0L).toString(), (lpszshorttype?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString(), upos.toInt(), uidverbmin.toInt(), uidverbmax.toInt(), baddconvert, idconvert.toInt(), (lphmenu?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIAddVerbMenuW(lpoleobj: MutPtr<CVoid>, lpszshorttype: Pcwstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: MutPtr<Hmenu>): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIAddVerbMenuW(lpoleobj.rawAddress.toString(), lpszshorttype.rawAddress.toString(), hmenu.rawAddress.toString(), upos.toInt(), uidverbmin.toInt(), uidverbmax.toInt(), baddconvert, idconvert.toInt(), lphmenu.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIBusyA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIBusyA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIBusyA(param0: ConstPtr<Oleuibusya>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIBusyA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIBusyW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIBusyW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIBusyW(param0: ConstPtr<Oleuibusyw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIBusyW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUICanConvertOrActivateAs(rclsid: COpaquePointer?, fislinkedobject: Bool, wformat: UShort): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs((rclsid?.value ?: 0L).toString(), fislinkedobject, wformat.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUICanConvertOrActivateAs(rclsid: ConstPtr<Guid>, fislinkedobject: Bool, wformat: UShort): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUICanConvertOrActivateAs(rclsid.rawAddress.toString(), fislinkedobject, wformat.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIChangeIconA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIChangeIconA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIChangeIconA(param0: ConstPtr<Oleuichangeicona>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIChangeIconA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIChangeIconW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIChangeIconW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIChangeIconW(param0: ConstPtr<Oleuichangeiconw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIChangeIconW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIChangeSourceA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIChangeSourceA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIChangeSourceA(param0: ConstPtr<Oleuichangesourcea>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIChangeSourceA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIChangeSourceW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIChangeSourceW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIChangeSourceW(param0: ConstPtr<Oleuichangesourcew>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIChangeSourceW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIConvertA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIConvertA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIConvertA(param0: ConstPtr<Oleuiconverta>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIConvertA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIConvertW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIConvertW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIConvertW(param0: ConstPtr<Oleuiconvertw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIConvertW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIEditLinksA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIEditLinksA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIEditLinksA(param0: ConstPtr<Oleuieditlinksa>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIEditLinksA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIEditLinksW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIEditLinksW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIEditLinksW(param0: ConstPtr<Oleuieditlinksw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIEditLinksW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIInsertObjectA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIInsertObjectA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIInsertObjectA(param0: ConstPtr<Oleuiinsertobjecta>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIInsertObjectA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIInsertObjectW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIInsertObjectW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIInsertObjectW(param0: ConstPtr<Oleuiinsertobjectw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIInsertObjectW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIObjectPropertiesA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIObjectPropertiesA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIObjectPropertiesA(param0: ConstPtr<Oleuiobjectpropsa>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIObjectPropertiesA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIObjectPropertiesW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIObjectPropertiesW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIObjectPropertiesW(param0: ConstPtr<Oleuiobjectpropsw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIObjectPropertiesW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIPasteSpecialA(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIPasteSpecialA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIPasteSpecialA(param0: ConstPtr<Oleuipastespeciala>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIPasteSpecialA(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIPasteSpecialW(param0: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIPasteSpecialW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIPasteSpecialW(param0: ConstPtr<Oleuipastespecialw>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIPasteSpecialW(param0.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleUIPromptUserA(ntemplate: Int, hwndparent: Hwnd, vararg variadicArgs: Long): Int =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIPromptUserA(ntemplate, (hwndparent?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIPromptUserA(ntemplate, hwndparent.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleUIPromptUserW(ntemplate: Int, hwndparent: Hwnd, vararg variadicArgs: Long): Int =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIPromptUserW(ntemplate, (hwndparent?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIPromptUserW(ntemplate, hwndparent.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIUpdateLinksA(lpoleuilinkcntr: COpaquePointer?, hwndparent: Hwnd, lpsztitle: Pcstr, clinks: Int): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIUpdateLinksA((lpoleuilinkcntr?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), (lpsztitle?.value ?: 0L).toString(), clinks) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIUpdateLinksA(lpoleuilinkcntr: MutPtr<CVoid>, hwndparent: Hwnd, lpsztitle: Pcstr, clinks: Int): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIUpdateLinksA(lpoleuilinkcntr.rawAddress.toString(), hwndparent.rawAddress.toString(), lpsztitle.rawAddress.toString(), clinks) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleUIUpdateLinksW(lpoleuilinkcntr: COpaquePointer?, hwndparent: Hwnd, lpsztitle: Pcwstr, clinks: Int): Bool =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUIUpdateLinksW((lpoleuilinkcntr?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), (lpsztitle?.value ?: 0L).toString(), clinks) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun oleUIUpdateLinksW(lpoleuilinkcntr: MutPtr<CVoid>, hwndparent: Hwnd, lpsztitle: Pcwstr, clinks: Int): Bool =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUIUpdateLinksW(lpoleuilinkcntr.rawAddress.toString(), hwndparent.rawAddress.toString(), lpsztitle.rawAddress.toString(), clinks) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleUninitialize() {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_oleUninitialize()
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleOleUninitialize()
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun queryPathOfRegTypeLib(guid: COpaquePointer?, wmaj: UShort, wmin: UShort, lcid: UInt, lpbstrpathname: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_queryPathOfRegTypeLib((guid?.value ?: 0L).toString(), wmaj.toInt(), wmin.toInt(), lcid.toInt(), (lpbstrpathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun queryPathOfRegTypeLib(guid: ConstPtr<Guid>, wmaj: UShort, wmin: UShort, lcid: UInt, lpbstrpathname: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleQueryPathOfRegTypeLib(guid.rawAddress.toString(), wmaj.toInt(), wmin.toInt(), lcid.toInt(), lpbstrpathname.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerActiveObject(punk: COpaquePointer?, rclsid: COpaquePointer?, dwflags: ActiveobjectFlags, pdwregister: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_registerActiveObject((punk?.value ?: 0L).toString(), (rclsid?.value ?: 0L).toString(), dwflags.toInt(), (pdwregister?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun registerActiveObject(punk: MutPtr<CVoid>, rclsid: ConstPtr<Guid>, dwflags: ActiveobjectFlags, pdwregister: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleRegisterActiveObject(punk.rawAddress.toString(), rclsid.rawAddress.toString(), dwflags.toInt(), pdwregister.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerDragDrop(hwnd: Hwnd, pdroptarget: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_registerDragDrop((hwnd?.value ?: 0L).toString(), (pdroptarget?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun registerDragDrop(hwnd: Hwnd, pdroptarget: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleRegisterDragDrop(hwnd.rawAddress.toString(), pdroptarget.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerTypeLib(ptlib: COpaquePointer?, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_registerTypeLib((ptlib?.value ?: 0L).toString(), (szfullpath?.value ?: 0L).toString(), (szhelpdir?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun registerTypeLib(ptlib: MutPtr<CVoid>, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleRegisterTypeLib(ptlib.rawAddress.toString(), szfullpath.rawAddress.toString(), szhelpdir.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerTypeLibForUser(ptlib: COpaquePointer?, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_registerTypeLibForUser((ptlib?.value ?: 0L).toString(), (szfullpath?.value ?: 0L).toString(), (szhelpdir?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun registerTypeLibForUser(ptlib: MutPtr<CVoid>, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleRegisterTypeLibForUser(ptlib.rawAddress.toString(), szfullpath.rawAddress.toString(), szhelpdir.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun releaseStgMedium(param0: COpaquePointer?) {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_releaseStgMedium((param0?.value ?: 0L).toString())
+public actual fun releaseStgMedium(param0: MutPtr<Stgmedium>) {
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleReleaseStgMedium(param0.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun revokeActiveObject(dwregister: UInt, pvreserved: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_revokeActiveObject(dwregister.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun revokeActiveObject(dwregister: UInt, pvreserved: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleRevokeActiveObject(dwregister.toInt(), pvreserved.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun revokeDragDrop(hwnd: Hwnd): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_revokeDragDrop((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleRevokeDragDrop(hwnd.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayAccessData(psa: COpaquePointer?, ppvdata: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayAccessData((psa?.value ?: 0L).toString(), (ppvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayAccessData(psa: ConstPtr<Safearray>, ppvdata: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayAccessData(psa.rawAddress.toString(), ppvdata.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayAddRef(psa: COpaquePointer?, ppdatatorelease: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayAddRef((psa?.value ?: 0L).toString(), (ppdatatorelease?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayAddRef(psa: ConstPtr<Safearray>, ppdatatorelease: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayAddRef(psa.rawAddress.toString(), ppdatatorelease.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayAllocData(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayAllocData((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayAllocData(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayAllocData(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayAllocDescriptor(cdims.toInt(), (ppsaout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr<MutPtr<Safearray>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor(cdims.toInt(), ppsaout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx(vt.toInt(), cdims.toInt(), (ppsaout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayAllocDescriptorEx(vt: Variant.Varenum, cdims: UInt, ppsaout: MutPtr<MutPtr<Safearray>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx(vt.toInt(), cdims.toInt(), ppsaout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCopy(psa: COpaquePointer?, ppsaout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayCopy((psa?.value ?: 0L).toString(), (ppsaout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayCopy(psa: ConstPtr<Safearray>, ppsaout: MutPtr<MutPtr<Safearray>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayCopy(psa.rawAddress.toString(), ppsaout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCopyData(psasource: COpaquePointer?, psatarget: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayCopyData((psasource?.value ?: 0L).toString(), (psatarget?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayCopyData(psasource: ConstPtr<Safearray>, psatarget: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayCopyData(psasource.rawAddress.toString(), psatarget.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayCreate(vt.toInt(), cdims.toInt(), (rgsabound?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayCreate(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr<Safearraybound>): MutPtr<Safearray> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayCreate(vt.toInt(), cdims.toInt(), rgsabound.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: COpaquePointer?, pvextra: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayCreateEx(vt.toInt(), cdims.toInt(), (rgsabound?.value ?: 0L).toString(), (pvextra?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayCreateEx(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr<Safearraybound>, pvextra: ConstPtr<CVoid>): MutPtr<Safearray> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayCreateEx(vt.toInt(), cdims.toInt(), rgsabound.rawAddress.toString(), pvextra.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayCreateVector(vt.toInt(), llbound, celements.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayCreateVector(vt: Variant.Varenum, llbound: Int, celements: UInt): MutPtr<Safearray> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayCreateVector(vt.toInt(), llbound, celements.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: COpaquePointer?): COpaquePointer? =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayCreateVectorEx(vt.toInt(), llbound, celements.toInt(), (pvextra?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayCreateVectorEx(vt: Variant.Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr<CVoid>): MutPtr<Safearray> =
+    if (windowsWin32SystemOleNapiAddon != null) MutPtr((windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx(vt.toInt(), llbound, celements.toInt(), pvextra.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayDestroy(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayDestroy((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayDestroy(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayDestroy(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayDestroyData(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayDestroyData((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayDestroyData(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayDestroyData(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayDestroyDescriptor(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayDestroyDescriptor(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayDestroyDescriptor(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetDim(psa: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetDim((psa?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetDim(psa: ConstPtr<Safearray>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetDim(psa.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetElement(psa: COpaquePointer?, rgindices: COpaquePointer?, pv: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetElement((psa?.value ?: 0L).toString(), (rgindices?.value ?: 0L).toString(), (pv?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetElement(psa: ConstPtr<Safearray>, rgindices: ConstPtr<Int>, pv: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetElement(psa.rawAddress.toString(), rgindices.rawAddress.toString(), pv.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetElemsize(psa: COpaquePointer?): UInt =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetElemsize((psa?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetElemsize(psa: ConstPtr<Safearray>): UInt =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetElemsize(psa.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetIID(psa: COpaquePointer?, pguid: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetIID((psa?.value ?: 0L).toString(), (pguid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetIID(psa: ConstPtr<Safearray>, pguid: MutPtr<Guid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetIID(psa.rawAddress.toString(), pguid.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetLBound(psa: COpaquePointer?, ndim: UInt, pllbound: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetLBound((psa?.value ?: 0L).toString(), ndim.toInt(), (pllbound?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetLBound(psa: ConstPtr<Safearray>, ndim: UInt, pllbound: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetLBound(psa.rawAddress.toString(), ndim.toInt(), pllbound.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetRecordInfo(psa: COpaquePointer?, prinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetRecordInfo((psa?.value ?: 0L).toString(), (prinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetRecordInfo(psa: ConstPtr<Safearray>, prinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetRecordInfo(psa.rawAddress.toString(), prinfo.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetUBound(psa: COpaquePointer?, ndim: UInt, plubound: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetUBound((psa?.value ?: 0L).toString(), ndim.toInt(), (plubound?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetUBound(psa: ConstPtr<Safearray>, ndim: UInt, plubound: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetUBound(psa.rawAddress.toString(), ndim.toInt(), plubound.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayGetVartype(psa: COpaquePointer?, pvt: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayGetVartype((psa?.value ?: 0L).toString(), (pvt?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayGetVartype(psa: ConstPtr<Safearray>, pvt: MutPtr<Variant.Varenum>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayGetVartype(psa.rawAddress.toString(), pvt.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayLock(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayLock((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayLock(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayLock(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayPtrOfIndex(psa: COpaquePointer?, rgindices: COpaquePointer?, ppvdata: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayPtrOfIndex((psa?.value ?: 0L).toString(), (rgindices?.value ?: 0L).toString(), (ppvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayPtrOfIndex(psa: ConstPtr<Safearray>, rgindices: ConstPtr<Int>, ppvdata: MutPtr<MutPtr<CVoid>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayPtrOfIndex(psa.rawAddress.toString(), rgindices.rawAddress.toString(), ppvdata.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayPutElement(psa: COpaquePointer?, rgindices: COpaquePointer?, pv: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayPutElement((psa?.value ?: 0L).toString(), (rgindices?.value ?: 0L).toString(), (pv?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayPutElement(psa: ConstPtr<Safearray>, rgindices: ConstPtr<Int>, pv: ConstPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayPutElement(psa.rawAddress.toString(), rgindices.rawAddress.toString(), pv.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayRedim(psa: COpaquePointer?, psaboundnew: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayRedim((psa?.value ?: 0L).toString(), (psaboundnew?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayRedim(psa: MutPtr<Safearray>, psaboundnew: ConstPtr<Safearraybound>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayRedim(psa.rawAddress.toString(), psaboundnew.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayReleaseData(pdata: COpaquePointer?) {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayReleaseData((pdata?.value ?: 0L).toString())
+public actual fun safeArrayReleaseData(pdata: ConstPtr<CVoid>) {
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayReleaseData(pdata.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun safeArrayReleaseDescriptor(psa: COpaquePointer?) {
-    if (_windowsWin32SystemOleNapiAddon != null) {
-        _windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor((psa?.value ?: 0L).toString())
+public actual fun safeArrayReleaseDescriptor(psa: ConstPtr<Safearray>) {
+    if (windowsWin32SystemOleNapiAddon != null) {
+        windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayReleaseDescriptor(psa.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun safeArraySetIID(psa: COpaquePointer?, guid: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArraySetIID((psa?.value ?: 0L).toString(), (guid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArraySetIID(psa: ConstPtr<Safearray>, guid: ConstPtr<Guid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArraySetIID(psa.rawAddress.toString(), guid.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArraySetRecordInfo(psa: COpaquePointer?, prinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArraySetRecordInfo((psa?.value ?: 0L).toString(), (prinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArraySetRecordInfo(psa: ConstPtr<Safearray>, prinfo: MutPtr<CVoid>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArraySetRecordInfo(psa.rawAddress.toString(), prinfo.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayUnaccessData(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayUnaccessData((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayUnaccessData(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayUnaccessData(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayUnlock(psa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_safeArrayUnlock((psa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun safeArrayUnlock(psa: ConstPtr<Safearray>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleSafeArrayUnlock(psa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unRegisterTypeLib(libid: COpaquePointer?, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: Syskind): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_unRegisterTypeLib((libid?.value ?: 0L).toString(), wvermajor.toInt(), wverminor.toInt(), lcid.toInt(), syskind) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun unRegisterTypeLib(libid: ConstPtr<Guid>, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: Syskind): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleUnRegisterTypeLib(libid.rawAddress.toString(), wvermajor.toInt(), wverminor.toInt(), lcid.toInt(), syskind) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unRegisterTypeLibForUser(libid: COpaquePointer?, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: Syskind): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_unRegisterTypeLibForUser((libid?.value ?: 0L).toString(), wmajorvernum.toInt(), wminorvernum.toInt(), lcid.toInt(), syskind) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun unRegisterTypeLibForUser(libid: ConstPtr<Guid>, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: Syskind): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleUnRegisterTypeLibForUser(libid.rawAddress.toString(), wmajorvernum.toInt(), wminorvernum.toInt(), lcid.toInt(), syskind) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varAbs(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varAbs((pvarin?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varAbs(pvarin: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarAbs(pvarin.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varAdd(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varAdd((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varAdd(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarAdd(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varAnd(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varAnd((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varAnd(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarAnd(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromCy(cyin: CY, pboolout: COpaquePointer?): Hresult =
+public actual fun varBoolFromCy(cyin: CY, pboolout: MutPtr<VariantBool>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromDate(datein: Double, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromDate(datein, (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromDate(datein: Double, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromDate(datein, pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromDec(pdecin: COpaquePointer?, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromDec((pdecin?.value ?: 0L).toString(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromDec(pdecin: ConstPtr<Decimal>, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromDec(pdecin.rawAddress.toString(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromDisp(pdispin: COpaquePointer?, lcid: UInt, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromI1(cin: Byte, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromI1(cin.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromI1(cin: Byte, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromI1(cin.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromI2(sin: Short, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromI2(sin.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromI2(sin: Short, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromI2(sin.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromI4(lin: Int, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromI4(lin, (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromI4(lin: Int, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromI4(lin, pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromI8(i64in: Long, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromI8(i64in.toString(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromI8(i64in: Long, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromI8(i64in.toString(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromR4(fltin: Float, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromR4(fltin.toDouble(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromR4(fltin: Float, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromR4(fltin.toDouble(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromR8(dblin: Double, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromR8(dblin, (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromR8(dblin: Double, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromR8(dblin, pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromUI1(bin: UByte, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromUI1(bin.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromUI1(bin: UByte, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromUI1(bin.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromUI2(uiin: UShort, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromUI2(uiin.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromUI2(uiin: UShort, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromUI2(uiin.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromUI4(ulin: UInt, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromUI4(ulin.toInt(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromUI4(ulin: UInt, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromUI4(ulin.toInt(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBoolFromUI8(i64in: ULong, pboolout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBoolFromUI8(i64in.toString(), (pboolout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBoolFromUI8(i64in: ULong, pboolout: MutPtr<VariantBool>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBoolFromUI8(i64in.toString(), pboolout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrCat(bstrleft: Bstr, bstrright: Bstr, pbstrresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrCat((bstrleft?.value ?: 0L).toString(), (bstrright?.value ?: 0L).toString(), (pbstrresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrCat(bstrleft: Bstr, bstrright: Bstr, pbstrresult: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrCat(bstrleft.rawAddress.toString(), bstrright.rawAddress.toString(), pbstrresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varBstrCmp(bstrleft: Bstr, bstrright: Bstr, lcid: UInt, dwflags: UInt): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrCmp((bstrleft?.value ?: 0L).toString(), (bstrright?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrCmp(bstrleft.rawAddress.toString(), bstrright.rawAddress.toString(), lcid.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromBool(boolin: VariantBool, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromBool(boolin.toInt(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromBool(boolin: VariantBool, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromBool(boolin.toInt(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromCy(cyin: CY, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
+public actual fun varBstrFromCy(cyin: CY, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromDate(datein: Double, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromDate(datein, lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromDate(datein: Double, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromDate(datein, lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromDec(pdecin: COpaquePointer?, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromDec((pdecin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromDec(pdecin: ConstPtr<Decimal>, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromDec(pdecin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromDisp(pdispin: COpaquePointer?, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromDisp(pdispin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromI1(cin: Byte, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromI1(cin.toInt(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromI1(cin: Byte, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromI1(cin.toInt(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromI2(ival: Short, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromI2(ival.toInt(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromI2(ival: Short, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromI2(ival.toInt(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromI4(lin: Int, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromI4(lin, lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromI4(lin: Int, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromI4(lin, lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromI8(i64in: Long, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromI8(i64in.toString(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromI8(i64in: Long, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromI8(i64in.toString(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromR4(fltin: Float, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromR4(fltin.toDouble(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromR4(fltin: Float, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromR4(fltin.toDouble(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromR8(dblin: Double, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromR8(dblin, lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromR8(dblin: Double, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromR8(dblin, lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromUI1(bval: UByte, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromUI1(bval.toInt(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromUI1(bval: UByte, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromUI1(bval.toInt(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromUI2(uiin: UShort, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromUI2(uiin.toInt(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromUI2(uiin: UShort, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromUI2(uiin.toInt(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromUI4(ulin: UInt, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromUI4(ulin.toInt(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromUI4(ulin: UInt, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromUI4(ulin.toInt(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varBstrFromUI8(ui64in: ULong, lcid: UInt, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varBstrFromUI8(ui64in.toString(), lcid.toInt(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varBstrFromUI8(ui64in: ULong, lcid: UInt, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarBstrFromUI8(ui64in.toString(), lcid.toInt(), dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCat(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCat((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCat(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCat(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCmp(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, lcid: UInt, dwflags: UInt): Varcmp =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCmp((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCmp(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, lcid: UInt, dwflags: UInt): Varcmp =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCmp(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), lcid.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyAbs(cyin: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyAbs(cyin: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyAdd(cyleft: CY, cyright: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyAdd(cyleft: CY, cyright: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varCyCmp(cyleft: CY, cyright: CY): Varcmp =
@@ -679,737 +696,737 @@ public actual fun varCyCmp(cyleft: CY, cyright: CY): Varcmp =
 public actual fun varCyCmpR8(cyleft: CY, dblright: Double): Varcmp =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFix(cyin: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyFix(cyin: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromBool(boolin: VariantBool, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromBool(boolin.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromBool(boolin: VariantBool, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromBool(boolin.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromDate(datein: Double, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromDate(datein, (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromDate(datein: Double, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromDate(datein, pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromDec(pdecin: COpaquePointer?, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromDec((pdecin?.value ?: 0L).toString(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromDec(pdecin: ConstPtr<Decimal>, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromDec(pdecin.rawAddress.toString(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromDisp(pdispin: COpaquePointer?, lcid: UInt, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromI1(cin: Byte, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromI1(cin.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromI1(cin: Byte, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromI1(cin.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromI2(sin: Short, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromI2(sin.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromI2(sin: Short, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromI2(sin.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromI4(lin: Int, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromI4(lin, (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromI4(lin: Int, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromI4(lin, pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromI8(i64in: Long, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromI8(i64in.toString(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromI8(i64in: Long, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromI8(i64in.toString(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromR4(fltin: Float, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromR4(fltin.toDouble(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromR4(fltin: Float, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromR4(fltin.toDouble(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromR8(dblin: Double, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromR8(dblin, (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromR8(dblin: Double, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromR8(dblin, pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromUI1(bin: UByte, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromUI1(bin.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromUI1(bin: UByte, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromUI1(bin.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromUI2(uiin: UShort, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromUI2(uiin.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromUI2(uiin: UShort, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromUI2(uiin.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromUI4(ulin: UInt, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromUI4(ulin.toInt(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromUI4(ulin: UInt, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromUI4(ulin.toInt(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyFromUI8(ui64in: ULong, pcyout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varCyFromUI8(ui64in.toString(), (pcyout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varCyFromUI8(ui64in: ULong, pcyout: MutPtr<CY>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarCyFromUI8(ui64in.toString(), pcyout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyInt(cyin: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyInt(cyin: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyMul(cyleft: CY, cyright: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyMul(cyleft: CY, cyright: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyMulI4(cyleft: CY, lright: Int, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyMulI4(cyleft: CY, lright: Int, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyMulI8(cyleft: CY, lright: Long, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyMulI8(cyleft: CY, lright: Long, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyNeg(cyin: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyNeg(cyin: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCyRound(cyin: CY, cdecimals: Int, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCyRound(cyin: CY, cdecimals: Int, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varCySub(cyleft: CY, cyright: CY, pcyresult: COpaquePointer?): Hresult =
+public actual fun varCySub(cyleft: CY, cyright: CY, pcyresult: MutPtr<CY>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromBool(boolin: VariantBool, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromBool(boolin.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromBool(boolin: VariantBool, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromBool(boolin.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromCy(cyin: CY, pdateout: COpaquePointer?): Hresult =
+public actual fun varDateFromCy(cyin: CY, pdateout: MutPtr<Double>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromDec(pdecin: COpaquePointer?, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromDec((pdecin?.value ?: 0L).toString(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromDec(pdecin: ConstPtr<Decimal>, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromDec(pdecin.rawAddress.toString(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromDisp(pdispin: COpaquePointer?, lcid: UInt, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromI1(cin: Byte, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromI1(cin.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromI1(cin: Byte, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromI1(cin.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromI2(sin: Short, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromI2(sin.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromI2(sin: Short, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromI2(sin.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromI4(lin: Int, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromI4(lin, (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromI4(lin: Int, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromI4(lin, pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromI8(i64in: Long, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromI8(i64in.toString(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromI8(i64in: Long, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromI8(i64in.toString(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromR4(fltin: Float, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromR4(fltin.toDouble(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromR4(fltin: Float, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromR4(fltin.toDouble(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromR8(dblin: Double, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromR8(dblin, (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromR8(dblin: Double, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromR8(dblin, pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromUI1(bin: UByte, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromUI1(bin.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromUI1(bin: UByte, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromUI1(bin.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromUI2(uiin: UShort, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromUI2(uiin.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromUI2(uiin: UShort, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromUI2(uiin.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromUI4(ulin: UInt, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromUI4(ulin.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromUI4(ulin: UInt, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromUI4(ulin.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromUI8(ui64in: ULong, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromUI8(ui64in.toString(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromUI8(ui64in: ULong, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromUI8(ui64in.toString(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromUdate(pudatein: COpaquePointer?, dwflags: UInt, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromUdate((pudatein?.value ?: 0L).toString(), dwflags.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromUdate(pudatein: ConstPtr<Udate>, dwflags: UInt, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromUdate(pudatein.rawAddress.toString(), dwflags.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDateFromUdateEx(pudatein: COpaquePointer?, lcid: UInt, dwflags: UInt, pdateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDateFromUdateEx((pudatein?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pdateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDateFromUdateEx(pudatein: ConstPtr<Udate>, lcid: UInt, dwflags: UInt, pdateout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDateFromUdateEx(pudatein.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pdateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecAbs(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecAbs((pdecin?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecAbs(pdecin: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecAbs(pdecin.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecAdd(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecAdd((pdecleft?.value ?: 0L).toString(), (pdecright?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecAdd(pdecleft: ConstPtr<Decimal>, pdecright: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecAdd(pdecleft.rawAddress.toString(), pdecright.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecCmp(pdecleft: COpaquePointer?, pdecright: COpaquePointer?): Varcmp =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecCmp((pdecleft?.value ?: 0L).toString(), (pdecright?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecCmp(pdecleft: ConstPtr<Decimal>, pdecright: ConstPtr<Decimal>): Varcmp =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecCmp(pdecleft.rawAddress.toString(), pdecright.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecCmpR8(pdecleft: COpaquePointer?, dblright: Double): Varcmp =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecCmpR8((pdecleft?.value ?: 0L).toString(), dblright) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecCmpR8(pdecleft: ConstPtr<Decimal>, dblright: Double): Varcmp =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecCmpR8(pdecleft.rawAddress.toString(), dblright) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecDiv(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecDiv((pdecleft?.value ?: 0L).toString(), (pdecright?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecDiv(pdecleft: ConstPtr<Decimal>, pdecright: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecDiv(pdecleft.rawAddress.toString(), pdecright.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFix(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFix((pdecin?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFix(pdecin: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFix(pdecin.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromBool(boolin: VariantBool, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromBool(boolin.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromBool(boolin: VariantBool, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromBool(boolin.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromCy(cyin: CY, pdecout: COpaquePointer?): Hresult =
+public actual fun varDecFromCy(cyin: CY, pdecout: MutPtr<Decimal>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromDate(datein: Double, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromDate(datein, (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromDate(datein: Double, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromDate(datein, pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromDisp(pdispin: COpaquePointer?, lcid: UInt, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromI1(cin: Byte, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromI1(cin.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromI1(cin: Byte, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromI1(cin.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromI2(uiin: Short, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromI2(uiin.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromI2(uiin: Short, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromI2(uiin.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromI4(lin: Int, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromI4(lin, (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromI4(lin: Int, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromI4(lin, pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromI8(i64in: Long, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromI8(i64in.toString(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromI8(i64in: Long, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromI8(i64in.toString(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromR4(fltin: Float, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromR4(fltin.toDouble(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromR4(fltin: Float, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromR4(fltin.toDouble(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromR8(dblin: Double, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromR8(dblin, (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromR8(dblin: Double, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromR8(dblin, pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromUI1(bin: UByte, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromUI1(bin.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromUI1(bin: UByte, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromUI1(bin.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromUI2(uiin: UShort, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromUI2(uiin.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromUI2(uiin: UShort, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromUI2(uiin.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromUI4(ulin: UInt, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromUI4(ulin.toInt(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromUI4(ulin: UInt, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromUI4(ulin.toInt(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecFromUI8(ui64in: ULong, pdecout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecFromUI8(ui64in.toString(), (pdecout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecFromUI8(ui64in: ULong, pdecout: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecFromUI8(ui64in.toString(), pdecout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecInt(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecInt((pdecin?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecInt(pdecin: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecInt(pdecin.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecMul(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecMul((pdecleft?.value ?: 0L).toString(), (pdecright?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecMul(pdecleft: ConstPtr<Decimal>, pdecright: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecMul(pdecleft.rawAddress.toString(), pdecright.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecNeg(pdecin: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecNeg((pdecin?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecNeg(pdecin: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecNeg(pdecin.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecRound(pdecin: COpaquePointer?, cdecimals: Int, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecRound((pdecin?.value ?: 0L).toString(), cdecimals, (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecRound(pdecin: ConstPtr<Decimal>, cdecimals: Int, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecRound(pdecin.rawAddress.toString(), cdecimals, pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDecSub(pdecleft: COpaquePointer?, pdecright: COpaquePointer?, pdecresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDecSub((pdecleft?.value ?: 0L).toString(), (pdecright?.value ?: 0L).toString(), (pdecresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDecSub(pdecleft: ConstPtr<Decimal>, pdecright: ConstPtr<Decimal>, pdecresult: MutPtr<Decimal>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDecSub(pdecleft.rawAddress.toString(), pdecright.rawAddress.toString(), pdecresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varDiv(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varDiv((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varDiv(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarDiv(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varEqv(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varEqv((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varEqv(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarEqv(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFix(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFix((pvarin?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFix(pvarin: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFix(pvarin.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFormat(pvarin: COpaquePointer?, pstrformat: Pcwstr, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFormat((pvarin?.value ?: 0L).toString(), (pstrformat?.value ?: 0L).toString(), ifirstday, ifirstweek, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFormat(pvarin: ConstPtr<Variant.Variant>, pstrformat: Pcwstr, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFormat(pvarin.rawAddress.toString(), pstrformat.rawAddress.toString(), ifirstday, ifirstweek, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFormatCurrency(pvarin: COpaquePointer?, inumdig: Int, iinclead: Int, iuseparens: Int, igroup: Int, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFormatCurrency((pvarin?.value ?: 0L).toString(), inumdig, iinclead, iuseparens, igroup, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFormatCurrency(pvarin: ConstPtr<Variant.Variant>, inumdig: Int, iinclead: Int, iuseparens: Int, igroup: Int, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFormatCurrency(pvarin.rawAddress.toString(), inumdig, iinclead, iuseparens, igroup, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFormatDateTime(pvarin: COpaquePointer?, inamedformat: VarformatNamedFormat, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFormatDateTime((pvarin?.value ?: 0L).toString(), inamedformat, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFormatDateTime(pvarin: ConstPtr<Variant.Variant>, inamedformat: VarformatNamedFormat, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFormatDateTime(pvarin.rawAddress.toString(), inamedformat, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFormatFromTokens(pvarin: COpaquePointer?, pstrformat: Pcwstr, pbtokcur: COpaquePointer?, dwflags: UInt, pbstrout: COpaquePointer?, lcid: UInt): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFormatFromTokens((pvarin?.value ?: 0L).toString(), (pstrformat?.value ?: 0L).toString(), (pbtokcur?.value ?: 0L).toString(), dwflags.toInt(), (pbstrout?.value ?: 0L).toString(), lcid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFormatFromTokens(pvarin: ConstPtr<Variant.Variant>, pstrformat: Pcwstr, pbtokcur: ConstPtr<UByte>, dwflags: UInt, pbstrout: MutPtr<Bstr>, lcid: UInt): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFormatFromTokens(pvarin.rawAddress.toString(), pstrformat.rawAddress.toString(), pbtokcur.rawAddress.toString(), dwflags.toInt(), pbstrout.rawAddress.toString(), lcid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFormatNumber(pvarin: COpaquePointer?, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFormatNumber((pvarin?.value ?: 0L).toString(), inumdig, iinclead, iuseparens, igroup, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFormatNumber(pvarin: ConstPtr<Variant.Variant>, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFormatNumber(pvarin.rawAddress.toString(), inumdig, iinclead, iuseparens, igroup, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varFormatPercent(pvarin: COpaquePointer?, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varFormatPercent((pvarin?.value ?: 0L).toString(), inumdig, iinclead, iuseparens, igroup, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varFormatPercent(pvarin: ConstPtr<Variant.Variant>, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarFormatPercent(pvarin.rawAddress.toString(), inumdig, iinclead, iuseparens, igroup, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromBool(boolin: VariantBool, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromBool(boolin.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromBool(boolin.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromCy(cyin: CY, pcout: Pstr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromDate(datein: Double, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromDate(datein, (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromDate(datein, pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI1FromDec(pdecin: COpaquePointer?, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromDec((pdecin?.value ?: 0L).toString(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI1FromDec(pdecin: ConstPtr<Decimal>, pcout: Pstr): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromDec(pdecin.rawAddress.toString(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI1FromDisp(pdispin: COpaquePointer?, lcid: UInt, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI1FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pcout: Pstr): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromI2(uiin: Short, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromI2(uiin.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromI2(uiin.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromI4(lin: Int, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromI4(lin, (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromI4(lin, pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromI8(i64in: Long, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromI8(i64in.toString(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromI8(i64in.toString(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromR4(fltin: Float, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromR4(fltin.toDouble(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromR4(fltin.toDouble(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromR8(dblin: Double, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromR8(dblin, (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromR8(dblin, pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromUI1(bin: UByte, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromUI1(bin.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromUI1(bin.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromUI2(uiin: UShort, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromUI2(uiin.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromUI2(uiin.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromUI4(ulin: UInt, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromUI4(ulin.toInt(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromUI4(ulin.toInt(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varI1FromUI8(i64in: ULong, pcout: Pstr): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI1FromUI8(i64in.toString(), (pcout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI1FromUI8(i64in.toString(), pcout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromBool(boolin: VariantBool, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromBool(boolin.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromBool(boolin: VariantBool, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromBool(boolin.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromCy(cyin: CY, psout: COpaquePointer?): Hresult =
+public actual fun varI2FromCy(cyin: CY, psout: MutPtr<Short>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromDate(datein: Double, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromDate(datein, (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromDate(datein: Double, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromDate(datein, psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromDec(pdecin: COpaquePointer?, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromDec((pdecin?.value ?: 0L).toString(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromDec(pdecin: ConstPtr<Decimal>, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromDec(pdecin.rawAddress.toString(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromDisp(pdispin: COpaquePointer?, lcid: UInt, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromI1(cin: Byte, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromI1(cin.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromI1(cin: Byte, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromI1(cin.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromI4(lin: Int, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromI4(lin, (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromI4(lin: Int, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromI4(lin, psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromI8(i64in: Long, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromI8(i64in.toString(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromI8(i64in: Long, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromI8(i64in.toString(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromR4(fltin: Float, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromR4(fltin.toDouble(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromR4(fltin: Float, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromR4(fltin.toDouble(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromR8(dblin: Double, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromR8(dblin, (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromR8(dblin: Double, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromR8(dblin, psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromUI1(bin: UByte, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromUI1(bin.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromUI1(bin: UByte, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromUI1(bin.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromUI2(uiin: UShort, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromUI2(uiin.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromUI2(uiin: UShort, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromUI2(uiin.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromUI4(ulin: UInt, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromUI4(ulin.toInt(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromUI4(ulin: UInt, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromUI4(ulin.toInt(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI2FromUI8(ui64in: ULong, psout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI2FromUI8(ui64in.toString(), (psout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI2FromUI8(ui64in: ULong, psout: MutPtr<Short>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI2FromUI8(ui64in.toString(), psout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromBool(boolin: VariantBool, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromBool(boolin.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromBool(boolin: VariantBool, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromBool(boolin.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromCy(cyin: CY, plout: COpaquePointer?): Hresult =
+public actual fun varI4FromCy(cyin: CY, plout: MutPtr<Int>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromDate(datein: Double, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromDate(datein, (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromDate(datein: Double, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromDate(datein, plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromDec(pdecin: COpaquePointer?, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromDec((pdecin?.value ?: 0L).toString(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromDec(pdecin: ConstPtr<Decimal>, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromDec(pdecin.rawAddress.toString(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromDisp(pdispin: COpaquePointer?, lcid: UInt, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromI1(cin: Byte, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromI1(cin.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromI1(cin: Byte, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromI1(cin.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromI2(sin: Short, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromI2(sin.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromI2(sin: Short, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromI2(sin.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromI8(i64in: Long, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromI8(i64in.toString(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromI8(i64in: Long, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromI8(i64in.toString(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromR4(fltin: Float, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromR4(fltin.toDouble(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromR4(fltin: Float, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromR4(fltin.toDouble(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromR8(dblin: Double, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromR8(dblin, (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromR8(dblin: Double, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromR8(dblin, plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromUI1(bin: UByte, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromUI1(bin.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromUI1(bin: UByte, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromUI1(bin.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromUI2(uiin: UShort, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromUI2(uiin.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromUI2(uiin: UShort, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromUI2(uiin.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromUI4(ulin: UInt, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromUI4(ulin.toInt(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromUI4(ulin: UInt, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromUI4(ulin.toInt(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI4FromUI8(ui64in: ULong, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI4FromUI8(ui64in.toString(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI4FromUI8(ui64in: ULong, plout: MutPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI4FromUI8(ui64in.toString(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromBool(boolin: VariantBool, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromBool(boolin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromBool(boolin: VariantBool, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromBool(boolin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromCy(cyin: CY, pi64out: COpaquePointer?): Hresult =
+public actual fun varI8FromCy(cyin: CY, pi64out: MutPtr<Long>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromDate(datein: Double, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromDate(datein, (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromDate(datein: Double, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromDate(datein, pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromDec(pdecin: COpaquePointer?, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromDec((pdecin?.value ?: 0L).toString(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromDec(pdecin: ConstPtr<Decimal>, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromDec(pdecin.rawAddress.toString(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromDisp(pdispin: COpaquePointer?, lcid: UInt, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromI1(cin: Byte, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromI1(cin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromI1(cin: Byte, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromI1(cin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromI2(sin: Short, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromI2(sin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromI2(sin: Short, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromI2(sin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromR4(fltin: Float, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromR4(fltin.toDouble(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromR4(fltin: Float, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromR4(fltin.toDouble(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromR8(dblin: Double, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromR8(dblin, (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromR8(dblin: Double, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromR8(dblin, pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromUI1(bin: UByte, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromUI1(bin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromUI1(bin: UByte, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromUI1(bin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromUI2(uiin: UShort, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromUI2(uiin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromUI2(uiin: UShort, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromUI2(uiin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromUI4(ulin: UInt, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromUI4(ulin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromUI4(ulin: UInt, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromUI4(ulin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varI8FromUI8(ui64in: ULong, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varI8FromUI8(ui64in.toString(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varI8FromUI8(ui64in: ULong, pi64out: MutPtr<Long>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarI8FromUI8(ui64in.toString(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varIdiv(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varIdiv((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varIdiv(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarIdiv(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varImp(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varImp((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varImp(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarImp(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varInt(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varInt((pvarin?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varInt(pvarin: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarInt(pvarin.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varMod(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varMod((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varMod(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarMod(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varMonthName(imonth: Int, fabbrev: Int, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varMonthName(imonth, fabbrev, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varMonthName(imonth: Int, fabbrev: Int, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarMonthName(imonth, fabbrev, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varMul(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varMul((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varMul(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarMul(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varNeg(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varNeg((pvarin?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varNeg(pvarin: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarNeg(pvarin.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varNot(pvarin: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varNot((pvarin?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varNot(pvarin: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarNot(pvarin.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varNumFromParseNum(pnumprs: COpaquePointer?, rgbdig: COpaquePointer?, dwvtbits: UInt, pvar: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varNumFromParseNum((pnumprs?.value ?: 0L).toString(), (rgbdig?.value ?: 0L).toString(), dwvtbits.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varNumFromParseNum(pnumprs: ConstPtr<Numparse>, rgbdig: ConstPtr<UByte>, dwvtbits: UInt, pvar: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarNumFromParseNum(pnumprs.rawAddress.toString(), rgbdig.rawAddress.toString(), dwvtbits.toInt(), pvar.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varOr(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varOr((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varOr(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarOr(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varParseNumFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pnumprs: COpaquePointer?, rgbdig: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varParseNumFromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pnumprs?.value ?: 0L).toString(), (rgbdig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varParseNumFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pnumprs: MutPtr<Numparse>, rgbdig: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarParseNumFromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pnumprs.rawAddress.toString(), rgbdig.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varPow(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varPow((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varPow(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarPow(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun varR4CmpR8(fltleft: Float, dblright: Double): Varcmp =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4CmpR8(fltleft.toDouble(), dblright) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4CmpR8(fltleft.toDouble(), dblright) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromBool(boolin: VariantBool, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromBool(boolin.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromBool(boolin: VariantBool, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromBool(boolin.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromCy(cyin: CY, pfltout: COpaquePointer?): Hresult =
+public actual fun varR4FromCy(cyin: CY, pfltout: MutPtr<Float>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromDate(datein: Double, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromDate(datein, (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromDate(datein: Double, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromDate(datein, pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromDec(pdecin: COpaquePointer?, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromDec((pdecin?.value ?: 0L).toString(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromDec(pdecin: ConstPtr<Decimal>, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromDec(pdecin.rawAddress.toString(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromDisp(pdispin: COpaquePointer?, lcid: UInt, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromI1(cin: Byte, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromI1(cin.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromI1(cin: Byte, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromI1(cin.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromI2(sin: Short, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromI2(sin.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromI2(sin: Short, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromI2(sin.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromI4(lin: Int, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromI4(lin, (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromI4(lin: Int, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromI4(lin, pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromI8(i64in: Long, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromI8(i64in.toString(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromI8(i64in: Long, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromI8(i64in.toString(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromR8(dblin: Double, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromR8(dblin, (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromR8(dblin: Double, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromR8(dblin, pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromUI1(bin: UByte, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromUI1(bin.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromUI1(bin: UByte, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromUI1(bin.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromUI2(uiin: UShort, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromUI2(uiin.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromUI2(uiin: UShort, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromUI2(uiin.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromUI4(ulin: UInt, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromUI4(ulin.toInt(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromUI4(ulin: UInt, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromUI4(ulin.toInt(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR4FromUI8(ui64in: ULong, pfltout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR4FromUI8(ui64in.toString(), (pfltout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR4FromUI8(ui64in: ULong, pfltout: MutPtr<Float>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR4FromUI8(ui64in.toString(), pfltout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromBool(boolin: VariantBool, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromBool(boolin.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromBool(boolin: VariantBool, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromBool(boolin.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromCy(cyin: CY, pdblout: COpaquePointer?): Hresult =
+public actual fun varR8FromCy(cyin: CY, pdblout: MutPtr<Double>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromDate(datein: Double, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromDate(datein, (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromDate(datein: Double, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromDate(datein, pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromDec(pdecin: COpaquePointer?, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromDec((pdecin?.value ?: 0L).toString(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromDec(pdecin: ConstPtr<Decimal>, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromDec(pdecin.rawAddress.toString(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromDisp(pdispin: COpaquePointer?, lcid: UInt, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromI1(cin: Byte, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromI1(cin.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromI1(cin: Byte, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromI1(cin.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromI2(sin: Short, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromI2(sin.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromI2(sin: Short, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromI2(sin.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromI4(lin: Int, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromI4(lin, (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromI4(lin: Int, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromI4(lin, pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromI8(i64in: Long, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromI8(i64in.toString(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromI8(i64in: Long, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromI8(i64in.toString(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromR4(fltin: Float, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromR4(fltin.toDouble(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromR4(fltin: Float, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromR4(fltin.toDouble(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromUI1(bin: UByte, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromUI1(bin.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromUI1(bin: UByte, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromUI1(bin.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromUI2(uiin: UShort, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromUI2(uiin.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromUI2(uiin: UShort, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromUI2(uiin.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromUI4(ulin: UInt, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromUI4(ulin.toInt(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromUI4(ulin: UInt, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromUI4(ulin.toInt(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8FromUI8(ui64in: ULong, pdblout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8FromUI8(ui64in.toString(), (pdblout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8FromUI8(ui64in: ULong, pdblout: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8FromUI8(ui64in.toString(), pdblout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8Pow(dblleft: Double, dblright: Double, pdblresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8Pow(dblleft, dblright, (pdblresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8Pow(dblleft: Double, dblright: Double, pdblresult: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8Pow(dblleft, dblright, pdblresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varR8Round(dblin: Double, cdecimals: Int, pdblresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varR8Round(dblin, cdecimals, (pdblresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varR8Round(dblin: Double, cdecimals: Int, pdblresult: MutPtr<Double>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarR8Round(dblin, cdecimals, pdblresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varRound(pvarin: COpaquePointer?, cdecimals: Int, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varRound((pvarin?.value ?: 0L).toString(), cdecimals, (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varRound(pvarin: ConstPtr<Variant.Variant>, cdecimals: Int, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarRound(pvarin.rawAddress.toString(), cdecimals, pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varSub(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varSub((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varSub(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarSub(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varTokenizeFormatString(pstrformat: Pcwstr, rgbtok: COpaquePointer?, cbtok: Int, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, lcid: UInt, pcbactual: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varTokenizeFormatString((pstrformat?.value ?: 0L).toString(), (rgbtok?.value ?: 0L).toString(), cbtok, ifirstday, ifirstweek, lcid.toInt(), (pcbactual?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varTokenizeFormatString(pstrformat: Pcwstr, rgbtok: MutPtr<UByte>, cbtok: Int, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, lcid: UInt, pcbactual: ConstPtr<Int>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarTokenizeFormatString(pstrformat.rawAddress.toString(), rgbtok.rawAddress.toString(), cbtok, ifirstday, ifirstweek, lcid.toInt(), pcbactual.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromBool(boolin: VariantBool, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromBool(boolin.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromBool(boolin: VariantBool, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromBool(boolin.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromCy(cyin: CY, pbout: COpaquePointer?): Hresult =
+public actual fun varUI1FromCy(cyin: CY, pbout: MutPtr<UByte>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromDate(datein: Double, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromDate(datein, (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromDate(datein: Double, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromDate(datein, pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromDec(pdecin: COpaquePointer?, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromDec((pdecin?.value ?: 0L).toString(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromDec(pdecin: ConstPtr<Decimal>, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromDec(pdecin.rawAddress.toString(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromDisp(pdispin: COpaquePointer?, lcid: UInt, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromI1(cin: Byte, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromI1(cin.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromI1(cin: Byte, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromI1(cin.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromI2(sin: Short, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromI2(sin.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromI2(sin: Short, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromI2(sin.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromI4(lin: Int, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromI4(lin, (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromI4(lin: Int, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromI4(lin, pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromI8(i64in: Long, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromI8(i64in.toString(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromI8(i64in: Long, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromI8(i64in.toString(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromR4(fltin: Float, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromR4(fltin.toDouble(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromR4(fltin: Float, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromR4(fltin.toDouble(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromR8(dblin: Double, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromR8(dblin, (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromR8(dblin: Double, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromR8(dblin, pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromUI2(uiin: UShort, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromUI2(uiin.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromUI2(uiin: UShort, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromUI2(uiin.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromUI4(ulin: UInt, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromUI4(ulin.toInt(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromUI4(ulin: UInt, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromUI4(ulin.toInt(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI1FromUI8(ui64in: ULong, pbout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI1FromUI8(ui64in.toString(), (pbout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI1FromUI8(ui64in: ULong, pbout: MutPtr<UByte>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI1FromUI8(ui64in.toString(), pbout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromBool(boolin: VariantBool, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromBool(boolin.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromBool(boolin: VariantBool, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromBool(boolin.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromCy(cyin: CY, puiout: COpaquePointer?): Hresult =
+public actual fun varUI2FromCy(cyin: CY, puiout: MutPtr<UShort>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromDate(datein: Double, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromDate(datein, (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromDate(datein: Double, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromDate(datein, puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromDec(pdecin: COpaquePointer?, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromDec((pdecin?.value ?: 0L).toString(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromDec(pdecin: ConstPtr<Decimal>, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromDec(pdecin.rawAddress.toString(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromDisp(pdispin: COpaquePointer?, lcid: UInt, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromI1(cin: Byte, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromI1(cin.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromI1(cin: Byte, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromI1(cin.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromI2(uiin: Short, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromI2(uiin.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromI2(uiin: Short, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromI2(uiin.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromI4(lin: Int, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromI4(lin, (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromI4(lin: Int, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromI4(lin, puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromI8(i64in: Long, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromI8(i64in.toString(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromI8(i64in: Long, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromI8(i64in.toString(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromR4(fltin: Float, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromR4(fltin.toDouble(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromR4(fltin: Float, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromR4(fltin.toDouble(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromR8(dblin: Double, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromR8(dblin, (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromR8(dblin: Double, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromR8(dblin, puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromUI1(bin: UByte, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromUI1(bin.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromUI1(bin: UByte, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromUI1(bin.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromUI4(ulin: UInt, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromUI4(ulin.toInt(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromUI4(ulin: UInt, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromUI4(ulin.toInt(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI2FromUI8(i64in: ULong, puiout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI2FromUI8(i64in.toString(), (puiout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI2FromUI8(i64in: ULong, puiout: MutPtr<UShort>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI2FromUI8(i64in.toString(), puiout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromBool(boolin: VariantBool, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromBool(boolin.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromBool(boolin: VariantBool, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromBool(boolin.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromCy(cyin: CY, pulout: COpaquePointer?): Hresult =
+public actual fun varUI4FromCy(cyin: CY, pulout: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromDate(datein: Double, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromDate(datein, (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromDate(datein: Double, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromDate(datein, pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromDec(pdecin: COpaquePointer?, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromDec((pdecin?.value ?: 0L).toString(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromDec(pdecin: ConstPtr<Decimal>, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromDec(pdecin.rawAddress.toString(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromDisp(pdispin: COpaquePointer?, lcid: UInt, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromI1(cin: Byte, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromI1(cin.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromI1(cin: Byte, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromI1(cin.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromI2(uiin: Short, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromI2(uiin.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromI2(uiin: Short, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromI2(uiin.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromI4(lin: Int, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromI4(lin, (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromI4(lin: Int, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromI4(lin, pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromI8(i64in: Long, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromI8(i64in.toString(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromI8(i64in: Long, plout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromI8(i64in.toString(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromR4(fltin: Float, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromR4(fltin.toDouble(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromR4(fltin: Float, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromR4(fltin.toDouble(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromR8(dblin: Double, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromR8(dblin, (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromR8(dblin: Double, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromR8(dblin, pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromUI1(bin: UByte, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromUI1(bin.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromUI1(bin: UByte, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromUI1(bin.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromUI2(uiin: UShort, pulout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromUI2(uiin.toInt(), (pulout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromUI2(uiin: UShort, pulout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromUI2(uiin.toInt(), pulout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI4FromUI8(ui64in: ULong, plout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI4FromUI8(ui64in.toString(), (plout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI4FromUI8(ui64in: ULong, plout: MutPtr<UInt>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI4FromUI8(ui64in.toString(), plout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromBool(boolin: VariantBool, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromBool(boolin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromBool(boolin: VariantBool, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromBool(boolin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromCy(cyin: CY, pi64out: COpaquePointer?): Hresult =
+public actual fun varUI8FromCy(cyin: CY, pi64out: MutPtr<ULong>): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromDate(datein: Double, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromDate(datein, (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromDate(datein: Double, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromDate(datein, pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromDec(pdecin: COpaquePointer?, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromDec((pdecin?.value ?: 0L).toString(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromDec(pdecin: ConstPtr<Decimal>, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromDec(pdecin.rawAddress.toString(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromDisp(pdispin: COpaquePointer?, lcid: UInt, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromDisp((pdispin?.value ?: 0L).toString(), lcid.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromDisp(pdispin: MutPtr<CVoid>, lcid: UInt, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromDisp(pdispin.rawAddress.toString(), lcid.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromI1(cin: Byte, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromI1(cin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromI1(cin: Byte, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromI1(cin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromI2(sin: Short, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromI2(sin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromI2(sin: Short, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromI2(sin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromI8(ui64in: Long, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromI8(ui64in.toString(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromI8(ui64in: Long, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromI8(ui64in.toString(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromR4(fltin: Float, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromR4(fltin.toDouble(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromR4(fltin: Float, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromR4(fltin.toDouble(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromR8(dblin: Double, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromR8(dblin, (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromR8(dblin: Double, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromR8(dblin, pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromStr((strin?.value ?: 0L).toString(), lcid.toInt(), dwflags.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromStr(strin.rawAddress.toString(), lcid.toInt(), dwflags.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromUI1(bin: UByte, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromUI1(bin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromUI1(bin: UByte, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromUI1(bin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromUI2(uiin: UShort, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromUI2(uiin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromUI2(uiin: UShort, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromUI2(uiin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUI8FromUI4(ulin: UInt, pi64out: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUI8FromUI4(ulin.toInt(), (pi64out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUI8FromUI4(ulin: UInt, pi64out: MutPtr<ULong>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUI8FromUI4(ulin.toInt(), pi64out.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varUdateFromDate(datein: Double, dwflags: UInt, pudateout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varUdateFromDate(datein, dwflags.toInt(), (pudateout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varUdateFromDate(datein: Double, dwflags: UInt, pudateout: MutPtr<Udate>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarUdateFromDate(datein, dwflags.toInt(), pudateout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varWeekdayName(iweekday: Int, fabbrev: Int, ifirstday: Int, dwflags: UInt, pbstrout: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varWeekdayName(iweekday, fabbrev, ifirstday, dwflags.toInt(), (pbstrout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varWeekdayName(iweekday: Int, fabbrev: Int, ifirstday: Int, dwflags: UInt, pbstrout: MutPtr<Bstr>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarWeekdayName(iweekday, fabbrev, ifirstday, dwflags.toInt(), pbstrout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun varXor(pvarleft: COpaquePointer?, pvarright: COpaquePointer?, pvarresult: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_varXor((pvarleft?.value ?: 0L).toString(), (pvarright?.value ?: 0L).toString(), (pvarresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun varXor(pvarleft: ConstPtr<Variant.Variant>, pvarright: ConstPtr<Variant.Variant>, pvarresult: MutPtr<Variant.Variant>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVarXor(pvarleft.rawAddress.toString(), pvarright.rawAddress.toString(), pvarresult.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vectorFromBstr(bstr: Bstr, ppsa: COpaquePointer?): Hresult =
-    if (_windowsWin32SystemOleNapiAddon != null) (_windowsWin32SystemOleNapiAddon.windowssys_windows_win32_system_ole_vectorFromBstr((bstr?.value ?: 0L).toString(), (ppsa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun vectorFromBstr(bstr: Bstr, ppsa: MutPtr<MutPtr<Safearray>>): Hresult =
+    if (windowsWin32SystemOleNapiAddon != null) (windowsWin32SystemOleNapiAddon.windowssysWindowsWin32SystemOleVectorFromBstr(bstr.rawAddress.toString(), ppsa.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

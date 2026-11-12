@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_storage_vhd_addVirtualDiskParent(void* virtualdiskhandle, void* parentpath) {
+uint32_t windowssysWindowsWin32StorageVhdAddVirtualDiskParent(void* virtualdiskhandle, void* parentpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_storage_vhd_addVirtualDiskParent(void* virtual
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_applySnapshotVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
+uint32_t windowssysWindowsWin32StorageVhdApplySnapshotVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ uint32_t windowssys_windows_win32_storage_vhd_applySnapshotVhdSet(void* virtuald
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_attachVirtualDisk(void* virtualdiskhandle, void* securitydescriptor, int32_t flags, uint32_t providerspecificflags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdAttachVirtualDisk(void* virtualdiskhandle, void* securitydescriptor, int32_t flags, uint32_t providerspecificflags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ uint32_t windowssys_windows_win32_storage_vhd_attachVirtualDisk(void* virtualdis
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk(void* virtualdiskhandle) {
+uint32_t windowssysWindowsWin32StorageVhdBreakMirrorVirtualDisk(void* virtualdiskhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ uint32_t windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk(void* virtu
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_compactVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdCompactVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ uint32_t windowssys_windows_win32_storage_vhd_compactVirtualDisk(void* virtualdi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_completeForkVirtualDisk(void* virtualdiskhandle) {
+uint32_t windowssysWindowsWin32StorageVhdCompleteForkVirtualDisk(void* virtualdiskhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ uint32_t windowssys_windows_win32_storage_vhd_completeForkVirtualDisk(void* virt
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_createVirtualDisk(void* virtualstoragetype, void* path, int32_t virtualdiskaccessmask, void* securitydescriptor, int32_t flags, uint32_t providerspecificflags, void* parameters, void* overlapped, void* handle) {
+uint32_t windowssysWindowsWin32StorageVhdCreateVirtualDisk(void* virtualstoragetype, void* path, int32_t virtualdiskaccessmask, void* securitydescriptor, int32_t flags, uint32_t providerspecificflags, void* parameters, void* overlapped, void* handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -188,7 +188,7 @@ uint32_t windowssys_windows_win32_storage_vhd_createVirtualDisk(void* virtualsto
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
+uint32_t windowssysWindowsWin32StorageVhdDeleteSnapshotVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ uint32_t windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet(void* virtual
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadata(void* virtualdiskhandle, void* item) {
+uint32_t windowssysWindowsWin32StorageVhdDeleteVirtualDiskMetadata(void* virtualdiskhandle, void* item) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -235,7 +235,7 @@ uint32_t windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadata(void* vi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_detachVirtualDisk(void* virtualdiskhandle, int32_t flags, uint32_t providerspecificflags) {
+uint32_t windowssysWindowsWin32StorageVhdDetachVirtualDisk(void* virtualdiskhandle, int32_t flags, uint32_t providerspecificflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -259,7 +259,7 @@ uint32_t windowssys_windows_win32_storage_vhd_detachVirtualDisk(void* virtualdis
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMetadata(void* virtualdiskhandle, void* numberofitems, void* items) {
+uint32_t windowssysWindowsWin32StorageVhdEnumerateVirtualDiskMetadata(void* virtualdiskhandle, void* numberofitems, void* items) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -283,7 +283,7 @@ uint32_t windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMetadata(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_expandVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdExpandVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -308,7 +308,7 @@ uint32_t windowssys_windows_win32_storage_vhd_expandVirtualDisk(void* virtualdis
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_forkVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdForkVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -333,7 +333,7 @@ uint32_t windowssys_windows_win32_storage_vhd_forkVirtualDisk(void* virtualdiskh
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDiskPhysicalPaths(void* pathsbuffersizeinbytes, void* pathsbuffer) {
+uint32_t windowssysWindowsWin32StorageVhdGetAllAttachedVirtualDiskPhysicalPaths(void* pathsbuffersizeinbytes, void* pathsbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -356,7 +356,7 @@ uint32_t windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDiskPhysicalP
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_getStorageDependencyInformation(void* objecthandle, int32_t flags, uint32_t storagedependencyinfosize, void* storagedependencyinfo, void* sizeused) {
+uint32_t windowssysWindowsWin32StorageVhdGetStorageDependencyInformation(void* objecthandle, int32_t flags, uint32_t storagedependencyinfosize, void* storagedependencyinfo, void* sizeused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ uint32_t windowssys_windows_win32_storage_vhd_getStorageDependencyInformation(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskInformation(void* virtualdiskhandle, void* virtualdiskinfosize, void* virtualdiskinfo, void* sizeused) {
+uint32_t windowssysWindowsWin32StorageVhdGetVirtualDiskInformation(void* virtualdiskhandle, void* virtualdiskinfosize, void* virtualdiskinfo, void* sizeused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskInformation(void* vi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata(void* virtualdiskhandle, void* item, void* metadatasize, void* metadata) {
+uint32_t windowssysWindowsWin32StorageVhdGetVirtualDiskMetadata(void* virtualdiskhandle, void* item, void* metadatasize, void* metadata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata(void* virtu
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskOperationProgress(void* virtualdiskhandle, void* overlapped, void* progress) {
+uint32_t windowssysWindowsWin32StorageVhdGetVirtualDiskOperationProgress(void* virtualdiskhandle, void* overlapped, void* progress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -456,7 +456,7 @@ uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskOperationProgress(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPath(void* virtualdiskhandle, void* diskpathsizeinbytes, void* diskpath) {
+uint32_t windowssysWindowsWin32StorageVhdGetVirtualDiskPhysicalPath(void* virtualdiskhandle, void* diskpathsizeinbytes, void* diskpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ uint32_t windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPath(void* v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_mergeVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdMergeVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -505,7 +505,7 @@ uint32_t windowssys_windows_win32_storage_vhd_mergeVirtualDisk(void* virtualdisk
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_mirrorVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdMirrorVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ uint32_t windowssys_windows_win32_storage_vhd_mirrorVirtualDisk(void* virtualdis
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_modifyVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
+uint32_t windowssysWindowsWin32StorageVhdModifyVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -554,7 +554,7 @@ uint32_t windowssys_windows_win32_storage_vhd_modifyVhdSet(void* virtualdiskhand
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_openVirtualDisk(void* virtualstoragetype, void* path, int32_t virtualdiskaccessmask, int32_t flags, void* parameters, void* handle) {
+uint32_t windowssysWindowsWin32StorageVhdOpenVirtualDisk(void* virtualstoragetype, void* path, int32_t virtualdiskaccessmask, int32_t flags, void* parameters, void* handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -581,7 +581,7 @@ uint32_t windowssys_windows_win32_storage_vhd_openVirtualDisk(void* virtualstora
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk(void* virtualdiskhandle, void* changetrackingid, uint64_t byteoffset, uint64_t bytelength, int32_t flags, void* ranges, void* rangecount, void* processedlength) {
+uint32_t windowssysWindowsWin32StorageVhdQueryChangesVirtualDisk(void* virtualdiskhandle, void* changetrackingid, uint64_t byteoffset, uint64_t bytelength, int32_t flags, void* ranges, void* rangecount, void* processedlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint64_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -610,7 +610,7 @@ uint32_t windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk(void* virt
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk(void* virtualdiskhandle, void* parameters, int32_t flags, void* response) {
+uint32_t windowssysWindowsWin32StorageVhdRawSCSIVirtualDisk(void* virtualdiskhandle, void* parameters, int32_t flags, void* response) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -635,7 +635,7 @@ uint32_t windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk(void* virtualdi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_resizeVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
+uint32_t windowssysWindowsWin32StorageVhdResizeVirtualDisk(void* virtualdiskhandle, int32_t flags, void* parameters, void* overlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ uint32_t windowssys_windows_win32_storage_vhd_resizeVirtualDisk(void* virtualdis
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_setVirtualDiskInformation(void* virtualdiskhandle, void* virtualdiskinfo) {
+uint32_t windowssysWindowsWin32StorageVhdSetVirtualDiskInformation(void* virtualdiskhandle, void* virtualdiskinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -683,7 +683,7 @@ uint32_t windowssys_windows_win32_storage_vhd_setVirtualDiskInformation(void* vi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata(void* virtualdiskhandle, void* item, uint32_t metadatasize, void* metadata) {
+uint32_t windowssysWindowsWin32StorageVhdSetVirtualDiskMetadata(void* virtualdiskhandle, void* item, uint32_t metadatasize, void* metadata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -708,7 +708,7 @@ uint32_t windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata(void* virtu
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_vhd_takeSnapshotVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
+uint32_t windowssysWindowsWin32StorageVhdTakeSnapshotVhdSet(void* virtualdiskhandle, void* parameters, int32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;

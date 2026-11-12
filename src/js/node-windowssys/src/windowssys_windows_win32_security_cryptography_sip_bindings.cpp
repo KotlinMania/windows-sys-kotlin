@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psnewprov = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPAd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbindirectdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcaps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwencodingtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -198,7 +198,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPLoad_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgsubject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwencodingtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPPu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgprov = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -312,7 +312,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfilein = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -341,7 +341,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfilein = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -370,7 +370,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psubjectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pindirectdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -398,18 +398,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPVe
 }
 
 static void register_windows_win32_security_cryptography_sip_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPLoad", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPLoad_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_cryptography_sip_napi, nullptr };

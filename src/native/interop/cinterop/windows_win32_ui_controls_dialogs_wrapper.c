@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_chooseColorA(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsChooseColorA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_chooseColorA(void* param0) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_chooseColorW(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsChooseColorW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_chooseColorW(void* param0) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_chooseFontA(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsChooseFontA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_chooseFontA(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_chooseFontW(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsChooseFontW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -103,7 +103,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_chooseFontW(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError(void) {
+uint32_t windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -124,7 +124,7 @@ uint32_t windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError(void)
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_dialogs_findTextA(void* param0) {
+void* windowssysWindowsWin32UiControlsDialogsFindTextA(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -146,7 +146,7 @@ void* windowssys_windows_win32_ui_controls_dialogs_findTextA(void* param0) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_dialogs_findTextW(void* param0) {
+void* windowssysWindowsWin32UiControlsDialogsFindTextW(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -168,7 +168,7 @@ void* windowssys_windows_win32_ui_controls_dialogs_findTextW(void* param0) {
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_controls_dialogs_getFileTitleA(void* param0, void* buf, uint16_t cchsize) {
+int16_t windowssysWindowsWin32UiControlsDialogsGetFileTitleA(void* param0, void* buf, uint16_t cchsize) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -192,7 +192,7 @@ int16_t windowssys_windows_win32_ui_controls_dialogs_getFileTitleA(void* param0,
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_controls_dialogs_getFileTitleW(void* param0, void* buf, uint16_t cchsize) {
+int16_t windowssysWindowsWin32UiControlsDialogsGetFileTitleW(void* param0, void* buf, uint16_t cchsize) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -216,7 +216,7 @@ int16_t windowssys_windows_win32_ui_controls_dialogs_getFileTitleW(void* param0,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -238,7 +238,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -260,7 +260,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -282,7 +282,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -304,7 +304,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsPageSetupDlgA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -326,7 +326,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA(void* param0)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW(void* param0) {
+int32_t windowssysWindowsWin32UiControlsDialogsPageSetupDlgW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -348,7 +348,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW(void* param0)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgA(void* ppd) {
+int32_t windowssysWindowsWin32UiControlsDialogsPrintDlgA(void* ppd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -370,7 +370,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgA(void* ppd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgExA(void* ppd) {
+int32_t windowssysWindowsWin32UiControlsDialogsPrintDlgExA(void* ppd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -392,7 +392,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgExA(void* ppd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgExW(void* ppd) {
+int32_t windowssysWindowsWin32UiControlsDialogsPrintDlgExW(void* ppd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -414,7 +414,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgExW(void* ppd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgW(void* ppd) {
+int32_t windowssysWindowsWin32UiControlsDialogsPrintDlgW(void* ppd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -436,7 +436,7 @@ int32_t windowssys_windows_win32_ui_controls_dialogs_printDlgW(void* ppd) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_dialogs_replaceTextA(void* param0) {
+void* windowssysWindowsWin32UiControlsDialogsReplaceTextA(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ void* windowssys_windows_win32_ui_controls_dialogs_replaceTextA(void* param0) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_dialogs_replaceTextW(void* param0) {
+void* windowssysWindowsWin32UiControlsDialogsReplaceTextW(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

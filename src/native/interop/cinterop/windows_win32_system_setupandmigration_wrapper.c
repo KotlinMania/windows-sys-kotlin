@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_setupandmigration_oOBEComplete(void* isoobecomplete) {
+int32_t windowssysWindowsWin32SystemSetupandmigrationOOBEComplete(void* isoobecomplete) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_setupandmigration_oOBEComplete(void* iso
 #endif
 }
 
-int32_t windowssys_windows_win32_system_setupandmigration_registerWaitUntilOOBECompleted(void* oobecompletedcallback, void* callbackcontext, void* waithandle) {
+int32_t windowssysWindowsWin32SystemSetupandmigrationRegisterWaitUntilOOBECompleted(void* oobecompletedcallback, void* callbackcontext, void* waithandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_setupandmigration_registerWaitUntilOOBEC
 #endif
 }
 
-int32_t windowssys_windows_win32_system_setupandmigration_unregisterWaitUntilOOBECompleted(void* waithandle) {
+int32_t windowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(void* waithandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

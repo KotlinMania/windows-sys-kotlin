@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_addERExcludedApplicationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szapplication = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_addERExcludedA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_addERExcludedApplicationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszapplication = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_addERExcludedA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_reportFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingReportFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pep = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwopt = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_reportFault_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werAddExcludedApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzexename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ballusers = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werAddExcluded
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werFreeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerFreeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werFreeString_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werGetFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerGetFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -204,7 +204,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werGetFlags_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterAdditionalProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t processid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t captureextrainfoforthreadid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -231,7 +231,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterAdd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterAppLocalDump_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* localappdatarelativepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -256,7 +256,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterApp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterCustomMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterCus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterExcludedMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -310,7 +310,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterExc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t regfiletype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -366,7 +366,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterMem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterRuntimeExceptionModule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszoutofprocesscallbackdll = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -393,7 +393,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterRun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werRemoveExcludedApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzexename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ballusers = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -420,7 +420,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRemoveExclu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddDump_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportAddDump_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddDu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportAddFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -488,7 +488,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -513,7 +513,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzeventtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t reptype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -544,7 +544,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportHang_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportHang_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndhungapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzhungapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -571,7 +571,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportHang_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSetParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportSetParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwparamid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -602,7 +602,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSetPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSetUIOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t repuitypeid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -631,7 +631,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSetUI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSubmit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerReportSubmit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t consent = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -662,7 +662,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSubmi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werSetFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerSetFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werSetFlags_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -709,7 +709,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreClose_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetFirstReportKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszreportkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -736,7 +736,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetFir
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetNextReportKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszreportkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -763,7 +763,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetNex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetReportCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwreportcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -790,7 +790,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetRep
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetSizeOnDisk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqwsizeinbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -817,7 +817,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetSiz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t repstoretype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -844,7 +844,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreOpen_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStorePurge_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStorePurge_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -867,7 +867,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStorePurge_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszreportkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -896,7 +896,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszreportkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -925,7 +925,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszreportkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -954,7 +954,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreUploadReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreportstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszreportkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -985,7 +985,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreUpload
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterAdditionalProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t processid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1010,7 +1010,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterAppLocalDump_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1033,7 +1033,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterCustomMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1058,7 +1058,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterExcludedMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1083,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1108,7 +1108,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1133,7 +1133,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterRuntimeExceptionModule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszoutofprocesscallbackdll = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1161,47 +1161,47 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterR
 }
 
 static void register_windows_win32_system_errorreporting_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_errorreporting_addERExcludedApplicationA", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_addERExcludedApplicationA_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_addERExcludedApplicationW", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_addERExcludedApplicationW_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_reportFault", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_reportFault_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werAddExcludedApplication", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werAddExcludedApplication_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werFreeString", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werFreeString_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werGetFlags", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werGetFlags_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterAdditionalProcess", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterAdditionalProcess_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterAppLocalDump", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterAppLocalDump_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterCustomMetadata", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterCustomMetadata_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterExcludedMemoryBlock", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterExcludedMemoryBlock_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterFile", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterFile_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterMemoryBlock", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterMemoryBlock_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRegisterRuntimeExceptionModule", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRegisterRuntimeExceptionModule_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werRemoveExcludedApplication", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werRemoveExcludedApplication_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportAddDump", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportAddDump_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportAddFile", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportAddFile_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportCloseHandle", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportCreate", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportCreate_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportHang", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportHang_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportSetParameter", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportSetParameter_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportSetUIOption", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportSetUIOption_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werReportSubmit", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werReportSubmit_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werSetFlags", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werSetFlags_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreClose", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreClose_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreGetFirstReportKey", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreGetFirstReportKey_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreGetNextReportKey", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreGetNextReportKey_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreGetReportCount", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreGetReportCount_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreGetSizeOnDisk", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreGetSizeOnDisk_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreOpen", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreOpen_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStorePurge", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStorePurge_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV1", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV1_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV2", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV2_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV3", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV3_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werStoreUploadReport", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werStoreUploadReport_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterAdditionalProcess", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterAdditionalProcess_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterAppLocalDump", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterAppLocalDump_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterCustomMetadata", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterCustomMetadata_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterExcludedMemoryBlock", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterExcludedMemoryBlock_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterFile", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterFile_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterMemoryBlock", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterMemoryBlock_napi));
-    exports.Set("windowssys_windows_win32_system_errorreporting_werUnregisterRuntimeExceptionModule", Napi::Function::New(env, windowssys_windows_win32_system_errorreporting_werUnregisterRuntimeExceptionModule_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingReportFault", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingReportFault_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerFreeString", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerFreeString_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerGetFlags", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerGetFlags_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterFile", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterFile_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportAddDump", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportAddDump_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportAddFile", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportAddFile_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportCreate", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportHang", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportHang_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportSetParameter", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportSetParameter_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerReportSubmit", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerReportSubmit_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerSetFlags", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerSetFlags_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreClose", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreClose_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreOpen", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreOpen_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStorePurge", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStorePurge_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterFile", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterFile_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock_napi));
+    exports.Set("windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule", Napi::Function::New(env, windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_errorreporting_napi, nullptr };

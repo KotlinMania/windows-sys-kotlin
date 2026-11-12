@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1activateAudioInterfaceAsync(JNIEnv* km_env, jclass km_clazz, jlong deviceinterfacepath, jlong riid, jlong activationparams, jlong completionhandler, jlong activationoperation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioActivateAudioInterfaceAsync(JNIEnv* km_env, jclass km_clazz, jlong deviceinterfacepath, jlong riid, jlong activationparams, jlong completionhandler, jlong activationoperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1coRegisterMessageFilter(JNIEnv* km_env, jclass km_clazz, jlong lpmessagefilter, jlong lplpmessagefilter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCoRegisterMessageFilter(JNIEnv* km_env, jclass km_clazz, jlong lpmessagefilter, jlong lplpmessagefilter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createCaptureAudioStateMonitor(JNIEnv* km_env, jclass km_clazz, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitor(JNIEnv* km_env, jclass km_clazz, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createCaptureAudioStateMonitorForCategory(JNIEnv* km_env, jclass km_clazz, jint category, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategory(JNIEnv* km_env, jclass km_clazz, jint category, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -125,7 +125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createCaptureAudioStateMonitorForCategoryAndDeviceId(JNIEnv* km_env, jclass km_clazz, jint category, jlong deviceid, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceId(JNIEnv* km_env, jclass km_clazz, jint category, jlong deviceid, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createCaptureAudioStateMonitorForCategoryAndDeviceRole(JNIEnv* km_env, jclass km_clazz, jint category, jint role, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceRole(JNIEnv* km_env, jclass km_clazz, jint category, jint role, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createRenderAudioStateMonitor(JNIEnv* km_env, jclass km_clazz, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitor(JNIEnv* km_env, jclass km_clazz, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -204,7 +204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createRenderAudioStateMonitorForCategory(JNIEnv* km_env, jclass km_clazz, jint category, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategory(JNIEnv* km_env, jclass km_clazz, jint category, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -230,7 +230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createRenderAudioStateMonitorForCategoryAndDeviceId(JNIEnv* km_env, jclass km_clazz, jint category, jlong deviceid, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceId(JNIEnv* km_env, jclass km_clazz, jint category, jlong deviceid, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -257,7 +257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1createRenderAudioStateMonitorForCategoryAndDeviceRole(JNIEnv* km_env, jclass km_clazz, jint category, jint role, jlong audiostatemonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceRole(JNIEnv* km_env, jclass km_clazz, jint category, jint role, jlong audiostatemonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -284,7 +284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1playSoundA(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jlong hmod, jint fdwsound) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioPlaySoundA(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jlong hmod, jint fdwsound) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1playSoundW(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jlong hmod, jint fdwsound) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioPlaySoundW(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jlong hmod, jint fdwsound) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -338,7 +338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverAddA(JNIEnv* km_env, jclass km_clazz, jlong phadid, jlong hinstmodule, jlong lparam, jint dwpriority, jint fdwadd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverAddA(JNIEnv* km_env, jclass km_clazz, jlong phadid, jlong hinstmodule, jlong lparam, jint dwpriority, jint fdwadd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -367,7 +367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverAddW(JNIEnv* km_env, jclass km_clazz, jlong phadid, jlong hinstmodule, jlong lparam, jint dwpriority, jint fdwadd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverAddW(JNIEnv* km_env, jclass km_clazz, jlong phadid, jlong hinstmodule, jlong lparam, jint dwpriority, jint fdwadd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -396,7 +396,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverClose(JNIEnv* km_env, jclass km_clazz, jlong had, jint fdwclose) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverClose(JNIEnv* km_env, jclass km_clazz, jlong had, jint fdwclose) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -422,7 +422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverDetailsA(JNIEnv* km_env, jclass km_clazz, jlong hadid, jlong padd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverDetailsA(JNIEnv* km_env, jclass km_clazz, jlong hadid, jlong padd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -449,7 +449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverDetailsW(JNIEnv* km_env, jclass km_clazz, jlong hadid, jlong padd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverDetailsW(JNIEnv* km_env, jclass km_clazz, jlong hadid, jlong padd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -476,7 +476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverEnum(JNIEnv* km_env, jclass km_clazz, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverEnum(JNIEnv* km_env, jclass km_clazz, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -503,7 +503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverID(JNIEnv* km_env, jclass km_clazz, jlong hao, jlong phadid, jint fdwdriverid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverID(JNIEnv* km_env, jclass km_clazz, jlong hao, jlong phadid, jint fdwdriverid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverMessage(JNIEnv* km_env, jclass km_clazz, jlong had, jint umsg, jlong lparam1, jlong lparam2) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverMessage(JNIEnv* km_env, jclass km_clazz, jlong had, jint umsg, jlong lparam1, jlong lparam2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -558,7 +558,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_medi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverOpen(JNIEnv* km_env, jclass km_clazz, jlong phad, jlong hadid, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverOpen(JNIEnv* km_env, jclass km_clazz, jlong phad, jlong hadid, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -585,7 +585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverPriority(JNIEnv* km_env, jclass km_clazz, jlong hadid, jint dwpriority, jint fdwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverPriority(JNIEnv* km_env, jclass km_clazz, jlong hadid, jint dwpriority, jint fdwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -612,7 +612,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmDriverRemove(JNIEnv* km_env, jclass km_clazz, jlong hadid, jint fdwremove) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmDriverRemove(JNIEnv* km_env, jclass km_clazz, jlong hadid, jint fdwremove) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -638,7 +638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterChooseA(JNIEnv* km_env, jclass km_clazz, jlong pafltrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterChooseA(JNIEnv* km_env, jclass km_clazz, jlong pafltrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -663,7 +663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterChooseW(JNIEnv* km_env, jclass km_clazz, jlong pafltrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterChooseW(JNIEnv* km_env, jclass km_clazz, jlong pafltrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -688,7 +688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -715,7 +715,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -771,7 +771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -800,7 +800,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterTagDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterTagDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterTagDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterTagDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -854,7 +854,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterTagEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterTagEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -883,7 +883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFilterTagEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFilterTagEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -912,7 +912,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatChooseA(JNIEnv* km_env, jclass km_clazz, jlong pafmtc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatChooseA(JNIEnv* km_env, jclass km_clazz, jlong pafmtc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -937,7 +937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatChooseW(JNIEnv* km_env, jclass km_clazz, jlong pafmtc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatChooseW(JNIEnv* km_env, jclass km_clazz, jlong pafmtc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -962,7 +962,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -989,7 +989,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1016,7 +1016,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1045,7 +1045,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pafd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1074,7 +1074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatSuggest(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pwfxsrc, jlong pwfxdst, jint cbwfxdst, jint fdwsuggest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatSuggest(JNIEnv* km_env, jclass km_clazz, jlong had, jlong pwfxsrc, jlong pwfxdst, jint cbwfxdst, jint fdwsuggest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1103,7 +1103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatTagDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatTagDetailsA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1130,7 +1130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatTagDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatTagDetailsW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1157,7 +1157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatTagEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatTagEnumA(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1186,7 +1186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmFormatTagEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmFormatTagEnumW(JNIEnv* km_env, jclass km_clazz, jlong had, jlong paftd, jlong fncallback, jlong dwinstance, jint fdwenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1215,7 +1215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmGetVersion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmGetVersion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1239,7 +1239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmMetrics(JNIEnv* km_env, jclass km_clazz, jlong hao, jint umetric, jlong pmetric) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmMetrics(JNIEnv* km_env, jclass km_clazz, jlong hao, jint umetric, jlong pmetric) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1266,7 +1266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamClose(JNIEnv* km_env, jclass km_clazz, jlong has, jint fdwclose) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamClose(JNIEnv* km_env, jclass km_clazz, jlong has, jint fdwclose) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1292,7 +1292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamConvert(JNIEnv* km_env, jclass km_clazz, jlong has, jlong pash, jint fdwconvert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamConvert(JNIEnv* km_env, jclass km_clazz, jlong has, jlong pash, jint fdwconvert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1319,7 +1319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamMessage(JNIEnv* km_env, jclass km_clazz, jlong has, jint umsg, jlong lparam1, jlong lparam2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamMessage(JNIEnv* km_env, jclass km_clazz, jlong has, jint umsg, jlong lparam1, jlong lparam2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1347,7 +1347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamOpen(JNIEnv* km_env, jclass km_clazz, jlong phas, jlong had, jlong pwfxsrc, jlong pwfxdst, jlong pwfltr, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamOpen(JNIEnv* km_env, jclass km_clazz, jlong phas, jlong had, jlong pwfxsrc, jlong pwfxdst, jlong pwfltr, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1379,7 +1379,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong has, jlong pash, jint fdwprepare) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong has, jlong pash, jint fdwprepare) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1406,7 +1406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamReset(JNIEnv* km_env, jclass km_clazz, jlong has, jint fdwreset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamReset(JNIEnv* km_env, jclass km_clazz, jlong has, jint fdwreset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1432,7 +1432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamSize(JNIEnv* km_env, jclass km_clazz, jlong has, jint cbinput, jlong pdwoutputbytes, jint fdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamSize(JNIEnv* km_env, jclass km_clazz, jlong has, jint cbinput, jlong pdwoutputbytes, jint fdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1460,7 +1460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1acmStreamUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong has, jlong pash, jint fdwunprepare) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAcmStreamUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong has, jlong pash, jint fdwunprepare) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1487,7 +1487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1auxGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pac, jint cbac) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAuxGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pac, jint cbac) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1514,7 +1514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1auxGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pac, jint cbac) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAuxGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pac, jint cbac) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1541,7 +1541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1auxGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAuxGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1565,7 +1565,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1auxGetVolume(JNIEnv* km_env, jclass km_clazz, jint udeviceid, jlong pdwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAuxGetVolume(JNIEnv* km_env, jclass km_clazz, jint udeviceid, jlong pdwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1591,7 +1591,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1auxOutMessage(JNIEnv* km_env, jclass km_clazz, jint udeviceid, jint umsg, jlong dw1, jlong dw2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAuxOutMessage(JNIEnv* km_env, jclass km_clazz, jint udeviceid, jint umsg, jlong dw1, jlong dw2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1619,7 +1619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1auxSetVolume(JNIEnv* km_env, jclass km_clazz, jint udeviceid, jint dwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioAuxSetVolume(JNIEnv* km_env, jclass km_clazz, jint udeviceid, jint dwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1645,7 +1645,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiConnect(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong hmo, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiConnect(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong hmo, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1672,7 +1672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiDisconnect(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong hmo, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiDisconnect(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong hmo, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1699,7 +1699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInAddBuffer(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInAddBuffer(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1726,7 +1726,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInClose(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInClose(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1751,7 +1751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmic, jint cbmic) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmic, jint cbmic) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1778,7 +1778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmic, jint cbmic) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmic, jint cbmic) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1805,7 +1805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1832,7 +1832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1859,7 +1859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInGetID(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pudeviceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInGetID(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pudeviceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1885,7 +1885,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1909,7 +1909,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInMessage(JNIEnv* km_env, jclass km_clazz, jlong hmi, jint umsg, jlong dw1, jlong dw2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInMessage(JNIEnv* km_env, jclass km_clazz, jlong hmi, jint umsg, jlong dw1, jlong dw2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1937,7 +1937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInOpen(JNIEnv* km_env, jclass km_clazz, jlong phmi, jint udeviceid, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInOpen(JNIEnv* km_env, jclass km_clazz, jlong phmi, jint udeviceid, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1966,7 +1966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1993,7 +1993,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInReset(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInReset(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2018,7 +2018,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInStart(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInStart(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2043,7 +2043,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInStop(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInStop(JNIEnv* km_env, jclass km_clazz, jlong hmi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2068,7 +2068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiInUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiInUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmi, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2095,7 +2095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutCacheDrumPatches(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint upatch, jlong pwkya, jint fucache) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutCacheDrumPatches(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint upatch, jlong pwkya, jint fucache) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2123,7 +2123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutCachePatches(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint ubank, jlong pwpa, jint fucache) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutCachePatches(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint ubank, jlong pwpa, jint fucache) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2151,7 +2151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutClose(JNIEnv* km_env, jclass km_clazz, jlong hmo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutClose(JNIEnv* km_env, jclass km_clazz, jlong hmo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2176,7 +2176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmoc, jint cbmoc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmoc, jint cbmoc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2203,7 +2203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmoc, jint cbmoc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pmoc, jint cbmoc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2230,7 +2230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2257,7 +2257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2284,7 +2284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetID(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pudeviceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetID(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pudeviceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2310,7 +2310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2334,7 +2334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutGetVolume(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pdwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutGetVolume(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pdwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2360,7 +2360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutLongMsg(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutLongMsg(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2387,7 +2387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutMessage(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint umsg, jlong dw1, jlong dw2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutMessage(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint umsg, jlong dw1, jlong dw2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2415,7 +2415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutOpen(JNIEnv* km_env, jclass km_clazz, jlong phmo, jint udeviceid, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutOpen(JNIEnv* km_env, jclass km_clazz, jlong phmo, jint udeviceid, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2444,7 +2444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2471,7 +2471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutReset(JNIEnv* km_env, jclass km_clazz, jlong hmo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutReset(JNIEnv* km_env, jclass km_clazz, jlong hmo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2496,7 +2496,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutSetVolume(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint dwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutSetVolume(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint dwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2522,7 +2522,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutShortMsg(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint dwmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutShortMsg(JNIEnv* km_env, jclass km_clazz, jlong hmo, jint dwmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2548,7 +2548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiOutUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiOutUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hmo, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2575,7 +2575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamClose(JNIEnv* km_env, jclass km_clazz, jlong hms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamClose(JNIEnv* km_env, jclass km_clazz, jlong hms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2600,7 +2600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamOpen(JNIEnv* km_env, jclass km_clazz, jlong phms, jlong pudeviceid, jint cmidi, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamOpen(JNIEnv* km_env, jclass km_clazz, jlong phms, jlong pudeviceid, jint cmidi, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2630,7 +2630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamOut(JNIEnv* km_env, jclass km_clazz, jlong hms, jlong pmh, jint cbmh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamOut(JNIEnv* km_env, jclass km_clazz, jlong hms, jlong pmh, jint cbmh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2657,7 +2657,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamPause(JNIEnv* km_env, jclass km_clazz, jlong hms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamPause(JNIEnv* km_env, jclass km_clazz, jlong hms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2682,7 +2682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamPosition(JNIEnv* km_env, jclass km_clazz, jlong hms, jlong lpmmt, jint cbmmt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamPosition(JNIEnv* km_env, jclass km_clazz, jlong hms, jlong lpmmt, jint cbmmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2709,7 +2709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamProperty(JNIEnv* km_env, jclass km_clazz, jlong hms, jlong lppropdata, jint dwproperty) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamProperty(JNIEnv* km_env, jclass km_clazz, jlong hms, jlong lppropdata, jint dwproperty) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2736,7 +2736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamRestart(JNIEnv* km_env, jclass km_clazz, jlong hms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamRestart(JNIEnv* km_env, jclass km_clazz, jlong hms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2761,7 +2761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1midiStreamStop(JNIEnv* km_env, jclass km_clazz, jlong hms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMidiStreamStop(JNIEnv* km_env, jclass km_clazz, jlong hms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2786,7 +2786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerClose(JNIEnv* km_env, jclass km_clazz, jlong hmx) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerClose(JNIEnv* km_env, jclass km_clazz, jlong hmx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2811,7 +2811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetControlDetailsA(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxcd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetControlDetailsA(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxcd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2838,7 +2838,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetControlDetailsW(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxcd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetControlDetailsW(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxcd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2865,7 +2865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong umxid, jlong pmxcaps, jint cbmxcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong umxid, jlong pmxcaps, jint cbmxcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2892,7 +2892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong umxid, jlong pmxcaps, jint cbmxcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong umxid, jlong pmxcaps, jint cbmxcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2919,7 +2919,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetID(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pumxid, jint fdwid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetID(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pumxid, jint fdwid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2946,7 +2946,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetLineControlsA(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxlc, jint fdwcontrols) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetLineControlsA(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxlc, jint fdwcontrols) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2973,7 +2973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetLineControlsW(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxlc, jint fdwcontrols) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetLineControlsW(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxlc, jint fdwcontrols) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3000,7 +3000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetLineInfoA(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxl, jint fdwinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetLineInfoA(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxl, jint fdwinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3027,7 +3027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetLineInfoW(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxl, jint fdwinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetLineInfoW(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxl, jint fdwinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3054,7 +3054,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3078,7 +3078,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerMessage(JNIEnv* km_env, jclass km_clazz, jlong hmx, jint umsg, jlong dwparam1, jlong dwparam2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerMessage(JNIEnv* km_env, jclass km_clazz, jlong hmx, jint umsg, jlong dwparam1, jlong dwparam2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3106,7 +3106,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerOpen(JNIEnv* km_env, jclass km_clazz, jlong phmx, jint umxid, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerOpen(JNIEnv* km_env, jclass km_clazz, jlong phmx, jint umxid, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3135,7 +3135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1mixerSetControlDetails(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxcd, jint fdwdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioMixerSetControlDetails(JNIEnv* km_env, jclass km_clazz, jlong hmxobj, jlong pmxcd, jint fdwdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3162,7 +3162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1sndPlaySoundA(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jint fusound) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioSndPlaySoundA(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jint fusound) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3188,7 +3188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1sndPlaySoundW(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jint fusound) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioSndPlaySoundW(JNIEnv* km_env, jclass km_clazz, jlong pszsound, jint fusound) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3214,7 +3214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInAddBuffer(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pwh, jint cbwh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInAddBuffer(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pwh, jint cbwh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3241,7 +3241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInClose(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInClose(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3266,7 +3266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwic, jint cbwic) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwic, jint cbwic) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3293,7 +3293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwic, jint cbwic) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwic, jint cbwic) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3320,7 +3320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3347,7 +3347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3374,7 +3374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetID(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pudeviceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetID(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pudeviceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3400,7 +3400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3424,7 +3424,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInGetPosition(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pmmt, jint cbmmt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInGetPosition(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pmmt, jint cbmmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3451,7 +3451,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInMessage(JNIEnv* km_env, jclass km_clazz, jlong hwi, jint umsg, jlong dw1, jlong dw2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInMessage(JNIEnv* km_env, jclass km_clazz, jlong hwi, jint umsg, jlong dw1, jlong dw2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3479,7 +3479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInOpen(JNIEnv* km_env, jclass km_clazz, jlong phwi, jint udeviceid, jlong pwfx, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInOpen(JNIEnv* km_env, jclass km_clazz, jlong phwi, jint udeviceid, jlong pwfx, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3509,7 +3509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pwh, jint cbwh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pwh, jint cbwh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3536,7 +3536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInReset(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInReset(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3561,7 +3561,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInStart(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInStart(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3586,7 +3586,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInStop(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInStop(JNIEnv* km_env, jclass km_clazz, jlong hwi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3611,7 +3611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveInUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pwh, jint cbwh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveInUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwi, jlong pwh, jint cbwh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3638,7 +3638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutBreakLoop(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutBreakLoop(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3663,7 +3663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutClose(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutClose(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3688,7 +3688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwoc, jint cbwoc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetDevCapsA(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwoc, jint cbwoc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3715,7 +3715,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwoc, jint cbwoc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetDevCapsW(JNIEnv* km_env, jclass km_clazz, jlong udeviceid, jlong pwoc, jint cbwoc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3742,7 +3742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetErrorTextA(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3769,7 +3769,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetErrorTextW(JNIEnv* km_env, jclass km_clazz, jint mmrerror, jlong psztext, jint cchtext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3796,7 +3796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetID(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pudeviceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetID(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pudeviceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3822,7 +3822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetNumDevs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3846,7 +3846,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetPitch(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pdwpitch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetPitch(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pdwpitch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3872,7 +3872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetPlaybackRate(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pdwrate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetPlaybackRate(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pdwrate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3898,7 +3898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetPosition(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pmmt, jint cbmmt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetPosition(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pmmt, jint cbmmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3925,7 +3925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutGetVolume(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pdwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutGetVolume(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pdwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3951,7 +3951,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutMessage(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint umsg, jlong dw1, jlong dw2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutMessage(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint umsg, jlong dw1, jlong dw2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3979,7 +3979,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutOpen(JNIEnv* km_env, jclass km_clazz, jlong phwo, jint udeviceid, jlong pwfx, jlong dwcallback, jlong dwinstance, jint fdwopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutOpen(JNIEnv* km_env, jclass km_clazz, jlong phwo, jint udeviceid, jlong pwfx, jlong dwcallback, jlong dwinstance, jint fdwopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4009,7 +4009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutPause(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutPause(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4034,7 +4034,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pwh, jint cbwh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutPrepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pwh, jint cbwh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4061,7 +4061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutReset(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutReset(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4086,7 +4086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutRestart(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutRestart(JNIEnv* km_env, jclass km_clazz, jlong hwo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4111,7 +4111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutSetPitch(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint dwpitch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutSetPitch(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint dwpitch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4137,7 +4137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutSetPlaybackRate(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint dwrate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutSetPlaybackRate(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint dwrate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4163,7 +4163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutSetVolume(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint dwvolume) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutSetVolume(JNIEnv* km_env, jclass km_clazz, jlong hwo, jint dwvolume) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4189,7 +4189,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pwh, jint cbwh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutUnprepareHeader(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pwh, jint cbwh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4216,7 +4216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssys_1windows_1win32_1media_1audio_1waveOutWrite(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pwh, jint cbwh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_audio_WindowsWin32MediaAudioJniBridge_windowssysWindowsWin32MediaAudioWaveOutWrite(JNIEnv* km_env, jclass km_clazz, jlong hwo, jlong pwh, jint cbwh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

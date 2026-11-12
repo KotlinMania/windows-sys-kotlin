@@ -9,12 +9,12 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_wdk_system_systeminformation_ntQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength);
-int32_t windowssys_windows_wdk_system_systeminformation_ntQuerySystemTime(void* systemtime);
-int32_t windowssys_windows_wdk_system_systeminformation_ntQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime);
-int32_t windowssys_windows_wdk_system_systeminformation_zwQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength);
-int32_t windowssys_windows_wdk_system_systeminformation_zwQuerySystemTime(void* systemtime);
-int32_t windowssys_windows_wdk_system_systeminformation_zwQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime);
+int32_t windowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength);
+int32_t windowssysWindowsWdkSystemSysteminformationNtQuerySystemTime(void* systemtime);
+int32_t windowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime);
+int32_t windowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation(int32_t systeminformationclass, void* systeminformation, uint32_t systeminformationlength, void* returnlength);
+int32_t windowssysWindowsWdkSystemSysteminformationZwQuerySystemTime(void* systemtime);
+int32_t windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution(void* maximumtime, void* minimumtime, void* currenttime);
 
 #ifdef __cplusplus
 }

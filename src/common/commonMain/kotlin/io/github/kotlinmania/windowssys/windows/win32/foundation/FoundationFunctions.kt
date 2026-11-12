@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -11,11 +11,11 @@ public expect fun closeHandle(hobject: Handle): Bool
 
 public expect fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool
 
-public expect fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: COpaquePointer?, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool
+public expect fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr<Handle>, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool
 
 public expect fun freeLibrary(hlibmodule: Hmodule): Bool
 
-public expect fun getHandleInformation(hobject: Handle, lpdwflags: COpaquePointer?): Bool
+public expect fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr<UInt>): Bool
 
 public expect fun getLastError(): Win32Error
 
@@ -41,9 +41,9 @@ public expect fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr
 
 public expect fun sysFreeString(bstrstring: Bstr)
 
-public expect fun sysReAllocString(pbstr: COpaquePointer?, psz: Pcwstr): Int
+public expect fun sysReAllocString(pbstr: MutPtr<Bstr>, psz: Pcwstr): Int
 
-public expect fun sysReAllocStringLen(pbstr: COpaquePointer?, psz: Pcwstr, len: UInt): Int
+public expect fun sysReAllocStringLen(pbstr: MutPtr<Bstr>, psz: Pcwstr, len: UInt): Int
 
 public expect fun sysReleaseString(bstrstring: Bstr)
 

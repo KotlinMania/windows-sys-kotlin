@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1backupEventLogA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogBackupEventLogA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1backupEventLogW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogBackupEventLogW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1clearEventLogA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogClearEventLogA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1clearEventLogW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogClearEventLogW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong lpbackupfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1closeEventLog(JNIEnv* km_env, jclass km_clazz, jlong heventlog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogCloseEventLog(JNIEnv* km_env, jclass km_clazz, jlong heventlog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1deregisterEventSource(JNIEnv* km_env, jclass km_clazz, jlong heventlog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogDeregisterEventSource(JNIEnv* km_env, jclass km_clazz, jlong heventlog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtArchiveExportedLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong logfilepath, jint locale, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtArchiveExportedLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong logfilepath, jint locale, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -201,7 +201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtCancel(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtCancel(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -226,7 +226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtClearLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong channelpath, jlong targetfilepath, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtClearLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong channelpath, jlong targetfilepath, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -254,7 +254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtClose(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtClose(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtCreateBookmark(JNIEnv* km_env, jclass km_clazz, jlong bookmarkxml) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtCreateBookmark(JNIEnv* km_env, jclass km_clazz, jlong bookmarkxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -304,7 +304,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtCreateRenderContext(JNIEnv* km_env, jclass km_clazz, jint valuepathscount, jlong valuepaths, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtCreateRenderContext(JNIEnv* km_env, jclass km_clazz, jint valuepathscount, jlong valuepaths, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtExportLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong path, jlong query, jlong targetfilepath, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtExportLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong path, jlong query, jlong targetfilepath, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -360,7 +360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtFormatMessage(JNIEnv* km_env, jclass km_clazz, jlong publishermetadata, jlong event, jint messageid, jint valuecount, jlong values, jint flags, jint buffersize, jlong buffer, jlong bufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtFormatMessage(JNIEnv* km_env, jclass km_clazz, jlong publishermetadata, jlong event, jint messageid, jint valuecount, jlong values, jint flags, jint buffersize, jlong buffer, jlong bufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -393,7 +393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetChannelConfigProperty(JNIEnv* km_env, jclass km_clazz, jlong channelconfig, jint propertyid, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetChannelConfigProperty(JNIEnv* km_env, jclass km_clazz, jlong channelconfig, jint propertyid, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -423,7 +423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetEventInfo(JNIEnv* km_env, jclass km_clazz, jlong event, jint propertyid, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetEventInfo(JNIEnv* km_env, jclass km_clazz, jlong event, jint propertyid, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetEventMetadataProperty(JNIEnv* km_env, jclass km_clazz, jlong eventmetadata, jint propertyid, jint flags, jint eventmetadatapropertybuffersize, jlong eventmetadatapropertybuffer, jlong eventmetadatapropertybufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetEventMetadataProperty(JNIEnv* km_env, jclass km_clazz, jlong eventmetadata, jint propertyid, jint flags, jint eventmetadatapropertybuffersize, jlong eventmetadatapropertybuffer, jlong eventmetadatapropertybufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -482,7 +482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetExtendedStatus(JNIEnv* km_env, jclass km_clazz, jint buffersize, jlong buffer, jlong bufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetExtendedStatus(JNIEnv* km_env, jclass km_clazz, jint buffersize, jlong buffer, jlong bufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -509,7 +509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetLogInfo(JNIEnv* km_env, jclass km_clazz, jlong arg_0_log, jint propertyid, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetLogInfo(JNIEnv* km_env, jclass km_clazz, jlong arg0Log, jint propertyid, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -521,13 +521,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((int64_t)arg_0_log, (int32_t)propertyid, (uint32_t)propertyvaluebuffersize, (void*)(uintptr_t)propertyvaluebuffer, (void*)(uintptr_t)propertyvaluebufferused);
+        km_res = km_fn_ptr((int64_t)arg0Log, (int32_t)propertyid, (uint32_t)propertyvaluebuffersize, (void*)(uintptr_t)propertyvaluebuffer, (void*)(uintptr_t)propertyvaluebufferused);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_log;
+    (void)arg0Log;
     (void)propertyid;
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
@@ -538,7 +538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetObjectArrayProperty(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint propertyid, jint arrayindex, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetObjectArrayProperty(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jint propertyid, jint arrayindex, jint flags, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -569,7 +569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetObjectArraySize(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jlong objectarraysize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetObjectArraySize(JNIEnv* km_env, jclass km_clazz, jlong objectarray, jlong objectarraysize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -595,7 +595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetPublisherMetadataProperty(JNIEnv* km_env, jclass km_clazz, jlong publishermetadata, jint propertyid, jint flags, jint publishermetadatapropertybuffersize, jlong publishermetadatapropertybuffer, jlong publishermetadatapropertybufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetPublisherMetadataProperty(JNIEnv* km_env, jclass km_clazz, jlong publishermetadata, jint propertyid, jint flags, jint publishermetadatapropertybuffersize, jlong publishermetadatapropertybuffer, jlong publishermetadatapropertybufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -625,7 +625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtGetQueryInfo(JNIEnv* km_env, jclass km_clazz, jlong queryorsubscription, jint propertyid, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtGetQueryInfo(JNIEnv* km_env, jclass km_clazz, jlong queryorsubscription, jint propertyid, jint propertyvaluebuffersize, jlong propertyvaluebuffer, jlong propertyvaluebufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -654,7 +654,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtNext(JNIEnv* km_env, jclass km_clazz, jlong resultset, jint eventssize, jlong events, jint timeout, jint flags, jlong returned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtNext(JNIEnv* km_env, jclass km_clazz, jlong resultset, jint eventssize, jlong events, jint timeout, jint flags, jlong returned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -684,7 +684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtNextChannelPath(JNIEnv* km_env, jclass km_clazz, jlong channelenum, jint channelpathbuffersize, jlong channelpathbuffer, jlong channelpathbufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtNextChannelPath(JNIEnv* km_env, jclass km_clazz, jlong channelenum, jint channelpathbuffersize, jlong channelpathbuffer, jlong channelpathbufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -712,7 +712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtNextEventMetadata(JNIEnv* km_env, jclass km_clazz, jlong eventmetadataenum, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtNextEventMetadata(JNIEnv* km_env, jclass km_clazz, jlong eventmetadataenum, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtNextPublisherId(JNIEnv* km_env, jclass km_clazz, jlong publisherenum, jint publisheridbuffersize, jlong publisheridbuffer, jlong publisheridbufferused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtNextPublisherId(JNIEnv* km_env, jclass km_clazz, jlong publisherenum, jint publisheridbuffersize, jlong publisheridbuffer, jlong publisheridbufferused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -766,7 +766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenChannelConfig(JNIEnv* km_env, jclass km_clazz, jlong session, jlong channelpath, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenChannelConfig(JNIEnv* km_env, jclass km_clazz, jlong session, jlong channelpath, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -793,7 +793,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenChannelEnum(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenChannelEnum(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -819,7 +819,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenEventMetadataEnum(JNIEnv* km_env, jclass km_clazz, jlong publishermetadata, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum(JNIEnv* km_env, jclass km_clazz, jlong publishermetadata, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -845,7 +845,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong path, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenLog(JNIEnv* km_env, jclass km_clazz, jlong session, jlong path, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -872,7 +872,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenPublisherEnum(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum(JNIEnv* km_env, jclass km_clazz, jlong session, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -898,7 +898,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenPublisherMetadata(JNIEnv* km_env, jclass km_clazz, jlong session, jlong publisherid, jlong logfilepath, jint locale, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata(JNIEnv* km_env, jclass km_clazz, jlong session, jlong publisherid, jlong logfilepath, jint locale, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -927,7 +927,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtOpenSession(JNIEnv* km_env, jclass km_clazz, jint loginclass, jlong login, jint timeout, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtOpenSession(JNIEnv* km_env, jclass km_clazz, jint loginclass, jlong login, jint timeout, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -955,7 +955,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtQuery(JNIEnv* km_env, jclass km_clazz, jlong session, jlong path, jlong query, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtQuery(JNIEnv* km_env, jclass km_clazz, jlong session, jlong path, jlong query, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -983,7 +983,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtRender(JNIEnv* km_env, jclass km_clazz, jlong context, jlong fragment, jint flags, jint buffersize, jlong buffer, jlong bufferused, jlong propertycount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtRender(JNIEnv* km_env, jclass km_clazz, jlong context, jlong fragment, jint flags, jint buffersize, jlong buffer, jlong bufferused, jlong propertycount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1014,7 +1014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtSaveChannelConfig(JNIEnv* km_env, jclass km_clazz, jlong channelconfig, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtSaveChannelConfig(JNIEnv* km_env, jclass km_clazz, jlong channelconfig, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1040,7 +1040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtSeek(JNIEnv* km_env, jclass km_clazz, jlong resultset, jlong position, jlong bookmark, jint timeout, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtSeek(JNIEnv* km_env, jclass km_clazz, jlong resultset, jlong position, jlong bookmark, jint timeout, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1069,7 +1069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtSetChannelConfigProperty(JNIEnv* km_env, jclass km_clazz, jlong channelconfig, jint propertyid, jint flags, jlong propertyvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty(JNIEnv* km_env, jclass km_clazz, jlong channelconfig, jint propertyid, jint flags, jlong propertyvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1097,7 +1097,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtSubscribe(JNIEnv* km_env, jclass km_clazz, jlong session, jlong signalevent, jlong channelpath, jlong query, jlong bookmark, jlong context, jlong callback, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtSubscribe(JNIEnv* km_env, jclass km_clazz, jlong session, jlong signalevent, jlong channelpath, jlong query, jlong bookmark, jlong context, jlong callback, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1129,7 +1129,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1evtUpdateBookmark(JNIEnv* km_env, jclass km_clazz, jlong bookmark, jlong event) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogEvtUpdateBookmark(JNIEnv* km_env, jclass km_clazz, jlong bookmark, jlong event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1155,7 +1155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1getEventLogInformation(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jint dwinfolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogGetEventLogInformation(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jint dwinfolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1184,7 +1184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1getNumberOfEventLogRecords(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong numberofrecords) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogGetNumberOfEventLogRecords(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong numberofrecords) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1210,7 +1210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1getOldestEventLogRecord(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong oldestrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogGetOldestEventLogRecord(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong oldestrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1236,7 +1236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1notifyChangeEventLog(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong hevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogNotifyChangeEventLog(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jlong hevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1262,7 +1262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1openBackupEventLogA(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpfilename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogOpenBackupEventLogA(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1288,7 +1288,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1openBackupEventLogW(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpfilename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogOpenBackupEventLogW(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1314,7 +1314,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1openEventLogA(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogOpenEventLogA(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1340,7 +1340,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1openEventLogW(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogOpenEventLogW(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1366,7 +1366,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1readEventLogA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jint dwreadflags, jint dwrecordoffset, jlong lpbuffer, jint nnumberofbytestoread, jlong pnbytesread, jlong pnminnumberofbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogReadEventLogA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jint dwreadflags, jint dwrecordoffset, jlong lpbuffer, jint nnumberofbytestoread, jlong pnbytesread, jlong pnminnumberofbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1397,7 +1397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1readEventLogW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jint dwreadflags, jint dwrecordoffset, jlong lpbuffer, jint nnumberofbytestoread, jlong pnbytesread, jlong pnminnumberofbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogReadEventLogW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jint dwreadflags, jint dwrecordoffset, jlong lpbuffer, jint nnumberofbytestoread, jlong pnbytesread, jlong pnminnumberofbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1428,7 +1428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1registerEventSourceA(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogRegisterEventSourceA(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1454,7 +1454,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1registerEventSourceW(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogRegisterEventSourceW(JNIEnv* km_env, jclass km_clazz, jlong lpuncservername, jlong lpsourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1480,7 +1480,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1reportEventA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jshort wtype, jshort wcategory, jint dweventid, jlong lpusersid, jshort wnumstrings, jint dwdatasize, jlong lpstrings, jlong lprawdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogReportEventA(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jshort wtype, jshort wcategory, jint dweventid, jlong lpusersid, jshort wnumstrings, jint dwdatasize, jlong lpstrings, jlong lprawdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1513,7 +1513,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssys_1windows_1win32_1system_1eventlog_1reportEventW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jshort wtype, jshort wcategory, jint dweventid, jlong lpusersid, jshort wnumstrings, jint dwdatasize, jlong lpstrings, jlong lprawdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventlog_WindowsWin32SystemEventlogJniBridge_windowssysWindowsWin32SystemEventlogReportEventW(JNIEnv* km_env, jclass km_clazz, jlong heventlog, jshort wtype, jshort wcategory, jint dweventid, jlong lpusersid, jshort wnumstrings, jint dwdatasize, jlong lpstrings, jlong lprawdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

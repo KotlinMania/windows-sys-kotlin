@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1createAppContainerProfile(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername, jlong pszdisplayname, jlong pszdescription, jlong pcapabilities, jint dwcapabilitycount, jlong ppsidappcontainersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationCreateAppContainerProfile(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername, jlong pszdisplayname, jlong pszdescription, jlong pcapabilities, jint dwcapabilitycount, jlong ppsidappcontainersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -49,7 +49,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1deleteAppContainerProfile(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationDeleteAppContainerProfile(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1deriveAppContainerSidFromAppContainerName(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername, jlong ppsidappcontainersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationDeriveAppContainerSidFromAppContainerName(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername, jlong ppsidappcontainersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(JNIEnv* km_env, jclass km_clazz, jlong psidappcontainersid, jlong pszrestrictedappcontainername, jlong ppsidrestrictedappcontainersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationDeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(JNIEnv* km_env, jclass km_clazz, jlong psidappcontainersid, jlong pszrestrictedappcontainername, jlong ppsidrestrictedappcontainersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1getAppContainerFolderPath(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainersid, jlong ppszpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationGetAppContainerFolderPath(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainersid, jlong ppszpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -153,7 +153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1getAppContainerNamedObjectPath(JNIEnv* km_env, jclass km_clazz, jlong token, jlong appcontainersid, jint objectpathlength, jlong objectpath, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationGetAppContainerNamedObjectPath(JNIEnv* km_env, jclass km_clazz, jlong token, jlong appcontainersid, jint objectpathlength, jlong objectpath, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1getAppContainerRegistryLocation(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jlong phappcontainerkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationGetAppContainerRegistryLocation(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jlong phappcontainerkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -208,7 +208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1isCrossIsolatedEnvironmentClipboardContent(JNIEnv* km_env, jclass km_clazz, jlong iscrossisolatedenvironmentclipboardcontent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationIsCrossIsolatedEnvironmentClipboardContent(JNIEnv* km_env, jclass km_clazz, jlong iscrossisolatedenvironmentclipboardcontent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -233,7 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1isProcessInIsolatedContainer(JNIEnv* km_env, jclass km_clazz, jlong isprocessinisolatedcontainer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationIsProcessInIsolatedContainer(JNIEnv* km_env, jclass km_clazz, jlong isprocessinisolatedcontainer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1isProcessInIsolatedWindowsEnvironment(JNIEnv* km_env, jclass km_clazz, jlong isprocessinisolatedwindowsenvironment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationIsProcessInIsolatedWindowsEnvironment(JNIEnv* km_env, jclass km_clazz, jlong isprocessinisolatedwindowsenvironment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -283,7 +283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1isProcessInWDAGContainer(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong isprocessinwdagcontainer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssysWindowsWin32SecurityIsolationIsProcessInWDAGContainer(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong isprocessinwdagcontainer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

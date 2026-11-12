@@ -2,211 +2,269 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectTypeList
+import io.github.kotlinmania.windowssys.windows.win32.security.PrivilegeSet
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.Appcategoryinfolist
 
 private object WindowsWin32SystemGrouppolicyJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SystemGrouppolicyJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_browseForGPO(lpbrowseinfo: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyBrowseForGPO(lpbrowseinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor(descriptor: Long, commandline: Long, commandlinelength: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyCommandLineFromMsiDescriptor(descriptor: Long, commandline: Long, commandlinelength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_createGPOLink(lpgpo: Long, lpcontainer: Long, fhighpriority: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyCreateGPOLink(lpgpo: Long, lpcontainer: Long, fhighpriority: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks(lpcontainer: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyDeleteAllGPOLinks(lpcontainer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_deleteGPOLink(lpgpo: Long, lpcontainer: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyDeleteGPOLink(lpgpo: Long, lpcontainer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection(bmachine: Int): Long
+    external fun windowssysWindowsWin32SystemGrouppolicyEnterCriticalPolicySection(bmachine: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_exportRSoPData(lpnamespace: Long, lpfilename: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyExportRSoPData(lpnamespace: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_freeGPOListA(pgpolist: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyFreeGPOListA(pgpolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_freeGPOListW(pgpolist: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyFreeGPOListW(pgpolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_generateGPNotification(bmachine: Int, lpwszmgmtproduct: Long, dwmgmtproductoptions: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGenerateGPNotification(bmachine: Int, lpwszmgmtproduct: Long, dwmgmtproductoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA(dwflags: Int, pmachinename: Long, psiduser: Long, pguidextension: Long, ppgpolist: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetAppliedGPOListA(dwflags: Int, pmachinename: Long, psiduser: Long, pguidextension: Long, ppgpolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW(dwflags: Int, pmachinename: Long, psiduser: Long, pguidextension: Long, ppgpolist: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetAppliedGPOListW(dwflags: Int, pmachinename: Long, psiduser: Long, pguidextension: Long, ppgpolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getGPOListA(htoken: Long, lpname: Long, lphostname: Long, lpcomputername: Long, dwflags: Int, pgpolist: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetGPOListA(htoken: Long, lpname: Long, lphostname: Long, lpcomputername: Long, dwflags: Int, pgpolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getGPOListW(htoken: Long, lpname: Long, lphostname: Long, lpcomputername: Long, dwflags: Int, pgpolist: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetGPOListW(htoken: Long, lpname: Long, lphostname: Long, lpcomputername: Long, dwflags: Int, pgpolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData(productcode: Long, displayname: Long, supporturl: Long)
+    external fun windowssysWindowsWin32SystemGrouppolicyGetLocalManagedApplicationData(productcode: Long, displayname: Long, supporturl: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications(buserapps: Int, pdwapps: Long, prglocalapps: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetLocalManagedApplications(buserapps: Int, pdwapps: Long, prglocalapps: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories(dwreserved: Int, pappcategory: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetManagedApplicationCategories(dwreserved: Int, pappcategory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_getManagedApplications(pcategory: Long, dwqueryflags: Int, dwinfolevel: Int, pdwapps: Long, prgmanagedapps: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyGetManagedApplications(pcategory: Long, dwqueryflags: Int, dwinfolevel: Int, pdwapps: Long, prgmanagedapps: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_importRSoPData(lpnamespace: Long, lpfilename: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyImportRSoPData(lpnamespace: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_installApplication(pinstallinfo: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyInstallApplication(pinstallinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection(hsection: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyLeaveCriticalPolicySection(hsection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted(extensionid: Long, pasynchandle: Long, dwstatus: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyProcessGroupPolicyCompleted(extensionid: Long, pasynchandle: Long, dwstatus: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx(extensionid: Long, pasynchandle: Long, dwstatus: Int, rsopstatus: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyProcessGroupPolicyCompletedEx(extensionid: Long, pasynchandle: Long, dwstatus: Int, rsopstatus: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_refreshPolicy(bmachine: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRefreshPolicy(bmachine: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_refreshPolicyEx(bmachine: Int, dwoptions: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx(bmachine: Int, dwoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_registerGPNotification(hevent: Long, bmachine: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRegisterGPNotification(hevent: Long, bmachine: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType(psecuritydescriptor: Long, pprincipalselfsid: Long, prsoptoken: Long, dwdesiredaccessmask: Int, pobjecttypelist: Long, objecttypelistlength: Int, pgenericmapping: Long, pprivilegeset: Long, pdwprivilegesetlength: Long, pdwgrantedaccessmask: Long, pbaccessstatus: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRsopAccessCheckByType(psecuritydescriptor: Long, pprincipalselfsid: Long, prsoptoken: Long, dwdesiredaccessmask: Int, pobjecttypelist: Long, objecttypelistlength: Int, pgenericmapping: Long, pprivilegeset: Long, pdwprivilegesetlength: Long, pdwgrantedaccessmask: Long, pbaccessstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck(pszfilename: Long, prsoptoken: Long, dwdesiredaccessmask: Int, pdwgrantedaccessmask: Long, pbaccessstatus: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRsopFileAccessCheck(pszfilename: Long, prsoptoken: Long, dwdesiredaccessmask: Int, pdwgrantedaccessmask: Long, pbaccessstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus(dwflags: Int, pservices: Long, psettinginstance: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRsopResetPolicySettingStatus(dwflags: Int, pservices: Long, psettinginstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus(dwflags: Int, pservices: Long, psettinginstance: Long, ninfo: Int, pstatus: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyRsopSetPolicySettingStatus(dwflags: Int, pservices: Long, psettinginstance: Long, ninfo: Int, pstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_uninstallApplication(productcode: Long, dwstatus: Int): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyUninstallApplication(productcode: Long, dwstatus: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_grouppolicy_unregisterGPNotification(hevent: Long): Int
+    external fun windowssysWindowsWin32SystemGrouppolicyUnregisterGPNotification(hevent: Long): Int
 }
 
-public actual fun browseForGPO(lpbrowseinfo: COpaquePointer?): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_browseForGPO((lpbrowseinfo?.value ?: 0L))
+public actual fun browseForGPO(lpbrowseinfo: MutPtr<Gpobrowseinfo>): Hresult =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyBrowseForGPO(lpbrowseinfo.rawAddress)
 
-public actual fun commandLineFromMsiDescriptor(descriptor: Pcwstr, commandline: Pwstr, commandlinelength: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor((descriptor?.value ?: 0L), (commandline?.value ?: 0L), (commandlinelength?.value ?: 0L)).toUInt()
+public actual fun commandLineFromMsiDescriptor(descriptor: Pcwstr, commandline: Pwstr, commandlinelength: MutPtr<UInt>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyCommandLineFromMsiDescriptor(descriptor.rawAddress, commandline.rawAddress, commandlinelength.rawAddress).toUInt()
 
 public actual fun createGPOLink(lpgpo: Pcwstr, lpcontainer: Pcwstr, fhighpriority: Bool): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_createGPOLink((lpgpo?.value ?: 0L), (lpcontainer?.value ?: 0L), fhighpriority)
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyCreateGPOLink(lpgpo.rawAddress, lpcontainer.rawAddress, fhighpriority)
 
 public actual fun deleteAllGPOLinks(lpcontainer: Pcwstr): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks((lpcontainer?.value ?: 0L))
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyDeleteAllGPOLinks(lpcontainer.rawAddress)
 
 public actual fun deleteGPOLink(lpgpo: Pcwstr, lpcontainer: Pcwstr): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_deleteGPOLink((lpgpo?.value ?: 0L), (lpcontainer?.value ?: 0L))
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyDeleteGPOLink(lpgpo.rawAddress, lpcontainer.rawAddress)
 
 public actual fun enterCriticalPolicySection(bmachine: Bool): Handle =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection(bmachine).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyEnterCriticalPolicySection(bmachine))
 
 public actual fun exportRSoPData(lpnamespace: Pcwstr, lpfilename: Pcwstr): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_exportRSoPData((lpnamespace?.value ?: 0L), (lpfilename?.value ?: 0L))
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyExportRSoPData(lpnamespace.rawAddress, lpfilename.rawAddress)
 
-public actual fun freeGPOListA(pgpolist: COpaquePointer?): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_freeGPOListA((pgpolist?.value ?: 0L))
+public actual fun freeGPOListA(pgpolist: ConstPtr<GroupPolicyObjecta>): Bool =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyFreeGPOListA(pgpolist.rawAddress)
 
-public actual fun freeGPOListW(pgpolist: COpaquePointer?): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_freeGPOListW((pgpolist?.value ?: 0L))
+public actual fun freeGPOListW(pgpolist: ConstPtr<GroupPolicyObjectw>): Bool =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyFreeGPOListW(pgpolist.rawAddress)
 
 public actual fun generateGPNotification(bmachine: Bool, lpwszmgmtproduct: Pcwstr, dwmgmtproductoptions: UInt): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_generateGPNotification(bmachine, (lpwszmgmtproduct?.value ?: 0L), dwmgmtproductoptions.toInt()).toUInt()
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGenerateGPNotification(bmachine, lpwszmgmtproduct.rawAddress, dwmgmtproductoptions.toInt()).toUInt()
 
-public actual fun getAppliedGPOListA(dwflags: UInt, pmachinename: Pcstr, psiduser: Psid, pguidextension: COpaquePointer?, ppgpolist: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA(dwflags.toInt(), (pmachinename?.value ?: 0L), (psiduser?.value ?: 0L), (pguidextension?.value ?: 0L), (ppgpolist?.value ?: 0L)).toUInt()
+public actual fun getAppliedGPOListA(dwflags: UInt, pmachinename: Pcstr, psiduser: Psid, pguidextension: ConstPtr<Guid>, ppgpolist: MutPtr<MutPtr<GroupPolicyObjecta>>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetAppliedGPOListA(dwflags.toInt(), pmachinename.rawAddress, psiduser.rawAddress, pguidextension.rawAddress, ppgpolist.rawAddress).toUInt()
 
-public actual fun getAppliedGPOListW(dwflags: UInt, pmachinename: Pcwstr, psiduser: Psid, pguidextension: COpaquePointer?, ppgpolist: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW(dwflags.toInt(), (pmachinename?.value ?: 0L), (psiduser?.value ?: 0L), (pguidextension?.value ?: 0L), (ppgpolist?.value ?: 0L)).toUInt()
+public actual fun getAppliedGPOListW(dwflags: UInt, pmachinename: Pcwstr, psiduser: Psid, pguidextension: ConstPtr<Guid>, ppgpolist: MutPtr<MutPtr<GroupPolicyObjectw>>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetAppliedGPOListW(dwflags.toInt(), pmachinename.rawAddress, psiduser.rawAddress, pguidextension.rawAddress, ppgpolist.rawAddress).toUInt()
 
-public actual fun getGPOListA(htoken: Handle, lpname: Pcstr, lphostname: Pcstr, lpcomputername: Pcstr, dwflags: UInt, pgpolist: COpaquePointer?): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getGPOListA((htoken?.value ?: 0L), (lpname?.value ?: 0L), (lphostname?.value ?: 0L), (lpcomputername?.value ?: 0L), dwflags.toInt(), (pgpolist?.value ?: 0L))
+public actual fun getGPOListA(htoken: Handle, lpname: Pcstr, lphostname: Pcstr, lpcomputername: Pcstr, dwflags: UInt, pgpolist: MutPtr<MutPtr<GroupPolicyObjecta>>): Bool =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetGPOListA(htoken.rawAddress, lpname.rawAddress, lphostname.rawAddress, lpcomputername.rawAddress, dwflags.toInt(), pgpolist.rawAddress)
 
-public actual fun getGPOListW(htoken: Handle, lpname: Pcwstr, lphostname: Pcwstr, lpcomputername: Pcwstr, dwflags: UInt, pgpolist: COpaquePointer?): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getGPOListW((htoken?.value ?: 0L), (lpname?.value ?: 0L), (lphostname?.value ?: 0L), (lpcomputername?.value ?: 0L), dwflags.toInt(), (pgpolist?.value ?: 0L))
+public actual fun getGPOListW(htoken: Handle, lpname: Pcwstr, lphostname: Pcwstr, lpcomputername: Pcwstr, dwflags: UInt, pgpolist: MutPtr<MutPtr<GroupPolicyObjectw>>): Bool =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetGPOListW(htoken.rawAddress, lpname.rawAddress, lphostname.rawAddress, lpcomputername.rawAddress, dwflags.toInt(), pgpolist.rawAddress)
 
-public actual fun getLocalManagedApplicationData(productcode: Pcwstr, displayname: COpaquePointer?, supporturl: COpaquePointer?) {
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData((productcode?.value ?: 0L), (displayname?.value ?: 0L), (supporturl?.value ?: 0L))
+public actual fun getLocalManagedApplicationData(productcode: Pcwstr, displayname: MutPtr<Pwstr>, supporturl: MutPtr<Pwstr>) {
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetLocalManagedApplicationData(productcode.rawAddress, displayname.rawAddress, supporturl.rawAddress)
 }
 
-public actual fun getLocalManagedApplications(buserapps: Bool, pdwapps: COpaquePointer?, prglocalapps: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications(buserapps, (pdwapps?.value ?: 0L), (prglocalapps?.value ?: 0L)).toUInt()
+public actual fun getLocalManagedApplications(buserapps: Bool, pdwapps: MutPtr<UInt>, prglocalapps: MutPtr<MutPtr<Localmanagedapplication>>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetLocalManagedApplications(buserapps, pdwapps.rawAddress, prglocalapps.rawAddress).toUInt()
 
-public actual fun getManagedApplicationCategories(dwreserved: UInt, pappcategory: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories(dwreserved.toInt(), (pappcategory?.value ?: 0L)).toUInt()
+public actual fun getManagedApplicationCategories(dwreserved: UInt, pappcategory: MutPtr<Appcategoryinfolist>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetManagedApplicationCategories(dwreserved.toInt(), pappcategory.rawAddress).toUInt()
 
-public actual fun getManagedApplications(pcategory: COpaquePointer?, dwqueryflags: UInt, dwinfolevel: UInt, pdwapps: COpaquePointer?, prgmanagedapps: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_getManagedApplications((pcategory?.value ?: 0L), dwqueryflags.toInt(), dwinfolevel.toInt(), (pdwapps?.value ?: 0L), (prgmanagedapps?.value ?: 0L)).toUInt()
+public actual fun getManagedApplications(pcategory: ConstPtr<Guid>, dwqueryflags: UInt, dwinfolevel: UInt, pdwapps: MutPtr<UInt>, prgmanagedapps: MutPtr<MutPtr<Managedapplication>>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyGetManagedApplications(pcategory.rawAddress, dwqueryflags.toInt(), dwinfolevel.toInt(), pdwapps.rawAddress, prgmanagedapps.rawAddress).toUInt()
 
 public actual fun importRSoPData(lpnamespace: Pcwstr, lpfilename: Pcwstr): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_importRSoPData((lpnamespace?.value ?: 0L), (lpfilename?.value ?: 0L))
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyImportRSoPData(lpnamespace.rawAddress, lpfilename.rawAddress)
 
-public actual fun installApplication(pinstallinfo: COpaquePointer?): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_installApplication((pinstallinfo?.value ?: 0L)).toUInt()
+public actual fun installApplication(pinstallinfo: ConstPtr<Installdata>): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyInstallApplication(pinstallinfo.rawAddress).toUInt()
 
 public actual fun leaveCriticalPolicySection(hsection: Handle): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection((hsection?.value ?: 0L))
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyLeaveCriticalPolicySection(hsection.rawAddress)
 
-public actual fun processGroupPolicyCompleted(extensionid: COpaquePointer?, pasynchandle: ULong, dwstatus: UInt): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted((extensionid?.value ?: 0L), pasynchandle.toLong(), dwstatus.toInt()).toUInt()
+public actual fun processGroupPolicyCompleted(extensionid: ConstPtr<Guid>, pasynchandle: ULong, dwstatus: UInt): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyProcessGroupPolicyCompleted(extensionid.rawAddress, pasynchandle.toLong(), dwstatus.toInt()).toUInt()
 
-public actual fun processGroupPolicyCompletedEx(extensionid: COpaquePointer?, pasynchandle: ULong, dwstatus: UInt, rsopstatus: Hresult): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx((extensionid?.value ?: 0L), pasynchandle.toLong(), dwstatus.toInt(), rsopstatus).toUInt()
+public actual fun processGroupPolicyCompletedEx(extensionid: ConstPtr<Guid>, pasynchandle: ULong, dwstatus: UInt, rsopstatus: Hresult): UInt =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyProcessGroupPolicyCompletedEx(extensionid.rawAddress, pasynchandle.toLong(), dwstatus.toInt(), rsopstatus).toUInt()
 
 public actual fun refreshPolicy(bmachine: Bool): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_refreshPolicy(bmachine)
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRefreshPolicy(bmachine)
 
 public actual fun refreshPolicyEx(bmachine: Bool, dwoptions: UInt): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_refreshPolicyEx(bmachine, dwoptions.toInt())
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx(bmachine, dwoptions.toInt())
 
 public actual fun registerGPNotification(hevent: Handle, bmachine: Bool): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_registerGPNotification((hevent?.value ?: 0L), bmachine)
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRegisterGPNotification(hevent.rawAddress, bmachine)
 
-public actual fun rsopAccessCheckByType(psecuritydescriptor: PsecurityDescriptor, pprincipalselfsid: Psid, prsoptoken: COpaquePointer?, dwdesiredaccessmask: UInt, pobjecttypelist: COpaquePointer?, objecttypelistlength: UInt, pgenericmapping: COpaquePointer?, pprivilegeset: COpaquePointer?, pdwprivilegesetlength: COpaquePointer?, pdwgrantedaccessmask: COpaquePointer?, pbaccessstatus: COpaquePointer?): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType((psecuritydescriptor?.value ?: 0L), (pprincipalselfsid?.value ?: 0L), (prsoptoken?.value ?: 0L), dwdesiredaccessmask.toInt(), (pobjecttypelist?.value ?: 0L), objecttypelistlength.toInt(), (pgenericmapping?.value ?: 0L), (pprivilegeset?.value ?: 0L), (pdwprivilegesetlength?.value ?: 0L), (pdwgrantedaccessmask?.value ?: 0L), (pbaccessstatus?.value ?: 0L))
+public actual fun rsopAccessCheckByType(psecuritydescriptor: PsecurityDescriptor, pprincipalselfsid: Psid, prsoptoken: ConstPtr<CVoid>, dwdesiredaccessmask: UInt, pobjecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, pgenericmapping: ConstPtr<GenericMapping>, pprivilegeset: ConstPtr<PrivilegeSet>, pdwprivilegesetlength: ConstPtr<UInt>, pdwgrantedaccessmask: MutPtr<UInt>, pbaccessstatus: MutPtr<Bool>): Hresult =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRsopAccessCheckByType(psecuritydescriptor.rawAddress, pprincipalselfsid.rawAddress, prsoptoken.rawAddress, dwdesiredaccessmask.toInt(), pobjecttypelist.rawAddress, objecttypelistlength.toInt(), pgenericmapping.rawAddress, pprivilegeset.rawAddress, pdwprivilegesetlength.rawAddress, pdwgrantedaccessmask.rawAddress, pbaccessstatus.rawAddress)
 
-public actual fun rsopFileAccessCheck(pszfilename: Pcwstr, prsoptoken: COpaquePointer?, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: COpaquePointer?, pbaccessstatus: COpaquePointer?): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck((pszfilename?.value ?: 0L), (prsoptoken?.value ?: 0L), dwdesiredaccessmask.toInt(), (pdwgrantedaccessmask?.value ?: 0L), (pbaccessstatus?.value ?: 0L))
+public actual fun rsopFileAccessCheck(pszfilename: Pcwstr, prsoptoken: ConstPtr<CVoid>, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: MutPtr<UInt>, pbaccessstatus: MutPtr<Bool>): Hresult =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRsopFileAccessCheck(pszfilename.rawAddress, prsoptoken.rawAddress, dwdesiredaccessmask.toInt(), pdwgrantedaccessmask.rawAddress, pbaccessstatus.rawAddress)
 
-public actual fun rsopResetPolicySettingStatus(dwflags: UInt, pservices: COpaquePointer?, psettinginstance: COpaquePointer?): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus(dwflags.toInt(), (pservices?.value ?: 0L), (psettinginstance?.value ?: 0L))
+public actual fun rsopResetPolicySettingStatus(dwflags: UInt, pservices: MutPtr<CVoid>, psettinginstance: MutPtr<CVoid>): Hresult =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRsopResetPolicySettingStatus(dwflags.toInt(), pservices.rawAddress, psettinginstance.rawAddress)
 
-public actual fun rsopSetPolicySettingStatus(dwflags: UInt, pservices: COpaquePointer?, psettinginstance: COpaquePointer?, ninfo: UInt, pstatus: COpaquePointer?): Hresult =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus(dwflags.toInt(), (pservices?.value ?: 0L), (psettinginstance?.value ?: 0L), ninfo.toInt(), (pstatus?.value ?: 0L))
+public actual fun rsopSetPolicySettingStatus(dwflags: UInt, pservices: MutPtr<CVoid>, psettinginstance: MutPtr<CVoid>, ninfo: UInt, pstatus: ConstPtr<Policysettingstatusinfo>): Hresult =
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyRsopSetPolicySettingStatus(dwflags.toInt(), pservices.rawAddress, psettinginstance.rawAddress, ninfo.toInt(), pstatus.rawAddress)
 
 public actual fun uninstallApplication(productcode: Pcwstr, dwstatus: UInt): UInt =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_uninstallApplication((productcode?.value ?: 0L), dwstatus.toInt()).toUInt()
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyUninstallApplication(productcode.rawAddress, dwstatus.toInt()).toUInt()
 
 public actual fun unregisterGPNotification(hevent: Handle): Bool =
-    WindowsWin32SystemGrouppolicyJniBridge.windowssys_windows_win32_system_grouppolicy_unregisterGPNotification((hevent?.value ?: 0L))
+    WindowsWin32SystemGrouppolicyJniBridge.windowssysWindowsWin32SystemGrouppolicyUnregisterGPNotification(hevent.rawAddress)

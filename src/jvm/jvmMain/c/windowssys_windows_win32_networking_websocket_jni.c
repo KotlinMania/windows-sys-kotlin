@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketAbortHandle(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketBeginClientHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pszsubprotocols, jint ulsubprotocolcount, jlong pszextensions, jint ulextensioncount, jlong pinitialheaders, jint ulinitialheadercount, jlong padditionalheaders, jlong puladditionalheadercount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pszsubprotocols, jint ulsubprotocolcount, jlong pszextensions, jint ulextensioncount, jlong pinitialheaders, jint ulinitialheadercount, jlong padditionalheaders, jlong puladditionalheadercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketBeginServerHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pszsubprotocolselected, jlong pszextensionselected, jint ulextensionselectedcount, jlong prequestheaders, jint ulrequestheadercount, jlong presponseheaders, jlong pulresponseheadercount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pszsubprotocolselected, jlong pszextensionselected, jint ulextensionselectedcount, jlong prequestheaders, jint ulrequestheadercount, jlong presponseheaders, jlong pulresponseheadercount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -105,7 +105,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketCompleteAction(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pvactioncontext, jint ulbytestransferred) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pvactioncontext, jint ulbytestransferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -128,7 +128,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketCreateClientHandle(JNIEnv* km_env, jclass km_clazz, jlong pproperties, jint ulpropertycount, jlong phwebsocket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle(JNIEnv* km_env, jclass km_clazz, jlong pproperties, jint ulpropertycount, jlong phwebsocket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketCreateServerHandle(JNIEnv* km_env, jclass km_clazz, jlong pproperties, jint ulpropertycount, jlong phwebsocket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle(JNIEnv* km_env, jclass km_clazz, jlong pproperties, jint ulpropertycount, jlong phwebsocket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketDeleteHandle(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketEndClientHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong presponseheaders, jint ulreponseheadercount, jlong pulselectedextensions, jlong pulselectedextensioncount, jlong pulselectedsubprotocol) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong presponseheaders, jint ulreponseheadercount, jlong pulselectedextensions, jlong pulselectedextensioncount, jlong pulselectedsubprotocol) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -233,7 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketEndServerHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketGetAction(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jint eactionqueue, jlong pdatabuffers, jlong puldatabuffercount, jlong paction, jlong pbuffertype, jlong pvapplicationcontext, jlong pvactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jint eactionqueue, jlong pdatabuffers, jlong puldatabuffercount, jlong paction, jlong pbuffertype, jlong pvapplicationcontext, jlong pvactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -290,7 +290,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketGetGlobalProperty(JNIEnv* km_env, jclass km_clazz, jint etype, jlong pvvalue, jlong ulsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty(JNIEnv* km_env, jclass km_clazz, jint etype, jlong pvvalue, jlong ulsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketReceive(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pbuffer, jlong pvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketReceive(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jlong pbuffer, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -344,7 +344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssys_1windows_1win32_1networking_1websocket_1webSocketSend(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jint buffertype, jlong pbuffer, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_websocket_WindowsWin32NetworkingWebsocketJniBridge_windowssysWindowsWin32NetworkingWebsocketWebSocketSend(JNIEnv* km_env, jclass km_clazz, jlong hwebsocket, jint buffertype, jlong pbuffer, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

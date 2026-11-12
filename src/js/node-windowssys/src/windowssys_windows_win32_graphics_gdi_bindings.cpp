@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_abortPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAbortPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_abortPath_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_addFontMemResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAddFontMemResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfileview = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cjsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontMemResourceEx_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAddFontResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAddFontResourceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceExA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAddFontResourceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -190,7 +190,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceExW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAddFontResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_angleArc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAngleArc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -250,7 +250,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_angleArc_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_animatePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiAnimatePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t istartindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_animatePalette_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_arc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiArc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -322,7 +322,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_arc_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_arcTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiArcTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_arcTo_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_beginPaint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiBeginPaint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppaint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_beginPaint_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_beginPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiBeginPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_beginPath_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_bitBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiBitBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -456,7 +456,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_bitBlt_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_cancelDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCancelDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_cancelDC_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -508,7 +508,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -541,7 +541,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -574,7 +574,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -601,7 +601,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_chord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiChord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -642,7 +642,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_chord_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_clientToScreen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiClientToScreen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -669,7 +669,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_clientToScreen_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_closeEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCloseEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -694,7 +694,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_closeEnhMetaFile_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_closeFigure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCloseFigure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -719,7 +719,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_closeFigure_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_closeMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCloseMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -744,7 +744,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_closeMetaFile_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_combineRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCombineRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgndst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgnsrc1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -775,7 +775,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_combineRgn_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_combineTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCombineTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpxfout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpxf1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -804,7 +804,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_combineTransform_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCopyEnhMetaFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -831,7 +831,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCopyEnhMetaFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -858,7 +858,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_copyMetaFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCopyMetaFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -885,7 +885,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyMetaFileA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_copyMetaFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCopyMetaFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -912,7 +912,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyMetaFileW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_copyRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCopyRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprcdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprcsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -939,7 +939,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyRect_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nwidth = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t nheight = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -972,7 +972,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createBitmap_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createBitmapIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateBitmapIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -997,7 +997,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createBitmapIndirect_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createBrushIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateBrushIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plbrush = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1022,7 +1022,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createBrushIndirect_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createCompatibleBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateCompatibleBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1051,7 +1051,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createCompatibleBitmap_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createCompatibleDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateCompatibleDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1076,7 +1076,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createCompatibleDC_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDCA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDCA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1107,7 +1107,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDCA_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDCW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDCW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1138,7 +1138,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDCW_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBPatternBrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iusage = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1165,7 +1165,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBPatternBrush_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrushPt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppackeddib = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iusage = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1192,7 +1192,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDIBSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1227,7 +1227,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBSection_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDIBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbmih = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1262,7 +1262,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBitmap_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createDiscardableBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateDiscardableBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1291,7 +1291,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDiscardableBitmap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createEllipticRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateEllipticRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x1 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1322,7 +1322,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEllipticRgn_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateEllipticRgnIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1347,7 +1347,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEllipticRgnIndire
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createEnhMetaFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1378,7 +1378,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEnhMetaFileA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createEnhMetaFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1409,7 +1409,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEnhMetaFileW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cheight = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t cwidth = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1460,7 +1460,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontA_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontIndirectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1485,7 +1485,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontIndirectExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1510,7 +1510,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectExA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontIndirectExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1535,7 +1535,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectExW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontIndirectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1560,7 +1560,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontPackage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontPackage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puchsrcbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulsrcbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1617,7 +1617,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontPackage_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createFontW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateFontW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cheight = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t cwidth = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1668,7 +1668,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontW_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createHalftonePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateHalftonePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1693,7 +1693,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createHalftonePalette_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createHatchBrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateHatchBrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t ihatch = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1720,7 +1720,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createHatchBrush_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createICA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateICA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1751,7 +1751,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createICA_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createICW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateICW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1782,7 +1782,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createICW_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createMetaFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateMetaFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1807,7 +1807,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createMetaFileA_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createMetaFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateMetaFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1832,7 +1832,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createMetaFileW_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreatePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1857,7 +1857,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPalette_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createPatternBrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreatePatternBrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1882,7 +1882,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPatternBrush_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createPen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreatePen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t istyle = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t cwidth = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1911,7 +1911,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPen_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createPenIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreatePenIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plpen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1936,7 +1936,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPenIndirect_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreatePolyPolygonRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pptl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1967,7 +1967,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createPolygonRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreatePolygonRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pptl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cpoint = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1996,7 +1996,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPolygonRgn_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createRectRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateRectRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x1 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2027,7 +2027,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRectRgn_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createRectRgnIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateRectRgnIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2052,7 +2052,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRectRgnIndirect_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createRoundRectRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateRoundRectRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x1 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2087,7 +2087,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRoundRectRgn_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createScalableFontResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateScalableFontResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fdwhidden = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2118,7 +2118,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createScalableFontResou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createScalableFontResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateScalableFontResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fdwhidden = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2149,7 +2149,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createScalableFontResou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_createSolidBrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiCreateSolidBrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2174,7 +2174,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createSolidBrush_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_dPtoLP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDPtoLP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2203,7 +2203,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_dPtoLP_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_deleteDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDeleteDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2228,7 +2228,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteDC_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDeleteEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2253,7 +2253,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_deleteMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDeleteMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2278,7 +2278,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteMetaFile_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_deleteObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDeleteObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ho = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2303,7 +2303,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteObject_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawAnimatedRects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawAnimatedRects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idani = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2334,7 +2334,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawAnimatedRects_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawCaption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawCaption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2365,7 +2365,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawCaption_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawEdge_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawEdge_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* qrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2396,7 +2396,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawEdge_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawEscape_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawEscape_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iescape = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2427,7 +2427,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawEscape_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawFocusRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawFocusRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2454,7 +2454,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawFocusRect_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawFrameControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawFrameControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2485,7 +2485,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawFrameControl_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbrfore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2528,7 +2528,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbrfore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2571,7 +2571,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpchtext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2604,7 +2604,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawTextExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpchtext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2639,7 +2639,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawTextExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpchtext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2674,7 +2674,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiDrawTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpchtext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2707,7 +2707,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_ellipse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEllipse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2740,7 +2740,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_ellipse_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_endPaint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEndPaint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppaint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2767,7 +2767,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_endPaint_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_endPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEndPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2792,7 +2792,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_endPath_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t idevnum = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2823,7 +2823,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t idevnum = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2854,7 +2854,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayMonitors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplayMonitors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprcclip = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2885,7 +2885,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayMonitors_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imodenum = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2914,7 +2914,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imodenum = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2945,7 +2945,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imodenum = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2976,7 +2976,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imodenum = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3005,7 +3005,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3038,7 +3038,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumEnhMetaFile_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumFontFamiliesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplogfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3069,7 +3069,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplogfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3102,7 +3102,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplogfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3135,7 +3135,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumFontFamiliesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplogfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3166,7 +3166,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumFontsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplogfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3197,7 +3197,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontsA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumFontsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplogfont = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3228,7 +3228,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontsW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3259,7 +3259,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumMetaFile_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_enumObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEnumObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ntype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3290,7 +3290,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumObjects_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_equalRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEqualRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3317,7 +3317,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_equalRect_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_equalRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiEqualRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3344,7 +3344,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_equalRgn_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_excludeClipRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExcludeClipRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3377,7 +3377,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_excludeClipRect_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_excludeUpdateRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExcludeUpdateRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3404,7 +3404,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_excludeUpdateRgn_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_extCreatePen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExtCreatePen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ipenstyle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cwidth = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3437,7 +3437,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extCreatePen_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_extCreateRegion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExtCreateRegion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ncount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3466,7 +3466,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extCreateRegion_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_extFloodFill_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExtFloodFill_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3499,7 +3499,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extFloodFill_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_extSelectClipRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExtSelectClipRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3528,7 +3528,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extSelectClipRgn_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExtTextOutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3567,7 +3567,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiExtTextOutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3606,7 +3606,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_fillPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFillPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3631,7 +3631,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fillPath_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_fillRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFillRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3660,7 +3660,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fillRect_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_fillRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFillRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3689,7 +3689,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fillRgn_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_fixBrushOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFixBrushOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3720,7 +3720,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fixBrushOrgEx_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_flattenPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFlattenPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3745,7 +3745,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_flattenPath_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_floodFill_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFloodFill_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3776,7 +3776,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_floodFill_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_frameRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFrameRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3805,7 +3805,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_frameRect_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_frameRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiFrameRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3838,7 +3838,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_frameRgn_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gdiComment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGdiComment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3867,7 +3867,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiComment_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gdiFlush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGdiFlush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3890,7 +3890,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiFlush_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGdiGetBatchLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3913,7 +3913,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGradientFill_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGdiGradientFill_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvertex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3948,7 +3948,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGradientFill_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGdiSetBatchLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dw = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3973,7 +3973,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gdiTransparentBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGdiTransparentBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdcdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xorigindest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4018,7 +4018,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiTransparentBlt_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getArcDirection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetArcDirection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4043,7 +4043,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getArcDirection_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetAspectRatioFilterEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4070,7 +4070,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getBitmapBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetBitmapBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cb = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4099,7 +4099,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBitmapBits_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetBitmapDimensionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4126,7 +4126,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getBkColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetBkColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4151,7 +4151,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBkColor_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getBkMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetBkMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4176,7 +4176,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBkMode_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getBoundsRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetBoundsRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4205,7 +4205,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBoundsRect_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getBrushOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetBrushOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4232,7 +4232,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBrushOrgEx_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharABCWidthsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wfirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4263,7 +4263,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4294,7 +4294,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4325,7 +4325,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharABCWidthsI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t gifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4358,7 +4358,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsI_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharABCWidthsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wfirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4389,7 +4389,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidth32A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidth32A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4420,7 +4420,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidth32A_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidth32W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidth32W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4451,7 +4451,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidth32W_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidthA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4482,7 +4482,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthFloatA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidthFloatA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4513,7 +4513,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthFloatA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthFloatW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidthFloatW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4544,7 +4544,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthFloatW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidthI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t gifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4577,7 +4577,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthI_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharWidthW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4608,7 +4608,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharacterPlacementA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4643,7 +4643,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCharacterPlacementW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4678,7 +4678,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getClipBox_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetClipBox_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4705,7 +4705,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getClipBox_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getClipRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetClipRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4732,7 +4732,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getClipRgn_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getColorAdjustment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetColorAdjustment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpca = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4759,7 +4759,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getColorAdjustment_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCurrentObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCurrentObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4786,7 +4786,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCurrentObject_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getCurrentPositionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetCurrentPositionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4813,7 +4813,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCurrentPositionEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4838,7 +4838,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDC_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDCBrushColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDCBrushColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4863,7 +4863,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCBrushColor_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDCEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDCEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgnclip = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4892,7 +4892,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCEx_napi(const Napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDCOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDCOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4919,7 +4919,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCOrgEx_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDCPenColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDCPenColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4944,7 +4944,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCPenColor_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBColorTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDIBColorTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t istart = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4975,7 +4975,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBColorTable_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDIBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5012,10 +5012,10 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBits_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getDeviceCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetDeviceCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    int32_t arg_1_index = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t arg1Index = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
@@ -5025,21 +5025,21 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDeviceCaps_napi(cons
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(hdc, arg_1_index);
+        km_res = km_fn_ptr(hdc, arg1Index);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)hdc;
-    (void)arg_1_index;
+    (void)arg1Index;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5064,7 +5064,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileA_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5093,7 +5093,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5122,7 +5122,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescripti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5151,7 +5151,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescripti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFileHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5180,7 +5180,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFilePaletteEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nnumentries = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5209,7 +5209,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetEnhMetaFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5234,7 +5234,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileW_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getFontData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetFontData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtable = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5267,7 +5267,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getFontData_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getFontLanguageInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetFontLanguageInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5292,7 +5292,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getFontLanguageInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetFontUnicodeRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpgs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5319,7 +5319,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphIndicesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetGlyphIndicesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5352,7 +5352,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphIndicesA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphIndicesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetGlyphIndicesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5385,7 +5385,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphIndicesW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetGlyphOutlineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uchar = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5422,7 +5422,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetGlyphOutlineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uchar = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5459,7 +5459,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getGraphicsMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetGraphicsMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5484,7 +5484,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGraphicsMode_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getKerningPairsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetKerningPairsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t npairs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5513,7 +5513,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getKerningPairsA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getKerningPairsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetKerningPairsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t npairs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5542,7 +5542,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getKerningPairsW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5567,7 +5567,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getLayout_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMapMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMapMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5592,7 +5592,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMapMode_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMetaFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5617,7 +5617,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileA_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMetaFileBitsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5646,7 +5646,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMetaFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5671,7 +5671,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileW_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMetaRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5698,7 +5698,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaRgn_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMiterLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMiterLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plimit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5725,7 +5725,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMiterLimit_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMonitorInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMonitorInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5752,7 +5752,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMonitorInfoA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getMonitorInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetMonitorInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5779,7 +5779,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMonitorInfoW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getNearestColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetNearestColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5806,7 +5806,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getNearestColor_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetNearestPaletteIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5833,7 +5833,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetObjectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t c = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5862,7 +5862,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetObjectType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5887,7 +5887,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectType_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetObjectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t c = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5916,7 +5916,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cjcopy = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5945,7 +5945,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cjcopy = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5974,7 +5974,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getPaletteEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetPaletteEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t istart = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6005,7 +6005,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPaletteEntries_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6036,7 +6036,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPath_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getPixel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetPixel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6065,7 +6065,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPixel_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getPolyFillMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetPolyFillMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6090,7 +6090,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPolyFillMode_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getROP2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetROP2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6115,7 +6115,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getROP2_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getRandomRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetRandomRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6144,7 +6144,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRandomRgn_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getRasterizerCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetRasterizerCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpraststat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cjbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6171,7 +6171,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRasterizerCaps_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getRegionData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetRegionData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ncount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6200,7 +6200,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRegionData_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getRgnBox_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetRgnBox_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6227,7 +6227,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRgnBox_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getStockObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetStockObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t i = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6252,7 +6252,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getStockObject_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getStretchBltMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetStretchBltMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6277,7 +6277,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getStretchBltMode_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getSysColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetSysColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6302,7 +6302,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSysColor_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getSysColorBrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetSysColorBrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6327,7 +6327,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSysColorBrush_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetSystemPaletteEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t istart = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6358,7 +6358,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getSystemPaletteUse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetSystemPaletteUse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6383,7 +6383,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSystemPaletteUse_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6416,7 +6416,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6449,7 +6449,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextAlign_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextAlign_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6474,7 +6474,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextAlign_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextCharacterExtra_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextCharacterExtra_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6499,7 +6499,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextCharacterExtra_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6524,7 +6524,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextColor_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentExPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6561,7 +6561,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentExPointI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6598,7 +6598,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointI_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentExPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6635,7 +6635,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6666,7 +6666,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6697,7 +6697,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6728,7 +6728,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentPointI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgiin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6759,7 +6759,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointI_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextExtentPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6790,7 +6790,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextFaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextFaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t c = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6819,7 +6819,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextFaceA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextFaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextFaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t c = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6848,7 +6848,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextFaceW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextMetricsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextMetricsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6875,7 +6875,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextMetricsA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getTextMetricsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetTextMetricsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6902,7 +6902,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextMetricsW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getUpdateRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetUpdateRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6931,7 +6931,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getUpdateRect_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getUpdateRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetUpdateRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6960,7 +6960,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getUpdateRgn_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getViewportExtEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetViewportExtEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6987,7 +6987,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getViewportExtEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getViewportOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetViewportOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7014,7 +7014,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getViewportOrgEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWinMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWinMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbdata16 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7047,7 +7047,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWinMetaFileBits_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWindowDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7072,7 +7072,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowDC_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowExtEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWindowExtEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7099,7 +7099,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowExtEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWindowOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7126,7 +7126,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowOrgEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWindowRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7153,7 +7153,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowRgn_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowRgnBox_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWindowRgnBox_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7180,7 +7180,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowRgnBox_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_getWorldTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGetWorldTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpxf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7207,7 +7207,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWorldTransform_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_gradientFill_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGradientFill_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvertex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7242,7 +7242,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gradientFill_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGrayStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbrush = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7283,7 +7283,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiGrayStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbrush = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7324,7 +7324,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_inflateRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiInflateRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7353,7 +7353,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_inflateRect_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_intersectClipRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiIntersectClipRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7386,7 +7386,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_intersectClipRect_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_intersectRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiIntersectRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprcdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprcsrc1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7415,7 +7415,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_intersectRect_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_invalidateRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiInvalidateRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7444,7 +7444,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invalidateRect_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_invalidateRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiInvalidateRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7473,7 +7473,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invalidateRgn_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_invertRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiInvertRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7500,7 +7500,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invertRect_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_invertRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiInvertRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7527,7 +7527,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invertRgn_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_isRectEmpty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiIsRectEmpty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7552,7 +7552,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_isRectEmpty_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_lPtoDP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiLPtoDP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7581,7 +7581,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lPtoDP_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_lineDDA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiLineDDA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t xstart = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t ystart = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7616,7 +7616,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lineDDA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_lineTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiLineTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7645,7 +7645,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lineTo_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_loadBitmapA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiLoadBitmapA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbitmapname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7672,7 +7672,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_loadBitmapA_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_loadBitmapW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiLoadBitmapW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbitmapname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7699,7 +7699,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_loadBitmapW_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_lockWindowUpdate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiLockWindowUpdate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7724,7 +7724,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lockWindowUpdate_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_mapWindowPoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiMapWindowPoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndfrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndto = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7755,7 +7755,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_mapWindowPoints_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_maskBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiMaskBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdcdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7802,7 +7802,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_maskBlt_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_mergeFontPackage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiMergeFontPackage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puchmergefontbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulmergefontbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7849,7 +7849,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_mergeFontPackage_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_modifyWorldTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiModifyWorldTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpxf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7878,7 +7878,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_modifyWorldTransform_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_monitorFromRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiMonitorFromRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7905,7 +7905,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_monitorFromRect_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_monitorFromWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiMonitorFromWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7932,7 +7932,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_monitorFromWindow_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_moveToEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiMoveToEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7963,7 +7963,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_moveToEx_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_offsetClipRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiOffsetClipRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7992,7 +7992,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetClipRgn_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_offsetRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiOffsetRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8021,7 +8021,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetRect_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_offsetRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiOffsetRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8050,7 +8050,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetRgn_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiOffsetViewportOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8081,7 +8081,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiOffsetWindowOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8112,7 +8112,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_paintDesktop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPaintDesktop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8137,7 +8137,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_paintDesktop_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_paintRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPaintRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8164,7 +8164,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_paintRgn_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_patBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPatBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8199,7 +8199,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_patBlt_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_pathToRegion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPathToRegion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8224,7 +8224,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_pathToRegion_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_pie_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPie_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8265,7 +8265,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_pie_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_playEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPlayEnhMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8294,7 +8294,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playEnhMetaFile_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPlayEnhMetaFileRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pht = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8325,7 +8325,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_playMetaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPlayMetaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8352,7 +8352,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playMetaFile_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_playMetaFileRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPlayMetaFileRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lphandletable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8383,7 +8383,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playMetaFileRecord_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_plgBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPlgBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdcdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8426,7 +8426,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_plgBlt_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyBezier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyBezier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8455,7 +8455,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyBezier_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyBezierTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyBezierTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8484,7 +8484,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyBezierTo_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyDraw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyDraw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8515,7 +8515,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyDraw_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyPolygon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyPolygon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8546,7 +8546,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyPolygon_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyPolyline_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyPolyline_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8577,7 +8577,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyPolyline_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyTextOutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyTextOutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8606,7 +8606,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyTextOutA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyTextOutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyTextOutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8635,7 +8635,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyTextOutW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polygon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolygon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8664,7 +8664,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polygon_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polyline_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolyline_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8693,7 +8693,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyline_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_polylineTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPolylineTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8722,7 +8722,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polylineTo_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_ptInRegion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPtInRegion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8751,7 +8751,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_ptInRegion_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_ptVisible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiPtVisible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8780,7 +8780,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_ptVisible_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_realizePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRealizePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8805,7 +8805,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_realizePalette_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_rectInRegion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRectInRegion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8832,7 +8832,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_rectInRegion_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_rectVisible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRectVisible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8859,7 +8859,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_rectVisible_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_rectangle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRectangle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8892,7 +8892,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_rectangle_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_redrawWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRedrawWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprcupdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8923,7 +8923,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_redrawWindow_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_releaseDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiReleaseDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8950,7 +8950,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_releaseDC_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRemoveFontMemResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8975,7 +8975,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRemoveFontResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9000,7 +9000,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRemoveFontResourceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9029,7 +9029,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceExA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRemoveFontResourceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9058,7 +9058,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceExW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRemoveFontResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9083,7 +9083,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_resetDCA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiResetDCA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9110,7 +9110,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_resetDCA_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_resetDCW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiResetDCW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9137,7 +9137,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_resetDCW_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_resizePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiResizePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t n = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9164,7 +9164,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_resizePalette_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_restoreDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRestoreDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nsaveddc = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9191,7 +9191,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_restoreDC_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_roundRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiRoundRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9228,7 +9228,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_roundRect_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_saveDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSaveDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9253,7 +9253,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_saveDC_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_scaleViewportExtEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiScaleViewportExtEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xn = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9288,7 +9288,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_scaleViewportExtEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_scaleWindowExtEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiScaleWindowExtEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xn = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9323,7 +9323,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_scaleWindowExtEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_screenToClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiScreenToClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9350,7 +9350,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_screenToClient_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_selectClipPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSelectClipPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9377,7 +9377,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectClipPath_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_selectClipRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSelectClipRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9404,7 +9404,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectClipRgn_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_selectObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSelectObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9431,7 +9431,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectObject_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_selectPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSelectPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9460,7 +9460,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectPalette_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setArcDirection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetArcDirection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dir = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9487,7 +9487,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setArcDirection_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setBitmapBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetBitmapBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9516,7 +9516,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBitmapBits_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetBitmapDimensionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hbm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t w = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9547,7 +9547,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setBkColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetBkColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9574,7 +9574,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBkColor_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setBkMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetBkMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9601,7 +9601,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBkMode_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setBoundsRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetBoundsRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9630,7 +9630,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBoundsRect_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setBrushOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetBrushOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9661,7 +9661,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBrushOrgEx_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setColorAdjustment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetColorAdjustment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpca = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9688,7 +9688,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setColorAdjustment_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setDCBrushColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetDCBrushColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9715,7 +9715,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDCBrushColor_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setDCPenColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetDCPenColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9742,7 +9742,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDCPenColor_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBColorTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetDIBColorTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t istart = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9773,7 +9773,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBColorTable_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetDIBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9810,7 +9810,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBits_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBitsToDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetDIBitsToDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9857,7 +9857,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBitsToDevice_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetEnhMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9884,7 +9884,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setGraphicsMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetGraphicsMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t imode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9911,7 +9911,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setGraphicsMode_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t l = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9938,7 +9938,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setLayout_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setMapMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetMapMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t imode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9965,7 +9965,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMapMode_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setMapperFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetMapperFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9992,7 +9992,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMapperFlags_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetMetaFileBitsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cbbuffer = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10019,7 +10019,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setMetaRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetMetaRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10044,7 +10044,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMetaRgn_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setMiterLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetMiterLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     float limit = km_info.Length() > 1 ? km_info[1].ToNumber().FloatValue() : 0.0f;
@@ -10073,7 +10073,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMiterLimit_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setPaletteEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetPaletteEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t istart = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10104,7 +10104,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPaletteEntries_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setPixel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetPixel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10135,7 +10135,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPixel_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setPixelV_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetPixelV_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10166,7 +10166,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPixelV_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setPolyFillMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetPolyFillMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10193,7 +10193,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPolyFillMode_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setROP2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetROP2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t rop2 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10220,7 +10220,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setROP2_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xleft = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10253,7 +10253,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setRect_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setRectEmpty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetRectEmpty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10278,7 +10278,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setRectEmpty_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setRectRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetRectRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t left = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10311,7 +10311,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setRectRgn_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setStretchBltMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetStretchBltMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10338,7 +10338,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setStretchBltMode_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setSysColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetSysColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t celements = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpaelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10367,7 +10367,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setSysColors_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setSystemPaletteUse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetSystemPaletteUse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t use = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10394,7 +10394,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setSystemPaletteUse_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setTextAlign_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetTextAlign_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t align = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10421,7 +10421,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextAlign_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setTextCharacterExtra_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetTextCharacterExtra_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t extra = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10448,7 +10448,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextCharacterExtra_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setTextColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetTextColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t color = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10475,7 +10475,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextColor_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setTextJustification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetTextJustification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t extra = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10504,7 +10504,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextJustification_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setViewportExtEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetViewportExtEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10535,7 +10535,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setViewportExtEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setViewportOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetViewportOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10566,7 +10566,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setViewportOrgEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowExtEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetWindowExtEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10597,7 +10597,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowExtEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowOrgEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetWindowOrgEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10628,7 +10628,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowOrgEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetWindowRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10657,7 +10657,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowRgn_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_setWorldTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSetWorldTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpxf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10684,7 +10684,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWorldTransform_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_stretchBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiStretchBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdcdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10729,7 +10729,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_stretchBlt_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_stretchDIBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiStretchDIBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10778,7 +10778,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_stretchDIBits_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_strokeAndFillPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiStrokeAndFillPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10803,7 +10803,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_strokeAndFillPath_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_strokePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiStrokePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10828,7 +10828,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_strokePath_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_subtractRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiSubtractRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprcdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprcsrc1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10857,7 +10857,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_subtractRect_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTCharToUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTCharToUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puccharcodes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10892,7 +10892,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTCharToUnicode_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTDeleteEmbeddedFont_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfontreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10921,7 +10921,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFont_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTEmbedFont_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10966,7 +10966,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFont_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTEmbedFontEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11011,7 +11011,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontEx_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTEmbedFontFromFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfontfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11060,7 +11060,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTEnableEmbeddingForFacename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t benable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11087,7 +11087,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTGetEmbeddedFontInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulprivstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11124,7 +11124,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTGetEmbeddingType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulembedtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11151,7 +11151,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetNewFontName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTGetNewFontName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phfontreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* wzwinfamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11184,7 +11184,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetNewFontName_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11211,7 +11211,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabledForFacename_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11238,7 +11238,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTLoadEmbeddedFont_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phfontreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11281,7 +11281,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTRunValidationTests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTRunValidationTests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptestparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11308,7 +11308,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTRunValidationTests_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTTRunValidationTestsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptestparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11335,7 +11335,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTabbedTextOutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11374,7 +11374,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTabbedTextOutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11413,7 +11413,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_textOutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTextOutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11446,7 +11446,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_textOutA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_textOutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTextOutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11479,7 +11479,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_textOutW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_transparentBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiTransparentBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdcdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xorigindest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11524,7 +11524,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_transparentBlt_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_unionRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiUnionRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprcdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprcsrc1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11553,7 +11553,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_unionRect_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_unrealizeObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiUnrealizeObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11578,7 +11578,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_unrealizeObject_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_updateColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiUpdateColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11603,7 +11603,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_updateColors_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_updateWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiUpdateWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11628,7 +11628,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_updateWindow_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_validateRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiValidateRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11655,7 +11655,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_validateRect_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_validateRgn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiValidateRgn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrgn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11682,7 +11682,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_validateRgn_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_widenPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiWidenPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11707,7 +11707,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_widenPath_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_windowFromDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiWindowFromDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11732,7 +11732,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_windowFromDC_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsGdiWglSwapMultipleBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11760,398 +11760,398 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers_
 }
 
 static void register_windows_win32_graphics_gdi_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_graphics_gdi_abortPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_abortPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_addFontMemResourceEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_addFontMemResourceEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_addFontResourceA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_addFontResourceA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_addFontResourceExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_addFontResourceExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_addFontResourceExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_addFontResourceExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_addFontResourceW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_addFontResourceW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_angleArc", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_angleArc_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_animatePalette", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_animatePalette_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_arc", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_arc_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_arcTo", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_arcTo_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_beginPaint", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_beginPaint_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_beginPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_beginPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_bitBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_bitBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_cancelDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_cancelDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_chord", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_chord_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_clientToScreen", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_clientToScreen_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_closeEnhMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_closeEnhMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_closeFigure", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_closeFigure_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_closeMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_closeMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_combineRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_combineRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_combineTransform", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_combineTransform_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_copyMetaFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_copyMetaFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_copyMetaFileW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_copyMetaFileW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_copyRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_copyRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createBitmap", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createBitmap_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createBitmapIndirect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createBitmapIndirect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createBrushIndirect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createBrushIndirect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createCompatibleBitmap", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createCompatibleBitmap_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createCompatibleDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createCompatibleDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDCA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDCA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDCW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDCW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDIBPatternBrush", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDIBPatternBrush_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDIBSection", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDIBSection_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDIBitmap", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDIBitmap_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createDiscardableBitmap", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createDiscardableBitmap_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createEllipticRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createEllipticRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createEnhMetaFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createEnhMetaFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createEnhMetaFileW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createEnhMetaFileW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontIndirectA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontIndirectA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontIndirectExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontIndirectExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontIndirectExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontIndirectExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontIndirectW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontIndirectW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontPackage", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontPackage_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createFontW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createFontW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createHalftonePalette", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createHalftonePalette_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createHatchBrush", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createHatchBrush_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createICA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createICA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createICW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createICW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createMetaFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createMetaFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createMetaFileW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createMetaFileW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createPalette", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createPalette_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createPatternBrush", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createPatternBrush_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createPen", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createPen_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createPenIndirect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createPenIndirect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createPolygonRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createPolygonRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createRectRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createRectRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createRectRgnIndirect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createRectRgnIndirect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createRoundRectRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createRoundRectRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createScalableFontResourceA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createScalableFontResourceA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createScalableFontResourceW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createScalableFontResourceW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_createSolidBrush", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_createSolidBrush_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_dPtoLP", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_dPtoLP_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_deleteDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_deleteDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_deleteMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_deleteMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_deleteObject", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_deleteObject_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawAnimatedRects", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawAnimatedRects_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawCaption", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawCaption_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawEdge", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawEdge_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawEscape", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawEscape_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawFocusRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawFocusRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawFrameControl", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawFrameControl_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawStateA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawStateA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawStateW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawStateW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawTextA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawTextA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawTextExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawTextExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawTextExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawTextExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_drawTextW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_drawTextW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_ellipse", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_ellipse_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_endPaint", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_endPaint_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_endPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_endPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplayMonitors", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplayMonitors_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumEnhMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumEnhMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumFontFamiliesA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumFontFamiliesA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumFontFamiliesW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumFontFamiliesW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumFontsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumFontsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumFontsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumFontsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_enumObjects", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_enumObjects_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_equalRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_equalRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_equalRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_equalRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_excludeClipRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_excludeClipRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_excludeUpdateRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_excludeUpdateRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_extCreatePen", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_extCreatePen_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_extCreateRegion", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_extCreateRegion_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_extFloodFill", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_extFloodFill_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_extSelectClipRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_extSelectClipRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_extTextOutA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_extTextOutA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_extTextOutW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_extTextOutW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_fillPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_fillPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_fillRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_fillRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_fillRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_fillRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_fixBrushOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_fixBrushOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_flattenPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_flattenPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_floodFill", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_floodFill_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_frameRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_frameRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_frameRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_frameRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gdiComment", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gdiComment_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gdiFlush", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gdiFlush_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gdiGradientFill", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gdiGradientFill_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gdiTransparentBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gdiTransparentBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getArcDirection", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getArcDirection_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getBitmapBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getBitmapBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getBkColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getBkColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getBkMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getBkMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getBoundsRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getBoundsRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getBrushOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getBrushOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharABCWidthsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharABCWidthsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharABCWidthsI", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharABCWidthsI_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharABCWidthsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharABCWidthsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidth32A", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidth32A_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidth32W", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidth32W_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidthA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidthA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidthFloatA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidthFloatA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidthFloatW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidthFloatW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidthI", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidthI_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharWidthW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharWidthW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharacterPlacementA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharacterPlacementA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCharacterPlacementW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCharacterPlacementW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getClipBox", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getClipBox_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getClipRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getClipRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getColorAdjustment", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getColorAdjustment_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCurrentObject", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCurrentObject_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getCurrentPositionEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getCurrentPositionEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDCBrushColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDCBrushColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDCEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDCEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDCOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDCOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDCPenColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDCPenColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDIBColorTable", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDIBColorTable_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDIBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDIBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getDeviceCaps", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getDeviceCaps_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getEnhMetaFileW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getEnhMetaFileW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getFontData", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getFontData_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getFontLanguageInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getFontLanguageInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getGlyphIndicesA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getGlyphIndicesA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getGlyphIndicesW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getGlyphIndicesW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getGlyphOutlineA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getGlyphOutlineA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getGlyphOutlineW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getGlyphOutlineW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getGraphicsMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getGraphicsMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getKerningPairsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getKerningPairsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getKerningPairsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getKerningPairsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getLayout", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getLayout_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMapMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMapMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMetaFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMetaFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMetaFileW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMetaFileW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMetaRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMetaRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMiterLimit", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMiterLimit_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMonitorInfoA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMonitorInfoA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getMonitorInfoW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getMonitorInfoW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getNearestColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getNearestColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getObjectA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getObjectA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getObjectType", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getObjectType_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getObjectW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getObjectW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getPaletteEntries", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getPaletteEntries_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getPixel", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getPixel_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getPolyFillMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getPolyFillMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getROP2", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getROP2_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getRandomRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getRandomRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getRasterizerCaps", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getRasterizerCaps_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getRegionData", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getRegionData_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getRgnBox", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getRgnBox_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getStockObject", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getStockObject_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getStretchBltMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getStretchBltMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getSysColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getSysColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getSysColorBrush", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getSysColorBrush_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getSystemPaletteUse", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getSystemPaletteUse_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextAlign", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextAlign_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextCharacterExtra", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextCharacterExtra_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentExPointA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentExPointA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentExPointI", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentExPointI_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentExPointW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentExPointW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentPointA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentPointA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentPointI", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentPointI_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextExtentPointW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextExtentPointW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextFaceA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextFaceA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextFaceW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextFaceW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextMetricsA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextMetricsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getTextMetricsW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getTextMetricsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getUpdateRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getUpdateRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getUpdateRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getUpdateRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getViewportExtEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getViewportExtEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getViewportOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getViewportOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWinMetaFileBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWinMetaFileBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWindowDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWindowDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWindowExtEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWindowExtEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWindowOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWindowOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWindowRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWindowRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWindowRgnBox", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWindowRgnBox_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_getWorldTransform", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_getWorldTransform_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_gradientFill", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_gradientFill_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_grayStringA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_grayStringA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_grayStringW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_grayStringW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_inflateRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_inflateRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_intersectClipRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_intersectClipRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_intersectRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_intersectRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_invalidateRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_invalidateRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_invalidateRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_invalidateRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_invertRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_invertRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_invertRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_invertRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_isRectEmpty", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_isRectEmpty_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_lPtoDP", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_lPtoDP_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_lineDDA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_lineDDA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_lineTo", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_lineTo_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_loadBitmapA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_loadBitmapA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_loadBitmapW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_loadBitmapW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_lockWindowUpdate", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_lockWindowUpdate_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_mapWindowPoints", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_mapWindowPoints_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_maskBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_maskBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_mergeFontPackage", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_mergeFontPackage_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_modifyWorldTransform", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_modifyWorldTransform_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_monitorFromRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_monitorFromRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_monitorFromWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_monitorFromWindow_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_moveToEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_moveToEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_offsetClipRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_offsetClipRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_offsetRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_offsetRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_offsetRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_offsetRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_paintDesktop", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_paintDesktop_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_paintRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_paintRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_patBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_patBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_pathToRegion", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_pathToRegion_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_pie", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_pie_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_playEnhMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_playEnhMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_playMetaFile", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_playMetaFile_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_playMetaFileRecord", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_playMetaFileRecord_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_plgBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_plgBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyBezier", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyBezier_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyBezierTo", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyBezierTo_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyDraw", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyDraw_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyPolygon", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyPolygon_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyPolyline", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyPolyline_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyTextOutA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyTextOutA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyTextOutW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyTextOutW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polygon", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polygon_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polyline", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polyline_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_polylineTo", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_polylineTo_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_ptInRegion", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_ptInRegion_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_ptVisible", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_ptVisible_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_realizePalette", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_realizePalette_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_rectInRegion", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_rectInRegion_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_rectVisible", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_rectVisible_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_rectangle", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_rectangle_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_redrawWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_redrawWindow_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_releaseDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_releaseDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_removeFontResourceA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_removeFontResourceA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_removeFontResourceExA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_removeFontResourceExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_removeFontResourceExW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_removeFontResourceExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_removeFontResourceW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_removeFontResourceW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_resetDCA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_resetDCA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_resetDCW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_resetDCW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_resizePalette", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_resizePalette_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_restoreDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_restoreDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_roundRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_roundRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_saveDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_saveDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_scaleViewportExtEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_scaleViewportExtEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_scaleWindowExtEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_scaleWindowExtEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_screenToClient", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_screenToClient_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_selectClipPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_selectClipPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_selectClipRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_selectClipRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_selectObject", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_selectObject_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_selectPalette", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_selectPalette_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setArcDirection", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setArcDirection_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setBitmapBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setBitmapBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setBkColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setBkColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setBkMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setBkMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setBoundsRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setBoundsRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setBrushOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setBrushOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setColorAdjustment", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setColorAdjustment_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setDCBrushColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setDCBrushColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setDCPenColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setDCPenColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setDIBColorTable", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setDIBColorTable_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setDIBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setDIBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setDIBitsToDevice", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setDIBitsToDevice_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setGraphicsMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setGraphicsMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setLayout", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setLayout_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setMapMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setMapMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setMapperFlags", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setMapperFlags_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setMetaRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setMetaRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setMiterLimit", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setMiterLimit_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setPaletteEntries", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setPaletteEntries_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setPixel", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setPixel_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setPixelV", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setPixelV_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setPolyFillMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setPolyFillMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setROP2", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setROP2_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setRectEmpty", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setRectEmpty_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setRectRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setRectRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setStretchBltMode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setStretchBltMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setSysColors", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setSysColors_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setSystemPaletteUse", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setSystemPaletteUse_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setTextAlign", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setTextAlign_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setTextCharacterExtra", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setTextCharacterExtra_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setTextColor", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setTextColor_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setTextJustification", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setTextJustification_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setViewportExtEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setViewportExtEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setViewportOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setViewportOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setWindowExtEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setWindowExtEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setWindowOrgEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setWindowOrgEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setWindowRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setWindowRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_setWorldTransform", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_setWorldTransform_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_stretchBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_stretchBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_stretchDIBits", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_stretchDIBits_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_strokeAndFillPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_strokeAndFillPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_strokePath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_strokePath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_subtractRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_subtractRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTCharToUnicode", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTCharToUnicode_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTEmbedFont", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTEmbedFont_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTEmbedFontEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTEmbedFontEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTGetNewFontName", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTGetNewFontName_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTRunValidationTests", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTRunValidationTests_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tabbedTextOutA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tabbedTextOutA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_tabbedTextOutW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_tabbedTextOutW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_textOutA", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_textOutA_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_textOutW", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_textOutW_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_transparentBlt", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_transparentBlt_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_unionRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_unionRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_unrealizeObject", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_unrealizeObject_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_updateColors", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_updateColors_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_updateWindow", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_updateWindow_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_validateRect", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_validateRect_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_validateRgn", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_validateRgn_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_widenPath", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_widenPath_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_windowFromDC", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_windowFromDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers", Napi::Function::New(env, windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAbortPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAbortPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAddFontMemResourceEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAddFontMemResourceEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAddFontResourceA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAddFontResourceA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAddFontResourceExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAddFontResourceExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAddFontResourceExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAddFontResourceExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAddFontResourceW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAddFontResourceW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAngleArc", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAngleArc_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiAnimatePalette", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiAnimatePalette_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiArc", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiArc_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiArcTo", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiArcTo_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiBeginPaint", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiBeginPaint_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiBeginPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiBeginPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiBitBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiBitBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCancelDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCancelDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiChord", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiChord_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiClientToScreen", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiClientToScreen_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCloseEnhMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCloseEnhMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCloseFigure", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCloseFigure_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCloseMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCloseMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCombineRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCombineRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCombineTransform", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCombineTransform_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCopyEnhMetaFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCopyEnhMetaFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCopyEnhMetaFileW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCopyEnhMetaFileW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCopyMetaFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCopyMetaFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCopyMetaFileW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCopyMetaFileW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCopyRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCopyRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateBitmap", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateBitmap_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateBitmapIndirect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateBitmapIndirect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateBrushIndirect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateBrushIndirect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateCompatibleBitmap", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateCompatibleBitmap_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateCompatibleDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateCompatibleDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDCA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDCA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDCW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDCW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrush", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrush_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrushPt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrushPt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDIBSection", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDIBSection_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDIBitmap", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDIBitmap_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateDiscardableBitmap", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateDiscardableBitmap_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateEllipticRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateEllipticRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateEllipticRgnIndirect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateEllipticRgnIndirect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontIndirectA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontIndirectA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontIndirectExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontIndirectExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontIndirectExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontIndirectExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontIndirectW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontIndirectW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontPackage", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontPackage_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateFontW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateFontW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateHalftonePalette", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateHalftonePalette_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateHatchBrush", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateHatchBrush_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateICA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateICA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateICW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateICW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateMetaFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateMetaFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateMetaFileW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateMetaFileW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreatePalette", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreatePalette_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreatePatternBrush", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreatePatternBrush_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreatePen", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreatePen_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreatePenIndirect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreatePenIndirect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreatePolyPolygonRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreatePolyPolygonRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreatePolygonRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreatePolygonRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateRectRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateRectRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateRectRgnIndirect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateRectRgnIndirect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateRoundRectRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateRoundRectRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateScalableFontResourceA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateScalableFontResourceA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateScalableFontResourceW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateScalableFontResourceW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiCreateSolidBrush", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiCreateSolidBrush_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDPtoLP", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDPtoLP_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDeleteDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDeleteDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDeleteEnhMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDeleteEnhMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDeleteMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDeleteMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDeleteObject", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDeleteObject_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawAnimatedRects", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawAnimatedRects_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawCaption", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawCaption_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawEdge", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawEdge_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawEscape", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawEscape_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawFocusRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawFocusRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawFrameControl", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawFrameControl_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawStateA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawStateA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawStateW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawStateW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawTextA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawTextA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawTextExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawTextExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawTextExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawTextExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiDrawTextW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiDrawTextW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEllipse", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEllipse_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEndPaint", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEndPaint_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEndPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEndPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplayMonitors", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplayMonitors_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumEnhMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumEnhMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumFontFamiliesA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumFontFamiliesA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumFontFamiliesW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumFontFamiliesW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumFontsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumFontsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumFontsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumFontsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEnumObjects", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEnumObjects_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEqualRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEqualRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiEqualRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiEqualRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExcludeClipRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExcludeClipRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExcludeUpdateRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExcludeUpdateRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExtCreatePen", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExtCreatePen_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExtCreateRegion", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExtCreateRegion_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExtFloodFill", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExtFloodFill_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExtSelectClipRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExtSelectClipRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExtTextOutA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExtTextOutA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiExtTextOutW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiExtTextOutW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFillPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFillPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFillRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFillRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFillRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFillRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFixBrushOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFixBrushOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFlattenPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFlattenPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFloodFill", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFloodFill_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFrameRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFrameRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiFrameRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiFrameRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGdiComment", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGdiComment_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGdiFlush", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGdiFlush_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGdiGetBatchLimit", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGdiGetBatchLimit_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGdiGradientFill", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGdiGradientFill_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGdiSetBatchLimit", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGdiSetBatchLimit_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGdiTransparentBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGdiTransparentBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetArcDirection", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetArcDirection_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetAspectRatioFilterEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetAspectRatioFilterEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetBitmapBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetBitmapBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetBitmapDimensionEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetBitmapDimensionEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetBkColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetBkColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetBkMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetBkMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetBoundsRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetBoundsRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetBrushOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetBrushOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharABCWidthsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharABCWidthsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharABCWidthsI", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharABCWidthsI_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharABCWidthsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharABCWidthsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidth32A", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidth32A_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidth32W", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidth32W_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidthA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidthA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidthFloatA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidthFloatA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidthFloatW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidthFloatW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidthI", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidthI_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharWidthW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharWidthW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharacterPlacementA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharacterPlacementA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCharacterPlacementW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCharacterPlacementW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetClipBox", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetClipBox_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetClipRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetClipRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetColorAdjustment", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetColorAdjustment_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCurrentObject", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCurrentObject_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetCurrentPositionEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetCurrentPositionEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDCBrushColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDCBrushColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDCEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDCEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDCOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDCOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDCPenColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDCPenColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDIBColorTable", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDIBColorTable_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDIBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDIBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetDeviceCaps", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetDeviceCaps_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFileBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFileBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFileHeader", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFileHeader_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFilePaletteEntries", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFilePaletteEntries_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetEnhMetaFileW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetEnhMetaFileW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetFontData", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetFontData_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetFontLanguageInfo", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetFontLanguageInfo_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetFontUnicodeRanges", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetFontUnicodeRanges_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetGlyphIndicesA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetGlyphIndicesA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetGlyphIndicesW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetGlyphIndicesW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetGlyphOutlineA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetGlyphOutlineA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetGlyphOutlineW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetGlyphOutlineW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetGraphicsMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetGraphicsMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetKerningPairsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetKerningPairsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetKerningPairsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetKerningPairsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetLayout", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetLayout_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMapMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMapMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMetaFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMetaFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMetaFileBitsEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMetaFileBitsEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMetaFileW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMetaFileW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMetaRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMetaRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMiterLimit", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMiterLimit_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMonitorInfoA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMonitorInfoA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetMonitorInfoW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetMonitorInfoW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetNearestColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetNearestColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetNearestPaletteIndex", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetNearestPaletteIndex_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetObjectA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetObjectA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetObjectType", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetObjectType_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetObjectW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetObjectW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetPaletteEntries", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetPaletteEntries_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetPixel", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetPixel_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetPolyFillMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetPolyFillMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetROP2", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetROP2_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetRandomRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetRandomRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetRasterizerCaps", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetRasterizerCaps_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetRegionData", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetRegionData_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetRgnBox", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetRgnBox_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetStockObject", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetStockObject_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetStretchBltMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetStretchBltMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetSysColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetSysColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetSysColorBrush", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetSysColorBrush_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetSystemPaletteEntries", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetSystemPaletteEntries_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetSystemPaletteUse", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetSystemPaletteUse_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextAlign", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextAlign_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextCharacterExtra", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextCharacterExtra_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentExPointA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentExPointA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentExPointI", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentExPointI_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentExPointW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentExPointW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32A", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32A_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32W", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32W_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentPointA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentPointA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentPointI", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentPointI_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextExtentPointW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextExtentPointW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextFaceA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextFaceA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextFaceW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextFaceW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextMetricsA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextMetricsA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetTextMetricsW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetTextMetricsW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetUpdateRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetUpdateRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetUpdateRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetUpdateRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetViewportExtEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetViewportExtEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetViewportOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetViewportOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWinMetaFileBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWinMetaFileBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWindowDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWindowDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWindowExtEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWindowExtEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWindowOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWindowOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWindowRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWindowRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWindowRgnBox", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWindowRgnBox_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGetWorldTransform", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGetWorldTransform_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGradientFill", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGradientFill_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGrayStringA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGrayStringA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiGrayStringW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiGrayStringW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiInflateRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiInflateRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiIntersectClipRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiIntersectClipRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiIntersectRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiIntersectRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiInvalidateRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiInvalidateRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiInvalidateRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiInvalidateRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiInvertRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiInvertRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiInvertRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiInvertRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiIsRectEmpty", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiIsRectEmpty_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiLPtoDP", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiLPtoDP_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiLineDDA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiLineDDA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiLineTo", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiLineTo_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiLoadBitmapA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiLoadBitmapA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiLoadBitmapW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiLoadBitmapW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiLockWindowUpdate", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiLockWindowUpdate_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiMapWindowPoints", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiMapWindowPoints_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiMaskBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiMaskBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiMergeFontPackage", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiMergeFontPackage_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiModifyWorldTransform", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiModifyWorldTransform_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiMonitorFromRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiMonitorFromRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiMonitorFromWindow", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiMonitorFromWindow_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiMoveToEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiMoveToEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiOffsetClipRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiOffsetClipRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiOffsetRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiOffsetRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiOffsetRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiOffsetRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiOffsetViewportOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiOffsetViewportOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiOffsetWindowOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiOffsetWindowOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPaintDesktop", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPaintDesktop_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPaintRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPaintRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPatBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPatBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPathToRegion", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPathToRegion_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPie", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPie_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPlayEnhMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPlayEnhMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPlayEnhMetaFileRecord", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPlayEnhMetaFileRecord_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPlayMetaFile", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPlayMetaFile_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPlayMetaFileRecord", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPlayMetaFileRecord_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPlgBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPlgBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyBezier", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyBezier_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyBezierTo", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyBezierTo_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyDraw", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyDraw_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyPolygon", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyPolygon_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyPolyline", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyPolyline_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyTextOutA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyTextOutA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyTextOutW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyTextOutW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolygon", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolygon_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolyline", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolyline_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPolylineTo", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPolylineTo_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPtInRegion", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPtInRegion_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiPtVisible", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiPtVisible_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRealizePalette", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRealizePalette_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRectInRegion", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRectInRegion_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRectVisible", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRectVisible_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRectangle", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRectangle_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRedrawWindow", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRedrawWindow_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiReleaseDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiReleaseDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRemoveFontMemResourceEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRemoveFontMemResourceEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRemoveFontResourceA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRemoveFontResourceA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRemoveFontResourceExA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRemoveFontResourceExA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRemoveFontResourceExW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRemoveFontResourceExW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRemoveFontResourceW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRemoveFontResourceW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiResetDCA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiResetDCA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiResetDCW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiResetDCW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiResizePalette", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiResizePalette_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRestoreDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRestoreDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiRoundRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiRoundRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSaveDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSaveDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiScaleViewportExtEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiScaleViewportExtEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiScaleWindowExtEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiScaleWindowExtEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiScreenToClient", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiScreenToClient_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSelectClipPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSelectClipPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSelectClipRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSelectClipRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSelectObject", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSelectObject_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSelectPalette", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSelectPalette_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetArcDirection", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetArcDirection_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetBitmapBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetBitmapBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetBitmapDimensionEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetBitmapDimensionEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetBkColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetBkColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetBkMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetBkMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetBoundsRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetBoundsRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetBrushOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetBrushOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetColorAdjustment", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetColorAdjustment_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetDCBrushColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetDCBrushColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetDCPenColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetDCPenColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetDIBColorTable", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetDIBColorTable_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetDIBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetDIBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetDIBitsToDevice", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetDIBitsToDevice_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetEnhMetaFileBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetEnhMetaFileBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetGraphicsMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetGraphicsMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetLayout", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetLayout_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetMapMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetMapMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetMapperFlags", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetMapperFlags_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetMetaFileBitsEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetMetaFileBitsEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetMetaRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetMetaRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetMiterLimit", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetMiterLimit_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetPaletteEntries", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetPaletteEntries_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetPixel", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetPixel_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetPixelV", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetPixelV_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetPolyFillMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetPolyFillMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetROP2", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetROP2_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetRectEmpty", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetRectEmpty_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetRectRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetRectRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetStretchBltMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetStretchBltMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetSysColors", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetSysColors_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetSystemPaletteUse", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetSystemPaletteUse_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetTextAlign", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetTextAlign_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetTextCharacterExtra", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetTextCharacterExtra_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetTextColor", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetTextColor_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetTextJustification", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetTextJustification_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetViewportExtEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetViewportExtEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetViewportOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetViewportOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetWindowExtEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetWindowExtEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetWindowOrgEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetWindowOrgEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetWindowRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetWindowRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSetWorldTransform", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSetWorldTransform_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiStretchBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiStretchBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiStretchDIBits", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiStretchDIBits_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiStrokeAndFillPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiStrokeAndFillPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiStrokePath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiStrokePath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiSubtractRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiSubtractRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTCharToUnicode", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTCharToUnicode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTDeleteEmbeddedFont", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTDeleteEmbeddedFont_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTEmbedFont", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTEmbedFont_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTEmbedFontEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTEmbedFontEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTEmbedFontFromFileA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTEmbedFontFromFileA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTEnableEmbeddingForFacename", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTEnableEmbeddingForFacename_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTGetEmbeddedFontInfo", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTGetEmbeddedFontInfo_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTGetEmbeddingType", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTGetEmbeddingType_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTGetNewFontName", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTGetNewFontName_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabled", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabled_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabledForFacename", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabledForFacename_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTLoadEmbeddedFont", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTLoadEmbeddedFont_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTRunValidationTests", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTRunValidationTests_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTTRunValidationTestsEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTTRunValidationTestsEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTabbedTextOutA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTabbedTextOutA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTabbedTextOutW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTabbedTextOutW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTextOutA", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTextOutA_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTextOutW", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTextOutW_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiTransparentBlt", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiTransparentBlt_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiUnionRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiUnionRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiUnrealizeObject", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiUnrealizeObject_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiUpdateColors", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiUpdateColors_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiUpdateWindow", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiUpdateWindow_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiValidateRect", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiValidateRect_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiValidateRgn", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiValidateRgn_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiWidenPath", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiWidenPath_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiWindowFromDC", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiWindowFromDC_napi));
+    exports.Set("windowssysWindowsWin32GraphicsGdiWglSwapMultipleBuffers", Napi::Function::New(env, windowssysWindowsWin32GraphicsGdiWglSwapMultipleBuffers_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_graphics_gdi_napi, nullptr };

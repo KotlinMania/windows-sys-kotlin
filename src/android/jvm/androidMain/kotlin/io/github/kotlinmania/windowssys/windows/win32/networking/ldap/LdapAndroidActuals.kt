@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
@@ -16,1468 +18,1468 @@ private object WindowsWin32NetworkingLdapJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetLastError(): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetLastError(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(ldaperror: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapMapErrorToWin32(ldaperror: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode(lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUTF8ToUnicode(lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8(lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8(lpsrcstr: Long, cchsrc: Int, lpdeststr: Long, cchdest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berAllocT(options: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapBerAllocT(options: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berBvdup(pberval: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapBerBvdup(pberval: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berBvecfree(pberval: Long)
+    external fun windowssysWindowsWin32NetworkingLdapBerBvecfree(pberval: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berBvfree(bv: Long)
+    external fun windowssysWindowsWin32NetworkingLdapBerBvfree(bv: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berFirstElement(pberelement: Long, plen: Long, ppopaque: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerFirstElement(pberelement: Long, plen: Long, ppopaque: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berFlatten(pberelement: Long, pberval: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerFlatten(pberelement: Long, pberval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berFree(pberelement: Long, fbuf: Int)
+    external fun windowssysWindowsWin32NetworkingLdapBerFree(pberelement: Long, fbuf: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berInit(pberval: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapBerInit(pberval: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berNextElement(pberelement: Long, plen: Long, opaque: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerNextElement(pberelement: Long, plen: Long, opaque: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berPeekTag(pberelement: Long, plen: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerPeekTag(pberelement: Long, plen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berPrintf(pberelement: Long, fmt: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerPrintf(pberelement: Long, fmt: Long, kmVac: Int, kmVa0: Long, kmVa1: Long, kmVa2: Long, kmVa3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berScanf(pberelement: Long, fmt: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerScanf(pberelement: Long, fmt: Long, kmVac: Int, kmVa0: Long, kmVa1: Long, kmVa2: Long, kmVa3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_berSkipTag(pberelement: Long, plen: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapBerSkipTag(pberelement: Long, plen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_cldapOpen(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapCldapOpen(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_cldapOpenA(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapCldapOpenA(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_cldapOpenW(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapCldapOpenW(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAbandon(ld: Long, msgid: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAbandon(ld: Long, msgid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAdd(ld: Long, dn: Long, attrs: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAdd(ld: Long, dn: Long, attrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddA(ld: Long, dn: Long, attrs: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddA(ld: Long, dn: Long, attrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddW(ld: Long, dn: Long, attrs: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddW(ld: Long, dn: Long, attrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddExt(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddExt(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddExtA(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddExtA(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddExtW(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddExtW(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddExtS(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddExtS(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddExtSA(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddExtSA(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddExtSW(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddExtSW(ld: Long, dn: Long, attrs: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddS(ld: Long, dn: Long, attrs: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddS(ld: Long, dn: Long, attrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddSA(ld: Long, dn: Long, attrs: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddSA(ld: Long, dn: Long, attrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapAddSW(ld: Long, dn: Long, attrs: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapAddSW(ld: Long, dn: Long, attrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapBind(ld: Long, dn: Long, cred: Long, method: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapBind(ld: Long, dn: Long, cred: Long, method: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapBindA(ld: Long, dn: Long, cred: Long, method: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapBindA(ld: Long, dn: Long, cred: Long, method: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapBindW(ld: Long, dn: Long, cred: Long, method: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapBindW(ld: Long, dn: Long, cred: Long, method: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapBindS(ld: Long, dn: Long, cred: Long, method: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapBindS(ld: Long, dn: Long, cred: Long, method: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapBindSA(ld: Long, dn: Long, cred: Long, method: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapBindSA(ld: Long, dn: Long, cred: Long, method: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapBindSW(ld: Long, dn: Long, cred: Long, method: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapBindSW(ld: Long, dn: Long, cred: Long, method: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCheckFilterA(ld: Long, searchfilter: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCheckFilterA(ld: Long, searchfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCheckFilterW(ld: Long, searchfilter: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCheckFilterW(ld: Long, searchfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCleanup(hinstance: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCleanup(hinstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp(ld: Long, messagenumber: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp(ld: Long, messagenumber: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompare(ld: Long, dn: Long, attr: Long, value: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompare(ld: Long, dn: Long, attr: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareA(ld: Long, dn: Long, attr: Long, value: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareA(ld: Long, dn: Long, attr: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareW(ld: Long, dn: Long, attr: Long, value: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareW(ld: Long, dn: Long, attr: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareExt(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareExt(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareExtA(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareExtA(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareExtW(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareExtW(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareExtS(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareExtS(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareExtSA(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareExtSA(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareExtSW(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareExtSW(ld: Long, dn: Long, attr: Long, value: Long, data: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareS(ld: Long, dn: Long, attr: Long, value: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareS(ld: Long, dn: Long, attr: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareSA(ld: Long, dn: Long, attr: Long, value: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareSA(ld: Long, dn: Long, attr: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCompareSW(ld: Long, dn: Long, attr: Long, value: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCompareSW(ld: Long, dn: Long, attr: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapConnFromMsg(primaryconn: Long, res: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapConnFromMsg(primaryconn: Long, res: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapConnect(ld: Long, timeout: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapConnect(ld: Long, timeout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapControlFree(control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapControlFree(control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapControlFreeA(controls: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapControlFreeA(controls: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapControlFreeW(control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapControlFreeW(control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapControlsFree(controls: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapControlsFree(controls: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapControlsFreeA(controls: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapControlsFreeA(controls: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapControlsFreeW(control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapControlsFreeW(control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCountEntries(ld: Long, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCountEntries(ld: Long, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCountReferences(ld: Long, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCountReferences(ld: Long, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCountValues(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCountValues(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCountValuesA(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCountValuesA(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCountValuesW(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCountValuesW(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCountValuesLen(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCountValuesLen(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreatePageControl(externalhandle: Long, pagesize: Int, cookie: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreatePageControl(externalhandle: Long, pagesize: Int, cookie: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreatePageControlA(externalhandle: Long, pagesize: Int, cookie: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA(externalhandle: Long, pagesize: Int, cookie: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreatePageControlW(externalhandle: Long, pagesize: Int, cookie: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW(externalhandle: Long, pagesize: Int, cookie: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreateSortControl(externalhandle: Long, sortkeys: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreateSortControl(externalhandle: Long, sortkeys: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreateSortControlA(externalhandle: Long, sortkeys: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA(externalhandle: Long, sortkeys: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreateSortControlW(externalhandle: Long, sortkeys: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW(externalhandle: Long, sortkeys: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA(externalhandle: Long, vlvinfo: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA(externalhandle: Long, vlvinfo: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW(externalhandle: Long, vlvinfo: Long, iscritical: Byte, control: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW(externalhandle: Long, vlvinfo: Long, iscritical: Byte, control: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDelete(ld: Long, dn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDelete(ld: Long, dn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteA(ld: Long, dn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteA(ld: Long, dn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteW(ld: Long, dn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteW(ld: Long, dn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteExt(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteExt(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteExtA(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteExtA(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteExtW(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteExtW(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteExtS(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteExtS(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteExtSA(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteExtSW(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW(ld: Long, dn: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteS(ld: Long, dn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteS(ld: Long, dn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteSA(ld: Long, dn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteSA(ld: Long, dn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDeleteSW(ld: Long, dn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapDeleteSW(ld: Long, dn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDn2ufn(dn: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapDn2ufn(dn: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDn2ufnA(dn: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapDn2ufnA(dn: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapDn2ufnW(dn: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapDn2ufnW(dn: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapErr2string(err: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapErr2string(err: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapErr2stringA(err: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapErr2stringA(err: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapErr2stringW(err: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapErr2stringW(err: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement(sourcefilterelement: Long, sourcelength: Int, destfilterelement: Long, destlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElement(sourcefilterelement: Long, sourcelength: Int, destfilterelement: Long, destlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA(sourcefilterelement: Long, sourcelength: Int, destfilterelement: Long, destlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementA(sourcefilterelement: Long, sourcelength: Int, destfilterelement: Long, destlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW(sourcefilterelement: Long, sourcelength: Int, destfilterelement: Long, destlength: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW(sourcefilterelement: Long, sourcelength: Int, destfilterelement: Long, destlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExplodeDn(dn: Long, notypes: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapExplodeDn(dn: Long, notypes: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExplodeDnA(dn: Long, notypes: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapExplodeDnA(dn: Long, notypes: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExplodeDnW(dn: Long, notypes: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapExplodeDnW(dn: Long, notypes: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExtendedOperation(ld: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapExtendedOperation(ld: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExtendedOperationA(ld: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA(ld: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExtendedOperationW(ld: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW(ld: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA(externalhandle: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA(externalhandle: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW(externalhandle: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW(externalhandle: Long, oid: Long, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFirstAttribute(ld: Long, entry: Long, ptr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapFirstAttribute(ld: Long, entry: Long, ptr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFirstAttributeA(ld: Long, entry: Long, ptr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA(ld: Long, entry: Long, ptr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFirstAttributeW(ld: Long, entry: Long, ptr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW(ld: Long, entry: Long, ptr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFirstEntry(ld: Long, res: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapFirstEntry(ld: Long, res: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFirstReference(ld: Long, res: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapFirstReference(ld: Long, res: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFreeControls(controls: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapFreeControls(controls: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFreeControlsA(controls: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapFreeControlsA(controls: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapFreeControlsW(controls: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapFreeControlsW(controls: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetDn(ld: Long, entry: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetDn(ld: Long, entry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetDnA(ld: Long, entry: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetDnA(ld: Long, entry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetDnW(ld: Long, entry: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetDnW(ld: Long, entry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetNextPage(externalhandle: Long, searchhandle: Long, pagesize: Int, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetNextPage(externalhandle: Long, searchhandle: Long, pagesize: Int, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetNextPageS(externalhandle: Long, searchhandle: Long, timeout: Long, pagesize: Int, totalcount: Long, results: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetNextPageS(externalhandle: Long, searchhandle: Long, timeout: Long, pagesize: Int, totalcount: Long, results: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetOption(ld: Long, option: Int, outvalue: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetOption(ld: Long, option: Int, outvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetOptionW(ld: Long, option: Int, outvalue: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetOptionW(ld: Long, option: Int, outvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetPagedCount(externalhandle: Long, searchblock: Long, totalcount: Long, results: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetPagedCount(externalhandle: Long, searchblock: Long, totalcount: Long, results: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetValues(ld: Long, entry: Long, attr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetValues(ld: Long, entry: Long, attr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetValuesA(ld: Long, entry: Long, attr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetValuesA(ld: Long, entry: Long, attr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetValuesW(ld: Long, entry: Long, attr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetValuesW(ld: Long, entry: Long, attr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetValuesLen(externalhandle: Long, message: Long, attr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetValuesLen(externalhandle: Long, message: Long, attr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetValuesLenA(externalhandle: Long, message: Long, attr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA(externalhandle: Long, message: Long, attr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapGetValuesLenW(externalhandle: Long, message: Long, attr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW(externalhandle: Long, message: Long, attr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapInit(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapInit(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapInitA(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapInitA(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapInitW(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapInitW(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapMemfree(block: Long)
+    external fun windowssysWindowsWin32NetworkingLdapLdapMemfree(block: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapMemfreeA(block: Long)
+    external fun windowssysWindowsWin32NetworkingLdapLdapMemfreeA(block: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapMemfreeW(block: Long)
+    external fun windowssysWindowsWin32NetworkingLdapLdapMemfreeW(block: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModify(ld: Long, dn: Long, mods: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModify(ld: Long, dn: Long, mods: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyA(ld: Long, dn: Long, mods: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyA(ld: Long, dn: Long, mods: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyW(ld: Long, dn: Long, mods: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyW(ld: Long, dn: Long, mods: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyExt(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyExt(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyExtA(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyExtA(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyExtW(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyExtW(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyExtS(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyExtS(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyExtSA(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyExtSA(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyExtSW(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyExtSW(ld: Long, dn: Long, mods: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifyS(ld: Long, dn: Long, mods: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifyS(ld: Long, dn: Long, mods: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifySA(ld: Long, dn: Long, mods: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifySA(ld: Long, dn: Long, mods: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModifySW(ld: Long, dn: Long, mods: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModifySW(ld: Long, dn: Long, mods: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn2(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn2(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn2A(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn2A(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn2W(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn2W(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn2S(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn2S(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn2SA(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn2SA(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdn2SW(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdn2SW(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long, deleteoldrdn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdnA(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdnA(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdnW(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdnW(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdnS(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdnS(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdnSA(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdnSA(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapModrdnSW(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapModrdnSW(externalhandle: Long, distinguishedname: Long, newdistinguishedname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapMsgfree(res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapMsgfree(res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapNextAttribute(ld: Long, entry: Long, ptr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapNextAttribute(ld: Long, entry: Long, ptr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapNextAttributeA(ld: Long, entry: Long, ptr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapNextAttributeA(ld: Long, entry: Long, ptr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapNextAttributeW(ld: Long, entry: Long, ptr: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapNextAttributeW(ld: Long, entry: Long, ptr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapNextEntry(ld: Long, entry: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapNextEntry(ld: Long, entry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapNextReference(ld: Long, entry: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapNextReference(ld: Long, entry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapOpen(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapOpen(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapOpenA(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapOpenA(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapOpenW(hostname: Long, portnumber: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapOpenW(hostname: Long, portnumber: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParsePageControl(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParsePageControl(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParsePageControlA(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParsePageControlA(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParsePageControlW(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParsePageControlW(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseReference(connection: Long, resultmessage: Long, referrals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseReference(connection: Long, resultmessage: Long, referrals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseReferenceA(connection: Long, resultmessage: Long, referrals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseReferenceA(connection: Long, resultmessage: Long, referrals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseReferenceW(connection: Long, resultmessage: Long, referrals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseReferenceW(connection: Long, resultmessage: Long, referrals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseResult(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseResult(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseResultA(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseResultA(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseResultW(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseResultW(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseSortControl(externalhandle: Long, control: Long, result: Long, attribute: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseSortControl(externalhandle: Long, control: Long, result: Long, attribute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseSortControlA(externalhandle: Long, control: Long, result: Long, attribute: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseSortControlA(externalhandle: Long, control: Long, result: Long, attribute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseSortControlW(externalhandle: Long, control: Long, result: Long, attribute: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseSortControlW(externalhandle: Long, control: Long, result: Long, attribute: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseVlvControlA(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapParseVlvControlW(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapPerror(ld: Long, msg: Long)
+    external fun windowssysWindowsWin32NetworkingLdapLdapPerror(ld: Long, msg: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapRenameExt(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapRenameExt(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapRenameExtA(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapRenameExtA(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapRenameExtW(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapRenameExtW(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapRenameExtS(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapRenameExtS(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapRenameExtSA(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapRenameExtSA(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapRenameExtSW(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapRenameExtSW(ld: Long, dn: Long, newrdn: Long, newparent: Long, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapResult(ld: Long, msgid: Int, all: Int, timeout: Long, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapResult(ld: Long, msgid: Int, all: Int, timeout: Long, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapResult2error(ld: Long, res: Long, freeit: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapResult2error(ld: Long, res: Long, freeit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSaslBindA(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSaslBindA(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSaslBindW(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSaslBindW(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSaslBindSA(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSaslBindSA(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSaslBindSW(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSaslBindSW(externalhandle: Long, distname: Long, authmechanism: Long, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearch(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearch(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(externalhandle: Long, searchblock: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage(externalhandle: Long, searchblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchExt(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timelimit: Int, sizelimit: Int, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchExt(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timelimit: Int, sizelimit: Int, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchExtA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timelimit: Int, sizelimit: Int, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchExtA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timelimit: Int, sizelimit: Int, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchExtW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timelimit: Int, sizelimit: Int, messagenumber: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchExtW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timelimit: Int, sizelimit: Int, messagenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchExtS(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchExtS(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchExtSA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchExtSA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchExtSW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchExtSW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPage(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchInitPage(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchS(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchS(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchSA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchSA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchSW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchSW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchSt(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, timeout: Long, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchSt(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, timeout: Long, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchStA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, timeout: Long, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchStA(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, timeout: Long, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchStW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, timeout: Long, res: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSearchStW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, timeout: Long, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(newflags: Int): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSetDbgFlags(newflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(debugprintroutine: Long)
+    external fun windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine(debugprintroutine: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSetOption(ld: Long, option: Int, invalue: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSetOption(ld: Long, option: Int, invalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSetOptionW(ld: Long, option: Int, invalue: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSetOptionW(ld: Long, option: Int, invalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSimpleBind(ld: Long, dn: Long, passwd: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSimpleBind(ld: Long, dn: Long, passwd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSimpleBindA(ld: Long, dn: Long, passwd: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSimpleBindA(ld: Long, dn: Long, passwd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSimpleBindW(ld: Long, dn: Long, passwd: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSimpleBindW(ld: Long, dn: Long, passwd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSimpleBindS(ld: Long, dn: Long, passwd: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSimpleBindS(ld: Long, dn: Long, passwd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSimpleBindSA(ld: Long, dn: Long, passwd: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA(ld: Long, dn: Long, passwd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSimpleBindSW(ld: Long, dn: Long, passwd: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW(ld: Long, dn: Long, passwd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSslinit(hostname: Long, portnumber: Int, secure: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapSslinit(hostname: Long, portnumber: Int, secure: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSslinitA(hostname: Long, portnumber: Int, secure: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapSslinitA(hostname: Long, portnumber: Int, secure: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSslinitW(hostname: Long, portnumber: Int, secure: Int): Long
+    external fun windowssysWindowsWin32NetworkingLdapLdapSslinitW(hostname: Long, portnumber: Int, secure: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapStartTlsSA(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapStartTlsSA(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapStartTlsSW(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapStartTlsSW(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapStartup(version: Long, instance: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapStartup(version: Long, instance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapStopTlsS(externalhandle: Long): Boolean
+    external fun windowssysWindowsWin32NetworkingLdapLdapStopTlsS(externalhandle: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUfn2dn(ufn: Long, pdn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUfn2dn(ufn: Long, pdn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUfn2dnA(ufn: Long, pdn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUfn2dnA(ufn: Long, pdn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUfn2dnW(ufn: Long, pdn: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUfn2dnW(ufn: Long, pdn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUnbind(ld: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUnbind(ld: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapUnbindS(ld: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapUnbindS(ld: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapValueFree(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapValueFree(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapValueFreeA(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapValueFreeA(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapValueFreeW(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapValueFreeW(vals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapValueFreeLen(vals: Long): Int
+    external fun windowssysWindowsWin32NetworkingLdapLdapValueFreeLen(vals: Long): Int
 }
 
 public actual fun ldapGetLastError(): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetLastError().toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetLastError().toUInt()
 
 public actual fun ldapMapErrorToWin32(ldaperror: UInt): Win32Error =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(ldaperror.toInt()).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapMapErrorToWin32(ldaperror.toInt()).toUInt()
 
 public actual fun ldapUTF8ToUnicode(lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode((lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest)
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUTF8ToUnicode(lpsrcstr.rawAddress, cchsrc, lpdeststr.rawAddress, cchdest)
 
 public actual fun ldapUnicodeToUTF8(lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8((lpsrcstr?.value ?: 0L), cchsrc, (lpdeststr?.value ?: 0L), cchdest)
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8(lpsrcstr.rawAddress, cchsrc, lpdeststr.rawAddress, cchdest)
 
-public actual fun berAllocT(options: Int): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berAllocT(options).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun berAllocT(options: Int): MutPtr<BerElement> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerAllocT(options))
 
-public actual fun berBvdup(pberval: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berBvdup((pberval?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun berBvdup(pberval: MutPtr<LdapBerval>): MutPtr<LdapBerval> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerBvdup(pberval.rawAddress))
 
-public actual fun berBvecfree(pberval: COpaquePointer?) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berBvecfree((pberval?.value ?: 0L))
+public actual fun berBvecfree(pberval: MutPtr<MutPtr<LdapBerval>>) {
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerBvecfree(pberval.rawAddress)
 }
 
-public actual fun berBvfree(bv: COpaquePointer?) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berBvfree((bv?.value ?: 0L))
+public actual fun berBvfree(bv: MutPtr<LdapBerval>) {
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerBvfree(bv.rawAddress)
 }
 
-public actual fun berFirstElement(pberelement: COpaquePointer?, plen: COpaquePointer?, ppopaque: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berFirstElement((pberelement?.value ?: 0L), (plen?.value ?: 0L), (ppopaque?.value ?: 0L)).toUInt()
+public actual fun berFirstElement(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>, ppopaque: MutPtr<MutPtr<Byte>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerFirstElement(pberelement.rawAddress, plen.rawAddress, ppopaque.rawAddress).toUInt()
 
-public actual fun berFlatten(pberelement: COpaquePointer?, pberval: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berFlatten((pberelement?.value ?: 0L), (pberval?.value ?: 0L))
+public actual fun berFlatten(pberelement: MutPtr<BerElement>, pberval: MutPtr<MutPtr<LdapBerval>>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerFlatten(pberelement.rawAddress, pberval.rawAddress)
 
-public actual fun berFree(pberelement: COpaquePointer?, fbuf: Int) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berFree((pberelement?.value ?: 0L), fbuf)
+public actual fun berFree(pberelement: MutPtr<BerElement>, fbuf: Int) {
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerFree(pberelement.rawAddress, fbuf)
 }
 
-public actual fun berInit(pberval: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berInit((pberval?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun berInit(pberval: MutPtr<LdapBerval>): MutPtr<BerElement> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerInit(pberval.rawAddress))
 
-public actual fun berNextElement(pberelement: COpaquePointer?, plen: COpaquePointer?, opaque: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berNextElement((pberelement?.value ?: 0L), (plen?.value ?: 0L), (opaque?.value ?: 0L)).toUInt()
+public actual fun berNextElement(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>, opaque: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerNextElement(pberelement.rawAddress, plen.rawAddress, opaque.rawAddress).toUInt()
 
-public actual fun berPeekTag(pberelement: COpaquePointer?, plen: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berPeekTag((pberelement?.value ?: 0L), (plen?.value ?: 0L)).toUInt()
+public actual fun berPeekTag(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerPeekTag(pberelement.rawAddress, plen.rawAddress).toUInt()
 
-public actual fun berPrintf(pberelement: COpaquePointer?, fmt: Pcstr, vararg variadicArgs: Long): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berPrintf((pberelement?.value ?: 0L), (fmt?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+public actual fun berPrintf(pberelement: MutPtr<BerElement>, fmt: Pcstr, vararg variadicArgs: Long): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerPrintf(pberelement.rawAddress, fmt.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun berScanf(pberelement: COpaquePointer?, fmt: Pcstr, vararg variadicArgs: Long): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berScanf((pberelement?.value ?: 0L), (fmt?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L).toUInt()
+public actual fun berScanf(pberelement: MutPtr<BerElement>, fmt: Pcstr, vararg variadicArgs: Long): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerScanf(pberelement.rawAddress, fmt.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L).toUInt()
 
-public actual fun berSkipTag(pberelement: COpaquePointer?, plen: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_berSkipTag((pberelement?.value ?: 0L), (plen?.value ?: 0L)).toUInt()
+public actual fun berSkipTag(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapBerSkipTag(pberelement.rawAddress, plen.rawAddress).toUInt()
 
-public actual fun cldapOpen(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_cldapOpen((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cldapOpen(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapCldapOpen(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun cldapOpenA(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_cldapOpenA((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cldapOpenA(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapCldapOpenA(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun cldapOpenW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_cldapOpenW((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cldapOpenW(hostname: Pcwstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapCldapOpenW(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun ldapAbandon(ld: COpaquePointer?, msgid: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAbandon((ld?.value ?: 0L), msgid.toInt()).toUInt()
+public actual fun ldapAbandon(ld: MutPtr<Ldap>, msgid: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAbandon(ld.rawAddress, msgid.toInt()).toUInt()
 
-public actual fun ldapAdd(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAdd((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L)).toUInt()
+public actual fun ldapAdd(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAdd(ld.rawAddress, dn.rawAddress, attrs.rawAddress).toUInt()
 
-public actual fun ldapAddA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddA((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L)).toUInt()
+public actual fun ldapAddA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddA(ld.rawAddress, dn.rawAddress, attrs.rawAddress).toUInt()
 
-public actual fun ldapAddW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddW((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L)).toUInt()
+public actual fun ldapAddW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddW(ld.rawAddress, dn.rawAddress, attrs.rawAddress).toUInt()
 
-public actual fun ldapAddExt(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddExt((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapAddExt(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddExt(ld.rawAddress, dn.rawAddress, attrs.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapAddExtA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddExtA((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapAddExtA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddExtA(ld.rawAddress, dn.rawAddress, attrs.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapAddExtW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddExtW((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapAddExtW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddExtW(ld.rawAddress, dn.rawAddress, attrs.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapAddExtS(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddExtS((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapAddExtS(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddExtS(ld.rawAddress, dn.rawAddress, attrs.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapAddExtSA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddExtSA((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapAddExtSA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddExtSA(ld.rawAddress, dn.rawAddress, attrs.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapAddExtSW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddExtSW((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapAddExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddExtSW(ld.rawAddress, dn.rawAddress, attrs.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapAddS(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddS((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L)).toUInt()
+public actual fun ldapAddS(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddS(ld.rawAddress, dn.rawAddress, attrs.rawAddress).toUInt()
 
-public actual fun ldapAddSA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddSA((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L)).toUInt()
+public actual fun ldapAddSA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddSA(ld.rawAddress, dn.rawAddress, attrs.rawAddress).toUInt()
 
-public actual fun ldapAddSW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapAddSW((ld?.value ?: 0L), (dn?.value ?: 0L), (attrs?.value ?: 0L)).toUInt()
+public actual fun ldapAddSW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapAddSW(ld.rawAddress, dn.rawAddress, attrs.rawAddress).toUInt()
 
-public actual fun ldapBind(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapBind((ld?.value ?: 0L), (dn?.value ?: 0L), (cred?.value ?: 0L), method.toInt()).toUInt()
+public actual fun ldapBind(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapBind(ld.rawAddress, dn.rawAddress, cred.rawAddress, method.toInt()).toUInt()
 
-public actual fun ldapBindA(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapBindA((ld?.value ?: 0L), (dn?.value ?: 0L), (cred?.value ?: 0L), method.toInt()).toUInt()
+public actual fun ldapBindA(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapBindA(ld.rawAddress, dn.rawAddress, cred.rawAddress, method.toInt()).toUInt()
 
-public actual fun ldapBindW(ld: COpaquePointer?, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapBindW((ld?.value ?: 0L), (dn?.value ?: 0L), (cred?.value ?: 0L), method.toInt()).toUInt()
+public actual fun ldapBindW(ld: MutPtr<Ldap>, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapBindW(ld.rawAddress, dn.rawAddress, cred.rawAddress, method.toInt()).toUInt()
 
-public actual fun ldapBindS(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapBindS((ld?.value ?: 0L), (dn?.value ?: 0L), (cred?.value ?: 0L), method.toInt()).toUInt()
+public actual fun ldapBindS(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapBindS(ld.rawAddress, dn.rawAddress, cred.rawAddress, method.toInt()).toUInt()
 
-public actual fun ldapBindSA(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapBindSA((ld?.value ?: 0L), (dn?.value ?: 0L), (cred?.value ?: 0L), method.toInt()).toUInt()
+public actual fun ldapBindSA(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapBindSA(ld.rawAddress, dn.rawAddress, cred.rawAddress, method.toInt()).toUInt()
 
-public actual fun ldapBindSW(ld: COpaquePointer?, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapBindSW((ld?.value ?: 0L), (dn?.value ?: 0L), (cred?.value ?: 0L), method.toInt()).toUInt()
+public actual fun ldapBindSW(ld: MutPtr<Ldap>, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapBindSW(ld.rawAddress, dn.rawAddress, cred.rawAddress, method.toInt()).toUInt()
 
-public actual fun ldapCheckFilterA(ld: COpaquePointer?, searchfilter: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCheckFilterA((ld?.value ?: 0L), (searchfilter?.value ?: 0L)).toUInt()
+public actual fun ldapCheckFilterA(ld: MutPtr<Ldap>, searchfilter: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCheckFilterA(ld.rawAddress, searchfilter.rawAddress).toUInt()
 
-public actual fun ldapCheckFilterW(ld: COpaquePointer?, searchfilter: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCheckFilterW((ld?.value ?: 0L), (searchfilter?.value ?: 0L)).toUInt()
+public actual fun ldapCheckFilterW(ld: MutPtr<Ldap>, searchfilter: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCheckFilterW(ld.rawAddress, searchfilter.rawAddress).toUInt()
 
 public actual fun ldapCleanup(hinstance: Handle): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCleanup((hinstance?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCleanup(hinstance.rawAddress).toUInt()
 
-public actual fun ldapCloseExtendedOp(ld: COpaquePointer?, messagenumber: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp((ld?.value ?: 0L), messagenumber.toInt()).toUInt()
+public actual fun ldapCloseExtendedOp(ld: MutPtr<Ldap>, messagenumber: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp(ld.rawAddress, messagenumber.toInt()).toUInt()
 
-public actual fun ldapCompare(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompare((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L)).toUInt()
+public actual fun ldapCompare(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompare(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress).toUInt()
 
-public actual fun ldapCompareA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareA((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L)).toUInt()
+public actual fun ldapCompareA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareA(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress).toUInt()
 
-public actual fun ldapCompareW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareW((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L)).toUInt()
+public actual fun ldapCompareW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareW(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress).toUInt()
 
-public actual fun ldapCompareExt(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareExt((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapCompareExt(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareExt(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapCompareExtA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareExtA((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapCompareExtA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareExtA(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapCompareExtW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareExtW((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapCompareExtW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareExtW(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapCompareExtS(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareExtS((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapCompareExtS(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareExtS(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapCompareExtSA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareExtSA((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapCompareExtSA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareExtSA(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapCompareExtSW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareExtSW((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapCompareExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareExtSW(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapCompareS(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareS((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L)).toUInt()
+public actual fun ldapCompareS(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareS(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress).toUInt()
 
-public actual fun ldapCompareSA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareSA((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L)).toUInt()
+public actual fun ldapCompareSA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareSA(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress).toUInt()
 
-public actual fun ldapCompareSW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCompareSW((ld?.value ?: 0L), (dn?.value ?: 0L), (attr?.value ?: 0L), (value?.value ?: 0L)).toUInt()
+public actual fun ldapCompareSW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCompareSW(ld.rawAddress, dn.rawAddress, attr.rawAddress, value.rawAddress).toUInt()
 
-public actual fun ldapConnFromMsg(primaryconn: COpaquePointer?, res: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapConnFromMsg((primaryconn?.value ?: 0L), (res?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapConnFromMsg(primaryconn: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapConnFromMsg(primaryconn.rawAddress, res.rawAddress))
 
-public actual fun ldapConnect(ld: COpaquePointer?, timeout: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapConnect((ld?.value ?: 0L), (timeout?.value ?: 0L)).toUInt()
+public actual fun ldapConnect(ld: MutPtr<Ldap>, timeout: MutPtr<LdapTimeval>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapConnect(ld.rawAddress, timeout.rawAddress).toUInt()
 
-public actual fun ldapControlFree(control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapControlFree((control?.value ?: 0L)).toUInt()
+public actual fun ldapControlFree(control: MutPtr<LDAPControlA>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapControlFree(control.rawAddress).toUInt()
 
-public actual fun ldapControlFreeA(controls: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapControlFreeA((controls?.value ?: 0L)).toUInt()
+public actual fun ldapControlFreeA(controls: MutPtr<LDAPControlA>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapControlFreeA(controls.rawAddress).toUInt()
 
-public actual fun ldapControlFreeW(control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapControlFreeW((control?.value ?: 0L)).toUInt()
+public actual fun ldapControlFreeW(control: MutPtr<LDAPControlW>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapControlFreeW(control.rawAddress).toUInt()
 
-public actual fun ldapControlsFree(controls: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapControlsFree((controls?.value ?: 0L)).toUInt()
+public actual fun ldapControlsFree(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapControlsFree(controls.rawAddress).toUInt()
 
-public actual fun ldapControlsFreeA(controls: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapControlsFreeA((controls?.value ?: 0L)).toUInt()
+public actual fun ldapControlsFreeA(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapControlsFreeA(controls.rawAddress).toUInt()
 
-public actual fun ldapControlsFreeW(control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapControlsFreeW((control?.value ?: 0L)).toUInt()
+public actual fun ldapControlsFreeW(control: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapControlsFreeW(control.rawAddress).toUInt()
 
-public actual fun ldapCountEntries(ld: COpaquePointer?, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCountEntries((ld?.value ?: 0L), (res?.value ?: 0L)).toUInt()
+public actual fun ldapCountEntries(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCountEntries(ld.rawAddress, res.rawAddress).toUInt()
 
-public actual fun ldapCountReferences(ld: COpaquePointer?, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCountReferences((ld?.value ?: 0L), (res?.value ?: 0L)).toUInt()
+public actual fun ldapCountReferences(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCountReferences(ld.rawAddress, res.rawAddress).toUInt()
 
-public actual fun ldapCountValues(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCountValues((vals?.value ?: 0L)).toUInt()
+public actual fun ldapCountValues(vals: ConstPtr<Pcstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCountValues(vals.rawAddress).toUInt()
 
-public actual fun ldapCountValuesA(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCountValuesA((vals?.value ?: 0L)).toUInt()
+public actual fun ldapCountValuesA(vals: ConstPtr<Pcstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCountValuesA(vals.rawAddress).toUInt()
 
-public actual fun ldapCountValuesW(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCountValuesW((vals?.value ?: 0L)).toUInt()
+public actual fun ldapCountValuesW(vals: ConstPtr<Pcwstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCountValuesW(vals.rawAddress).toUInt()
 
-public actual fun ldapCountValuesLen(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCountValuesLen((vals?.value ?: 0L)).toUInt()
+public actual fun ldapCountValuesLen(vals: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCountValuesLen(vals.rawAddress).toUInt()
 
-public actual fun ldapCreatePageControl(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreatePageControl((externalhandle?.value ?: 0L), pagesize.toInt(), (cookie?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L)).toUInt()
+public actual fun ldapCreatePageControl(externalhandle: MutPtr<Ldap>, pagesize: UInt, cookie: MutPtr<LdapBerval>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreatePageControl(externalhandle.rawAddress, pagesize.toInt(), cookie.rawAddress, iscritical.toByte(), control.rawAddress).toUInt()
 
-public actual fun ldapCreatePageControlA(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreatePageControlA((externalhandle?.value ?: 0L), pagesize.toInt(), (cookie?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L)).toUInt()
+public actual fun ldapCreatePageControlA(externalhandle: MutPtr<Ldap>, pagesize: UInt, cookie: MutPtr<LdapBerval>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA(externalhandle.rawAddress, pagesize.toInt(), cookie.rawAddress, iscritical.toByte(), control.rawAddress).toUInt()
 
-public actual fun ldapCreatePageControlW(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreatePageControlW((externalhandle?.value ?: 0L), pagesize.toInt(), (cookie?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L)).toUInt()
+public actual fun ldapCreatePageControlW(externalhandle: MutPtr<Ldap>, pagesize: UInt, cookie: MutPtr<LdapBerval>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW(externalhandle.rawAddress, pagesize.toInt(), cookie.rawAddress, iscritical.toByte(), control.rawAddress).toUInt()
 
-public actual fun ldapCreateSortControl(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreateSortControl((externalhandle?.value ?: 0L), (sortkeys?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L)).toUInt()
+public actual fun ldapCreateSortControl(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreateSortControl(externalhandle.rawAddress, sortkeys.rawAddress, iscritical.toByte(), control.rawAddress).toUInt()
 
-public actual fun ldapCreateSortControlA(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreateSortControlA((externalhandle?.value ?: 0L), (sortkeys?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L)).toUInt()
+public actual fun ldapCreateSortControlA(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA(externalhandle.rawAddress, sortkeys.rawAddress, iscritical.toByte(), control.rawAddress).toUInt()
 
-public actual fun ldapCreateSortControlW(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreateSortControlW((externalhandle?.value ?: 0L), (sortkeys?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L)).toUInt()
+public actual fun ldapCreateSortControlW(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyW>>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW(externalhandle.rawAddress, sortkeys.rawAddress, iscritical.toByte(), control.rawAddress).toUInt()
 
-public actual fun ldapCreateVlvControlA(externalhandle: COpaquePointer?, vlvinfo: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA((externalhandle?.value ?: 0L), (vlvinfo?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L))
+public actual fun ldapCreateVlvControlA(externalhandle: MutPtr<Ldap>, vlvinfo: MutPtr<LDAPVLVInfo>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA(externalhandle.rawAddress, vlvinfo.rawAddress, iscritical.toByte(), control.rawAddress)
 
-public actual fun ldapCreateVlvControlW(externalhandle: COpaquePointer?, vlvinfo: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW((externalhandle?.value ?: 0L), (vlvinfo?.value ?: 0L), iscritical.toByte(), (control?.value ?: 0L))
+public actual fun ldapCreateVlvControlW(externalhandle: MutPtr<Ldap>, vlvinfo: MutPtr<LDAPVLVInfo>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlW>>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW(externalhandle.rawAddress, vlvinfo.rawAddress, iscritical.toByte(), control.rawAddress)
 
-public actual fun ldapDelete(ld: COpaquePointer?, dn: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDelete((ld?.value ?: 0L), (dn?.value ?: 0L)).toUInt()
+public actual fun ldapDelete(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDelete(ld.rawAddress, dn.rawAddress).toUInt()
 
-public actual fun ldapDeleteA(ld: COpaquePointer?, dn: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteA((ld?.value ?: 0L), (dn?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteA(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteA(ld.rawAddress, dn.rawAddress).toUInt()
 
-public actual fun ldapDeleteW(ld: COpaquePointer?, dn: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteW((ld?.value ?: 0L), (dn?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteW(ld: MutPtr<Ldap>, dn: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteW(ld.rawAddress, dn.rawAddress).toUInt()
 
-public actual fun ldapDeleteExt(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteExt((ld?.value ?: 0L), (dn?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteExt(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteExt(ld.rawAddress, dn.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapDeleteExtA(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteExtA((ld?.value ?: 0L), (dn?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteExtA(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteExtA(ld.rawAddress, dn.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapDeleteExtW(ld: COpaquePointer?, dn: Pcwstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteExtW((ld?.value ?: 0L), (dn?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteExtW(ld: MutPtr<Ldap>, dn: Pcwstr, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteExtW(ld.rawAddress, dn.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapDeleteExtS(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteExtS((ld?.value ?: 0L), (dn?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteExtS(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteExtS(ld.rawAddress, dn.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapDeleteExtSA(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteExtSA((ld?.value ?: 0L), (dn?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteExtSA(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA(ld.rawAddress, dn.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapDeleteExtSW(ld: COpaquePointer?, dn: Pcwstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteExtSW((ld?.value ?: 0L), (dn?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW(ld.rawAddress, dn.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapDeleteS(ld: COpaquePointer?, dn: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteS((ld?.value ?: 0L), (dn?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteS(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteS(ld.rawAddress, dn.rawAddress).toUInt()
 
-public actual fun ldapDeleteSA(ld: COpaquePointer?, dn: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteSA((ld?.value ?: 0L), (dn?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteSA(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteSA(ld.rawAddress, dn.rawAddress).toUInt()
 
-public actual fun ldapDeleteSW(ld: COpaquePointer?, dn: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDeleteSW((ld?.value ?: 0L), (dn?.value ?: 0L)).toUInt()
+public actual fun ldapDeleteSW(ld: MutPtr<Ldap>, dn: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDeleteSW(ld.rawAddress, dn.rawAddress).toUInt()
 
 public actual fun ldapDn2ufn(dn: Pcstr): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDn2ufn((dn?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDn2ufn(dn.rawAddress))
 
 public actual fun ldapDn2ufnA(dn: Pcstr): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDn2ufnA((dn?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDn2ufnA(dn.rawAddress))
 
 public actual fun ldapDn2ufnW(dn: Pcwstr): Pwstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapDn2ufnW((dn?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapDn2ufnW(dn.rawAddress))
 
-public actual fun ldapEncodeSortControlA(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, control: COpaquePointer?, criticality: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA((externalhandle?.value ?: 0L), (sortkeys?.value ?: 0L), (control?.value ?: 0L), criticality).toUInt()
+public actual fun ldapEncodeSortControlA(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>, control: MutPtr<LDAPControlA>, criticality: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA(externalhandle.rawAddress, sortkeys.rawAddress, control.rawAddress, criticality).toUInt()
 
-public actual fun ldapEncodeSortControlW(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, control: COpaquePointer?, criticality: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW((externalhandle?.value ?: 0L), (sortkeys?.value ?: 0L), (control?.value ?: 0L), criticality).toUInt()
+public actual fun ldapEncodeSortControlW(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyW>>, control: MutPtr<LDAPControlW>, criticality: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW(externalhandle.rawAddress, sortkeys.rawAddress, control.rawAddress, criticality).toUInt()
 
 public actual fun ldapErr2string(err: UInt): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapErr2string(err.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapErr2string(err.toInt()))
 
 public actual fun ldapErr2stringA(err: UInt): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapErr2stringA(err.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapErr2stringA(err.toInt()))
 
 public actual fun ldapErr2stringW(err: UInt): Pwstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapErr2stringW(err.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapErr2stringW(err.toInt()))
 
 public actual fun ldapEscapeFilterElement(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pstr, destlength: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement((sourcefilterelement?.value ?: 0L), sourcelength.toInt(), (destfilterelement?.value ?: 0L), destlength.toInt()).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElement(sourcefilterelement.rawAddress, sourcelength.toInt(), destfilterelement.rawAddress, destlength.toInt()).toUInt()
 
 public actual fun ldapEscapeFilterElementA(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pstr, destlength: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA((sourcefilterelement?.value ?: 0L), sourcelength.toInt(), (destfilterelement?.value ?: 0L), destlength.toInt()).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementA(sourcefilterelement.rawAddress, sourcelength.toInt(), destfilterelement.rawAddress, destlength.toInt()).toUInt()
 
 public actual fun ldapEscapeFilterElementW(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pwstr, destlength: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW((sourcefilterelement?.value ?: 0L), sourcelength.toInt(), (destfilterelement?.value ?: 0L), destlength.toInt()).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW(sourcefilterelement.rawAddress, sourcelength.toInt(), destfilterelement.rawAddress, destlength.toInt()).toUInt()
 
-public actual fun ldapExplodeDn(dn: Pcstr, notypes: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExplodeDn((dn?.value ?: 0L), notypes.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapExplodeDn(dn: Pcstr, notypes: UInt): MutPtr<Pstr> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExplodeDn(dn.rawAddress, notypes.toInt()))
 
-public actual fun ldapExplodeDnA(dn: Pcstr, notypes: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExplodeDnA((dn?.value ?: 0L), notypes.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapExplodeDnA(dn: Pcstr, notypes: UInt): MutPtr<Pstr> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExplodeDnA(dn.rawAddress, notypes.toInt()))
 
-public actual fun ldapExplodeDnW(dn: Pcwstr, notypes: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExplodeDnW((dn?.value ?: 0L), notypes.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapExplodeDnW(dn: Pcwstr, notypes: UInt): MutPtr<Pwstr> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExplodeDnW(dn.rawAddress, notypes.toInt()))
 
-public actual fun ldapExtendedOperation(ld: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExtendedOperation((ld?.value ?: 0L), (oid?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapExtendedOperation(ld: MutPtr<Ldap>, oid: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExtendedOperation(ld.rawAddress, oid.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapExtendedOperationA(ld: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExtendedOperationA((ld?.value ?: 0L), (oid?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapExtendedOperationA(ld: MutPtr<Ldap>, oid: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA(ld.rawAddress, oid.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapExtendedOperationW(ld: COpaquePointer?, oid: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExtendedOperationW((ld?.value ?: 0L), (oid?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapExtendedOperationW(ld: MutPtr<Ldap>, oid: Pcwstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW(ld.rawAddress, oid.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapExtendedOperationSA(externalhandle: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, returnedoid: COpaquePointer?, returneddata: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA((externalhandle?.value ?: 0L), (oid?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (returnedoid?.value ?: 0L), (returneddata?.value ?: 0L)).toUInt()
+public actual fun ldapExtendedOperationSA(externalhandle: MutPtr<Ldap>, oid: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, returnedoid: MutPtr<Pstr>, returneddata: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA(externalhandle.rawAddress, oid.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, returnedoid.rawAddress, returneddata.rawAddress).toUInt()
 
-public actual fun ldapExtendedOperationSW(externalhandle: COpaquePointer?, oid: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, returnedoid: COpaquePointer?, returneddata: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW((externalhandle?.value ?: 0L), (oid?.value ?: 0L), (data?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (returnedoid?.value ?: 0L), (returneddata?.value ?: 0L)).toUInt()
+public actual fun ldapExtendedOperationSW(externalhandle: MutPtr<Ldap>, oid: Pcwstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, returnedoid: MutPtr<Pwstr>, returneddata: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW(externalhandle.rawAddress, oid.rawAddress, data.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, returnedoid.rawAddress, returneddata.rawAddress).toUInt()
 
-public actual fun ldapFirstAttribute(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFirstAttribute((ld?.value ?: 0L), (entry?.value ?: 0L), (ptr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapFirstAttribute(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<MutPtr<BerElement>>): Pstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFirstAttribute(ld.rawAddress, entry.rawAddress, ptr.rawAddress))
 
-public actual fun ldapFirstAttributeA(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFirstAttributeA((ld?.value ?: 0L), (entry?.value ?: 0L), (ptr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapFirstAttributeA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<MutPtr<BerElement>>): Pstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA(ld.rawAddress, entry.rawAddress, ptr.rawAddress))
 
-public actual fun ldapFirstAttributeW(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pwstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFirstAttributeW((ld?.value ?: 0L), (entry?.value ?: 0L), (ptr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapFirstAttributeW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<MutPtr<BerElement>>): Pwstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW(ld.rawAddress, entry.rawAddress, ptr.rawAddress))
 
-public actual fun ldapFirstEntry(ld: COpaquePointer?, res: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFirstEntry((ld?.value ?: 0L), (res?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapFirstEntry(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFirstEntry(ld.rawAddress, res.rawAddress))
 
-public actual fun ldapFirstReference(ld: COpaquePointer?, res: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFirstReference((ld?.value ?: 0L), (res?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapFirstReference(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFirstReference(ld.rawAddress, res.rawAddress))
 
-public actual fun ldapFreeControls(controls: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFreeControls((controls?.value ?: 0L)).toUInt()
+public actual fun ldapFreeControls(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFreeControls(controls.rawAddress).toUInt()
 
-public actual fun ldapFreeControlsA(controls: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFreeControlsA((controls?.value ?: 0L)).toUInt()
+public actual fun ldapFreeControlsA(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFreeControlsA(controls.rawAddress).toUInt()
 
-public actual fun ldapFreeControlsW(controls: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapFreeControlsW((controls?.value ?: 0L)).toUInt()
+public actual fun ldapFreeControlsW(controls: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapFreeControlsW(controls.rawAddress).toUInt()
 
-public actual fun ldapGetDn(ld: COpaquePointer?, entry: COpaquePointer?): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetDn((ld?.value ?: 0L), (entry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetDn(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): Pstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetDn(ld.rawAddress, entry.rawAddress))
 
-public actual fun ldapGetDnA(ld: COpaquePointer?, entry: COpaquePointer?): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetDnA((ld?.value ?: 0L), (entry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetDnA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): Pstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetDnA(ld.rawAddress, entry.rawAddress))
 
-public actual fun ldapGetDnW(ld: COpaquePointer?, entry: COpaquePointer?): Pwstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetDnW((ld?.value ?: 0L), (entry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetDnW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): Pwstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetDnW(ld.rawAddress, entry.rawAddress))
 
-public actual fun ldapGetNextPage(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetNextPage((externalhandle?.value ?: 0L), searchhandle, pagesize.toInt(), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapGetNextPage(externalhandle: MutPtr<Ldap>, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetNextPage(externalhandle.rawAddress, searchhandle, pagesize.toInt(), messagenumber.rawAddress).toUInt()
 
-public actual fun ldapGetNextPageS(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, timeout: COpaquePointer?, pagesize: UInt, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetNextPageS((externalhandle?.value ?: 0L), searchhandle, (timeout?.value ?: 0L), pagesize.toInt(), (totalcount?.value ?: 0L), (results?.value ?: 0L)).toUInt()
+public actual fun ldapGetNextPageS(externalhandle: MutPtr<Ldap>, searchhandle: PLDAPSearch, timeout: MutPtr<LdapTimeval>, pagesize: UInt, totalcount: MutPtr<UInt>, results: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetNextPageS(externalhandle.rawAddress, searchhandle, timeout.rawAddress, pagesize.toInt(), totalcount.rawAddress, results.rawAddress).toUInt()
 
-public actual fun ldapGetOption(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetOption((ld?.value ?: 0L), option, (outvalue?.value ?: 0L)).toUInt()
+public actual fun ldapGetOption(ld: MutPtr<Ldap>, option: Int, outvalue: MutPtr<CVoid>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetOption(ld.rawAddress, option, outvalue.rawAddress).toUInt()
 
-public actual fun ldapGetOptionW(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetOptionW((ld?.value ?: 0L), option, (outvalue?.value ?: 0L)).toUInt()
+public actual fun ldapGetOptionW(ld: MutPtr<Ldap>, option: Int, outvalue: MutPtr<CVoid>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetOptionW(ld.rawAddress, option, outvalue.rawAddress).toUInt()
 
-public actual fun ldapGetPagedCount(externalhandle: COpaquePointer?, searchblock: PLDAPSearch, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetPagedCount((externalhandle?.value ?: 0L), searchblock, (totalcount?.value ?: 0L), (results?.value ?: 0L)).toUInt()
+public actual fun ldapGetPagedCount(externalhandle: MutPtr<Ldap>, searchblock: PLDAPSearch, totalcount: MutPtr<UInt>, results: MutPtr<LDAPMessage>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetPagedCount(externalhandle.rawAddress, searchblock, totalcount.rawAddress, results.rawAddress).toUInt()
 
-public actual fun ldapGetValues(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValues((ld?.value ?: 0L), (entry?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetValues(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<Pstr> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetValues(ld.rawAddress, entry.rawAddress, attr.rawAddress))
 
-public actual fun ldapGetValuesA(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValuesA((ld?.value ?: 0L), (entry?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetValuesA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<Pstr> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetValuesA(ld.rawAddress, entry.rawAddress, attr.rawAddress))
 
-public actual fun ldapGetValuesW(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcwstr): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValuesW((ld?.value ?: 0L), (entry?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetValuesW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, attr: Pcwstr): MutPtr<Pwstr> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetValuesW(ld.rawAddress, entry.rawAddress, attr.rawAddress))
 
-public actual fun ldapGetValuesLen(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcstr): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValuesLen((externalhandle?.value ?: 0L), (message?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetValuesLen(externalhandle: MutPtr<Ldap>, message: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<MutPtr<LdapBerval>> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetValuesLen(externalhandle.rawAddress, message.rawAddress, attr.rawAddress))
 
-public actual fun ldapGetValuesLenA(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcstr): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValuesLenA((externalhandle?.value ?: 0L), (message?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetValuesLenA(externalhandle: MutPtr<Ldap>, message: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<MutPtr<LdapBerval>> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA(externalhandle.rawAddress, message.rawAddress, attr.rawAddress))
 
-public actual fun ldapGetValuesLenW(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcwstr): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValuesLenW((externalhandle?.value ?: 0L), (message?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapGetValuesLenW(externalhandle: MutPtr<Ldap>, message: MutPtr<LDAPMessage>, attr: Pcwstr): MutPtr<MutPtr<LdapBerval>> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW(externalhandle.rawAddress, message.rawAddress, attr.rawAddress))
 
-public actual fun ldapInit(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapInit((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapInit(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapInit(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun ldapInitA(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapInitA((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapInitA(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapInitA(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun ldapInitW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapInitW((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapInitW(hostname: Pcwstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapInitW(hostname.rawAddress, portnumber.toInt()))
 
 public actual fun ldapMemfree(block: Pcstr) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapMemfree((block?.value ?: 0L))
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapMemfree(block.rawAddress)
 }
 
 public actual fun ldapMemfreeA(block: Pcstr) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapMemfreeA((block?.value ?: 0L))
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapMemfreeA(block.rawAddress)
 }
 
 public actual fun ldapMemfreeW(block: Pcwstr) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapMemfreeW((block?.value ?: 0L))
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapMemfreeW(block.rawAddress)
 }
 
-public actual fun ldapModify(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModify((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L)).toUInt()
+public actual fun ldapModify(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModify(ld.rawAddress, dn.rawAddress, mods.rawAddress).toUInt()
 
-public actual fun ldapModifyA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyA((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L)).toUInt()
+public actual fun ldapModifyA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyA(ld.rawAddress, dn.rawAddress, mods.rawAddress).toUInt()
 
-public actual fun ldapModifyW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyW((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L)).toUInt()
+public actual fun ldapModifyW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyW(ld.rawAddress, dn.rawAddress, mods.rawAddress).toUInt()
 
-public actual fun ldapModifyExt(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyExt((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapModifyExt(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyExt(ld.rawAddress, dn.rawAddress, mods.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapModifyExtA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyExtA((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapModifyExtA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyExtA(ld.rawAddress, dn.rawAddress, mods.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapModifyExtW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyExtW((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapModifyExtW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyExtW(ld.rawAddress, dn.rawAddress, mods.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapModifyExtS(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyExtS((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapModifyExtS(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyExtS(ld.rawAddress, dn.rawAddress, mods.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapModifyExtSA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyExtSA((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapModifyExtSA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyExtSA(ld.rawAddress, dn.rawAddress, mods.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapModifyExtSW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyExtSW((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapModifyExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyExtSW(ld.rawAddress, dn.rawAddress, mods.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapModifyS(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifyS((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L)).toUInt()
+public actual fun ldapModifyS(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifyS(ld.rawAddress, dn.rawAddress, mods.rawAddress).toUInt()
 
-public actual fun ldapModifySA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifySA((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L)).toUInt()
+public actual fun ldapModifySA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifySA(ld.rawAddress, dn.rawAddress, mods.rawAddress).toUInt()
 
-public actual fun ldapModifySW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModifySW((ld?.value ?: 0L), (dn?.value ?: 0L), (mods?.value ?: 0L)).toUInt()
+public actual fun ldapModifySW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModifySW(ld.rawAddress, dn.rawAddress, mods.rawAddress).toUInt()
 
-public actual fun ldapModrdn(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L)).toUInt()
+public actual fun ldapModrdn(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress).toUInt()
 
-public actual fun ldapModrdn2(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn2((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L), deleteoldrdn).toUInt()
+public actual fun ldapModrdn2(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn2(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress, deleteoldrdn).toUInt()
 
-public actual fun ldapModrdn2A(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn2A((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L), deleteoldrdn).toUInt()
+public actual fun ldapModrdn2A(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn2A(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress, deleteoldrdn).toUInt()
 
-public actual fun ldapModrdn2W(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn2W((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L), deleteoldrdn).toUInt()
+public actual fun ldapModrdn2W(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn2W(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress, deleteoldrdn).toUInt()
 
-public actual fun ldapModrdn2S(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn2S((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L), deleteoldrdn).toUInt()
+public actual fun ldapModrdn2S(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn2S(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress, deleteoldrdn).toUInt()
 
-public actual fun ldapModrdn2SA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn2SA((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L), deleteoldrdn).toUInt()
+public actual fun ldapModrdn2SA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn2SA(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress, deleteoldrdn).toUInt()
 
-public actual fun ldapModrdn2SW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdn2SW((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L), deleteoldrdn).toUInt()
+public actual fun ldapModrdn2SW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdn2SW(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress, deleteoldrdn).toUInt()
 
-public actual fun ldapModrdnA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdnA((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L)).toUInt()
+public actual fun ldapModrdnA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdnA(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress).toUInt()
 
-public actual fun ldapModrdnW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdnW((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L)).toUInt()
+public actual fun ldapModrdnW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdnW(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress).toUInt()
 
-public actual fun ldapModrdnS(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdnS((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L)).toUInt()
+public actual fun ldapModrdnS(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdnS(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress).toUInt()
 
-public actual fun ldapModrdnSA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdnSA((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L)).toUInt()
+public actual fun ldapModrdnSA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdnSA(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress).toUInt()
 
-public actual fun ldapModrdnSW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapModrdnSW((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), (newdistinguishedname?.value ?: 0L)).toUInt()
+public actual fun ldapModrdnSW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapModrdnSW(externalhandle.rawAddress, distinguishedname.rawAddress, newdistinguishedname.rawAddress).toUInt()
 
-public actual fun ldapMsgfree(res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapMsgfree((res?.value ?: 0L)).toUInt()
+public actual fun ldapMsgfree(res: MutPtr<LDAPMessage>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapMsgfree(res.rawAddress).toUInt()
 
-public actual fun ldapNextAttribute(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapNextAttribute((ld?.value ?: 0L), (entry?.value ?: 0L), (ptr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapNextAttribute(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<BerElement>): Pstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapNextAttribute(ld.rawAddress, entry.rawAddress, ptr.rawAddress))
 
-public actual fun ldapNextAttributeA(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapNextAttributeA((ld?.value ?: 0L), (entry?.value ?: 0L), (ptr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapNextAttributeA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<BerElement>): Pstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapNextAttributeA(ld.rawAddress, entry.rawAddress, ptr.rawAddress))
 
-public actual fun ldapNextAttributeW(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pwstr =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapNextAttributeW((ld?.value ?: 0L), (entry?.value ?: 0L), (ptr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapNextAttributeW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<BerElement>): Pwstr =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapNextAttributeW(ld.rawAddress, entry.rawAddress, ptr.rawAddress))
 
-public actual fun ldapNextEntry(ld: COpaquePointer?, entry: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapNextEntry((ld?.value ?: 0L), (entry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapNextEntry(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapNextEntry(ld.rawAddress, entry.rawAddress))
 
-public actual fun ldapNextReference(ld: COpaquePointer?, entry: COpaquePointer?): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapNextReference((ld?.value ?: 0L), (entry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapNextReference(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapNextReference(ld.rawAddress, entry.rawAddress))
 
-public actual fun ldapOpen(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapOpen((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapOpen(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapOpen(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun ldapOpenA(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapOpenA((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapOpenA(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapOpenA(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun ldapOpenW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapOpenW((hostname?.value ?: 0L), portnumber.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapOpenW(hostname: Pcwstr, portnumber: UInt): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapOpenW(hostname.rawAddress, portnumber.toInt()))
 
-public actual fun ldapParseExtendedResultA(connection: COpaquePointer?, resultmessage: COpaquePointer?, resultoid: COpaquePointer?, resultdata: COpaquePointer?, freeit: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (resultoid?.value ?: 0L), (resultdata?.value ?: 0L), freeit).toUInt()
+public actual fun ldapParseExtendedResultA(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, resultoid: MutPtr<Pstr>, resultdata: MutPtr<MutPtr<LdapBerval>>, freeit: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA(connection.rawAddress, resultmessage.rawAddress, resultoid.rawAddress, resultdata.rawAddress, freeit).toUInt()
 
-public actual fun ldapParseExtendedResultW(connection: COpaquePointer?, resultmessage: COpaquePointer?, resultoid: COpaquePointer?, resultdata: COpaquePointer?, freeit: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (resultoid?.value ?: 0L), (resultdata?.value ?: 0L), freeit).toUInt()
+public actual fun ldapParseExtendedResultW(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, resultoid: MutPtr<Pwstr>, resultdata: MutPtr<MutPtr<LdapBerval>>, freeit: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW(connection.rawAddress, resultmessage.rawAddress, resultoid.rawAddress, resultdata.rawAddress, freeit).toUInt()
 
-public actual fun ldapParsePageControl(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParsePageControl((externalhandle?.value ?: 0L), (servercontrols?.value ?: 0L), (totalcount?.value ?: 0L), (cookie?.value ?: 0L)).toUInt()
+public actual fun ldapParsePageControl(externalhandle: MutPtr<Ldap>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, totalcount: MutPtr<UInt>, cookie: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParsePageControl(externalhandle.rawAddress, servercontrols.rawAddress, totalcount.rawAddress, cookie.rawAddress).toUInt()
 
-public actual fun ldapParsePageControlA(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParsePageControlA((externalhandle?.value ?: 0L), (servercontrols?.value ?: 0L), (totalcount?.value ?: 0L), (cookie?.value ?: 0L)).toUInt()
+public actual fun ldapParsePageControlA(externalhandle: MutPtr<Ldap>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, totalcount: MutPtr<UInt>, cookie: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParsePageControlA(externalhandle.rawAddress, servercontrols.rawAddress, totalcount.rawAddress, cookie.rawAddress).toUInt()
 
-public actual fun ldapParsePageControlW(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParsePageControlW((externalhandle?.value ?: 0L), (servercontrols?.value ?: 0L), (totalcount?.value ?: 0L), (cookie?.value ?: 0L)).toUInt()
+public actual fun ldapParsePageControlW(externalhandle: MutPtr<Ldap>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, totalcount: MutPtr<UInt>, cookie: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParsePageControlW(externalhandle.rawAddress, servercontrols.rawAddress, totalcount.rawAddress, cookie.rawAddress).toUInt()
 
-public actual fun ldapParseReference(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseReference((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (referrals?.value ?: 0L)).toUInt()
+public actual fun ldapParseReference(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, referrals: MutPtr<MutPtr<Pstr>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseReference(connection.rawAddress, resultmessage.rawAddress, referrals.rawAddress).toUInt()
 
-public actual fun ldapParseReferenceA(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseReferenceA((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (referrals?.value ?: 0L)).toUInt()
+public actual fun ldapParseReferenceA(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, referrals: MutPtr<MutPtr<Pstr>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseReferenceA(connection.rawAddress, resultmessage.rawAddress, referrals.rawAddress).toUInt()
 
-public actual fun ldapParseReferenceW(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseReferenceW((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (referrals?.value ?: 0L)).toUInt()
+public actual fun ldapParseReferenceW(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, referrals: MutPtr<MutPtr<Pwstr>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseReferenceW(connection.rawAddress, resultmessage.rawAddress, referrals.rawAddress).toUInt()
 
-public actual fun ldapParseResult(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseResult((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (returncode?.value ?: 0L), (matcheddns?.value ?: 0L), (errormessage?.value ?: 0L), (referrals?.value ?: 0L), (servercontrols?.value ?: 0L), freeit).toUInt()
+public actual fun ldapParseResult(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, returncode: MutPtr<UInt>, matcheddns: MutPtr<Pstr>, errormessage: MutPtr<Pstr>, referrals: MutPtr<MutPtr<Pstr>>, servercontrols: MutPtr<MutPtr<MutPtr<LDAPControlA>>>, freeit: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseResult(connection.rawAddress, resultmessage.rawAddress, returncode.rawAddress, matcheddns.rawAddress, errormessage.rawAddress, referrals.rawAddress, servercontrols.rawAddress, freeit).toUInt()
 
-public actual fun ldapParseResultA(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseResultA((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (returncode?.value ?: 0L), (matcheddns?.value ?: 0L), (errormessage?.value ?: 0L), (referrals?.value ?: 0L), (servercontrols?.value ?: 0L), freeit).toUInt()
+public actual fun ldapParseResultA(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, returncode: MutPtr<UInt>, matcheddns: MutPtr<Pstr>, errormessage: MutPtr<Pstr>, referrals: MutPtr<MutPtr<MutPtr<Byte>>>, servercontrols: MutPtr<MutPtr<MutPtr<LDAPControlA>>>, freeit: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseResultA(connection.rawAddress, resultmessage.rawAddress, returncode.rawAddress, matcheddns.rawAddress, errormessage.rawAddress, referrals.rawAddress, servercontrols.rawAddress, freeit).toUInt()
 
-public actual fun ldapParseResultW(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseResultW((connection?.value ?: 0L), (resultmessage?.value ?: 0L), (returncode?.value ?: 0L), (matcheddns?.value ?: 0L), (errormessage?.value ?: 0L), (referrals?.value ?: 0L), (servercontrols?.value ?: 0L), freeit).toUInt()
+public actual fun ldapParseResultW(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, returncode: MutPtr<UInt>, matcheddns: MutPtr<Pwstr>, errormessage: MutPtr<Pwstr>, referrals: MutPtr<MutPtr<MutPtr<UShort>>>, servercontrols: MutPtr<MutPtr<MutPtr<LDAPControlW>>>, freeit: Boolean): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseResultW(connection.rawAddress, resultmessage.rawAddress, returncode.rawAddress, matcheddns.rawAddress, errormessage.rawAddress, referrals.rawAddress, servercontrols.rawAddress, freeit).toUInt()
 
-public actual fun ldapParseSortControl(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseSortControl((externalhandle?.value ?: 0L), (control?.value ?: 0L), (result?.value ?: 0L), (attribute?.value ?: 0L)).toUInt()
+public actual fun ldapParseSortControl(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlA>>, result: MutPtr<UInt>, attribute: MutPtr<Pstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseSortControl(externalhandle.rawAddress, control.rawAddress, result.rawAddress, attribute.rawAddress).toUInt()
 
-public actual fun ldapParseSortControlA(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseSortControlA((externalhandle?.value ?: 0L), (control?.value ?: 0L), (result?.value ?: 0L), (attribute?.value ?: 0L)).toUInt()
+public actual fun ldapParseSortControlA(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlA>>, result: MutPtr<UInt>, attribute: MutPtr<Pstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseSortControlA(externalhandle.rawAddress, control.rawAddress, result.rawAddress, attribute.rawAddress).toUInt()
 
-public actual fun ldapParseSortControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseSortControlW((externalhandle?.value ?: 0L), (control?.value ?: 0L), (result?.value ?: 0L), (attribute?.value ?: 0L)).toUInt()
+public actual fun ldapParseSortControlW(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlW>>, result: MutPtr<UInt>, attribute: MutPtr<Pwstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseSortControlW(externalhandle.rawAddress, control.rawAddress, result.rawAddress, attribute.rawAddress).toUInt()
 
-public actual fun ldapParseVlvControlA(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseVlvControlA((externalhandle?.value ?: 0L), (control?.value ?: 0L), (targetpos?.value ?: 0L), (listcount?.value ?: 0L), (context?.value ?: 0L), (errcode?.value ?: 0L))
+public actual fun ldapParseVlvControlA(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlA>>, targetpos: MutPtr<UInt>, listcount: MutPtr<UInt>, context: MutPtr<MutPtr<LdapBerval>>, errcode: MutPtr<Int>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA(externalhandle.rawAddress, control.rawAddress, targetpos.rawAddress, listcount.rawAddress, context.rawAddress, errcode.rawAddress)
 
-public actual fun ldapParseVlvControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapParseVlvControlW((externalhandle?.value ?: 0L), (control?.value ?: 0L), (targetpos?.value ?: 0L), (listcount?.value ?: 0L), (context?.value ?: 0L), (errcode?.value ?: 0L))
+public actual fun ldapParseVlvControlW(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlW>>, targetpos: MutPtr<UInt>, listcount: MutPtr<UInt>, context: MutPtr<MutPtr<LdapBerval>>, errcode: MutPtr<Int>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW(externalhandle.rawAddress, control.rawAddress, targetpos.rawAddress, listcount.rawAddress, context.rawAddress, errcode.rawAddress)
 
-public actual fun ldapPerror(ld: COpaquePointer?, msg: Pcstr) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapPerror((ld?.value ?: 0L), (msg?.value ?: 0L))
+public actual fun ldapPerror(ld: MutPtr<Ldap>, msg: Pcstr) {
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapPerror(ld.rawAddress, msg.rawAddress)
 }
 
-public actual fun ldapRenameExt(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapRenameExt((ld?.value ?: 0L), (dn?.value ?: 0L), (newrdn?.value ?: 0L), (newparent?.value ?: 0L), deleteoldrdn, (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapRenameExt(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapRenameExt(ld.rawAddress, dn.rawAddress, newrdn.rawAddress, newparent.rawAddress, deleteoldrdn, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapRenameExtA(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapRenameExtA((ld?.value ?: 0L), (dn?.value ?: 0L), (newrdn?.value ?: 0L), (newparent?.value ?: 0L), deleteoldrdn, (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapRenameExtA(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapRenameExtA(ld.rawAddress, dn.rawAddress, newrdn.rawAddress, newparent.rawAddress, deleteoldrdn, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapRenameExtW(ld: COpaquePointer?, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapRenameExtW((ld?.value ?: 0L), (dn?.value ?: 0L), (newrdn?.value ?: 0L), (newparent?.value ?: 0L), deleteoldrdn, (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapRenameExtW(ld: MutPtr<Ldap>, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapRenameExtW(ld.rawAddress, dn.rawAddress, newrdn.rawAddress, newparent.rawAddress, deleteoldrdn, servercontrols.rawAddress, clientcontrols.rawAddress, messagenumber.rawAddress).toUInt()
 
-public actual fun ldapRenameExtS(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapRenameExtS((ld?.value ?: 0L), (dn?.value ?: 0L), (newrdn?.value ?: 0L), (newparent?.value ?: 0L), deleteoldrdn, (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapRenameExtS(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapRenameExtS(ld.rawAddress, dn.rawAddress, newrdn.rawAddress, newparent.rawAddress, deleteoldrdn, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapRenameExtSA(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapRenameExtSA((ld?.value ?: 0L), (dn?.value ?: 0L), (newrdn?.value ?: 0L), (newparent?.value ?: 0L), deleteoldrdn, (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapRenameExtSA(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapRenameExtSA(ld.rawAddress, dn.rawAddress, newrdn.rawAddress, newparent.rawAddress, deleteoldrdn, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapRenameExtSW(ld: COpaquePointer?, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapRenameExtSW((ld?.value ?: 0L), (dn?.value ?: 0L), (newrdn?.value ?: 0L), (newparent?.value ?: 0L), deleteoldrdn, (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapRenameExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapRenameExtSW(ld.rawAddress, dn.rawAddress, newrdn.rawAddress, newparent.rawAddress, deleteoldrdn, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapResult(ld: COpaquePointer?, msgid: UInt, all: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapResult((ld?.value ?: 0L), msgid.toInt(), all.toInt(), (timeout?.value ?: 0L), (res?.value ?: 0L)).toUInt()
+public actual fun ldapResult(ld: MutPtr<Ldap>, msgid: UInt, all: UInt, timeout: ConstPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapResult(ld.rawAddress, msgid.toInt(), all.toInt(), timeout.rawAddress, res.rawAddress).toUInt()
 
-public actual fun ldapResult2error(ld: COpaquePointer?, res: COpaquePointer?, freeit: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapResult2error((ld?.value ?: 0L), (res?.value ?: 0L), freeit.toInt()).toUInt()
+public actual fun ldapResult2error(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>, freeit: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapResult2error(ld.rawAddress, res.rawAddress, freeit.toInt()).toUInt()
 
-public actual fun ldapSaslBindA(externalhandle: COpaquePointer?, distname: Pcstr, authmechanism: Pcstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, messagenumber: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSaslBindA((externalhandle?.value ?: 0L), (distname?.value ?: 0L), (authmechanism?.value ?: 0L), (cred?.value ?: 0L), (serverctrls?.value ?: 0L), (clientctrls?.value ?: 0L), (messagenumber?.value ?: 0L))
+public actual fun ldapSaslBindA(externalhandle: MutPtr<Ldap>, distname: Pcstr, authmechanism: Pcstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlA>>, clientctrls: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<Int>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSaslBindA(externalhandle.rawAddress, distname.rawAddress, authmechanism.rawAddress, cred.rawAddress, serverctrls.rawAddress, clientctrls.rawAddress, messagenumber.rawAddress)
 
-public actual fun ldapSaslBindW(externalhandle: COpaquePointer?, distname: Pcwstr, authmechanism: Pcwstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, messagenumber: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSaslBindW((externalhandle?.value ?: 0L), (distname?.value ?: 0L), (authmechanism?.value ?: 0L), (cred?.value ?: 0L), (serverctrls?.value ?: 0L), (clientctrls?.value ?: 0L), (messagenumber?.value ?: 0L))
+public actual fun ldapSaslBindW(externalhandle: MutPtr<Ldap>, distname: Pcwstr, authmechanism: Pcwstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlW>>, clientctrls: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<Int>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSaslBindW(externalhandle.rawAddress, distname.rawAddress, authmechanism.rawAddress, cred.rawAddress, serverctrls.rawAddress, clientctrls.rawAddress, messagenumber.rawAddress)
 
-public actual fun ldapSaslBindSA(externalhandle: COpaquePointer?, distname: Pcstr, authmechanism: Pcstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, serverdata: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSaslBindSA((externalhandle?.value ?: 0L), (distname?.value ?: 0L), (authmechanism?.value ?: 0L), (cred?.value ?: 0L), (serverctrls?.value ?: 0L), (clientctrls?.value ?: 0L), (serverdata?.value ?: 0L))
+public actual fun ldapSaslBindSA(externalhandle: MutPtr<Ldap>, distname: Pcstr, authmechanism: Pcstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlA>>, clientctrls: MutPtr<MutPtr<LDAPControlA>>, serverdata: MutPtr<MutPtr<LdapBerval>>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSaslBindSA(externalhandle.rawAddress, distname.rawAddress, authmechanism.rawAddress, cred.rawAddress, serverctrls.rawAddress, clientctrls.rawAddress, serverdata.rawAddress)
 
-public actual fun ldapSaslBindSW(externalhandle: COpaquePointer?, distname: Pcwstr, authmechanism: Pcwstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, serverdata: COpaquePointer?): Int =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSaslBindSW((externalhandle?.value ?: 0L), (distname?.value ?: 0L), (authmechanism?.value ?: 0L), (cred?.value ?: 0L), (serverctrls?.value ?: 0L), (clientctrls?.value ?: 0L), (serverdata?.value ?: 0L))
+public actual fun ldapSaslBindSW(externalhandle: MutPtr<Ldap>, distname: Pcwstr, authmechanism: Pcwstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlW>>, clientctrls: MutPtr<MutPtr<LDAPControlW>>, serverdata: MutPtr<MutPtr<LdapBerval>>): Int =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSaslBindSW(externalhandle.rawAddress, distname.rawAddress, authmechanism.rawAddress, cred.rawAddress, serverctrls.rawAddress, clientctrls.rawAddress, serverdata.rawAddress)
 
-public actual fun ldapSearch(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearch((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt()).toUInt()
+public actual fun ldapSearch(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearch(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt()).toUInt()
 
-public actual fun ldapSearchA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchA((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt()).toUInt()
+public actual fun ldapSearchA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchA(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt()).toUInt()
 
-public actual fun ldapSearchW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchW((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt()).toUInt()
+public actual fun ldapSearchW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchW(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt()).toUInt()
 
-public actual fun ldapSearchAbandonPage(externalhandle: COpaquePointer?, searchblock: PLDAPSearch): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage((externalhandle?.value ?: 0L), searchblock).toUInt()
+public actual fun ldapSearchAbandonPage(externalhandle: MutPtr<Ldap>, searchblock: PLDAPSearch): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage(externalhandle.rawAddress, searchblock).toUInt()
 
-public actual fun ldapSearchExt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExt((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapSearchExt(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchExt(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, timelimit.toInt(), sizelimit.toInt(), messagenumber.rawAddress).toUInt()
 
-public actual fun ldapSearchExtA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExtA((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapSearchExtA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchExtA(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, timelimit.toInt(), sizelimit.toInt(), messagenumber.rawAddress).toUInt()
 
-public actual fun ldapSearchExtW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExtW((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L)).toUInt()
+public actual fun ldapSearchExtW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlW>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlW>>, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr<UInt>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchExtW(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, timelimit.toInt(), sizelimit.toInt(), messagenumber.rawAddress).toUInt()
 
-public actual fun ldapSearchExtS(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExtS((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (timeout?.value ?: 0L), sizelimit.toInt(), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchExtS(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timeout: MutPtr<LdapTimeval>, sizelimit: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchExtS(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, timeout.rawAddress, sizelimit.toInt(), res.rawAddress).toUInt()
 
-public actual fun ldapSearchExtSA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExtSA((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (timeout?.value ?: 0L), sizelimit.toInt(), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchExtSA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timeout: MutPtr<LdapTimeval>, sizelimit: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchExtSA(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, timeout.rawAddress, sizelimit.toInt(), res.rawAddress).toUInt()
 
-public actual fun ldapSearchExtSW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExtSW((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), (timeout?.value ?: 0L), sizelimit.toInt(), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchExtSW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlW>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlW>>, timeout: MutPtr<LdapTimeval>, sizelimit: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchExtSW(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, timeout.rawAddress, sizelimit.toInt(), res.rawAddress).toUInt()
 
-public actual fun ldapSearchInitPage(externalhandle: COpaquePointer?, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchInitPage((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), scopeofsearch.toInt(), (searchfilter?.value ?: 0L), (attributelist?.value ?: 0L), attributesonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), pagetimelimit.toInt(), totalsizelimit.toInt(), (sortkeys?.value ?: 0L))
+public actual fun ldapSearchInitPage(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: MutPtr<MutPtr<Byte>>, attributesonly: UInt, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>): PLDAPSearch =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchInitPage(externalhandle.rawAddress, distinguishedname.rawAddress, scopeofsearch.toInt(), searchfilter.rawAddress, attributelist.rawAddress, attributesonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, pagetimelimit.toInt(), totalsizelimit.toInt(), sortkeys.rawAddress)
 
-public actual fun ldapSearchInitPageA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchInitPageA((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), scopeofsearch.toInt(), (searchfilter?.value ?: 0L), (attributelist?.value ?: 0L), attributesonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), pagetimelimit.toInt(), totalsizelimit.toInt(), (sortkeys?.value ?: 0L))
+public actual fun ldapSearchInitPageA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: ConstPtr<ConstPtr<Byte>>, attributesonly: UInt, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>): PLDAPSearch =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA(externalhandle.rawAddress, distinguishedname.rawAddress, scopeofsearch.toInt(), searchfilter.rawAddress, attributelist.rawAddress, attributesonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, pagetimelimit.toInt(), totalsizelimit.toInt(), sortkeys.rawAddress)
 
-public actual fun ldapSearchInitPageW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, scopeofsearch: UInt, searchfilter: Pcwstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchInitPageW((externalhandle?.value ?: 0L), (distinguishedname?.value ?: 0L), scopeofsearch.toInt(), (searchfilter?.value ?: 0L), (attributelist?.value ?: 0L), attributesonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), pagetimelimit.toInt(), totalsizelimit.toInt(), (sortkeys?.value ?: 0L))
+public actual fun ldapSearchInitPageW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, scopeofsearch: UInt, searchfilter: Pcwstr, attributelist: ConstPtr<ConstPtr<UShort>>, attributesonly: UInt, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr<MutPtr<LDAPSortKeyW>>): PLDAPSearch =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW(externalhandle.rawAddress, distinguishedname.rawAddress, scopeofsearch.toInt(), searchfilter.rawAddress, attributelist.rawAddress, attributesonly.toInt(), servercontrols.rawAddress, clientcontrols.rawAddress, pagetimelimit.toInt(), totalsizelimit.toInt(), sortkeys.rawAddress)
 
-public actual fun ldapSearchS(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchS((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchS(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchS(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), res.rawAddress).toUInt()
 
-public actual fun ldapSearchSA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchSA((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchSA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchSA(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), res.rawAddress).toUInt()
 
-public actual fun ldapSearchSW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchSW((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchSW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchSW(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), res.rawAddress).toUInt()
 
-public actual fun ldapSearchSt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchSt((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (timeout?.value ?: 0L), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchSt(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, timeout: MutPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchSt(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), timeout.rawAddress, res.rawAddress).toUInt()
 
-public actual fun ldapSearchStA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchStA((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (timeout?.value ?: 0L), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchStA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, timeout: MutPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchStA(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), timeout.rawAddress, res.rawAddress).toUInt()
 
-public actual fun ldapSearchStW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchStW((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (timeout?.value ?: 0L), (res?.value ?: 0L)).toUInt()
+public actual fun ldapSearchStW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, timeout: MutPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSearchStW(ld.rawAddress, base.rawAddress, scope.toInt(), filter.rawAddress, attrs.rawAddress, attrsonly.toInt(), timeout.rawAddress, res.rawAddress).toUInt()
 
 public actual fun ldapSetDbgFlags(newflags: UInt): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(newflags.toInt()).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSetDbgFlags(newflags.toInt()).toUInt()
 
 public actual fun ldapSetDbgRoutine(debugprintroutine: Dbgprint) {
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(0L)
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine(0L)
 }
 
-public actual fun ldapSetOption(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSetOption((ld?.value ?: 0L), option, (invalue?.value ?: 0L)).toUInt()
+public actual fun ldapSetOption(ld: MutPtr<Ldap>, option: Int, invalue: ConstPtr<CVoid>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSetOption(ld.rawAddress, option, invalue.rawAddress).toUInt()
 
-public actual fun ldapSetOptionW(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSetOptionW((ld?.value ?: 0L), option, (invalue?.value ?: 0L)).toUInt()
+public actual fun ldapSetOptionW(ld: MutPtr<Ldap>, option: Int, invalue: ConstPtr<CVoid>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSetOptionW(ld.rawAddress, option, invalue.rawAddress).toUInt()
 
-public actual fun ldapSimpleBind(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSimpleBind((ld?.value ?: 0L), (dn?.value ?: 0L), (passwd?.value ?: 0L)).toUInt()
+public actual fun ldapSimpleBind(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSimpleBind(ld.rawAddress, dn.rawAddress, passwd.rawAddress).toUInt()
 
-public actual fun ldapSimpleBindA(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSimpleBindA((ld?.value ?: 0L), (dn?.value ?: 0L), (passwd?.value ?: 0L)).toUInt()
+public actual fun ldapSimpleBindA(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSimpleBindA(ld.rawAddress, dn.rawAddress, passwd.rawAddress).toUInt()
 
-public actual fun ldapSimpleBindW(ld: COpaquePointer?, dn: Pcwstr, passwd: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSimpleBindW((ld?.value ?: 0L), (dn?.value ?: 0L), (passwd?.value ?: 0L)).toUInt()
+public actual fun ldapSimpleBindW(ld: MutPtr<Ldap>, dn: Pcwstr, passwd: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSimpleBindW(ld.rawAddress, dn.rawAddress, passwd.rawAddress).toUInt()
 
-public actual fun ldapSimpleBindS(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSimpleBindS((ld?.value ?: 0L), (dn?.value ?: 0L), (passwd?.value ?: 0L)).toUInt()
+public actual fun ldapSimpleBindS(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSimpleBindS(ld.rawAddress, dn.rawAddress, passwd.rawAddress).toUInt()
 
-public actual fun ldapSimpleBindSA(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSimpleBindSA((ld?.value ?: 0L), (dn?.value ?: 0L), (passwd?.value ?: 0L)).toUInt()
+public actual fun ldapSimpleBindSA(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA(ld.rawAddress, dn.rawAddress, passwd.rawAddress).toUInt()
 
-public actual fun ldapSimpleBindSW(ld: COpaquePointer?, dn: Pcwstr, passwd: Pcwstr): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSimpleBindSW((ld?.value ?: 0L), (dn?.value ?: 0L), (passwd?.value ?: 0L)).toUInt()
+public actual fun ldapSimpleBindSW(ld: MutPtr<Ldap>, dn: Pcwstr, passwd: Pcwstr): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW(ld.rawAddress, dn.rawAddress, passwd.rawAddress).toUInt()
 
-public actual fun ldapSslinit(hostname: Pcstr, portnumber: UInt, secure: Int): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSslinit((hostname?.value ?: 0L), portnumber.toInt(), secure).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapSslinit(hostname: Pcstr, portnumber: UInt, secure: Int): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSslinit(hostname.rawAddress, portnumber.toInt(), secure))
 
-public actual fun ldapSslinitA(hostname: Pcstr, portnumber: UInt, secure: Int): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSslinitA((hostname?.value ?: 0L), portnumber.toInt(), secure).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapSslinitA(hostname: Pcstr, portnumber: UInt, secure: Int): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSslinitA(hostname.rawAddress, portnumber.toInt(), secure))
 
-public actual fun ldapSslinitW(hostname: Pcwstr, portnumber: UInt, secure: Int): COpaquePointer? =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSslinitW((hostname?.value ?: 0L), portnumber.toInt(), secure).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ldapSslinitW(hostname: Pcwstr, portnumber: UInt, secure: Int): MutPtr<Ldap> =
+    MutPtr(WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapSslinitW(hostname.rawAddress, portnumber.toInt(), secure))
 
-public actual fun ldapStartTlsSA(externalhandle: COpaquePointer?, serverreturnvalue: COpaquePointer?, result: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapStartTlsSA((externalhandle?.value ?: 0L), (serverreturnvalue?.value ?: 0L), (result?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapStartTlsSA(externalhandle: MutPtr<Ldap>, serverreturnvalue: MutPtr<UInt>, result: MutPtr<MutPtr<LDAPMessage>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapStartTlsSA(externalhandle.rawAddress, serverreturnvalue.rawAddress, result.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapStartTlsSW(externalhandle: COpaquePointer?, serverreturnvalue: COpaquePointer?, result: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapStartTlsSW((externalhandle?.value ?: 0L), (serverreturnvalue?.value ?: 0L), (result?.value ?: 0L), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L)).toUInt()
+public actual fun ldapStartTlsSW(externalhandle: MutPtr<Ldap>, serverreturnvalue: MutPtr<UInt>, result: MutPtr<MutPtr<LDAPMessage>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapStartTlsSW(externalhandle.rawAddress, serverreturnvalue.rawAddress, result.rawAddress, servercontrols.rawAddress, clientcontrols.rawAddress).toUInt()
 
-public actual fun ldapStartup(version: COpaquePointer?, instance: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapStartup((version?.value ?: 0L), (instance?.value ?: 0L)).toUInt()
+public actual fun ldapStartup(version: MutPtr<LdapVersionInfo>, instance: MutPtr<Handle>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapStartup(version.rawAddress, instance.rawAddress).toUInt()
 
-public actual fun ldapStopTlsS(externalhandle: COpaquePointer?): Boolean =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapStopTlsS((externalhandle?.value ?: 0L))
+public actual fun ldapStopTlsS(externalhandle: MutPtr<Ldap>): Boolean =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapStopTlsS(externalhandle.rawAddress)
 
-public actual fun ldapUfn2dn(ufn: Pcstr, pdn: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUfn2dn((ufn?.value ?: 0L), (pdn?.value ?: 0L)).toUInt()
+public actual fun ldapUfn2dn(ufn: Pcstr, pdn: MutPtr<Pstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUfn2dn(ufn.rawAddress, pdn.rawAddress).toUInt()
 
-public actual fun ldapUfn2dnA(ufn: Pcstr, pdn: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUfn2dnA((ufn?.value ?: 0L), (pdn?.value ?: 0L)).toUInt()
+public actual fun ldapUfn2dnA(ufn: Pcstr, pdn: MutPtr<Pstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUfn2dnA(ufn.rawAddress, pdn.rawAddress).toUInt()
 
-public actual fun ldapUfn2dnW(ufn: Pcwstr, pdn: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUfn2dnW((ufn?.value ?: 0L), (pdn?.value ?: 0L)).toUInt()
+public actual fun ldapUfn2dnW(ufn: Pcwstr, pdn: MutPtr<Pwstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUfn2dnW(ufn.rawAddress, pdn.rawAddress).toUInt()
 
-public actual fun ldapUnbind(ld: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUnbind((ld?.value ?: 0L)).toUInt()
+public actual fun ldapUnbind(ld: MutPtr<Ldap>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUnbind(ld.rawAddress).toUInt()
 
-public actual fun ldapUnbindS(ld: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapUnbindS((ld?.value ?: 0L)).toUInt()
+public actual fun ldapUnbindS(ld: MutPtr<Ldap>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapUnbindS(ld.rawAddress).toUInt()
 
-public actual fun ldapValueFree(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapValueFree((vals?.value ?: 0L)).toUInt()
+public actual fun ldapValueFree(vals: ConstPtr<Pcstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapValueFree(vals.rawAddress).toUInt()
 
-public actual fun ldapValueFreeA(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapValueFreeA((vals?.value ?: 0L)).toUInt()
+public actual fun ldapValueFreeA(vals: ConstPtr<Pcstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapValueFreeA(vals.rawAddress).toUInt()
 
-public actual fun ldapValueFreeW(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapValueFreeW((vals?.value ?: 0L)).toUInt()
+public actual fun ldapValueFreeW(vals: ConstPtr<Pcwstr>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapValueFreeW(vals.rawAddress).toUInt()
 
-public actual fun ldapValueFreeLen(vals: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapValueFreeLen((vals?.value ?: 0L)).toUInt()
+public actual fun ldapValueFreeLen(vals: MutPtr<MutPtr<LdapBerval>>): UInt =
+    WindowsWin32NetworkingLdapJniBridge.windowssysWindowsWin32NetworkingLdapLdapValueFreeLen(vals.rawAddress).toUInt()

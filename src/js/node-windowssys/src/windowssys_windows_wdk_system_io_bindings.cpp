@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_system_io_ntDeviceIoControlFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemIoNtDeviceIoControlFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_wdk_system_io_ntDeviceIoControlFile_napi(c
 }
 
 static void register_windows_wdk_system_io_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_system_io_ntDeviceIoControlFile", Napi::Function::New(env, windowssys_windows_wdk_system_io_ntDeviceIoControlFile_napi));
+    exports.Set("windowssysWindowsWdkSystemIoNtDeviceIoControlFile", Napi::Function::New(env, windowssysWindowsWdkSystemIoNtDeviceIoControlFile_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_system_io_napi, nullptr };

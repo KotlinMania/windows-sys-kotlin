@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvOpen(void);
-uint32_t windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_wnvRequestNotification(void* wnvhandle, void* notificationparam, void* overlapped, void* bytestransferred);
+void* windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen(void);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(void* wnvhandle, void* notificationparam, void* overlapped, void* bytestransferred);
 
 #ifdef __cplusplus
 }

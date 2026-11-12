@@ -9,32 +9,32 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_ui_tabletpc_addStroke(void* hrc, void* ppacketdesc, uint32_t cbpacket, void* ppacket, void* pxform);
-int32_t windowssys_windows_win32_ui_tabletpc_addWordsToWordList(void* hwl, void* pwcwords);
-int32_t windowssys_windows_win32_ui_tabletpc_adviseInkChange(void* hrc, int32_t bnewstroke);
-int32_t windowssys_windows_win32_ui_tabletpc_createContext(void* hrec, void* phrc);
-int32_t windowssys_windows_win32_ui_tabletpc_createRecognizer(void* pclsid, void* phrec);
-int32_t windowssys_windows_win32_ui_tabletpc_destroyContext(void* hrc);
-int32_t windowssys_windows_win32_ui_tabletpc_destroyRecognizer(void* hrec);
-int32_t windowssys_windows_win32_ui_tabletpc_destroyWordList(void* hwl);
-int32_t windowssys_windows_win32_ui_tabletpc_endInkInput(void* hrc);
-int32_t windowssys_windows_win32_ui_tabletpc_getAllRecognizers(void* recognizerclsids, void* count);
-int32_t windowssys_windows_win32_ui_tabletpc_getBestResultString(void* hrc, void* pcsize, void* pwcbestresult);
-int32_t windowssys_windows_win32_ui_tabletpc_getLatticePtr(void* hrc, void* pplattice);
-int32_t windowssys_windows_win32_ui_tabletpc_getLeftSeparator(void* hrc, void* pcsize, void* pwcleftseparator);
-int32_t windowssys_windows_win32_ui_tabletpc_getRecoAttributes(void* hrec, void* precoattrs);
-int32_t windowssys_windows_win32_ui_tabletpc_getResultPropertyList(void* hrec, void* ppropertycount, void* ppropertyguid);
-int32_t windowssys_windows_win32_ui_tabletpc_getRightSeparator(void* hrc, void* pcsize, void* pwcrightseparator);
-int32_t windowssys_windows_win32_ui_tabletpc_getUnicodeRanges(void* hrec, void* pcranges, void* pcr);
-int32_t windowssys_windows_win32_ui_tabletpc_isStringSupported(void* hrc, uint32_t wcstring, void* pwcstring);
-int32_t windowssys_windows_win32_ui_tabletpc_makeWordList(void* hrec, void* pbuffer, void* phwl);
-int32_t windowssys_windows_win32_ui_tabletpc_process(void* hrc, void* pbpartialprocessing);
-int32_t windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges(void* hrc, uint32_t cranges, void* pcr);
-int32_t windowssys_windows_win32_ui_tabletpc_setFactoid(void* hrc, uint32_t cwcfactoid, void* pwcfactoid);
-int32_t windowssys_windows_win32_ui_tabletpc_setFlags(void* hrc, uint32_t dwflags);
-int32_t windowssys_windows_win32_ui_tabletpc_setGuide(void* hrc, void* pguide, uint32_t iindex);
-int32_t windowssys_windows_win32_ui_tabletpc_setTextContext(void* hrc, uint32_t cwcbefore, void* pwcbefore, uint32_t cwcafter, void* pwcafter);
-int32_t windowssys_windows_win32_ui_tabletpc_setWordList(void* hrc, void* hwl);
+int32_t windowssysWindowsWin32UiTabletpcAddStroke(void* hrc, void* ppacketdesc, uint32_t cbpacket, void* ppacket, void* pxform);
+int32_t windowssysWindowsWin32UiTabletpcAddWordsToWordList(void* hwl, void* pwcwords);
+int32_t windowssysWindowsWin32UiTabletpcAdviseInkChange(void* hrc, int32_t bnewstroke);
+int32_t windowssysWindowsWin32UiTabletpcCreateContext(void* hrec, void* phrc);
+int32_t windowssysWindowsWin32UiTabletpcCreateRecognizer(void* pclsid, void* phrec);
+int32_t windowssysWindowsWin32UiTabletpcDestroyContext(void* hrc);
+int32_t windowssysWindowsWin32UiTabletpcDestroyRecognizer(void* hrec);
+int32_t windowssysWindowsWin32UiTabletpcDestroyWordList(void* hwl);
+int32_t windowssysWindowsWin32UiTabletpcEndInkInput(void* hrc);
+int32_t windowssysWindowsWin32UiTabletpcGetAllRecognizers(void* recognizerclsids, void* count);
+int32_t windowssysWindowsWin32UiTabletpcGetBestResultString(void* hrc, void* pcsize, void* pwcbestresult);
+int32_t windowssysWindowsWin32UiTabletpcGetLatticePtr(void* hrc, void* pplattice);
+int32_t windowssysWindowsWin32UiTabletpcGetLeftSeparator(void* hrc, void* pcsize, void* pwcleftseparator);
+int32_t windowssysWindowsWin32UiTabletpcGetRecoAttributes(void* hrec, void* precoattrs);
+int32_t windowssysWindowsWin32UiTabletpcGetResultPropertyList(void* hrec, void* ppropertycount, void* ppropertyguid);
+int32_t windowssysWindowsWin32UiTabletpcGetRightSeparator(void* hrc, void* pcsize, void* pwcrightseparator);
+int32_t windowssysWindowsWin32UiTabletpcGetUnicodeRanges(void* hrec, void* pcranges, void* pcr);
+int32_t windowssysWindowsWin32UiTabletpcIsStringSupported(void* hrc, uint32_t wcstring, void* pwcstring);
+int32_t windowssysWindowsWin32UiTabletpcMakeWordList(void* hrec, void* pbuffer, void* phwl);
+int32_t windowssysWindowsWin32UiTabletpcProcess(void* hrc, void* pbpartialprocessing);
+int32_t windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges(void* hrc, uint32_t cranges, void* pcr);
+int32_t windowssysWindowsWin32UiTabletpcSetFactoid(void* hrc, uint32_t cwcfactoid, void* pwcfactoid);
+int32_t windowssysWindowsWin32UiTabletpcSetFlags(void* hrc, uint32_t dwflags);
+int32_t windowssysWindowsWin32UiTabletpcSetGuide(void* hrc, void* pguide, uint32_t iindex);
+int32_t windowssysWindowsWin32UiTabletpcSetTextContext(void* hrc, uint32_t cwcbefore, void* pwcbefore, uint32_t cwcafter, void* pwcafter);
+int32_t windowssysWindowsWin32UiTabletpcSetWordList(void* hrc, void* hwl);
 
 #ifdef __cplusplus
 }

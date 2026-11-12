@@ -2,7 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Guid
@@ -11,19 +14,133 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
-public data class AAAccountingData(
-    public var userName: Bstr = null,
-    public var clientName: Bstr = null,
-    public var authType: AAAuthSchemes = 0,
-    public var resourceName: Bstr = null,
-    public var portNumber: Int = 0,
-    public var protocolName: Bstr = null,
-    public var numberOfBytesReceived: Int = 0,
-    public var numberOfBytesTransfered: Int = 0,
-    public var reasonForDisconnect: Bstr = null,
-    public var mainSessionId: Guid = Guid(),
-    public var subSessionId: Int = 0,
-)
+public class AAAccountingData internal constructor(
+    userNameCtorArg: Bstr,
+    clientNameCtorArg: Bstr,
+    public var authType: AAAuthSchemes,
+    resourceNameCtorArg: Bstr,
+    public var portNumber: Int,
+    protocolNameCtorArg: Bstr,
+    public var numberOfBytesReceived: Int,
+    public var numberOfBytesTransfered: Int,
+    reasonForDisconnectCtorArg: Bstr,
+    public var mainSessionId: Guid,
+    public var subSessionId: Int,
+) {
+    public var userName: Bstr = userNameCtorArg
+        internal set
+
+    public var clientName: Bstr = clientNameCtorArg
+        internal set
+
+    public var resourceName: Bstr = resourceNameCtorArg
+        internal set
+
+    public var protocolName: Bstr = protocolNameCtorArg
+        internal set
+
+    public var reasonForDisconnect: Bstr = reasonForDisconnectCtorArg
+        internal set
+
+    public constructor() : this(
+        userNameCtorArg = ConstPtr(0L),
+        clientNameCtorArg = ConstPtr(0L),
+        authType = 0,
+        resourceNameCtorArg = ConstPtr(0L),
+        portNumber = 0,
+        protocolNameCtorArg = ConstPtr(0L),
+        numberOfBytesReceived = 0,
+        numberOfBytesTransfered = 0,
+        reasonForDisconnectCtorArg = ConstPtr(0L),
+        mainSessionId = Guid(),
+        subSessionId = 0,
+    )
+
+    public operator fun component1(): Bstr = this.userName
+
+    public operator fun component2(): Bstr = this.clientName
+
+    public operator fun component3(): AAAuthSchemes = this.authType
+
+    public operator fun component4(): Bstr = this.resourceName
+
+    public operator fun component5(): Int = this.portNumber
+
+    public operator fun component6(): Bstr = this.protocolName
+
+    public operator fun component7(): Int = this.numberOfBytesReceived
+
+    public operator fun component8(): Int = this.numberOfBytesTransfered
+
+    public operator fun component9(): Bstr = this.reasonForDisconnect
+
+    public operator fun component10(): Guid = this.mainSessionId
+
+    public operator fun component11(): Int = this.subSessionId
+
+    public fun copy(userName: Bstr = this.userName, clientName: Bstr = this.clientName, authType: AAAuthSchemes = this.authType, resourceName: Bstr = this.resourceName, portNumber: Int = this.portNumber, protocolName: Bstr = this.protocolName, numberOfBytesReceived: Int = this.numberOfBytesReceived, numberOfBytesTransfered: Int = this.numberOfBytesTransfered, reasonForDisconnect: Bstr = this.reasonForDisconnect, mainSessionId: Guid = this.mainSessionId, subSessionId: Int = this.subSessionId): AAAccountingData = AAAccountingData(userNameCtorArg = userName, clientNameCtorArg = clientName, authType = authType, resourceNameCtorArg = resourceName, portNumber = portNumber, protocolNameCtorArg = protocolName, numberOfBytesReceived = numberOfBytesReceived, numberOfBytesTransfered = numberOfBytesTransfered, reasonForDisconnectCtorArg = reasonForDisconnect, mainSessionId = mainSessionId, subSessionId = subSessionId)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is AAAccountingData) return false
+        if (this.userName != other.userName) return false
+        if (this.clientName != other.clientName) return false
+        if (this.authType != other.authType) return false
+        if (this.resourceName != other.resourceName) return false
+        if (this.portNumber != other.portNumber) return false
+        if (this.protocolName != other.protocolName) return false
+        if (this.numberOfBytesReceived != other.numberOfBytesReceived) return false
+        if (this.numberOfBytesTransfered != other.numberOfBytesTransfered) return false
+        if (this.reasonForDisconnect != other.reasonForDisconnect) return false
+        if (this.mainSessionId != other.mainSessionId) return false
+        if (this.subSessionId != other.subSessionId) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.userName.hashCode()
+        result = 31 * result + this.clientName.hashCode()
+        result = 31 * result + this.authType.hashCode()
+        result = 31 * result + this.resourceName.hashCode()
+        result = 31 * result + this.portNumber.hashCode()
+        result = 31 * result + this.protocolName.hashCode()
+        result = 31 * result + this.numberOfBytesReceived.hashCode()
+        result = 31 * result + this.numberOfBytesTransfered.hashCode()
+        result = 31 * result + this.reasonForDisconnect.hashCode()
+        result = 31 * result + this.mainSessionId.hashCode()
+        result = 31 * result + this.subSessionId.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            userName: Bstr = ConstPtr(0L),
+            clientName: Bstr = ConstPtr(0L),
+            authType: AAAuthSchemes = 0,
+            resourceName: Bstr = ConstPtr(0L),
+            portNumber: Int = 0,
+            protocolName: Bstr = ConstPtr(0L),
+            numberOfBytesReceived: Int = 0,
+            numberOfBytesTransfered: Int = 0,
+            reasonForDisconnect: Bstr = ConstPtr(0L),
+            mainSessionId: Guid = Guid(),
+            subSessionId: Int = 0,
+        ): AAAccountingData =
+            AAAccountingData(
+                userNameCtorArg = userName,
+                clientNameCtorArg = clientName,
+                authType = authType,
+                resourceNameCtorArg = resourceName,
+                portNumber = portNumber,
+                protocolNameCtorArg = protocolName,
+                numberOfBytesReceived = numberOfBytesReceived,
+                numberOfBytesTransfered = numberOfBytesTransfered,
+                reasonForDisconnectCtorArg = reasonForDisconnect,
+                mainSessionId = mainSessionId,
+                subSessionId = subSessionId,
+            )
+    }
+}
 
 public data class AeCurrentPosition(
     public var u64DevicePosition: ULong = 0uL,
@@ -32,12 +149,54 @@ public data class AeCurrentPosition(
     public var hnsQPCPosition: Long = 0L,
     public var f32FramesPerSecond: Float = 0.0f,
     public var flag: AePositionFlags = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AeCurrentPosition> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AeCurrentPosition> {
+                override val sizeBytes: Long = 40L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): AeCurrentPosition =
+                    AeCurrentPosition(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
+                    )
+                override fun writeNative(addr: Long, value: AeCurrentPosition) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.u64DevicePosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.u64StreamPosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.u64PaddingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.hnsQPCPosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).writeNative(addr + 32L, value.f32FramesPerSecond)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.flag)
+                }
+            }
+    }
+}
 
 public data class BitmapRendererStatistics(
     public var dwFramesDelivered: UInt = 0u,
     public var dwFramesDropped: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<BitmapRendererStatistics> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<BitmapRendererStatistics> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): BitmapRendererStatistics =
+                    BitmapRendererStatistics(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: BitmapRendererStatistics) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFramesDelivered)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwFramesDropped)
+                }
+            }
+    }
+}
 
 public data class ChannelDef(
     public var name: ByteArray = ByteArray(8),
@@ -56,6 +215,29 @@ public data class ChannelDef(
         result = 31 * result + this.options.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ChannelDef> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ChannelDef> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): ChannelDef =
+                    ChannelDef(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (8).toInt())
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: ChannelDef) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (8).toInt())
+                    ).writeNative(addr, value.name)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.options)
+                }
+            }
+    }
 }
 
 public data class ChannelEntryPoints(
@@ -70,13 +252,49 @@ public data class ChannelEntryPoints(
 public data class ChannelPduHeader(
     public var length: UInt = 0u,
     public var flags: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ChannelPduHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ChannelPduHeader> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ChannelPduHeader =
+                    ChannelPduHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: ChannelPduHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.flags)
+                }
+            }
+    }
+}
 
 public data class ClientDisplay(
     public var horizontalResolution: UInt = 0u,
     public var verticalResolution: UInt = 0u,
     public var colorDepth: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ClientDisplay> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ClientDisplay> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): ClientDisplay =
+                    ClientDisplay(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: ClientDisplay) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.horizontalResolution)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.verticalResolution)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.colorDepth)
+                }
+            }
+    }
+}
 
 public data class ProductInfoa(
     public var companyName: ByteArray = ByteArray(256),
@@ -94,6 +312,35 @@ public data class ProductInfoa(
         var result = this.companyName.contentHashCode()
         result = 31 * result + this.productID.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProductInfoa> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProductInfoa> {
+                override val sizeBytes: Long = 260L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): ProductInfoa =
+                    ProductInfoa(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (4).toInt())
+                        ).readNative(addr + 256L),
+                    )
+                override fun writeNative(addr: Long, value: ProductInfoa) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
+                    ).writeNative(addr, value.companyName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (4).toInt())
+                    ).writeNative(addr + 256L, value.productID)
+                }
+            }
     }
 }
 
@@ -114,6 +361,35 @@ public data class ProductInfow(
         result = 31 * result + this.productID.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProductInfow> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProductInfow> {
+                override val sizeBytes: Long = 520L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): ProductInfow =
+                    ProductInfow(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
+                        ).readNative(addr + 512L),
+                    )
+                override fun writeNative(addr: Long, value: ProductInfow) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr, value.companyName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
+                    ).writeNative(addr + 512L, value.productID)
+                }
+            }
+    }
 }
 
 public data class RfxGfxMonitorInfo(
@@ -129,7 +405,22 @@ public data class RfxGfxMonitorInfo(
 
 public data class RfxGfxMsgClientDesktopInfoRequest(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgClientDesktopInfoRequest> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgClientDesktopInfoRequest> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgClientDesktopInfoRequest =
+                    RfxGfxMsgClientDesktopInfoRequest(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgClientDesktopInfoRequest) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgClientDesktopInfoResponse(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
@@ -161,7 +452,22 @@ public data class RfxGfxMsgClientDesktopInfoResponse(
 
 public data class RfxGfxMsgDesktopConfigChangeConfirm(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopConfigChangeConfirm> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopConfigChangeConfirm> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgDesktopConfigChangeConfirm =
+                    RfxGfxMsgDesktopConfigChangeConfirm(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgDesktopConfigChangeConfirm) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgDesktopConfigChangeNotify(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
@@ -169,28 +475,121 @@ public data class RfxGfxMsgDesktopConfigChangeNotify(
     public var ulHeight: UInt = 0u,
     public var ulBpp: UInt = 0u,
     public var reserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopConfigChangeNotify> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopConfigChangeNotify> {
+                override val sizeBytes: Long = 20L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgDesktopConfigChangeNotify =
+                    RfxGfxMsgDesktopConfigChangeNotify(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgDesktopConfigChangeNotify) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.ulWidth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.ulHeight)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.ulBpp)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgDesktopInputReset(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
     public var ulWidth: UInt = 0u,
     public var ulHeight: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopInputReset> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopInputReset> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgDesktopInputReset =
+                    RfxGfxMsgDesktopInputReset(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgDesktopInputReset) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.ulWidth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.ulHeight)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgDesktopResendRequest(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
     public var redrawRect: RfxGfxRect = RfxGfxRect(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopResendRequest> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDesktopResendRequest> {
+                override val sizeBytes: Long = 20L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgDesktopResendRequest =
+                    RfxGfxMsgDesktopResendRequest(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                        (RfxGfxRect.typeLayout()).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgDesktopResendRequest) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                    (RfxGfxRect.typeLayout()).writeNative(addr + 4L, value.redrawRect)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgDisconnectNotify(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
     public var disconnectReason: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDisconnectNotify> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgDisconnectNotify> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgDisconnectNotify =
+                    RfxGfxMsgDisconnectNotify(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgDisconnectNotify) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.disconnectReason)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgHeader(
     public var uMSGType: UShort = 0u,
     public var cbSize: UShort = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgHeader> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgHeader =
+                    RfxGfxMsgHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.uMSGType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.cbSize)
+                }
+            }
+    }
+}
 
 public data class RfxGfxMsgRdpData(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
@@ -209,6 +608,29 @@ public data class RfxGfxMsgRdpData(
         result = 31 * result + this.rdpData.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgRdpData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxMsgRdpData> {
+                override val sizeBytes: Long = 5L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxMsgRdpData =
+                    RfxGfxMsgRdpData(
+                        (RfxGfxMsgHeader.typeLayout()).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxMsgRdpData) {
+                    (RfxGfxMsgHeader.typeLayout()).writeNative(addr, value.channelHdr)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
+                    ).writeNative(addr + 4L, value.rdpData)
+                }
+            }
+    }
 }
 
 public data class RfxGfxRect(
@@ -216,7 +638,28 @@ public data class RfxGfxRect(
     public var top: Int = 0,
     public var right: Int = 0,
     public var bottom: Int = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxRect> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RfxGfxRect> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 1L
+                override fun readNative(addr: Long): RfxGfxRect =
+                    RfxGfxRect(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: RfxGfxRect) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.left)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.top)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.right)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.bottom)
+                }
+            }
+    }
+}
 
 public data class TssdConnectionPoint(
     public var serverAddressB: UByteArray = UByteArray(16),
@@ -241,6 +684,33 @@ public data class TssdConnectionPoint(
         result = 31 * result + this.addressScope.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TssdConnectionPoint> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TssdConnectionPoint> {
+                override val sizeBytes: Long = 28L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): TssdConnectionPoint =
+                    TssdConnectionPoint(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: TssdConnectionPoint) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                    ).writeNative(addr, value.serverAddressB)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.addressType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 20L, value.portNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.addressScope)
+                }
+            }
+    }
 }
 
 public data class VmNotifyEntry(
@@ -260,17 +730,166 @@ public data class VmNotifyEntry(
         result = 31 * result + this.vmHost.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VmNotifyEntry> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VmNotifyEntry> {
+                override val sizeBytes: Long = 512L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): VmNotifyEntry =
+                    VmNotifyEntry(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (128).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (128).toInt())
+                        ).readNative(addr + 256L),
+                    )
+                override fun writeNative(addr: Long, value: VmNotifyEntry) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (128).toInt())
+                    ).writeNative(addr, value.vmName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (128).toInt())
+                    ).writeNative(addr + 256L, value.vmHost)
+                }
+            }
+    }
 }
 
-public data class VmNotifyInfo(
-    public var dwNumEntries: UInt = 0u,
-    public var ppVmEntries: COpaquePointer? = null,
-)
+public class VmNotifyInfo internal constructor(
+    public var dwNumEntries: UInt,
+    ppVmEntriesCtorArg: MutPtr<MutPtr<VmNotifyEntry>>,
+) {
+    public var ppVmEntries: MutPtr<MutPtr<VmNotifyEntry>> = ppVmEntriesCtorArg
+        internal set
 
-public data class VmPatchInfo(
-    public var dwNumEntries: UInt = 0u,
-    public var pVmNames: Pwstr = null,
-)
+    public constructor() : this(
+        dwNumEntries = 0u,
+        ppVmEntriesCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.dwNumEntries
+
+    public operator fun component2(): MutPtr<MutPtr<VmNotifyEntry>> = this.ppVmEntries
+
+    public fun copy(dwNumEntries: UInt = this.dwNumEntries, ppVmEntries: MutPtr<MutPtr<VmNotifyEntry>> = this.ppVmEntries): VmNotifyInfo = VmNotifyInfo(dwNumEntries = dwNumEntries, ppVmEntriesCtorArg = ppVmEntries)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is VmNotifyInfo) return false
+        if (this.dwNumEntries != other.dwNumEntries) return false
+        if (this.ppVmEntries != other.ppVmEntries) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.dwNumEntries.hashCode()
+        result = 31 * result + this.ppVmEntries.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VmNotifyInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VmNotifyInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): VmNotifyInfo =
+                    VmNotifyInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<MutPtr<VmNotifyEntry>>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: VmNotifyInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwNumEntries)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<MutPtr<VmNotifyEntry>>(64)
+                    ).writeNative(addr + 8L, value.ppVmEntries)
+                }
+            }
+
+        public operator fun invoke(
+            dwNumEntries: UInt = 0u,
+            ppVmEntries: MutPtr<MutPtr<VmNotifyEntry>> = MutPtr(0L),
+        ): VmNotifyInfo =
+            VmNotifyInfo(
+                dwNumEntries = dwNumEntries,
+                ppVmEntriesCtorArg = ppVmEntries,
+            )
+    }
+}
+
+public class VmPatchInfo internal constructor(
+    public var dwNumEntries: UInt,
+    pVmNamesCtorArg: MutPtr<Pwstr>,
+) {
+    public var pVmNames: MutPtr<Pwstr> = pVmNamesCtorArg
+        internal set
+
+    public constructor() : this(
+        dwNumEntries = 0u,
+        pVmNamesCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.dwNumEntries
+
+    public operator fun component2(): MutPtr<Pwstr> = this.pVmNames
+
+    public fun copy(dwNumEntries: UInt = this.dwNumEntries, pVmNames: MutPtr<Pwstr> = this.pVmNames): VmPatchInfo = VmPatchInfo(dwNumEntries = dwNumEntries, pVmNamesCtorArg = pVmNames)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is VmPatchInfo) return false
+        if (this.dwNumEntries != other.dwNumEntries) return false
+        if (this.pVmNames != other.pVmNames) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.dwNumEntries.hashCode()
+        result = 31 * result + this.pVmNames.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VmPatchInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VmPatchInfo> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): VmPatchInfo =
+                    VmPatchInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Pwstr>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: VmPatchInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwNumEntries)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Pwstr>(64)
+                    ).writeNative(addr + 8L, value.pVmNames)
+                }
+            }
+
+        public operator fun invoke(
+            dwNumEntries: UInt = 0u,
+            pVmNames: MutPtr<Pwstr> = MutPtr(0L),
+        ): VmPatchInfo =
+            VmPatchInfo(
+                dwNumEntries = dwNumEntries,
+                pVmNamesCtorArg = pVmNames,
+            )
+    }
+}
 
 public data class WrdsConnectionSetting(
     public var wRdsConnectionSettings1: WrdsConnectionSettings1 = WrdsConnectionSettings1(),
@@ -410,7 +1029,8 @@ public class WrdsConnectionSettings1 {
 
     public var contextSize: UInt = 0u
 
-    public var contextData: COpaquePointer? = null
+    public var contextData: MutPtr<UByte> = MutPtr(0L)
+        internal set
 }
 
 public data class WrdsDynamicTimeZoneInformation(
@@ -451,6 +1071,55 @@ public data class WrdsDynamicTimeZoneInformation(
         result = 31 * result + this.dynamicDaylightTimeDisabled.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WrdsDynamicTimeZoneInformation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WrdsDynamicTimeZoneInformation> {
+                override val sizeBytes: Long = 432L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WrdsDynamicTimeZoneInformation =
+                    WrdsDynamicTimeZoneInformation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                        ).readNative(addr + 4L),
+                        (WtsSystemtime.typeLayout()).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 84L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                        ).readNative(addr + 88L),
+                        (WtsSystemtime.typeLayout()).readNative(addr + 152L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 168L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (128).toInt())
+                        ).readNative(addr + 172L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 428L),
+                    )
+                override fun writeNative(addr: Long, value: WrdsDynamicTimeZoneInformation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bias)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                    ).writeNative(addr + 4L, value.standardName)
+                    (WtsSystemtime.typeLayout()).writeNative(addr + 68L, value.standardDate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 84L, value.standardBias)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                    ).writeNative(addr + 88L, value.daylightName)
+                    (WtsSystemtime.typeLayout()).writeNative(addr + 152L, value.daylightDate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 168L, value.daylightBias)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (128).toInt())
+                    ).writeNative(addr + 172L, value.timeZoneKeyName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 428L, value.dynamicDaylightTimeDisabled)
+                }
+            }
+    }
 }
 
 public data class WrdsListenerSetting(
@@ -462,11 +1131,80 @@ public data class WrdsListenerSettings(
     public var wRdsListenerSetting: WrdsListenerSetting = WrdsListenerSetting(),
 )
 
-public data class WrdsListenerSettings1(
-    public var maxProtocolListenerConnectionCount: UInt = 0u,
-    public var securityDescriptorSize: UInt = 0u,
-    public var pSecurityDescriptor: COpaquePointer? = null,
-)
+public class WrdsListenerSettings1 internal constructor(
+    public var maxProtocolListenerConnectionCount: UInt,
+    public var securityDescriptorSize: UInt,
+    pSecurityDescriptorCtorArg: MutPtr<UByte>,
+) {
+    public var pSecurityDescriptor: MutPtr<UByte> = pSecurityDescriptorCtorArg
+        internal set
+
+    public constructor() : this(
+        maxProtocolListenerConnectionCount = 0u,
+        securityDescriptorSize = 0u,
+        pSecurityDescriptorCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.maxProtocolListenerConnectionCount
+
+    public operator fun component2(): UInt = this.securityDescriptorSize
+
+    public operator fun component3(): MutPtr<UByte> = this.pSecurityDescriptor
+
+    public fun copy(maxProtocolListenerConnectionCount: UInt = this.maxProtocolListenerConnectionCount, securityDescriptorSize: UInt = this.securityDescriptorSize, pSecurityDescriptor: MutPtr<UByte> = this.pSecurityDescriptor): WrdsListenerSettings1 = WrdsListenerSettings1(maxProtocolListenerConnectionCount = maxProtocolListenerConnectionCount, securityDescriptorSize = securityDescriptorSize, pSecurityDescriptorCtorArg = pSecurityDescriptor)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WrdsListenerSettings1) return false
+        if (this.maxProtocolListenerConnectionCount != other.maxProtocolListenerConnectionCount) return false
+        if (this.securityDescriptorSize != other.securityDescriptorSize) return false
+        if (this.pSecurityDescriptor != other.pSecurityDescriptor) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.maxProtocolListenerConnectionCount.hashCode()
+        result = 31 * result + this.securityDescriptorSize.hashCode()
+        result = 31 * result + this.pSecurityDescriptor.hashCode()
+        return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WrdsListenerSettings1> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WrdsListenerSettings1> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): WrdsListenerSettings1 =
+                    WrdsListenerSettings1(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WrdsListenerSettings1) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.maxProtocolListenerConnectionCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.securityDescriptorSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 8L, value.pSecurityDescriptor)
+                }
+            }
+
+        public operator fun invoke(
+            maxProtocolListenerConnectionCount: UInt = 0u,
+            securityDescriptorSize: UInt = 0u,
+            pSecurityDescriptor: MutPtr<UByte> = MutPtr(0L),
+        ): WrdsListenerSettings1 =
+            WrdsListenerSettings1(
+                maxProtocolListenerConnectionCount = maxProtocolListenerConnectionCount,
+                securityDescriptorSize = securityDescriptorSize,
+                pSecurityDescriptorCtorArg = pSecurityDescriptor,
+            )
+    }
+}
 
 public data class WrdsSetting(
     public var wRdsSettings1: WrdsSettings1 = WrdsSettings1(),
@@ -510,7 +1248,82 @@ public class WrdsSettings1(
     public var wRdsKeepAliveStatus: WrdsSettingStatus = 0,
     public var wRdsKeepAliveStartValue: Boolean = false,
     public var wRdsKeepAliveIntervalValue: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WrdsSettings1> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WrdsSettings1> {
+                override val sizeBytes: Long = 124L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WrdsSettings1 =
+                    WrdsSettings1(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 76L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 80L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 84L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 88L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 92L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 96L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 100L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 104L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 108L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 112L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 116L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 120L),
+                    )
+                override fun writeNative(addr: Long, value: WrdsSettings1) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.wRdsDisableClipStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.wRdsDisableClipValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.wRdsDisableLPTStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.wRdsDisableLPTValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.wRdsDisableCcmStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.wRdsDisableCcmValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.wRdsDisableCdmStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.wRdsDisableCdmValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.wRdsDisableCpmStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.wRdsDisableCpmValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 40L, value.wRdsDisablePnpStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.wRdsDisablePnpValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 48L, value.wRdsEncryptionLevelStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.wRdsEncryptionValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.wRdsColorDepthStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.wRdsColorDepthValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 64L, value.wRdsDisableAutoReconnecetStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 68L, value.wRdsDisableAutoReconnecetValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 72L, value.wRdsDisableEncryptionStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 76L, value.wRdsDisableEncryptionValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 80L, value.wRdsResetBrokenStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 84L, value.wRdsResetBrokenValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 88L, value.wRdsMaxIdleTimeStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 92L, value.wRdsMaxIdleTimeValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 96L, value.wRdsMaxDisconnectTimeStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 100L, value.wRdsMaxDisconnectTimeValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 104L, value.wRdsMaxConnectTimeStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 108L, value.wRdsMaxConnectTimeValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 112L, value.wRdsKeepAliveStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 116L, value.wRdsKeepAliveStartValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 120L, value.wRdsKeepAliveIntervalValue)
+                }
+            }
+    }
+}
 
 public class Wtsclienta(
     public var clientName: ByteArray = ByteArray(21),
@@ -532,7 +1345,106 @@ public class Wtsclienta(
     public var outBufCountClient: UShort = 0u,
     public var outBufLength: UShort = 0u,
     public var deviceId: ByteArray = ByteArray(261),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsclienta> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsclienta> {
+                override val sizeBytes: Long = 1200L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtsclienta =
+                    Wtsclienta(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                        ).readNative(addr + 21L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                        ).readNative(addr + 39L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 60L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 321L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 582L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 584L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (31).toInt())
+                        ).readNative(addr + 588L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 650L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 652L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 654L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 656L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 920L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 924L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 928L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 930L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 932L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 934L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 936L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsclienta) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                    ).writeNative(addr, value.clientName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                    ).writeNative(addr + 21L, value.domain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                    ).writeNative(addr + 39L, value.userName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 60L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 321L, value.initialProgram)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 582L, value.encryptionLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 584L, value.clientAddressFamily)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (31).toInt())
+                    ).writeNative(addr + 588L, value.clientAddress)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 650L, value.hRes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 652L, value.vRes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 654L, value.colorDepth)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 656L, value.clientDirectory)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 920L, value.clientBuildNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 924L, value.clientHardwareId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 928L, value.clientProductId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 930L, value.outBufCountHost)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 932L, value.outBufCountClient)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 934L, value.outBufLength)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 936L, value.deviceId)
+                }
+            }
+    }
+}
 
 public class Wtsclientw(
     public var clientName: UShortArray = UShortArray(21),
@@ -554,7 +1466,106 @@ public class Wtsclientw(
     public var outBufCountClient: UShort = 0u,
     public var outBufLength: UShort = 0u,
     public var deviceId: UShortArray = UShortArray(261),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsclientw> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsclientw> {
+                override val sizeBytes: Long = 2304L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtsclientw =
+                    Wtsclientw(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                        ).readNative(addr + 42L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                        ).readNative(addr + 78L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 120L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 642L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 1164L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1168L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (31).toInt())
+                        ).readNative(addr + 1172L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1234L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1236L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1238L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 1240L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1764L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1768L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1772L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1774L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1776L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 1778L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 1780L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsclientw) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                    ).writeNative(addr, value.clientName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                    ).writeNative(addr + 42L, value.domain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                    ).writeNative(addr + 78L, value.userName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 120L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 642L, value.initialProgram)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 1164L, value.encryptionLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1168L, value.clientAddressFamily)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (31).toInt())
+                    ).writeNative(addr + 1172L, value.clientAddress)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1234L, value.hRes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1236L, value.vRes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1238L, value.colorDepth)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 1240L, value.clientDirectory)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1764L, value.clientBuildNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1768L, value.clientHardwareId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1772L, value.clientProductId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1774L, value.outBufCountHost)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1776L, value.outBufCountClient)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 1778L, value.outBufLength)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 1780L, value.deviceId)
+                }
+            }
+    }
+}
 
 public data class Wtsconfiginfoa(
     public var version: UInt = 0u,
@@ -599,6 +1610,71 @@ public data class Wtsconfiginfoa(
         result = 31 * result + this.initialProgram.contentHashCode()
         result = 31 * result + this.applicationName.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsconfiginfoa> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsconfiginfoa> {
+                override val sizeBytes: Long = 848L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtsconfiginfoa =
+                    Wtsconfiginfoa(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                        ).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                        ).readNative(addr + 45L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 63L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 324L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 585L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsconfiginfoa) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.fConnectClientDrivesAtLogon)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.fConnectPrinterAtLogon)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fDisablePrinterRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fDisableDefaultMainClientPrinter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.shadowSettings)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                    ).writeNative(addr + 24L, value.logonUserName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                    ).writeNative(addr + 45L, value.logonDomain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 63L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 324L, value.initialProgram)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 585L, value.applicationName)
+                }
+            }
     }
 }
 
@@ -645,6 +1721,71 @@ public data class Wtsconfiginfow(
         result = 31 * result + this.initialProgram.contentHashCode()
         result = 31 * result + this.applicationName.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsconfiginfow> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsconfiginfow> {
+                override val sizeBytes: Long = 1668L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtsconfiginfow =
+                    Wtsconfiginfow(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                        ).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                        ).readNative(addr + 66L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 102L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 624L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 1146L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsconfiginfow) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.fConnectClientDrivesAtLogon)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.fConnectPrinterAtLogon)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fDisablePrinterRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fDisableDefaultMainClientPrinter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.shadowSettings)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                    ).writeNative(addr + 24L, value.logonUserName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                    ).writeNative(addr + 66L, value.logonDomain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 102L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 624L, value.initialProgram)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 1146L, value.applicationName)
+                }
+            }
     }
 }
 
@@ -707,6 +1848,69 @@ public data class Wtsinfoa(
         result = 31 * result + this.currentTime.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsinfoa> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsinfoa> {
+                override val sizeBytes: Long = 144L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Wtsinfoa =
+                    Wtsinfoa(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (32).toInt())
+                        ).readNative(addr + 32L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (17).toInt())
+                        ).readNative(addr + 64L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                        ).readNative(addr + 81L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 104L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 112L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 120L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 128L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 136L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsinfoa) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.state)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.sessionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.incomingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.outgoingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.incomingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.outgoingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.incomingCompressedBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.outgoingCompressedBy)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (32).toInt())
+                    ).writeNative(addr + 32L, value.winStationName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (17).toInt())
+                    ).writeNative(addr + 64L, value.domain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                    ).writeNative(addr + 81L, value.userName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 104L, value.connectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 112L, value.disconnectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 120L, value.lastInputTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 128L, value.logonTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 136L, value.currentTime)
+                }
+            }
+    }
 }
 
 public data class Wtsinfoexa(
@@ -737,7 +1941,72 @@ public class WtsinfoexLevel1A(
     public var outgoingFrames: UInt = 0u,
     public var incomingCompressedBytes: UInt = 0u,
     public var outgoingCompressedBytes: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsinfoexLevel1A> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsinfoexLevel1A> {
+                override val sizeBytes: Long = 152L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): WtsinfoexLevel1A =
+                    WtsinfoexLevel1A(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (33).toInt())
+                        ).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                        ).readNative(addr + 45L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                        ).readNative(addr + 66L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 88L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 96L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 104L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 112L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 120L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 128L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 132L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 136L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 140L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 144L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 148L),
+                    )
+                override fun writeNative(addr: Long, value: WtsinfoexLevel1A) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sessionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.sessionState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.sessionFlags)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (33).toInt())
+                    ).writeNative(addr + 12L, value.winStationName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                    ).writeNative(addr + 45L, value.userName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                    ).writeNative(addr + 66L, value.domainName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 88L, value.logonTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 96L, value.connectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 104L, value.disconnectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 112L, value.lastInputTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 120L, value.currentTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 128L, value.incomingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 132L, value.outgoingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 136L, value.incomingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 140L, value.outgoingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 144L, value.incomingCompressedBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 148L, value.outgoingCompressedBytes)
+                }
+            }
+    }
+}
 
 public class WtsinfoexLevel1W(
     public var sessionId: UInt = 0u,
@@ -757,7 +2026,72 @@ public class WtsinfoexLevel1W(
     public var outgoingFrames: UInt = 0u,
     public var incomingCompressedBytes: UInt = 0u,
     public var outgoingCompressedBytes: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsinfoexLevel1W> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsinfoexLevel1W> {
+                override val sizeBytes: Long = 224L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): WtsinfoexLevel1W =
+                    WtsinfoexLevel1W(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (33).toInt())
+                        ).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                        ).readNative(addr + 78L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                        ).readNative(addr + 120L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 160L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 168L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 176L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 184L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 192L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 200L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 204L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 208L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 212L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 216L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 220L),
+                    )
+                override fun writeNative(addr: Long, value: WtsinfoexLevel1W) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sessionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.sessionState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.sessionFlags)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (33).toInt())
+                    ).writeNative(addr + 12L, value.winStationName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                    ).writeNative(addr + 78L, value.userName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                    ).writeNative(addr + 120L, value.domainName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 160L, value.logonTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 168L, value.connectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 176L, value.disconnectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 184L, value.lastInputTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 192L, value.currentTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 200L, value.incomingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 204L, value.outgoingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 208L, value.incomingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 212L, value.outgoingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 216L, value.incomingCompressedBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 220L, value.outgoingCompressedBytes)
+                }
+            }
+    }
+}
 
 public data class WtsinfoexLevelA(
     public var wTSInfoExLevel1: WtsinfoexLevel1A = WtsinfoexLevel1A(),
@@ -826,6 +2160,69 @@ public data class Wtsinfow(
         result = 31 * result + this.currentTime.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsinfow> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsinfow> {
+                override val sizeBytes: Long = 216L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): Wtsinfow =
+                    Wtsinfow(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                        ).readNative(addr + 32L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (17).toInt())
+                        ).readNative(addr + 96L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                        ).readNative(addr + 130L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 176L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 184L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 192L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 200L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 208L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsinfow) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.state)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.sessionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.incomingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.outgoingBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.incomingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.outgoingFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.incomingCompressedBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.outgoingCompressedBytes)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                    ).writeNative(addr + 32L, value.winStationName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (17).toInt())
+                    ).writeNative(addr + 96L, value.domain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                    ).writeNative(addr + 130L, value.userName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 176L, value.connectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 184L, value.disconnectTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 192L, value.lastInputTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 200L, value.logonTime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 208L, value.currentTime)
+                }
+            }
+    }
 }
 
 public class Wtslistenerconfiga(
@@ -860,7 +2257,112 @@ public class Wtslistenerconfiga(
     public var logonDomain: ByteArray = ByteArray(18),
     public var workDirectory: ByteArray = ByteArray(261),
     public var initialProgram: ByteArray = ByteArray(261),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtslistenerconfiga> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtslistenerconfiga> {
+                override val sizeBytes: Long = 728L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtslistenerconfiga =
+                    Wtslistenerconfiga(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 76L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 80L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 84L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 88L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 92L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 96L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 100L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (61).toInt())
+                        ).readNative(addr + 104L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                        ).readNative(addr + 165L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                        ).readNative(addr + 186L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 204L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 465L),
+                    )
+                override fun writeNative(addr: Long, value: Wtslistenerconfiga) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.fEnableListener)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.maxConnectionCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fPromptForPassword)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fInheritColorDepth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.colorDepth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.fInheritBrokenTimeoutSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.brokenTimeoutSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.fDisablePrinterRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.fDisableDriveRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.fDisableComPortRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.fDisableLPTPortRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.fDisableClipboardRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.fDisableAudioRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.fDisablePNPRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.fDisableDefaultMainClientPrinter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.lanAdapter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 68L, value.portNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.fInheritShadowSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 76L, value.shadowSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 80L, value.timeoutSettingsConnection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 84L, value.timeoutSettingsDisconnection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 88L, value.timeoutSettingsIdle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 92L, value.securityLayer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 96L, value.minEncryptionLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 100L, value.userAuthentication)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (61).toInt())
+                    ).writeNative(addr + 104L, value.comment)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (21).toInt())
+                    ).writeNative(addr + 165L, value.logonUserName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (18).toInt())
+                    ).writeNative(addr + 186L, value.logonDomain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 204L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 465L, value.initialProgram)
+                }
+            }
+    }
+}
 
 public class Wtslistenerconfigw(
     public var version: UInt = 0u,
@@ -894,7 +2396,112 @@ public class Wtslistenerconfigw(
     public var logonDomain: UShortArray = UShortArray(18),
     public var workDirectory: UShortArray = UShortArray(261),
     public var initialProgram: UShortArray = UShortArray(261),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtslistenerconfigw> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtslistenerconfigw> {
+                override val sizeBytes: Long = 1348L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtslistenerconfigw =
+                    Wtslistenerconfigw(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 76L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 80L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 84L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 88L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 92L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 96L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 100L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (61).toInt())
+                        ).readNative(addr + 104L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                        ).readNative(addr + 226L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                        ).readNative(addr + 268L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 304L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 826L),
+                    )
+                override fun writeNative(addr: Long, value: Wtslistenerconfigw) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.fEnableListener)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.maxConnectionCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fPromptForPassword)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fInheritColorDepth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.colorDepth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.fInheritBrokenTimeoutSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.brokenTimeoutSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.fDisablePrinterRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.fDisableDriveRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.fDisableComPortRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.fDisableLPTPortRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.fDisableClipboardRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.fDisableAudioRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.fDisablePNPRedirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.fDisableDefaultMainClientPrinter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.lanAdapter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 68L, value.portNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.fInheritShadowSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 76L, value.shadowSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 80L, value.timeoutSettingsConnection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 84L, value.timeoutSettingsDisconnection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 88L, value.timeoutSettingsIdle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 92L, value.securityLayer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 96L, value.minEncryptionLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 100L, value.userAuthentication)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (61).toInt())
+                    ).writeNative(addr + 104L, value.comment)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (21).toInt())
+                    ).writeNative(addr + 226L, value.logonUserName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (18).toInt())
+                    ).writeNative(addr + 268L, value.logonDomain)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 304L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 826L, value.initialProgram)
+                }
+            }
+    }
+}
 
 public data class WtssbxIpAddress(
     public var addressFamily: WtssbxAddressFamily = 0,
@@ -918,6 +2525,33 @@ public data class WtssbxIpAddress(
         result = 31 * result + this.portNumber.hashCode()
         result = 31 * result + this.dwScope.hashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssbxIpAddress> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssbxIpAddress> {
+                override val sizeBytes: Long = 28L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtssbxIpAddress =
+                    WtssbxIpAddress(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                        ).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: WtssbxIpAddress) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.addressFamily)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                    ).writeNative(addr + 4L, value.address)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 20L, value.portNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.dwScope)
+                }
+            }
     }
 }
 
@@ -943,6 +2577,45 @@ public data class WtssbxMachineConnectInfo(
         result = 31 * result + this.dwNumOfIPAddr.hashCode()
         result = 31 * result + this.iPaddr.hashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssbxMachineConnectInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssbxMachineConnectInfo> {
+                override val sizeBytes: Long = 888L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtssbxMachineConnectInfo =
+                    WtssbxMachineConnectInfo(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (17).toInt())
+                        ).readNative(addr + 514L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 548L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(WtssbxIpAddress.typeLayout(), (12).toInt())
+                        ).readNative(addr + 552L),
+                    )
+                override fun writeNative(addr: Long, value: WtssbxMachineConnectInfo) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                    ).writeNative(addr, value.wczMachineFQDN)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (17).toInt())
+                    ).writeNative(addr + 514L, value.wczMachineNetBiosName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 548L, value.dwNumOfIPAddr)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(WtssbxIpAddress.typeLayout(), (12).toInt())
+                    ).writeNative(addr + 552L, value.iPaddr)
+                }
+            }
     }
 }
 
@@ -980,6 +2653,41 @@ public data class WtssbxMachineInfo(
         result = 31 * result + this.inDrain.hashCode()
         result = 31 * result + this.machineState.hashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssbxMachineInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssbxMachineInfo> {
+                override val sizeBytes: Long = 1452L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtssbxMachineInfo =
+                    WtssbxMachineInfo(
+                        (WtssbxMachineConnectInfo.typeLayout()).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                        ).readNative(addr + 888L),
+                        (WtssbxIpAddress.typeLayout()).readNative(addr + 1404L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1432L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1436L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 1440L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 1444L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 1448L),
+                    )
+                override fun writeNative(addr: Long, value: WtssbxMachineInfo) {
+                    (WtssbxMachineConnectInfo.typeLayout()).writeNative(addr, value.clientConnectInfo)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                    ).writeNative(addr + 888L, value.wczFarmName)
+                    (WtssbxIpAddress.typeLayout()).writeNative(addr + 1404L, value.internalIPAddress)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1432L, value.dwMaxSessionsLimit)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1436L, value.serverWeight)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 1440L, value.singleSessionMode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 1444L, value.inDrain)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 1448L, value.machineState)
+                }
+            }
     }
 }
 
@@ -1020,7 +2728,24 @@ public data class WtssbxSessionInfo(
 public data class WtssessionNotification(
     public var cbSize: UInt = 0u,
     public var dwSessionId: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssessionNotification> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtssessionNotification> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtssessionNotification =
+                    WtssessionNotification(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WtssessionNotification) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwSessionId)
+                }
+            }
+    }
+}
 
 public class Wtsuserconfiga(
     public var source: UInt = 0u,
@@ -1041,7 +2766,86 @@ public class Wtsuserconfiga(
     public var terminalServerProfilePath: ByteArray = ByteArray(261),
     public var terminalServerHomeDir: ByteArray = ByteArray(261),
     public var terminalServerHomeDirDrive: ByteArray = ByteArray(4),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsuserconfiga> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsuserconfiga> {
+                override val sizeBytes: Long = 1100L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtsuserconfiga =
+                    Wtsuserconfiga(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 52L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 313L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 574L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                        ).readNative(addr + 835L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (4).toInt())
+                        ).readNative(addr + 1096L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsuserconfiga) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.source)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.inheritInitialProgram)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.allowLogonTerminalServer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.timeoutSettingsConnections)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.timeoutSettingsDisconnections)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.timeoutSettingsIdle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.deviceClientDrives)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.deviceClientPrinters)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.clientDefaultPrinter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.brokenTimeoutSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.reconnectSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.shadowingSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.terminalServerRemoteHomeDir)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 52L, value.initialProgram)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 313L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 574L, value.terminalServerProfilePath)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (261).toInt())
+                    ).writeNative(addr + 835L, value.terminalServerHomeDir)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (4).toInt())
+                    ).writeNative(addr + 1096L, value.terminalServerHomeDirDrive)
+                }
+            }
+    }
+}
 
 public class Wtsuserconfigw(
     public var source: UInt = 0u,
@@ -1062,7 +2866,86 @@ public class Wtsuserconfigw(
     public var terminalServerProfilePath: UShortArray = UShortArray(261),
     public var terminalServerHomeDir: UShortArray = UShortArray(261),
     public var terminalServerHomeDirDrive: UShortArray = UShortArray(4),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsuserconfigw> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wtsuserconfigw> {
+                override val sizeBytes: Long = 2148L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Wtsuserconfigw =
+                    Wtsuserconfigw(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 52L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 574L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 1096L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                        ).readNative(addr + 1618L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
+                        ).readNative(addr + 2140L),
+                    )
+                override fun writeNative(addr: Long, value: Wtsuserconfigw) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.source)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.inheritInitialProgram)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.allowLogonTerminalServer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.timeoutSettingsConnections)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.timeoutSettingsDisconnections)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.timeoutSettingsIdle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.deviceClientDrives)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.deviceClientPrinters)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.clientDefaultPrinter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.brokenTimeoutSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.reconnectSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.shadowingSettings)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.terminalServerRemoteHomeDir)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 52L, value.initialProgram)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 574L, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 1096L, value.terminalServerProfilePath)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (261).toInt())
+                    ).writeNative(addr + 1618L, value.terminalServerHomeDir)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
+                    ).writeNative(addr + 2140L, value.terminalServerHomeDirDrive)
+                }
+            }
+    }
+}
 
 public data class WtsCacheStats(
     public var specific: UInt = 0u,
@@ -1109,6 +2992,29 @@ public data class WtsClientAddress(
         var result = this.addressFamily.hashCode()
         result = 31 * result + this.address.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsClientAddress> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsClientAddress> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsClientAddress =
+                    WtsClientAddress(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WtsClientAddress) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.addressFamily)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                    ).writeNative(addr + 4L, value.address)
+                }
+            }
     }
 }
 
@@ -1174,7 +3080,26 @@ public data class WtsClientDisplay(
     public var horizontalResolution: UInt = 0u,
     public var verticalResolution: UInt = 0u,
     public var colorDepth: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsClientDisplay> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsClientDisplay> {
+                override val sizeBytes: Long = 12L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsClientDisplay =
+                    WtsClientDisplay(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WtsClientDisplay) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.horizontalResolution)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.verticalResolution)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.colorDepth)
+                }
+            }
+    }
+}
 
 public data class WtsDisplayIoctl(
     public var pDisplayIOCtlData: UByteArray = UByteArray(256),
@@ -1192,6 +3117,29 @@ public data class WtsDisplayIoctl(
         var result = this.pDisplayIOCtlData.contentHashCode()
         result = 31 * result + this.cbDisplayIOCtlData.hashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsDisplayIoctl> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsDisplayIoctl> {
+                override val sizeBytes: Long = 260L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsDisplayIoctl =
+                    WtsDisplayIoctl(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 256L),
+                    )
+                override fun writeNative(addr: Long, value: WtsDisplayIoctl) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
+                    ).writeNative(addr, value.pDisplayIOCtlData)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 256L, value.cbDisplayIOCtlData)
+                }
+            }
     }
 }
 
@@ -1237,51 +3185,420 @@ public data class WtsPolicyData(
     public var fDisableLPT: Boolean = false,
     public var fDisableClip: Boolean = false,
     public var fDisablePNPRedir: Boolean = false,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsPolicyData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsPolicyData> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsPolicyData =
+                    WtsPolicyData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 1L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 9L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 10L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 11L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 13L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 14L),
+                    )
+                override fun writeNative(addr: Long, value: WtsPolicyData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.fDisableEncryption)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 1L, value.fDisableAutoReconnect)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.colorDepth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.minEncryptionLevel)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 9L, value.fDisableCpm)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 10L, value.fDisableCdm)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 11L, value.fDisableCcm)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 12L, value.fDisableLPT)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 13L, value.fDisableClip)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 14L, value.fDisablePNPRedir)
+                }
+            }
+    }
+}
 
-public data class WtsProcessInfoa(
-    public var sessionId: UInt = 0u,
-    public var processId: UInt = 0u,
-    public var pProcessName: Pstr = null,
-    public var pUserSid: Psid = null,
-)
+public class WtsProcessInfoa internal constructor(
+    public var sessionId: UInt,
+    public var processId: UInt,
+    pProcessNameCtorArg: Pstr,
+    pUserSidCtorArg: Psid,
+) {
+    public var pProcessName: Pstr = pProcessNameCtorArg
+        internal set
 
-public data class WtsProcessInfow(
-    public var sessionId: UInt = 0u,
-    public var processId: UInt = 0u,
-    public var pProcessName: Pwstr = null,
-    public var pUserSid: Psid = null,
-)
+    public var pUserSid: Psid = pUserSidCtorArg
+        internal set
 
-public data class WtsProcessInfoExa(
-    public var sessionId: UInt = 0u,
-    public var processId: UInt = 0u,
-    public var pProcessName: Pstr = null,
-    public var pUserSid: Psid = null,
-    public var numberOfThreads: UInt = 0u,
-    public var handleCount: UInt = 0u,
-    public var pagefileUsage: UInt = 0u,
-    public var peakPagefileUsage: UInt = 0u,
-    public var workingSetSize: UInt = 0u,
-    public var peakWorkingSetSize: UInt = 0u,
-    public var userTime: Long = 0L,
-    public var kernelTime: Long = 0L,
-)
+    public constructor() : this(
+        sessionId = 0u,
+        processId = 0u,
+        pProcessNameCtorArg = MutPtr(0L),
+        pUserSidCtorArg = MutPtr(0L),
+    )
 
-public data class WtsProcessInfoExw(
-    public var sessionId: UInt = 0u,
-    public var processId: UInt = 0u,
-    public var pProcessName: Pwstr = null,
-    public var pUserSid: Psid = null,
-    public var numberOfThreads: UInt = 0u,
-    public var handleCount: UInt = 0u,
-    public var pagefileUsage: UInt = 0u,
-    public var peakPagefileUsage: UInt = 0u,
-    public var workingSetSize: UInt = 0u,
-    public var peakWorkingSetSize: UInt = 0u,
-    public var userTime: Long = 0L,
-    public var kernelTime: Long = 0L,
-)
+    public operator fun component1(): UInt = this.sessionId
+
+    public operator fun component2(): UInt = this.processId
+
+    public operator fun component3(): Pstr = this.pProcessName
+
+    public operator fun component4(): Psid = this.pUserSid
+
+    public fun copy(sessionId: UInt = this.sessionId, processId: UInt = this.processId, pProcessName: Pstr = this.pProcessName, pUserSid: Psid = this.pUserSid): WtsProcessInfoa = WtsProcessInfoa(sessionId = sessionId, processId = processId, pProcessNameCtorArg = pProcessName, pUserSidCtorArg = pUserSid)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsProcessInfoa) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.processId != other.processId) return false
+        if (this.pProcessName != other.pProcessName) return false
+        if (this.pUserSid != other.pUserSid) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.sessionId.hashCode()
+        result = 31 * result + this.processId.hashCode()
+        result = 31 * result + this.pProcessName.hashCode()
+        result = 31 * result + this.pUserSid.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            sessionId: UInt = 0u,
+            processId: UInt = 0u,
+            pProcessName: Pstr = MutPtr(0L),
+            pUserSid: Psid = MutPtr(0L),
+        ): WtsProcessInfoa =
+            WtsProcessInfoa(
+                sessionId = sessionId,
+                processId = processId,
+                pProcessNameCtorArg = pProcessName,
+                pUserSidCtorArg = pUserSid,
+            )
+    }
+}
+
+public class WtsProcessInfow internal constructor(
+    public var sessionId: UInt,
+    public var processId: UInt,
+    pProcessNameCtorArg: Pwstr,
+    pUserSidCtorArg: Psid,
+) {
+    public var pProcessName: Pwstr = pProcessNameCtorArg
+        internal set
+
+    public var pUserSid: Psid = pUserSidCtorArg
+        internal set
+
+    public constructor() : this(
+        sessionId = 0u,
+        processId = 0u,
+        pProcessNameCtorArg = MutPtr(0L),
+        pUserSidCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.sessionId
+
+    public operator fun component2(): UInt = this.processId
+
+    public operator fun component3(): Pwstr = this.pProcessName
+
+    public operator fun component4(): Psid = this.pUserSid
+
+    public fun copy(sessionId: UInt = this.sessionId, processId: UInt = this.processId, pProcessName: Pwstr = this.pProcessName, pUserSid: Psid = this.pUserSid): WtsProcessInfow = WtsProcessInfow(sessionId = sessionId, processId = processId, pProcessNameCtorArg = pProcessName, pUserSidCtorArg = pUserSid)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsProcessInfow) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.processId != other.processId) return false
+        if (this.pProcessName != other.pProcessName) return false
+        if (this.pUserSid != other.pUserSid) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.sessionId.hashCode()
+        result = 31 * result + this.processId.hashCode()
+        result = 31 * result + this.pProcessName.hashCode()
+        result = 31 * result + this.pUserSid.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            sessionId: UInt = 0u,
+            processId: UInt = 0u,
+            pProcessName: Pwstr = MutPtr(0L),
+            pUserSid: Psid = MutPtr(0L),
+        ): WtsProcessInfow =
+            WtsProcessInfow(
+                sessionId = sessionId,
+                processId = processId,
+                pProcessNameCtorArg = pProcessName,
+                pUserSidCtorArg = pUserSid,
+            )
+    }
+}
+
+public class WtsProcessInfoExa internal constructor(
+    public var sessionId: UInt,
+    public var processId: UInt,
+    pProcessNameCtorArg: Pstr,
+    pUserSidCtorArg: Psid,
+    public var numberOfThreads: UInt,
+    public var handleCount: UInt,
+    public var pagefileUsage: UInt,
+    public var peakPagefileUsage: UInt,
+    public var workingSetSize: UInt,
+    public var peakWorkingSetSize: UInt,
+    public var userTime: Long,
+    public var kernelTime: Long,
+) {
+    public var pProcessName: Pstr = pProcessNameCtorArg
+        internal set
+
+    public var pUserSid: Psid = pUserSidCtorArg
+        internal set
+
+    public constructor() : this(
+        sessionId = 0u,
+        processId = 0u,
+        pProcessNameCtorArg = MutPtr(0L),
+        pUserSidCtorArg = MutPtr(0L),
+        numberOfThreads = 0u,
+        handleCount = 0u,
+        pagefileUsage = 0u,
+        peakPagefileUsage = 0u,
+        workingSetSize = 0u,
+        peakWorkingSetSize = 0u,
+        userTime = 0L,
+        kernelTime = 0L,
+    )
+
+    public operator fun component1(): UInt = this.sessionId
+
+    public operator fun component2(): UInt = this.processId
+
+    public operator fun component3(): Pstr = this.pProcessName
+
+    public operator fun component4(): Psid = this.pUserSid
+
+    public operator fun component5(): UInt = this.numberOfThreads
+
+    public operator fun component6(): UInt = this.handleCount
+
+    public operator fun component7(): UInt = this.pagefileUsage
+
+    public operator fun component8(): UInt = this.peakPagefileUsage
+
+    public operator fun component9(): UInt = this.workingSetSize
+
+    public operator fun component10(): UInt = this.peakWorkingSetSize
+
+    public operator fun component11(): Long = this.userTime
+
+    public operator fun component12(): Long = this.kernelTime
+
+    public fun copy(sessionId: UInt = this.sessionId, processId: UInt = this.processId, pProcessName: Pstr = this.pProcessName, pUserSid: Psid = this.pUserSid, numberOfThreads: UInt = this.numberOfThreads, handleCount: UInt = this.handleCount, pagefileUsage: UInt = this.pagefileUsage, peakPagefileUsage: UInt = this.peakPagefileUsage, workingSetSize: UInt = this.workingSetSize, peakWorkingSetSize: UInt = this.peakWorkingSetSize, userTime: Long = this.userTime, kernelTime: Long = this.kernelTime): WtsProcessInfoExa = WtsProcessInfoExa(sessionId = sessionId, processId = processId, pProcessNameCtorArg = pProcessName, pUserSidCtorArg = pUserSid, numberOfThreads = numberOfThreads, handleCount = handleCount, pagefileUsage = pagefileUsage, peakPagefileUsage = peakPagefileUsage, workingSetSize = workingSetSize, peakWorkingSetSize = peakWorkingSetSize, userTime = userTime, kernelTime = kernelTime)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsProcessInfoExa) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.processId != other.processId) return false
+        if (this.pProcessName != other.pProcessName) return false
+        if (this.pUserSid != other.pUserSid) return false
+        if (this.numberOfThreads != other.numberOfThreads) return false
+        if (this.handleCount != other.handleCount) return false
+        if (this.pagefileUsage != other.pagefileUsage) return false
+        if (this.peakPagefileUsage != other.peakPagefileUsage) return false
+        if (this.workingSetSize != other.workingSetSize) return false
+        if (this.peakWorkingSetSize != other.peakWorkingSetSize) return false
+        if (this.userTime != other.userTime) return false
+        if (this.kernelTime != other.kernelTime) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.sessionId.hashCode()
+        result = 31 * result + this.processId.hashCode()
+        result = 31 * result + this.pProcessName.hashCode()
+        result = 31 * result + this.pUserSid.hashCode()
+        result = 31 * result + this.numberOfThreads.hashCode()
+        result = 31 * result + this.handleCount.hashCode()
+        result = 31 * result + this.pagefileUsage.hashCode()
+        result = 31 * result + this.peakPagefileUsage.hashCode()
+        result = 31 * result + this.workingSetSize.hashCode()
+        result = 31 * result + this.peakWorkingSetSize.hashCode()
+        result = 31 * result + this.userTime.hashCode()
+        result = 31 * result + this.kernelTime.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            sessionId: UInt = 0u,
+            processId: UInt = 0u,
+            pProcessName: Pstr = MutPtr(0L),
+            pUserSid: Psid = MutPtr(0L),
+            numberOfThreads: UInt = 0u,
+            handleCount: UInt = 0u,
+            pagefileUsage: UInt = 0u,
+            peakPagefileUsage: UInt = 0u,
+            workingSetSize: UInt = 0u,
+            peakWorkingSetSize: UInt = 0u,
+            userTime: Long = 0L,
+            kernelTime: Long = 0L,
+        ): WtsProcessInfoExa =
+            WtsProcessInfoExa(
+                sessionId = sessionId,
+                processId = processId,
+                pProcessNameCtorArg = pProcessName,
+                pUserSidCtorArg = pUserSid,
+                numberOfThreads = numberOfThreads,
+                handleCount = handleCount,
+                pagefileUsage = pagefileUsage,
+                peakPagefileUsage = peakPagefileUsage,
+                workingSetSize = workingSetSize,
+                peakWorkingSetSize = peakWorkingSetSize,
+                userTime = userTime,
+                kernelTime = kernelTime,
+            )
+    }
+}
+
+public class WtsProcessInfoExw internal constructor(
+    public var sessionId: UInt,
+    public var processId: UInt,
+    pProcessNameCtorArg: Pwstr,
+    pUserSidCtorArg: Psid,
+    public var numberOfThreads: UInt,
+    public var handleCount: UInt,
+    public var pagefileUsage: UInt,
+    public var peakPagefileUsage: UInt,
+    public var workingSetSize: UInt,
+    public var peakWorkingSetSize: UInt,
+    public var userTime: Long,
+    public var kernelTime: Long,
+) {
+    public var pProcessName: Pwstr = pProcessNameCtorArg
+        internal set
+
+    public var pUserSid: Psid = pUserSidCtorArg
+        internal set
+
+    public constructor() : this(
+        sessionId = 0u,
+        processId = 0u,
+        pProcessNameCtorArg = MutPtr(0L),
+        pUserSidCtorArg = MutPtr(0L),
+        numberOfThreads = 0u,
+        handleCount = 0u,
+        pagefileUsage = 0u,
+        peakPagefileUsage = 0u,
+        workingSetSize = 0u,
+        peakWorkingSetSize = 0u,
+        userTime = 0L,
+        kernelTime = 0L,
+    )
+
+    public operator fun component1(): UInt = this.sessionId
+
+    public operator fun component2(): UInt = this.processId
+
+    public operator fun component3(): Pwstr = this.pProcessName
+
+    public operator fun component4(): Psid = this.pUserSid
+
+    public operator fun component5(): UInt = this.numberOfThreads
+
+    public operator fun component6(): UInt = this.handleCount
+
+    public operator fun component7(): UInt = this.pagefileUsage
+
+    public operator fun component8(): UInt = this.peakPagefileUsage
+
+    public operator fun component9(): UInt = this.workingSetSize
+
+    public operator fun component10(): UInt = this.peakWorkingSetSize
+
+    public operator fun component11(): Long = this.userTime
+
+    public operator fun component12(): Long = this.kernelTime
+
+    public fun copy(sessionId: UInt = this.sessionId, processId: UInt = this.processId, pProcessName: Pwstr = this.pProcessName, pUserSid: Psid = this.pUserSid, numberOfThreads: UInt = this.numberOfThreads, handleCount: UInt = this.handleCount, pagefileUsage: UInt = this.pagefileUsage, peakPagefileUsage: UInt = this.peakPagefileUsage, workingSetSize: UInt = this.workingSetSize, peakWorkingSetSize: UInt = this.peakWorkingSetSize, userTime: Long = this.userTime, kernelTime: Long = this.kernelTime): WtsProcessInfoExw = WtsProcessInfoExw(sessionId = sessionId, processId = processId, pProcessNameCtorArg = pProcessName, pUserSidCtorArg = pUserSid, numberOfThreads = numberOfThreads, handleCount = handleCount, pagefileUsage = pagefileUsage, peakPagefileUsage = peakPagefileUsage, workingSetSize = workingSetSize, peakWorkingSetSize = peakWorkingSetSize, userTime = userTime, kernelTime = kernelTime)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsProcessInfoExw) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.processId != other.processId) return false
+        if (this.pProcessName != other.pProcessName) return false
+        if (this.pUserSid != other.pUserSid) return false
+        if (this.numberOfThreads != other.numberOfThreads) return false
+        if (this.handleCount != other.handleCount) return false
+        if (this.pagefileUsage != other.pagefileUsage) return false
+        if (this.peakPagefileUsage != other.peakPagefileUsage) return false
+        if (this.workingSetSize != other.workingSetSize) return false
+        if (this.peakWorkingSetSize != other.peakWorkingSetSize) return false
+        if (this.userTime != other.userTime) return false
+        if (this.kernelTime != other.kernelTime) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.sessionId.hashCode()
+        result = 31 * result + this.processId.hashCode()
+        result = 31 * result + this.pProcessName.hashCode()
+        result = 31 * result + this.pUserSid.hashCode()
+        result = 31 * result + this.numberOfThreads.hashCode()
+        result = 31 * result + this.handleCount.hashCode()
+        result = 31 * result + this.pagefileUsage.hashCode()
+        result = 31 * result + this.peakPagefileUsage.hashCode()
+        result = 31 * result + this.workingSetSize.hashCode()
+        result = 31 * result + this.peakWorkingSetSize.hashCode()
+        result = 31 * result + this.userTime.hashCode()
+        result = 31 * result + this.kernelTime.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            sessionId: UInt = 0u,
+            processId: UInt = 0u,
+            pProcessName: Pwstr = MutPtr(0L),
+            pUserSid: Psid = MutPtr(0L),
+            numberOfThreads: UInt = 0u,
+            handleCount: UInt = 0u,
+            pagefileUsage: UInt = 0u,
+            peakPagefileUsage: UInt = 0u,
+            workingSetSize: UInt = 0u,
+            peakWorkingSetSize: UInt = 0u,
+            userTime: Long = 0L,
+            kernelTime: Long = 0L,
+        ): WtsProcessInfoExw =
+            WtsProcessInfoExw(
+                sessionId = sessionId,
+                processId = processId,
+                pProcessNameCtorArg = pProcessName,
+                pUserSidCtorArg = pUserSid,
+                numberOfThreads = numberOfThreads,
+                handleCount = handleCount,
+                pagefileUsage = pagefileUsage,
+                peakPagefileUsage = peakPagefileUsage,
+                workingSetSize = workingSetSize,
+                peakWorkingSetSize = peakWorkingSetSize,
+                userTime = userTime,
+                kernelTime = kernelTime,
+            )
+    }
+}
 
 public data class WtsPropertyValue(
     public var type: UShort = 0u,
@@ -1295,20 +3612,115 @@ public data class WtsPropertyValue0(
     public var guidVal: Guid = Guid(),
 )
 
-public data class WtsPropertyValue01(
-    public var size: UInt = 0u,
-    public var pbVal: Pstr = null,
-)
+public class WtsPropertyValue01 internal constructor(
+    public var size: UInt,
+    pbValCtorArg: Pstr,
+) {
+    public var pbVal: Pstr = pbValCtorArg
+        internal set
 
-public data class WtsPropertyValue00(
-    public var size: UInt = 0u,
-    public var pstrVal: Pwstr = null,
-)
+    public constructor() : this(
+        size = 0u,
+        pbValCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.size
+
+    public operator fun component2(): Pstr = this.pbVal
+
+    public fun copy(size: UInt = this.size, pbVal: Pstr = this.pbVal): WtsPropertyValue01 = WtsPropertyValue01(size = size, pbValCtorArg = pbVal)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsPropertyValue01) return false
+        if (this.size != other.size) return false
+        if (this.pbVal != other.pbVal) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.size.hashCode()
+        result = 31 * result + this.pbVal.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            size: UInt = 0u,
+            pbVal: Pstr = MutPtr(0L),
+        ): WtsPropertyValue01 =
+            WtsPropertyValue01(
+                size = size,
+                pbValCtorArg = pbVal,
+            )
+    }
+}
+
+public class WtsPropertyValue00 internal constructor(
+    public var size: UInt,
+    pstrValCtorArg: Pwstr,
+) {
+    public var pstrVal: Pwstr = pstrValCtorArg
+        internal set
+
+    public constructor() : this(
+        size = 0u,
+        pstrValCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.size
+
+    public operator fun component2(): Pwstr = this.pstrVal
+
+    public fun copy(size: UInt = this.size, pstrVal: Pwstr = this.pstrVal): WtsPropertyValue00 = WtsPropertyValue00(size = size, pstrValCtorArg = pstrVal)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsPropertyValue00) return false
+        if (this.size != other.size) return false
+        if (this.pstrVal != other.pstrVal) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.size.hashCode()
+        result = 31 * result + this.pstrVal.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            size: UInt = 0u,
+            pstrVal: Pwstr = MutPtr(0L),
+        ): WtsPropertyValue00 =
+            WtsPropertyValue00(
+                size = size,
+                pstrValCtorArg = pstrVal,
+            )
+    }
+}
 
 public data class WtsProtocolCache(
     public var cacheReads: UInt = 0u,
     public var cacheHits: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsProtocolCache> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsProtocolCache> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsProtocolCache =
+                    WtsProtocolCache(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WtsProtocolCache) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cacheReads)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cacheHits)
+                }
+            }
+    }
+}
 
 public class WtsProtocolCounters(
     public var wdBytes: UInt = 0u,
@@ -1329,7 +3741,62 @@ public class WtsProtocolCounters(
     public var length: UShort = 0u,
     public var specific: UShort = 0u,
     public var reserved: UIntArray = UIntArray(100),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsProtocolCounters> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsProtocolCounters> {
+                override val sizeBytes: Long = 464L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsProtocolCounters =
+                    WtsProtocolCounters(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 58L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 60L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (100).toInt())
+                        ).readNative(addr + 64L),
+                    )
+                override fun writeNative(addr: Long, value: WtsProtocolCounters) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.wdBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.wdFrames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.waitForOutBuf)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.frames)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.bytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.compressedBytes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.compressFlushes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.errors)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.timeouts)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.asyncFramingError)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.asyncOverrunError)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.asyncOverflowError)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.asyncParityError)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.tdErrors)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 56L, value.protocolType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 58L, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 60L, value.specific)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (100).toInt())
+                    ).writeNative(addr + 64L, value.reserved)
+                }
+            }
+    }
+}
 
 public data class WtsProtocolStatus(
     public var output: WtsProtocolCounters = WtsProtocolCounters(),
@@ -1362,18 +3829,93 @@ public data class WtsProtocolStatus(
     }
 }
 
-public data class WtsServerInfoa(
-    public var pServerName: Pstr = null,
-)
+public class WtsServerInfoa internal constructor(
+    pServerNameCtorArg: Pstr,
+) {
+    public var pServerName: Pstr = pServerNameCtorArg
+        internal set
 
-public data class WtsServerInfow(
-    public var pServerName: Pwstr = null,
-)
+    public constructor() : this(
+        pServerNameCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Pstr = this.pServerName
+
+    public fun copy(pServerName: Pstr = this.pServerName): WtsServerInfoa = WtsServerInfoa(pServerNameCtorArg = pServerName)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsServerInfoa) return false
+        if (this.pServerName != other.pServerName) return false
+        return true
+    }
+
+    override fun hashCode(): Int = this.pServerName.hashCode()
+
+    public companion object {
+        public operator fun invoke(
+            pServerName: Pstr = MutPtr(0L),
+        ): WtsServerInfoa =
+            WtsServerInfoa(
+                pServerNameCtorArg = pServerName,
+            )
+    }
+}
+
+public class WtsServerInfow internal constructor(
+    pServerNameCtorArg: Pwstr,
+) {
+    public var pServerName: Pwstr = pServerNameCtorArg
+        internal set
+
+    public constructor() : this(
+        pServerNameCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): Pwstr = this.pServerName
+
+    public fun copy(pServerName: Pwstr = this.pServerName): WtsServerInfow = WtsServerInfow(pServerNameCtorArg = pServerName)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsServerInfow) return false
+        if (this.pServerName != other.pServerName) return false
+        return true
+    }
+
+    override fun hashCode(): Int = this.pServerName.hashCode()
+
+    public companion object {
+        public operator fun invoke(
+            pServerName: Pwstr = MutPtr(0L),
+        ): WtsServerInfow =
+            WtsServerInfow(
+                pServerNameCtorArg = pServerName,
+            )
+    }
+}
 
 public data class WtsServiceState(
     public var rcmServiceState: WtsRcmServiceState = 0,
     public var rcmDrainState: WtsRcmDrainState = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsServiceState> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsServiceState> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsServiceState =
+                    WtsServiceState(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WtsServiceState) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.rcmServiceState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.rcmDrainState)
+                }
+            }
+    }
+}
 
 public data class WtsSessionAddress(
     public var addressFamily: UInt = 0u,
@@ -1392,6 +3934,29 @@ public data class WtsSessionAddress(
         result = 31 * result + this.address.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSessionAddress> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSessionAddress> {
+                override val sizeBytes: Long = 24L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsSessionAddress =
+                    WtsSessionAddress(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                        ).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WtsSessionAddress) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.addressFamily)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                    ).writeNative(addr + 4L, value.address)
+                }
+            }
+    }
 }
 
 public data class WtsSessionId(
@@ -1399,46 +3964,345 @@ public data class WtsSessionId(
     public var sessionId: UInt = 0u,
 )
 
-public data class WtsSessionInfoa(
-    public var sessionId: UInt = 0u,
-    public var pWinStationName: Pstr = null,
-    public var state: WtsConnectstateClass = 0,
-)
+public class WtsSessionInfoa internal constructor(
+    public var sessionId: UInt,
+    pWinStationNameCtorArg: Pstr,
+    public var state: WtsConnectstateClass,
+) {
+    public var pWinStationName: Pstr = pWinStationNameCtorArg
+        internal set
 
-public data class WtsSessionInfow(
-    public var sessionId: UInt = 0u,
-    public var pWinStationName: Pwstr = null,
-    public var state: WtsConnectstateClass = 0,
-)
+    public constructor() : this(
+        sessionId = 0u,
+        pWinStationNameCtorArg = MutPtr(0L),
+        state = 0,
+    )
 
-public data class WtsSessionInfo1a(
-    public var execEnvId: UInt = 0u,
-    public var state: WtsConnectstateClass = 0,
-    public var sessionId: UInt = 0u,
-    public var pSessionName: Pstr = null,
-    public var pHostName: Pstr = null,
-    public var pUserName: Pstr = null,
-    public var pDomainName: Pstr = null,
-    public var pFarmName: Pstr = null,
-)
+    public operator fun component1(): UInt = this.sessionId
 
-public data class WtsSessionInfo1w(
-    public var execEnvId: UInt = 0u,
-    public var state: WtsConnectstateClass = 0,
-    public var sessionId: UInt = 0u,
-    public var pSessionName: Pwstr = null,
-    public var pHostName: Pwstr = null,
-    public var pUserName: Pwstr = null,
-    public var pDomainName: Pwstr = null,
-    public var pFarmName: Pwstr = null,
-)
+    public operator fun component2(): Pstr = this.pWinStationName
+
+    public operator fun component3(): WtsConnectstateClass = this.state
+
+    public fun copy(sessionId: UInt = this.sessionId, pWinStationName: Pstr = this.pWinStationName, state: WtsConnectstateClass = this.state): WtsSessionInfoa = WtsSessionInfoa(sessionId = sessionId, pWinStationNameCtorArg = pWinStationName, state = state)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsSessionInfoa) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.pWinStationName != other.pWinStationName) return false
+        if (this.state != other.state) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.sessionId.hashCode()
+        result = 31 * result + this.pWinStationName.hashCode()
+        result = 31 * result + this.state.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            sessionId: UInt = 0u,
+            pWinStationName: Pstr = MutPtr(0L),
+            state: WtsConnectstateClass = 0,
+        ): WtsSessionInfoa =
+            WtsSessionInfoa(
+                sessionId = sessionId,
+                pWinStationNameCtorArg = pWinStationName,
+                state = state,
+            )
+    }
+}
+
+public class WtsSessionInfow internal constructor(
+    public var sessionId: UInt,
+    pWinStationNameCtorArg: Pwstr,
+    public var state: WtsConnectstateClass,
+) {
+    public var pWinStationName: Pwstr = pWinStationNameCtorArg
+        internal set
+
+    public constructor() : this(
+        sessionId = 0u,
+        pWinStationNameCtorArg = MutPtr(0L),
+        state = 0,
+    )
+
+    public operator fun component1(): UInt = this.sessionId
+
+    public operator fun component2(): Pwstr = this.pWinStationName
+
+    public operator fun component3(): WtsConnectstateClass = this.state
+
+    public fun copy(sessionId: UInt = this.sessionId, pWinStationName: Pwstr = this.pWinStationName, state: WtsConnectstateClass = this.state): WtsSessionInfow = WtsSessionInfow(sessionId = sessionId, pWinStationNameCtorArg = pWinStationName, state = state)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsSessionInfow) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.pWinStationName != other.pWinStationName) return false
+        if (this.state != other.state) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.sessionId.hashCode()
+        result = 31 * result + this.pWinStationName.hashCode()
+        result = 31 * result + this.state.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            sessionId: UInt = 0u,
+            pWinStationName: Pwstr = MutPtr(0L),
+            state: WtsConnectstateClass = 0,
+        ): WtsSessionInfow =
+            WtsSessionInfow(
+                sessionId = sessionId,
+                pWinStationNameCtorArg = pWinStationName,
+                state = state,
+            )
+    }
+}
+
+public class WtsSessionInfo1a internal constructor(
+    public var execEnvId: UInt,
+    public var state: WtsConnectstateClass,
+    public var sessionId: UInt,
+    pSessionNameCtorArg: Pstr,
+    pHostNameCtorArg: Pstr,
+    pUserNameCtorArg: Pstr,
+    pDomainNameCtorArg: Pstr,
+    pFarmNameCtorArg: Pstr,
+) {
+    public var pSessionName: Pstr = pSessionNameCtorArg
+        internal set
+
+    public var pHostName: Pstr = pHostNameCtorArg
+        internal set
+
+    public var pUserName: Pstr = pUserNameCtorArg
+        internal set
+
+    public var pDomainName: Pstr = pDomainNameCtorArg
+        internal set
+
+    public var pFarmName: Pstr = pFarmNameCtorArg
+        internal set
+
+    public constructor() : this(
+        execEnvId = 0u,
+        state = 0,
+        sessionId = 0u,
+        pSessionNameCtorArg = MutPtr(0L),
+        pHostNameCtorArg = MutPtr(0L),
+        pUserNameCtorArg = MutPtr(0L),
+        pDomainNameCtorArg = MutPtr(0L),
+        pFarmNameCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.execEnvId
+
+    public operator fun component2(): WtsConnectstateClass = this.state
+
+    public operator fun component3(): UInt = this.sessionId
+
+    public operator fun component4(): Pstr = this.pSessionName
+
+    public operator fun component5(): Pstr = this.pHostName
+
+    public operator fun component6(): Pstr = this.pUserName
+
+    public operator fun component7(): Pstr = this.pDomainName
+
+    public operator fun component8(): Pstr = this.pFarmName
+
+    public fun copy(execEnvId: UInt = this.execEnvId, state: WtsConnectstateClass = this.state, sessionId: UInt = this.sessionId, pSessionName: Pstr = this.pSessionName, pHostName: Pstr = this.pHostName, pUserName: Pstr = this.pUserName, pDomainName: Pstr = this.pDomainName, pFarmName: Pstr = this.pFarmName): WtsSessionInfo1a = WtsSessionInfo1a(execEnvId = execEnvId, state = state, sessionId = sessionId, pSessionNameCtorArg = pSessionName, pHostNameCtorArg = pHostName, pUserNameCtorArg = pUserName, pDomainNameCtorArg = pDomainName, pFarmNameCtorArg = pFarmName)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsSessionInfo1a) return false
+        if (this.execEnvId != other.execEnvId) return false
+        if (this.state != other.state) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.pSessionName != other.pSessionName) return false
+        if (this.pHostName != other.pHostName) return false
+        if (this.pUserName != other.pUserName) return false
+        if (this.pDomainName != other.pDomainName) return false
+        if (this.pFarmName != other.pFarmName) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.execEnvId.hashCode()
+        result = 31 * result + this.state.hashCode()
+        result = 31 * result + this.sessionId.hashCode()
+        result = 31 * result + this.pSessionName.hashCode()
+        result = 31 * result + this.pHostName.hashCode()
+        result = 31 * result + this.pUserName.hashCode()
+        result = 31 * result + this.pDomainName.hashCode()
+        result = 31 * result + this.pFarmName.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            execEnvId: UInt = 0u,
+            state: WtsConnectstateClass = 0,
+            sessionId: UInt = 0u,
+            pSessionName: Pstr = MutPtr(0L),
+            pHostName: Pstr = MutPtr(0L),
+            pUserName: Pstr = MutPtr(0L),
+            pDomainName: Pstr = MutPtr(0L),
+            pFarmName: Pstr = MutPtr(0L),
+        ): WtsSessionInfo1a =
+            WtsSessionInfo1a(
+                execEnvId = execEnvId,
+                state = state,
+                sessionId = sessionId,
+                pSessionNameCtorArg = pSessionName,
+                pHostNameCtorArg = pHostName,
+                pUserNameCtorArg = pUserName,
+                pDomainNameCtorArg = pDomainName,
+                pFarmNameCtorArg = pFarmName,
+            )
+    }
+}
+
+public class WtsSessionInfo1w internal constructor(
+    public var execEnvId: UInt,
+    public var state: WtsConnectstateClass,
+    public var sessionId: UInt,
+    pSessionNameCtorArg: Pwstr,
+    pHostNameCtorArg: Pwstr,
+    pUserNameCtorArg: Pwstr,
+    pDomainNameCtorArg: Pwstr,
+    pFarmNameCtorArg: Pwstr,
+) {
+    public var pSessionName: Pwstr = pSessionNameCtorArg
+        internal set
+
+    public var pHostName: Pwstr = pHostNameCtorArg
+        internal set
+
+    public var pUserName: Pwstr = pUserNameCtorArg
+        internal set
+
+    public var pDomainName: Pwstr = pDomainNameCtorArg
+        internal set
+
+    public var pFarmName: Pwstr = pFarmNameCtorArg
+        internal set
+
+    public constructor() : this(
+        execEnvId = 0u,
+        state = 0,
+        sessionId = 0u,
+        pSessionNameCtorArg = MutPtr(0L),
+        pHostNameCtorArg = MutPtr(0L),
+        pUserNameCtorArg = MutPtr(0L),
+        pDomainNameCtorArg = MutPtr(0L),
+        pFarmNameCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UInt = this.execEnvId
+
+    public operator fun component2(): WtsConnectstateClass = this.state
+
+    public operator fun component3(): UInt = this.sessionId
+
+    public operator fun component4(): Pwstr = this.pSessionName
+
+    public operator fun component5(): Pwstr = this.pHostName
+
+    public operator fun component6(): Pwstr = this.pUserName
+
+    public operator fun component7(): Pwstr = this.pDomainName
+
+    public operator fun component8(): Pwstr = this.pFarmName
+
+    public fun copy(execEnvId: UInt = this.execEnvId, state: WtsConnectstateClass = this.state, sessionId: UInt = this.sessionId, pSessionName: Pwstr = this.pSessionName, pHostName: Pwstr = this.pHostName, pUserName: Pwstr = this.pUserName, pDomainName: Pwstr = this.pDomainName, pFarmName: Pwstr = this.pFarmName): WtsSessionInfo1w = WtsSessionInfo1w(execEnvId = execEnvId, state = state, sessionId = sessionId, pSessionNameCtorArg = pSessionName, pHostNameCtorArg = pHostName, pUserNameCtorArg = pUserName, pDomainNameCtorArg = pDomainName, pFarmNameCtorArg = pFarmName)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WtsSessionInfo1w) return false
+        if (this.execEnvId != other.execEnvId) return false
+        if (this.state != other.state) return false
+        if (this.sessionId != other.sessionId) return false
+        if (this.pSessionName != other.pSessionName) return false
+        if (this.pHostName != other.pHostName) return false
+        if (this.pUserName != other.pUserName) return false
+        if (this.pDomainName != other.pDomainName) return false
+        if (this.pFarmName != other.pFarmName) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.execEnvId.hashCode()
+        result = 31 * result + this.state.hashCode()
+        result = 31 * result + this.sessionId.hashCode()
+        result = 31 * result + this.pSessionName.hashCode()
+        result = 31 * result + this.pHostName.hashCode()
+        result = 31 * result + this.pUserName.hashCode()
+        result = 31 * result + this.pDomainName.hashCode()
+        result = 31 * result + this.pFarmName.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            execEnvId: UInt = 0u,
+            state: WtsConnectstateClass = 0,
+            sessionId: UInt = 0u,
+            pSessionName: Pwstr = MutPtr(0L),
+            pHostName: Pwstr = MutPtr(0L),
+            pUserName: Pwstr = MutPtr(0L),
+            pDomainName: Pwstr = MutPtr(0L),
+            pFarmName: Pwstr = MutPtr(0L),
+        ): WtsSessionInfo1w =
+            WtsSessionInfo1w(
+                execEnvId = execEnvId,
+                state = state,
+                sessionId = sessionId,
+                pSessionNameCtorArg = pSessionName,
+                pHostNameCtorArg = pHostName,
+                pUserNameCtorArg = pUserName,
+                pDomainNameCtorArg = pDomainName,
+                pFarmNameCtorArg = pFarmName,
+            )
+    }
+}
 
 public data class WtsSmallRect(
     public var left: Short = 0,
     public var top: Short = 0,
     public var right: Short = 0,
     public var bottom: Short = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSmallRect> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSmallRect> {
+                override val sizeBytes: Long = 8L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): WtsSmallRect =
+                    WtsSmallRect(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 6L),
+                    )
+                override fun writeNative(addr: Long, value: WtsSmallRect) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr, value.left)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 2L, value.top)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 4L, value.right)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 6L, value.bottom)
+                }
+            }
+    }
+}
 
 public data class WtsSockaddr(
     public var sinFamily: UShort = 0u,
@@ -1470,6 +4334,31 @@ public data class WtsSockaddr00(
         result = 31 * result + this.sinZero.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSockaddr00> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSockaddr00> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsSockaddr00 =
+                    WtsSockaddr00(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WtsSockaddr00) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.sinPort)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.inAddr)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
+                    ).writeNative(addr + 8L, value.sinZero)
+                }
+            }
+    }
 }
 
 public data class WtsSockaddr01(
@@ -1495,6 +4384,33 @@ public data class WtsSockaddr01(
         result = 31 * result + this.sin6ScopeId.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSockaddr01> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSockaddr01> {
+                override val sizeBytes: Long = 28L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsSockaddr01 =
+                    WtsSockaddr01(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (8).toInt())
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: WtsSockaddr01) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.sin6Port)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.sin6Flowinfo)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (8).toInt())
+                    ).writeNative(addr + 8L, value.sin6Addr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.sin6ScopeId)
+                }
+            }
+    }
 }
 
 public data class WtsSystemtime(
@@ -1506,7 +4422,36 @@ public data class WtsSystemtime(
     public var wMinute: UShort = 0u,
     public var wSecond: UShort = 0u,
     public var wMilliseconds: UShort = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSystemtime> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsSystemtime> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): WtsSystemtime =
+                    WtsSystemtime(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 10L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 14L),
+                    )
+                override fun writeNative(addr: Long, value: WtsSystemtime) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.wYear)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.wMonth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 4L, value.wDayOfWeek)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 6L, value.wDay)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.wHour)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 10L, value.wMinute)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 12L, value.wSecond)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 14L, value.wMilliseconds)
+                }
+            }
+    }
+}
 
 public data class WtsTimeZoneInformation(
     public var bias: Int = 0,
@@ -1540,6 +4485,45 @@ public data class WtsTimeZoneInformation(
         result = 31 * result + this.daylightBias.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsTimeZoneInformation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsTimeZoneInformation> {
+                override val sizeBytes: Long = 172L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsTimeZoneInformation =
+                    WtsTimeZoneInformation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                        ).readNative(addr + 4L),
+                        (WtsSystemtime.typeLayout()).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 84L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                        ).readNative(addr + 88L),
+                        (WtsSystemtime.typeLayout()).readNative(addr + 152L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 168L),
+                    )
+                override fun writeNative(addr: Long, value: WtsTimeZoneInformation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bias)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                    ).writeNative(addr + 4L, value.standardName)
+                    (WtsSystemtime.typeLayout()).writeNative(addr + 68L, value.standardDate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 84L, value.standardBias)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
+                    ).writeNative(addr + 88L, value.daylightName)
+                    (WtsSystemtime.typeLayout()).writeNative(addr + 152L, value.daylightDate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 168L, value.daylightBias)
+                }
+            }
+    }
 }
 
 public data class WtsUserCredential(
@@ -1562,6 +4546,43 @@ public data class WtsUserCredential(
         result = 31 * result + this.domain.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsUserCredential> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsUserCredential> {
+                override val sizeBytes: Long = 1536L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): WtsUserCredential =
+                    WtsUserCredential(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 512L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 1024L),
+                    )
+                override fun writeNative(addr: Long, value: WtsUserCredential) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr, value.userName)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 512L, value.password)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 1024L, value.domain)
+                }
+            }
+    }
 }
 
 public data class WtsUserData(
@@ -1583,6 +4604,37 @@ public data class WtsUserData(
         result = 31 * result + this.initialProgram.contentHashCode()
         result = 31 * result + this.userTimeZone.hashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsUserData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsUserData> {
+                override val sizeBytes: Long = 1200L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsUserData =
+                    WtsUserData(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                        ).readNative(addr + 514L),
+                        (WtsTimeZoneInformation.typeLayout()).readNative(addr + 1028L),
+                    )
+                override fun writeNative(addr: Long, value: WtsUserData) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                    ).writeNative(addr, value.workDirectory)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
+                    ).writeNative(addr + 514L, value.initialProgram)
+                    (WtsTimeZoneInformation.typeLayout()).writeNative(addr + 1028L, value.userTimeZone)
+                }
+            }
     }
 }
 
@@ -1612,6 +4664,41 @@ public data class WtsValidationInformationa(
         result = 31 * result + this.hardwareIDLength.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsValidationInformationa> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsValidationInformationa> {
+                override val sizeBytes: Long = 16672L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsValidationInformationa =
+                    WtsValidationInformationa(
+                        (ProductInfoa.typeLayout()).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16384).toInt())
+                        ).readNative(addr + 260L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16644L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                        ).readNative(addr + 16648L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16668L),
+                    )
+                override fun writeNative(addr: Long, value: WtsValidationInformationa) {
+                    (ProductInfoa.typeLayout()).writeNative(addr, value.productInfo)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16384).toInt())
+                    ).writeNative(addr + 260L, value.license)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16644L, value.licenseLength)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                    ).writeNative(addr + 16648L, value.hardwareID)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16668L, value.hardwareIDLength)
+                }
+            }
+    }
 }
 
 public data class WtsValidationInformationw(
@@ -1640,21 +4727,103 @@ public data class WtsValidationInformationw(
         result = 31 * result + this.hardwareIDLength.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsValidationInformationw> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtsValidationInformationw> {
+                override val sizeBytes: Long = 16932L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): WtsValidationInformationw =
+                    WtsValidationInformationw(
+                        (ProductInfow.typeLayout()).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16384).toInt())
+                        ).readNative(addr + 520L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16904L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                        ).readNative(addr + 16908L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16928L),
+                    )
+                override fun writeNative(addr: Long, value: WtsValidationInformationw) {
+                    (ProductInfow.typeLayout()).writeNative(addr, value.productInfo)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16384).toInt())
+                    ).writeNative(addr + 520L, value.license)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16904L, value.licenseLength)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
+                    ).writeNative(addr + 16908L, value.hardwareID)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16928L, value.hardwareIDLength)
+                }
+            }
+    }
 }
 
-public data class PluginResource(
-    public var alias: UShortArray = UShortArray(256),
-    public var name: UShortArray = UShortArray(256),
-    public var resourceFileContents: Pwstr = null,
-    public var fileExtension: UShortArray = UShortArray(256),
-    public var resourcePluginType: UShortArray = UShortArray(256),
-    public var isDiscoverable: UByte = 0u,
-    public var resourceType: Int = 0,
-    public var pceIconSize: UInt = 0u,
-    public var iconContents: COpaquePointer? = null,
-    public var pcePluginBlobSize: UInt = 0u,
-    public var blobContents: COpaquePointer? = null,
+public class PluginResource internal constructor(
+    public var alias: UShortArray,
+    public var name: UShortArray,
+    resourceFileContentsCtorArg: Pwstr,
+    public var fileExtension: UShortArray,
+    public var resourcePluginType: UShortArray,
+    public var isDiscoverable: UByte,
+    public var resourceType: Int,
+    public var pceIconSize: UInt,
+    iconContentsCtorArg: MutPtr<UByte>,
+    public var pcePluginBlobSize: UInt,
+    blobContentsCtorArg: MutPtr<UByte>,
 ) {
+    public var resourceFileContents: Pwstr = resourceFileContentsCtorArg
+        internal set
+
+    public var iconContents: MutPtr<UByte> = iconContentsCtorArg
+        internal set
+
+    public var blobContents: MutPtr<UByte> = blobContentsCtorArg
+        internal set
+
+    public constructor() : this(
+        alias = UShortArray(256),
+        name = UShortArray(256),
+        resourceFileContentsCtorArg = MutPtr(0L),
+        fileExtension = UShortArray(256),
+        resourcePluginType = UShortArray(256),
+        isDiscoverable = 0u,
+        resourceType = 0,
+        pceIconSize = 0u,
+        iconContentsCtorArg = MutPtr(0L),
+        pcePluginBlobSize = 0u,
+        blobContentsCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UShortArray = this.alias
+
+    public operator fun component2(): UShortArray = this.name
+
+    public operator fun component3(): Pwstr = this.resourceFileContents
+
+    public operator fun component4(): UShortArray = this.fileExtension
+
+    public operator fun component5(): UShortArray = this.resourcePluginType
+
+    public operator fun component6(): UByte = this.isDiscoverable
+
+    public operator fun component7(): Int = this.resourceType
+
+    public operator fun component8(): UInt = this.pceIconSize
+
+    public operator fun component9(): MutPtr<UByte> = this.iconContents
+
+    public operator fun component10(): UInt = this.pcePluginBlobSize
+
+    public operator fun component11(): MutPtr<UByte> = this.blobContents
+
+    public fun copy(alias: UShortArray = this.alias, name: UShortArray = this.name, resourceFileContents: Pwstr = this.resourceFileContents, fileExtension: UShortArray = this.fileExtension, resourcePluginType: UShortArray = this.resourcePluginType, isDiscoverable: UByte = this.isDiscoverable, resourceType: Int = this.resourceType, pceIconSize: UInt = this.pceIconSize, iconContents: MutPtr<UByte> = this.iconContents, pcePluginBlobSize: UInt = this.pcePluginBlobSize, blobContents: MutPtr<UByte> = this.blobContents): PluginResource = PluginResource(alias = alias, name = name, resourceFileContentsCtorArg = resourceFileContents, fileExtension = fileExtension, resourcePluginType = resourcePluginType, isDiscoverable = isDiscoverable, resourceType = resourceType, pceIconSize = pceIconSize, iconContentsCtorArg = iconContents, pcePluginBlobSize = pcePluginBlobSize, blobContentsCtorArg = blobContents)
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PluginResource) return false
@@ -1686,23 +4855,145 @@ public data class PluginResource(
         result = 31 * result + this.blobContents.hashCode()
         return result
     }
+
+    public companion object {
+        public operator fun invoke(
+            alias: UShortArray = UShortArray(256),
+            name: UShortArray = UShortArray(256),
+            resourceFileContents: Pwstr = MutPtr(0L),
+            fileExtension: UShortArray = UShortArray(256),
+            resourcePluginType: UShortArray = UShortArray(256),
+            isDiscoverable: UByte = 0u,
+            resourceType: Int = 0,
+            pceIconSize: UInt = 0u,
+            iconContents: MutPtr<UByte> = MutPtr(0L),
+            pcePluginBlobSize: UInt = 0u,
+            blobContents: MutPtr<UByte> = MutPtr(0L),
+        ): PluginResource =
+            PluginResource(
+                alias = alias,
+                name = name,
+                resourceFileContentsCtorArg = resourceFileContents,
+                fileExtension = fileExtension,
+                resourcePluginType = resourcePluginType,
+                isDiscoverable = isDiscoverable,
+                resourceType = resourceType,
+                pceIconSize = pceIconSize,
+                iconContentsCtorArg = iconContents,
+                pcePluginBlobSize = pcePluginBlobSize,
+                blobContentsCtorArg = blobContents,
+            )
+    }
 }
 
-public data class PluginResource2(
-    public var resourceV1: PluginResource = PluginResource(),
-    public var pceFileAssocListSize: UInt = 0u,
-    public var fileAssocList: PluginResource2FileAssociation? = null,
-    public var securityDescriptor: Pwstr = null,
-    public var pceFolderListSize: UInt = 0u,
-    public var folderList: COpaquePointer? = null,
-)
-
-public data class PluginResource2FileAssociation(
-    public var extName: UShortArray = UShortArray(256),
-    public var primaryHandler: UByte = 0u,
-    public var pceIconSize: UInt = 0u,
-    public var iconContents: COpaquePointer? = null,
+public class PluginResource2 internal constructor(
+    public var resourceV1: PluginResource,
+    public var pceFileAssocListSize: UInt,
+    fileAssocListCtorArg: MutPtr<PluginResource2FileAssociation>,
+    securityDescriptorCtorArg: Pwstr,
+    public var pceFolderListSize: UInt,
+    folderListCtorArg: MutPtr<MutPtr<UShort>>,
 ) {
+    public var fileAssocList: MutPtr<PluginResource2FileAssociation> = fileAssocListCtorArg
+        internal set
+
+    public var securityDescriptor: Pwstr = securityDescriptorCtorArg
+        internal set
+
+    public var folderList: MutPtr<MutPtr<UShort>> = folderListCtorArg
+        internal set
+
+    public constructor() : this(
+        resourceV1 = PluginResource(),
+        pceFileAssocListSize = 0u,
+        fileAssocListCtorArg = MutPtr(0L),
+        securityDescriptorCtorArg = MutPtr(0L),
+        pceFolderListSize = 0u,
+        folderListCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): PluginResource = this.resourceV1
+
+    public operator fun component2(): UInt = this.pceFileAssocListSize
+
+    public operator fun component3(): MutPtr<PluginResource2FileAssociation> = this.fileAssocList
+
+    public operator fun component4(): Pwstr = this.securityDescriptor
+
+    public operator fun component5(): UInt = this.pceFolderListSize
+
+    public operator fun component6(): MutPtr<MutPtr<UShort>> = this.folderList
+
+    public fun copy(resourceV1: PluginResource = this.resourceV1, pceFileAssocListSize: UInt = this.pceFileAssocListSize, fileAssocList: MutPtr<PluginResource2FileAssociation> = this.fileAssocList, securityDescriptor: Pwstr = this.securityDescriptor, pceFolderListSize: UInt = this.pceFolderListSize, folderList: MutPtr<MutPtr<UShort>> = this.folderList): PluginResource2 = PluginResource2(resourceV1 = resourceV1, pceFileAssocListSize = pceFileAssocListSize, fileAssocListCtorArg = fileAssocList, securityDescriptorCtorArg = securityDescriptor, pceFolderListSize = pceFolderListSize, folderListCtorArg = folderList)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is PluginResource2) return false
+        if (this.resourceV1 != other.resourceV1) return false
+        if (this.pceFileAssocListSize != other.pceFileAssocListSize) return false
+        if (this.fileAssocList != other.fileAssocList) return false
+        if (this.securityDescriptor != other.securityDescriptor) return false
+        if (this.pceFolderListSize != other.pceFolderListSize) return false
+        if (this.folderList != other.folderList) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.resourceV1.hashCode()
+        result = 31 * result + this.pceFileAssocListSize.hashCode()
+        result = 31 * result + this.fileAssocList.hashCode()
+        result = 31 * result + this.securityDescriptor.hashCode()
+        result = 31 * result + this.pceFolderListSize.hashCode()
+        result = 31 * result + this.folderList.hashCode()
+        return result
+    }
+
+    public companion object {
+        public operator fun invoke(
+            resourceV1: PluginResource = PluginResource(),
+            pceFileAssocListSize: UInt = 0u,
+            fileAssocList: MutPtr<PluginResource2FileAssociation> = MutPtr(0L),
+            securityDescriptor: Pwstr = MutPtr(0L),
+            pceFolderListSize: UInt = 0u,
+            folderList: MutPtr<MutPtr<UShort>> = MutPtr(0L),
+        ): PluginResource2 =
+            PluginResource2(
+                resourceV1 = resourceV1,
+                pceFileAssocListSize = pceFileAssocListSize,
+                fileAssocListCtorArg = fileAssocList,
+                securityDescriptorCtorArg = securityDescriptor,
+                pceFolderListSize = pceFolderListSize,
+                folderListCtorArg = folderList,
+            )
+    }
+}
+
+public class PluginResource2FileAssociation internal constructor(
+    public var extName: UShortArray,
+    public var primaryHandler: UByte,
+    public var pceIconSize: UInt,
+    iconContentsCtorArg: MutPtr<UByte>,
+) {
+    public var iconContents: MutPtr<UByte> = iconContentsCtorArg
+        internal set
+
+    public constructor() : this(
+        extName = UShortArray(256),
+        primaryHandler = 0u,
+        pceIconSize = 0u,
+        iconContentsCtorArg = MutPtr(0L),
+    )
+
+    public operator fun component1(): UShortArray = this.extName
+
+    public operator fun component2(): UByte = this.primaryHandler
+
+    public operator fun component3(): UInt = this.pceIconSize
+
+    public operator fun component4(): MutPtr<UByte> = this.iconContents
+
+    public fun copy(extName: UShortArray = this.extName, primaryHandler: UByte = this.primaryHandler, pceIconSize: UInt = this.pceIconSize, iconContents: MutPtr<UByte> = this.iconContents): PluginResource2FileAssociation = PluginResource2FileAssociation(extName = extName, primaryHandler = primaryHandler, pceIconSize = pceIconSize, iconContentsCtorArg = iconContents)
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PluginResource2FileAssociation) return false
@@ -1719,5 +5010,51 @@ public data class PluginResource2FileAssociation(
         result = 31 * result + this.pceIconSize.hashCode()
         result = 31 * result + this.iconContents.hashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PluginResource2FileAssociation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PluginResource2FileAssociation> {
+                override val sizeBytes: Long = 528L
+                override val alignBytes: Long = 8L
+                override fun readNative(addr: Long): PluginResource2FileAssociation =
+                    PluginResource2FileAssociation(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 512L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 516L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 520L),
+                    )
+                override fun writeNative(addr: Long, value: PluginResource2FileAssociation) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr, value.extName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 512L, value.primaryHandler)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 516L, value.pceIconSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 520L, value.iconContents)
+                }
+            }
+
+        public operator fun invoke(
+            extName: UShortArray = UShortArray(256),
+            primaryHandler: UByte = 0u,
+            pceIconSize: UInt = 0u,
+            iconContents: MutPtr<UByte> = MutPtr(0L),
+        ): PluginResource2FileAssociation =
+            PluginResource2FileAssociation(
+                extName = extName,
+                primaryHandler = primaryHandler,
+                pceIconSize = pceIconSize,
+                iconContentsCtorArg = iconContents,
+            )
     }
 }

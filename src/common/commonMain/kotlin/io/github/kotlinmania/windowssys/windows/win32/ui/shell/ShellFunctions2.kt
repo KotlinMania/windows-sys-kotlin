@@ -1,7 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -12,10 +16,18 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
+import io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon.Softdistinfo
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Strret
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
@@ -27,39 +39,39 @@ public expect fun sHRegGetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr,
 
 public expect fun sHRegGetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pszpath: Pwstr, dwflags: UInt): Win32Error
 
-public expect fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error
+public expect fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error
 
-public expect fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error
+public expect fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error
 
-public expect fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error
+public expect fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error
 
-public expect fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error
+public expect fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error
 
-public expect fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error
+public expect fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error
 
-public expect fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, fignorehkcu: Bool): Win32Error
+public expect fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, fignorehkcu: Bool): Win32Error
 
-public expect fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, fignorehkcu: Bool): Win32Error
+public expect fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, fignorehkcu: Bool): Win32Error
 
-public expect fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error
+public expect fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error
 
-public expect fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error
+public expect fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error
 
-public expect fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error
+public expect fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error
 
-public expect fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error
+public expect fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error
 
 public expect fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pcszpath: Pcstr, dwflags: UInt): Win32Error
 
 public expect fun sHRegSetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pcszpath: Pcwstr, dwflags: UInt): Win32Error
 
-public expect fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error
+public expect fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error
 
-public expect fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error
+public expect fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error
 
-public expect fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error
+public expect fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error
 
-public expect fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error
+public expect fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error
 
 public expect fun sHReleaseThreadRef(): Hresult
 
@@ -67,7 +79,7 @@ public expect fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult
 
 public expect fun sHReplaceFromPropSheetExtArray(hpsxa: Hpsxa, upageid: UInt, lpfnreplacewith: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt
 
-public expect fun sHResolveLibrary(psilibrary: COpaquePointer?): Hresult
+public expect fun sHResolveLibrary(psilibrary: MutPtr<CVoid>): Hresult
 
 public expect fun sHRestricted(rest: Restrictions): UInt
 
@@ -75,41 +87,41 @@ public expect fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lp
 
 public expect fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun sHSetDefaultProperties(hwnd: Hwnd, psi: COpaquePointer?, dwfileopflags: UInt, pfops: COpaquePointer?): Hresult
+public expect fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr<CVoid>, dwfileopflags: UInt, pfops: MutPtr<CVoid>): Hresult
 
 public expect fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcstr): Hresult
 
 public expect fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult
 
-public expect fun sHSetInstanceExplorer(punk: COpaquePointer?)
+public expect fun sHSetInstanceExplorer(punk: MutPtr<CVoid>)
 
-public expect fun sHSetKnownFolderPath(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult
+public expect fun sHSetKnownFolderPath(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult
 
 public expect fun sHSetLocalizedName(pszpath: Pcwstr, pszresmodule: Pcwstr, idsres: Int): Hresult
 
-public expect fun sHSetTemporaryPropertyForItem(psi: COpaquePointer?, propkey: COpaquePointer?, propvar: COpaquePointer?): Hresult
+public expect fun sHSetTemporaryPropertyForItem(psi: MutPtr<CVoid>, propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>): Hresult
 
-public expect fun sHSetThreadRef(punk: COpaquePointer?): Hresult
+public expect fun sHSetThreadRef(punk: MutPtr<CVoid>): Hresult
 
 public expect fun sHSetUnreadMailCountW(pszmailaddress: Pcwstr, dwcount: UInt, pszshellexecutecommand: Pcwstr): Hresult
 
-public expect fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt): Int
+public expect fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt): Int
 
-public expect fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt): Int
+public expect fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt): Int
 
 public expect fun shshellFolderViewMessage(hwndmain: Hwnd, umsg: UInt, lparam: Lparam): Lresult
 
-public expect fun sHShowManageLibraryUI(psilibrary: COpaquePointer?, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult
+public expect fun sHShowManageLibraryUI(psilibrary: MutPtr<CVoid>, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult
 
-public expect fun sHSimpleIDListFromPath(pszpath: Pcwstr): COpaquePointer?
+public expect fun sHSimpleIDListFromPath(pszpath: Pcwstr): MutPtr<Itemidlist>
 
-public expect fun sHSkipJunction(pbc: COpaquePointer?, pclsid: COpaquePointer?): Bool
+public expect fun sHSkipJunction(pbc: MutPtr<CVoid>, pclsid: ConstPtr<Guid>): Bool
 
 public expect fun sHStartNetConnectionDialogW(hwnd: Hwnd, pszremotename: Pcwstr, dwtype: UInt): Hresult
 
-public expect fun sHStrDupA(psz: Pcstr, ppwsz: COpaquePointer?): Hresult
+public expect fun sHStrDupA(psz: Pcstr, ppwsz: MutPtr<Pwstr>): Hresult
 
-public expect fun sHStrDupW(psz: Pcwstr, ppwsz: COpaquePointer?): Hresult
+public expect fun sHStrDupW(psz: Pcwstr, ppwsz: MutPtr<Pwstr>): Hresult
 
 public expect fun sHStripMneumonicA(pszmenu: Pstr): Byte
 
@@ -121,7 +133,7 @@ public expect fun sHUnicodeToAnsi(pwszsrc: Pcwstr, pszdst: Pstr, cchbuf: Int): I
 
 public expect fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int): Int
 
-public expect fun sHUnlockShared(pvdata: COpaquePointer?): Bool
+public expect fun sHUnlockShared(pvdata: ConstPtr<CVoid>): Bool
 
 public expect fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int)
 
@@ -143,9 +155,9 @@ public expect fun shellAboutW(hwnd: Hwnd, szapp: Pcwstr, szotherstuff: Pcwstr, h
 
 public expect fun shellExecuteA(hwnd: Hwnd, lpoperation: Pcstr, lpfile: Pcstr, lpparameters: Pcstr, lpdirectory: Pcstr, nshowcmd: ShowWindowCmd): Hinstance
 
-public expect fun shellExecuteExA(pexecinfo: COpaquePointer?): Bool
+public expect fun shellExecuteExA(pexecinfo: MutPtr<Shellexecuteinfoa>): Bool
 
-public expect fun shellExecuteExW(pexecinfo: COpaquePointer?): Bool
+public expect fun shellExecuteExW(pexecinfo: MutPtr<Shellexecuteinfow>): Bool
 
 public expect fun shellExecuteW(hwnd: Hwnd, lpoperation: Pcwstr, lpfile: Pcwstr, lpparameters: Pcwstr, lpdirectory: Pcwstr, nshowcmd: ShowWindowCmd): Hinstance
 
@@ -159,21 +171,21 @@ public expect fun shellGetCachedImageIndexA(psziconpath: Pcstr, iiconindex: Int,
 
 public expect fun shellGetCachedImageIndexW(psziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int
 
-public expect fun shellGetImageLists(phiml: COpaquePointer?, phimlsmall: COpaquePointer?): Bool
+public expect fun shellGetImageLists(phiml: MutPtr<Himagelist>, phimlsmall: MutPtr<Himagelist>): Bool
 
 public expect fun shellMergeMenus(hmdst: Hmenu, hmsrc: Hmenu, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MmFlags): UInt
 
-public expect fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: COpaquePointer?): Bool
+public expect fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: ConstPtr<Notifyicondataa>): Bool
 
-public expect fun shellNotifyIconGetRect(identifier: COpaquePointer?, iconlocation: COpaquePointer?): Hresult
+public expect fun shellNotifyIconGetRect(identifier: ConstPtr<Notifyiconidentifier>, iconlocation: MutPtr<Rect>): Hresult
 
-public expect fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: COpaquePointer?): Bool
+public expect fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: ConstPtr<Notifyicondataw>): Bool
 
-public expect fun signalFileOpen(pidl: COpaquePointer?): Bool
+public expect fun signalFileOpen(pidl: ConstPtr<Itemidlist>): Bool
 
-public expect fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: COpaquePointer?): UInt
+public expect fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: MutPtr<Softdistinfo>): UInt
 
-public expect fun stgMakeUniqueName(pstgparent: COpaquePointer?, pszfilespec: Pcwstr, grfmode: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
+public expect fun stgMakeUniqueName(pstgparent: MutPtr<CVoid>, pszfilespec: Pcwstr, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult
 
 public expect fun strCSpnA(pszstr: Pcstr, pszset: Pcstr): Int
 
@@ -281,15 +293,15 @@ public expect fun strRStrIA(pszsource: Pcstr, pszlast: Pcstr, pszsrch: Pcstr): P
 
 public expect fun strRStrIW(pszsource: Pcwstr, pszlast: Pcwstr, pszsrch: Pcwstr): Pwstr
 
-public expect fun strRetToBSTR(pstr: COpaquePointer?, pidl: COpaquePointer?, pbstr: COpaquePointer?): Hresult
+public expect fun strRetToBSTR(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pbstr: MutPtr<Bstr>): Hresult
 
-public expect fun strRetToBufA(pstr: COpaquePointer?, pidl: COpaquePointer?, pszbuf: Pstr, cchbuf: UInt): Hresult
+public expect fun strRetToBufA(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pszbuf: Pstr, cchbuf: UInt): Hresult
 
-public expect fun strRetToBufW(pstr: COpaquePointer?, pidl: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Hresult
+public expect fun strRetToBufW(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pszbuf: Pwstr, cchbuf: UInt): Hresult
 
-public expect fun strRetToStrA(pstr: COpaquePointer?, pidl: COpaquePointer?, ppsz: COpaquePointer?): Hresult
+public expect fun strRetToStrA(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppsz: MutPtr<Pstr>): Hresult
 
-public expect fun strRetToStrW(pstr: COpaquePointer?, pidl: COpaquePointer?, ppsz: COpaquePointer?): Hresult
+public expect fun strRetToStrW(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppsz: MutPtr<Pwstr>): Hresult
 
 public expect fun strSpnA(psz: Pcstr, pszset: Pcstr): Int
 
@@ -307,15 +319,15 @@ public expect fun strStrNW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pws
 
 public expect fun strStrW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr
 
-public expect fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: COpaquePointer?): Bool
+public expect fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: MutPtr<Long>): Bool
 
-public expect fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: COpaquePointer?): Bool
+public expect fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: MutPtr<Long>): Bool
 
 public expect fun strToIntA(pszsrc: Pcstr): Int
 
-public expect fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: COpaquePointer?): Bool
+public expect fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: MutPtr<Int>): Bool
 
-public expect fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: COpaquePointer?): Bool
+public expect fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: MutPtr<Int>): Bool
 
 public expect fun strToIntW(pszsrc: Pcwstr): Int
 
@@ -331,29 +343,29 @@ public expect fun unregisterAppStateChangeNotification(registration: PappstateRe
 
 public expect fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult
 
-public expect fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: MutPtr<UInt>, dwflags: UInt): Hresult
 
 public expect fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int
 
 public expect fun urlCompareW(psz1: Pcwstr, psz2: Pcwstr, fignoreslash: Bool): Int
 
-public expect fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: MutPtr<UInt>, dwflags: UInt): Hresult
 
 public expect fun urlFixupW(pcszurl: Pcwstr, psztranslatedurl: Pwstr, cchmax: UInt): Hresult
 
@@ -361,13 +373,13 @@ public expect fun urlGetLocationA(pszurl: Pcstr): Pcstr
 
 public expect fun urlGetLocationW(pszurl: Pcwstr): Pcwstr
 
-public expect fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: COpaquePointer?, dwpart: UInt, dwflags: UInt): Hresult
+public expect fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwpart: UInt, dwflags: UInt): Hresult
 
-public expect fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?, dwpart: UInt, dwflags: UInt): Hresult
+public expect fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>, dwpart: UInt, dwflags: UInt): Hresult
 
-public expect fun urlHashA(pszurl: Pcstr, pbhash: COpaquePointer?, cbhash: UInt): Hresult
+public expect fun urlHashA(pszurl: Pcstr, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult
 
-public expect fun urlHashW(pszurl: Pcwstr, pbhash: COpaquePointer?, cbhash: UInt): Hresult
+public expect fun urlHashW(pszurl: Pcwstr, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult
 
 public expect fun urlIsA(pszurl: Pcstr, urlis: Urlis): Bool
 
@@ -381,11 +393,11 @@ public expect fun urlIsOpaqueW(pszurl: Pcwstr): Bool
 
 public expect fun urlIsW(pszurl: Pcwstr, urlis: Urlis): Bool
 
-public expect fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: COpaquePointer?, dwflags: UInt): Hresult
+public expect fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: MutPtr<UInt>, dwflags: UInt): Hresult
 
-public expect fun variantToStrRet(varin: COpaquePointer?, pstrret: COpaquePointer?): Hresult
+public expect fun variantToStrRet(varin: ConstPtr<Variant.Variant>, pstrret: MutPtr<Strret>): Hresult
 
 public expect fun whichPlatform(): UInt
 
@@ -395,12 +407,12 @@ public expect fun winHelpA(hwndmain: Hwnd, lpszhelp: Pcstr, ucommand: UInt, dwda
 
 public expect fun winHelpW(hwndmain: Hwnd, lpszhelp: Pcwstr, ucommand: UInt, dwdata: ULong): Bool
 
-public expect fun writeCabinetState(pcs: COpaquePointer?): Bool
+public expect fun writeCabinetState(pcs: ConstPtr<Cabinetstate>): Bool
 
 public expect fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg variadicArgs: Long): Int
 
 public expect fun wnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, vararg variadicArgs: Long): Int
 
-public expect fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: COpaquePointer?): Int
+public expect fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: ConstPtr<Byte>): Int
 
-public expect fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: COpaquePointer?): Int
+public expect fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: ConstPtr<Byte>): Int

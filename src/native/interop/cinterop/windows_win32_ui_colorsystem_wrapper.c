@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA(void* pmachinename, void* pprofilename, void* pdevicename) {
+int32_t windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceA(void* pmachinename, void* pprofilename, void* pdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW(void* pmachinename, void* pprofilename, void* pdevicename) {
+int32_t windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceW(void* pmachinename, void* pprofilename, void* pdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMCheckColors(int64_t hcmtransform, void* lpainputcolors, uint32_t ncolors, int32_t ctinput, void* lparesult) {
+int32_t windowssysWindowsWin32UiColorsystemCMCheckColors(int64_t hcmtransform, void* lpainputcolors, uint32_t ncolors, int32_t ctinput, void* lparesult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMCheckColors(int64_t hcmtransfo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut(int64_t hcmtransform, void* lpargbtriple, void* lparesult, uint32_t ncount) {
+int32_t windowssysWindowsWin32UiColorsystemCMCheckColorsInGamut(int64_t hcmtransform, void* lpargbtriple, void* lparesult, uint32_t ncount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -114,7 +114,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut(int64_t hcm
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMCheckRGBs(int64_t hcmtransform, void* lpsrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwstride, void* lparesult, void* pfncallback, int64_t ulcallbackdata) {
+int32_t windowssysWindowsWin32UiColorsystemCMCheckRGBs(int64_t hcmtransform, void* lpsrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwstride, void* lparesult, void* pfncallback, int64_t ulcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, uint32_t, uint32_t, uint32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -144,7 +144,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMCheckRGBs(int64_t hcmtransform
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex(int64_t hprofile, void* pacolorname, void* paindex, uint32_t dwcount) {
+int32_t windowssysWindowsWin32UiColorsystemCMConvertColorNameToIndex(int64_t hprofile, void* pacolorname, void* paindex, uint32_t dwcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -169,7 +169,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName(int64_t hprofile, void* paindex, void* pacolorname, uint32_t dwcount) {
+int32_t windowssysWindowsWin32UiColorsystemCMConvertIndexToColorName(int64_t hprofile, void* paindex, void* pacolorname, uint32_t dwcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -194,7 +194,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile(void* pahprofiles, uint32_t nprofiles, void* padwintents, uint32_t nintents, uint32_t dwflags, void* lpprofiledata) {
+int32_t windowssysWindowsWin32UiColorsystemCMCreateDeviceLinkProfile(void* pahprofiles, uint32_t nprofiles, void* padwintents, uint32_t nintents, uint32_t dwflags, void* lpprofiledata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -221,7 +221,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile(void* 
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform(void* pahprofiles, uint32_t nprofiles, void* padwintents, uint32_t nintents, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemCMCreateMultiProfileTransform(void* pahprofiles, uint32_t nprofiles, void* padwintents, uint32_t nintents, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMCreateProfile(void* lpcolorspace, void* lpprofiledata) {
+int32_t windowssysWindowsWin32UiColorsystemCMCreateProfile(void* lpcolorspace, void* lpprofiledata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -270,7 +270,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMCreateProfile(void* lpcolorspa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMCreateProfileW(void* lpcolorspace, void* lpprofiledata) {
+int32_t windowssysWindowsWin32UiColorsystemCMCreateProfileW(void* lpcolorspace, void* lpprofiledata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMCreateProfileW(void* lpcolorsp
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransform(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter) {
+int64_t windowssysWindowsWin32UiColorsystemCMCreateTransform(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -317,7 +317,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransform(void* lpcolors
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemCMCreateTransformExt(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -342,7 +342,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt(void* lpcol
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemCMCreateTransformExtW(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW(void* lpco
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransformW(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter) {
+int64_t windowssysWindowsWin32UiColorsystemCMCreateTransformW(void* lpcolorspace, void* lpdevcharacter, void* lptargetdevcharacter) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_cMCreateTransformW(void* lpcolor
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMDeleteTransform(int64_t hcmtransform) {
+int32_t windowssysWindowsWin32UiColorsystemCMDeleteTransform(int64_t hcmtransform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -413,7 +413,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMDeleteTransform(int64_t hcmtra
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_colorsystem_cMGetInfo(uint32_t dwinfo) {
+uint32_t windowssysWindowsWin32UiColorsystemCMGetInfo(uint32_t dwinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ uint32_t windowssys_windows_win32_ui_colorsystem_cMGetInfo(uint32_t dwinfo) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo(int64_t hprofile, void* pnamedprofileinfo) {
+int32_t windowssysWindowsWin32UiColorsystemCMGetNamedProfileInfo(int64_t hprofile, void* pnamedprofileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo(int64_t hp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMIsProfileValid(int64_t hprofile, void* lpbvalid) {
+int32_t windowssysWindowsWin32UiColorsystemCMIsProfileValid(int64_t hprofile, void* lpbvalid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -481,7 +481,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMIsProfileValid(int64_t hprofil
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateColors(int64_t hcmtransform, void* lpainputcolors, uint32_t ncolors, int32_t ctinput, void* lpaoutputcolors, int32_t ctoutput) {
+int32_t windowssysWindowsWin32UiColorsystemCMTranslateColors(int64_t hcmtransform, void* lpainputcolors, uint32_t ncolors, int32_t ctinput, void* lpaoutputcolors, int32_t ctoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -508,7 +508,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateColors(int64_t hcmtra
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateRGB(int64_t hcmtransform, uint32_t colorref, void* lpcolorref, uint32_t dwflags) {
+int32_t windowssysWindowsWin32UiColorsystemCMTranslateRGB(int64_t hcmtransform, uint32_t colorref, void* lpcolorref, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateRGB(int64_t hcmtransf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs(int64_t hcmtransform, void* lpsrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwstride, void* lpdestbits, int32_t bmoutput, uint32_t dwtranslatedirection) {
+int32_t windowssysWindowsWin32UiColorsystemCMTranslateRGBs(int64_t hcmtransform, void* lpsrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwstride, void* lpdestbits, int32_t bmoutput, uint32_t dwtranslatedirection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, uint32_t, uint32_t, uint32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -563,7 +563,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs(int64_t hcmtrans
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt(int64_t hcmtransform, void* lpsrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwinputstride, void* lpdestbits, int32_t bmoutput, uint32_t dwoutputstride, void* lpfncallback, int64_t ulcallbackdata) {
+int32_t windowssysWindowsWin32UiColorsystemCMTranslateRGBsExt(int64_t hcmtransform, void* lpsrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwinputstride, void* lpdestbits, int32_t bmoutput, uint32_t dwoutputstride, void* lpfncallback, int64_t ulcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, uint32_t, uint32_t, uint32_t, void*, int32_t, uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -595,7 +595,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt(int64_t hcmtr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_checkBitmapBits(int64_t hcolortransform, void* psrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwstride, void* paresult, void* pfncallback, int64_t lpcallbackdata) {
+int32_t windowssysWindowsWin32UiColorsystemCheckBitmapBits(int64_t hcolortransform, void* psrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwstride, void* paresult, void* pfncallback, int64_t lpcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, uint32_t, uint32_t, uint32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -625,7 +625,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_checkBitmapBits(int64_t hcolortr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_checkColors(int64_t hcolortransform, void* painputcolors, uint32_t ncolors, int32_t ctinput, void* paresult) {
+int32_t windowssysWindowsWin32UiColorsystemCheckColors(int64_t hcolortransform, void* painputcolors, uint32_t ncolors, int32_t ctinput, void* paresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -651,7 +651,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_checkColors(int64_t hcolortransf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_checkColorsInGamut(void* hdc, void* lprgbtriple, void* dlpbuffer, uint32_t ncount) {
+int32_t windowssysWindowsWin32UiColorsystemCheckColorsInGamut(void* hdc, void* lprgbtriple, void* dlpbuffer, uint32_t ncount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -676,7 +676,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_checkColorsInGamut(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_closeColorProfile(int64_t hprofile) {
+int32_t windowssysWindowsWin32UiColorsystemCloseColorProfile(int64_t hprofile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -698,7 +698,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_closeColorProfile(int64_t hprofi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_colorCorrectPalette(void* hdc, void* hpal, uint32_t defirst, uint32_t num) {
+int32_t windowssysWindowsWin32UiColorsystemColorCorrectPalette(void* hdc, void* hpal, uint32_t defirst, uint32_t num) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -723,7 +723,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_colorCorrectPalette(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_colorMatchToTarget(void* hdc, void* hdctarget, uint32_t action) {
+int32_t windowssysWindowsWin32UiColorsystemColorMatchToTarget(void* hdc, void* hdctarget, uint32_t action) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -747,7 +747,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_colorMatchToTarget(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex(int64_t hprofile, void* pacolorname, void* paindex, uint32_t dwcount) {
+int32_t windowssysWindowsWin32UiColorsystemConvertColorNameToIndex(int64_t hprofile, void* pacolorname, void* paindex, uint32_t dwcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +772,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_convertIndexToColorName(int64_t hprofile, void* paindex, void* pacolorname, uint32_t dwcount) {
+int32_t windowssysWindowsWin32UiColorsystemConvertIndexToColorName(int64_t hprofile, void* paindex, void* pacolorname, uint32_t dwcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -797,7 +797,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_convertIndexToColorName(int64_t 
 #endif
 }
 
-void* windowssys_windows_win32_ui_colorsystem_createColorSpaceA(void* lplcs) {
+void* windowssysWindowsWin32UiColorsystemCreateColorSpaceA(void* lplcs) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -819,7 +819,7 @@ void* windowssys_windows_win32_ui_colorsystem_createColorSpaceA(void* lplcs) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_colorsystem_createColorSpaceW(void* lplcs) {
+void* windowssysWindowsWin32UiColorsystemCreateColorSpaceW(void* lplcs) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -841,7 +841,7 @@ void* windowssys_windows_win32_ui_colorsystem_createColorSpaceW(void* lplcs) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_createColorTransformA(void* plogcolorspace, int64_t hdestprofile, int64_t htargetprofile, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemCreateColorTransformA(void* plogcolorspace, int64_t hdestprofile, int64_t htargetprofile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -866,7 +866,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_createColorTransformA(void* plog
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_createColorTransformW(void* plogcolorspace, int64_t hdestprofile, int64_t htargetprofile, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemCreateColorTransformW(void* plogcolorspace, int64_t hdestprofile, int64_t htargetprofile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -891,7 +891,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_createColorTransformW(void* plog
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile(void* hprofile, uint32_t nprofiles, void* padwintent, uint32_t nintents, uint32_t dwflags, void* pprofiledata, uint32_t indexpreferredcmm) {
+int32_t windowssysWindowsWin32UiColorsystemCreateDeviceLinkProfile(void* hprofile, uint32_t nprofiles, void* padwintent, uint32_t nintents, uint32_t dwflags, void* pprofiledata, uint32_t indexpreferredcmm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -919,7 +919,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile(void* hp
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform(void* pahprofiles, uint32_t nprofiles, void* padwintent, uint32_t nintents, uint32_t dwflags, uint32_t indexpreferredcmm) {
+int64_t windowssysWindowsWin32UiColorsystemCreateMultiProfileTransform(void* pahprofiles, uint32_t nprofiles, void* padwintent, uint32_t nintents, uint32_t dwflags, uint32_t indexpreferredcmm) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -946,7 +946,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA(void* plogcolorspace, void* pprofile) {
+int32_t windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceA(void* plogcolorspace, void* pprofile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -969,7 +969,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW(void* plogcolorspace, void* pprofile) {
+int32_t windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceW(void* plogcolorspace, void* pprofile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -992,7 +992,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_deleteColorSpace(void* hcs) {
+int32_t windowssysWindowsWin32UiColorsystemDeleteColorSpace(void* hcs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1014,7 +1014,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_deleteColorSpace(void* hcs) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_deleteColorTransform(int64_t hxform) {
+int32_t windowssysWindowsWin32UiColorsystemDeleteColorTransform(int64_t hxform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1036,7 +1036,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_deleteColorTransform(int64_t hxf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA(void* pmachinename, void* pprofilename, void* pdevicename) {
+int32_t windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceA(void* pmachinename, void* pprofilename, void* pdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1060,7 +1060,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDevi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW(void* pmachinename, void* pprofilename, void* pdevicename) {
+int32_t windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceW(void* pmachinename, void* pprofilename, void* pdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1084,7 +1084,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDevi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_enumColorProfilesA(void* pmachinename, void* penumrecord, void* penumerationbuffer, void* pdwsizeofenumerationbuffer, void* pnprofiles) {
+int32_t windowssysWindowsWin32UiColorsystemEnumColorProfilesA(void* pmachinename, void* penumrecord, void* penumerationbuffer, void* pdwsizeofenumerationbuffer, void* pnprofiles) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1110,7 +1110,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_enumColorProfilesA(void* pmachin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_enumColorProfilesW(void* pmachinename, void* penumrecord, void* penumerationbuffer, void* pdwsizeofenumerationbuffer, void* pnprofiles) {
+int32_t windowssysWindowsWin32UiColorsystemEnumColorProfilesW(void* pmachinename, void* penumrecord, void* penumerationbuffer, void* pdwsizeofenumerationbuffer, void* pnprofiles) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1136,7 +1136,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_enumColorProfilesW(void* pmachin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_enumICMProfilesA(void* hdc, void* proc, int64_t param2) {
+int32_t windowssysWindowsWin32UiColorsystemEnumICMProfilesA(void* hdc, void* proc, int64_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1160,7 +1160,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_enumICMProfilesA(void* hdc, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_enumICMProfilesW(void* hdc, void* proc, int64_t param2) {
+int32_t windowssysWindowsWin32UiColorsystemEnumICMProfilesW(void* hdc, void* proc, int64_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1184,7 +1184,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_enumICMProfilesW(void* hdc, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_colorsystem_getCMMInfo(int64_t hcolortransform, uint32_t param1) {
+uint32_t windowssysWindowsWin32UiColorsystemGetCMMInfo(int64_t hcolortransform, uint32_t param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1207,7 +1207,7 @@ uint32_t windowssys_windows_win32_ui_colorsystem_getCMMInfo(int64_t hcolortransf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getColorDirectoryA(void* pmachinename, void* pbuffer, void* pdwsize) {
+int32_t windowssysWindowsWin32UiColorsystemGetColorDirectoryA(void* pmachinename, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1231,7 +1231,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getColorDirectoryA(void* pmachin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getColorDirectoryW(void* pmachinename, void* pbuffer, void* pdwsize) {
+int32_t windowssysWindowsWin32UiColorsystemGetColorDirectoryW(void* pmachinename, void* pbuffer, void* pdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1255,7 +1255,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getColorDirectoryW(void* pmachin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileElement(int64_t hprofile, uint32_t tag, uint32_t dwoffset, void* pcbelement, void* pelement, void* pbreference) {
+int32_t windowssysWindowsWin32UiColorsystemGetColorProfileElement(int64_t hprofile, uint32_t tag, uint32_t dwoffset, void* pcbelement, void* pelement, void* pbreference) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1282,7 +1282,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileElement(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag(int64_t hprofile, uint32_t dwindex, void* ptag) {
+int32_t windowssysWindowsWin32UiColorsystemGetColorProfileElementTag(int64_t hprofile, uint32_t dwindex, void* ptag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1306,7 +1306,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle(int64_t hprofile, void* pprofile, void* pcbprofile) {
+int32_t windowssysWindowsWin32UiColorsystemGetColorProfileFromHandle(int64_t hprofile, void* pprofile, void* pcbprofile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1330,7 +1330,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileHeader(int64_t hprofile, void* pheader) {
+int32_t windowssysWindowsWin32UiColorsystemGetColorProfileHeader(int64_t hprofile, void* pheader) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1353,7 +1353,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getColorProfileHeader(int64_t hp
 #endif
 }
 
-void* windowssys_windows_win32_ui_colorsystem_getColorSpace(void* hdc) {
+void* windowssysWindowsWin32UiColorsystemGetColorSpace(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1375,7 +1375,7 @@ void* windowssys_windows_win32_ui_colorsystem_getColorSpace(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements(int64_t hprofile, void* pnelementcount) {
+int32_t windowssysWindowsWin32UiColorsystemGetCountColorProfileElements(int64_t hprofile, void* pnelementcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1398,7 +1398,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements(int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp(void* hdc, void* lpramp) {
+int32_t windowssysWindowsWin32UiColorsystemGetDeviceGammaRamp(void* hdc, void* lpramp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1421,7 +1421,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getICMProfileA(void* hdc, void* pbufsize, void* pszfilename) {
+int32_t windowssysWindowsWin32UiColorsystemGetICMProfileA(void* hdc, void* pbufsize, void* pszfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1445,7 +1445,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getICMProfileA(void* hdc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getICMProfileW(void* hdc, void* pbufsize, void* pszfilename) {
+int32_t windowssysWindowsWin32UiColorsystemGetICMProfileW(void* hdc, void* pbufsize, void* pszfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1469,7 +1469,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getICMProfileW(void* hdc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA(void* hcolorspace, void* lpbuffer, uint32_t nsize) {
+int32_t windowssysWindowsWin32UiColorsystemGetLogColorSpaceA(void* hcolorspace, void* lpbuffer, uint32_t nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1493,7 +1493,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA(void* hcolorsp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW(void* hcolorspace, void* lpbuffer, uint32_t nsize) {
+int32_t windowssysWindowsWin32UiColorsystemGetLogColorSpaceW(void* hcolorspace, void* lpbuffer, uint32_t nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1517,7 +1517,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW(void* hcolorsp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo(int64_t hprofile, void* pnamedprofileinfo) {
+int32_t windowssysWindowsWin32UiColorsystemGetNamedProfileInfo(int64_t hprofile, void* pnamedprofileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1540,7 +1540,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo(int64_t hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary(int64_t hprofile, uint32_t dwintent, void* pps2colorrenderingdictionary, void* pcbps2colorrenderingdictionary, void* pbbinary) {
+int32_t windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingDictionary(int64_t hprofile, uint32_t dwintent, void* pps2colorrenderingdictionary, void* pcbps2colorrenderingdictionary, void* pbbinary) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1566,7 +1566,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary(i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent(int64_t hprofile, uint32_t dwintent, void* pbuffer, void* pcbps2colorrenderingintent) {
+int32_t windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingIntent(int64_t hprofile, uint32_t dwintent, void* pbuffer, void* pcbps2colorrenderingintent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1591,7 +1591,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray(int64_t hprofile, uint32_t dwintent, uint32_t dwcsatype, void* pps2colorspacearray, void* pcbps2colorspacearray, void* pbbinary) {
+int32_t windowssysWindowsWin32UiColorsystemGetPS2ColorSpaceArray(int64_t hprofile, uint32_t dwintent, uint32_t dwcsatype, void* pps2colorspacearray, void* pcbps2colorspacearray, void* pbbinary) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1618,7 +1618,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray(int64_t hp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA(void* pmachinename, uint32_t dwscs, void* pbuffer, void* pcbsize) {
+int32_t windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileA(void* pmachinename, uint32_t dwscs, void* pbuffer, void* pcbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1643,7 +1643,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW(void* pmachinename, uint32_t dwscs, void* pbuffer, void* pcbsize) {
+int32_t windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileW(void* pmachinename, uint32_t dwscs, void* pbuffer, void* pcbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1668,7 +1668,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_installColorProfileA(void* pmachinename, void* pprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemInstallColorProfileA(void* pmachinename, void* pprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1691,7 +1691,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_installColorProfileA(void* pmach
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_installColorProfileW(void* pmachinename, void* pprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemInstallColorProfileW(void* pmachinename, void* pprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1714,7 +1714,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_installColorProfileW(void* pmach
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent(int64_t hprofile, uint32_t tag, void* pbpresent) {
+int32_t windowssysWindowsWin32UiColorsystemIsColorProfileTagPresent(int64_t hprofile, uint32_t tag, void* pbpresent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1738,7 +1738,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_isColorProfileValid(int64_t hprofile, void* pbvalid) {
+int32_t windowssysWindowsWin32UiColorsystemIsColorProfileValid(int64_t hprofile, void* pbvalid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1761,7 +1761,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_isColorProfileValid(int64_t hpro
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_openColorProfileA(void* pprofile, uint32_t dwdesiredaccess, uint32_t dwsharemode, uint32_t dwcreationmode) {
+int64_t windowssysWindowsWin32UiColorsystemOpenColorProfileA(void* pprofile, uint32_t dwdesiredaccess, uint32_t dwsharemode, uint32_t dwcreationmode) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1786,7 +1786,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_openColorProfileA(void* pprofile
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_openColorProfileW(void* pprofile, uint32_t dwdesiredaccess, uint32_t dwsharemode, uint32_t dwcreationmode) {
+int64_t windowssysWindowsWin32UiColorsystemOpenColorProfileW(void* pprofile, uint32_t dwdesiredaccess, uint32_t dwsharemode, uint32_t dwcreationmode) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1811,7 +1811,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_openColorProfileW(void* pprofile
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_registerCMMA(void* pmachinename, uint32_t cmmid, void* pcmmdll) {
+int32_t windowssysWindowsWin32UiColorsystemRegisterCMMA(void* pmachinename, uint32_t cmmid, void* pcmmdll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1835,7 +1835,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_registerCMMA(void* pmachinename,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_registerCMMW(void* pmachinename, uint32_t cmmid, void* pcmmdll) {
+int32_t windowssysWindowsWin32UiColorsystemRegisterCMMW(void* pmachinename, uint32_t cmmid, void* pcmmdll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1859,7 +1859,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_registerCMMW(void* pmachinename,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_selectCMM(uint32_t dwcmmtype) {
+int32_t windowssysWindowsWin32UiColorsystemSelectCMM(uint32_t dwcmmtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1881,7 +1881,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_selectCMM(uint32_t dwcmmtype) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileElement(int64_t hprofile, uint32_t tag, uint32_t dwoffset, void* pcbelement, void* pelement) {
+int32_t windowssysWindowsWin32UiColorsystemSetColorProfileElement(int64_t hprofile, uint32_t tag, uint32_t dwoffset, void* pcbelement, void* pelement) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1907,7 +1907,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileElement(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference(int64_t hprofile, uint32_t newtag, uint32_t reftag) {
+int32_t windowssysWindowsWin32UiColorsystemSetColorProfileElementReference(int64_t hprofile, uint32_t newtag, uint32_t reftag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1931,7 +1931,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize(int64_t hprofile, uint32_t tagtype, uint32_t pcbelement) {
+int32_t windowssysWindowsWin32UiColorsystemSetColorProfileElementSize(int64_t hprofile, uint32_t tagtype, uint32_t pcbelement) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1955,7 +1955,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileHeader(int64_t hprofile, void* pheader) {
+int32_t windowssysWindowsWin32UiColorsystemSetColorProfileHeader(int64_t hprofile, void* pheader) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1978,7 +1978,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setColorProfileHeader(int64_t hp
 #endif
 }
 
-void* windowssys_windows_win32_ui_colorsystem_setColorSpace(void* hdc, void* hcs) {
+void* windowssysWindowsWin32UiColorsystemSetColorSpace(void* hdc, void* hcs) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2001,7 +2001,7 @@ void* windowssys_windows_win32_ui_colorsystem_setColorSpace(void* hdc, void* hcs
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp(void* hdc, void* lpramp) {
+int32_t windowssysWindowsWin32UiColorsystemSetDeviceGammaRamp(void* hdc, void* lpramp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2024,7 +2024,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setICMMode(void* hdc, int32_t mode) {
+int32_t windowssysWindowsWin32UiColorsystemSetICMMode(void* hdc, int32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2047,7 +2047,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setICMMode(void* hdc, int32_t mo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setICMProfileA(void* hdc, void* lpfilename) {
+int32_t windowssysWindowsWin32UiColorsystemSetICMProfileA(void* hdc, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2070,7 +2070,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setICMProfileA(void* hdc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setICMProfileW(void* hdc, void* lpfilename) {
+int32_t windowssysWindowsWin32UiColorsystemSetICMProfileW(void* hdc, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2093,7 +2093,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setICMProfileW(void* hdc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA(void* pmachinename, uint32_t dwprofileid, void* pprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileA(void* pmachinename, uint32_t dwprofileid, void* pprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2117,7 +2117,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW(void* pmachinename, uint32_t dwprofileid, void* pprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileW(void* pmachinename, uint32_t dwprofileid, void* pprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2141,7 +2141,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setupColorMatchingA(void* pcms) {
+int32_t windowssysWindowsWin32UiColorsystemSetupColorMatchingA(void* pcms) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2163,7 +2163,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setupColorMatchingA(void* pcms) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_setupColorMatchingW(void* pcms) {
+int32_t windowssysWindowsWin32UiColorsystemSetupColorMatchingW(void* pcms) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2185,7 +2185,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_setupColorMatchingW(void* pcms) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_translateBitmapBits(int64_t hcolortransform, void* psrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwinputstride, void* pdestbits, int32_t bmoutput, uint32_t dwoutputstride, void* pfncallback, int64_t ulcallbackdata) {
+int32_t windowssysWindowsWin32UiColorsystemTranslateBitmapBits(int64_t hcolortransform, void* psrcbits, int32_t bminput, uint32_t dwwidth, uint32_t dwheight, uint32_t dwinputstride, void* pdestbits, int32_t bmoutput, uint32_t dwoutputstride, void* pfncallback, int64_t ulcallbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, uint32_t, uint32_t, uint32_t, void*, int32_t, uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2217,7 +2217,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_translateBitmapBits(int64_t hcol
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_translateColors(int64_t hcolortransform, void* painputcolors, uint32_t ncolors, int32_t ctinput, void* paoutputcolors, int32_t ctoutput) {
+int32_t windowssysWindowsWin32UiColorsystemTranslateColors(int64_t hcolortransform, void* painputcolors, uint32_t ncolors, int32_t ctinput, void* paoutputcolors, int32_t ctoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2244,7 +2244,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_translateColors(int64_t hcolortr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA(void* pmachinename, void* pprofilename, int32_t bdelete) {
+int32_t windowssysWindowsWin32UiColorsystemUninstallColorProfileA(void* pmachinename, void* pprofilename, int32_t bdelete) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2268,7 +2268,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA(void* pma
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW(void* pmachinename, void* pprofilename, int32_t bdelete) {
+int32_t windowssysWindowsWin32UiColorsystemUninstallColorProfileW(void* pmachinename, void* pprofilename, int32_t bdelete) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2292,7 +2292,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW(void* pma
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_unregisterCMMA(void* pmachinename, uint32_t cmmid) {
+int32_t windowssysWindowsWin32UiColorsystemUnregisterCMMA(void* pmachinename, uint32_t cmmid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2315,7 +2315,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_unregisterCMMA(void* pmachinenam
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_unregisterCMMW(void* pmachinename, uint32_t cmmid) {
+int32_t windowssysWindowsWin32UiColorsystemUnregisterCMMW(void* pmachinename, uint32_t cmmid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2338,7 +2338,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_unregisterCMMW(void* pmachinenam
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA(uint32_t reserved, void* lpszcmid, void* lpszfilename, uint32_t command) {
+int32_t windowssysWindowsWin32UiColorsystemUpdateICMRegKeyA(uint32_t reserved, void* lpszcmid, void* lpszfilename, uint32_t command) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2363,7 +2363,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA(uint32_t reserv
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW(uint32_t reserved, void* lpszcmid, void* lpszfilename, uint32_t command) {
+int32_t windowssysWindowsWin32UiColorsystemUpdateICMRegKeyW(uint32_t reserved, void* lpszcmid, void* lpszfilename, uint32_t command) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2388,7 +2388,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW(uint32_t reserv
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice(int32_t scope, void* pprofilename, void* pdevicename) {
+int32_t windowssysWindowsWin32UiColorsystemWcsAssociateColorProfileWithDevice(int32_t scope, void* pprofilename, void* pdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2412,7 +2412,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsCheckColors(int64_t hcolortransform, uint32_t ncolors, uint32_t ninputchannels, int32_t cdtinput, uint32_t cbinput, void* pinputdata, void* paresult) {
+int32_t windowssysWindowsWin32UiColorsystemWcsCheckColors(int64_t hcolortransform, uint32_t ncolors, uint32_t ninputchannels, int32_t cdtinput, uint32_t cbinput, void* pinputdata, void* paresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2440,7 +2440,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsCheckColors(int64_t hcolortra
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile(int64_t hwcsprofile, uint32_t dwoptions) {
+int64_t windowssysWindowsWin32UiColorsystemWcsCreateIccProfile(int64_t hwcsprofile, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2463,7 +2463,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile(int64_t hwcs
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice(int32_t scope, void* pprofilename, void* pdevicename) {
+int32_t windowssysWindowsWin32UiColorsystemWcsDisassociateColorProfileFromDevice(int32_t scope, void* pprofilename, void* pdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2487,7 +2487,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromD
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles(int32_t scope, void* penumrecord, void* pbuffer, uint32_t dwsize, void* pnprofiles) {
+int32_t windowssysWindowsWin32UiColorsystemWcsEnumColorProfiles(int32_t scope, void* penumrecord, void* pbuffer, uint32_t dwsize, void* pnprofiles) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2513,7 +2513,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles(int32_t sco
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize(int32_t scope, void* penumrecord, void* pdwsize) {
+int32_t windowssysWindowsWin32UiColorsystemWcsEnumColorProfilesSize(int32_t scope, void* penumrecord, void* pdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2537,7 +2537,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize(int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState(void* pbisenabled) {
+int32_t windowssysWindowsWin32UiColorsystemWcsGetCalibrationManagementState(void* pbisenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2559,7 +2559,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile(int32_t scope, void* pdevicename, int32_t cptcolorprofiletype, int32_t cpstcolorprofilesubtype, uint32_t dwprofileid, uint32_t cbprofilename, void* pprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfile(int32_t scope, void* pdevicename, int32_t cptcolorprofiletype, int32_t cpstcolorprofilesubtype, uint32_t dwprofileid, uint32_t cbprofilename, void* pprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2587,7 +2587,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize(int32_t scope, void* pdevicename, int32_t cptcolorprofiletype, int32_t cpstcolorprofilesubtype, uint32_t dwprofileid, void* pcbprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfileSize(int32_t scope, void* pdevicename, int32_t cptcolorprofiletype, int32_t cpstcolorprofilesubtype, uint32_t dwprofileid, void* pcbprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2614,7 +2614,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize(in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent(int32_t scope, void* pdwrenderingintent) {
+int32_t windowssysWindowsWin32UiColorsystemWcsGetDefaultRenderingIntent(int32_t scope, void* pdwrenderingintent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2637,7 +2637,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent(int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles(void* pdevicename, uint32_t dwdeviceclass, void* puseperuserprofiles) {
+int32_t windowssysWindowsWin32UiColorsystemWcsGetUsePerUserProfiles(void* pdevicename, uint32_t dwdeviceclass, void* puseperuserprofiles) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2661,7 +2661,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles(void* p
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA(void* pcdmpprofile, void* pcampprofile, void* pgmmpprofile, uint32_t dwdesireaccess, uint32_t dwsharemode, uint32_t dwcreationmode, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemWcsOpenColorProfileA(void* pcdmpprofile, void* pcampprofile, void* pgmmpprofile, uint32_t dwdesireaccess, uint32_t dwsharemode, uint32_t dwcreationmode, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2689,7 +2689,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA(void* pcdmp
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW(void* pcdmpprofile, void* pcampprofile, void* pgmmpprofile, uint32_t dwdesireaccess, uint32_t dwsharemode, uint32_t dwcreationmode, uint32_t dwflags) {
+int64_t windowssysWindowsWin32UiColorsystemWcsOpenColorProfileW(void* pcdmpprofile, void* pcampprofile, void* pgmmpprofile, uint32_t dwdesireaccess, uint32_t dwsharemode, uint32_t dwcreationmode, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2717,7 +2717,7 @@ int64_t windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW(void* pcdmp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState(int32_t bisenabled) {
+int32_t windowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState(int32_t bisenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2739,7 +2739,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile(int32_t scope, void* pdevicename, int32_t cptcolorprofiletype, int32_t cpstcolorprofilesubtype, uint32_t dwprofileid, void* pprofilename) {
+int32_t windowssysWindowsWin32UiColorsystemWcsSetDefaultColorProfile(int32_t scope, void* pdevicename, int32_t cptcolorprofiletype, int32_t cpstcolorprofilesubtype, uint32_t dwprofileid, void* pprofilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2766,7 +2766,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent(int32_t scope, uint32_t dwrenderingintent) {
+int32_t windowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent(int32_t scope, uint32_t dwrenderingintent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2789,7 +2789,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent(int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles(void* pdevicename, uint32_t dwdeviceclass, int32_t useperuserprofiles) {
+int32_t windowssysWindowsWin32UiColorsystemWcsSetUsePerUserProfiles(void* pdevicename, uint32_t dwdeviceclass, int32_t useperuserprofiles) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2813,7 +2813,7 @@ int32_t windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_colorsystem_wcsTranslateColors(int64_t hcolortransform, uint32_t ncolors, uint32_t ninputchannels, int32_t cdtinput, uint32_t cbinput, void* pinputdata, uint32_t noutputchannels, int32_t cdtoutput, uint32_t cboutput, void* poutputdata) {
+int32_t windowssysWindowsWin32UiColorsystemWcsTranslateColors(int64_t hcolortransform, uint32_t ncolors, uint32_t ninputchannels, int32_t cdtinput, uint32_t cbinput, void* pinputdata, uint32_t noutputchannels, int32_t cdtoutput, uint32_t cboutput, void* poutputdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, int32_t, uint32_t, void*, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

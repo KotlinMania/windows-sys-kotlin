@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlNetworkConnectivityHint
 
 public typealias DnsServerPropertyType = Int
@@ -9,7 +11,7 @@ public typealias GetAdaptersAddressesFlags = UInt
 
 public typealias GlobalFilter = Int
 
-public typealias Hiftimestampchange = COpaquePointer?
+public typealias Hiftimestampchange = MutPtr<CVoid>
 
 public typealias Icmp4Type = Int
 
@@ -42,43 +44,43 @@ public typealias PfforwardAction = Int
 public typealias Pfframetype = Int
 
 public fun interface PinterfaceTimestampConfigChangeCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>)
 }
 
 public typealias PinterfaceTimestampConfigChangeCallback = PinterfaceTimestampConfigChangeCallbackFn?
 
 public fun interface PipforwardChangeCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?, row: COpaquePointer?, notificationtype: MibNotificationType)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>, row: ConstPtr<MibIpforwardRow2>, notificationtype: MibNotificationType)
 }
 
 public typealias PipforwardChangeCallback = PipforwardChangeCallbackFn?
 
 public fun interface PipinterfaceChangeCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?, row: COpaquePointer?, notificationtype: MibNotificationType)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>, row: ConstPtr<MibIpinterfaceRow>, notificationtype: MibNotificationType)
 }
 
 public typealias PipinterfaceChangeCallback = PipinterfaceChangeCallbackFn?
 
 public fun interface PnetworkConnectivityHintChangeCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?, connectivityhint: NlNetworkConnectivityHint)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>, connectivityhint: NlNetworkConnectivityHint)
 }
 
 public typealias PnetworkConnectivityHintChangeCallback = PnetworkConnectivityHintChangeCallbackFn?
 
 public fun interface PstableUnicastIpaddressTableCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?, addresstable: COpaquePointer?)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>, addresstable: ConstPtr<MibUnicastipaddressTable>)
 }
 
 public typealias PstableUnicastIpaddressTableCallback = PstableUnicastIpaddressTableCallbackFn?
 
 public fun interface PteredoPortChangeCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?, port: UShort, notificationtype: MibNotificationType)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>, port: UShort, notificationtype: MibNotificationType)
 }
 
 public typealias PteredoPortChangeCallback = PteredoPortChangeCallbackFn?
 
 public fun interface PunicastIpaddressChangeCallbackFn {
-    public operator fun invoke(callercontext: COpaquePointer?, row: COpaquePointer?, notificationtype: MibNotificationType)
+    public operator fun invoke(callercontext: ConstPtr<CVoid>, row: ConstPtr<MibUnicastipaddressRow>, notificationtype: MibNotificationType)
 }
 
 public typealias PunicastIpaddressChangeCallback = PunicastIpaddressChangeCallbackFn?

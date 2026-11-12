@@ -10,8 +10,8 @@ private object WindowsWin32SystemDiagnosticsCeipJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn(): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn(): Int
 }
 
 public actual fun ceipIsOptedIn(): Bool =
-    WindowsWin32SystemDiagnosticsCeipJniBridge.windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn()
+    WindowsWin32SystemDiagnosticsCeipJniBridge.windowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn()

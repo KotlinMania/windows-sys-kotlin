@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -9,6 +10,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.Helpinfo
 
 public typealias AccelVirtFlags = UByte
 
@@ -52,21 +54,21 @@ public typealias GetWindowCmd = UInt
 
 public typealias GuithreadinfoFlags = UInt
 
-public typealias Haccel = COpaquePointer?
+public typealias Haccel = MutPtr<CVoid>
 
 public typealias Handedness = Int
 
-public typealias Hcursor = COpaquePointer?
+public typealias Hcursor = MutPtr<CVoid>
 
-public typealias Hdevnotify = COpaquePointer?
+public typealias Hdevnotify = MutPtr<CVoid>
 
-public typealias Hdwp = COpaquePointer?
+public typealias Hdwp = MutPtr<CVoid>
 
-public typealias Hhook = COpaquePointer?
+public typealias Hhook = MutPtr<CVoid>
 
-public typealias Hicon = COpaquePointer?
+public typealias Hicon = MutPtr<CVoid>
 
-public typealias Hmenu = COpaquePointer?
+public typealias Hmenu = MutPtr<CVoid>
 
 public fun interface HookprocFn {
     public operator fun invoke(code: Int, wparam: Wparam, lparam: Lparam): Lresult
@@ -101,7 +103,7 @@ public typealias MessageboxStyle = UInt
 public typealias MinimizedmetricsArrange = Int
 
 public fun interface MsgboxcallbackFn {
-    public operator fun invoke(lphelpinfo: COpaquePointer?)
+    public operator fun invoke(lphelpinfo: MutPtr<Helpinfo>)
 }
 
 public typealias Msgboxcallback = MsgboxcallbackFn?

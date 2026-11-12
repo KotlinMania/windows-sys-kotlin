@@ -2,7 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 private object WindowsWin32NetworkmanagementNetbiosJniBridge {
     init {
@@ -10,8 +10,8 @@ private object WindowsWin32NetworkmanagementNetbiosJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_netbios_netbios(pncb: Long): Byte
+    external fun windowssysWindowsWin32NetworkmanagementNetbiosNetbios(pncb: Long): Byte
 }
 
-public actual fun netbios(pncb: COpaquePointer?): UByte =
-    WindowsWin32NetworkmanagementNetbiosJniBridge.windowssys_windows_win32_networkmanagement_netbios_netbios((pncb?.value ?: 0L)).toUByte()
+public actual fun netbios(pncb: MutPtr<Ncb>): UByte =
+    WindowsWin32NetworkmanagementNetbiosJniBridge.windowssysWindowsWin32NetworkmanagementNetbiosNetbios(pncb.rawAddress).toUByte()

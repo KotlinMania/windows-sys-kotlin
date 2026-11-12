@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1backupPerfRegistryToFileW(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jlong szcommentstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceBackupPerfRegistryToFileW(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jlong szcommentstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1installPerfDllA(JNIEnv* km_env, jclass km_clazz, jlong szcomputername, jlong lpinifile, jlong dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceInstallPerfDllA(JNIEnv* km_env, jclass km_clazz, jlong szcomputername, jlong lpinifile, jlong dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1installPerfDllW(JNIEnv* km_env, jclass km_clazz, jlong szcomputername, jlong lpinifile, jlong dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceInstallPerfDllW(JNIEnv* km_env, jclass km_clazz, jlong szcomputername, jlong lpinifile, jlong dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1loadPerfCounterTextStringsA(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsA(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -125,7 +125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1loadPerfCounterTextStringsW(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceLoadPerfCounterTextStringsW(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -151,7 +151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhAddCounterA(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhAddCounterA(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhAddCounterW(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhAddCounterW(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -207,7 +207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhAddEnglishCounterA(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterA(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhAddEnglishCounterW(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhAddEnglishCounterW(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong szfullcounterpath, jlong dwuserdata, jlong phcounter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -263,7 +263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhBindInputDataSourceA(JNIEnv* km_env, jclass km_clazz, jlong phdatasource, jlong logfilenamelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceA(JNIEnv* km_env, jclass km_clazz, jlong phdatasource, jlong logfilenamelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -289,7 +289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhBindInputDataSourceW(JNIEnv* km_env, jclass km_clazz, jlong phdatasource, jlong logfilenamelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhBindInputDataSourceW(JNIEnv* km_env, jclass km_clazz, jlong phdatasource, jlong logfilenamelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -315,7 +315,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhBrowseCountersA(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhBrowseCountersA(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -340,7 +340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhBrowseCountersHA(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhBrowseCountersHA(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -365,7 +365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhBrowseCountersHW(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhBrowseCountersHW(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -390,7 +390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhBrowseCountersW(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhBrowseCountersW(JNIEnv* km_env, jclass km_clazz, jlong pbrowsedlgdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -415,7 +415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCalculateCounterFromRawValue(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong rawvalue1, jlong rawvalue2, jlong fmtvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCalculateCounterFromRawValue(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong rawvalue1, jlong rawvalue2, jlong fmtvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -444,7 +444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCloseLog(JNIEnv* km_env, jclass km_clazz, jlong hlog, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCloseLog(JNIEnv* km_env, jclass km_clazz, jlong hlog, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -470,7 +470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCloseQuery(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCloseQuery(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -495,7 +495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCollectQueryData(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCollectQueryData(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -520,7 +520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCollectQueryDataEx(JNIEnv* km_env, jclass km_clazz, jlong hquery, jint dwintervaltime, jlong hnewdataevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCollectQueryDataEx(JNIEnv* km_env, jclass km_clazz, jlong hquery, jint dwintervaltime, jlong hnewdataevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -547,7 +547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCollectQueryDataWithTime(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong plltimestamp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCollectQueryDataWithTime(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong plltimestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -573,7 +573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhComputeCounterStatistics(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jint dwfirstentry, jint dwnumentries, jlong lprawvaluearray, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhComputeCounterStatistics(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jint dwfirstentry, jint dwnumentries, jlong lprawvaluearray, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -603,7 +603,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhConnectMachineA(JNIEnv* km_env, jclass km_clazz, jlong szmachinename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhConnectMachineA(JNIEnv* km_env, jclass km_clazz, jlong szmachinename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -628,7 +628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhConnectMachineW(JNIEnv* km_env, jclass km_clazz, jlong szmachinename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhConnectMachineW(JNIEnv* km_env, jclass km_clazz, jlong szmachinename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -653,7 +653,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCreateSQLTablesA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -678,7 +678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhCreateSQLTablesW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhCreateSQLTablesW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -703,7 +703,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumLogSetNamesA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszdatasetnamelist, jlong pcchbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszdatasetnamelist, jlong pcchbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -730,7 +730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumLogSetNamesW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszdatasetnamelist, jlong pcchbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumLogSetNamesW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszdatasetnamelist, jlong pcchbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -757,7 +757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumMachinesA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumMachinesA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -784,7 +784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumMachinesHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumMachinesHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -811,7 +811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumMachinesHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumMachinesHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -838,7 +838,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumMachinesW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumMachinesW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong mszmachinelist, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectItemsA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -898,7 +898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectItemsHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -931,7 +931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectItemsHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -964,7 +964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectItemsW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectItemsW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong mszcounterlist, jlong pcchcounterlistlength, jlong mszinstancelist, jlong pcchinstancelistlength, jint dwdetaillevel, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -997,7 +997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectsA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectsA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1027,7 +1027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectsHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectsHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1057,7 +1057,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectsHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectsHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1087,7 +1087,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhEnumObjectsW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhEnumObjectsW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong mszobjectlist, jlong pcchbuffersize, jint dwdetaillevel, jint brefresh) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1117,7 +1117,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhExpandCounterPathA(JNIEnv* km_env, jclass km_clazz, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhExpandCounterPathA(JNIEnv* km_env, jclass km_clazz, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1144,7 +1144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhExpandCounterPathW(JNIEnv* km_env, jclass km_clazz, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhExpandCounterPathW(JNIEnv* km_env, jclass km_clazz, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1171,7 +1171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhExpandWildCardPathA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1200,7 +1200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhExpandWildCardPathHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1229,7 +1229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhExpandWildCardPathHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1258,7 +1258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhExpandWildCardPathW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhExpandWildCardPathW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szwildcardpath, jlong mszexpandedpathlist, jlong pcchpathlistlength, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1287,7 +1287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhFormatFromRawValue(JNIEnv* km_env, jclass km_clazz, jint dwcountertype, jint dwformat, jlong ptimebase, jlong prawvalue1, jlong prawvalue2, jlong pfmtvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhFormatFromRawValue(JNIEnv* km_env, jclass km_clazz, jint dwcountertype, jint dwformat, jlong ptimebase, jlong prawvalue1, jlong prawvalue2, jlong pfmtvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1317,7 +1317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetCounterInfoA(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jboolean bretrieveexplaintext, jlong pdwbuffersize, jlong lpbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetCounterInfoA(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jboolean bretrieveexplaintext, jlong pdwbuffersize, jlong lpbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1345,7 +1345,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetCounterInfoW(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jboolean bretrieveexplaintext, jlong pdwbuffersize, jlong lpbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetCounterInfoW(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jboolean bretrieveexplaintext, jlong pdwbuffersize, jlong lpbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1373,7 +1373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetCounterTimeBase(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong ptimebase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetCounterTimeBase(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong ptimebase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1399,7 +1399,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDataSourceTimeRangeA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong pdwnumentries, jlong pinfo, jlong pdwbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong pdwnumentries, jlong pinfo, jlong pdwbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1427,7 +1427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDataSourceTimeRangeH(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong pdwnumentries, jlong pinfo, jlong pdwbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeH(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong pdwnumentries, jlong pinfo, jlong pdwbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1455,7 +1455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDataSourceTimeRangeW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong pdwnumentries, jlong pinfo, jlong pdwbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDataSourceTimeRangeW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong pdwnumentries, jlong pinfo, jlong pdwbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1483,7 +1483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfCounterA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1512,7 +1512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfCounterHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1541,7 +1541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfCounterHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1570,7 +1570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfCounterW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfCounterW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szobjectname, jlong szdefaultcountername, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1599,7 +1599,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfObjectA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1627,7 +1627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfObjectHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1655,7 +1655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfObjectHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectHW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1683,7 +1683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDefaultPerfObjectW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDefaultPerfObjectW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong szmachinename, jlong szdefaultobjectname, jlong pcchbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1711,7 +1711,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetDllVersion(JNIEnv* km_env, jclass km_clazz, jlong lpdwversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetDllVersion(JNIEnv* km_env, jclass km_clazz, jlong lpdwversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1736,7 +1736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetFormattedCounterArrayA(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayA(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1765,7 +1765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetFormattedCounterArrayW(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterArrayW(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1794,7 +1794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetFormattedCounterValue(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong lpdwtype, jlong pvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetFormattedCounterValue(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint dwformat, jlong lpdwtype, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1822,7 +1822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetLogFileSize(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong llsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetLogFileSize(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong llsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1848,7 +1848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetLogSetGUID(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong pguid, jlong prunid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetLogSetGUID(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong pguid, jlong prunid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1875,7 +1875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetRawCounterArrayA(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayA(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1903,7 +1903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetRawCounterArrayW(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetRawCounterArrayW(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong lpdwbuffersize, jlong lpdwitemcount, jlong itembuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1931,7 +1931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhGetRawCounterValue(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong lpdwtype, jlong pvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhGetRawCounterValue(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jlong lpdwtype, jlong pvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1958,7 +1958,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhIsRealTimeQuery(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhIsRealTimeQuery(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1983,7 +1983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhLookupPerfIndexByNameA(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jlong sznamebuffer, jlong pdwindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameA(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jlong sznamebuffer, jlong pdwindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2010,7 +2010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhLookupPerfIndexByNameW(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jlong sznamebuffer, jlong pdwindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhLookupPerfIndexByNameW(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jlong sznamebuffer, jlong pdwindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2037,7 +2037,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhLookupPerfNameByIndexA(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jint dwnameindex, jlong sznamebuffer, jlong pcchnamebuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexA(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jint dwnameindex, jlong sznamebuffer, jlong pcchnamebuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2065,7 +2065,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhLookupPerfNameByIndexW(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jint dwnameindex, jlong sznamebuffer, jlong pcchnamebuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhLookupPerfNameByIndexW(JNIEnv* km_env, jclass km_clazz, jlong szmachinename, jint dwnameindex, jlong sznamebuffer, jlong pcchnamebuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2093,7 +2093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhMakeCounterPathA(JNIEnv* km_env, jclass km_clazz, jlong pcounterpathelements, jlong szfullpathbuffer, jlong pcchbuffersize, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhMakeCounterPathA(JNIEnv* km_env, jclass km_clazz, jlong pcounterpathelements, jlong szfullpathbuffer, jlong pcchbuffersize, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2121,7 +2121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhMakeCounterPathW(JNIEnv* km_env, jclass km_clazz, jlong pcounterpathelements, jlong szfullpathbuffer, jlong pcchbuffersize, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhMakeCounterPathW(JNIEnv* km_env, jclass km_clazz, jlong pcounterpathelements, jlong szfullpathbuffer, jlong pcchbuffersize, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2149,7 +2149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhOpenLogA(JNIEnv* km_env, jclass km_clazz, jlong szlogfilename, jint dwaccessflags, jlong lpdwlogtype, jlong hquery, jint dwmaxsize, jlong szusercaption, jlong phlog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhOpenLogA(JNIEnv* km_env, jclass km_clazz, jlong szlogfilename, jint dwaccessflags, jlong lpdwlogtype, jlong hquery, jint dwmaxsize, jlong szusercaption, jlong phlog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2180,7 +2180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhOpenLogW(JNIEnv* km_env, jclass km_clazz, jlong szlogfilename, jint dwaccessflags, jlong lpdwlogtype, jlong hquery, jint dwmaxsize, jlong szusercaption, jlong phlog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhOpenLogW(JNIEnv* km_env, jclass km_clazz, jlong szlogfilename, jint dwaccessflags, jlong lpdwlogtype, jlong hquery, jint dwmaxsize, jlong szusercaption, jlong phlog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2211,7 +2211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhOpenQueryA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong dwuserdata, jlong phquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhOpenQueryA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong dwuserdata, jlong phquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2238,7 +2238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhOpenQueryH(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong dwuserdata, jlong phquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhOpenQueryH(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong dwuserdata, jlong phquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2265,7 +2265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhOpenQueryW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong dwuserdata, jlong phquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhOpenQueryW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource, jlong dwuserdata, jlong phquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2292,7 +2292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhParseCounterPathA(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer, jlong pcounterpathelements, jlong pdwbuffersize, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhParseCounterPathA(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer, jlong pcounterpathelements, jlong pdwbuffersize, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2320,7 +2320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhParseCounterPathW(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer, jlong pcounterpathelements, jlong pdwbuffersize, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhParseCounterPathW(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer, jlong pcounterpathelements, jlong pdwbuffersize, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2348,7 +2348,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhParseInstanceNameA(JNIEnv* km_env, jclass km_clazz, jlong szinstancestring, jlong szinstancename, jlong pcchinstancenamelength, jlong szparentname, jlong pcchparentnamelength, jlong lpindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhParseInstanceNameA(JNIEnv* km_env, jclass km_clazz, jlong szinstancestring, jlong szinstancename, jlong pcchinstancenamelength, jlong szparentname, jlong pcchparentnamelength, jlong lpindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2378,7 +2378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhParseInstanceNameW(JNIEnv* km_env, jclass km_clazz, jlong szinstancestring, jlong szinstancename, jlong pcchinstancenamelength, jlong szparentname, jlong pcchparentnamelength, jlong lpindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhParseInstanceNameW(JNIEnv* km_env, jclass km_clazz, jlong szinstancestring, jlong szinstancename, jlong pcchinstancenamelength, jlong szparentname, jlong pcchparentnamelength, jlong lpindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2408,7 +2408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhRemoveCounter(JNIEnv* km_env, jclass km_clazz, jlong hcounter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhRemoveCounter(JNIEnv* km_env, jclass km_clazz, jlong hcounter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2433,7 +2433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhSelectDataSourceA(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint dwflags, jlong szdatasource, jlong pcchbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhSelectDataSourceA(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint dwflags, jlong szdatasource, jlong pcchbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2461,7 +2461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhSelectDataSourceW(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint dwflags, jlong szdatasource, jlong pcchbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhSelectDataSourceW(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint dwflags, jlong szdatasource, jlong pcchbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2489,7 +2489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhSetCounterScaleFactor(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint lfactor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhSetCounterScaleFactor(JNIEnv* km_env, jclass km_clazz, jlong hcounter, jint lfactor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2515,7 +2515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhSetDefaultRealTimeDataSource(JNIEnv* km_env, jclass km_clazz, jint dwdatasourceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhSetDefaultRealTimeDataSource(JNIEnv* km_env, jclass km_clazz, jint dwdatasourceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2540,7 +2540,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhSetLogSetRunID(JNIEnv* km_env, jclass km_clazz, jlong hlog, jint runid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhSetLogSetRunID(JNIEnv* km_env, jclass km_clazz, jlong hlog, jint runid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2566,7 +2566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhSetQueryTimeRange(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhSetQueryTimeRange(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2592,7 +2592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhUpdateLogA(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong szuserstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhUpdateLogA(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong szuserstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2618,7 +2618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhUpdateLogFileCatalog(JNIEnv* km_env, jclass km_clazz, jlong hlog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhUpdateLogFileCatalog(JNIEnv* km_env, jclass km_clazz, jlong hlog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2643,7 +2643,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhUpdateLogW(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong szuserstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhUpdateLogW(JNIEnv* km_env, jclass km_clazz, jlong hlog, jlong szuserstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2669,7 +2669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhValidatePathA(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhValidatePathA(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2694,7 +2694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhValidatePathExA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szfullpathbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhValidatePathExA(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szfullpathbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2720,7 +2720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhValidatePathExW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szfullpathbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhValidatePathExW(JNIEnv* km_env, jclass km_clazz, jlong hdatasource, jlong szfullpathbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2746,7 +2746,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhValidatePathW(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhValidatePathW(JNIEnv* km_env, jclass km_clazz, jlong szfullpathbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2771,7 +2771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhVerifySQLDBA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhVerifySQLDBA(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2796,7 +2796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1pdhVerifySQLDBW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePdhVerifySQLDBW(JNIEnv* km_env, jclass km_clazz, jlong szdatasource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2821,7 +2821,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfAddCounters(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounters, jint cbcounters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfAddCounters(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounters, jint cbcounters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2848,7 +2848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfCloseQueryHandle(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfCloseQueryHandle(JNIEnv* km_env, jclass km_clazz, jlong hquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2873,7 +2873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfCreateInstance(JNIEnv* km_env, jclass km_clazz, jlong providerhandle, jlong countersetguid, jlong name, jint id) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfCreateInstance(JNIEnv* km_env, jclass km_clazz, jlong providerhandle, jlong countersetguid, jlong name, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2901,7 +2901,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfDecrementULongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfDecrementULongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2929,7 +2929,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfDecrementULongLongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfDecrementULongLongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2957,7 +2957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfDeleteCounters(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounters, jint cbcounters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfDeleteCounters(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounters, jint cbcounters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2984,7 +2984,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfDeleteInstance(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instanceblock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfDeleteInstance(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instanceblock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3010,7 +3010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfEnumerateCounterSet(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong pcountersetids, jint ccountersetids, jlong pccountersetidsactual) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSet(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong pcountersetids, jint ccountersetids, jlong pccountersetidsactual) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3038,7 +3038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfEnumerateCounterSetInstances(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong pcountersetid, jlong pinstances, jint cbinstances, jlong pcbinstancesactual) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfEnumerateCounterSetInstances(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong pcountersetid, jlong pinstances, jint cbinstances, jlong pcbinstancesactual) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3067,7 +3067,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfIncrementULongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfIncrementULongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3095,7 +3095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfIncrementULongLongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfIncrementULongLongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3123,7 +3123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfOpenQueryHandle(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong phquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfOpenQueryHandle(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong phquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3149,7 +3149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfQueryCounterData(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounterblock, jint cbcounterblock, jlong pcbcounterblockactual) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfQueryCounterData(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounterblock, jint cbcounterblock, jlong pcbcounterblockactual) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3177,7 +3177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfQueryCounterInfo(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounters, jint cbcounters, jlong pcbcountersactual) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfQueryCounterInfo(JNIEnv* km_env, jclass km_clazz, jlong hquery, jlong pcounters, jint cbcounters, jlong pcbcountersactual) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3205,7 +3205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfQueryCounterSetRegistrationInfo(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong pcountersetid, jint requestcode, jint requestlangid, jlong pbreginfo, jint cbreginfo, jlong pcbreginfoactual) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfQueryCounterSetRegistrationInfo(JNIEnv* km_env, jclass km_clazz, jlong szmachine, jlong pcountersetid, jint requestcode, jint requestlangid, jlong pbreginfo, jint cbreginfo, jlong pcbreginfoactual) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3236,7 +3236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfQueryInstance(JNIEnv* km_env, jclass km_clazz, jlong providerhandle, jlong countersetguid, jlong name, jint id) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfQueryInstance(JNIEnv* km_env, jclass km_clazz, jlong providerhandle, jlong countersetguid, jlong name, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3264,7 +3264,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfSetCounterRefValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong address) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfSetCounterRefValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong address) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3292,7 +3292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfSetCounterSetInfo(JNIEnv* km_env, jclass km_clazz, jlong providerhandle, jlong arg_1_template, jint templatesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfSetCounterSetInfo(JNIEnv* km_env, jclass km_clazz, jlong providerhandle, jlong arg1Template, jint templatesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3304,14 +3304,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     uint32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)providerhandle, (void*)(uintptr_t)arg_1_template, (uint32_t)templatesize);
+        km_res = km_fn_ptr((void*)(uintptr_t)providerhandle, (void*)(uintptr_t)arg1Template, (uint32_t)templatesize);
     } else {
         errno = ENOSYS;
         km_res = 0;
     }
 #else
     (void)providerhandle;
-    (void)arg_1_template;
+    (void)arg1Template;
     (void)templatesize;
     errno = ENOSYS;
     uint32_t km_res = 0;
@@ -3319,7 +3319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfSetULongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfSetULongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3347,7 +3347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfSetULongLongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfSetULongLongCounterValue(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong instance, jint counterid, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3375,7 +3375,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfStartProvider(JNIEnv* km_env, jclass km_clazz, jlong providerguid, jlong controlcallback, jlong phprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfStartProvider(JNIEnv* km_env, jclass km_clazz, jlong providerguid, jlong controlcallback, jlong phprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3402,7 +3402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfStartProviderEx(JNIEnv* km_env, jclass km_clazz, jlong providerguid, jlong providercontext, jlong provider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfStartProviderEx(JNIEnv* km_env, jclass km_clazz, jlong providerguid, jlong providercontext, jlong provider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3429,7 +3429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1perfStopProvider(JNIEnv* km_env, jclass km_clazz, jlong providerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformancePerfStopProvider(JNIEnv* km_env, jclass km_clazz, jlong providerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3454,7 +3454,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1queryPerformanceCounter(JNIEnv* km_env, jclass km_clazz, jlong lpperformancecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceQueryPerformanceCounter(JNIEnv* km_env, jclass km_clazz, jlong lpperformancecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3479,7 +3479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1queryPerformanceFrequency(JNIEnv* km_env, jclass km_clazz, jlong lpfrequency) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceQueryPerformanceFrequency(JNIEnv* km_env, jclass km_clazz, jlong lpfrequency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3504,7 +3504,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1restorePerfRegistryFromFileW(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jlong szlangid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceRestorePerfRegistryFromFileW(JNIEnv* km_env, jclass km_clazz, jlong szfilename, jlong szlangid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3530,7 +3530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1setServiceAsTrustedA(JNIEnv* km_env, jclass km_clazz, jlong szreserved, jlong szservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedA(JNIEnv* km_env, jclass km_clazz, jlong szreserved, jlong szservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3556,7 +3556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1setServiceAsTrustedW(JNIEnv* km_env, jclass km_clazz, jlong szreserved, jlong szservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceSetServiceAsTrustedW(JNIEnv* km_env, jclass km_clazz, jlong szreserved, jlong szservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3582,7 +3582,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1unloadPerfCounterTextStringsA(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsA(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3608,7 +3608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1unloadPerfCounterTextStringsW(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceUnloadPerfCounterTextStringsW(JNIEnv* km_env, jclass km_clazz, jlong lpcommandline, jint bquietmodearg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3634,7 +3634,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1updatePerfNameFilesA(JNIEnv* km_env, jclass km_clazz, jlong sznewctrfilepath, jlong sznewhlpfilepath, jlong szlanguageid, jlong dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesA(JNIEnv* km_env, jclass km_clazz, jlong sznewctrfilepath, jlong sznewhlpfilepath, jlong szlanguageid, jlong dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3662,7 +3662,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssys_1windows_1win32_1system_1performance_1updatePerfNameFilesW(JNIEnv* km_env, jclass km_clazz, jlong sznewctrfilepath, jlong sznewhlpfilepath, jlong szlanguageid, jlong dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_performance_WindowsWin32SystemPerformanceJniBridge_windowssysWindowsWin32SystemPerformanceUpdatePerfNameFilesW(JNIEnv* km_env, jclass km_clazz, jlong sznewctrfilepath, jlong sznewhlpfilepath, jlong szlanguageid, jlong dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

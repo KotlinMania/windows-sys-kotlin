@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterAttach_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterAttach_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterAttachAtAltitude_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterAttachAtAltitude_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -119,7 +119,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hfilter = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -144,7 +144,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterConnectCommunicationPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterConnectCommunicationPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpportname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -179,7 +179,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -206,7 +206,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterDetach_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterDetach_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -235,7 +235,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterFindClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterFindClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfilterfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterFindFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterFindFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -293,7 +293,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterFindNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterFindNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfilterfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -326,7 +326,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterGetDosName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterGetDosName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdosname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterGetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterGetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hfilter = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -388,7 +388,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterGetMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterGetMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessagebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hinstance = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -444,7 +444,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterInstanceCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -475,7 +475,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfilterinstancefind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -500,7 +500,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfilterinstancefind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -568,7 +568,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceGetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hinstance = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -601,7 +601,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterLoad_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterLoad_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -626,7 +626,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterReplyMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterReplyMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreplybuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -655,7 +655,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterSendMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterSendMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -690,7 +690,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterUnload_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterUnload_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiltername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hvolumefind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -740,7 +740,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -773,7 +773,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hvolumefind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -806,7 +806,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hvolumeinstancefind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -831,7 +831,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -866,7 +866,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hvolumeinstancefind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -900,34 +900,34 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
 }
 
 static void register_windows_win32_storage_installablefilesystems_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterAttach", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterAttach_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterAttachAtAltitude", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterAttachAtAltitude_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterClose", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterClose_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterConnectCommunicationPort", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterConnectCommunicationPort_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterCreate", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterCreate_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterDetach", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterDetach_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterFindClose", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterFindClose_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterFindFirst", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterFindFirst_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterFindNext", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterFindNext_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterGetDosName", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterGetDosName_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterGetInformation", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterGetInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterGetMessage", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterGetMessage_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterInstanceCreate", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterInstanceCreate_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindClose", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindClose_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindFirst", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindFirst_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindNext", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindNext_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterLoad", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterLoad_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterReplyMessage", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterReplyMessage_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterSendMessage", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterSendMessage_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterUnload", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterUnload_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindClose", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindClose_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindFirst", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindFirst_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindNext", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindNext_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindClose", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindClose_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindFirst", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindFirst_napi));
-    exports.Set("windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindNext", Napi::Function::New(env, windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindNext_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterAttach", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterAttach_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterAttachAtAltitude", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterAttachAtAltitude_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterClose", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterClose_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterConnectCommunicationPort", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterConnectCommunicationPort_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterCreate", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterCreate_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterDetach", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterDetach_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterFindClose", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterFindClose_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterFindFirst", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterFindFirst_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterFindNext", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterFindNext_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterGetDosName", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterGetDosName_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterGetInformation", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterGetInformation_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterGetMessage", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterGetMessage_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceCreate", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceCreate_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindClose", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindClose_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindFirst", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindFirst_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindNext", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindNext_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceGetInformation", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceGetInformation_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterLoad", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterLoad_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterReplyMessage", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterReplyMessage_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterSendMessage", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterSendMessage_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterUnload", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterUnload_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindClose", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindClose_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindFirst", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindFirst_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindNext", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindNext_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindClose", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindClose_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindFirst", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindFirst_napi));
+    exports.Set("windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindNext", Napi::Function::New(env, windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindNext_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_installablefilesystems_napi, nullptr };

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmAddGroupMembershipEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprotocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsourceaddr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -90,7 +90,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmDeRegisterMProtocol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprotocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprotocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsourceaddr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -154,7 +154,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeleteGrou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -214,7 +214,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetMfe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetMfe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetMfe_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -274,7 +274,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimmstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -305,7 +305,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimmstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -338,7 +338,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwifindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwifnexthopaddr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -369,7 +369,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetProtoco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -394,7 +394,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnume
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -425,7 +425,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnume
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprotocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t metenumtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -454,7 +454,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnume
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prpiinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprotocolid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmRegisterMP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmReleaseInterfaceOwnership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprotocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwifindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -514,7 +514,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmReleaseInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprotocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwifindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -543,7 +543,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmTakeInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -568,7 +568,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminBuffe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hrasconnection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -595,7 +595,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -632,7 +632,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pobjectheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -669,7 +669,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -700,7 +700,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hrasconnection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -729,7 +729,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionRemoveQuarantine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrasconnection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -758,7 +758,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* heventnotification = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -785,7 +785,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminDereg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -816,7 +816,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -845,7 +845,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminEstab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwerror = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lplpwserrorstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminGetEr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminGetPDCServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszdomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -901,7 +901,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminGetPD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -932,7 +932,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -963,7 +963,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -990,7 +990,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1023,7 +1023,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1056,7 +1056,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1083,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1120,7 +1120,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwsinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1153,7 +1153,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1184,7 +1184,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1213,7 +1213,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpwsinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1244,7 +1244,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1306,7 +1306,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwsinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1339,7 +1339,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1370,7 +1370,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1399,7 +1399,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1430,7 +1430,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1463,7 +1463,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1496,7 +1496,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1525,7 +1525,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1558,7 +1558,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdatePhonebookInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1585,7 +1585,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1616,7 +1616,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1645,7 +1645,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsDom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fisserviceinitialized = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1672,7 +1672,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1697,7 +1697,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1722,7 +1722,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1755,7 +1755,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwprotocolid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1788,7 +1788,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwprotocolid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1825,7 +1825,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwprotocolid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1862,7 +1862,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwprotocolid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1899,7 +1899,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwprotocolid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1932,7 +1932,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phmibserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1959,7 +1959,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmibserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1981,7 +1981,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBSe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminPortClearStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2008,7 +2008,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2035,7 +2035,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2074,7 +2074,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2105,7 +2105,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminPortReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2132,7 +2132,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminRegisterConnectionNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* heventnotification = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2159,7 +2159,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminRegis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hconnection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2188,7 +2188,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminSendU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phmprserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2215,7 +2215,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2237,7 +2237,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2266,7 +2266,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2295,7 +2295,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pserverinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2322,7 +2322,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2351,7 +2351,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2380,7 +2380,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pserverinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2407,7 +2407,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtransportid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2446,7 +2446,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtransportid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2481,7 +2481,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwtransportid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2516,7 +2516,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hrasserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hrasconnection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2545,7 +2545,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUpdat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszuser = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2576,7 +2576,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUserG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszuser = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2607,7 +2607,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUserS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2632,7 +2632,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2663,7 +2663,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigFilt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2694,7 +2694,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigFilt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigGetFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszguidname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2725,7 +2725,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigGetF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfriendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2756,7 +2756,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigGetG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2787,7 +2787,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2814,7 +2814,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2851,7 +2851,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2880,7 +2880,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwsinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2909,7 +2909,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2942,7 +2942,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2971,7 +2971,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3002,7 +3002,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3039,7 +3039,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3078,7 +3078,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3109,7 +3109,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3142,7 +3142,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3171,7 +3171,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hrouterinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3204,7 +3204,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3231,7 +3231,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwsservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3258,7 +3258,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3280,7 +3280,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3309,7 +3309,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pserverinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3336,7 +3336,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3363,7 +3363,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRefresh_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3388,7 +3388,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3415,7 +3415,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hmprserver = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3444,7 +3444,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psetserverconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3471,7 +3471,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtransportid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3512,7 +3512,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hroutertransport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3539,7 +3539,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3576,7 +3576,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtransportid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3605,7 +3605,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hroutertransport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3642,7 +3642,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmprconfig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hroutertransport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3679,7 +3679,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfotype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3714,7 +3714,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfotype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3747,7 +3747,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3772,7 +3772,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfotype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3801,7 +3801,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfotype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3836,7 +3836,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lplpnewheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3863,7 +3863,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoCreate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3888,7 +3888,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoDelete
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpnewheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3915,7 +3915,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoDuplic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpnewheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3942,7 +3942,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoRemove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasClearConnectionStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3967,7 +3967,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasClearConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasClearLinkStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsubentry = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3994,7 +3994,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasClearLinkS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4023,7 +4023,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasConnection
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4052,7 +4052,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasConnection
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4079,7 +4079,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasCreatePhon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4106,7 +4106,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasCreatePhon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4133,7 +4133,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4160,7 +4160,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4189,7 +4189,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteSubE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4218,7 +4218,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteSubE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4253,7 +4253,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialDlgA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDialDlgA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4284,7 +4284,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialDlgA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialDlgW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDialDlgW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4315,7 +4315,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialDlgW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasDialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4350,7 +4350,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4379,7 +4379,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEditPhoneb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4408,7 +4408,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEditPhoneb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4437,7 +4437,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4466,7 +4466,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprasautodialaddresses = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwcbrasautodialaddresses = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4495,7 +4495,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumAutodi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprasautodialaddresses = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwcbrasautodialaddresses = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4524,7 +4524,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumAutodi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4553,7 +4553,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumConnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4582,7 +4582,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumConnec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4611,7 +4611,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4640,7 +4640,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4673,7 +4673,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumEntrie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4706,7 +4706,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumEntrie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* praseapuseridentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4728,7 +4728,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasFreeEapUse
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* praseapuseridentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4750,7 +4750,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasFreeEapUse
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4783,7 +4783,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4816,7 +4816,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4843,7 +4843,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4870,7 +4870,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4899,7 +4899,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4928,7 +4928,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4955,7 +4955,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4982,7 +4982,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstatistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5009,7 +5009,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5036,7 +5036,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCountry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5063,7 +5063,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCountry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5092,7 +5092,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCredent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5121,7 +5121,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCredent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5152,7 +5152,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCustomA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5183,7 +5183,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCustomA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5216,7 +5216,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5249,7 +5249,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5282,7 +5282,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5315,7 +5315,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5344,7 +5344,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5373,7 +5373,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5408,7 +5408,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5443,7 +5443,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t resourceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5472,7 +5472,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetErrorSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t resourceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5501,7 +5501,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetErrorSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsubentry = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5530,7 +5530,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetLinkSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetPCscf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetPCscf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpcscf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5555,7 +5555,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetPCscf_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5586,7 +5586,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prasprojection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5615,7 +5615,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5646,7 +5646,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5675,7 +5675,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5704,7 +5704,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5741,7 +5741,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5778,7 +5778,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasHangUpA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasHangUpA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5803,7 +5803,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasHangUpA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasHangUpW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasHangUpW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5828,7 +5828,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasHangUpW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5859,7 +5859,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasInvokeEapU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5888,7 +5888,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasPhonebookD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5917,7 +5917,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasPhonebookD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5946,7 +5946,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasRenameEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5975,7 +5975,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasRenameEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6008,7 +6008,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6041,7 +6041,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6068,7 +6068,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6095,7 +6095,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6124,7 +6124,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6153,7 +6153,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6184,7 +6184,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCredent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6215,7 +6215,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCredent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6246,7 +6246,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCustomA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6277,7 +6277,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCustomA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6310,7 +6310,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEapUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszphonebook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6343,7 +6343,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEapUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6372,7 +6372,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6401,7 +6401,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6436,7 +6436,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6471,7 +6471,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6508,7 +6508,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6545,7 +6545,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrasconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprasupdateconn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6572,7 +6572,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasUpdateConn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6599,7 +6599,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasValidateEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6626,7 +6626,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasValidateEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nexthopinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6657,7 +6657,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* routehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6698,7 +6698,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddRouteTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* targethandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6729,7 +6729,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmBlockMetho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnetaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6760,7 +6760,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmConvertNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t targetviews = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6795,7 +6795,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateDest
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t enumflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6826,7 +6826,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateNext
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t desthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6867,7 +6867,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* routelisthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6894,7 +6894,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routelisthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6923,7 +6923,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t enumhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6950,7 +6950,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t nexthophandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -6979,7 +6979,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteNext
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routelisthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7006,7 +7006,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routehandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7035,7 +7035,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterEntity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -7060,7 +7060,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeregister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7087,7 +7087,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeregister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nexthopinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7118,7 +7118,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmFindNextHo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7149,7 +7149,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetChangeS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7180,7 +7180,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetChanged
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t desthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7213,7 +7213,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetDestInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t entityhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7242,7 +7242,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEntityI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t entityhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7273,7 +7273,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEntityM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t enumhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7304,7 +7304,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t enumhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7335,7 +7335,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t enumhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7366,7 +7366,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* destaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7399,7 +7399,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* destaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7436,7 +7436,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t desthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7469,7 +7469,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t enumhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7500,7 +7500,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetListEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* destaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7533,7 +7533,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t nexthophandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7562,7 +7562,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetNextHop
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t nexthophandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7591,7 +7591,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetNextHop
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t desthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7620,7 +7620,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* numentities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7651,7 +7651,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRegiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routehandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7682,7 +7682,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRouteIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routehandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7711,7 +7711,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t desthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7742,7 +7742,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmHoldDestin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7773,7 +7773,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routelisthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7804,7 +7804,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmInsertInRo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t entityhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7837,7 +7837,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmInvokeMeth
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routehandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7866,7 +7866,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIsBestRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7897,7 +7897,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockDestination_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmLockDestination_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t desthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7928,7 +7928,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockDestin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t nexthophandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7961,7 +7961,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockNextHo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockRoute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmLockRoute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routehandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7994,7 +7994,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockRoute_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8025,7 +8025,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmMarkDestFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t numhandles = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8054,7 +8054,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReferenceH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rtmentityinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* exportmethods = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8089,7 +8089,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t targetviews = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8122,7 +8122,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t notifyhandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8153,7 +8153,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseCha
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* destinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8180,7 +8180,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseDes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t numdests = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8209,7 +8209,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseDes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t numentities = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8238,7 +8238,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* entityinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8265,7 +8265,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseEnt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* nexthopinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8292,7 +8292,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseNex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t numnexthops = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8321,7 +8321,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseNex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* routeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8348,7 +8348,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseRou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t numroutes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8377,7 +8377,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseRou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t rtmreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t routehandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8415,282 +8415,282 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndU
 }
 
 static void register_windows_win32_networkmanagement_rras_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetMfe", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetMfe_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDialA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDialA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDialDlgA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDialDlgA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDialDlgW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDialDlgW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasDialW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasDialW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetPCscf", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetPCscf_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasHangUpA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasHangUpA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasHangUpW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasHangUpW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmLockDestination", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmLockDestination_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmLockRoute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmLockRoute_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmAddGroupMembershipEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmAddGroupMembershipEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmDeRegisterMProtocol", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmDeRegisterMProtocol_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetMfe", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetMfe_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmReleaseInterfaceOwnership", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmReleaseInterfaceOwnership_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionRemoveQuarantine", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionRemoveQuarantine_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminGetPDCServer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminGetPDCServer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdatePhonebookInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdatePhonebookInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerDisconnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerDisconnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminPortClearStats", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminPortClearStats_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminPortReset", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminPortReset_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminRegisterConnectionNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminRegisterConnectionNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigGetFriendlyName", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigGetFriendlyName_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRefresh", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRefresh_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoCreate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoCreate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoDelete", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoDelete_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasClearConnectionStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasClearConnectionStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasClearLinkStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasClearLinkStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasConnectionNotificationW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasCreatePhonebookEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDeleteEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDialA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDialA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDialDlgA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDialDlgA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDialDlgW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDialDlgW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasDialW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasDialW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetPCscf", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetPCscf_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasHangUpA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasHangUpA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasHangUpW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasHangUpW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterEntity", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterEntity_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmLockDestination", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmLockDestination_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmLockRoute", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmLockRoute_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_rras_napi, nullptr };

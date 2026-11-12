@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.memory
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public typealias AtlThunkDataT = Long
 
@@ -35,7 +36,7 @@ public fun interface PbadMemoryCallbackRoutineFn {
 public typealias PbadMemoryCallbackRoutine = PbadMemoryCallbackRoutineFn?
 
 public fun interface PsecureMemoryCacheCallbackFn {
-    public operator fun invoke(addr: COpaquePointer?, range: ULong): Boolean
+    public operator fun invoke(addr: ConstPtr<CVoid>, range: ULong): Boolean
 }
 
 public typealias PsecureMemoryCacheCallback = PsecureMemoryCacheCallbackFn?

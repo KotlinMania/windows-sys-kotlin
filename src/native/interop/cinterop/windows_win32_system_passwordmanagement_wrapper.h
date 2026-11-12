@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword(void* servername, void* username, bool lmoldpresent, void* lmoldowfpassword, void* lmnewowfpassword, void* ntoldowfpassword, void* ntnewowfpassword);
-uint32_t windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword2(void* servername, void* username, void* newpasswordencryptedwitholdnt, void* oldntowfpasswordencryptedwithnewnt, bool lmpresent, void* newpasswordencryptedwitholdlm, void* oldlmowfpasswordencryptedwithnewlmornt);
+uint32_t windowssysWindowsWin32SystemPasswordmanagementMSChapSrvChangePassword(void* servername, void* username, bool lmoldpresent, void* lmoldowfpassword, void* lmnewowfpassword, void* ntoldowfpassword, void* ntnewowfpassword);
+uint32_t windowssysWindowsWin32SystemPasswordmanagementMSChapSrvChangePassword2(void* servername, void* username, void* newpasswordencryptedwitholdnt, void* oldntowfpasswordencryptedwithnewnt, bool lmpresent, void* newpasswordencryptedwitholdlm, void* oldlmowfpasswordencryptedwithnewlmornt);
 
 #ifdef __cplusplus
 }

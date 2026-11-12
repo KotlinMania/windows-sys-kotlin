@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothAuthenticateDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hradio, jlong pbtbi, jlong pszpasskey, jint ulpasskeylength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hradio, jlong pbtbi, jlong pszpasskey, jint ulpasskeylength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothAuthenticateDeviceEx(JNIEnv* km_env, jclass km_clazz, jlong hwndparentin, jlong hradioin, jlong pbtdiinout, jlong pbtoobdata, jint authenticationrequirement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx(JNIEnv* km_env, jclass km_clazz, jlong hwndparentin, jlong hradioin, jlong pbtdiinout, jlong pbtoobdata, jint authenticationrequirement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -77,7 +77,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothAuthenticateMultipleDevices(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hradio, jint cdevices, jlong rgbtdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hradio, jint cdevices, jlong rgbtdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -105,7 +105,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothDisplayDeviceProperties(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong pbtdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong pbtdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothEnableDiscovery(JNIEnv* km_env, jclass km_clazz, jlong hradio, jint fenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothEnableDiscovery(JNIEnv* km_env, jclass km_clazz, jlong hradio, jint fenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -157,7 +157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothEnableIncomingConnections(JNIEnv* km_env, jclass km_clazz, jlong hradio, jint fenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections(JNIEnv* km_env, jclass km_clazz, jlong hradio, jint fenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothEnumerateInstalledServices(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi, jlong pcserviceinout, jlong pguidservices) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi, jlong pcserviceinout, jlong pguidservices) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothFindDeviceClose(JNIEnv* km_env, jclass km_clazz, jlong hfind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose(JNIEnv* km_env, jclass km_clazz, jlong hfind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -236,7 +236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothFindFirstDevice(JNIEnv* km_env, jclass km_clazz, jlong pbtsp, jlong pbtdi) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice(JNIEnv* km_env, jclass km_clazz, jlong pbtsp, jlong pbtdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -262,7 +262,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothFindFirstRadio(JNIEnv* km_env, jclass km_clazz, jlong pbtfrp, jlong phradio) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio(JNIEnv* km_env, jclass km_clazz, jlong pbtfrp, jlong phradio) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -288,7 +288,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothFindNextDevice(JNIEnv* km_env, jclass km_clazz, jlong hfind, jlong pbtdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice(JNIEnv* km_env, jclass km_clazz, jlong hfind, jlong pbtdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -314,7 +314,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothFindNextRadio(JNIEnv* km_env, jclass km_clazz, jlong hfind, jlong phradio) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio(JNIEnv* km_env, jclass km_clazz, jlong hfind, jlong phradio) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -340,7 +340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothFindRadioClose(JNIEnv* km_env, jclass km_clazz, jlong hfind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothFindRadioClose(JNIEnv* km_env, jclass km_clazz, jlong hfind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -365,7 +365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTAbortReliableWrite(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong reliablewritecontext, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong reliablewritecontext, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -392,7 +392,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTBeginReliableWrite(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong reliablewritecontext, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong reliablewritecontext, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -419,7 +419,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTEndReliableWrite(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong reliablewritecontext, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong reliablewritecontext, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -446,7 +446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTGetCharacteristicValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong characteristic, jint characteristicvaluedatasize, jlong characteristicvalue, jlong characteristicvaluesizerequired, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong characteristic, jint characteristicvaluedatasize, jlong characteristicvalue, jlong characteristicvaluesizerequired, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -476,7 +476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTGetCharacteristics(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong service, jshort characteristicsbuffercount, jlong characteristicsbuffer, jlong characteristicsbufferactual, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong service, jshort characteristicsbuffercount, jlong characteristicsbuffer, jlong characteristicsbufferactual, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTGetDescriptorValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong descriptor, jint descriptorvaluedatasize, jlong descriptorvalue, jlong descriptorvaluesizerequired, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong descriptor, jint descriptorvaluedatasize, jlong descriptorvalue, jlong descriptorvaluesizerequired, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -536,7 +536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTGetDescriptors(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong characteristic, jshort descriptorsbuffercount, jlong descriptorsbuffer, jlong descriptorsbufferactual, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong characteristic, jshort descriptorsbuffercount, jlong descriptorsbuffer, jlong descriptorsbufferactual, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -566,7 +566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTGetIncludedServices(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong parentservice, jshort includedservicesbuffercount, jlong includedservicesbuffer, jlong includedservicesbufferactual, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong parentservice, jshort includedservicesbuffercount, jlong includedservicesbuffer, jlong includedservicesbufferactual, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -596,7 +596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTGetServices(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jshort servicesbuffercount, jlong servicesbuffer, jlong servicesbufferactual, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jshort servicesbuffercount, jlong servicesbuffer, jlong servicesbufferactual, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -625,7 +625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint eventtype, jlong eventparameterin, jlong callback, jlong callbackcontext, jlong peventhandle, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint eventtype, jlong eventparameterin, jlong callback, jlong callbackcontext, jlong peventhandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -656,7 +656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTSetCharacteristicValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong characteristic, jlong characteristicvalue, jlong reliablewritecontext, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong characteristic, jlong characteristicvalue, jlong reliablewritecontext, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -685,7 +685,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTSetDescriptorValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong descriptor, jlong descriptorvalue, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong descriptor, jlong descriptorvalue, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -713,7 +713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGATTUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong eventhandle, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong eventhandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -739,7 +739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -765,7 +765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothGetRadioInfo(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pradioinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pradioinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -791,7 +791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothIsConnectable(JNIEnv* km_env, jclass km_clazz, jlong hradio) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothIsConnectable(JNIEnv* km_env, jclass km_clazz, jlong hradio) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -816,7 +816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothIsDiscoverable(JNIEnv* km_env, jclass km_clazz, jlong hradio) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothIsDiscoverable(JNIEnv* km_env, jclass km_clazz, jlong hradio) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -841,7 +841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothIsVersionAvailable(JNIEnv* km_env, jclass km_clazz, jbyte majorversion, jbyte minorversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(JNIEnv* km_env, jclass km_clazz, jbyte majorversion, jbyte minorversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -867,7 +867,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothRegisterForAuthentication(JNIEnv* km_env, jclass km_clazz, jlong pbtdi, jlong phreghandle, jlong pfncallback, jlong pvparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication(JNIEnv* km_env, jclass km_clazz, jlong pbtdi, jlong phreghandle, jlong pfncallback, jlong pvparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -895,7 +895,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothRegisterForAuthenticationEx(JNIEnv* km_env, jclass km_clazz, jlong pbtdiin, jlong phreghandleout, jlong pfncallbackin, jlong pvparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx(JNIEnv* km_env, jclass km_clazz, jlong pbtdiin, jlong phreghandleout, jlong pfncallbackin, jlong pvparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -923,7 +923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothRemoveDevice(JNIEnv* km_env, jclass km_clazz, jlong paddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice(JNIEnv* km_env, jclass km_clazz, jlong paddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -948,7 +948,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSdpEnumAttributes(JNIEnv* km_env, jclass km_clazz, jlong psdpstream, jint cbstreamsize, jlong pfncallback, jlong pvparam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes(JNIEnv* km_env, jclass km_clazz, jlong psdpstream, jint cbstreamsize, jlong pfncallback, jlong pvparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -976,7 +976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSdpGetAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong precordstream, jint cbrecordlength, jshort usattributeid, jlong pattributedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong precordstream, jint cbrecordlength, jshort usattributeid, jlong pattributedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1004,7 +1004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSdpGetContainerElementData(JNIEnv* km_env, jclass km_clazz, jlong pcontainerstream, jint cbcontainerlength, jlong pelement, jlong pdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData(JNIEnv* km_env, jclass km_clazz, jlong pcontainerstream, jint cbcontainerlength, jlong pelement, jlong pdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1032,7 +1032,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSdpGetElementData(JNIEnv* km_env, jclass km_clazz, jlong psdpstream, jint cbsdpstreamlength, jlong pdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData(JNIEnv* km_env, jclass km_clazz, jlong psdpstream, jint cbsdpstreamlength, jlong pdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1059,7 +1059,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSdpGetString(JNIEnv* km_env, jclass km_clazz, jlong precordstream, jint cbrecordlength, jlong pstringdata, jshort usstringoffset, jlong pszstring, jlong pcchstringlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString(JNIEnv* km_env, jclass km_clazz, jlong precordstream, jint cbrecordlength, jlong pstringdata, jshort usstringoffset, jlong pszstring, jlong pcchstringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1089,7 +1089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSelectDevices(JNIEnv* km_env, jclass km_clazz, jlong pbtsdp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices(JNIEnv* km_env, jclass km_clazz, jlong pbtsdp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1114,7 +1114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSelectDevicesFree(JNIEnv* km_env, jclass km_clazz, jlong pbtsdp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree(JNIEnv* km_env, jclass km_clazz, jlong pbtsdp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1139,7 +1139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSendAuthenticationResponse(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi, jlong pszpasskey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi, jlong pszpasskey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1166,7 +1166,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSendAuthenticationResponseEx(JNIEnv* km_env, jclass km_clazz, jlong hradioin, jlong pauthresponse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx(JNIEnv* km_env, jclass km_clazz, jlong hradioin, jlong pauthresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1192,7 +1192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSetLocalServiceInfo(JNIEnv* km_env, jclass km_clazz, jlong hradioin, jlong pclassguid, jint ulinstance, jlong pserviceinfoin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo(JNIEnv* km_env, jclass km_clazz, jlong hradioin, jlong pclassguid, jint ulinstance, jlong pserviceinfoin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1220,7 +1220,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothSetServiceState(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi, jlong pguidservice, jint dwserviceflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState(JNIEnv* km_env, jclass km_clazz, jlong hradio, jlong pbtdi, jlong pguidservice, jint dwserviceflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1248,7 +1248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothUnregisterAuthentication(JNIEnv* km_env, jclass km_clazz, jlong hreghandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(JNIEnv* km_env, jclass km_clazz, jlong hreghandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1273,7 +1273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssys_1windows_1win32_1devices_1bluetooth_1bluetoothUpdateDeviceRecord(JNIEnv* km_env, jclass km_clazz, jlong pbtdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_bluetooth_WindowsWin32DevicesBluetoothJniBridge_windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(JNIEnv* km_env, jclass km_clazz, jlong pbtdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

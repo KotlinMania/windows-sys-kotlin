@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager(void* i_pszhost, void* i_psztmname, void* i_riid, uint32_t i_dwreserved1, uint16_t i_wcbreserved2, void* i_pvreserved2, void* o_ppvobject) {
+int32_t windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManager(void* iPszhost, void* iPsztmname, void* iRiid, uint32_t iDwreserved1, uint16_t iWcbreserved2, void* iPvreserved2, void* oPpvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -26,24 +26,24 @@ int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGet
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject);
+        return km_fn_ptr(iPszhost, iPsztmname, iRiid, iDwreserved1, iWcbreserved2, iPvreserved2, oPpvobject);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_dwreserved1;
-    (void)i_wcbreserved2;
-    (void)i_pvreserved2;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iDwreserved1;
+    (void)iWcbreserved2;
+    (void)iPvreserved2;
+    (void)oPpvobject;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC(void* i_pszhost, void* i_psztmname, void* i_riid, uint32_t i_dwreserved1, uint16_t i_wcbreserved2, void* i_pvreserved2, void* o_ppvobject) {
+int32_t windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerC(void* iPszhost, void* iPsztmname, void* iRiid, uint32_t iDwreserved1, uint16_t iWcbreserved2, void* iPvreserved2, void* oPpvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -54,24 +54,24 @@ int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGet
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject);
+        return km_fn_ptr(iPszhost, iPsztmname, iRiid, iDwreserved1, iWcbreserved2, iPvreserved2, oPpvobject);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_dwreserved1;
-    (void)i_wcbreserved2;
-    (void)i_pvreserved2;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iDwreserved1;
+    (void)iWcbreserved2;
+    (void)iPvreserved2;
+    (void)oPpvobject;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA(void* i_pszhost, void* i_psztmname, void* i_riid, uint32_t i_grfoptions, void* i_pvconfigparams, void* o_ppvobject) {
+int32_t windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExA(void* iPszhost, void* iPsztmname, void* iRiid, uint32_t iGrfoptions, void* iPvconfigparams, void* oPpvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,23 +82,23 @@ int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGet
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject);
+        return km_fn_ptr(iPszhost, iPsztmname, iRiid, iGrfoptions, iPvconfigparams, oPpvobject);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_grfoptions;
-    (void)i_pvconfigparams;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iGrfoptions;
+    (void)iPvconfigparams;
+    (void)oPpvobject;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW(void* i_pwszhost, void* i_pwsztmname, void* i_riid, uint32_t i_grfoptions, void* i_pvconfigparams, void* o_ppvobject) {
+int32_t windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW(void* iPwszhost, void* iPwsztmname, void* iRiid, uint32_t iGrfoptions, void* iPvconfigparams, void* oPpvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,17 +109,17 @@ int32_t windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGet
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(i_pwszhost, i_pwsztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject);
+        return km_fn_ptr(iPwszhost, iPwsztmname, iRiid, iGrfoptions, iPvconfigparams, oPpvobject);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)i_pwszhost;
-    (void)i_pwsztmname;
-    (void)i_riid;
-    (void)i_grfoptions;
-    (void)i_pvconfigparams;
-    (void)o_ppvobject;
+    (void)iPwszhost;
+    (void)iPwsztmname;
+    (void)iRiid;
+    (void)iGrfoptions;
+    (void)iPvconfigparams;
+    (void)oPpvobject;
     errno = ENOSYS;
     return -1;
 #endif

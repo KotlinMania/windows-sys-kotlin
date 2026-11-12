@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_mapi_mAPIFreeBuffer(void* pv) {
+uint32_t windowssysWindowsWin32SystemMapiMAPIFreeBuffer(void* pv) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

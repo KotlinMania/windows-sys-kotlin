@@ -1,19 +1,21 @@
 package io.github.kotlinmania.windowssys.core
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias Bool = Int
 
 public typealias Hresult = Int
 
-public typealias Pstr = COpaquePointer?
+public typealias Pstr = MutPtr<UByte>
 
-public typealias Pwstr = COpaquePointer?
+public typealias Pwstr = MutPtr<UShort>
 
-public typealias Pcstr = COpaquePointer?
+public typealias Pcstr = ConstPtr<UByte>
 
-public typealias Pcwstr = COpaquePointer?
+public typealias Pcwstr = ConstPtr<UShort>
 
-public typealias Bstr = COpaquePointer?
+public typealias Bstr = ConstPtr<UShort>
 
-public typealias Hstring = COpaquePointer?
+public typealias Hstring = MutPtr<CVoid>

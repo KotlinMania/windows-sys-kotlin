@@ -1,136 +1,151 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.wasm.ExperimentalWasmInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
 
+// The host must provide the C companion wrapper exports in import module windowssys.
 public actual fun addERExcludedApplicationA(szapplication: Pcstr): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA")
 
 public actual fun addERExcludedApplicationW(wszapplication: Pcwstr): Bool =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW")
 
-public actual fun reportFault(pep: COpaquePointer?, dwopt: UInt): EFaultRepRetVal =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun reportFault(pep: ConstPtr<ExceptionPointers>, dwopt: UInt): EFaultRepRetVal =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingReportFault")
 
 public actual fun werAddExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication")
 
-public actual fun werFreeString(pwszstr: Pcwstr) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun werFreeString(pwszstr: Pcwstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerFreeString")
 
-public actual fun werGetFlags(hprocess: Handle, pdwflags: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr<WerFaultReporting>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerGetFlags")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess")
+private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(processid: Int, captureextrainfoforthreadid: Int): Int
 
 public actual fun werRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(processid.toInt(), captureextrainfoforthreadid.toInt()).toInt()
 
 public actual fun werRegisterAppLocalDump(localappdatarelativepath: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump")
 
 public actual fun werRegisterCustomMetadata(key: Pcwstr, value: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata")
 
-public actual fun werRegisterExcludedMemoryBlock(address: COpaquePointer?, size: UInt): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werRegisterExcludedMemoryBlock(address: ConstPtr<CVoid>, size: UInt): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock")
 
 public actual fun werRegisterFile(pwzfile: Pcwstr, regfiletype: WerRegisterFileType, dwflags: WerFile): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterFile")
 
-public actual fun werRegisterMemoryBlock(pvaddress: COpaquePointer?, dwsize: UInt): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werRegisterMemoryBlock(pvaddress: ConstPtr<CVoid>, dwsize: UInt): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock")
 
-public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule")
 
 public actual fun werRemoveExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication")
 
-public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: COpaquePointer?, pdumpcustomoptions: COpaquePointer?, dwflags: UInt): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: ConstPtr<WerExceptionInformation>, pdumpcustomoptions: ConstPtr<WerDumpCustomOptions>, dwflags: UInt): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportAddDump")
 
 public actual fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repfiletype: WerFileType, dwfileflags: WerFile): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportAddFile")
 
 public actual fun werReportCloseHandle(hreporthandle: Hreport): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle")
 
-public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: COpaquePointer?, phreporthandle: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: ConstPtr<WerReportInformation>, phreporthandle: MutPtr<Hreport>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportCreate")
 
 public actual fun werReportHang(hwndhungapp: Hwnd, pwzhungapplicationname: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportHang")
 
 public actual fun werReportSetParameter(hreporthandle: Hreport, dwparamid: UInt, pwzname: Pcwstr, pwzvalue: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportSetParameter")
 
 public actual fun werReportSetUIOption(hreporthandle: Hreport, repuitypeid: WerReportUi, pwzvalue: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption")
 
-public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerReportSubmit")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemErrorreportingWerSetFlags")
+private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerSetFlags(dwflags: Int): Int
 
 public actual fun werSetFlags(dwflags: WerFaultReporting): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32SystemErrorreportingWerSetFlags(dwflags.toInt()).toInt()
 
-public actual fun werStoreClose(hreportstore: Hreportstore) {
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
+public actual fun werStoreClose(hreportstore: Hreportstore): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreClose")
 
-public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey")
 
-public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey")
 
-public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: MutPtr<UInt>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount")
 
-public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: MutPtr<ULong>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk")
 
-public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: MutPtr<Hreportstore>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreOpen")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemErrorreportingWerStorePurge")
+private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerStorePurge(): Int
 
 public actual fun werStorePurge(): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32SystemErrorreportingWerStorePurge().toInt()
 
-public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV1>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1")
 
-public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV2>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2")
 
-public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV3>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3")
 
-public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport")
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess")
+private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(processid: Int): Int
 
 public actual fun werUnregisterAdditionalProcess(processid: UInt): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(processid.toInt()).toInt()
+
+@kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump")
+private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump(): Int
 
 public actual fun werUnregisterAppLocalDump(): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump().toInt()
 
 public actual fun werUnregisterCustomMetadata(key: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata")
 
-public actual fun werUnregisterExcludedMemoryBlock(address: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werUnregisterExcludedMemoryBlock(address: ConstPtr<CVoid>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock")
 
 public actual fun werUnregisterFile(pwzfilepath: Pcwstr): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerUnregisterFile")
 
-public actual fun werUnregisterMemoryBlock(pvaddress: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werUnregisterMemoryBlock(pvaddress: ConstPtr<CVoid>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock")
 
-public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: COpaquePointer?): Hresult =
-    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+    throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule")

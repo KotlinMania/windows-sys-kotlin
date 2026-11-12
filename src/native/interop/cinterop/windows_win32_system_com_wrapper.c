@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_com_bindMoniker(void* pmk, uint32_t grfopt, void* iidresult, void* ppvresult) {
+int32_t windowssysWindowsWin32SystemComBindMoniker(void* pmk, uint32_t grfopt, void* iidresult, void* ppvresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_system_com_bindMoniker(void* pmk, uint32_t grfo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_cLSIDFromProgID(void* lpszprogid, void* lpclsid) {
+int32_t windowssysWindowsWin32SystemComCLSIDFromProgID(void* lpszprogid, void* lpclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_system_com_cLSIDFromProgID(void* lpszprogid, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_cLSIDFromProgIDEx(void* lpszprogid, void* lpclsid) {
+int32_t windowssysWindowsWin32SystemComCLSIDFromProgIDEx(void* lpszprogid, void* lpclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_system_com_cLSIDFromProgIDEx(void* lpszprogid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_cLSIDFromString(void* lpsz, void* pclsid) {
+int32_t windowssysWindowsWin32SystemComCLSIDFromString(void* lpsz, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_system_com_cLSIDFromString(void* lpsz, void* pc
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_coAddRefServerProcess(void) {
+uint32_t windowssysWindowsWin32SystemComCoAddRefServerProcess(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ uint32_t windowssys_windows_win32_system_com_coAddRefServerProcess(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coAllowSetForegroundWindow(void* punk, void* lpvreserved) {
+int32_t windowssysWindowsWin32SystemComCoAllowSetForegroundWindow(void* punk, void* lpvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -153,7 +153,7 @@ int32_t windowssys_windows_win32_system_com_coAllowSetForegroundWindow(void* pun
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID(void* clsid) {
+int32_t windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID(void* clsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -175,7 +175,7 @@ int32_t windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID(void* clsid)
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_coBuildVersion(void) {
+uint32_t windowssysWindowsWin32SystemComCoBuildVersion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ uint32_t windowssys_windows_win32_system_com_coBuildVersion(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCancelCall(uint32_t dwthreadid, uint32_t ultimeout) {
+int32_t windowssysWindowsWin32SystemComCoCancelCall(uint32_t dwthreadid, uint32_t ultimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ int32_t windowssys_windows_win32_system_com_coCancelCall(uint32_t dwthreadid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCopyProxy(void* pproxy, void* ppcopy) {
+int32_t windowssysWindowsWin32SystemComCoCopyProxy(void* pproxy, void* ppcopy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -242,7 +242,7 @@ int32_t windowssys_windows_win32_system_com_coCopyProxy(void* pproxy, void* ppco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler(void* punkouter, void* ppunkmarshal) {
+int32_t windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler(void* punkouter, void* ppunkmarshal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCreateGuid(void* pguid) {
+int32_t windowssysWindowsWin32SystemComCoCreateGuid(void* pguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_system_com_coCreateGuid(void* pguid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCreateInstance(void* rclsid, void* punkouter, uint32_t dwclscontext, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32SystemComCoCreateInstance(void* rclsid, void* punkouter, uint32_t dwclscontext, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -313,7 +313,7 @@ int32_t windowssys_windows_win32_system_com_coCreateInstance(void* rclsid, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCreateInstanceEx(void* clsid, void* punkouter, uint32_t dwclsctx, void* pserverinfo, uint32_t dwcount, void* presults) {
+int32_t windowssysWindowsWin32SystemComCoCreateInstanceEx(void* clsid, void* punkouter, uint32_t dwclsctx, void* pserverinfo, uint32_t dwcount, void* presults) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ int32_t windowssys_windows_win32_system_com_coCreateInstanceEx(void* clsid, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coCreateInstanceFromApp(void* clsid, void* punkouter, uint32_t dwclsctx, void* reserved, uint32_t dwcount, void* presults) {
+int32_t windowssysWindowsWin32SystemComCoCreateInstanceFromApp(void* clsid, void* punkouter, uint32_t dwclsctx, void* reserved, uint32_t dwcount, void* presults) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ int32_t windowssys_windows_win32_system_com_coCreateInstanceFromApp(void* clsid,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coDecrementMTAUsage(void* cookie) {
+int32_t windowssysWindowsWin32SystemComCoDecrementMTAUsage(void* cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -389,7 +389,7 @@ int32_t windowssys_windows_win32_system_com_coDecrementMTAUsage(void* cookie) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coDisableCallCancellation(void* preserved) {
+int32_t windowssysWindowsWin32SystemComCoDisableCallCancellation(void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -411,7 +411,7 @@ int32_t windowssys_windows_win32_system_com_coDisableCallCancellation(void* pres
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coDisconnectContext(uint32_t dwtimeout) {
+int32_t windowssysWindowsWin32SystemComCoDisconnectContext(uint32_t dwtimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ int32_t windowssys_windows_win32_system_com_coDisconnectContext(uint32_t dwtimeo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coDisconnectObject(void* punk, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemComCoDisconnectObject(void* punk, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -456,7 +456,7 @@ int32_t windowssys_windows_win32_system_com_coDisconnectObject(void* punk, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coDosDateTimeToFileTime(uint16_t ndosdate, uint16_t ndostime, void* lpfiletime) {
+int32_t windowssysWindowsWin32SystemComCoDosDateTimeToFileTime(uint16_t ndosdate, uint16_t ndostime, void* lpfiletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ int32_t windowssys_windows_win32_system_com_coDosDateTimeToFileTime(uint16_t ndo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coEnableCallCancellation(void* preserved) {
+int32_t windowssysWindowsWin32SystemComCoEnableCallCancellation(void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -502,7 +502,7 @@ int32_t windowssys_windows_win32_system_com_coEnableCallCancellation(void* prese
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coFileTimeNow(void* lpfiletime) {
+int32_t windowssysWindowsWin32SystemComCoFileTimeNow(void* lpfiletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -524,7 +524,7 @@ int32_t windowssys_windows_win32_system_com_coFileTimeNow(void* lpfiletime) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coFileTimeToDosDateTime(void* lpfiletime, void* lpdosdate, void* lpdostime) {
+int32_t windowssysWindowsWin32SystemComCoFileTimeToDosDateTime(void* lpfiletime, void* lpdosdate, void* lpdostime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -548,7 +548,7 @@ int32_t windowssys_windows_win32_system_com_coFileTimeToDosDateTime(void* lpfile
 #endif
 }
 
-void windowssys_windows_win32_system_com_coFreeAllLibraries(void) {
+void windowssysWindowsWin32SystemComCoFreeAllLibraries(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -568,7 +568,7 @@ void windowssys_windows_win32_system_com_coFreeAllLibraries(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_com_coFreeLibrary(void* hinst) {
+void windowssysWindowsWin32SystemComCoFreeLibrary(void* hinst) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -589,7 +589,7 @@ void windowssys_windows_win32_system_com_coFreeLibrary(void* hinst) {
 #endif
 }
 
-void windowssys_windows_win32_system_com_coFreeUnusedLibraries(void) {
+void windowssysWindowsWin32SystemComCoFreeUnusedLibraries(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -609,7 +609,7 @@ void windowssys_windows_win32_system_com_coFreeUnusedLibraries(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx(uint32_t dwunloaddelay, uint32_t dwreserved) {
+void windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx(uint32_t dwunloaddelay, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -631,7 +631,7 @@ void windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx(uint32_t dwunlo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetApartmentType(void* papttype, void* paptqualifier) {
+int32_t windowssysWindowsWin32SystemComCoGetApartmentType(void* papttype, void* paptqualifier) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -654,7 +654,7 @@ int32_t windowssys_windows_win32_system_com_coGetApartmentType(void* papttype, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetCallContext(void* riid, void* ppinterface) {
+int32_t windowssysWindowsWin32SystemComCoGetCallContext(void* riid, void* ppinterface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ int32_t windowssys_windows_win32_system_com_coGetCallContext(void* riid, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetCallerTID(void* lpdwtid) {
+int32_t windowssysWindowsWin32SystemComCoGetCallerTID(void* lpdwtid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ int32_t windowssys_windows_win32_system_com_coGetCallerTID(void* lpdwtid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetCancelObject(uint32_t dwthreadid, void* iid, void* ppunk) {
+int32_t windowssysWindowsWin32SystemComCoGetCancelObject(uint32_t dwthreadid, void* iid, void* ppunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -723,7 +723,7 @@ int32_t windowssys_windows_win32_system_com_coGetCancelObject(uint32_t dwthreadi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetClassObject(void* rclsid, uint32_t dwclscontext, void* pvreserved, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32SystemComCoGetClassObject(void* rclsid, uint32_t dwclscontext, void* pvreserved, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -749,7 +749,7 @@ int32_t windowssys_windows_win32_system_com_coGetClassObject(void* rclsid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetContextToken(void* ptoken) {
+int32_t windowssysWindowsWin32SystemComCoGetContextToken(void* ptoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -771,7 +771,7 @@ int32_t windowssys_windows_win32_system_com_coGetContextToken(void* ptoken) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId(void* pguid) {
+int32_t windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId(void* pguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -793,7 +793,7 @@ int32_t windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId(void* pg
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_coGetCurrentProcess(void) {
+uint32_t windowssysWindowsWin32SystemComCoGetCurrentProcess(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -814,7 +814,7 @@ uint32_t windowssys_windows_win32_system_com_coGetCurrentProcess(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetMalloc(uint32_t dwmemcontext, void* ppmalloc) {
+int32_t windowssysWindowsWin32SystemComCoGetMalloc(uint32_t dwmemcontext, void* ppmalloc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -837,7 +837,7 @@ int32_t windowssys_windows_win32_system_com_coGetMalloc(uint32_t dwmemcontext, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetObject(void* pszname, void* pbindoptions, void* riid, void* ppv) {
+int32_t windowssysWindowsWin32SystemComCoGetObject(void* pszname, void* pbindoptions, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -862,7 +862,7 @@ int32_t windowssys_windows_win32_system_com_coGetObject(void* pszname, void* pbi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetObjectContext(void* riid, void* ppv) {
+int32_t windowssysWindowsWin32SystemComCoGetObjectContext(void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -885,7 +885,7 @@ int32_t windowssys_windows_win32_system_com_coGetObjectContext(void* riid, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetPSClsid(void* riid, void* pclsid) {
+int32_t windowssysWindowsWin32SystemComCoGetPSClsid(void* riid, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -908,7 +908,7 @@ int32_t windowssys_windows_win32_system_com_coGetPSClsid(void* riid, void* pclsi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetSystemSecurityPermissions(int32_t comsdtype, void* ppsd) {
+int32_t windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions(int32_t comsdtype, void* ppsd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -931,7 +931,7 @@ int32_t windowssys_windows_win32_system_com_coGetSystemSecurityPermissions(int32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coGetTreatAsClass(void* clsidold, void* pclsidnew) {
+int32_t windowssysWindowsWin32SystemComCoGetTreatAsClass(void* clsidold, void* pclsidnew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -954,7 +954,7 @@ int32_t windowssys_windows_win32_system_com_coGetTreatAsClass(void* clsidold, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coImpersonateClient(void) {
+int32_t windowssysWindowsWin32SystemComCoImpersonateClient(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -975,7 +975,7 @@ int32_t windowssys_windows_win32_system_com_coImpersonateClient(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coIncrementMTAUsage(void* pcookie) {
+int32_t windowssysWindowsWin32SystemComCoIncrementMTAUsage(void* pcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -997,7 +997,7 @@ int32_t windowssys_windows_win32_system_com_coIncrementMTAUsage(void* pcookie) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coInitialize(void* pvreserved) {
+int32_t windowssysWindowsWin32SystemComCoInitialize(void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1019,7 +1019,7 @@ int32_t windowssys_windows_win32_system_com_coInitialize(void* pvreserved) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coInitializeEx(void* pvreserved, uint32_t dwcoinit) {
+int32_t windowssysWindowsWin32SystemComCoInitializeEx(void* pvreserved, uint32_t dwcoinit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1042,7 +1042,7 @@ int32_t windowssys_windows_win32_system_com_coInitializeEx(void* pvreserved, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coInitializeSecurity(void* psecdesc, int32_t cauthsvc, void* asauthsvc, void* preserved1, uint32_t dwauthnlevel, uint32_t dwimplevel, void* pauthlist, uint32_t dwcapabilities, void* preserved3) {
+int32_t windowssysWindowsWin32SystemComCoInitializeSecurity(void* psecdesc, int32_t cauthsvc, void* asauthsvc, void* preserved1, uint32_t dwauthnlevel, uint32_t dwimplevel, void* pauthlist, uint32_t dwcapabilities, void* preserved3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1072,7 +1072,7 @@ int32_t windowssys_windows_win32_system_com_coInitializeSecurity(void* psecdesc,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coInstall(void* pbc, uint32_t dwflags, void* pclassspec, void* pquery, void* pszcodebase) {
+int32_t windowssysWindowsWin32SystemComCoInstall(void* pbc, uint32_t dwflags, void* pclassspec, void* pquery, void* pszcodebase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1098,7 +1098,7 @@ int32_t windowssys_windows_win32_system_com_coInstall(void* pbc, uint32_t dwflag
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings(void* pszmachinename) {
+int32_t windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings(void* pszmachinename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1120,7 +1120,7 @@ int32_t windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coIsHandlerConnected(void* punk) {
+int32_t windowssysWindowsWin32SystemComCoIsHandlerConnected(void* punk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1142,7 +1142,7 @@ int32_t windowssys_windows_win32_system_com_coIsHandlerConnected(void* punk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coIsOle1Class(void* rclsid) {
+int32_t windowssysWindowsWin32SystemComCoIsOle1Class(void* rclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1164,7 +1164,7 @@ int32_t windowssys_windows_win32_system_com_coIsOle1Class(void* rclsid) {
 #endif
 }
 
-void* windowssys_windows_win32_system_com_coLoadLibrary(void* lpszlibname, int32_t bautofree) {
+void* windowssysWindowsWin32SystemComCoLoadLibrary(void* lpszlibname, int32_t bautofree) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1187,7 +1187,7 @@ void* windowssys_windows_win32_system_com_coLoadLibrary(void* lpszlibname, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coLockObjectExternal(void* punk, int32_t flock, int32_t flastunlockreleases) {
+int32_t windowssysWindowsWin32SystemComCoLockObjectExternal(void* punk, int32_t flock, int32_t flastunlockreleases) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1211,7 +1211,7 @@ int32_t windowssys_windows_win32_system_com_coLockObjectExternal(void* punk, int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coQueryAuthenticationServices(void* pcauthsvc, void* asauthsvc) {
+int32_t windowssysWindowsWin32SystemComCoQueryAuthenticationServices(void* pcauthsvc, void* asauthsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1234,7 +1234,7 @@ int32_t windowssys_windows_win32_system_com_coQueryAuthenticationServices(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coQueryClientBlanket(void* pauthnsvc, void* pauthzsvc, void* pserverprincname, void* pauthnlevel, void* pimplevel, void* pprivs, void* pcapabilities) {
+int32_t windowssysWindowsWin32SystemComCoQueryClientBlanket(void* pauthnsvc, void* pauthzsvc, void* pserverprincname, void* pauthnlevel, void* pimplevel, void* pprivs, void* pcapabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1262,7 +1262,7 @@ int32_t windowssys_windows_win32_system_com_coQueryClientBlanket(void* pauthnsvc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coQueryProxyBlanket(void* pproxy, void* pwauthnsvc, void* pauthzsvc, void* pserverprincname, void* pauthnlevel, void* pimplevel, void* pauthinfo, void* pcapabilites) {
+int32_t windowssysWindowsWin32SystemComCoQueryProxyBlanket(void* pproxy, void* pwauthnsvc, void* pauthzsvc, void* pserverprincname, void* pauthnlevel, void* pimplevel, void* pauthinfo, void* pcapabilites) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1291,7 +1291,7 @@ int32_t windowssys_windows_win32_system_com_coQueryProxyBlanket(void* pproxy, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterActivationFilter(void* pactivationfilter) {
+int32_t windowssysWindowsWin32SystemComCoRegisterActivationFilter(void* pactivationfilter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1313,7 +1313,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterActivationFilter(void* pac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterChannelHook(void* extensionuuid, void* pchannelhook) {
+int32_t windowssysWindowsWin32SystemComCoRegisterChannelHook(void* extensionuuid, void* pchannelhook) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1336,7 +1336,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterChannelHook(void* extensio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterClassObject(void* rclsid, void* punk, uint32_t dwclscontext, uint32_t flags, void* lpdwregister) {
+int32_t windowssysWindowsWin32SystemComCoRegisterClassObject(void* rclsid, void* punk, uint32_t dwclscontext, uint32_t flags, void* lpdwregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterClassObject(void* rclsid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterDeviceCatalog(void* deviceinstanceid, void* cookie) {
+int32_t windowssysWindowsWin32SystemComCoRegisterDeviceCatalog(void* deviceinstanceid, void* cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1385,7 +1385,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterDeviceCatalog(void* device
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterInitializeSpy(void* pspy, void* pulicookie) {
+int32_t windowssysWindowsWin32SystemComCoRegisterInitializeSpy(void* pspy, void* pulicookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1408,7 +1408,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterInitializeSpy(void* pspy, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterMallocSpy(void* pmallocspy) {
+int32_t windowssysWindowsWin32SystemComCoRegisterMallocSpy(void* pmallocspy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1430,7 +1430,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterMallocSpy(void* pmallocspy
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterPSClsid(void* riid, void* rclsid) {
+int32_t windowssysWindowsWin32SystemComCoRegisterPSClsid(void* riid, void* rclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1453,7 +1453,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterPSClsid(void* riid, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRegisterSurrogate(void* psurrogate) {
+int32_t windowssysWindowsWin32SystemComCoRegisterSurrogate(void* psurrogate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1475,7 +1475,7 @@ int32_t windowssys_windows_win32_system_com_coRegisterSurrogate(void* psurrogate
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_coReleaseServerProcess(void) {
+uint32_t windowssysWindowsWin32SystemComCoReleaseServerProcess(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1496,7 +1496,7 @@ uint32_t windowssys_windows_win32_system_com_coReleaseServerProcess(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coResumeClassObjects(void) {
+int32_t windowssysWindowsWin32SystemComCoResumeClassObjects(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1517,7 +1517,7 @@ int32_t windowssys_windows_win32_system_com_coResumeClassObjects(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRevertToSelf(void) {
+int32_t windowssysWindowsWin32SystemComCoRevertToSelf(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1538,7 +1538,7 @@ int32_t windowssys_windows_win32_system_com_coRevertToSelf(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRevokeClassObject(uint32_t dwregister) {
+int32_t windowssysWindowsWin32SystemComCoRevokeClassObject(uint32_t dwregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1560,7 +1560,7 @@ int32_t windowssys_windows_win32_system_com_coRevokeClassObject(uint32_t dwregis
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRevokeDeviceCatalog(void* cookie) {
+int32_t windowssysWindowsWin32SystemComCoRevokeDeviceCatalog(void* cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1582,7 +1582,7 @@ int32_t windowssys_windows_win32_system_com_coRevokeDeviceCatalog(void* cookie) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRevokeInitializeSpy(uint64_t ulicookie) {
+int32_t windowssysWindowsWin32SystemComCoRevokeInitializeSpy(uint64_t ulicookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1604,7 +1604,7 @@ int32_t windowssys_windows_win32_system_com_coRevokeInitializeSpy(uint64_t ulico
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coRevokeMallocSpy(void) {
+int32_t windowssysWindowsWin32SystemComCoRevokeMallocSpy(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1625,7 +1625,7 @@ int32_t windowssys_windows_win32_system_com_coRevokeMallocSpy(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coSetCancelObject(void* punk) {
+int32_t windowssysWindowsWin32SystemComCoSetCancelObject(void* punk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1647,7 +1647,7 @@ int32_t windowssys_windows_win32_system_com_coSetCancelObject(void* punk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coSetProxyBlanket(void* pproxy, uint32_t dwauthnsvc, uint32_t dwauthzsvc, void* pserverprincname, uint32_t dwauthnlevel, uint32_t dwimplevel, void* pauthinfo, uint32_t dwcapabilities) {
+int32_t windowssysWindowsWin32SystemComCoSetProxyBlanket(void* pproxy, uint32_t dwauthnsvc, uint32_t dwauthzsvc, void* pserverprincname, uint32_t dwauthnlevel, uint32_t dwimplevel, void* pauthinfo, uint32_t dwcapabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1676,7 +1676,7 @@ int32_t windowssys_windows_win32_system_com_coSetProxyBlanket(void* pproxy, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coSuspendClassObjects(void) {
+int32_t windowssysWindowsWin32SystemComCoSuspendClassObjects(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1697,7 +1697,7 @@ int32_t windowssys_windows_win32_system_com_coSuspendClassObjects(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coSwitchCallContext(void* pnewobject, void* ppoldobject) {
+int32_t windowssysWindowsWin32SystemComCoSwitchCallContext(void* pnewobject, void* ppoldobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1720,7 +1720,7 @@ int32_t windowssys_windows_win32_system_com_coSwitchCallContext(void* pnewobject
 #endif
 }
 
-void* windowssys_windows_win32_system_com_coTaskMemAlloc(uint64_t cb) {
+void* windowssysWindowsWin32SystemComCoTaskMemAlloc(uint64_t cb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1742,7 +1742,7 @@ void* windowssys_windows_win32_system_com_coTaskMemAlloc(uint64_t cb) {
 #endif
 }
 
-void windowssys_windows_win32_system_com_coTaskMemFree(void* pv) {
+void windowssysWindowsWin32SystemComCoTaskMemFree(void* pv) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1763,7 +1763,7 @@ void windowssys_windows_win32_system_com_coTaskMemFree(void* pv) {
 #endif
 }
 
-void* windowssys_windows_win32_system_com_coTaskMemRealloc(void* pv, uint64_t cb) {
+void* windowssysWindowsWin32SystemComCoTaskMemRealloc(void* pv, uint64_t cb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1786,7 +1786,7 @@ void* windowssys_windows_win32_system_com_coTaskMemRealloc(void* pv, uint64_t cb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coTestCancel(void) {
+int32_t windowssysWindowsWin32SystemComCoTestCancel(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1807,7 +1807,7 @@ int32_t windowssys_windows_win32_system_com_coTestCancel(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coTreatAsClass(void* clsidold, void* clsidnew) {
+int32_t windowssysWindowsWin32SystemComCoTreatAsClass(void* clsidold, void* clsidnew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1830,7 +1830,7 @@ int32_t windowssys_windows_win32_system_com_coTreatAsClass(void* clsidold, void*
 #endif
 }
 
-void windowssys_windows_win32_system_com_coUninitialize(void) {
+void windowssysWindowsWin32SystemComCoUninitialize(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1850,7 +1850,7 @@ void windowssys_windows_win32_system_com_coUninitialize(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coWaitForMultipleHandles(uint32_t dwflags, uint32_t dwtimeout, uint32_t chandles, void* phandles, void* lpdwindex) {
+int32_t windowssysWindowsWin32SystemComCoWaitForMultipleHandles(uint32_t dwflags, uint32_t dwtimeout, uint32_t chandles, void* phandles, void* lpdwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1876,7 +1876,7 @@ int32_t windowssys_windows_win32_system_com_coWaitForMultipleHandles(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_coWaitForMultipleObjects(uint32_t dwflags, uint32_t dwtimeout, uint32_t chandles, void* phandles, void* lpdwindex) {
+int32_t windowssysWindowsWin32SystemComCoWaitForMultipleObjects(uint32_t dwflags, uint32_t dwtimeout, uint32_t chandles, void* phandles, void* lpdwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1902,7 +1902,7 @@ int32_t windowssys_windows_win32_system_com_coWaitForMultipleObjects(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createAntiMoniker(void* ppmk) {
+int32_t windowssysWindowsWin32SystemComCreateAntiMoniker(void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1924,7 +1924,7 @@ int32_t windowssys_windows_win32_system_com_createAntiMoniker(void* ppmk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createBindCtx(uint32_t reserved, void* ppbc) {
+int32_t windowssysWindowsWin32SystemComCreateBindCtx(uint32_t reserved, void* ppbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1947,7 +1947,7 @@ int32_t windowssys_windows_win32_system_com_createBindCtx(uint32_t reserved, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createClassMoniker(void* rclsid, void* ppmk) {
+int32_t windowssysWindowsWin32SystemComCreateClassMoniker(void* rclsid, void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1970,7 +1970,7 @@ int32_t windowssys_windows_win32_system_com_createClassMoniker(void* rclsid, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createDataAdviseHolder(void* ppdaholder) {
+int32_t windowssysWindowsWin32SystemComCreateDataAdviseHolder(void* ppdaholder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1992,7 +1992,7 @@ int32_t windowssys_windows_win32_system_com_createDataAdviseHolder(void* ppdahol
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createDataCache(void* punkouter, void* rclsid, void* iid, void* ppv) {
+int32_t windowssysWindowsWin32SystemComCreateDataCache(void* punkouter, void* rclsid, void* iid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2017,7 +2017,7 @@ int32_t windowssys_windows_win32_system_com_createDataCache(void* punkouter, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createFileMoniker(void* lpszpathname, void* ppmk) {
+int32_t windowssysWindowsWin32SystemComCreateFileMoniker(void* lpszpathname, void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2040,7 +2040,7 @@ int32_t windowssys_windows_win32_system_com_createFileMoniker(void* lpszpathname
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createGenericComposite(void* pmkfirst, void* pmkrest, void* ppmkcomposite) {
+int32_t windowssysWindowsWin32SystemComCreateGenericComposite(void* pmkfirst, void* pmkrest, void* ppmkcomposite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2064,7 +2064,7 @@ int32_t windowssys_windows_win32_system_com_createGenericComposite(void* pmkfirs
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createIUriBuilder(void* piuri, uint32_t dwflags, uint64_t dwreserved, void* ppiuribuilder) {
+int32_t windowssysWindowsWin32SystemComCreateIUriBuilder(void* piuri, uint32_t dwflags, uint64_t dwreserved, void* ppiuribuilder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2089,7 +2089,7 @@ int32_t windowssys_windows_win32_system_com_createIUriBuilder(void* piuri, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createItemMoniker(void* lpszdelim, void* lpszitem, void* ppmk) {
+int32_t windowssysWindowsWin32SystemComCreateItemMoniker(void* lpszdelim, void* lpszitem, void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2113,7 +2113,7 @@ int32_t windowssys_windows_win32_system_com_createItemMoniker(void* lpszdelim, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createObjrefMoniker(void* punk, void* ppmk) {
+int32_t windowssysWindowsWin32SystemComCreateObjrefMoniker(void* punk, void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2136,7 +2136,7 @@ int32_t windowssys_windows_win32_system_com_createObjrefMoniker(void* punk, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createPointerMoniker(void* punk, void* ppmk) {
+int32_t windowssysWindowsWin32SystemComCreatePointerMoniker(void* punk, void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2159,7 +2159,7 @@ int32_t windowssys_windows_win32_system_com_createPointerMoniker(void* punk, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createStdProgressIndicator(void* hwndparent, void* psztitle, void* pibsccaller, void* ppibsc) {
+int32_t windowssysWindowsWin32SystemComCreateStdProgressIndicator(void* hwndparent, void* psztitle, void* pibsccaller, void* ppibsc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2184,7 +2184,7 @@ int32_t windowssys_windows_win32_system_com_createStdProgressIndicator(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createUri(void* pwzuri, uint32_t dwflags, uint64_t dwreserved, void* ppuri) {
+int32_t windowssysWindowsWin32SystemComCreateUri(void* pwzuri, uint32_t dwflags, uint64_t dwreserved, void* ppuri) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2209,7 +2209,7 @@ int32_t windowssys_windows_win32_system_com_createUri(void* pwzuri, uint32_t dwf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createUriFromMultiByteString(void* pszansiinputuri, uint32_t dwencodingflags, uint32_t dwcodepage, uint32_t dwcreateflags, uint64_t dwreserved, void* ppuri) {
+int32_t windowssysWindowsWin32SystemComCreateUriFromMultiByteString(void* pszansiinputuri, uint32_t dwencodingflags, uint32_t dwcodepage, uint32_t dwcreateflags, uint64_t dwreserved, void* ppuri) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2236,7 +2236,7 @@ int32_t windowssys_windows_win32_system_com_createUriFromMultiByteString(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_createUriWithFragment(void* pwzuri, void* pwzfragment, uint32_t dwflags, uint64_t dwreserved, void* ppuri) {
+int32_t windowssysWindowsWin32SystemComCreateUriWithFragment(void* pwzuri, void* pwzfragment, uint32_t dwflags, uint64_t dwreserved, void* ppuri) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2262,7 +2262,7 @@ int32_t windowssys_windows_win32_system_com_createUriWithFragment(void* pwzuri, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_dcomChannelSetHResult(void* pvreserved, void* pulreserved, int32_t appshr) {
+int32_t windowssysWindowsWin32SystemComDcomChannelSetHResult(void* pvreserved, void* pulreserved, int32_t appshr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2286,7 +2286,7 @@ int32_t windowssys_windows_win32_system_com_dcomChannelSetHResult(void* pvreserv
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_getClassFile(void* szfilename, void* pclsid) {
+int32_t windowssysWindowsWin32SystemComGetClassFile(void* szfilename, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2309,7 +2309,7 @@ int32_t windowssys_windows_win32_system_com_getClassFile(void* szfilename, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_getErrorInfo(uint32_t dwreserved, void* pperrinfo) {
+int32_t windowssysWindowsWin32SystemComGetErrorInfo(uint32_t dwreserved, void* pperrinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2332,7 +2332,7 @@ int32_t windowssys_windows_win32_system_com_getErrorInfo(uint32_t dwreserved, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_getRunningObjectTable(uint32_t reserved, void* pprot) {
+int32_t windowssysWindowsWin32SystemComGetRunningObjectTable(uint32_t reserved, void* pprot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2355,7 +2355,7 @@ int32_t windowssys_windows_win32_system_com_getRunningObjectTable(uint32_t reser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_iIDFromString(void* lpsz, void* lpiid) {
+int32_t windowssysWindowsWin32SystemComIIDFromString(void* lpsz, void* lpiid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2378,7 +2378,7 @@ int32_t windowssys_windows_win32_system_com_iIDFromString(void* lpsz, void* lpii
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_mkParseDisplayName(void* pbc, void* szusername, void* pcheaten, void* ppmk) {
+int32_t windowssysWindowsWin32SystemComMkParseDisplayName(void* pbc, void* szusername, void* pcheaten, void* ppmk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2403,7 +2403,7 @@ int32_t windowssys_windows_win32_system_com_mkParseDisplayName(void* pbc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_monikerCommonPrefixWith(void* pmkthis, void* pmkother, void* ppmkcommon) {
+int32_t windowssysWindowsWin32SystemComMonikerCommonPrefixWith(void* pmkthis, void* pmkother, void* ppmkcommon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2427,7 +2427,7 @@ int32_t windowssys_windows_win32_system_com_monikerCommonPrefixWith(void* pmkthi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_monikerRelativePathTo(void* pmksrc, void* pmkdest, void* ppmkrelpath, int32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemComMonikerRelativePathTo(void* pmksrc, void* pmkdest, void* ppmkrelpath, int32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2452,7 +2452,7 @@ int32_t windowssys_windows_win32_system_com_monikerRelativePathTo(void* pmksrc, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_progIDFromCLSID(void* clsid, void* lplpszprogid) {
+int32_t windowssysWindowsWin32SystemComProgIDFromCLSID(void* clsid, void* lplpszprogid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2475,7 +2475,7 @@ int32_t windowssys_windows_win32_system_com_progIDFromCLSID(void* clsid, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_setErrorInfo(uint32_t dwreserved, void* perrinfo) {
+int32_t windowssysWindowsWin32SystemComSetErrorInfo(uint32_t dwreserved, void* perrinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2498,7 +2498,7 @@ int32_t windowssys_windows_win32_system_com_setErrorInfo(uint32_t dwreserved, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_stringFromCLSID(void* rclsid, void* lplpsz) {
+int32_t windowssysWindowsWin32SystemComStringFromCLSID(void* rclsid, void* lplpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2521,7 +2521,7 @@ int32_t windowssys_windows_win32_system_com_stringFromCLSID(void* rclsid, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_stringFromGUID2(void* rguid, void* lpsz, int32_t cchmax) {
+int32_t windowssysWindowsWin32SystemComStringFromGUID2(void* rguid, void* lpsz, int32_t cchmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2545,7 +2545,7 @@ int32_t windowssys_windows_win32_system_com_stringFromGUID2(void* rguid, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_stringFromIID(void* rclsid, void* lplpsz) {
+int32_t windowssysWindowsWin32SystemComStringFromIID(void* rclsid, void* lplpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

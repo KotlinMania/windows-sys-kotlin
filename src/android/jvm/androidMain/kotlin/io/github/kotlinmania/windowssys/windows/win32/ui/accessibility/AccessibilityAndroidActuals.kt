@@ -2,9 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,7 +19,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
 private object WindowsWin32UiAccessibilityJniBridge {
@@ -25,725 +29,725 @@ private object WindowsWin32UiAccessibilityJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState(hwndapp: Long, dwutilitystatemask: Int, dwutilitystate: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState(hwndapp: Long, dwutilitystatemask: Int, dwutilitystate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_accessibleChildren(pacccontainer: Long, ichildstart: Int, cchildren: Int, rgvarchildren: Long, pcobtained: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityAccessibleChildren(pacccontainer: Long, ichildstart: Int, cchildren: Int, rgvarchildren: Long, pcobtained: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent(hwnd: Long, dwid: Int, dwchildid: Int, ppacc: Long, pvarchild: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent(hwnd: Long, dwid: Int, dwchildid: Int, ppacc: Long, pvarchild: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow(hwnd: Long, dwid: Int, riid: Long, ppvobject: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityAccessibleObjectFromWindow(hwnd: Long, dwid: Int, riid: Long, ppvobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_createStdAccessibleObject(hwnd: Long, idobject: Int, riid: Long, ppvobject: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityCreateStdAccessibleObject(hwnd: Long, idobject: Int, riid: Long, ppvobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA(hwnd: Long, pclassname: Long, idobject: Int, riid: Long, ppvobject: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyA(hwnd: Long, pclassname: Long, idobject: Int, riid: Long, ppvobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW(hwnd: Long, pclassname: Long, idobject: Int, riid: Long, ppvobject: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyW(hwnd: Long, pclassname: Long, idobject: Int, riid: Long, ppvobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition(hobj: Long, dockposition: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityDockPatternSetDockPosition(hobj: Long, dockposition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityExpandCollapsePatternCollapse(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityExpandCollapsePatternExpand(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo(pver: Long, pbuild: Long)
+    external fun windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo(pver: Long, pbuild: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_getRoleTextA(lrole: Int, lpszrole: Long, cchrolemax: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityGetRoleTextA(lrole: Int, lpszrole: Long, cchrolemax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_getRoleTextW(lrole: Int, lpszrole: Long, cchrolemax: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityGetRoleTextW(lrole: Int, lpszrole: Long, cchrolemax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_getStateTextA(lstatebit: Int, lpszstate: Long, cchstate: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityGetStateTextA(lstatebit: Int, lpszstate: Long, cchstate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_getStateTextW(lstatebit: Int, lpszstate: Long, cchstate: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityGetStateTextW(lstatebit: Int, lpszstate: Long, cchstate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_gridPatternGetItem(hobj: Long, row: Int, column: Int, presult: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityGridPatternGetItem(hobj: Long, row: Int, column: Int, presult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_invokePatternInvoke(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityInvokePatternInvoke(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled(event: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternDoDefaultAction(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible(hobj: Long, paccessible: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternGetIaccessible(hobj: Long, paccessible: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect(hobj: Long, flagsselect: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSelect(hobj: Long, flagsselect: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue(hobj: Long, szvalue: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSetValue(hobj: Long, szvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_lresultFromObject(riid: Long, wparam: Long, punk: Long): Long
+    external fun windowssysWindowsWin32UiAccessibilityLresultFromObject(riid: Long, wparam: Long, punk: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName(hobj: Long, viewid: Int, ppstr: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityMultipleViewPatternGetViewName(hobj: Long, viewid: Int, ppstr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView(hobj: Long, viewid: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityMultipleViewPatternSetCurrentView(hobj: Long, viewid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_notifyWinEvent(event: Int, hwnd: Long, idobject: Int, idchild: Int)
+    external fun windowssysWindowsWin32UiAccessibilityNotifyWinEvent(event: Int, hwnd: Long, idobject: Int, idchild: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_objectFromLresult(lresult: Long, riid: Long, wparam: Long, ppvobject: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityObjectFromLresult(lresult: Long, riid: Long, wparam: Long, ppvobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue(hobj: Long, value: Double): Int
+    external fun windowssysWindowsWin32UiAccessibilityRangeValuePatternSetValue(hobj: Long, value: Double): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_registerPointerInputTarget(hwnd: Long, pointertype: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityRegisterPointerInputTarget(hwnd: Long, pointertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx(hwnd: Long, pointertype: Int, fobserve: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityRegisterPointerInputTargetEx(hwnd: Long, pointertype: Int, fobserve: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityScrollItemPatternScrollIntoView(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_scrollPatternScroll(hobj: Long, horizontalamount: Int, verticalamount: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityScrollPatternScroll(hobj: Long, horizontalamount: Int, verticalamount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent(hobj: Long, horizontalpercent: Double, verticalpercent: Double): Int
+    external fun windowssysWindowsWin32UiAccessibilityScrollPatternSetScrollPercent(hobj: Long, horizontalpercent: Double, verticalpercent: Double): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilitySelectionItemPatternAddToSelection(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilitySelectionItemPatternRemoveFromSelection(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilitySelectionItemPatternSelect(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_setWinEventHook(eventmin: Int, eventmax: Int, hmodwineventproc: Long, pfnwineventproc: Long, idprocess: Int, idthread: Int, dwflags: Int): Long
+    external fun windowssysWindowsWin32UiAccessibilitySetWinEventHook(eventmin: Int, eventmax: Int, hmodwineventproc: Long, pfnwineventproc: Long, idprocess: Int, idthread: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternCancel(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening(hobj: Long, inputtype: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternStartListening(hobj: Long, inputtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textPatternGetSelection(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextPatternGetSelection(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextPatternGetVisibleRanges(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild(hobj: Long, hnodechild: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextPatternRangeFromChild(hobj: Long, hnodechild: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextPatternGetDocumentRange(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextPatternGetSupportedTextSelection(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeAddToSelection(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeAddToSelection(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeClone(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeClone(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeCompare(hobj: Long, range: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeCompare(hobj: Long, range: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints(hobj: Long, endpoint: Int, targetrange: Long, targetendpoint: Int, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeCompareEndpoints(hobj: Long, endpoint: Int, targetrange: Long, targetendpoint: Int, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit(hobj: Long, unit: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(hobj: Long, unit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeFindText(hobj: Long, text: Long, backward: Int, ignorecase: Int, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeFindText(hobj: Long, text: Long, backward: Int, ignorecase: Int, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue(hobj: Long, attributeid: Int, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeGetAttributeValue(hobj: Long, attributeid: Int, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeGetBoundingRectangles(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeGetChildren(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeGetChildren(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement(hobj: Long, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeGetEnclosingElement(hobj: Long, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeGetText(hobj: Long, maxlength: Int, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeGetText(hobj: Long, maxlength: Int, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeMove(hobj: Long, unit: Int, count: Int, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeMove(hobj: Long, unit: Int, count: Int, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange(hobj: Long, endpoint: Int, targetrange: Long, targetendpoint: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByRange(hobj: Long, endpoint: Int, targetrange: Long, targetendpoint: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit(hobj: Long, endpoint: Int, unit: Int, count: Int, pretval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByUnit(hobj: Long, endpoint: Int, unit: Int, count: Int, pretval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeRemoveFromSelection(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView(hobj: Long, aligntotop: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeScrollIntoView(hobj: Long, aligntotop: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_textRangeSelect(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTextRangeSelect(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_togglePatternToggle(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityTogglePatternToggle(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_transformPatternMove(hobj: Long, x: Double, y: Double): Int
+    external fun windowssysWindowsWin32UiAccessibilityTransformPatternMove(hobj: Long, x: Double, y: Double): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_transformPatternResize(hobj: Long, width: Double, height: Double): Int
+    external fun windowssysWindowsWin32UiAccessibilityTransformPatternResize(hobj: Long, width: Double, height: Double): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_transformPatternRotate(hobj: Long, degrees: Double): Int
+    external fun windowssysWindowsWin32UiAccessibilityTransformPatternRotate(hobj: Long, degrees: Double): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaAddEvent(hnode: Long, eventid: Int, pcallback: Long, scope: Int, pproperties: Long, cproperties: Int, prequest: Long, phevent: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaAddEvent(hnode: Long, eventid: Int, pcallback: Long, scope: Int, pproperties: Long, cproperties: Int, prequest: Long, phevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaClientsAreListening(): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaClientsAreListening(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders(): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider(pprovider: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider(pprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaEventAddWindow(hevent: Long, hwnd: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaEventAddWindow(hevent: Long, hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow(hevent: Long, hwnd: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaEventRemoveWindow(hevent: Long, hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaFind(hnode: Long, pparams: Long, prequest: Long, pprequesteddata: Long, ppoffsets: Long, pptreestructures: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaFind(hnode: Long, pparams: Long, prequest: Long, pprequesteddata: Long, ppoffsets: Long, pptreestructures: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription(pdescription: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetErrorDescription(pdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider(hnode: Long, patternid: Int, phobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetPatternProvider(hnode: Long, patternid: Int, phobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue(hnode: Long, propertyid: Int, pvalue: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetPropertyValue(hnode: Long, propertyid: Int, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue(punkmixedattributevalue: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetReservedMixedAttributeValue(punkmixedattributevalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue(punknotsupportedvalue: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetReservedNotSupportedValue(punknotsupportedvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetRootNode(phnode: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetRootNode(phnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId(hnode: Long, pruntimeid: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetRuntimeId(hnode: Long, pruntimeid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache(hnode: Long, prequest: Long, normalizestate: Int, pnormalizecondition: Long, pprequesteddata: Long, pptreestructure: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaGetUpdatedCache(hnode: Long, prequest: Long, normalizestate: Int, pnormalizecondition: Long, pprequesteddata: Long, pptreestructure: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant(pvar: Long, phobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaHPatternObjectFromVariant(pvar: Long, phobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant(pvar: Long, phtextrange: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaHTextRangeFromVariant(pvar: Long, phtextrange: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant(pvar: Long, phnode: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaHUiaNodeFromVariant(pvar: Long, phnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider(hwnd: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaHasServerSideProvider(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd(hwnd: Long, ppprovider: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaHostProviderFromHwnd(hwnd: Long, ppprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider(pprovider: Long, dwflags: Int, ppaccessible: Long, pvarchild: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaIAccessibleFromProvider(pprovider: Long, dwflags: Int, ppaccessible: Long, pvarchild: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaLookupId(type: Int, pguid: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaLookupId(type: Int, pguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaNavigate(hnode: Long, direction: Int, pcondition: Long, prequest: Long, pprequesteddata: Long, pptreestructure: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaNavigate(hnode: Long, direction: Int, pcondition: Long, prequest: Long, pprequesteddata: Long, pptreestructure: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus(prequest: Long, pprequesteddata: Long, pptreestructure: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaNodeFromFocus(prequest: Long, pprequesteddata: Long, pptreestructure: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle(hwnd: Long, phnode: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaNodeFromHandle(hwnd: Long, phnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint(x: Double, y: Double, prequest: Long, pprequesteddata: Long, pptreestructure: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaNodeFromPoint(x: Double, y: Double, prequest: Long, pprequesteddata: Long, pptreestructure: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider(pprovider: Long, phnode: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaNodeFromProvider(pprovider: Long, phnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaNodeRelease(hnode: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaNodeRelease(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaPatternRelease(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaPatternRelease(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient(hwnd: Long, idobject: Int, idchild: Int, ppprovider: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaProviderForNonClient(hwnd: Long, idobject: Int, idchild: Int, ppprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible(paccessible: Long, idchild: Int, dwflags: Int, ppprovider: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaProviderFromIAccessible(paccessible: Long, idchild: Int, dwflags: Int, ppprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent(provider: Long, textrange: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseActiveTextPositionChangedEvent(provider: Long, textrange: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent(pprovider: Long, asynccontentloadedstate: Int, percentcomplete: Double): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseAsyncContentLoadedEvent(pprovider: Long, asynccontentloadedstate: Int, percentcomplete: Double): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent(pprovider: Long, id: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(pprovider: Long, id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent(pprovider: Long, eventidcount: Int, puiachanges: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseChangesEvent(pprovider: Long, eventidcount: Int, puiachanges: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent(provider: Long, notificationkind: Int, notificationprocessing: Int, displaystring: Long, activityid: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseNotificationEvent(provider: Long, notificationkind: Int, notificationprocessing: Int, displaystring: Long, activityid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent(pprovider: Long, structurechangetype: Int, pruntimeid: Long, cruntimeidlen: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseStructureChangedEvent(pprovider: Long, structurechangetype: Int, pruntimeid: Long, cruntimeidlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent(pprovider: Long, texteditchangetype: Int, pchangeddata: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRaiseTextEditTextChangedEvent(pprovider: Long, texteditchangetype: Int, pchangeddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback(pcallback: Long)
+    external fun windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback(pcallback: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaRemoveEvent(hevent: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaRemoveEvent(hevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider(hwnd: Long, wparam: Long, lparam: Long, el: Long): Long
+    external fun windowssysWindowsWin32UiAccessibilityUiaReturnRawElementProvider(hwnd: Long, wparam: Long, lparam: Long, el: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaSetFocus(hnode: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaSetFocus(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUiaTextRangeRelease(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_unhookWinEvent(hwineventhook: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityUnhookWinEvent(hwineventhook: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget(hwnd: Long, pointertype: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTarget(hwnd: Long, pointertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx(hwnd: Long, pointertype: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTargetEx(hwnd: Long, pointertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_valuePatternSetValue(hobj: Long, pval: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityValuePatternSetValue(hobj: Long, pval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityVirtualizedItemPatternRealize(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject(param0: Long, phwnd: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityWindowFromAccessibleObject(param0: Long, phwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_windowPatternClose(hobj: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityWindowPatternClose(hobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState(hobj: Long, state: Int): Int
+    external fun windowssysWindowsWin32UiAccessibilityWindowPatternSetWindowVisualState(hobj: Long, state: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle(hobj: Long, milliseconds: Int, presult: Long): Int
+    external fun windowssysWindowsWin32UiAccessibilityWindowPatternWaitForInputIdle(hobj: Long, milliseconds: Int, presult: Long): Int
 }
 
 public actual fun accNotifyTouchInteraction(hwndapp: Hwnd, hwndtarget: Hwnd, pttarget: Point): Hresult =
     0
 
 public actual fun accSetRunningUtilityState(hwndapp: Hwnd, dwutilitystatemask: UInt, dwutilitystate: AccUtilityStateFlags): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState((hwndapp?.value ?: 0L), dwutilitystatemask.toInt(), dwutilitystate.toInt())
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState(hwndapp.rawAddress, dwutilitystatemask.toInt(), dwutilitystate.toInt())
 
-public actual fun accessibleChildren(pacccontainer: COpaquePointer?, ichildstart: Int, cchildren: Int, rgvarchildren: COpaquePointer?, pcobtained: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_accessibleChildren((pacccontainer?.value ?: 0L), ichildstart, cchildren, (rgvarchildren?.value ?: 0L), (pcobtained?.value ?: 0L))
+public actual fun accessibleChildren(pacccontainer: MutPtr<CVoid>, ichildstart: Int, cchildren: Int, rgvarchildren: MutPtr<Variant.Variant>, pcobtained: MutPtr<Int>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityAccessibleChildren(pacccontainer.rawAddress, ichildstart, cchildren, rgvarchildren.rawAddress, pcobtained.rawAddress)
 
-public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: COpaquePointer?, pvarchild: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent((hwnd?.value ?: 0L), dwid.toInt(), dwchildid.toInt(), (ppacc?.value ?: 0L), (pvarchild?.value ?: 0L))
+public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent(hwnd.rawAddress, dwid.toInt(), dwchildid.toInt(), ppacc.rawAddress, pvarchild.rawAddress)
 
-public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: COpaquePointer?, pvarchild: COpaquePointer?): Hresult =
+public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
     0
 
-public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow((hwnd?.value ?: 0L), dwid.toInt(), (riid?.value ?: 0L), (ppvobject?.value ?: 0L))
+public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityAccessibleObjectFromWindow(hwnd.rawAddress, dwid.toInt(), riid.rawAddress, ppvobject.rawAddress)
 
-public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_createStdAccessibleObject((hwnd?.value ?: 0L), idobject, (riid?.value ?: 0L), (ppvobject?.value ?: 0L))
+public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityCreateStdAccessibleObject(hwnd.rawAddress, idobject, riid.rawAddress, ppvobject.rawAddress)
 
-public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA((hwnd?.value ?: 0L), (pclassname?.value ?: 0L), idobject, (riid?.value ?: 0L), (ppvobject?.value ?: 0L))
+public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyA(hwnd.rawAddress, pclassname.rawAddress, idobject, riid.rawAddress, ppvobject.rawAddress)
 
-public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW((hwnd?.value ?: 0L), (pclassname?.value ?: 0L), idobject, (riid?.value ?: 0L), (ppvobject?.value ?: 0L))
+public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyW(hwnd.rawAddress, pclassname.rawAddress, idobject, riid.rawAddress, ppvobject.rawAddress)
 
 public actual fun dockPatternSetDockPosition(hobj: Huiapatternobject, dockposition: DockPosition): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition((hobj?.value ?: 0L), dockposition)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityDockPatternSetDockPosition(hobj.rawAddress, dockposition)
 
 public actual fun expandCollapsePatternCollapse(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityExpandCollapsePatternCollapse(hobj.rawAddress)
 
 public actual fun expandCollapsePatternExpand(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityExpandCollapsePatternExpand(hobj.rawAddress)
 
-public actual fun getOleaccVersionInfo(pver: COpaquePointer?, pbuild: COpaquePointer?) {
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo((pver?.value ?: 0L), (pbuild?.value ?: 0L))
+public actual fun getOleaccVersionInfo(pver: MutPtr<UInt>, pbuild: MutPtr<UInt>) {
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo(pver.rawAddress, pbuild.rawAddress)
 }
 
 public actual fun getRoleTextA(lrole: UInt, lpszrole: Pstr, cchrolemax: UInt): UInt =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_getRoleTextA(lrole.toInt(), (lpszrole?.value ?: 0L), cchrolemax.toInt()).toUInt()
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityGetRoleTextA(lrole.toInt(), lpszrole.rawAddress, cchrolemax.toInt()).toUInt()
 
 public actual fun getRoleTextW(lrole: UInt, lpszrole: Pwstr, cchrolemax: UInt): UInt =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_getRoleTextW(lrole.toInt(), (lpszrole?.value ?: 0L), cchrolemax.toInt()).toUInt()
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityGetRoleTextW(lrole.toInt(), lpszrole.rawAddress, cchrolemax.toInt()).toUInt()
 
 public actual fun getStateTextA(lstatebit: UInt, lpszstate: Pstr, cchstate: UInt): UInt =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_getStateTextA(lstatebit.toInt(), (lpszstate?.value ?: 0L), cchstate.toInt()).toUInt()
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityGetStateTextA(lstatebit.toInt(), lpszstate.rawAddress, cchstate.toInt()).toUInt()
 
 public actual fun getStateTextW(lstatebit: UInt, lpszstate: Pwstr, cchstate: UInt): UInt =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_getStateTextW(lstatebit.toInt(), (lpszstate?.value ?: 0L), cchstate.toInt()).toUInt()
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityGetStateTextW(lstatebit.toInt(), lpszstate.rawAddress, cchstate.toInt()).toUInt()
 
-public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_gridPatternGetItem((hobj?.value ?: 0L), row, column, (presult?.value ?: 0L))
+public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: MutPtr<Huianode>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityGridPatternGetItem(hobj.rawAddress, row, column, presult.rawAddress)
 
 public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_invokePatternInvoke((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityInvokePatternInvoke(hobj.rawAddress)
 
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled(event.toInt())
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event.toInt())
 
-public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant, pfound: COpaquePointer?): Hresult =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr<Huianode>): Hresult =
     0
 
 public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternDoDefaultAction(hobj.rawAddress)
 
-public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible((hobj?.value ?: 0L), (paccessible?.value ?: 0L))
+public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternGetIaccessible(hobj.rawAddress, paccessible.rawAddress)
 
 public actual fun legacyIaccessiblePatternSelect(hobj: Huiapatternobject, flagsselect: Int): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect((hobj?.value ?: 0L), flagsselect)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSelect(hobj.rawAddress, flagsselect)
 
 public actual fun legacyIaccessiblePatternSetValue(hobj: Huiapatternobject, szvalue: Pcwstr): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue((hobj?.value ?: 0L), (szvalue?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSetValue(hobj.rawAddress, szvalue.rawAddress)
 
-public actual fun lresultFromObject(riid: COpaquePointer?, wparam: Wparam, punk: COpaquePointer?): Lresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_lresultFromObject((riid?.value ?: 0L), wparam.toLong(), (punk?.value ?: 0L))
+public actual fun lresultFromObject(riid: ConstPtr<Guid>, wparam: Wparam, punk: MutPtr<CVoid>): Lresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityLresultFromObject(riid.rawAddress, wparam.toLong(), punk.rawAddress)
 
-public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName((hobj?.value ?: 0L), viewid, (ppstr?.value ?: 0L))
+public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: MutPtr<Bstr>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityMultipleViewPatternGetViewName(hobj.rawAddress, viewid, ppstr.rawAddress)
 
 public actual fun multipleViewPatternSetCurrentView(hobj: Huiapatternobject, viewid: Int): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView((hobj?.value ?: 0L), viewid)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityMultipleViewPatternSetCurrentView(hobj.rawAddress, viewid)
 
 public actual fun notifyWinEvent(event: UInt, hwnd: Hwnd, idobject: Int, idchild: Int) {
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_notifyWinEvent(event.toInt(), (hwnd?.value ?: 0L), idobject, idchild)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityNotifyWinEvent(event.toInt(), hwnd.rawAddress, idobject, idchild)
 }
 
-public actual fun objectFromLresult(lresult: Lresult, riid: COpaquePointer?, wparam: Wparam, ppvobject: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_objectFromLresult(lresult, (riid?.value ?: 0L), wparam.toLong(), (ppvobject?.value ?: 0L))
+public actual fun objectFromLresult(lresult: Lresult, riid: ConstPtr<Guid>, wparam: Wparam, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityObjectFromLresult(lresult, riid.rawAddress, wparam.toLong(), ppvobject.rawAddress)
 
 public actual fun rangeValuePatternSetValue(hobj: Huiapatternobject, value: Double): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue((hobj?.value ?: 0L), value)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityRangeValuePatternSetValue(hobj.rawAddress, value)
 
 public actual fun registerPointerInputTarget(hwnd: Hwnd, pointertype: PointerInputType): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_registerPointerInputTarget((hwnd?.value ?: 0L), pointertype)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityRegisterPointerInputTarget(hwnd.rawAddress, pointertype)
 
 public actual fun registerPointerInputTargetEx(hwnd: Hwnd, pointertype: PointerInputType, fobserve: Bool): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx((hwnd?.value ?: 0L), pointertype, fobserve)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityRegisterPointerInputTargetEx(hwnd.rawAddress, pointertype, fobserve)
 
 public actual fun scrollItemPatternScrollIntoView(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityScrollItemPatternScrollIntoView(hobj.rawAddress)
 
 public actual fun scrollPatternScroll(hobj: Huiapatternobject, horizontalamount: ScrollAmount, verticalamount: ScrollAmount): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_scrollPatternScroll((hobj?.value ?: 0L), horizontalamount, verticalamount)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityScrollPatternScroll(hobj.rawAddress, horizontalamount, verticalamount)
 
 public actual fun scrollPatternSetScrollPercent(hobj: Huiapatternobject, horizontalpercent: Double, verticalpercent: Double): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent((hobj?.value ?: 0L), horizontalpercent, verticalpercent)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityScrollPatternSetScrollPercent(hobj.rawAddress, horizontalpercent, verticalpercent)
 
 public actual fun selectionItemPatternAddToSelection(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilitySelectionItemPatternAddToSelection(hobj.rawAddress)
 
 public actual fun selectionItemPatternRemoveFromSelection(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilitySelectionItemPatternRemoveFromSelection(hobj.rawAddress)
 
 public actual fun selectionItemPatternSelect(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilitySelectionItemPatternSelect(hobj.rawAddress)
 
 public actual fun setWinEventHook(eventmin: UInt, eventmax: UInt, hmodwineventproc: Hmodule, pfnwineventproc: Wineventproc, idprocess: UInt, idthread: UInt, dwflags: UInt): Hwineventhook =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_setWinEventHook(eventmin.toInt(), eventmax.toInt(), (hmodwineventproc?.value ?: 0L), 0L, idprocess.toInt(), idthread.toInt(), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilitySetWinEventHook(eventmin.toInt(), eventmax.toInt(), hmodwineventproc.rawAddress, 0L, idprocess.toInt(), idthread.toInt(), dwflags.toInt()))
 
 public actual fun synchronizedInputPatternCancel(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternCancel(hobj.rawAddress)
 
 public actual fun synchronizedInputPatternStartListening(hobj: Huiapatternobject, inputtype: SynchronizedInputType): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening((hobj?.value ?: 0L), inputtype)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternStartListening(hobj.rawAddress, inputtype)
 
-public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textPatternGetSelection((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextPatternGetSelection(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextPatternGetVisibleRanges(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild((hobj?.value ?: 0L), (hnodechild?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: MutPtr<Huiatextrange>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextPatternRangeFromChild(hobj.rawAddress, hnodechild.rawAddress, pretval.rawAddress)
 
-public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: COpaquePointer?): Hresult =
+public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: MutPtr<Huiatextrange>): Hresult =
     0
 
-public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: MutPtr<Huiatextrange>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextPatternGetDocumentRange(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: MutPtr<SupportedTextSelection>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextPatternGetSupportedTextSelection(hobj.rawAddress, pretval.rawAddress)
 
 public actual fun textRangeAddToSelection(hobj: Huiatextrange): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeAddToSelection((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeAddToSelection(hobj.rawAddress)
 
-public actual fun textRangeClone(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeClone((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textRangeClone(hobj: Huiatextrange, pretval: MutPtr<Huiatextrange>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeClone(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeCompare((hobj?.value ?: 0L), (range?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: MutPtr<Bool>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeCompare(hobj.rawAddress, range.rawAddress, pretval.rawAddress)
 
-public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints((hobj?.value ?: 0L), endpoint, (targetrange?.value ?: 0L), targetendpoint, (pretval?.value ?: 0L))
+public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: MutPtr<Int>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeCompareEndpoints(hobj.rawAddress, endpoint, targetrange.rawAddress, targetendpoint, pretval.rawAddress)
 
 public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit((hobj?.value ?: 0L), unit)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(hobj.rawAddress, unit)
 
-public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant, backward: Bool, pretval: COpaquePointer?): Hresult =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr<Huiatextrange>): Hresult =
     0
 
-public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeFindText((hobj?.value ?: 0L), (text?.value ?: 0L), backward, ignorecase, (pretval?.value ?: 0L))
+public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr<Huiatextrange>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeFindText(hobj.rawAddress, text.rawAddress, backward, ignorecase, pretval.rawAddress)
 
-public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue((hobj?.value ?: 0L), attributeid, (pretval?.value ?: 0L))
+public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: MutPtr<Variant.Variant>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeGetAttributeValue(hobj.rawAddress, attributeid, pretval.rawAddress)
 
-public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeGetBoundingRectangles(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeGetChildren((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeGetChildren(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement((hobj?.value ?: 0L), (pretval?.value ?: 0L))
+public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: MutPtr<Huianode>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeGetEnclosingElement(hobj.rawAddress, pretval.rawAddress)
 
-public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeGetText((hobj?.value ?: 0L), maxlength, (pretval?.value ?: 0L))
+public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: MutPtr<Bstr>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeGetText(hobj.rawAddress, maxlength, pretval.rawAddress)
 
-public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeMove((hobj?.value ?: 0L), unit, count, (pretval?.value ?: 0L))
+public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: MutPtr<Int>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeMove(hobj.rawAddress, unit, count, pretval.rawAddress)
 
 public actual fun textRangeMoveEndpointByRange(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange((hobj?.value ?: 0L), endpoint, (targetrange?.value ?: 0L), targetendpoint)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByRange(hobj.rawAddress, endpoint, targetrange.rawAddress, targetendpoint)
 
-public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit((hobj?.value ?: 0L), endpoint, unit, count, (pretval?.value ?: 0L))
+public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: MutPtr<Int>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByUnit(hobj.rawAddress, endpoint, unit, count, pretval.rawAddress)
 
 public actual fun textRangeRemoveFromSelection(hobj: Huiatextrange): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeRemoveFromSelection(hobj.rawAddress)
 
 public actual fun textRangeScrollIntoView(hobj: Huiatextrange, aligntotop: Bool): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView((hobj?.value ?: 0L), aligntotop)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeScrollIntoView(hobj.rawAddress, aligntotop)
 
 public actual fun textRangeSelect(hobj: Huiatextrange): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_textRangeSelect((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTextRangeSelect(hobj.rawAddress)
 
 public actual fun togglePatternToggle(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_togglePatternToggle((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTogglePatternToggle(hobj.rawAddress)
 
 public actual fun transformPatternMove(hobj: Huiapatternobject, x: Double, y: Double): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_transformPatternMove((hobj?.value ?: 0L), x, y)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTransformPatternMove(hobj.rawAddress, x, y)
 
 public actual fun transformPatternResize(hobj: Huiapatternobject, width: Double, height: Double): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_transformPatternResize((hobj?.value ?: 0L), width, height)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTransformPatternResize(hobj.rawAddress, width, height)
 
 public actual fun transformPatternRotate(hobj: Huiapatternobject, degrees: Double): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_transformPatternRotate((hobj?.value ?: 0L), degrees)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityTransformPatternRotate(hobj.rawAddress, degrees)
 
-public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: COpaquePointer?, scope: TreeScope, pproperties: COpaquePointer?, cproperties: Int, prequest: COpaquePointer?, phevent: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaAddEvent((hnode?.value ?: 0L), eventid, (pcallback?.value ?: 0L), scope, (pproperties?.value ?: 0L), cproperties, (prequest?.value ?: 0L), (phevent?.value ?: 0L))
+public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: MutPtr<UiaEventCallback>, scope: TreeScope, pproperties: MutPtr<Int>, cproperties: Int, prequest: MutPtr<UiaCacheRequest>, phevent: MutPtr<Huiaevent>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaAddEvent(hnode.rawAddress, eventid, pcallback.rawAddress, scope, pproperties.rawAddress, cproperties, prequest.rawAddress, phevent.rawAddress)
 
 public actual fun uiaClientsAreListening(): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaClientsAreListening()
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaClientsAreListening()
 
 public actual fun uiaDisconnectAllProviders(): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders()
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders()
 
-public actual fun uiaDisconnectProvider(pprovider: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider((pprovider?.value ?: 0L))
+public actual fun uiaDisconnectProvider(pprovider: MutPtr<CVoid>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider(pprovider.rawAddress)
 
 public actual fun uiaEventAddWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaEventAddWindow((hevent?.value ?: 0L), (hwnd?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaEventAddWindow(hevent.rawAddress, hwnd.rawAddress)
 
 public actual fun uiaEventRemoveWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow((hevent?.value ?: 0L), (hwnd?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaEventRemoveWindow(hevent.rawAddress, hwnd.rawAddress)
 
-public actual fun uiaFind(hnode: Huianode, pparams: COpaquePointer?, prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, ppoffsets: COpaquePointer?, pptreestructures: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaFind((hnode?.value ?: 0L), (pparams?.value ?: 0L), (prequest?.value ?: 0L), (pprequesteddata?.value ?: 0L), (ppoffsets?.value ?: 0L), (pptreestructures?.value ?: 0L))
+public actual fun uiaFind(hnode: Huianode, pparams: MutPtr<UiaFindParams>, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, ppoffsets: MutPtr<MutPtr<Safearray>>, pptreestructures: MutPtr<MutPtr<Safearray>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaFind(hnode.rawAddress, pparams.rawAddress, prequest.rawAddress, pprequesteddata.rawAddress, ppoffsets.rawAddress, pptreestructures.rawAddress)
 
-public actual fun uiaGetErrorDescription(pdescription: COpaquePointer?): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription((pdescription?.value ?: 0L))
+public actual fun uiaGetErrorDescription(pdescription: MutPtr<Bstr>): Bool =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetErrorDescription(pdescription.rawAddress)
 
-public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider((hnode?.value ?: 0L), patternid, (phobj?.value ?: 0L))
+public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: MutPtr<Huiapatternobject>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetPatternProvider(hnode.rawAddress, patternid, phobj.rawAddress)
 
-public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue((hnode?.value ?: 0L), propertyid, (pvalue?.value ?: 0L))
+public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: MutPtr<Variant.Variant>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetPropertyValue(hnode.rawAddress, propertyid, pvalue.rawAddress)
 
-public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue((punkmixedattributevalue?.value ?: 0L))
+public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetReservedMixedAttributeValue(punkmixedattributevalue.rawAddress)
 
-public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue((punknotsupportedvalue?.value ?: 0L))
+public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetReservedNotSupportedValue(punknotsupportedvalue.rawAddress)
 
-public actual fun uiaGetRootNode(phnode: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetRootNode((phnode?.value ?: 0L))
+public actual fun uiaGetRootNode(phnode: MutPtr<Huianode>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetRootNode(phnode.rawAddress)
 
-public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId((hnode?.value ?: 0L), (pruntimeid?.value ?: 0L))
+public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: MutPtr<MutPtr<Safearray>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetRuntimeId(hnode.rawAddress, pruntimeid.rawAddress)
 
-public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: COpaquePointer?, normalizestate: NormalizeState, pnormalizecondition: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache((hnode?.value ?: 0L), (prequest?.value ?: 0L), normalizestate, (pnormalizecondition?.value ?: 0L), (pprequesteddata?.value ?: 0L), (pptreestructure?.value ?: 0L))
+public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: MutPtr<UiaCacheRequest>, normalizestate: NormalizeState, pnormalizecondition: MutPtr<UiaCondition>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaGetUpdatedCache(hnode.rawAddress, prequest.rawAddress, normalizestate, pnormalizecondition.rawAddress, pprequesteddata.rawAddress, pptreestructure.rawAddress)
 
-public actual fun uiaHPatternObjectFromVariant(pvar: COpaquePointer?, phobj: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant((pvar?.value ?: 0L), (phobj?.value ?: 0L))
+public actual fun uiaHPatternObjectFromVariant(pvar: MutPtr<Variant.Variant>, phobj: MutPtr<Huiapatternobject>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaHPatternObjectFromVariant(pvar.rawAddress, phobj.rawAddress)
 
-public actual fun uiaHTextRangeFromVariant(pvar: COpaquePointer?, phtextrange: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant((pvar?.value ?: 0L), (phtextrange?.value ?: 0L))
+public actual fun uiaHTextRangeFromVariant(pvar: MutPtr<Variant.Variant>, phtextrange: MutPtr<Huiatextrange>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaHTextRangeFromVariant(pvar.rawAddress, phtextrange.rawAddress)
 
-public actual fun uiaHUiaNodeFromVariant(pvar: COpaquePointer?, phnode: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant((pvar?.value ?: 0L), (phnode?.value ?: 0L))
+public actual fun uiaHUiaNodeFromVariant(pvar: MutPtr<Variant.Variant>, phnode: MutPtr<Huianode>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaHUiaNodeFromVariant(pvar.rawAddress, phnode.rawAddress)
 
 public actual fun uiaHasServerSideProvider(hwnd: Hwnd): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider((hwnd?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaHasServerSideProvider(hwnd.rawAddress)
 
-public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd((hwnd?.value ?: 0L), (ppprovider?.value ?: 0L))
+public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaHostProviderFromHwnd(hwnd.rawAddress, ppprovider.rawAddress)
 
-public actual fun uiaIAccessibleFromProvider(pprovider: COpaquePointer?, dwflags: UInt, ppaccessible: COpaquePointer?, pvarchild: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider((pprovider?.value ?: 0L), dwflags.toInt(), (ppaccessible?.value ?: 0L), (pvarchild?.value ?: 0L))
+public actual fun uiaIAccessibleFromProvider(pprovider: MutPtr<CVoid>, dwflags: UInt, ppaccessible: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaIAccessibleFromProvider(pprovider.rawAddress, dwflags.toInt(), ppaccessible.rawAddress, pvarchild.rawAddress)
 
-public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: COpaquePointer?): Int =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaLookupId(type, (pguid?.value ?: 0L))
+public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: ConstPtr<Guid>): Int =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaLookupId(type, pguid.rawAddress)
 
-public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: COpaquePointer?, prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaNavigate((hnode?.value ?: 0L), direction, (pcondition?.value ?: 0L), (prequest?.value ?: 0L), (pprequesteddata?.value ?: 0L), (pptreestructure?.value ?: 0L))
+public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: MutPtr<UiaCondition>, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaNavigate(hnode.rawAddress, direction, pcondition.rawAddress, prequest.rawAddress, pprequesteddata.rawAddress, pptreestructure.rawAddress)
 
-public actual fun uiaNodeFromFocus(prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus((prequest?.value ?: 0L), (pprequesteddata?.value ?: 0L), (pptreestructure?.value ?: 0L))
+public actual fun uiaNodeFromFocus(prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaNodeFromFocus(prequest.rawAddress, pprequesteddata.rawAddress, pptreestructure.rawAddress)
 
-public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle((hwnd?.value ?: 0L), (phnode?.value ?: 0L))
+public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: MutPtr<Huianode>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaNodeFromHandle(hwnd.rawAddress, phnode.rawAddress)
 
-public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint(x, y, (prequest?.value ?: 0L), (pprequesteddata?.value ?: 0L), (pptreestructure?.value ?: 0L))
+public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaNodeFromPoint(x, y, prequest.rawAddress, pprequesteddata.rawAddress, pptreestructure.rawAddress)
 
-public actual fun uiaNodeFromProvider(pprovider: COpaquePointer?, phnode: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider((pprovider?.value ?: 0L), (phnode?.value ?: 0L))
+public actual fun uiaNodeFromProvider(pprovider: MutPtr<CVoid>, phnode: MutPtr<Huianode>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaNodeFromProvider(pprovider.rawAddress, phnode.rawAddress)
 
 public actual fun uiaNodeRelease(hnode: Huianode): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaNodeRelease((hnode?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaNodeRelease(hnode.rawAddress)
 
 public actual fun uiaPatternRelease(hobj: Huiapatternobject): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaPatternRelease((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaPatternRelease(hobj.rawAddress)
 
-public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient((hwnd?.value ?: 0L), idobject, idchild, (ppprovider?.value ?: 0L))
+public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaProviderForNonClient(hwnd.rawAddress, idobject, idchild, ppprovider.rawAddress)
 
-public actual fun uiaProviderFromIAccessible(paccessible: COpaquePointer?, idchild: Int, dwflags: UInt, ppprovider: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible((paccessible?.value ?: 0L), idchild, dwflags.toInt(), (ppprovider?.value ?: 0L))
+public actual fun uiaProviderFromIAccessible(paccessible: MutPtr<CVoid>, idchild: Int, dwflags: UInt, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaProviderFromIAccessible(paccessible.rawAddress, idchild, dwflags.toInt(), ppprovider.rawAddress)
 
-public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: COpaquePointer?, textrange: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent((provider?.value ?: 0L), (textrange?.value ?: 0L))
+public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: MutPtr<CVoid>, textrange: MutPtr<CVoid>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseActiveTextPositionChangedEvent(provider.rawAddress, textrange.rawAddress)
 
-public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: COpaquePointer?, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent((pprovider?.value ?: 0L), asynccontentloadedstate, percentcomplete)
+public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr<CVoid>, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseAsyncContentLoadedEvent(pprovider.rawAddress, asynccontentloadedstate, percentcomplete)
 
-public actual fun uiaRaiseAutomationEvent(pprovider: COpaquePointer?, id: UiaEventId): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent((pprovider?.value ?: 0L), id)
+public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr<CVoid>, id: UiaEventId): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(pprovider.rawAddress, id)
 
-public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: COpaquePointer?, id: UiaPropertyId, oldvalue: Variant, newvalue: Variant): Hresult =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr<CVoid>, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
     0
 
-public actual fun uiaRaiseChangesEvent(pprovider: COpaquePointer?, eventidcount: Int, puiachanges: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent((pprovider?.value ?: 0L), eventidcount, (puiachanges?.value ?: 0L))
+public actual fun uiaRaiseChangesEvent(pprovider: MutPtr<CVoid>, eventidcount: Int, puiachanges: MutPtr<UiaChangeInfo>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseChangesEvent(pprovider.rawAddress, eventidcount, puiachanges.rawAddress)
 
-public actual fun uiaRaiseNotificationEvent(provider: COpaquePointer?, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent((provider?.value ?: 0L), notificationkind, notificationprocessing, (displaystring?.value ?: 0L), (activityid?.value ?: 0L))
+public actual fun uiaRaiseNotificationEvent(provider: MutPtr<CVoid>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseNotificationEvent(provider.rawAddress, notificationkind, notificationprocessing, displaystring.rawAddress, activityid.rawAddress)
 
-public actual fun uiaRaiseStructureChangedEvent(pprovider: COpaquePointer?, structurechangetype: StructureChangeType, pruntimeid: COpaquePointer?, cruntimeidlen: Int): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent((pprovider?.value ?: 0L), structurechangetype, (pruntimeid?.value ?: 0L), cruntimeidlen)
+public actual fun uiaRaiseStructureChangedEvent(pprovider: MutPtr<CVoid>, structurechangetype: StructureChangeType, pruntimeid: MutPtr<Int>, cruntimeidlen: Int): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseStructureChangedEvent(pprovider.rawAddress, structurechangetype, pruntimeid.rawAddress, cruntimeidlen)
 
-public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: COpaquePointer?, texteditchangetype: TextEditChangeType, pchangeddata: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent((pprovider?.value ?: 0L), texteditchangetype, (pchangeddata?.value ?: 0L))
+public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: MutPtr<CVoid>, texteditchangetype: TextEditChangeType, pchangeddata: MutPtr<Safearray>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRaiseTextEditTextChangedEvent(pprovider.rawAddress, texteditchangetype, pchangeddata.rawAddress)
 
-public actual fun uiaRegisterProviderCallback(pcallback: COpaquePointer?) {
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback((pcallback?.value ?: 0L))
+public actual fun uiaRegisterProviderCallback(pcallback: MutPtr<UiaProviderCallback>) {
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback(pcallback.rawAddress)
 }
 
 public actual fun uiaRemoveEvent(hevent: Huiaevent): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaRemoveEvent((hevent?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaRemoveEvent(hevent.rawAddress)
 
-public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: COpaquePointer?): Lresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider((hwnd?.value ?: 0L), wparam.toLong(), lparam, (el?.value ?: 0L))
+public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: MutPtr<CVoid>): Lresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaReturnRawElementProvider(hwnd.rawAddress, wparam.toLong(), lparam, el.rawAddress)
 
 public actual fun uiaSetFocus(hnode: Huianode): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaSetFocus((hnode?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaSetFocus(hnode.rawAddress)
 
 public actual fun uiaTextRangeRelease(hobj: Huiatextrange): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUiaTextRangeRelease(hobj.rawAddress)
 
 public actual fun unhookWinEvent(hwineventhook: Hwineventhook): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_unhookWinEvent((hwineventhook?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUnhookWinEvent(hwineventhook.rawAddress)
 
 public actual fun unregisterPointerInputTarget(hwnd: Hwnd, pointertype: PointerInputType): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget((hwnd?.value ?: 0L), pointertype)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTarget(hwnd.rawAddress, pointertype)
 
 public actual fun unregisterPointerInputTargetEx(hwnd: Hwnd, pointertype: PointerInputType): Bool =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx((hwnd?.value ?: 0L), pointertype)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTargetEx(hwnd.rawAddress, pointertype)
 
 public actual fun valuePatternSetValue(hobj: Huiapatternobject, pval: Pcwstr): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_valuePatternSetValue((hobj?.value ?: 0L), (pval?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityValuePatternSetValue(hobj.rawAddress, pval.rawAddress)
 
 public actual fun virtualizedItemPatternRealize(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityVirtualizedItemPatternRealize(hobj.rawAddress)
 
-public actual fun windowFromAccessibleObject(param0: COpaquePointer?, phwnd: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject((param0?.value ?: 0L), (phwnd?.value ?: 0L))
+public actual fun windowFromAccessibleObject(param0: MutPtr<CVoid>, phwnd: MutPtr<Hwnd>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityWindowFromAccessibleObject(param0.rawAddress, phwnd.rawAddress)
 
 public actual fun windowPatternClose(hobj: Huiapatternobject): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_windowPatternClose((hobj?.value ?: 0L))
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityWindowPatternClose(hobj.rawAddress)
 
 public actual fun windowPatternSetWindowVisualState(hobj: Huiapatternobject, state: WindowVisualState): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState((hobj?.value ?: 0L), state)
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityWindowPatternSetWindowVisualState(hobj.rawAddress, state)
 
-public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: COpaquePointer?): Hresult =
-    WindowsWin32UiAccessibilityJniBridge.windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle((hobj?.value ?: 0L), milliseconds, (presult?.value ?: 0L))
+public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: MutPtr<Bool>): Hresult =
+    WindowsWin32UiAccessibilityJniBridge.windowssysWindowsWin32UiAccessibilityWindowPatternWaitForInputIdle(hobj.rawAddress, milliseconds, presult.rawAddress)

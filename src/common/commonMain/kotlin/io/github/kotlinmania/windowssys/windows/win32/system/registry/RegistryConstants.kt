@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.registry
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
@@ -84,25 +85,25 @@ public val EISAFLAG_SLOT_IO_FIRST: UInt = 2u
 
 public val EISA_NO_MAX_FUNCTION: UInt = 255u
 
-public val HKEY_CLASSES_ROOT: Hkey = COpaquePointer((-2147483648.toInt()).toLong())
+public val HKEY_CLASSES_ROOT: Hkey = MutPtr<CVoid>((-2147483648.toInt()).toLong())
 
-public val HKEY_CURRENT_CONFIG: Hkey = COpaquePointer((-2147483643).toLong())
+public val HKEY_CURRENT_CONFIG: Hkey = MutPtr<CVoid>((-2147483643).toLong())
 
-public val HKEY_CURRENT_USER: Hkey = COpaquePointer((-2147483647).toLong())
+public val HKEY_CURRENT_USER: Hkey = MutPtr<CVoid>((-2147483647).toLong())
 
-public val HKEY_CURRENT_USER_LOCAL_SETTINGS: Hkey = COpaquePointer((-2147483641).toLong())
+public val HKEY_CURRENT_USER_LOCAL_SETTINGS: Hkey = MutPtr<CVoid>((-2147483641).toLong())
 
-public val HKEY_DYN_DATA: Hkey = COpaquePointer((-2147483642).toLong())
+public val HKEY_DYN_DATA: Hkey = MutPtr<CVoid>((-2147483642).toLong())
 
-public val HKEY_LOCAL_MACHINE: Hkey = COpaquePointer((-2147483646).toLong())
+public val HKEY_LOCAL_MACHINE: Hkey = MutPtr<CVoid>((-2147483646).toLong())
 
-public val HKEY_PERFORMANCE_DATA: Hkey = COpaquePointer((-2147483644).toLong())
+public val HKEY_PERFORMANCE_DATA: Hkey = MutPtr<CVoid>((-2147483644).toLong())
 
-public val HKEY_PERFORMANCE_NLSTEXT: Hkey = COpaquePointer((-2147483552).toLong())
+public val HKEY_PERFORMANCE_NLSTEXT: Hkey = MutPtr<CVoid>((-2147483552).toLong())
 
-public val HKEY_PERFORMANCE_TEXT: Hkey = COpaquePointer((-2147483568).toLong())
+public val HKEY_PERFORMANCE_TEXT: Hkey = MutPtr<CVoid>((-2147483568).toLong())
 
-public val HKEY_USERS: Hkey = COpaquePointer((-2147483645).toLong())
+public val HKEY_USERS: Hkey = MutPtr<CVoid>((-2147483645).toLong())
 
 public val IT_COMPACT: UInt = 0u
 

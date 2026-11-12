@@ -2,8 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.addressbook
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
@@ -11,209 +14,260 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 
 private object WindowsWin32SystemAddressbookJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SystemAddressbookJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_buildDisplayTable(lpallocatebuffer: Long, lpallocatemore: Long, lpfreebuffer: Long, lpmalloc: Long, hinstance: Long, cpages: Int, lppage: Long, ulflags: Int, lpptable: Long, lpptbldata: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookBuildDisplayTable(lpallocatebuffer: Long, lpallocatemore: Long, lpfreebuffer: Long, lpmalloc: Long, hinstance: Long, cpages: Int, lppage: Long, ulflags: Int, lpptable: Long, lpptbldata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_changeIdleRoutine(ftg: Long, lpfnidle: Long, lpvidleparam: Long, priidle: Short, csecidle: Int, iroidle: Short, ircidle: Short)
+    external fun windowssysWindowsWin32SystemAddressbookChangeIdleRoutine(ftg: Long, lpfnidle: Long, lpvidleparam: Long, priidle: Short, csecidle: Int, iroidle: Short, ircidle: Short)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_createIProp(lpinterface: Long, lpallocatebuffer: Long, lpallocatemore: Long, lpfreebuffer: Long, lpvreserved: Long, lpppropdata: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookCreateIProp(lpinterface: Long, lpallocatebuffer: Long, lpallocatemore: Long, lpfreebuffer: Long, lpvreserved: Long, lpppropdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_createTable(lpinterface: Long, lpallocatebuffer: Long, lpallocatemore: Long, lpfreebuffer: Long, lpvreserved: Long, ultabletype: Int, ulproptagindexcolumn: Int, lpsproptagarraycolumns: Long, lpptabledata: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookCreateTable(lpinterface: Long, lpallocatebuffer: Long, lpallocatemore: Long, lpfreebuffer: Long, lpvreserved: Long, ultabletype: Int, ulproptagindexcolumn: Int, lpsproptagarraycolumns: Long, lpptabledata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_deinitMapiUtil()
+    external fun windowssysWindowsWin32SystemAddressbookDeinitMapiUtil()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_deregisterIdleRoutine(ftg: Long)
+    external fun windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine(ftg: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_enableIdleRoutine(ftg: Long, fenable: Int)
+    external fun windowssysWindowsWin32SystemAddressbookEnableIdleRoutine(ftg: Long, fenable: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_fEqualNames(lpname1: Long, lpname2: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookFEqualNames(lpname1: Long, lpname2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_fPropCompareProp(lpspropvalue1: Long, ulrelop: Int, lpspropvalue2: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookFPropCompareProp(lpspropvalue1: Long, ulrelop: Int, lpspropvalue2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_fPropContainsProp(lpspropvaluedst: Long, lpspropvaluesrc: Long, ulfuzzylevel: Int): Int
+    external fun windowssysWindowsWin32SystemAddressbookFPropContainsProp(lpspropvaluedst: Long, lpspropvaluesrc: Long, ulfuzzylevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_fPropExists(lpmapiprop: Long, ulproptag: Int): Int
+    external fun windowssysWindowsWin32SystemAddressbookFPropExists(lpmapiprop: Long, ulproptag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_freePadrlist(lpadrlist: Long)
+    external fun windowssysWindowsWin32SystemAddressbookFreePadrlist(lpadrlist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_freeProws(lprows: Long)
+    external fun windowssysWindowsWin32SystemAddressbookFreeProws(lprows: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine(lpfnidle: Long, lpvidleparam: Long, priidle: Short, csecidle: Int, iroidle: Short): Long
+    external fun windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine(lpfnidle: Long, lpvidleparam: Long, priidle: Short, csecidle: Int, iroidle: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrAddColumns(lptbl: Long, lpproptagcolumnsnew: Long, lpallocatebuffer: Long, lpfreebuffer: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrAddColumns(lptbl: Long, lpproptagcolumnsnew: Long, lpallocatebuffer: Long, lpfreebuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrAddColumnsEx(lptbl: Long, lpproptagcolumnsnew: Long, lpallocatebuffer: Long, lpfreebuffer: Long, lpfnfiltercolumns: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrAddColumnsEx(lptbl: Long, lpproptagcolumnsnew: Long, lpallocatebuffer: Long, lpfreebuffer: Long, lpfnfiltercolumns: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrAllocAdviseSink(lpfncallback: Long, lpvcontext: Long, lppadvisesink: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink(lpfncallback: Long, lpvcontext: Long, lppadvisesink: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrDispatchNotifications(ulflags: Int): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrGetOneProp(lpmapiprop: Long, ulproptag: Int, lppprop: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrGetOneProp(lpmapiprop: Long, ulproptag: Int, lppprop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrIStorageFromStream(lpunkin: Long, lpinterface: Long, ulflags: Int, lppstorageout: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrIStorageFromStream(lpunkin: Long, lpinterface: Long, ulflags: Int, lppstorageout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrQueryAllRows(lptable: Long, lpproptags: Long, lprestriction: Long, lpsortorderset: Long, crowsmax: Int, lpprows: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrQueryAllRows(lptable: Long, lpproptags: Long, lprestriction: Long, lpsortorderset: Long, crowsmax: Int, lpprows: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrSetOneProp(lpmapiprop: Long, lpprop: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrSetOneProp(lpmapiprop: Long, lpprop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink(lpadvisesink: Long, lppadvisesink: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink(lpadvisesink: Long, lppadvisesink: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_lPropCompareProp(lpspropvaluea: Long, lpspropvalueb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookLPropCompareProp(lpspropvaluea: Long, lpspropvalueb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_lpValFindProp(ulproptag: Int, cvalues: Int, lpproparray: Long): Long
+    external fun windowssysWindowsWin32SystemAddressbookLpValFindProp(ulproptag: Int, cvalues: Int, lpproparray: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_mAPIDeinitIdle()
+    external fun windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc(): Long
+    external fun windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_mAPIInitIdle(lpvreserved: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookMAPIInitIdle(lpvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_openStreamOnFile(lpallocatebuffer: Long, lpfreebuffer: Long, ulflags: Int, lpszfilename: Long, lpszprefix: Long, lppstream: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookOpenStreamOnFile(lpallocatebuffer: Long, lpfreebuffer: Long, ulflags: Int, lpszfilename: Long, lpszprefix: Long, lppstream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_ppropFindProp(lpproparray: Long, cvalues: Int, ulproptag: Int): Long
+    external fun windowssysWindowsWin32SystemAddressbookPpropFindProp(lpproparray: Long, cvalues: Int, ulproptag: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_propCopyMore(lpspropvaluedest: Long, lpspropvaluesrc: Long, lpfallocmore: Long, lpvobject: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookPropCopyMore(lpspropvaluedest: Long, lpspropvaluesrc: Long, lpfallocmore: Long, lpvobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_rTFSync(lpmessage: Long, ulflags: Int, lpfmessageupdated: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookRTFSync(lpmessage: Long, ulflags: Int, lpfmessageupdated: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scCopyNotifications(cnotification: Int, lpnotifications: Long, lpvdst: Long, lpcb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScCopyNotifications(cnotification: Int, lpnotifications: Long, lpvdst: Long, lpcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scCopyProps(cvalues: Int, lpproparray: Long, lpvdst: Long, lpcb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScCopyProps(cvalues: Int, lpproparray: Long, lpvdst: Long, lpcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scCountNotifications(cnotifications: Int, lpnotifications: Long, lpcb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScCountNotifications(cnotifications: Int, lpnotifications: Long, lpcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scCountProps(cvalues: Int, lpproparray: Long, lpcb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScCountProps(cvalues: Int, lpproparray: Long, lpcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scCreateConversationIndex(cbparent: Int, lpbparent: Long, lpcbconvindex: Long, lppbconvindex: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScCreateConversationIndex(cbparent: Int, lpbparent: Long, lpcbconvindex: Long, lppbconvindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scDupPropset(cvalues: Int, lpproparray: Long, lpallocatebuffer: Long, lppproparray: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScDupPropset(cvalues: Int, lpproparray: Long, lpallocatebuffer: Long, lppproparray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scInitMapiUtil(ulflags: Int): Int
+    external fun windowssysWindowsWin32SystemAddressbookScInitMapiUtil(ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scLocalPathFromUNC(lpszunc: Long, lpszlocal: Long, cchlocal: Int): Int
+    external fun windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC(lpszunc: Long, lpszlocal: Long, cchlocal: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scRelocNotifications(cnotification: Int, lpnotifications: Long, lpvbaseold: Long, lpvbasenew: Long, lpcb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScRelocNotifications(cnotification: Int, lpnotifications: Long, lpvbaseold: Long, lpvbasenew: Long, lpcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scRelocProps(cvalues: Int, lpproparray: Long, lpvbaseold: Long, lpvbasenew: Long, lpcb: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookScRelocProps(cvalues: Int, lpproparray: Long, lpvbaseold: Long, lpvbasenew: Long, lpcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_scUNCFromLocalPath(lpszlocal: Long, lpszunc: Long, cchunc: Int): Int
+    external fun windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath(lpszlocal: Long, lpszunc: Long, cchunc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_szFindCh(lpsz: Long, ch: Short): Long
+    external fun windowssysWindowsWin32SystemAddressbookSzFindCh(lpsz: Long, ch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_szFindLastCh(lpsz: Long, ch: Short): Long
+    external fun windowssysWindowsWin32SystemAddressbookSzFindLastCh(lpsz: Long, ch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_szFindSz(lpsz: Long, lpszkey: Long): Long
+    external fun windowssysWindowsWin32SystemAddressbookSzFindSz(lpsz: Long, lpszkey: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_uFromSz(lpsz: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookUFromSz(lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_ulAddRef(lpunk: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookUlAddRef(lpunk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_ulPropSize(lpspropvalue: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookUlPropSize(lpspropvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_ulRelease(lpunk: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookUlRelease(lpunk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream(lpcompressedrtfstream: Long, ulflags: Int, lpuncompressedrtfstream: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream(lpcompressedrtfstream: Long, ulflags: Int, lpuncompressedrtfstream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_addressbook_wrapStoreEntryID(ulflags: Int, lpszdllname: Long, cborigentry: Int, lporigentry: Long, lpcbwrappedentry: Long, lppwrappedentry: Long): Int
+    external fun windowssysWindowsWin32SystemAddressbookWrapStoreEntryID(ulflags: Int, lpszdllname: Long, cborigentry: Int, lporigentry: Long, lpcbwrappedentry: Long, lppwrappedentry: Long): Int
 }
 
-public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, hinstance: Hinstance, cpages: UInt, lppage: COpaquePointer?, ulflags: UInt, lpptable: COpaquePointer?, lpptbldata: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_buildDisplayTable(0L, 0L, 0L, (lpmalloc?.value ?: 0L), (hinstance?.value ?: 0L), cpages.toInt(), (lppage?.value ?: 0L), ulflags.toInt(), (lpptable?.value ?: 0L), (lpptbldata?.value ?: 0L))
+public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr<CVoid>, hinstance: Hinstance, cpages: UInt, lppage: MutPtr<Dtpage>, ulflags: UInt, lpptable: MutPtr<MutPtr<CVoid>>, lpptbldata: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookBuildDisplayTable(0L, 0L, 0L, lpmalloc.rawAddress, hinstance.rawAddress, cpages.toInt(), lppage.rawAddress, ulflags.toInt(), lpptable.rawAddress, lpptbldata.rawAddress)
 
-public actual fun changeIdleRoutine(ftg: COpaquePointer?, lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_changeIdleRoutine((ftg?.value ?: 0L), 0L, (lpvidleparam?.value ?: 0L), priidle, csecidle.toInt(), iroidle.toShort(), ircidle.toShort())
+public actual fun changeIdleRoutine(ftg: MutPtr<CVoid>, lpfnidle: Pfnidle, lpvidleparam: MutPtr<CVoid>, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookChangeIdleRoutine(ftg.rawAddress, 0L, lpvidleparam.rawAddress, priidle, csecidle.toInt(), iroidle.toShort(), ircidle.toShort())
 }
 
-public actual fun createIProp(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, lpppropdata: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_createIProp((lpinterface?.value ?: 0L), 0L, 0L, 0L, (lpvreserved?.value ?: 0L), (lpppropdata?.value ?: 0L))
+public actual fun createIProp(lpinterface: MutPtr<Guid>, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr<CVoid>, lpppropdata: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookCreateIProp(lpinterface.rawAddress, 0L, 0L, 0L, lpvreserved.rawAddress, lpppropdata.rawAddress)
 
-public actual fun createTable(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: COpaquePointer?, lpptabledata: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_createTable((lpinterface?.value ?: 0L), 0L, 0L, 0L, (lpvreserved?.value ?: 0L), ultabletype.toInt(), ulproptagindexcolumn.toInt(), (lpsproptagarraycolumns?.value ?: 0L), (lpptabledata?.value ?: 0L))
+public actual fun createTable(lpinterface: MutPtr<Guid>, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr<CVoid>, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: MutPtr<SPropTagArray>, lpptabledata: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookCreateTable(lpinterface.rawAddress, 0L, 0L, 0L, lpvreserved.rawAddress, ultabletype.toInt(), ulproptagindexcolumn.toInt(), lpsproptagarraycolumns.rawAddress, lpptabledata.rawAddress)
 
 public actual fun deinitMapiUtil() {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_deinitMapiUtil()
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookDeinitMapiUtil()
 }
 
-public actual fun deregisterIdleRoutine(ftg: COpaquePointer?) {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_deregisterIdleRoutine((ftg?.value ?: 0L))
+public actual fun deregisterIdleRoutine(ftg: MutPtr<CVoid>) {
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine(ftg.rawAddress)
 }
 
-public actual fun enableIdleRoutine(ftg: COpaquePointer?, fenable: Bool) {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_enableIdleRoutine((ftg?.value ?: 0L), fenable)
+public actual fun enableIdleRoutine(ftg: MutPtr<CVoid>, fenable: Bool) {
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookEnableIdleRoutine(ftg.rawAddress, fenable)
 }
 
-public actual fun fEqualNames(lpname1: COpaquePointer?, lpname2: COpaquePointer?): Bool =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_fEqualNames((lpname1?.value ?: 0L), (lpname2?.value ?: 0L))
+public actual fun fEqualNames(lpname1: MutPtr<Mapinameid>, lpname2: MutPtr<Mapinameid>): Bool =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFEqualNames(lpname1.rawAddress, lpname2.rawAddress)
 
-public actual fun fPropCompareProp(lpspropvalue1: COpaquePointer?, ulrelop: UInt, lpspropvalue2: COpaquePointer?): Bool =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_fPropCompareProp((lpspropvalue1?.value ?: 0L), ulrelop.toInt(), (lpspropvalue2?.value ?: 0L))
+public actual fun fPropCompareProp(lpspropvalue1: MutPtr<SPropValue>, ulrelop: UInt, lpspropvalue2: MutPtr<SPropValue>): Bool =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFPropCompareProp(lpspropvalue1.rawAddress, ulrelop.toInt(), lpspropvalue2.rawAddress)
 
-public actual fun fPropContainsProp(lpspropvaluedst: COpaquePointer?, lpspropvaluesrc: COpaquePointer?, ulfuzzylevel: UInt): Bool =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_fPropContainsProp((lpspropvaluedst?.value ?: 0L), (lpspropvaluesrc?.value ?: 0L), ulfuzzylevel.toInt())
+public actual fun fPropContainsProp(lpspropvaluedst: MutPtr<SPropValue>, lpspropvaluesrc: MutPtr<SPropValue>, ulfuzzylevel: UInt): Bool =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFPropContainsProp(lpspropvaluedst.rawAddress, lpspropvaluesrc.rawAddress, ulfuzzylevel.toInt())
 
-public actual fun fPropExists(lpmapiprop: COpaquePointer?, ulproptag: UInt): Bool =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_fPropExists((lpmapiprop?.value ?: 0L), ulproptag.toInt())
+public actual fun fPropExists(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt): Bool =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFPropExists(lpmapiprop.rawAddress, ulproptag.toInt())
 
-public actual fun freePadrlist(lpadrlist: COpaquePointer?) {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_freePadrlist((lpadrlist?.value ?: 0L))
+public actual fun freePadrlist(lpadrlist: MutPtr<Adrlist>) {
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFreePadrlist(lpadrlist.rawAddress)
 }
 
-public actual fun freeProws(lprows: COpaquePointer?) {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_freeProws((lprows?.value ?: 0L))
+public actual fun freeProws(lprows: MutPtr<SRowSet>) {
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFreeProws(lprows.rawAddress)
 }
 
 public actual fun ftAddFt(ftaddend1: Filetime, ftaddend2: Filetime): Filetime =
@@ -231,120 +285,120 @@ public actual fun ftNegFt(ft: Filetime): Filetime =
 public actual fun ftSubFt(ftminuend: Filetime, ftsubtrahend: Filetime): Filetime =
     Filetime()
 
-public actual fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine(0L, (lpvidleparam?.value ?: 0L), priidle, csecidle.toInt(), iroidle.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: MutPtr<CVoid>, priidle: Short, csecidle: UInt, iroidle: UShort): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine(0L, lpvidleparam.rawAddress, priidle, csecidle.toInt(), iroidle.toShort()))
 
-public actual fun hrAddColumns(lptbl: COpaquePointer?, lpproptagcolumnsnew: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrAddColumns((lptbl?.value ?: 0L), (lpproptagcolumnsnew?.value ?: 0L), 0L, 0L)
+public actual fun hrAddColumns(lptbl: MutPtr<CVoid>, lpproptagcolumnsnew: MutPtr<SPropTagArray>, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrAddColumns(lptbl.rawAddress, lpproptagcolumnsnew.rawAddress, 0L, 0L)
 
-public actual fun hrAddColumnsEx(lptbl: COpaquePointer?, lpproptagcolumnsnew: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrAddColumnsEx((lptbl?.value ?: 0L), (lpproptagcolumnsnew?.value ?: 0L), 0L, 0L, lpfnfiltercolumns)
+public actual fun hrAddColumnsEx(lptbl: MutPtr<CVoid>, lpproptagcolumnsnew: MutPtr<SPropTagArray>, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrAddColumnsEx(lptbl.rawAddress, lpproptagcolumnsnew.rawAddress, 0L, 0L, lpfnfiltercolumns)
 
-public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: COpaquePointer?, lppadvisesink: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrAllocAdviseSink(0L, (lpvcontext?.value ?: 0L), (lppadvisesink?.value ?: 0L))
+public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: MutPtr<CVoid>, lppadvisesink: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink(0L, lpvcontext.rawAddress, lppadvisesink.rawAddress)
 
 public actual fun hrDispatchNotifications(ulflags: UInt): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrDispatchNotifications(ulflags.toInt())
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags.toInt())
 
-public actual fun hrGetOneProp(lpmapiprop: COpaquePointer?, ulproptag: UInt, lppprop: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrGetOneProp((lpmapiprop?.value ?: 0L), ulproptag.toInt(), (lppprop?.value ?: 0L))
+public actual fun hrGetOneProp(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt, lppprop: MutPtr<MutPtr<SPropValue>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrGetOneProp(lpmapiprop.rawAddress, ulproptag.toInt(), lppprop.rawAddress)
 
-public actual fun hrIStorageFromStream(lpunkin: COpaquePointer?, lpinterface: COpaquePointer?, ulflags: UInt, lppstorageout: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrIStorageFromStream((lpunkin?.value ?: 0L), (lpinterface?.value ?: 0L), ulflags.toInt(), (lppstorageout?.value ?: 0L))
+public actual fun hrIStorageFromStream(lpunkin: MutPtr<CVoid>, lpinterface: MutPtr<Guid>, ulflags: UInt, lppstorageout: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrIStorageFromStream(lpunkin.rawAddress, lpinterface.rawAddress, ulflags.toInt(), lppstorageout.rawAddress)
 
-public actual fun hrQueryAllRows(lptable: COpaquePointer?, lpproptags: COpaquePointer?, lprestriction: COpaquePointer?, lpsortorderset: COpaquePointer?, crowsmax: Int, lpprows: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrQueryAllRows((lptable?.value ?: 0L), (lpproptags?.value ?: 0L), (lprestriction?.value ?: 0L), (lpsortorderset?.value ?: 0L), crowsmax, (lpprows?.value ?: 0L))
+public actual fun hrQueryAllRows(lptable: MutPtr<CVoid>, lpproptags: MutPtr<SPropTagArray>, lprestriction: MutPtr<SRestriction>, lpsortorderset: MutPtr<SSortOrderSet>, crowsmax: Int, lpprows: MutPtr<MutPtr<SRowSet>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrQueryAllRows(lptable.rawAddress, lpproptags.rawAddress, lprestriction.rawAddress, lpsortorderset.rawAddress, crowsmax, lpprows.rawAddress)
 
-public actual fun hrSetOneProp(lpmapiprop: COpaquePointer?, lpprop: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrSetOneProp((lpmapiprop?.value ?: 0L), (lpprop?.value ?: 0L))
+public actual fun hrSetOneProp(lpmapiprop: MutPtr<CVoid>, lpprop: MutPtr<SPropValue>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrSetOneProp(lpmapiprop.rawAddress, lpprop.rawAddress)
 
-public actual fun hrThisThreadAdviseSink(lpadvisesink: COpaquePointer?, lppadvisesink: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink((lpadvisesink?.value ?: 0L), (lppadvisesink?.value ?: 0L))
+public actual fun hrThisThreadAdviseSink(lpadvisesink: MutPtr<CVoid>, lppadvisesink: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink(lpadvisesink.rawAddress, lppadvisesink.rawAddress)
 
-public actual fun lPropCompareProp(lpspropvaluea: COpaquePointer?, lpspropvalueb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_lPropCompareProp((lpspropvaluea?.value ?: 0L), (lpspropvalueb?.value ?: 0L))
+public actual fun lPropCompareProp(lpspropvaluea: MutPtr<SPropValue>, lpspropvalueb: MutPtr<SPropValue>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookLPropCompareProp(lpspropvaluea.rawAddress, lpspropvalueb.rawAddress)
 
-public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_lpValFindProp(ulproptag.toInt(), cvalues.toInt(), (lpproparray?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: MutPtr<SPropValue>): MutPtr<SPropValue> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookLpValFindProp(ulproptag.toInt(), cvalues.toInt(), lpproparray.rawAddress))
 
 public actual fun mAPIDeinitIdle() {
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_mAPIDeinitIdle()
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle()
 }
 
-public actual fun mAPIGetDefaultMalloc(): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc().let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun mAPIGetDefaultMalloc(): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc())
 
-public actual fun mAPIInitIdle(lpvreserved: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_mAPIInitIdle((lpvreserved?.value ?: 0L))
+public actual fun mAPIInitIdle(lpvreserved: MutPtr<CVoid>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookMAPIInitIdle(lpvreserved.rawAddress)
 
-public actual fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: COpaquePointer?, lpszprefix: COpaquePointer?, lppstream: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_openStreamOnFile(0L, 0L, ulflags.toInt(), (lpszfilename?.value ?: 0L), (lpszprefix?.value ?: 0L), (lppstream?.value ?: 0L))
+public actual fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: ConstPtr<Byte>, lpszprefix: ConstPtr<Byte>, lppstream: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookOpenStreamOnFile(0L, 0L, ulflags.toInt(), lpszfilename.rawAddress, lpszprefix.rawAddress, lppstream.rawAddress)
 
-public actual fun ppropFindProp(lpproparray: COpaquePointer?, cvalues: UInt, ulproptag: UInt): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_ppropFindProp((lpproparray?.value ?: 0L), cvalues.toInt(), ulproptag.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ppropFindProp(lpproparray: MutPtr<SPropValue>, cvalues: UInt, ulproptag: UInt): MutPtr<SPropValue> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookPpropFindProp(lpproparray.rawAddress, cvalues.toInt(), ulproptag.toInt()))
 
-public actual fun propCopyMore(lpspropvaluedest: COpaquePointer?, lpspropvaluesrc: COpaquePointer?, lpfallocmore: Lpallocatemore, lpvobject: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_propCopyMore((lpspropvaluedest?.value ?: 0L), (lpspropvaluesrc?.value ?: 0L), 0L, (lpvobject?.value ?: 0L))
+public actual fun propCopyMore(lpspropvaluedest: MutPtr<SPropValue>, lpspropvaluesrc: MutPtr<SPropValue>, lpfallocmore: Lpallocatemore, lpvobject: MutPtr<CVoid>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookPropCopyMore(lpspropvaluedest.rawAddress, lpspropvaluesrc.rawAddress, 0L, lpvobject.rawAddress)
 
-public actual fun rTFSync(lpmessage: COpaquePointer?, ulflags: UInt, lpfmessageupdated: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_rTFSync((lpmessage?.value ?: 0L), ulflags.toInt(), (lpfmessageupdated?.value ?: 0L))
+public actual fun rTFSync(lpmessage: MutPtr<CVoid>, ulflags: UInt, lpfmessageupdated: MutPtr<Bool>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookRTFSync(lpmessage.rawAddress, ulflags.toInt(), lpfmessageupdated.rawAddress)
 
-public actual fun scCopyNotifications(cnotification: Int, lpnotifications: COpaquePointer?, lpvdst: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scCopyNotifications(cnotification, (lpnotifications?.value ?: 0L), (lpvdst?.value ?: 0L), (lpcb?.value ?: 0L))
+public actual fun scCopyNotifications(cnotification: Int, lpnotifications: MutPtr<Notification>, lpvdst: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScCopyNotifications(cnotification, lpnotifications.rawAddress, lpvdst.rawAddress, lpcb.rawAddress)
 
-public actual fun scCopyProps(cvalues: Int, lpproparray: COpaquePointer?, lpvdst: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scCopyProps(cvalues, (lpproparray?.value ?: 0L), (lpvdst?.value ?: 0L), (lpcb?.value ?: 0L))
+public actual fun scCopyProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpvdst: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScCopyProps(cvalues, lpproparray.rawAddress, lpvdst.rawAddress, lpcb.rawAddress)
 
-public actual fun scCountNotifications(cnotifications: Int, lpnotifications: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scCountNotifications(cnotifications, (lpnotifications?.value ?: 0L), (lpcb?.value ?: 0L))
+public actual fun scCountNotifications(cnotifications: Int, lpnotifications: MutPtr<Notification>, lpcb: MutPtr<UInt>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScCountNotifications(cnotifications, lpnotifications.rawAddress, lpcb.rawAddress)
 
-public actual fun scCountProps(cvalues: Int, lpproparray: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scCountProps(cvalues, (lpproparray?.value ?: 0L), (lpcb?.value ?: 0L))
+public actual fun scCountProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpcb: MutPtr<UInt>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScCountProps(cvalues, lpproparray.rawAddress, lpcb.rawAddress)
 
-public actual fun scCreateConversationIndex(cbparent: UInt, lpbparent: COpaquePointer?, lpcbconvindex: COpaquePointer?, lppbconvindex: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scCreateConversationIndex(cbparent.toInt(), (lpbparent?.value ?: 0L), (lpcbconvindex?.value ?: 0L), (lppbconvindex?.value ?: 0L))
+public actual fun scCreateConversationIndex(cbparent: UInt, lpbparent: MutPtr<UByte>, lpcbconvindex: MutPtr<UInt>, lppbconvindex: MutPtr<MutPtr<UByte>>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScCreateConversationIndex(cbparent.toInt(), lpbparent.rawAddress, lpcbconvindex.rawAddress, lppbconvindex.rawAddress)
 
-public actual fun scDupPropset(cvalues: Int, lpproparray: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lppproparray: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scDupPropset(cvalues, (lpproparray?.value ?: 0L), 0L, (lppproparray?.value ?: 0L))
+public actual fun scDupPropset(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpallocatebuffer: Lpallocatebuffer, lppproparray: MutPtr<MutPtr<SPropValue>>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScDupPropset(cvalues, lpproparray.rawAddress, 0L, lppproparray.rawAddress)
 
 public actual fun scInitMapiUtil(ulflags: UInt): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scInitMapiUtil(ulflags.toInt())
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScInitMapiUtil(ulflags.toInt())
 
 public actual fun scLocalPathFromUNC(lpszunc: Pcstr, lpszlocal: Pcstr, cchlocal: UInt): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scLocalPathFromUNC((lpszunc?.value ?: 0L), (lpszlocal?.value ?: 0L), cchlocal.toInt())
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC(lpszunc.rawAddress, lpszlocal.rawAddress, cchlocal.toInt())
 
-public actual fun scRelocNotifications(cnotification: Int, lpnotifications: COpaquePointer?, lpvbaseold: COpaquePointer?, lpvbasenew: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scRelocNotifications(cnotification, (lpnotifications?.value ?: 0L), (lpvbaseold?.value ?: 0L), (lpvbasenew?.value ?: 0L), (lpcb?.value ?: 0L))
+public actual fun scRelocNotifications(cnotification: Int, lpnotifications: MutPtr<Notification>, lpvbaseold: MutPtr<CVoid>, lpvbasenew: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScRelocNotifications(cnotification, lpnotifications.rawAddress, lpvbaseold.rawAddress, lpvbasenew.rawAddress, lpcb.rawAddress)
 
-public actual fun scRelocProps(cvalues: Int, lpproparray: COpaquePointer?, lpvbaseold: COpaquePointer?, lpvbasenew: COpaquePointer?, lpcb: COpaquePointer?): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scRelocProps(cvalues, (lpproparray?.value ?: 0L), (lpvbaseold?.value ?: 0L), (lpvbasenew?.value ?: 0L), (lpcb?.value ?: 0L))
+public actual fun scRelocProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpvbaseold: MutPtr<CVoid>, lpvbasenew: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScRelocProps(cvalues, lpproparray.rawAddress, lpvbaseold.rawAddress, lpvbasenew.rawAddress, lpcb.rawAddress)
 
 public actual fun scUNCFromLocalPath(lpszlocal: Pcstr, lpszunc: Pcstr, cchunc: UInt): Int =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_scUNCFromLocalPath((lpszlocal?.value ?: 0L), (lpszunc?.value ?: 0L), cchunc.toInt())
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath(lpszlocal.rawAddress, lpszunc.rawAddress, cchunc.toInt())
 
-public actual fun szFindCh(lpsz: COpaquePointer?, ch: UShort): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_szFindCh((lpsz?.value ?: 0L), ch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun szFindCh(lpsz: MutPtr<Byte>, ch: UShort): MutPtr<Byte> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookSzFindCh(lpsz.rawAddress, ch.toShort()))
 
-public actual fun szFindLastCh(lpsz: COpaquePointer?, ch: UShort): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_szFindLastCh((lpsz?.value ?: 0L), ch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun szFindLastCh(lpsz: MutPtr<Byte>, ch: UShort): MutPtr<Byte> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookSzFindLastCh(lpsz.rawAddress, ch.toShort()))
 
-public actual fun szFindSz(lpsz: COpaquePointer?, lpszkey: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_szFindSz((lpsz?.value ?: 0L), (lpszkey?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun szFindSz(lpsz: MutPtr<Byte>, lpszkey: MutPtr<Byte>): MutPtr<Byte> =
+    MutPtr(WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookSzFindSz(lpsz.rawAddress, lpszkey.rawAddress))
 
-public actual fun uFromSz(lpsz: COpaquePointer?): UInt =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_uFromSz((lpsz?.value ?: 0L)).toUInt()
+public actual fun uFromSz(lpsz: MutPtr<Byte>): UInt =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookUFromSz(lpsz.rawAddress).toUInt()
 
-public actual fun ulAddRef(lpunk: COpaquePointer?): UInt =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_ulAddRef((lpunk?.value ?: 0L)).toUInt()
+public actual fun ulAddRef(lpunk: MutPtr<CVoid>): UInt =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookUlAddRef(lpunk.rawAddress).toUInt()
 
-public actual fun ulPropSize(lpspropvalue: COpaquePointer?): UInt =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_ulPropSize((lpspropvalue?.value ?: 0L)).toUInt()
+public actual fun ulPropSize(lpspropvalue: MutPtr<SPropValue>): UInt =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookUlPropSize(lpspropvalue.rawAddress).toUInt()
 
-public actual fun ulRelease(lpunk: COpaquePointer?): UInt =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_ulRelease((lpunk?.value ?: 0L)).toUInt()
+public actual fun ulRelease(lpunk: MutPtr<CVoid>): UInt =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookUlRelease(lpunk.rawAddress).toUInt()
 
-public actual fun wrapCompressedRTFStream(lpcompressedrtfstream: COpaquePointer?, ulflags: UInt, lpuncompressedrtfstream: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream((lpcompressedrtfstream?.value ?: 0L), ulflags.toInt(), (lpuncompressedrtfstream?.value ?: 0L))
+public actual fun wrapCompressedRTFStream(lpcompressedrtfstream: MutPtr<CVoid>, ulflags: UInt, lpuncompressedrtfstream: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream(lpcompressedrtfstream.rawAddress, ulflags.toInt(), lpuncompressedrtfstream.rawAddress)
 
-public actual fun wrapStoreEntryID(ulflags: UInt, lpszdllname: COpaquePointer?, cborigentry: UInt, lporigentry: COpaquePointer?, lpcbwrappedentry: COpaquePointer?, lppwrappedentry: COpaquePointer?): Hresult =
-    WindowsWin32SystemAddressbookJniBridge.windowssys_windows_win32_system_addressbook_wrapStoreEntryID(ulflags.toInt(), (lpszdllname?.value ?: 0L), cborigentry.toInt(), (lporigentry?.value ?: 0L), (lpcbwrappedentry?.value ?: 0L), (lppwrappedentry?.value ?: 0L))
+public actual fun wrapStoreEntryID(ulflags: UInt, lpszdllname: ConstPtr<Byte>, cborigentry: UInt, lporigentry: ConstPtr<Entryid>, lpcbwrappedentry: MutPtr<UInt>, lppwrappedentry: MutPtr<MutPtr<Entryid>>): Hresult =
+    WindowsWin32SystemAddressbookJniBridge.windowssysWindowsWin32SystemAddressbookWrapStoreEntryID(ulflags.toInt(), lpszdllname.rawAddress, cborigentry.toInt(), lporigentry.rawAddress, lpcbwrappedentry.rawAddress, lppwrappedentry.rawAddress)

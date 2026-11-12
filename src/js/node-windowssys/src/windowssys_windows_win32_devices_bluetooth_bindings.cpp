@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthentic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDeviceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparentin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hradioin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthentic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateMultipleDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -148,7 +148,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthentic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothDisplayDeviceProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothDisplayDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnableDiscovery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothEnableDiscovery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fenabled = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -202,7 +202,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnableDis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnableIncomingConnections_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fenabled = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -229,7 +229,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnableInc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnumerateInstalledServices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -260,7 +260,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnumerate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindDeviceClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtsp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -312,7 +312,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindFirst
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstRadio_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtfrp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindFirst
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindNextDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -366,7 +366,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindNextD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindNextRadio_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -393,7 +393,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindNextR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindRadioClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothFindRadioClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindRadio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTAbortReliableWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t reliablewritecontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTAbort
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTBeginReliableWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reliablewritecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTBegin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTEndReliableWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t reliablewritecontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -505,7 +505,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTEndRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristicValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* characteristic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* service = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -575,7 +575,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptorValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* descriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -610,7 +610,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* characteristic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -645,7 +645,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIncludedServices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parentservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -680,7 +680,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetServices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t servicesbuffercount = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eventtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -750,7 +750,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetCharacteristicValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* characteristic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -783,7 +783,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetDescriptorValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* descriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -814,7 +814,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t eventhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -841,7 +841,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTUnreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -868,7 +868,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGetDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGetRadioInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pradioinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -895,7 +895,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGetRadioI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsConnectable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothIsConnectable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -920,7 +920,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsConnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsDiscoverable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothIsDiscoverable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -945,7 +945,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsDiscove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsVersionAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t majorversion = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t minorversion = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -972,7 +972,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsVersion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthentication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phreghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRegisterF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthenticationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtdiin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phreghandleout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1034,7 +1034,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRegisterF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRemoveDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1059,7 +1059,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRemoveDev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpEnumAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psdpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbstreamsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1090,7 +1090,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpEnumAt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetAttributeValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precordstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbrecordlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetAtt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetContainerElementData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontainerstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbcontainerlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1152,7 +1152,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetElementData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psdpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbsdpstreamlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetEle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precordstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbrecordlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1216,7 +1216,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtsdp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1241,7 +1241,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSelectDev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevicesFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtsdp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1266,7 +1266,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSelectDev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1295,7 +1295,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponseEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradioin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pauthresponse = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1322,7 +1322,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSetLocalServiceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradioin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1353,7 +1353,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSetLocalS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSetServiceState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hradio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1384,7 +1384,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSetServic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothUnregisterAuthentication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hreghandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1409,7 +1409,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothUnregiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothUpdateDeviceRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbtdi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1435,53 +1435,53 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothUpdateDev
 }
 
 static void register_windows_win32_devices_bluetooth_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDevice", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDeviceEx", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDeviceEx_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateMultipleDevices", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateMultipleDevices_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothDisplayDeviceProperties", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothDisplayDeviceProperties_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothEnableDiscovery", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothEnableDiscovery_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothEnableIncomingConnections", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothEnableIncomingConnections_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothEnumerateInstalledServices", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothEnumerateInstalledServices_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothFindDeviceClose", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothFindDeviceClose_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstDevice", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstRadio", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstRadio_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothFindNextDevice", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothFindNextDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothFindNextRadio", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothFindNextRadio_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothFindRadioClose", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothFindRadioClose_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTAbortReliableWrite", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTAbortReliableWrite_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTBeginReliableWrite", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTBeginReliableWrite_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTEndReliableWrite", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTEndReliableWrite_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristicValue", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristicValue_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristics", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristics_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptorValue", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptorValue_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptors", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptors_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIncludedServices", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIncludedServices_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetServices", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetServices_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegisterEvent_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetCharacteristicValue", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetCharacteristicValue_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetDescriptorValue", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetDescriptorValue_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGATTUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGATTUnregisterEvent_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGetDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGetDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothGetRadioInfo", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothGetRadioInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothIsConnectable", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothIsConnectable_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothIsDiscoverable", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothIsDiscoverable_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothIsVersionAvailable", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothIsVersionAvailable_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthentication", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthentication_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthenticationEx", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthenticationEx_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothRemoveDevice", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothRemoveDevice_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSdpEnumAttributes", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSdpEnumAttributes_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetAttributeValue", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetAttributeValue_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetContainerElementData", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetContainerElementData_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetElementData", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetElementData_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetString", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetString_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevices", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevices_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevicesFree", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevicesFree_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponse", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponse_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponseEx", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponseEx_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSetLocalServiceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSetLocalServiceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothSetServiceState", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothSetServiceState_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothUnregisterAuthentication", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothUnregisterAuthentication_napi));
-    exports.Set("windowssys_windows_win32_devices_bluetooth_bluetoothUpdateDeviceRecord", Napi::Function::New(env, windowssys_windows_win32_devices_bluetooth_bluetoothUpdateDeviceRecord_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothEnableDiscovery", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothEnableDiscovery_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothFindRadioClose", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothFindRadioClose_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothIsConnectable", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothIsConnectable_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothIsDiscoverable", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothIsDiscoverable_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication_napi));
+    exports.Set("windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord", Napi::Function::New(env, windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_bluetooth_napi, nullptr };

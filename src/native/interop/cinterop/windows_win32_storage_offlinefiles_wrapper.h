@@ -9,10 +9,10 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(int32_t benable, void* pbrebootrequired);
-uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus(void* pbactive, void* pbenabled);
-uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx(void* pbactive, void* pbenabled, void* pbavailable);
-uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesStart(void);
+uint32_t windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable(int32_t benable, void* pbrebootrequired);
+uint32_t windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus(void* pbactive, void* pbenabled);
+uint32_t windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx(void* pbactive, void* pbenabled, void* pbavailable);
+uint32_t windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart(void);
 
 #ifdef __cplusplus
 }

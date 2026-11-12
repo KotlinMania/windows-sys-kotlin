@@ -9,24 +9,24 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_ui_magnification_magGetColorEffect(void* hwnd, void* peffect);
-int32_t windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect(void* peffect);
-int32_t windowssys_windows_win32_ui_magnification_magGetFullscreenTransform(void* pmaglevel, void* pxoffset, void* pyoffset);
-void* windowssys_windows_win32_ui_magnification_magGetImageScalingCallback(void* hwnd);
-int32_t windowssys_windows_win32_ui_magnification_magGetInputTransform(void* pfenabled, void* prectsource, void* prectdest);
-int32_t windowssys_windows_win32_ui_magnification_magGetWindowFilterList(void* hwnd, void* pdwfiltermode, int32_t count, void* phwnd);
-int32_t windowssys_windows_win32_ui_magnification_magGetWindowSource(void* hwnd, void* prect);
-int32_t windowssys_windows_win32_ui_magnification_magGetWindowTransform(void* hwnd, void* ptransform);
-int32_t windowssys_windows_win32_ui_magnification_magInitialize(void);
-int32_t windowssys_windows_win32_ui_magnification_magSetColorEffect(void* hwnd, void* peffect);
-int32_t windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect(void* peffect);
-int32_t windowssys_windows_win32_ui_magnification_magSetFullscreenTransform(float maglevel, int32_t xoffset, int32_t yoffset);
-int32_t windowssys_windows_win32_ui_magnification_magSetImageScalingCallback(void* hwnd, void* callback);
-int32_t windowssys_windows_win32_ui_magnification_magSetInputTransform(int32_t fenabled, void* prectsource, void* prectdest);
-int32_t windowssys_windows_win32_ui_magnification_magSetWindowFilterList(void* hwnd, uint32_t dwfiltermode, int32_t count, void* phwnd);
-int32_t windowssys_windows_win32_ui_magnification_magSetWindowTransform(void* hwnd, void* ptransform);
-int32_t windowssys_windows_win32_ui_magnification_magShowSystemCursor(int32_t fshowcursor);
-int32_t windowssys_windows_win32_ui_magnification_magUninitialize(void);
+int32_t windowssysWindowsWin32UiMagnificationMagGetColorEffect(void* hwnd, void* peffect);
+int32_t windowssysWindowsWin32UiMagnificationMagGetFullscreenColorEffect(void* peffect);
+int32_t windowssysWindowsWin32UiMagnificationMagGetFullscreenTransform(void* pmaglevel, void* pxoffset, void* pyoffset);
+void* windowssysWindowsWin32UiMagnificationMagGetImageScalingCallback(void* hwnd);
+int32_t windowssysWindowsWin32UiMagnificationMagGetInputTransform(void* pfenabled, void* prectsource, void* prectdest);
+int32_t windowssysWindowsWin32UiMagnificationMagGetWindowFilterList(void* hwnd, void* pdwfiltermode, int32_t count, void* phwnd);
+int32_t windowssysWindowsWin32UiMagnificationMagGetWindowSource(void* hwnd, void* prect);
+int32_t windowssysWindowsWin32UiMagnificationMagGetWindowTransform(void* hwnd, void* ptransform);
+int32_t windowssysWindowsWin32UiMagnificationMagInitialize(void);
+int32_t windowssysWindowsWin32UiMagnificationMagSetColorEffect(void* hwnd, void* peffect);
+int32_t windowssysWindowsWin32UiMagnificationMagSetFullscreenColorEffect(void* peffect);
+int32_t windowssysWindowsWin32UiMagnificationMagSetFullscreenTransform(float maglevel, int32_t xoffset, int32_t yoffset);
+int32_t windowssysWindowsWin32UiMagnificationMagSetImageScalingCallback(void* hwnd, void* callback);
+int32_t windowssysWindowsWin32UiMagnificationMagSetInputTransform(int32_t fenabled, void* prectsource, void* prectdest);
+int32_t windowssysWindowsWin32UiMagnificationMagSetWindowFilterList(void* hwnd, uint32_t dwfiltermode, int32_t count, void* phwnd);
+int32_t windowssysWindowsWin32UiMagnificationMagSetWindowTransform(void* hwnd, void* ptransform);
+int32_t windowssysWindowsWin32UiMagnificationMagShowSystemCursor(int32_t fshowcursor);
+int32_t windowssysWindowsWin32UiMagnificationMagUninitialize(void);
 
 #ifdef __cplusplus
 }

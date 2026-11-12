@@ -2,326 +2,327 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addISNSServerA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addISNSServerW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addRadiusServerA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_addRadiusServerW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeISNSServerA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeISNSServerW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddISNSServerA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddISNSServerW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddRadiusServerA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscAddRadiusServerW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRefreshISNSServerA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRefreshISNSServerW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveISNSServerA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveISNSServerW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportISNSServerListA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportISNSServerListW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportRadiusServerListA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscReportRadiusServerListW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSendScsiInquiry
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSendScsiReportLuns
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressA
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressW
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiDevices
+import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.cinterop.windowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiVolumes
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun addISNSServerA(address: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addISNSServerA(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscAddISNSServerA(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addISNSServerW(address: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addISNSServerW(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscAddISNSServerW(address.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addIScsiConnectionA(uniquesessionid: COpaquePointer?, reserved: COpaquePointer?, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, connectionid: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA(uniquesessionid?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>(), initiatorportnumber, targetportal?.value?.toCPointer<ByteVar>(), securityflags, loginoptions?.value?.toCPointer<ByteVar>(), keysize, key?.value?.toCPointer<ByteVar>(), connectionid?.value?.toCPointer<ByteVar>())
+public actual fun addIScsiConnectionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA(uniquesessionid.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, targetportal.rawAddress.toCPointer<ByteVar>(), securityflags, loginoptions.rawAddress.toCPointer<ByteVar>(), keysize, key.rawAddress.toCPointer<ByteVar>(), connectionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addIScsiConnectionW(uniquesessionid: COpaquePointer?, reserved: COpaquePointer?, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, connectionid: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW(uniquesessionid?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>(), initiatorportnumber, targetportal?.value?.toCPointer<ByteVar>(), securityflags, loginoptions?.value?.toCPointer<ByteVar>(), keysize, key?.value?.toCPointer<ByteVar>(), connectionid?.value?.toCPointer<ByteVar>())
+public actual fun addIScsiConnectionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW(uniquesessionid.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, targetportal.rawAddress.toCPointer<ByteVar>(), securityflags, loginoptions.rawAddress.toCPointer<ByteVar>(), keysize, key.rawAddress.toCPointer<ByteVar>(), connectionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: COpaquePointer?, securityflags: ULong, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, loginoptions?.value?.toCPointer<ByteVar>(), securityflags, portal?.value?.toCPointer<ByteVar>())
+public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortala>): UInt =
+    windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, loginoptions.rawAddress.toCPointer<ByteVar>(), securityflags, portal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: COpaquePointer?, securityflags: ULong, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, loginoptions?.value?.toCPointer<ByteVar>(), securityflags, portal?.value?.toCPointer<ByteVar>())
+public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, loginoptions.rawAddress.toCPointer<ByteVar>(), securityflags, portal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: COpaquePointer?, loginoptions: COpaquePointer?, portalgroup: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA(targetname?.value?.toCPointer<ByteVar>(), targetalias?.value?.toCPointer<ByteVar>(), targetflags, persist, mappings?.value?.toCPointer<ByteVar>(), loginoptions?.value?.toCPointer<ByteVar>(), portalgroup?.value?.toCPointer<ByteVar>())
+public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupa>): UInt =
+    windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA(targetname.rawAddress.toCPointer<ByteVar>(), targetalias.rawAddress.toCPointer<ByteVar>(), targetflags, persist, mappings.rawAddress.toCPointer<ByteVar>(), loginoptions.rawAddress.toCPointer<ByteVar>(), portalgroup.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: COpaquePointer?, loginoptions: COpaquePointer?, portalgroup: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW(targetname?.value?.toCPointer<ByteVar>(), targetalias?.value?.toCPointer<ByteVar>(), targetflags, persist, mappings?.value?.toCPointer<ByteVar>(), loginoptions?.value?.toCPointer<ByteVar>(), portalgroup?.value?.toCPointer<ByteVar>())
+public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW(targetname.rawAddress.toCPointer<ByteVar>(), targetalias.rawAddress.toCPointer<ByteVar>(), targetflags, persist, mappings.rawAddress.toCPointer<ByteVar>(), loginoptions.rawAddress.toCPointer<ByteVar>(), portalgroup.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addPersistentIScsiDeviceA(devicepath: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA(devicepath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceA(devicepath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addPersistentIScsiDeviceW(devicepath: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW(devicepath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscAddPersistentIScsiDeviceW(devicepath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addRadiusServerA(address: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addRadiusServerA(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscAddRadiusServerA(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addRadiusServerW(address: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_addRadiusServerW(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscAddRadiusServerW(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun clearPersistentIScsiDevices(): UInt =
-    windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices()
+    windowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices()
 
-public actual fun getDevicesForIScsiSessionA(uniquesessionid: COpaquePointer?, devicecount: COpaquePointer?, devices: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA(uniquesessionid?.value?.toCPointer<ByteVar>(), devicecount?.value?.toCPointer<ByteVar>(), devices?.value?.toCPointer<ByteVar>())
+public actual fun getDevicesForIScsiSessionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessiona>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA(uniquesessionid.rawAddress.toCPointer<ByteVar>(), devicecount.rawAddress.toCPointer<ByteVar>(), devices.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDevicesForIScsiSessionW(uniquesessionid: COpaquePointer?, devicecount: COpaquePointer?, devices: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW(uniquesessionid?.value?.toCPointer<ByteVar>(), devicecount?.value?.toCPointer<ByteVar>(), devices?.value?.toCPointer<ByteVar>())
+public actual fun getDevicesForIScsiSessionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessionw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW(uniquesessionid.rawAddress.toCPointer<ByteVar>(), devicecount.rawAddress.toCPointer<ByteVar>(), devices.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: COpaquePointer?, authinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA(initiatorname?.value?.toCPointer<ByteVar>(), initiatorportnumber, reserved?.value?.toCPointer<ByteVar>(), authinfo?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA(initiatorname.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, reserved.rawAddress.toCPointer<ByteVar>(), authinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: COpaquePointer?, authinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW(initiatorname?.value?.toCPointer<ByteVar>(), initiatorportnumber, reserved?.value?.toCPointer<ByteVar>(), authinfo?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW(initiatorname.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, reserved.rawAddress.toCPointer<ByteVar>(), authinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA(initiatornodename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameA(initiatornodename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getIScsiInitiatorNodeNameW(initiatornodename: Pwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW(initiatornodename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW(initiatornodename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiSessionListA(buffersize: COpaquePointer?, sessioncount: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA(buffersize?.value?.toCPointer<ByteVar>(), sessioncount?.value?.toCPointer<ByteVar>(), sessioninfo?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiSessionListA(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoa>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA(buffersize.rawAddress.toCPointer<ByteVar>(), sessioncount.rawAddress.toCPointer<ByteVar>(), sessioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiSessionListEx(buffersize: COpaquePointer?, sessioncountptr: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx(buffersize?.value?.toCPointer<ByteVar>(), sessioncountptr?.value?.toCPointer<ByteVar>(), sessioninfo?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiSessionListEx(buffersize: MutPtr<UInt>, sessioncountptr: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoEx>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx(buffersize.rawAddress.toCPointer<ByteVar>(), sessioncountptr.rawAddress.toCPointer<ByteVar>(), sessioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiSessionListW(buffersize: COpaquePointer?, sessioncount: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW(buffersize?.value?.toCPointer<ByteVar>(), sessioncount?.value?.toCPointer<ByteVar>(), sessioninfo?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiSessionListW(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfow>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW(buffersize.rawAddress.toCPointer<ByteVar>(), sessioncount.rawAddress.toCPointer<ByteVar>(), sessioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA(targetname?.value?.toCPointer<ByteVar>(), discoverymechanism?.value?.toCPointer<ByteVar>(), infoclass, buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA(targetname.rawAddress.toCPointer<ByteVar>(), discoverymechanism.rawAddress.toCPointer<ByteVar>(), infoclass, buffersize.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW(targetname?.value?.toCPointer<ByteVar>(), discoverymechanism?.value?.toCPointer<ByteVar>(), infoclass, buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW(targetname.rawAddress.toCPointer<ByteVar>(), discoverymechanism.rawAddress.toCPointer<ByteVar>(), infoclass, buffersize.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIScsiVersionInformation(versioninfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation(versioninfo?.value?.toCPointer<ByteVar>())
+public actual fun getIScsiVersionInformation(versioninfo: MutPtr<IscsiVersionInfo>): UInt =
+    windowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation(versioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, mappings: COpaquePointer?, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: COpaquePointer?, uniqueconnectionid: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA(targetname?.value?.toCPointer<ByteVar>(), isinformationalsession, initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, targetportal?.value?.toCPointer<ByteVar>(), securityflags, mappings?.value?.toCPointer<ByteVar>(), loginoptions?.value?.toCPointer<ByteVar>(), keysize, key?.value?.toCPointer<ByteVar>(), ispersistent, uniquesessionid?.value?.toCPointer<ByteVar>(), uniqueconnectionid?.value?.toCPointer<ByteVar>())
+public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA(targetname.rawAddress.toCPointer<ByteVar>(), isinformationalsession, initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, targetportal.rawAddress.toCPointer<ByteVar>(), securityflags, mappings.rawAddress.toCPointer<ByteVar>(), loginoptions.rawAddress.toCPointer<ByteVar>(), keysize, key.rawAddress.toCPointer<ByteVar>(), ispersistent, uniquesessionid.rawAddress.toCPointer<ByteVar>(), uniqueconnectionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, mappings: COpaquePointer?, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: COpaquePointer?, uniqueconnectionid: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW(targetname?.value?.toCPointer<ByteVar>(), isinformationalsession, initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, targetportal?.value?.toCPointer<ByteVar>(), securityflags, mappings?.value?.toCPointer<ByteVar>(), loginoptions?.value?.toCPointer<ByteVar>(), keysize, key?.value?.toCPointer<ByteVar>(), ispersistent, uniquesessionid?.value?.toCPointer<ByteVar>(), uniqueconnectionid?.value?.toCPointer<ByteVar>())
+public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW(targetname.rawAddress.toCPointer<ByteVar>(), isinformationalsession, initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, targetportal.rawAddress.toCPointer<ByteVar>(), securityflags, mappings.rawAddress.toCPointer<ByteVar>(), loginoptions.rawAddress.toCPointer<ByteVar>(), keysize, key.rawAddress.toCPointer<ByteVar>(), ispersistent, uniquesessionid.rawAddress.toCPointer<ByteVar>(), uniqueconnectionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun logoutIScsiTarget(uniquesessionid: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget(uniquesessionid?.value?.toCPointer<ByteVar>())
+public actual fun logoutIScsiTarget(uniquesessionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    windowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget(uniquesessionid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun refreshISNSServerA(address: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRefreshISNSServerA(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun refreshISNSServerW(address: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRefreshISNSServerW(address.rawAddress.toCPointer<ByteVar>())
 
-public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, portal?.value?.toCPointer<ByteVar>())
+public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, portal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, portal?.value?.toCPointer<ByteVar>())
+public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, portal.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeISNSServerA(address: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeISNSServerA(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemoveISNSServerA(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeISNSServerW(address: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeISNSServerW(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemoveISNSServerW(address.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeIScsiConnection(uniquesessionid: COpaquePointer?, connectionid: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection(uniquesessionid?.value?.toCPointer<ByteVar>(), connectionid?.value?.toCPointer<ByteVar>())
+public actual fun removeIScsiConnection(uniquesessionid: MutPtr<IscsiUniqueSessionId>, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection(uniquesessionid.rawAddress.toCPointer<ByteVar>(), connectionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, targetname?.value?.toCPointer<ByteVar>(), portal?.value?.toCPointer<ByteVar>())
+public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: MutPtr<IscsiTargetPortala>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, targetname.rawAddress.toCPointer<ByteVar>(), portal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, targetname?.value?.toCPointer<ByteVar>(), portal?.value?.toCPointer<ByteVar>())
+public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, targetname.rawAddress.toCPointer<ByteVar>(), portal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, portal?.value?.toCPointer<ByteVar>())
+public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, portal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW(initiatorinstance?.value?.toCPointer<ByteVar>(), initiatorportnumber, portal?.value?.toCPointer<ByteVar>())
+public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW(initiatorinstance.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, portal.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeIScsiStaticTargetA(targetname: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA(targetname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetA(targetname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeIScsiStaticTargetW(targetname: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW(targetname?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemoveIScsiStaticTargetW(targetname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removePersistentIScsiDeviceA(devicepath: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA(devicepath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceA(devicepath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removePersistentIScsiDeviceW(devicepath: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW(devicepath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemovePersistentIScsiDeviceW(devicepath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeRadiusServerA(address: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerA(address.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeRadiusServerW(address: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW(address?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW(address.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportActiveIScsiTargetMappingsA(buffersize: COpaquePointer?, mappingcount: COpaquePointer?, mappings: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA(buffersize?.value?.toCPointer<ByteVar>(), mappingcount?.value?.toCPointer<ByteVar>(), mappings?.value?.toCPointer<ByteVar>())
+public actual fun reportActiveIScsiTargetMappingsA(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappinga>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA(buffersize.rawAddress.toCPointer<ByteVar>(), mappingcount.rawAddress.toCPointer<ByteVar>(), mappings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportActiveIScsiTargetMappingsW(buffersize: COpaquePointer?, mappingcount: COpaquePointer?, mappings: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW(buffersize?.value?.toCPointer<ByteVar>(), mappingcount?.value?.toCPointer<ByteVar>(), mappings?.value?.toCPointer<ByteVar>())
+public actual fun reportActiveIScsiTargetMappingsW(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappingw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW(buffersize.rawAddress.toCPointer<ByteVar>(), mappingcount.rawAddress.toCPointer<ByteVar>(), mappings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportISNSServerListA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA(buffersizeinchar?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportISNSServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportISNSServerListA(buffersizeinchar.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportISNSServerListW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW(buffersizeinchar?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportISNSServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportISNSServerListW(buffersizeinchar.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiInitiatorListA(buffersize: COpaquePointer?, buffer: Pstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA(buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiInitiatorListA(buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA(buffersize.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiInitiatorListW(buffersize: COpaquePointer?, buffer: Pwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW(buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiInitiatorListW(buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW(buffersize.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiPersistentLoginsA(count: COpaquePointer?, persistentlogininfo: COpaquePointer?, buffersizeinbytes: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA(count?.value?.toCPointer<ByteVar>(), persistentlogininfo?.value?.toCPointer<ByteVar>(), buffersizeinbytes?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiPersistentLoginsA(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfoa>, buffersizeinbytes: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA(count.rawAddress.toCPointer<ByteVar>(), persistentlogininfo.rawAddress.toCPointer<ByteVar>(), buffersizeinbytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiPersistentLoginsW(count: COpaquePointer?, persistentlogininfo: COpaquePointer?, buffersizeinbytes: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW(count?.value?.toCPointer<ByteVar>(), persistentlogininfo?.value?.toCPointer<ByteVar>(), buffersizeinbytes?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiPersistentLoginsW(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfow>, buffersizeinbytes: MutPtr<UInt>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW(count.rawAddress.toCPointer<ByteVar>(), persistentlogininfo.rawAddress.toCPointer<ByteVar>(), buffersizeinbytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiSendTargetPortalsA(portalcount: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA(portalcount?.value?.toCPointer<ByteVar>(), portalinfo?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiSendTargetPortalsA(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoa>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA(portalcount.rawAddress.toCPointer<ByteVar>(), portalinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiSendTargetPortalsExA(portalcount: COpaquePointer?, portalinfosize: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA(portalcount?.value?.toCPointer<ByteVar>(), portalinfosize?.value?.toCPointer<ByteVar>(), portalinfo?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiSendTargetPortalsExA(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExa>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA(portalcount.rawAddress.toCPointer<ByteVar>(), portalinfosize.rawAddress.toCPointer<ByteVar>(), portalinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiSendTargetPortalsExW(portalcount: COpaquePointer?, portalinfosize: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW(portalcount?.value?.toCPointer<ByteVar>(), portalinfosize?.value?.toCPointer<ByteVar>(), portalinfo?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiSendTargetPortalsExW(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW(portalcount.rawAddress.toCPointer<ByteVar>(), portalinfosize.rawAddress.toCPointer<ByteVar>(), portalinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiSendTargetPortalsW(portalcount: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW(portalcount?.value?.toCPointer<ByteVar>(), portalinfo?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiSendTargetPortalsW(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfow>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW(portalcount.rawAddress.toCPointer<ByteVar>(), portalinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: COpaquePointer?, elementcount: COpaquePointer?, portals: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA(initiatorname?.value?.toCPointer<ByteVar>(), targetname?.value?.toCPointer<ByteVar>(), targetportaltag?.value?.toCPointer<ByteVar>(), elementcount?.value?.toCPointer<ByteVar>(), portals?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortala>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA(initiatorname.rawAddress.toCPointer<ByteVar>(), targetname.rawAddress.toCPointer<ByteVar>(), targetportaltag.rawAddress.toCPointer<ByteVar>(), elementcount.rawAddress.toCPointer<ByteVar>(), portals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: COpaquePointer?, elementcount: COpaquePointer?, portals: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW(initiatorname?.value?.toCPointer<ByteVar>(), targetname?.value?.toCPointer<ByteVar>(), targetportaltag?.value?.toCPointer<ByteVar>(), elementcount?.value?.toCPointer<ByteVar>(), portals?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortalw>): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW(initiatorname.rawAddress.toCPointer<ByteVar>(), targetname.rawAddress.toCPointer<ByteVar>(), targetportaltag.rawAddress.toCPointer<ByteVar>(), elementcount.rawAddress.toCPointer<ByteVar>(), portals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: COpaquePointer?, buffer: Pstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(forceupdate, buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA(forceupdate, buffersize.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: COpaquePointer?, buffer: Pwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(forceupdate, buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW(forceupdate, buffersize.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA(buffersizeinchar?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA(buffersizeinchar.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW(buffersizeinchar?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW(buffersizeinchar.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportRadiusServerListA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA(buffersizeinchar?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportRadiusServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportRadiusServerListA(buffersizeinchar.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportRadiusServerListW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW(buffersizeinchar?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+public actual fun reportRadiusServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+    windowssysWindowsWin32StorageIscsidiscReportRadiusServerListW(buffersizeinchar.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sendScsiInquiry(uniquesessionid: COpaquePointer?, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry(uniquesessionid?.value?.toCPointer<ByteVar>(), lun, evpdcmddt, pagecode, scsistatus?.value?.toCPointer<ByteVar>(), responsesize?.value?.toCPointer<ByteVar>(), responsebuffer?.value?.toCPointer<ByteVar>(), sensesize?.value?.toCPointer<ByteVar>(), sensebuffer?.value?.toCPointer<ByteVar>())
+public actual fun sendScsiInquiry(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+    windowssysWindowsWin32StorageIscsidiscSendScsiInquiry(uniquesessionid.rawAddress.toCPointer<ByteVar>(), lun, evpdcmddt, pagecode, scsistatus.rawAddress.toCPointer<ByteVar>(), responsesize.rawAddress.toCPointer<ByteVar>(), responsebuffer.rawAddress.toCPointer<ByteVar>(), sensesize.rawAddress.toCPointer<ByteVar>(), sensebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sendScsiReadCapacity(uniquesessionid: COpaquePointer?, lun: ULong, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity(uniquesessionid?.value?.toCPointer<ByteVar>(), lun, scsistatus?.value?.toCPointer<ByteVar>(), responsesize?.value?.toCPointer<ByteVar>(), responsebuffer?.value?.toCPointer<ByteVar>(), sensesize?.value?.toCPointer<ByteVar>(), sensebuffer?.value?.toCPointer<ByteVar>())
+public actual fun sendScsiReadCapacity(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+    windowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity(uniquesessionid.rawAddress.toCPointer<ByteVar>(), lun, scsistatus.rawAddress.toCPointer<ByteVar>(), responsesize.rawAddress.toCPointer<ByteVar>(), responsebuffer.rawAddress.toCPointer<ByteVar>(), sensesize.rawAddress.toCPointer<ByteVar>(), sensebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sendScsiReportLuns(uniquesessionid: COpaquePointer?, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns(uniquesessionid?.value?.toCPointer<ByteVar>(), scsistatus?.value?.toCPointer<ByteVar>(), responsesize?.value?.toCPointer<ByteVar>(), responsebuffer?.value?.toCPointer<ByteVar>(), sensesize?.value?.toCPointer<ByteVar>(), sensebuffer?.value?.toCPointer<ByteVar>())
+public actual fun sendScsiReportLuns(uniquesessionid: MutPtr<IscsiUniqueSessionId>, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+    windowssysWindowsWin32StorageIscsidiscSendScsiReportLuns(uniquesessionid.rawAddress.toCPointer<ByteVar>(), scsistatus.rawAddress.toCPointer<ByteVar>(), responsesize.rawAddress.toCPointer<ByteVar>(), responsebuffer.rawAddress.toCPointer<ByteVar>(), sensesize.rawAddress.toCPointer<ByteVar>(), sensebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: COpaquePointer?, persist: Boolean): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(keylength, key?.value?.toCPointer<ByteVar>(), persist)
+public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: MutPtr<UByte>, persist: Boolean): UInt =
+    windowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey(keylength, key.rawAddress.toCPointer<ByteVar>(), persist)
 
-public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: COpaquePointer?, persist: Boolean): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA(initiatorname?.value?.toCPointer<ByteVar>(), initiatorportnumber, authinfo?.value?.toCPointer<ByteVar>(), persist)
+public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+    windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA(initiatorname.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, authinfo.rawAddress.toCPointer<ByteVar>(), persist)
 
-public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: COpaquePointer?, persist: Boolean): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW(initiatorname?.value?.toCPointer<ByteVar>(), initiatorportnumber, authinfo?.value?.toCPointer<ByteVar>(), persist)
+public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+    windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW(initiatorname.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, authinfo.rawAddress.toCPointer<ByteVar>(), persist)
 
-public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(sharedsecretlength, sharedsecret?.value?.toCPointer<ByteVar>())
+public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+    windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret(sharedsecretlength, sharedsecret.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA(initiatornodename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameA(initiatornodename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setIScsiInitiatorNodeNameW(initiatornodename: Pcwstr): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW(initiatornodename?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW(initiatornodename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: COpaquePointer?): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength, sharedsecret?.value?.toCPointer<ByteVar>())
+public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+    windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength, sharedsecret.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setIScsiTunnelModeOuterAddressA(initiatorname: Pcstr, initiatorportnumber: UInt, destinationaddress: Pcstr, outermodeaddress: Pcstr, persist: Boolean): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA(initiatorname?.value?.toCPointer<ByteVar>(), initiatorportnumber, destinationaddress?.value?.toCPointer<ByteVar>(), outermodeaddress?.value?.toCPointer<ByteVar>(), persist)
+    windowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressA(initiatorname.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, destinationaddress.rawAddress.toCPointer<ByteVar>(), outermodeaddress.rawAddress.toCPointer<ByteVar>(), persist)
 
 public actual fun setIScsiTunnelModeOuterAddressW(initiatorname: Pcwstr, initiatorportnumber: UInt, destinationaddress: Pcwstr, outermodeaddress: Pcwstr, persist: Boolean): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW(initiatorname?.value?.toCPointer<ByteVar>(), initiatorportnumber, destinationaddress?.value?.toCPointer<ByteVar>(), outermodeaddress?.value?.toCPointer<ByteVar>(), persist)
+    windowssysWindowsWin32StorageIscsidiscSetIScsiTunnelModeOuterAddressW(initiatorname.rawAddress.toCPointer<ByteVar>(), initiatorportnumber, destinationaddress.rawAddress.toCPointer<ByteVar>(), outermodeaddress.rawAddress.toCPointer<ByteVar>(), persist)
 
 public actual fun setupPersistentIScsiDevices(): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices()
+    windowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiDevices()
 
 public actual fun setupPersistentIScsiVolumes(): UInt =
-    windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes()
+    windowssysWindowsWin32StorageIscsidiscSetupPersistentIScsiVolumes()

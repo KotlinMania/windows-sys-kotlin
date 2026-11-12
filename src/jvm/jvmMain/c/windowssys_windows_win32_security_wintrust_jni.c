@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1openPersonalTrustDBDialog(JNIEnv* km_env, jclass km_clazz, jlong hwndparent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog(JNIEnv* km_env, jclass km_clazz, jlong hwndparent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1openPersonalTrustDBDialogEx(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint dwflags, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wTHelperCertCheckValidSignature(JNIEnv* km_env, jclass km_clazz, jlong pprovdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature(JNIEnv* km_env, jclass km_clazz, jlong pprovdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wTHelperCertIsSelfSigned(JNIEnv* km_env, jclass km_clazz, jint dwencoding, jlong pcert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned(JNIEnv* km_env, jclass km_clazz, jint dwencoding, jlong pcert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wTHelperGetProvCertFromChain(JNIEnv* km_env, jclass km_clazz, jlong psgnr, jint idxcert) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain(JNIEnv* km_env, jclass km_clazz, jlong psgnr, jint idxcert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -148,7 +148,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wTHelperGetProvPrivateDataFromChain(JNIEnv* km_env, jclass km_clazz, jlong pprovdata, jlong pgproviderid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain(JNIEnv* km_env, jclass km_clazz, jlong pprovdata, jlong pgproviderid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -174,7 +174,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wTHelperGetProvSignerFromChain(JNIEnv* km_env, jclass km_clazz, jlong pprovdata, jint idxsigner, jint fcountersigner, jint idxcountersigner) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain(JNIEnv* km_env, jclass km_clazz, jlong pprovdata, jint idxsigner, jint fcountersigner, jint idxcountersigner) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -202,7 +202,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wTHelperProvDataFromStateData(JNIEnv* km_env, jclass km_clazz, jlong hstatedata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData(JNIEnv* km_env, jclass km_clazz, jlong hstatedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1winVerifyTrust(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pgactionid, jlong pwvtdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWinVerifyTrust(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pgactionid, jlong pwvtdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -254,7 +254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1winVerifyTrustEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pgactionid, jlong pwintrustdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pgactionid, jlong pwintrustdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -281,7 +281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustAddActionID(JNIEnv* km_env, jclass km_clazz, jlong pgactionid, jint fdwflags, jlong psprovinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustAddActionID(JNIEnv* km_env, jclass km_clazz, jlong pgactionid, jint fdwflags, jlong psprovinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -308,7 +308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustAddDefaultForUsage(JNIEnv* km_env, jclass km_clazz, jlong pszusageoid, jlong psdefusage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage(JNIEnv* km_env, jclass km_clazz, jlong pszusageoid, jlong psdefusage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -334,7 +334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustGetDefaultForUsage(JNIEnv* km_env, jclass km_clazz, jint dwaction, jlong pszusageoid, jlong psusage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage(JNIEnv* km_env, jclass km_clazz, jint dwaction, jlong pszusageoid, jlong psusage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -361,7 +361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustGetRegPolicyFlags(JNIEnv* km_env, jclass km_clazz, jlong pdwpolicyflags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags(JNIEnv* km_env, jclass km_clazz, jlong pdwpolicyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -382,7 +382,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustLoadFunctionPointers(JNIEnv* km_env, jclass km_clazz, jlong pgactionid, jlong ppfns) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers(JNIEnv* km_env, jclass km_clazz, jlong pgactionid, jlong ppfns) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -408,7 +408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustRemoveActionID(JNIEnv* km_env, jclass km_clazz, jlong pgactionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID(JNIEnv* km_env, jclass km_clazz, jlong pgactionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,7 +433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustSetDefaultIncludePEPageHashes(JNIEnv* km_env, jclass km_clazz, jint fincludepepagehashes) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes(JNIEnv* km_env, jclass km_clazz, jint fincludepepagehashes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -454,7 +454,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssys_1windows_1win32_1security_1wintrust_1wintrustSetRegPolicyFlags(JNIEnv* km_env, jclass km_clazz, jint dwpolicyflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_wintrust_WindowsWin32SecurityWintrustJniBridge_windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags(JNIEnv* km_env, jclass km_clazz, jint dwpolicyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

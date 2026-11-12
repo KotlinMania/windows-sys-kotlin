@@ -2,45 +2,47 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.recovery
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_applicationRecoveryFinished
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_applicationRecoveryInProgress
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_getApplicationRestartSettings
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_registerApplicationRestart
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback
-import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssys_windows_win32_system_recovery_unregisterApplicationRestart
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback
+import io.github.kotlinmania.windowssys.windows.win32.system.recovery.cinterop.windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart
 import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ApplicationRecoveryCallback
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun applicationRecoveryFinished(bsuccess: Bool) {
-    windowssys_windows_win32_system_recovery_applicationRecoveryFinished(bsuccess)
+    windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished(bsuccess)
 }
 
-public actual fun applicationRecoveryInProgress(pbcancelled: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_recovery_applicationRecoveryInProgress(pbcancelled?.value?.toCPointer<ByteVar>())
+public actual fun applicationRecoveryInProgress(pbcancelled: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress(pbcancelled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: COpaquePointer?, ppvparameter: COpaquePointer?, pdwpinginterval: COpaquePointer?, pdwflags: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback(hprocess?.value?.toCPointer<ByteVar>(), precoverycallback?.value?.toCPointer<ByteVar>(), ppvparameter?.value?.toCPointer<ByteVar>(), pdwpinginterval?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
+public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: MutPtr<ApplicationRecoveryCallback>, ppvparameter: MutPtr<MutPtr<CVoid>>, pdwpinginterval: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback(hprocess.rawAddress.toCPointer<ByteVar>(), precoverycallback.rawAddress.toCPointer<ByteVar>(), ppvparameter.rawAddress.toCPointer<ByteVar>(), pdwpinginterval.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: COpaquePointer?, pdwflags: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_recovery_getApplicationRestartSettings(hprocess?.value?.toCPointer<ByteVar>(), pwzcommandline?.value?.toCPointer<ByteVar>(), pcchsize?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
+public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings(hprocess.rawAddress.toCPointer<ByteVar>(), pwzcommandline.rawAddress.toCPointer<ByteVar>(), pcchsize.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: COpaquePointer?, dwpinginterval: UInt, dwflags: UInt): Hresult =
-    windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback(0L.toCPointer<ByteVar>(), pvparameter?.value?.toCPointer<ByteVar>(), dwpinginterval, dwflags)
+public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: ConstPtr<CVoid>, dwpinginterval: UInt, dwflags: UInt): Hresult =
+    windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback(0L.toCPointer<ByteVar>(), pvparameter.rawAddress.toCPointer<ByteVar>(), dwpinginterval, dwflags)
 
 public actual fun registerApplicationRestart(pwzcommandline: Pcwstr, dwflags: RegisterApplicationRestartFlags): Hresult =
-    windowssys_windows_win32_system_recovery_registerApplicationRestart(pwzcommandline?.value?.toCPointer<ByteVar>(), dwflags)
+    windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart(pwzcommandline.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun unregisterApplicationRecoveryCallback(): Hresult =
-    windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback()
+    windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback()
 
 public actual fun unregisterApplicationRestart(): Hresult =
-    windowssys_windows_win32_system_recovery_unregisterApplicationRestart()
+    windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart()

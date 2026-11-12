@@ -9,18 +9,18 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider(void* psnewprov);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData(void* psubjectinfo, void* pcbindirectdata, void* pindirectdata);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps(void* psubjinfo, void* pcaps);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest(void* psubjectinfo, void* psig, uint32_t dwsig, void* pbdigest, void* pcbdigest);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg(void* psubjectinfo, void* pdwencodingtype, uint32_t dwindex, void* pcbsigneddatamsg, void* pbsigneddatamsg);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad(void* pgsubject, uint32_t dwflags, void* psipdispatch);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg(void* psubjectinfo, uint32_t dwencodingtype, void* pdwindex, uint32_t cbsigneddatamsg, void* pbsigneddatamsg);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider(void* pgprov);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg(void* psubjectinfo, uint32_t dwindex);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid(void* filename, void* hfilein, void* pgsubject);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile(void* filename, void* hfilein, void* pgsubject);
-int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData(void* psubjectinfo, void* pindirectdata);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider(void* psnewprov);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData(void* psubjectinfo, void* pcbindirectdata, void* pindirectdata);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps(void* psubjinfo, void* pcaps);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest(void* psubjectinfo, void* psig, uint32_t dwsig, void* pbdigest, void* pcbdigest);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg(void* psubjectinfo, void* pdwencodingtype, uint32_t dwindex, void* pcbsigneddatamsg, void* pbsigneddatamsg);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPLoad(void* pgsubject, uint32_t dwflags, void* psipdispatch);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg(void* psubjectinfo, uint32_t dwencodingtype, void* pdwindex, uint32_t cbsigneddatamsg, void* pbsigneddatamsg);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider(void* pgprov);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg(void* psubjectinfo, uint32_t dwindex);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid(void* filename, void* hfilein, void* pgsubject);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile(void* filename, void* hfilein, void* pgsubject);
+int32_t windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData(void* psubjectinfo, void* pindirectdata);
 
 #ifdef __cplusplus
 }

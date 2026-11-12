@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1closeCompressor(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionCloseCompressor(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1closeDecompressor(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionCloseDecompressor(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1compress(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle, jlong uncompresseddata, jlong uncompresseddatasize, jlong compressedbuffer, jlong compressedbuffersize, jlong compresseddatasize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionCompress(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle, jlong uncompresseddata, jlong uncompresseddatasize, jlong compressedbuffer, jlong compressedbuffersize, jlong compresseddatasize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1createCompressor(JNIEnv* km_env, jclass km_clazz, jint algorithm, jlong allocationroutines, jlong compressorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionCreateCompressor(JNIEnv* km_env, jclass km_clazz, jint algorithm, jlong allocationroutines, jlong compressorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1createDecompressor(JNIEnv* km_env, jclass km_clazz, jint algorithm, jlong allocationroutines, jlong decompressorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionCreateDecompressor(JNIEnv* km_env, jclass km_clazz, jint algorithm, jlong allocationroutines, jlong decompressorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -153,7 +153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1decompress(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle, jlong compresseddata, jlong compresseddatasize, jlong uncompressedbuffer, jlong uncompressedbuffersize, jlong uncompresseddatasize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionDecompress(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle, jlong compresseddata, jlong compresseddatasize, jlong uncompressedbuffer, jlong uncompressedbuffersize, jlong uncompresseddatasize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1queryCompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionQueryCompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1queryDecompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionQueryDecompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -239,7 +239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1resetCompressor(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionResetCompressor(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1resetDecompressor(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionResetDecompressor(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -289,7 +289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1setCompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionSetCompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong compressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssys_1windows_1win32_1storage_1compression_1setDecompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_compression_WindowsWin32StorageCompressionJniBridge_windowssysWindowsWin32StorageCompressionSetDecompressorInformation(JNIEnv* km_env, jclass km_clazz, jlong decompressorhandle, jint compressinformationclass, jlong compressinformation, jlong compressinformationsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -9,41 +9,41 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation(void* hsession);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession(void* hsession);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(int32_t accesslevel, void* hsession);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport(void* hsession, uint32_t reportstoretype, void* reportkey, void* destinationpath);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags(void* htagdescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage(void* hrecord);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories(void* hcategorydescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers(void* hproducerdescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport(void* hreport);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed(void* accesslevel);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex(void* hrecord, uint32_t arg_1_index, void* record);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution(void* hsession, void* producernames, uint32_t producernamecount, uint32_t topnbinaries, void* binarystats, void* statcount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex(void* hcategorydescription, uint32_t arg_1_index, void* categorydescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount(void* hcategorydescription, void* categorydescriptioncount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount(void* hrecord, void* recordcount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex(void* htagdescription, uint32_t arg_1_index, void* tagdescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount(void* htagdescription, void* tagdescriptioncount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags(void* hsession, void* locale, void* htagdescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage(void* hsession, void* searchcriteria, uint32_t offset, uint32_t pagerecordcount, int64_t baserowid, void* hrecord);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload(void* hsession, int64_t rowid, void* payload);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex(void* hproducerdescription, uint32_t arg_1_index, void* producerdescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories(void* hsession, void* producername, void* hcategorydescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount(void* hproducerdescription, void* producerdescriptioncount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers(void* hsession, void* hproducerdescription);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats(void* hsession, void* searchcriteria, void* recordcount, void* minrowid, void* maxrowid);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary(void* hsession, void* producernames, uint32_t producernamecount, void* generalstats);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution(void* hsession, void* producernames, uint32_t producernamecount, void* tagstats, void* statcount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport(void* hsession, uint32_t reportstoretype, void* hreport);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex(void* hreport, uint32_t arg_1_index, void* report);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount(void* hreport, void* reportcount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount(void* hsession, uint32_t reportstoretype, void* reportcount);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel(void* hsession, void* accesslevel);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration(void* hsession, void* currentconfig);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn(void* hsession, void* providergroup, void* providerid, void* providername, void* eventid, void* eventname, void* eventversion, void* eventkeywords, void* issampledin);
-int32_t windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration(void* hsession, void* desiredconfig);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCancelDiagnosticRecordOperation(void* hsession);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCloseSession(void* hsession);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqCreateSession(int32_t accesslevel, void* hsession);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqExtractDiagnosticReport(void* hsession, uint32_t reportstoretype, void* reportkey, void* destinationpath);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordLocaleTags(void* htagdescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordPage(void* hrecord);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducerCategories(void* hcategorydescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticRecordProducers(void* hproducerdescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqFreeDiagnosticReport(void* hreport);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticDataAccessLevelAllowed(void* accesslevel);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordAtIndex(void* hrecord, uint32_t arg1Index, void* record);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordBinaryDistribution(void* hsession, void* producernames, uint32_t producernamecount, uint32_t topnbinaries, void* binarystats, void* statcount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryAtIndex(void* hcategorydescription, uint32_t arg1Index, void* categorydescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCategoryCount(void* hcategorydescription, void* categorydescriptioncount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordCount(void* hrecord, void* recordcount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagAtIndex(void* htagdescription, uint32_t arg1Index, void* tagdescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTagCount(void* htagdescription, void* tagdescriptioncount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordLocaleTags(void* hsession, void* locale, void* htagdescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPage(void* hsession, void* searchcriteria, uint32_t offset, uint32_t pagerecordcount, int64_t baserowid, void* hrecord);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordPayload(void* hsession, int64_t rowid, void* payload);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerAtIndex(void* hproducerdescription, uint32_t arg1Index, void* producerdescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCategories(void* hsession, void* producername, void* hcategorydescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducerCount(void* hproducerdescription, void* producerdescriptioncount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordProducers(void* hsession, void* hproducerdescription);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordStats(void* hsession, void* searchcriteria, void* recordcount, void* minrowid, void* maxrowid);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordSummary(void* hsession, void* producernames, uint32_t producernamecount, void* generalstats);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticRecordTagDistribution(void* hsession, void* producernames, uint32_t producernamecount, void* tagstats, void* statcount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReport(void* hsession, uint32_t reportstoretype, void* hreport);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportAtIndex(void* hreport, uint32_t arg1Index, void* report);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportCount(void* hreport, void* reportcount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetDiagnosticReportStoreReportCount(void* hsession, uint32_t reportstoretype, void* reportcount);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetSessionAccessLevel(void* hsession, void* accesslevel);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqGetTranscriptConfiguration(void* hsession, void* currentconfig);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqIsDiagnosticRecordSampledIn(void* hsession, void* providergroup, void* providerid, void* providername, void* eventid, void* eventname, void* eventversion, void* eventkeywords, void* issampledin);
+int32_t windowssysWindowsWin32SecurityDiagnosticdataqueryDdqSetTranscriptConfiguration(void* hsession, void* desiredconfig);
 
 #ifdef __cplusplus
 }

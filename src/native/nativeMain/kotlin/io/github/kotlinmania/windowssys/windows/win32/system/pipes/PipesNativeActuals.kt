@@ -2,102 +2,106 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.pipes
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_callNamedPipeA
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_callNamedPipeW
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_connectNamedPipe
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_createNamedPipeA
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_createNamedPipeW
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_createPipe
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_disconnectNamedPipe
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_impersonateNamedPipeClient
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_peekNamedPipe
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_setNamedPipeHandleState
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_transactNamedPipe
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_waitNamedPipeA
-import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssys_windows_win32_system_pipes_waitNamedPipeW
+import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesCallNamedPipeA
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesCallNamedPipeW
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesConnectNamedPipe
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesCreateNamedPipeA
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesCreateNamedPipeW
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesCreatePipe
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesDisconnectNamedPipe
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesPeekNamedPipe
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesSetNamedPipeHandleState
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesTransactNamedPipe
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesWaitNamedPipeA
+import io.github.kotlinmania.windowssys.windows.win32.system.pipes.cinterop.windowssysWindowsWin32SystemPipesWaitNamedPipeW
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun callNamedPipeA(lpnamedpipename: Pcstr, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, ntimeout: UInt): Bool =
-    windowssys_windows_win32_system_pipes_callNamedPipeA(lpnamedpipename?.value?.toCPointer<ByteVar>(), lpinbuffer?.value?.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), noutbuffersize, lpbytesread?.value?.toCPointer<ByteVar>(), ntimeout)
+public actual fun callNamedPipeA(lpnamedpipename: Pcstr, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesread: MutPtr<UInt>, ntimeout: UInt): Bool =
+    windowssysWindowsWin32SystemPipesCallNamedPipeA(lpnamedpipename.rawAddress.toCPointer<ByteVar>(), lpinbuffer.rawAddress.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer.rawAddress.toCPointer<ByteVar>(), noutbuffersize, lpbytesread.rawAddress.toCPointer<ByteVar>(), ntimeout)
 
-public actual fun callNamedPipeW(lpnamedpipename: Pcwstr, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, ntimeout: UInt): Bool =
-    windowssys_windows_win32_system_pipes_callNamedPipeW(lpnamedpipename?.value?.toCPointer<ByteVar>(), lpinbuffer?.value?.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), noutbuffersize, lpbytesread?.value?.toCPointer<ByteVar>(), ntimeout)
+public actual fun callNamedPipeW(lpnamedpipename: Pcwstr, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesread: MutPtr<UInt>, ntimeout: UInt): Bool =
+    windowssysWindowsWin32SystemPipesCallNamedPipeW(lpnamedpipename.rawAddress.toCPointer<ByteVar>(), lpinbuffer.rawAddress.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer.rawAddress.toCPointer<ByteVar>(), noutbuffersize, lpbytesread.rawAddress.toCPointer<ByteVar>(), ntimeout)
 
-public actual fun connectNamedPipe(hnamedpipe: Handle, lpoverlapped: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_connectNamedPipe(hnamedpipe?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
+public actual fun connectNamedPipe(hnamedpipe: Handle, lpoverlapped: MutPtr<Overlapped>): Bool =
+    windowssysWindowsWin32SystemPipesConnectNamedPipe(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createNamedPipeA(lpname: Pcstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
-    windowssys_windows_win32_system_pipes_createNamedPipeA(lpname?.value?.toCPointer<ByteVar>(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createNamedPipeA(lpname: Pcstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+    MutPtr(windowssysWindowsWin32SystemPipesCreateNamedPipeA(lpname.rawAddress.toCPointer<ByteVar>(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createNamedPipeW(lpname: Pcwstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
-    windowssys_windows_win32_system_pipes_createNamedPipeW(lpname?.value?.toCPointer<ByteVar>(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun createNamedPipeW(lpname: Pcwstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+    MutPtr(windowssysWindowsWin32SystemPipesCreateNamedPipeW(lpname.rawAddress.toCPointer<ByteVar>(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createPipe(hreadpipe: COpaquePointer?, hwritepipe: COpaquePointer?, lppipeattributes: COpaquePointer?, nsize: UInt): Bool =
-    windowssys_windows_win32_system_pipes_createPipe(hreadpipe?.value?.toCPointer<ByteVar>(), hwritepipe?.value?.toCPointer<ByteVar>(), lppipeattributes?.value?.toCPointer<ByteVar>(), nsize)
+public actual fun createPipe(hreadpipe: MutPtr<Handle>, hwritepipe: MutPtr<Handle>, lppipeattributes: ConstPtr<SecurityAttributes>, nsize: UInt): Bool =
+    windowssysWindowsWin32SystemPipesCreatePipe(hreadpipe.rawAddress.toCPointer<ByteVar>(), hwritepipe.rawAddress.toCPointer<ByteVar>(), lppipeattributes.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun disconnectNamedPipe(hnamedpipe: Handle): Bool =
-    windowssys_windows_win32_system_pipes_disconnectNamedPipe(hnamedpipe?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemPipesDisconnectNamedPipe(hnamedpipe.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getNamedPipeClientComputerNameA(pipe: Handle, clientcomputername: Pstr, clientcomputernamelength: UInt): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA(pipe?.value?.toCPointer<ByteVar>(), clientcomputername?.value?.toCPointer<ByteVar>(), clientcomputernamelength)
+    windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA(pipe.rawAddress.toCPointer<ByteVar>(), clientcomputername.rawAddress.toCPointer<ByteVar>(), clientcomputernamelength)
 
 public actual fun getNamedPipeClientComputerNameW(pipe: Handle, clientcomputername: Pwstr, clientcomputernamelength: UInt): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW(pipe?.value?.toCPointer<ByteVar>(), clientcomputername?.value?.toCPointer<ByteVar>(), clientcomputernamelength)
+    windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW(pipe.rawAddress.toCPointer<ByteVar>(), clientcomputername.rawAddress.toCPointer<ByteVar>(), clientcomputernamelength)
 
-public actual fun getNamedPipeClientProcessId(pipe: Handle, clientprocessid: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId(pipe?.value?.toCPointer<ByteVar>(), clientprocessid?.value?.toCPointer<ByteVar>())
+public actual fun getNamedPipeClientProcessId(pipe: Handle, clientprocessid: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId(pipe.rawAddress.toCPointer<ByteVar>(), clientprocessid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNamedPipeClientSessionId(pipe: Handle, clientsessionid: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId(pipe?.value?.toCPointer<ByteVar>(), clientsessionid?.value?.toCPointer<ByteVar>())
+public actual fun getNamedPipeClientSessionId(pipe: Handle, clientsessionid: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId(pipe.rawAddress.toCPointer<ByteVar>(), clientsessionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNamedPipeHandleStateA(hnamedpipe: Handle, lpstate: COpaquePointer?, lpcurinstances: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?, lpusername: Pstr, nmaxusernamesize: UInt): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA(hnamedpipe?.value?.toCPointer<ByteVar>(), lpstate?.value?.toCPointer<ByteVar>(), lpcurinstances?.value?.toCPointer<ByteVar>(), lpmaxcollectioncount?.value?.toCPointer<ByteVar>(), lpcollectdatatimeout?.value?.toCPointer<ByteVar>(), lpusername?.value?.toCPointer<ByteVar>(), nmaxusernamesize)
+public actual fun getNamedPipeHandleStateA(hnamedpipe: Handle, lpstate: MutPtr<NamedPipeMode>, lpcurinstances: MutPtr<UInt>, lpmaxcollectioncount: MutPtr<UInt>, lpcollectdatatimeout: MutPtr<UInt>, lpusername: Pstr, nmaxusernamesize: UInt): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpstate.rawAddress.toCPointer<ByteVar>(), lpcurinstances.rawAddress.toCPointer<ByteVar>(), lpmaxcollectioncount.rawAddress.toCPointer<ByteVar>(), lpcollectdatatimeout.rawAddress.toCPointer<ByteVar>(), lpusername.rawAddress.toCPointer<ByteVar>(), nmaxusernamesize)
 
-public actual fun getNamedPipeHandleStateW(hnamedpipe: Handle, lpstate: COpaquePointer?, lpcurinstances: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?, lpusername: Pwstr, nmaxusernamesize: UInt): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW(hnamedpipe?.value?.toCPointer<ByteVar>(), lpstate?.value?.toCPointer<ByteVar>(), lpcurinstances?.value?.toCPointer<ByteVar>(), lpmaxcollectioncount?.value?.toCPointer<ByteVar>(), lpcollectdatatimeout?.value?.toCPointer<ByteVar>(), lpusername?.value?.toCPointer<ByteVar>(), nmaxusernamesize)
+public actual fun getNamedPipeHandleStateW(hnamedpipe: Handle, lpstate: MutPtr<NamedPipeMode>, lpcurinstances: MutPtr<UInt>, lpmaxcollectioncount: MutPtr<UInt>, lpcollectdatatimeout: MutPtr<UInt>, lpusername: Pwstr, nmaxusernamesize: UInt): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpstate.rawAddress.toCPointer<ByteVar>(), lpcurinstances.rawAddress.toCPointer<ByteVar>(), lpmaxcollectioncount.rawAddress.toCPointer<ByteVar>(), lpcollectdatatimeout.rawAddress.toCPointer<ByteVar>(), lpusername.rawAddress.toCPointer<ByteVar>(), nmaxusernamesize)
 
-public actual fun getNamedPipeInfo(hnamedpipe: Handle, lpflags: COpaquePointer?, lpoutbuffersize: COpaquePointer?, lpinbuffersize: COpaquePointer?, lpmaxinstances: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeInfo(hnamedpipe?.value?.toCPointer<ByteVar>(), lpflags?.value?.toCPointer<ByteVar>(), lpoutbuffersize?.value?.toCPointer<ByteVar>(), lpinbuffersize?.value?.toCPointer<ByteVar>(), lpmaxinstances?.value?.toCPointer<ByteVar>())
+public actual fun getNamedPipeInfo(hnamedpipe: Handle, lpflags: MutPtr<NamedPipeMode>, lpoutbuffersize: MutPtr<UInt>, lpinbuffersize: MutPtr<UInt>, lpmaxinstances: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeInfo(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpflags.rawAddress.toCPointer<ByteVar>(), lpoutbuffersize.rawAddress.toCPointer<ByteVar>(), lpinbuffersize.rawAddress.toCPointer<ByteVar>(), lpmaxinstances.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNamedPipeServerProcessId(pipe: Handle, serverprocessid: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId(pipe?.value?.toCPointer<ByteVar>(), serverprocessid?.value?.toCPointer<ByteVar>())
+public actual fun getNamedPipeServerProcessId(pipe: Handle, serverprocessid: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId(pipe.rawAddress.toCPointer<ByteVar>(), serverprocessid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNamedPipeServerSessionId(pipe: Handle, serversessionid: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId(pipe?.value?.toCPointer<ByteVar>(), serversessionid?.value?.toCPointer<ByteVar>())
+public actual fun getNamedPipeServerSessionId(pipe: Handle, serversessionid: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId(pipe.rawAddress.toCPointer<ByteVar>(), serversessionid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun impersonateNamedPipeClient(hnamedpipe: Handle): Bool =
-    windowssys_windows_win32_system_pipes_impersonateNamedPipeClient(hnamedpipe?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient(hnamedpipe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun peekNamedPipe(hnamedpipe: Handle, lpbuffer: COpaquePointer?, nbuffersize: UInt, lpbytesread: COpaquePointer?, lptotalbytesavail: COpaquePointer?, lpbytesleftthismessage: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_peekNamedPipe(hnamedpipe?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nbuffersize, lpbytesread?.value?.toCPointer<ByteVar>(), lptotalbytesavail?.value?.toCPointer<ByteVar>(), lpbytesleftthismessage?.value?.toCPointer<ByteVar>())
+public actual fun peekNamedPipe(hnamedpipe: Handle, lpbuffer: MutPtr<CVoid>, nbuffersize: UInt, lpbytesread: MutPtr<UInt>, lptotalbytesavail: MutPtr<UInt>, lpbytesleftthismessage: MutPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesPeekNamedPipe(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nbuffersize, lpbytesread.rawAddress.toCPointer<ByteVar>(), lptotalbytesavail.rawAddress.toCPointer<ByteVar>(), lpbytesleftthismessage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setNamedPipeHandleState(hnamedpipe: Handle, lpmode: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_setNamedPipeHandleState(hnamedpipe?.value?.toCPointer<ByteVar>(), lpmode?.value?.toCPointer<ByteVar>(), lpmaxcollectioncount?.value?.toCPointer<ByteVar>(), lpcollectdatatimeout?.value?.toCPointer<ByteVar>())
+public actual fun setNamedPipeHandleState(hnamedpipe: Handle, lpmode: ConstPtr<NamedPipeMode>, lpmaxcollectioncount: ConstPtr<UInt>, lpcollectdatatimeout: ConstPtr<UInt>): Bool =
+    windowssysWindowsWin32SystemPipesSetNamedPipeHandleState(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpmode.rawAddress.toCPointer<ByteVar>(), lpmaxcollectioncount.rawAddress.toCPointer<ByteVar>(), lpcollectdatatimeout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun transactNamedPipe(hnamedpipe: Handle, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_pipes_transactNamedPipe(hnamedpipe?.value?.toCPointer<ByteVar>(), lpinbuffer?.value?.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), noutbuffersize, lpbytesread?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
+public actual fun transactNamedPipe(hnamedpipe: Handle, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesread: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+    windowssysWindowsWin32SystemPipesTransactNamedPipe(hnamedpipe.rawAddress.toCPointer<ByteVar>(), lpinbuffer.rawAddress.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer.rawAddress.toCPointer<ByteVar>(), noutbuffersize, lpbytesread.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun waitNamedPipeA(lpnamedpipename: Pcstr, ntimeout: UInt): Bool =
-    windowssys_windows_win32_system_pipes_waitNamedPipeA(lpnamedpipename?.value?.toCPointer<ByteVar>(), ntimeout)
+    windowssysWindowsWin32SystemPipesWaitNamedPipeA(lpnamedpipename.rawAddress.toCPointer<ByteVar>(), ntimeout)
 
 public actual fun waitNamedPipeW(lpnamedpipename: Pcwstr, ntimeout: UInt): Bool =
-    windowssys_windows_win32_system_pipes_waitNamedPipeW(lpnamedpipename?.value?.toCPointer<ByteVar>(), ntimeout)
+    windowssysWindowsWin32SystemPipesWaitNamedPipeW(lpnamedpipename.rawAddress.toCPointer<ByteVar>(), ntimeout)

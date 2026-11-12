@@ -2,118 +2,120 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_addStroke
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_addWordsToWordList
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_adviseInkChange
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_createContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_createRecognizer
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_destroyContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_destroyRecognizer
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_destroyWordList
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_endInkInput
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getAllRecognizers
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getBestResultString
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getLatticePtr
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getLeftSeparator
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getRecoAttributes
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getResultPropertyList
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getRightSeparator
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getUnicodeRanges
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_isStringSupported
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_makeWordList
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_process
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setFactoid
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setFlags
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setGuide
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setTextContext
-import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setWordList
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Xform
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcAddStroke
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcAddWordsToWordList
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcAdviseInkChange
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcCreateContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcCreateRecognizer
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcDestroyContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcDestroyRecognizer
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcDestroyWordList
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcEndInkInput
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetAllRecognizers
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetBestResultString
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetLatticePtr
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetLeftSeparator
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetRecoAttributes
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetResultPropertyList
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetRightSeparator
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcGetUnicodeRanges
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcIsStringSupported
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcMakeWordList
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcProcess
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcSetFactoid
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcSetFlags
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcSetGuide
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcSetTextContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssysWindowsWin32UiTabletpcSetWordList
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: COpaquePointer?, cbpacket: UInt, ppacket: COpaquePointer?, pxform: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_addStroke(hrc?.value?.toCPointer<ByteVar>(), ppacketdesc?.value?.toCPointer<ByteVar>(), cbpacket, ppacket?.value?.toCPointer<ByteVar>(), pxform?.value?.toCPointer<ByteVar>())
+public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: ConstPtr<PacketDescription>, cbpacket: UInt, ppacket: ConstPtr<UByte>, pxform: ConstPtr<Xform>): Hresult =
+    windowssysWindowsWin32UiTabletpcAddStroke(hrc.rawAddress.toCPointer<ByteVar>(), ppacketdesc.rawAddress.toCPointer<ByteVar>(), cbpacket, ppacket.rawAddress.toCPointer<ByteVar>(), pxform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_addWordsToWordList(hwl?.value?.toCPointer<ByteVar>(), pwcwords?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcAddWordsToWordList(hwl.rawAddress.toCPointer<ByteVar>(), pwcwords.rawAddress.toCPointer<ByteVar>())
 
 public actual fun adviseInkChange(hrc: Hrecocontext, bnewstroke: Bool): Hresult =
-    windowssys_windows_win32_ui_tabletpc_adviseInkChange(hrc?.value?.toCPointer<ByteVar>(), bnewstroke)
+    windowssysWindowsWin32UiTabletpcAdviseInkChange(hrc.rawAddress.toCPointer<ByteVar>(), bnewstroke)
 
-public actual fun createContext(hrec: Hrecognizer, phrc: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_createContext(hrec?.value?.toCPointer<ByteVar>(), phrc?.value?.toCPointer<ByteVar>())
+public actual fun createContext(hrec: Hrecognizer, phrc: MutPtr<Hrecocontext>): Hresult =
+    windowssysWindowsWin32UiTabletpcCreateContext(hrec.rawAddress.toCPointer<ByteVar>(), phrc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createRecognizer(pclsid: COpaquePointer?, phrec: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_createRecognizer(pclsid?.value?.toCPointer<ByteVar>(), phrec?.value?.toCPointer<ByteVar>())
+public actual fun createRecognizer(pclsid: MutPtr<Guid>, phrec: MutPtr<Hrecognizer>): Hresult =
+    windowssysWindowsWin32UiTabletpcCreateRecognizer(pclsid.rawAddress.toCPointer<ByteVar>(), phrec.rawAddress.toCPointer<ByteVar>())
 
 public actual fun destroyContext(hrc: Hrecocontext): Hresult =
-    windowssys_windows_win32_ui_tabletpc_destroyContext(hrc?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcDestroyContext(hrc.rawAddress.toCPointer<ByteVar>())
 
 public actual fun destroyRecognizer(hrec: Hrecognizer): Hresult =
-    windowssys_windows_win32_ui_tabletpc_destroyRecognizer(hrec?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcDestroyRecognizer(hrec.rawAddress.toCPointer<ByteVar>())
 
 public actual fun destroyWordList(hwl: Hrecowordlist): Hresult =
-    windowssys_windows_win32_ui_tabletpc_destroyWordList(hwl?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcDestroyWordList(hwl.rawAddress.toCPointer<ByteVar>())
 
 public actual fun endInkInput(hrc: Hrecocontext): Hresult =
-    windowssys_windows_win32_ui_tabletpc_endInkInput(hrc?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcEndInkInput(hrc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAllRecognizers(recognizerclsids: COpaquePointer?, count: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getAllRecognizers(recognizerclsids?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
+public actual fun getAllRecognizers(recognizerclsids: MutPtr<MutPtr<Guid>>, count: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32UiTabletpcGetAllRecognizers(recognizerclsids.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBestResultString(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcbestresult: Pwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getBestResultString(hrc?.value?.toCPointer<ByteVar>(), pcsize?.value?.toCPointer<ByteVar>(), pwcbestresult?.value?.toCPointer<ByteVar>())
+public actual fun getBestResultString(hrc: Hrecocontext, pcsize: MutPtr<UInt>, pwcbestresult: Pwstr): Hresult =
+    windowssysWindowsWin32UiTabletpcGetBestResultString(hrc.rawAddress.toCPointer<ByteVar>(), pcsize.rawAddress.toCPointer<ByteVar>(), pwcbestresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getLatticePtr(hrc?.value?.toCPointer<ByteVar>(), pplattice?.value?.toCPointer<ByteVar>())
+public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: MutPtr<MutPtr<RecoLattice>>): Hresult =
+    windowssysWindowsWin32UiTabletpcGetLatticePtr(hrc.rawAddress.toCPointer<ByteVar>(), pplattice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcleftseparator: Pwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getLeftSeparator(hrc?.value?.toCPointer<ByteVar>(), pcsize?.value?.toCPointer<ByteVar>(), pwcleftseparator?.value?.toCPointer<ByteVar>())
+public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: MutPtr<UInt>, pwcleftseparator: Pwstr): Hresult =
+    windowssysWindowsWin32UiTabletpcGetLeftSeparator(hrc.rawAddress.toCPointer<ByteVar>(), pcsize.rawAddress.toCPointer<ByteVar>(), pwcleftseparator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getRecoAttributes(hrec?.value?.toCPointer<ByteVar>(), precoattrs?.value?.toCPointer<ByteVar>())
+public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: MutPtr<RecoAttrs>): Hresult =
+    windowssysWindowsWin32UiTabletpcGetRecoAttributes(hrec.rawAddress.toCPointer<ByteVar>(), precoattrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: COpaquePointer?, ppropertyguid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getResultPropertyList(hrec?.value?.toCPointer<ByteVar>(), ppropertycount?.value?.toCPointer<ByteVar>(), ppropertyguid?.value?.toCPointer<ByteVar>())
+public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: MutPtr<UInt>, ppropertyguid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32UiTabletpcGetResultPropertyList(hrec.rawAddress.toCPointer<ByteVar>(), ppropertycount.rawAddress.toCPointer<ByteVar>(), ppropertyguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcrightseparator: Pwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getRightSeparator(hrc?.value?.toCPointer<ByteVar>(), pcsize?.value?.toCPointer<ByteVar>(), pwcrightseparator?.value?.toCPointer<ByteVar>())
+public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: MutPtr<UInt>, pwcrightseparator: Pwstr): Hresult =
+    windowssysWindowsWin32UiTabletpcGetRightSeparator(hrc.rawAddress.toCPointer<ByteVar>(), pcsize.rawAddress.toCPointer<ByteVar>(), pwcrightseparator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: COpaquePointer?, pcr: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_getUnicodeRanges(hrec?.value?.toCPointer<ByteVar>(), pcranges?.value?.toCPointer<ByteVar>(), pcr?.value?.toCPointer<ByteVar>())
+public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: MutPtr<UInt>, pcr: MutPtr<CharacterRange>): Hresult =
+    windowssysWindowsWin32UiTabletpcGetUnicodeRanges(hrec.rawAddress.toCPointer<ByteVar>(), pcranges.rawAddress.toCPointer<ByteVar>(), pcr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isStringSupported(hrc: Hrecocontext, wcstring: UInt, pwcstring: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_isStringSupported(hrc?.value?.toCPointer<ByteVar>(), wcstring, pwcstring?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcIsStringSupported(hrc.rawAddress.toCPointer<ByteVar>(), wcstring, pwcstring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loadCachedAttributes(clsid: Guid, precoattributes: COpaquePointer?): Hresult =
+public actual fun loadCachedAttributes(clsid: Guid, precoattributes: MutPtr<RecoAttrs>): Hresult =
     0
 
-public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_makeWordList(hrec?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), phwl?.value?.toCPointer<ByteVar>())
+public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: MutPtr<Hrecowordlist>): Hresult =
+    windowssysWindowsWin32UiTabletpcMakeWordList(hrec.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), phwl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun process(hrc: Hrecocontext, pbpartialprocessing: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_process(hrc?.value?.toCPointer<ByteVar>(), pbpartialprocessing?.value?.toCPointer<ByteVar>())
+public actual fun process(hrc: Hrecocontext, pbpartialprocessing: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32UiTabletpcProcess(hrc.rawAddress.toCPointer<ByteVar>(), pbpartialprocessing.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges(hrc?.value?.toCPointer<ByteVar>(), cranges, pcr?.value?.toCPointer<ByteVar>())
+public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: MutPtr<CharacterRange>): Hresult =
+    windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges(hrc.rawAddress.toCPointer<ByteVar>(), cranges, pcr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_setFactoid(hrc?.value?.toCPointer<ByteVar>(), cwcfactoid, pwcfactoid?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcSetFactoid(hrc.rawAddress.toCPointer<ByteVar>(), cwcfactoid, pwcfactoid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setFlags(hrc: Hrecocontext, dwflags: UInt): Hresult =
-    windowssys_windows_win32_ui_tabletpc_setFlags(hrc?.value?.toCPointer<ByteVar>(), dwflags)
+    windowssysWindowsWin32UiTabletpcSetFlags(hrc.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun setGuide(hrc: Hrecocontext, pguide: COpaquePointer?, iindex: UInt): Hresult =
-    windowssys_windows_win32_ui_tabletpc_setGuide(hrc?.value?.toCPointer<ByteVar>(), pguide?.value?.toCPointer<ByteVar>(), iindex)
+public actual fun setGuide(hrc: Hrecocontext, pguide: ConstPtr<RecoGuide>, iindex: UInt): Hresult =
+    windowssysWindowsWin32UiTabletpcSetGuide(hrc.rawAddress.toCPointer<ByteVar>(), pguide.rawAddress.toCPointer<ByteVar>(), iindex)
 
 public actual fun setTextContext(hrc: Hrecocontext, cwcbefore: UInt, pwcbefore: Pcwstr, cwcafter: UInt, pwcafter: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_tabletpc_setTextContext(hrc?.value?.toCPointer<ByteVar>(), cwcbefore, pwcbefore?.value?.toCPointer<ByteVar>(), cwcafter, pwcafter?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcSetTextContext(hrc.rawAddress.toCPointer<ByteVar>(), cwcbefore, pwcbefore.rawAddress.toCPointer<ByteVar>(), cwcafter, pwcafter.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setWordList(hrc: Hrecocontext, hwl: Hrecowordlist): Hresult =
-    windowssys_windows_win32_ui_tabletpc_setWordList(hrc?.value?.toCPointer<ByteVar>(), hwl?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiTabletpcSetWordList(hrc.rawAddress.toCPointer<ByteVar>(), hwl.rawAddress.toCPointer<ByteVar>())

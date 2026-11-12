@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 private object WindowsWin32SystemKernelJniBridge {
     init {
@@ -10,45 +11,45 @@ private object WindowsWin32SystemKernelJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlFirstEntrySList(listhead: Long): Long
+    external fun windowssysWindowsWin32SystemKernelRtlFirstEntrySList(listhead: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlInitializeSListHead(listhead: Long)
+    external fun windowssysWindowsWin32SystemKernelRtlInitializeSListHead(listhead: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(listhead: Long): Long
+    external fun windowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(listhead: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(listhead: Long): Long
+    external fun windowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(listhead: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(listhead: Long, listentry: Long): Long
+    external fun windowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(listhead: Long, listentry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: Int): Long
+    external fun windowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_kernel_rtlQueryDepthSList(listhead: Long): Short
+    external fun windowssysWindowsWin32SystemKernelRtlQueryDepthSList(listhead: Long): Short
 }
 
-public actual fun rtlFirstEntrySList(listhead: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlFirstEntrySList((listhead?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlFirstEntrySList(listhead: ConstPtr<SlistHeader>): MutPtr<SlistEntry> =
+    MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlFirstEntrySList(listhead.rawAddress))
 
-public actual fun rtlInitializeSListHead(listhead: COpaquePointer?) {
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlInitializeSListHead((listhead?.value ?: 0L))
+public actual fun rtlInitializeSListHead(listhead: MutPtr<SlistHeader>) {
+    WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInitializeSListHead(listhead.rawAddress)
 }
 
-public actual fun rtlInterlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList((listhead?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlInterlockedFlushSList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+    MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(listhead.rawAddress))
 
-public actual fun rtlInterlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList((listhead?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+    MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(listhead.rawAddress))
 
-public actual fun rtlInterlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList((listhead?.value ?: 0L), (listentry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr<SlistHeader>, listentry: MutPtr<SlistEntry>): MutPtr<SlistEntry> =
+    MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(listhead.rawAddress, listentry.rawAddress))
 
-public actual fun rtlInterlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer? =
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx((listhead?.value ?: 0L), (list?.value ?: 0L), (listend?.value ?: 0L), count.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr<SlistHeader>, list: MutPtr<SlistEntry>, listend: MutPtr<SlistEntry>, count: UInt): MutPtr<SlistEntry> =
+    MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(listhead.rawAddress, list.rawAddress, listend.rawAddress, count.toInt()))
 
-public actual fun rtlQueryDepthSList(listhead: COpaquePointer?): UShort =
-    WindowsWin32SystemKernelJniBridge.windowssys_windows_win32_system_kernel_rtlQueryDepthSList((listhead?.value ?: 0L)).toUShort()
+public actual fun rtlQueryDepthSList(listhead: ConstPtr<SlistHeader>): UShort =
+    WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlQueryDepthSList(listhead.rawAddress).toUShort()

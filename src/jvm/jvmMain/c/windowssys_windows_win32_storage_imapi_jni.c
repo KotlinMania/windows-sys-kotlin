@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssys_1windows_1win32_1storage_1imapi_1closeIMsgSession(JNIEnv* km_env, jclass km_clazz, jlong lpmsgsess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssysWindowsWin32StorageImapiCloseIMsgSession(JNIEnv* km_env, jclass km_clazz, jlong lpmsgsess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssys_1windows_1win32_1storage_1imapi_1getAttribIMsgOnIStg(JNIEnv* km_env, jclass km_clazz, jlong lpobject, jlong lpproptagarray, jlong lpppropattrarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssysWindowsWin32StorageImapiGetAttribIMsgOnIStg(JNIEnv* km_env, jclass km_clazz, jlong lpobject, jlong lpproptagarray, jlong lpppropattrarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -67,7 +67,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssys_1windows_1win32_1storage_1imapi_1mapStorageSCode(JNIEnv* km_env, jclass km_clazz, jint stgscode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssysWindowsWin32StorageImapiMapStorageSCode(JNIEnv* km_env, jclass km_clazz, jint stgscode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -92,7 +92,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssys_1windows_1win32_1storage_1imapi_1openIMsgSession(JNIEnv* km_env, jclass km_clazz, jlong lpmalloc, jint ulflags, jlong lppmsgsess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssysWindowsWin32StorageImapiOpenIMsgSession(JNIEnv* km_env, jclass km_clazz, jlong lpmalloc, jint ulflags, jlong lppmsgsess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssys_1windows_1win32_1storage_1imapi_1setAttribIMsgOnIStg(JNIEnv* km_env, jclass km_clazz, jlong lpobject, jlong lpproptags, jlong lppropattrs, jlong lpppropproblems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_imapi_WindowsWin32StorageImapiJniBridge_windowssysWindowsWin32StorageImapiSetAttribIMsgOnIStg(JNIEnv* km_env, jclass km_clazz, jlong lpobject, jlong lpproptags, jlong lppropattrs, jlong lpppropproblems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

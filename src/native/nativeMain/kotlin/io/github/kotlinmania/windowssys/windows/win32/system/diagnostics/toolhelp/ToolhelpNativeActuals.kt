@@ -2,73 +2,75 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_createToolhelp32Snapshot
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_heap32First
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListFirst
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListNext
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_heap32Next
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_module32First
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_module32FirstW
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_module32Next
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_module32NextW
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_process32First
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_process32FirstW
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_process32Next
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_process32NextW
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_thread32First
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_thread32Next
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssys_windows_win32_system_diagnostics_toolhelp_toolhelp32ReadProcessMemory
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpCreateToolhelp32Snapshot
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32First
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListFirst
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListNext
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32Next
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32First
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32FirstW
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32Next
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32NextW
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32First
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32FirstW
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32Next
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32NextW
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpThread32First
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpThread32Next
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop.windowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp32ReadProcessMemory
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
 public actual fun createToolhelp32Snapshot(dwflags: CreateToolhelpSnapshotFlags, th32processid: UInt): Handle =
-    windowssys_windows_win32_system_diagnostics_toolhelp_createToolhelp32Snapshot(dwflags, th32processid)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32SystemDiagnosticsToolhelpCreateToolhelp32Snapshot(dwflags, th32processid)?.toLong() ?: 0L)
 
-public actual fun heap32First(lphe: COpaquePointer?, th32processid: UInt, th32heapid: ULong): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_heap32First(lphe?.value?.toCPointer<ByteVar>(), th32processid, th32heapid)
+public actual fun heap32First(lphe: MutPtr<Heapentry32>, th32processid: UInt, th32heapid: ULong): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32First(lphe.rawAddress.toCPointer<ByteVar>(), th32processid, th32heapid)
 
-public actual fun heap32ListFirst(hsnapshot: Handle, lphl: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListFirst(hsnapshot?.value?.toCPointer<ByteVar>(), lphl?.value?.toCPointer<ByteVar>())
+public actual fun heap32ListFirst(hsnapshot: Handle, lphl: MutPtr<Heaplist32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListFirst(hsnapshot.rawAddress.toCPointer<ByteVar>(), lphl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun heap32ListNext(hsnapshot: Handle, lphl: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListNext(hsnapshot?.value?.toCPointer<ByteVar>(), lphl?.value?.toCPointer<ByteVar>())
+public actual fun heap32ListNext(hsnapshot: Handle, lphl: MutPtr<Heaplist32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListNext(hsnapshot.rawAddress.toCPointer<ByteVar>(), lphl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun heap32Next(lphe: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_heap32Next(lphe?.value?.toCPointer<ByteVar>())
+public actual fun heap32Next(lphe: MutPtr<Heapentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32Next(lphe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun module32First(hsnapshot: Handle, lpme: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_module32First(hsnapshot?.value?.toCPointer<ByteVar>(), lpme?.value?.toCPointer<ByteVar>())
+public actual fun module32First(hsnapshot: Handle, lpme: MutPtr<Moduleentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpModule32First(hsnapshot.rawAddress.toCPointer<ByteVar>(), lpme.rawAddress.toCPointer<ByteVar>())
 
-public actual fun module32FirstW(hsnapshot: Handle, lpme: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_module32FirstW(hsnapshot?.value?.toCPointer<ByteVar>(), lpme?.value?.toCPointer<ByteVar>())
+public actual fun module32FirstW(hsnapshot: Handle, lpme: MutPtr<Moduleentry32w>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpModule32FirstW(hsnapshot.rawAddress.toCPointer<ByteVar>(), lpme.rawAddress.toCPointer<ByteVar>())
 
-public actual fun module32Next(hsnapshot: Handle, lpme: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_module32Next(hsnapshot?.value?.toCPointer<ByteVar>(), lpme?.value?.toCPointer<ByteVar>())
+public actual fun module32Next(hsnapshot: Handle, lpme: MutPtr<Moduleentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpModule32Next(hsnapshot.rawAddress.toCPointer<ByteVar>(), lpme.rawAddress.toCPointer<ByteVar>())
 
-public actual fun module32NextW(hsnapshot: Handle, lpme: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_module32NextW(hsnapshot?.value?.toCPointer<ByteVar>(), lpme?.value?.toCPointer<ByteVar>())
+public actual fun module32NextW(hsnapshot: Handle, lpme: MutPtr<Moduleentry32w>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpModule32NextW(hsnapshot.rawAddress.toCPointer<ByteVar>(), lpme.rawAddress.toCPointer<ByteVar>())
 
-public actual fun process32First(hsnapshot: Handle, lppe: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_process32First(hsnapshot?.value?.toCPointer<ByteVar>(), lppe?.value?.toCPointer<ByteVar>())
+public actual fun process32First(hsnapshot: Handle, lppe: MutPtr<Processentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32First(hsnapshot.rawAddress.toCPointer<ByteVar>(), lppe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun process32FirstW(hsnapshot: Handle, lppe: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_process32FirstW(hsnapshot?.value?.toCPointer<ByteVar>(), lppe?.value?.toCPointer<ByteVar>())
+public actual fun process32FirstW(hsnapshot: Handle, lppe: MutPtr<Processentry32w>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32FirstW(hsnapshot.rawAddress.toCPointer<ByteVar>(), lppe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun process32Next(hsnapshot: Handle, lppe: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_process32Next(hsnapshot?.value?.toCPointer<ByteVar>(), lppe?.value?.toCPointer<ByteVar>())
+public actual fun process32Next(hsnapshot: Handle, lppe: MutPtr<Processentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32Next(hsnapshot.rawAddress.toCPointer<ByteVar>(), lppe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun process32NextW(hsnapshot: Handle, lppe: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_process32NextW(hsnapshot?.value?.toCPointer<ByteVar>(), lppe?.value?.toCPointer<ByteVar>())
+public actual fun process32NextW(hsnapshot: Handle, lppe: MutPtr<Processentry32w>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32NextW(hsnapshot.rawAddress.toCPointer<ByteVar>(), lppe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun thread32First(hsnapshot: Handle, lpte: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_thread32First(hsnapshot?.value?.toCPointer<ByteVar>(), lpte?.value?.toCPointer<ByteVar>())
+public actual fun thread32First(hsnapshot: Handle, lpte: MutPtr<Threadentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpThread32First(hsnapshot.rawAddress.toCPointer<ByteVar>(), lpte.rawAddress.toCPointer<ByteVar>())
 
-public actual fun thread32Next(hsnapshot: Handle, lpte: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_thread32Next(hsnapshot?.value?.toCPointer<ByteVar>(), lpte?.value?.toCPointer<ByteVar>())
+public actual fun thread32Next(hsnapshot: Handle, lpte: MutPtr<Threadentry32>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpThread32Next(hsnapshot.rawAddress.toCPointer<ByteVar>(), lpte.rawAddress.toCPointer<ByteVar>())
 
-public actual fun toolhelp32ReadProcessMemory(th32processid: UInt, lpbaseaddress: COpaquePointer?, lpbuffer: COpaquePointer?, cbread: ULong, lpnumberofbytesread: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_diagnostics_toolhelp_toolhelp32ReadProcessMemory(th32processid, lpbaseaddress?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), cbread, lpnumberofbytesread?.value?.toCPointer<ByteVar>())
+public actual fun toolhelp32ReadProcessMemory(th32processid: UInt, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<CVoid>, cbread: ULong, lpnumberofbytesread: MutPtr<ULong>): Bool =
+    windowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp32ReadProcessMemory(th32processid, lpbaseaddress.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), cbread, lpnumberofbytesread.rawAddress.toCPointer<ByteVar>())

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_compression_closeCompressor(void* compressorhandle) {
+int32_t windowssysWindowsWin32StorageCompressionCloseCompressor(void* compressorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_storage_compression_closeCompressor(void* compr
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_closeDecompressor(void* decompressorhandle) {
+int32_t windowssysWindowsWin32StorageCompressionCloseDecompressor(void* decompressorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_storage_compression_closeDecompressor(void* dec
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_compress(void* compressorhandle, void* uncompresseddata, uint64_t uncompresseddatasize, void* compressedbuffer, uint64_t compressedbuffersize, void* compresseddatasize) {
+int32_t windowssysWindowsWin32StorageCompressionCompress(void* compressorhandle, void* uncompresseddata, uint64_t uncompresseddatasize, void* compressedbuffer, uint64_t compressedbuffersize, void* compresseddatasize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_storage_compression_compress(void* compressorha
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_createCompressor(uint32_t algorithm, void* allocationroutines, void* compressorhandle) {
+int32_t windowssysWindowsWin32StorageCompressionCreateCompressor(uint32_t algorithm, void* allocationroutines, void* compressorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_storage_compression_createCompressor(uint32_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_createDecompressor(uint32_t algorithm, void* allocationroutines, void* decompressorhandle) {
+int32_t windowssysWindowsWin32StorageCompressionCreateDecompressor(uint32_t algorithm, void* allocationroutines, void* decompressorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_storage_compression_createDecompressor(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_decompress(void* decompressorhandle, void* compresseddata, uint64_t compresseddatasize, void* uncompressedbuffer, uint64_t uncompressedbuffersize, void* uncompresseddatasize) {
+int32_t windowssysWindowsWin32StorageCompressionDecompress(void* decompressorhandle, void* compresseddata, uint64_t compresseddatasize, void* uncompressedbuffer, uint64_t uncompressedbuffersize, void* uncompresseddatasize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ int32_t windowssys_windows_win32_storage_compression_decompress(void* decompress
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_queryCompressorInformation(void* compressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
+int32_t windowssysWindowsWin32StorageCompressionQueryCompressorInformation(void* compressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ int32_t windowssys_windows_win32_storage_compression_queryCompressorInformation(
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_queryDecompressorInformation(void* decompressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
+int32_t windowssysWindowsWin32StorageCompressionQueryDecompressorInformation(void* decompressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -211,7 +211,7 @@ int32_t windowssys_windows_win32_storage_compression_queryDecompressorInformatio
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_resetCompressor(void* compressorhandle) {
+int32_t windowssysWindowsWin32StorageCompressionResetCompressor(void* compressorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -233,7 +233,7 @@ int32_t windowssys_windows_win32_storage_compression_resetCompressor(void* compr
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_resetDecompressor(void* decompressorhandle) {
+int32_t windowssysWindowsWin32StorageCompressionResetDecompressor(void* decompressorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ int32_t windowssys_windows_win32_storage_compression_resetDecompressor(void* dec
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_setCompressorInformation(void* compressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
+int32_t windowssysWindowsWin32StorageCompressionSetCompressorInformation(void* compressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -280,7 +280,7 @@ int32_t windowssys_windows_win32_storage_compression_setCompressorInformation(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_compression_setDecompressorInformation(void* decompressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
+int32_t windowssysWindowsWin32StorageCompressionSetDecompressorInformation(void* decompressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_devices_display_brushobjHGetColorTransform(void* pbo) {
+void* windowssysWindowsWin32DevicesDisplayBrushobjHGetColorTransform(void* pbo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void* windowssys_windows_win32_devices_display_brushobjHGetColorTransform(void* 
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_brushobjPvAllocRbrush(void* pbo, uint32_t cj) {
+void* windowssysWindowsWin32DevicesDisplayBrushobjPvAllocRbrush(void* pbo, uint32_t cj) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ void* windowssys_windows_win32_devices_display_brushobjPvAllocRbrush(void* pbo, 
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_brushobjPvGetRbrush(void* pbo) {
+void* windowssysWindowsWin32DevicesDisplayBrushobjPvGetRbrush(void* pbo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ void* windowssys_windows_win32_devices_display_brushobjPvGetRbrush(void* pbo) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_brushobjUlGetBrushColor(void* pbo) {
+uint32_t windowssysWindowsWin32DevicesDisplayBrushobjUlGetBrushColor(void* pbo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ uint32_t windowssys_windows_win32_devices_display_brushobjUlGetBrushColor(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_clipobjBEnum(void* pco, uint32_t cj, void* pul) {
+int32_t windowssysWindowsWin32DevicesDisplayClipobjBEnum(void* pco, uint32_t cj, void* pul) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ int32_t windowssys_windows_win32_devices_display_clipobjBEnum(void* pco, uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_clipobjCEnumStart(void* pco, int32_t ball, uint32_t itype, uint32_t idirection, uint32_t climit) {
+uint32_t windowssysWindowsWin32DevicesDisplayClipobjCEnumStart(void* pco, int32_t ball, uint32_t itype, uint32_t idirection, uint32_t climit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ uint32_t windowssys_windows_win32_devices_display_clipobjCEnumStart(void* pco, i
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_clipobjPpoGetPath(void* pco) {
+void* windowssysWindowsWin32DevicesDisplayClipobjPpoGetPath(void* pco) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ void* windowssys_windows_win32_devices_display_clipobjPpoGetPath(void* pco) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply(void* hmonitor, void* pszasciicapabilitiesstring, uint32_t dwcapabilitiesstringlengthincharacters) {
+int32_t windowssysWindowsWin32DevicesDisplayCapabilitiesRequestAndCapabilitiesReply(void* hmonitor, void* pszasciicapabilitiesstring, uint32_t dwcapabilitiesstringlengthincharacters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -200,7 +200,7 @@ int32_t windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilit
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_degaussMonitor(void* hmonitor) {
+int32_t windowssysWindowsWin32DevicesDisplayDegaussMonitor(void* hmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ int32_t windowssys_windows_win32_devices_display_degaussMonitor(void* hmonitor) 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_destroyPhysicalMonitor(void* hmonitor) {
+int32_t windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitor(void* hmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ int32_t windowssys_windows_win32_devices_display_destroyPhysicalMonitor(void* hm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_destroyPhysicalMonitors(uint32_t dwphysicalmonitorarraysize, void* pphysicalmonitorarray) {
+int32_t windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitors(uint32_t dwphysicalmonitorarraysize, void* pphysicalmonitorarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -267,7 +267,7 @@ int32_t windowssys_windows_win32_devices_display_destroyPhysicalMonitors(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo(void* requestpacket) {
+int32_t windowssysWindowsWin32DevicesDisplayDisplayConfigGetDeviceInfo(void* requestpacket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo(void* setpacket) {
+int32_t windowssysWindowsWin32DevicesDisplayDisplayConfigSetDeviceInfo(void* setpacket) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -311,7 +311,7 @@ int32_t windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo(void
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engAcquireSemaphore(void* hsem) {
+void windowssysWindowsWin32DevicesDisplayEngAcquireSemaphore(void* hsem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -332,7 +332,7 @@ void windowssys_windows_win32_devices_display_engAcquireSemaphore(void* hsem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engAlphaBlend(void* psodest, void* psosrc, void* pco, void* pxlo, void* prcldest, void* prclsrc, void* pblendobj) {
+int32_t windowssysWindowsWin32DevicesDisplayEngAlphaBlend(void* psodest, void* psosrc, void* pco, void* pxlo, void* prcldest, void* prclsrc, void* pblendobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ int32_t windowssys_windows_win32_devices_display_engAlphaBlend(void* psodest, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engAssociateSurface(void* hsurf, void* hdev, uint32_t flhooks) {
+int32_t windowssysWindowsWin32DevicesDisplayEngAssociateSurface(void* hsurf, void* hdev, uint32_t flhooks) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -384,7 +384,7 @@ int32_t windowssys_windows_win32_devices_display_engAssociateSurface(void* hsurf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engBitBlt(void* psotrg, void* psosrc, void* psomask, void* pco, void* pxlo, void* prcltrg, void* pptlsrc, void* pptlmask, void* pbo, void* pptlbrush, uint32_t rop4) {
+int32_t windowssysWindowsWin32DevicesDisplayEngBitBlt(void* psotrg, void* psosrc, void* psomask, void* pco, void* pxlo, void* prcltrg, void* pptlsrc, void* pptlmask, void* pbo, void* pptlbrush, uint32_t rop4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -416,7 +416,7 @@ int32_t windowssys_windows_win32_devices_display_engBitBlt(void* psotrg, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engCheckAbort(void* pso) {
+int32_t windowssysWindowsWin32DevicesDisplayEngCheckAbort(void* pso) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -438,7 +438,7 @@ int32_t windowssys_windows_win32_devices_display_engCheckAbort(void* pso) {
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engComputeGlyphSet(int32_t ncodepage, int32_t nfirstchar, int32_t cchars) {
+void* windowssysWindowsWin32DevicesDisplayEngComputeGlyphSet(int32_t ncodepage, int32_t nfirstchar, int32_t cchars) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -462,7 +462,7 @@ void* windowssys_windows_win32_devices_display_engComputeGlyphSet(int32_t ncodep
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engCopyBits(void* psodest, void* psosrc, void* pco, void* pxlo, void* prcldest, void* pptlsrc) {
+int32_t windowssysWindowsWin32DevicesDisplayEngCopyBits(void* psodest, void* psosrc, void* pco, void* pxlo, void* prcldest, void* pptlsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -489,7 +489,7 @@ int32_t windowssys_windows_win32_devices_display_engCopyBits(void* psodest, void
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engCreateClip(void) {
+void* windowssysWindowsWin32DevicesDisplayEngCreateClip(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -510,7 +510,7 @@ void* windowssys_windows_win32_devices_display_engCreateClip(void) {
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engCreatePalette(uint32_t imode, uint32_t ccolors, void* pulcolors, uint32_t flred, uint32_t flgreen, uint32_t flblue) {
+void* windowssysWindowsWin32DevicesDisplayEngCreatePalette(uint32_t imode, uint32_t ccolors, void* pulcolors, uint32_t flred, uint32_t flgreen, uint32_t flblue) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ void* windowssys_windows_win32_devices_display_engCreatePalette(uint32_t imode, 
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engCreateSemaphore(void) {
+void* windowssysWindowsWin32DevicesDisplayEngCreateSemaphore(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -558,7 +558,7 @@ void* windowssys_windows_win32_devices_display_engCreateSemaphore(void) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engDeleteClip(void* pco) {
+void windowssysWindowsWin32DevicesDisplayEngDeleteClip(void* pco) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -579,7 +579,7 @@ void windowssys_windows_win32_devices_display_engDeleteClip(void* pco) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engDeletePalette(void* hpal) {
+int32_t windowssysWindowsWin32DevicesDisplayEngDeletePalette(void* hpal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -601,7 +601,7 @@ int32_t windowssys_windows_win32_devices_display_engDeletePalette(void* hpal) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engDeletePath(void* ppo) {
+void windowssysWindowsWin32DevicesDisplayEngDeletePath(void* ppo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ void windowssys_windows_win32_devices_display_engDeletePath(void* ppo) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engDeleteSemaphore(void* hsem) {
+void windowssysWindowsWin32DevicesDisplayEngDeleteSemaphore(void* hsem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -643,7 +643,7 @@ void windowssys_windows_win32_devices_display_engDeleteSemaphore(void* hsem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engDeleteSurface(void* hsurf) {
+int32_t windowssysWindowsWin32DevicesDisplayEngDeleteSurface(void* hsurf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +665,7 @@ int32_t windowssys_windows_win32_devices_display_engDeleteSurface(void* hsurf) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engEraseSurface(void* pso, void* prcl, uint32_t icolor) {
+int32_t windowssysWindowsWin32DevicesDisplayEngEraseSurface(void* pso, void* prcl, uint32_t icolor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -689,7 +689,7 @@ int32_t windowssys_windows_win32_devices_display_engEraseSurface(void* pso, void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engFillPath(void* pso, void* ppo, void* pco, void* pbo, void* pptlbrushorg, uint32_t mix, uint32_t floptions) {
+int32_t windowssysWindowsWin32DevicesDisplayEngFillPath(void* pso, void* ppo, void* pco, void* pbo, void* pptlbrushorg, uint32_t mix, uint32_t floptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -717,7 +717,7 @@ int32_t windowssys_windows_win32_devices_display_engFillPath(void* pso, void* pp
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engFindResource(void* h, int32_t iname, int32_t itype, void* pulsize) {
+void* windowssysWindowsWin32DevicesDisplayEngFindResource(void* h, int32_t iname, int32_t itype, void* pulsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -742,7 +742,7 @@ void* windowssys_windows_win32_devices_display_engFindResource(void* h, int32_t 
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engFreeModule(void* h) {
+void windowssysWindowsWin32DevicesDisplayEngFreeModule(void* h) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -763,7 +763,7 @@ void windowssys_windows_win32_devices_display_engFreeModule(void* h) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engGetCurrentCodePage(void* oemcodepage, void* ansicodepage) {
+void windowssysWindowsWin32DevicesDisplayEngGetCurrentCodePage(void* oemcodepage, void* ansicodepage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ void windowssys_windows_win32_devices_display_engGetCurrentCodePage(void* oemcod
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engGetDriverName(void* hdev) {
+void* windowssysWindowsWin32DevicesDisplayEngGetDriverName(void* hdev) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -807,7 +807,7 @@ void* windowssys_windows_win32_devices_display_engGetDriverName(void* hdev) {
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engGetPrinterDataFileName(void* hdev) {
+void* windowssysWindowsWin32DevicesDisplayEngGetPrinterDataFileName(void* hdev) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -829,7 +829,7 @@ void* windowssys_windows_win32_devices_display_engGetPrinterDataFileName(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engGradientFill(void* psodest, void* pco, void* pxlo, void* pvertex, uint32_t nvertex, void* pmesh, uint32_t nmesh, void* prclextents, void* pptlditherorg, uint32_t ulmode) {
+int32_t windowssysWindowsWin32DevicesDisplayEngGradientFill(void* psodest, void* pco, void* pxlo, void* pvertex, uint32_t nvertex, void* pmesh, uint32_t nmesh, void* prclextents, void* pptlditherorg, uint32_t ulmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -860,7 +860,7 @@ int32_t windowssys_windows_win32_devices_display_engGradientFill(void* psodest, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engLineTo(void* pso, void* pco, void* pbo, int32_t x1, int32_t y1, int32_t x2, int32_t y2, void* prclbounds, uint32_t mix) {
+int32_t windowssysWindowsWin32DevicesDisplayEngLineTo(void* pso, void* pco, void* pbo, int32_t x1, int32_t y1, int32_t x2, int32_t y2, void* prclbounds, uint32_t mix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -890,7 +890,7 @@ int32_t windowssys_windows_win32_devices_display_engLineTo(void* pso, void* pco,
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engLoadModule(void* pwsz) {
+void* windowssysWindowsWin32DevicesDisplayEngLoadModule(void* pwsz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -912,7 +912,7 @@ void* windowssys_windows_win32_devices_display_engLoadModule(void* pwsz) {
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_engLockSurface(void* hsurf) {
+void* windowssysWindowsWin32DevicesDisplayEngLockSurface(void* hsurf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -934,7 +934,7 @@ void* windowssys_windows_win32_devices_display_engLockSurface(void* hsurf) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engMarkBandingSurface(void* hsurf) {
+int32_t windowssysWindowsWin32DevicesDisplayEngMarkBandingSurface(void* hsurf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -956,7 +956,7 @@ int32_t windowssys_windows_win32_devices_display_engMarkBandingSurface(void* hsu
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engMultiByteToUnicodeN(void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* multibytestring, uint32_t bytesinmultibytestring) {
+void windowssysWindowsWin32DevicesDisplayEngMultiByteToUnicodeN(void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* multibytestring, uint32_t bytesinmultibytestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -981,7 +981,7 @@ void windowssys_windows_win32_devices_display_engMultiByteToUnicodeN(void* unico
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engMultiByteToWideChar(uint32_t codepage, void* widecharstring, int32_t bytesinwidecharstring, void* multibytestring, int32_t bytesinmultibytestring) {
+int32_t windowssysWindowsWin32DevicesDisplayEngMultiByteToWideChar(uint32_t codepage, void* widecharstring, int32_t bytesinwidecharstring, void* multibytestring, int32_t bytesinmultibytestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ int32_t windowssys_windows_win32_devices_display_engMultiByteToWideChar(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engPaint(void* pso, void* pco, void* pbo, void* pptlbrushorg, uint32_t mix) {
+int32_t windowssysWindowsWin32DevicesDisplayEngPaint(void* pso, void* pco, void* pbo, void* pptlbrushorg, uint32_t mix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1033,7 +1033,7 @@ int32_t windowssys_windows_win32_devices_display_engPaint(void* pso, void* pco, 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engPlgBlt(void* psotrg, void* psosrc, void* psomsk, void* pco, void* pxlo, void* pca, void* pptlbrushorg, void* pptfx, void* prcl, void* pptl, uint32_t imode) {
+int32_t windowssysWindowsWin32DevicesDisplayEngPlgBlt(void* psotrg, void* psosrc, void* psomsk, void* pco, void* pxlo, void* pca, void* pptlbrushorg, void* pptfx, void* prcl, void* pptl, uint32_t imode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1065,7 +1065,7 @@ int32_t windowssys_windows_win32_devices_display_engPlgBlt(void* psotrg, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engQueryEMFInfo(void* hdev, void* pemfinfo) {
+int32_t windowssysWindowsWin32DevicesDisplayEngQueryEMFInfo(void* hdev, void* pemfinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1088,7 +1088,7 @@ int32_t windowssys_windows_win32_devices_display_engQueryEMFInfo(void* hdev, voi
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engQueryLocalTime(void* param0) {
+void windowssysWindowsWin32DevicesDisplayEngQueryLocalTime(void* param0) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ void windowssys_windows_win32_devices_display_engQueryLocalTime(void* param0) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engReleaseSemaphore(void* hsem) {
+void windowssysWindowsWin32DevicesDisplayEngReleaseSemaphore(void* hsem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1130,7 +1130,7 @@ void windowssys_windows_win32_devices_display_engReleaseSemaphore(void* hsem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engStretchBlt(void* psodest, void* psosrc, void* psomask, void* pco, void* pxlo, void* pca, void* pptlhtorg, void* prcldest, void* prclsrc, void* pptlmask, uint32_t imode) {
+int32_t windowssysWindowsWin32DevicesDisplayEngStretchBlt(void* psodest, void* psosrc, void* psomask, void* pco, void* pxlo, void* pca, void* pptlhtorg, void* prcldest, void* prclsrc, void* pptlmask, uint32_t imode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1162,7 +1162,7 @@ int32_t windowssys_windows_win32_devices_display_engStretchBlt(void* psodest, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engStretchBltROP(void* psodest, void* psosrc, void* psomask, void* pco, void* pxlo, void* pca, void* pptlhtorg, void* prcldest, void* prclsrc, void* pptlmask, uint32_t imode, void* pbo, uint32_t rop4) {
+int32_t windowssysWindowsWin32DevicesDisplayEngStretchBltROP(void* psodest, void* psosrc, void* psomask, void* pco, void* pxlo, void* pca, void* pptlhtorg, void* prcldest, void* prclsrc, void* pptlmask, uint32_t imode, void* pbo, uint32_t rop4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1196,7 +1196,7 @@ int32_t windowssys_windows_win32_devices_display_engStretchBltROP(void* psodest,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engStrokeAndFillPath(void* pso, void* ppo, void* pco, void* pxo, void* pbostroke, void* plineattrs, void* pbofill, void* pptlbrushorg, uint32_t mixfill, uint32_t floptions) {
+int32_t windowssysWindowsWin32DevicesDisplayEngStrokeAndFillPath(void* pso, void* ppo, void* pco, void* pxo, void* pbostroke, void* plineattrs, void* pbofill, void* pptlbrushorg, uint32_t mixfill, uint32_t floptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1227,7 +1227,7 @@ int32_t windowssys_windows_win32_devices_display_engStrokeAndFillPath(void* pso,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engStrokePath(void* pso, void* ppo, void* pco, void* pxo, void* pbo, void* pptlbrushorg, void* plineattrs, uint32_t mix) {
+int32_t windowssysWindowsWin32DevicesDisplayEngStrokePath(void* pso, void* ppo, void* pco, void* pxo, void* pbo, void* pptlbrushorg, void* plineattrs, uint32_t mix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1256,7 +1256,7 @@ int32_t windowssys_windows_win32_devices_display_engStrokePath(void* pso, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engTextOut(void* pso, void* pstro, void* pfo, void* pco, void* prclextra, void* prclopaque, void* pbofore, void* pboopaque, void* pptlorg, uint32_t mix) {
+int32_t windowssysWindowsWin32DevicesDisplayEngTextOut(void* pso, void* pstro, void* pfo, void* pco, void* prclextra, void* prclopaque, void* pbofore, void* pboopaque, void* pptlorg, uint32_t mix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1287,7 +1287,7 @@ int32_t windowssys_windows_win32_devices_display_engTextOut(void* pso, void* pst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engTransparentBlt(void* psodst, void* psosrc, void* pco, void* pxlo, void* prcldst, void* prclsrc, uint32_t transcolor, uint32_t bcalledfrombitblt) {
+int32_t windowssysWindowsWin32DevicesDisplayEngTransparentBlt(void* psodst, void* psosrc, void* pco, void* pxlo, void* prcldst, void* prclsrc, uint32_t transcolor, uint32_t bcalledfrombitblt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1316,7 +1316,7 @@ int32_t windowssys_windows_win32_devices_display_engTransparentBlt(void* psodst,
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engUnicodeToMultiByteN(void* multibytestring, uint32_t maxbytesinmultibytestring, void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
+void windowssysWindowsWin32DevicesDisplayEngUnicodeToMultiByteN(void* multibytestring, uint32_t maxbytesinmultibytestring, void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1341,7 +1341,7 @@ void windowssys_windows_win32_devices_display_engUnicodeToMultiByteN(void* multi
 #endif
 }
 
-void windowssys_windows_win32_devices_display_engUnlockSurface(void* pso) {
+void windowssysWindowsWin32DevicesDisplayEngUnlockSurface(void* pso) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ void windowssys_windows_win32_devices_display_engUnlockSurface(void* pso) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_engWideCharToMultiByte(uint32_t codepage, void* widecharstring, int32_t bytesinwidecharstring, void* multibytestring, int32_t bytesinmultibytestring) {
+int32_t windowssysWindowsWin32DevicesDisplayEngWideCharToMultiByte(uint32_t codepage, void* widecharstring, int32_t bytesinwidecharstring, void* multibytestring, int32_t bytesinmultibytestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1388,7 +1388,7 @@ int32_t windowssys_windows_win32_devices_display_engWideCharToMultiByte(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles(void* pfo, void* phg) {
+uint32_t windowssysWindowsWin32DevicesDisplayFontobjCGetAllGlyphHandles(void* pfo, void* phg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1411,7 +1411,7 @@ uint32_t windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_fontobjCGetGlyphs(void* pfo, uint32_t imode, uint32_t cglyph, void* phg, void* ppvglyph) {
+uint32_t windowssysWindowsWin32DevicesDisplayFontobjCGetGlyphs(void* pfo, uint32_t imode, uint32_t cglyph, void* phg, void* ppvglyph) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1437,7 +1437,7 @@ uint32_t windowssys_windows_win32_devices_display_fontobjCGetGlyphs(void* pfo, u
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs(void* pfo, uint32_t imode) {
+void* windowssysWindowsWin32DevicesDisplayFontobjPQueryGlyphAttrs(void* pfo, uint32_t imode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1460,7 +1460,7 @@ void* windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs(void* pfo
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_fontobjPfdg(void* pfo) {
+void* windowssysWindowsWin32DevicesDisplayFontobjPfdg(void* pfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1482,7 +1482,7 @@ void* windowssys_windows_win32_devices_display_fontobjPfdg(void* pfo) {
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_fontobjPifi(void* pfo) {
+void* windowssysWindowsWin32DevicesDisplayFontobjPifi(void* pfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1504,7 +1504,7 @@ void* windowssys_windows_win32_devices_display_fontobjPifi(void* pfo) {
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile(void* pfo, void* pcjfile) {
+void* windowssysWindowsWin32DevicesDisplayFontobjPvTrueTypeFontFile(void* pfo, void* pcjfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1527,7 +1527,7 @@ void* windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile(void* p
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_fontobjPxoGetXform(void* pfo) {
+void* windowssysWindowsWin32DevicesDisplayFontobjPxoGetXform(void* pfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1549,7 +1549,7 @@ void* windowssys_windows_win32_devices_display_fontobjPxoGetXform(void* pfo) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_fontobjVGetInfo(void* pfo, uint32_t cjsize, void* pfi) {
+void windowssysWindowsWin32DevicesDisplayFontobjVGetInfo(void* pfo, uint32_t cjsize, void* pfi) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1572,7 +1572,7 @@ void windowssys_windows_win32_devices_display_fontobjVGetInfo(void* pfo, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getAutoRotationState(void* pstate) {
+int32_t windowssysWindowsWin32DevicesDisplayGetAutoRotationState(void* pstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1594,7 +1594,7 @@ int32_t windowssys_windows_win32_devices_display_getAutoRotationState(void* psta
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getCapabilitiesStringLength(void* hmonitor, void* pdwcapabilitiesstringlengthincharacters) {
+int32_t windowssysWindowsWin32DevicesDisplayGetCapabilitiesStringLength(void* hmonitor, void* pdwcapabilitiesstringlengthincharacters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1617,7 +1617,7 @@ int32_t windowssys_windows_win32_devices_display_getCapabilitiesStringLength(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences(void* porientation) {
+int32_t windowssysWindowsWin32DevicesDisplayGetDisplayAutoRotationPreferences(void* porientation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1639,7 +1639,7 @@ int32_t windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferenc
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(uint32_t flags, void* numpatharrayelements, void* nummodeinfoarrayelements) {
+uint32_t windowssysWindowsWin32DevicesDisplayGetDisplayConfigBufferSizes(uint32_t flags, void* numpatharrayelements, void* nummodeinfoarrayelements) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1663,7 +1663,7 @@ uint32_t windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorBrightness(void* hmonitor, void* pdwminimumbrightness, void* pdwcurrentbrightness, void* pdwmaximumbrightness) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorBrightness(void* hmonitor, void* pdwminimumbrightness, void* pdwcurrentbrightness, void* pdwmaximumbrightness) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1688,7 +1688,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorBrightness(void* hmon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorCapabilities(void* hmonitor, void* pdwmonitorcapabilities, void* pdwsupportedcolortemperatures) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorCapabilities(void* hmonitor, void* pdwmonitorcapabilities, void* pdwsupportedcolortemperatures) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1712,7 +1712,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorCapabilities(void* hm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorColorTemperature(void* hmonitor, void* pctcurrentcolortemperature) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorColorTemperature(void* hmonitor, void* pctcurrentcolortemperature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1735,7 +1735,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorColorTemperature(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorContrast(void* hmonitor, void* pdwminimumcontrast, void* pdwcurrentcontrast, void* pdwmaximumcontrast) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorContrast(void* hmonitor, void* pdwminimumcontrast, void* pdwcurrentcontrast, void* pdwmaximumcontrast) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1760,7 +1760,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorContrast(void* hmonit
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition(void* hmonitor, int32_t ptpositiontype, void* pdwminimumposition, void* pdwcurrentposition, void* pdwmaximumposition) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaPosition(void* hmonitor, int32_t ptpositiontype, void* pdwminimumposition, void* pdwcurrentposition, void* pdwmaximumposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1786,7 +1786,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize(void* hmonitor, int32_t stsizetype, void* pdwminimumwidthorheight, void* pdwcurrentwidthorheight, void* pdwmaximumwidthorheight) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaSize(void* hmonitor, int32_t stsizetype, void* pdwminimumwidthorheight, void* pdwcurrentwidthorheight, void* pdwmaximumwidthorheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1812,7 +1812,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive(void* hmonitor, int32_t dtdrivetype, void* pdwminimumdrive, void* pdwcurrentdrive, void* pdwmaximumdrive) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueDrive(void* hmonitor, int32_t dtdrivetype, void* pdwminimumdrive, void* pdwcurrentdrive, void* pdwmaximumdrive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1838,7 +1838,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain(void* hmonitor, int32_t gtgaintype, void* pdwminimumgain, void* pdwcurrentgain, void* pdwmaximumgain) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueGain(void* hmonitor, int32_t gtgaintype, void* pdwminimumgain, void* pdwcurrentgain, void* pdwmaximumgain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1864,7 +1864,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getMonitorTechnologyType(void* hmonitor, void* pdtydisplaytechnologytype) {
+int32_t windowssysWindowsWin32DevicesDisplayGetMonitorTechnologyType(void* hmonitor, void* pdtydisplaytechnologytype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1887,7 +1887,7 @@ int32_t windowssys_windows_win32_devices_display_getMonitorTechnologyType(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR(void* hmonitor, void* pdwnumberofphysicalmonitors) {
+int32_t windowssysWindowsWin32DevicesDisplayGetNumberOfPhysicalMonitorsFromHMONITOR(void* hmonitor, void* pdwnumberofphysicalmonitors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1910,7 +1910,7 @@ int32_t windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFrom
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR(void* hmonitor, uint32_t dwphysicalmonitorarraysize, void* pphysicalmonitorarray) {
+int32_t windowssysWindowsWin32DevicesDisplayGetPhysicalMonitorsFromHMONITOR(void* hmonitor, uint32_t dwphysicalmonitorarraysize, void* pphysicalmonitorarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1934,7 +1934,7 @@ int32_t windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getTimingReport(void* hmonitor, void* pmtrmonitortimingreport) {
+int32_t windowssysWindowsWin32DevicesDisplayGetTimingReport(void* hmonitor, void* pmtrmonitortimingreport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1957,7 +1957,7 @@ int32_t windowssys_windows_win32_devices_display_getTimingReport(void* hmonitor,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply(void* hmonitor, uint8_t bvcpcode, void* pvct, void* pdwcurrentvalue, void* pdwmaximumvalue) {
+int32_t windowssysWindowsWin32DevicesDisplayGetVCPFeatureAndVCPFeatureReply(void* hmonitor, uint8_t bvcpcode, void* pvct, void* pdwcurrentvalue, void* pdwmaximumvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1983,7 +1983,7 @@ int32_t windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_htGet8BppformatPalette(void* ppaletteentry, uint16_t redgamma, uint16_t greengamma, uint16_t bluegamma) {
+int32_t windowssysWindowsWin32DevicesDisplayHtGet8BppformatPalette(void* ppaletteentry, uint16_t redgamma, uint16_t greengamma, uint16_t bluegamma) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2008,7 +2008,7 @@ int32_t windowssys_windows_win32_devices_display_htGet8BppformatPalette(void* pp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_htGet8BppmaskPalette(void* ppaletteentry, int32_t use8bppmaskpal, uint8_t cmymask, uint16_t redgamma, uint16_t greengamma, uint16_t bluegamma) {
+int32_t windowssysWindowsWin32DevicesDisplayHtGet8BppmaskPalette(void* ppaletteentry, int32_t use8bppmaskpal, uint8_t cmymask, uint16_t redgamma, uint16_t greengamma, uint16_t bluegamma) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint8_t, uint16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2035,7 +2035,7 @@ int32_t windowssys_windows_win32_devices_display_htGet8BppmaskPalette(void* ppal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_pathobjBEnum(void* ppo, void* ppd) {
+int32_t windowssysWindowsWin32DevicesDisplayPathobjBEnum(void* ppo, void* ppd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2058,7 +2058,7 @@ int32_t windowssys_windows_win32_devices_display_pathobjBEnum(void* ppo, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_pathobjBEnumClipLines(void* ppo, uint32_t cb, void* pcl) {
+int32_t windowssysWindowsWin32DevicesDisplayPathobjBEnumClipLines(void* ppo, uint32_t cb, void* pcl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2082,7 +2082,7 @@ int32_t windowssys_windows_win32_devices_display_pathobjBEnumClipLines(void* ppo
 #endif
 }
 
-void windowssys_windows_win32_devices_display_pathobjVEnumStart(void* ppo) {
+void windowssysWindowsWin32DevicesDisplayPathobjVEnumStart(void* ppo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2103,7 +2103,7 @@ void windowssys_windows_win32_devices_display_pathobjVEnumStart(void* ppo) {
 #endif
 }
 
-void windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines(void* ppo, void* pco, void* pso, void* pla) {
+void windowssysWindowsWin32DevicesDisplayPathobjVEnumStartClipLines(void* ppo, void* pco, void* pso, void* pla) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2127,7 +2127,7 @@ void windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines(void* p
 #endif
 }
 
-void windowssys_windows_win32_devices_display_pathobjVGetBounds(void* ppo, void* prectfx) {
+void windowssysWindowsWin32DevicesDisplayPathobjVGetBounds(void* ppo, void* prectfx) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2149,7 +2149,7 @@ void windowssys_windows_win32_devices_display_pathobjVGetBounds(void* ppo, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_queryDisplayConfig(uint32_t flags, void* numpatharrayelements, void* patharray, void* nummodeinfoarrayelements, void* modeinfoarray, void* currenttopologyid) {
+uint32_t windowssysWindowsWin32DevicesDisplayQueryDisplayConfig(uint32_t flags, void* numpatharrayelements, void* patharray, void* nummodeinfoarrayelements, void* modeinfoarray, void* currenttopologyid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2176,7 +2176,7 @@ uint32_t windowssys_windows_win32_devices_display_queryDisplayConfig(uint32_t fl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults(void* hmonitor) {
+int32_t windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryColorDefaults(void* hmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2198,7 +2198,7 @@ int32_t windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefau
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults(void* hmonitor) {
+int32_t windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryDefaults(void* hmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2220,7 +2220,7 @@ int32_t windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_strobjBEnum(void* pstro, void* pc, void* ppgpos) {
+int32_t windowssysWindowsWin32DevicesDisplayStrobjBEnum(void* pstro, void* pc, void* ppgpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2244,7 +2244,7 @@ int32_t windowssys_windows_win32_devices_display_strobjBEnum(void* pstro, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly(void* pstro, void* pc, void* ppgpos) {
+int32_t windowssysWindowsWin32DevicesDisplayStrobjBEnumPositionsOnly(void* pstro, void* pc, void* ppgpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2268,7 +2268,7 @@ int32_t windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths(void* pso, uint32_t ifirst, uint32_t c, void* pptqd) {
+int32_t windowssysWindowsWin32DevicesDisplayStrobjBGetAdvanceWidths(void* pso, uint32_t ifirst, uint32_t c, void* pptqd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2293,7 +2293,7 @@ int32_t windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_strobjDwGetCodePage(void* pstro) {
+uint32_t windowssysWindowsWin32DevicesDisplayStrobjDwGetCodePage(void* pstro) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2315,7 +2315,7 @@ uint32_t windowssys_windows_win32_devices_display_strobjDwGetCodePage(void* pstr
 #endif
 }
 
-void windowssys_windows_win32_devices_display_strobjVEnumStart(void* pstro) {
+void windowssysWindowsWin32DevicesDisplayStrobjVEnumStart(void* pstro) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2336,7 +2336,7 @@ void windowssys_windows_win32_devices_display_strobjVEnumStart(void* pstro) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_saveCurrentMonitorSettings(void* hmonitor) {
+int32_t windowssysWindowsWin32DevicesDisplaySaveCurrentMonitorSettings(void* hmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2358,7 +2358,7 @@ int32_t windowssys_windows_win32_devices_display_saveCurrentMonitorSettings(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_saveCurrentSettings(void* hmonitor) {
+int32_t windowssysWindowsWin32DevicesDisplaySaveCurrentSettings(void* hmonitor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2380,7 +2380,7 @@ int32_t windowssys_windows_win32_devices_display_saveCurrentSettings(void* hmoni
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(int32_t orientation) {
+int32_t windowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(int32_t orientation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2402,7 +2402,7 @@ int32_t windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferenc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setDisplayConfig(uint32_t numpatharrayelements, void* patharray, uint32_t nummodeinfoarrayelements, void* modeinfoarray, uint32_t flags) {
+int32_t windowssysWindowsWin32DevicesDisplaySetDisplayConfig(uint32_t numpatharrayelements, void* patharray, uint32_t nummodeinfoarrayelements, void* modeinfoarray, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2428,7 +2428,7 @@ int32_t windowssys_windows_win32_devices_display_setDisplayConfig(uint32_t numpa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorBrightness(void* hmonitor, uint32_t dwnewbrightness) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorBrightness(void* hmonitor, uint32_t dwnewbrightness) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2451,7 +2451,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorBrightness(void* hmon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorColorTemperature(void* hmonitor, int32_t ctcurrentcolortemperature) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorColorTemperature(void* hmonitor, int32_t ctcurrentcolortemperature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2474,7 +2474,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorColorTemperature(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorContrast(void* hmonitor, uint32_t dwnewcontrast) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorContrast(void* hmonitor, uint32_t dwnewcontrast) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2497,7 +2497,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorContrast(void* hmonit
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition(void* hmonitor, int32_t ptpositiontype, uint32_t dwnewposition) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaPosition(void* hmonitor, int32_t ptpositiontype, uint32_t dwnewposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2521,7 +2521,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize(void* hmonitor, int32_t stsizetype, uint32_t dwnewdisplayareawidthorheight) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaSize(void* hmonitor, int32_t stsizetype, uint32_t dwnewdisplayareawidthorheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2545,7 +2545,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive(void* hmonitor, int32_t dtdrivetype, uint32_t dwnewdrive) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueDrive(void* hmonitor, int32_t dtdrivetype, uint32_t dwnewdrive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2569,7 +2569,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain(void* hmonitor, int32_t gtgaintype, uint32_t dwnewgain) {
+int32_t windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueGain(void* hmonitor, int32_t gtgaintype, uint32_t dwnewgain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2593,7 +2593,7 @@ int32_t windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_setVCPFeature(void* hmonitor, uint8_t bvcpcode, uint32_t dwnewvalue) {
+int32_t windowssysWindowsWin32DevicesDisplaySetVCPFeature(void* hmonitor, uint8_t bvcpcode, uint32_t dwnewvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2617,7 +2617,7 @@ int32_t windowssys_windows_win32_devices_display_setVCPFeature(void* hmonitor, u
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_display_xformobjBApplyXform(void* pxo, uint32_t imode, uint32_t cpoints, void* pvin, void* pvout) {
+int32_t windowssysWindowsWin32DevicesDisplayXformobjBApplyXform(void* pxo, uint32_t imode, uint32_t cpoints, void* pvin, void* pvout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2643,7 +2643,7 @@ int32_t windowssys_windows_win32_devices_display_xformobjBApplyXform(void* pxo, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_xformobjIGetXform(void* pxo, void* pxform) {
+uint32_t windowssysWindowsWin32DevicesDisplayXformobjIGetXform(void* pxo, void* pxform) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2666,7 +2666,7 @@ uint32_t windowssys_windows_win32_devices_display_xformobjIGetXform(void* pxo, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_xlateobjCGetPalette(void* pxlo, uint32_t ipal, uint32_t cpal, void* ppal) {
+uint32_t windowssysWindowsWin32DevicesDisplayXlateobjCGetPalette(void* pxlo, uint32_t ipal, uint32_t cpal, void* ppal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2691,7 +2691,7 @@ uint32_t windowssys_windows_win32_devices_display_xlateobjCGetPalette(void* pxlo
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_xlateobjHGetColorTransform(void* pxlo) {
+void* windowssysWindowsWin32DevicesDisplayXlateobjHGetColorTransform(void* pxlo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2713,7 +2713,7 @@ void* windowssys_windows_win32_devices_display_xlateobjHGetColorTransform(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_display_xlateobjIXlate(void* pxlo, uint32_t icolor) {
+uint32_t windowssysWindowsWin32DevicesDisplayXlateobjIXlate(void* pxlo, uint32_t icolor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2736,7 +2736,7 @@ uint32_t windowssys_windows_win32_devices_display_xlateobjIXlate(void* pxlo, uin
 #endif
 }
 
-void* windowssys_windows_win32_devices_display_xlateobjPiVector(void* pxlo) {
+void* windowssysWindowsWin32DevicesDisplayXlateobjPiVector(void* pxlo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

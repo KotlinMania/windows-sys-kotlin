@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_system_kernel_rtlFirstEntrySList(void* listhead);
-void windowssys_windows_win32_system_kernel_rtlInitializeSListHead(void* listhead);
-void* windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(void* listhead);
-void* windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(void* listhead);
-void* windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(void* listhead, void* listentry);
-void* windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count);
-uint16_t windowssys_windows_win32_system_kernel_rtlQueryDepthSList(void* listhead);
+void* windowssysWindowsWin32SystemKernelRtlFirstEntrySList(void* listhead);
+void windowssysWindowsWin32SystemKernelRtlInitializeSListHead(void* listhead);
+void* windowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(void* listhead);
+void* windowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(void* listhead);
+void* windowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(void* listhead, void* listentry);
+void* windowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count);
+uint16_t windowssysWindowsWin32SystemKernelRtlQueryDepthSList(void* listhead);
 
 #ifdef __cplusplus
 }

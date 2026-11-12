@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_applicationRecoveryFinished_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bsuccess = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_applicationRecoveryF
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_applicationRecoveryInProgress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbcancelled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -98,7 +98,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_applicationRecoveryI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precoverycallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_getApplicationRecove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_getApplicationRestartSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -162,7 +162,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_getApplicationRestar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precoveycallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvparameter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_registerApplicationR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_registerApplicationRestart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -220,7 +220,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_registerApplicationR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_system_recovery_unregisterApplicatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_recovery_unregisterApplicationRestart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -267,14 +267,14 @@ static Napi::Value windowssys_windows_win32_system_recovery_unregisterApplicatio
 }
 
 static void register_windows_win32_system_recovery_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_recovery_applicationRecoveryFinished", Napi::Function::New(env, windowssys_windows_win32_system_recovery_applicationRecoveryFinished_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_applicationRecoveryInProgress", Napi::Function::New(env, windowssys_windows_win32_system_recovery_applicationRecoveryInProgress_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback", Napi::Function::New(env, windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_getApplicationRestartSettings", Napi::Function::New(env, windowssys_windows_win32_system_recovery_getApplicationRestartSettings_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback", Napi::Function::New(env, windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_registerApplicationRestart", Napi::Function::New(env, windowssys_windows_win32_system_recovery_registerApplicationRestart_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback", Napi::Function::New(env, windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback_napi));
-    exports.Set("windowssys_windows_win32_system_recovery_unregisterApplicationRestart", Napi::Function::New(env, windowssys_windows_win32_system_recovery_unregisterApplicationRestart_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryRegisterApplicationRestart_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart", Napi::Function::New(env, windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_recovery_napi, nullptr };

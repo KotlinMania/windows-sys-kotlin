@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 
 public typealias AcdgroupEvent = Int
@@ -67,23 +69,23 @@ public typealias FtStateEventCause = Int
 
 public typealias FullduplexSupport = Int
 
-public typealias Hdrvcall = COpaquePointer?
+public typealias Hdrvcall = MutPtr<CVoid>
 
-public typealias Hdrvdialoginstance = COpaquePointer?
+public typealias Hdrvdialoginstance = MutPtr<CVoid>
 
-public typealias Hdrvline = COpaquePointer?
+public typealias Hdrvline = MutPtr<CVoid>
 
-public typealias Hdrvmspline = COpaquePointer?
+public typealias Hdrvmspline = MutPtr<CVoid>
 
-public typealias Hdrvphone = COpaquePointer?
+public typealias Hdrvphone = MutPtr<CVoid>
 
-public typealias Hprovider = COpaquePointer?
+public typealias Hprovider = MutPtr<CVoid>
 
-public typealias Htapicall = COpaquePointer?
+public typealias Htapicall = MutPtr<CVoid>
 
-public typealias Htapiline = COpaquePointer?
+public typealias Htapiline = MutPtr<CVoid>
 
-public typealias Htapiphone = COpaquePointer?
+public typealias Htapiphone = MutPtr<CVoid>
 
 public fun interface LinecallbackFn {
     public operator fun invoke(hdevice: UInt, dwmessage: UInt, dwinstance: ULong, dwparam1: ULong, dwparam2: ULong, dwparam3: ULong)
@@ -98,19 +100,19 @@ public fun interface LineeventFn {
 public typealias Lineevent = LineeventFn?
 
 public fun interface LpgettnefstreamcodepageFn {
-    public operator fun invoke(lpstream: COpaquePointer?, lpulcodepage: COpaquePointer?, lpulsubcodepage: COpaquePointer?): Hresult
+    public operator fun invoke(lpstream: MutPtr<CVoid>, lpulcodepage: MutPtr<UInt>, lpulsubcodepage: MutPtr<UInt>): Hresult
 }
 
 public typealias Lpgettnefstreamcodepage = LpgettnefstreamcodepageFn?
 
 public fun interface LpopentnefstreamFn {
-    public operator fun invoke(lpvsupport: COpaquePointer?, lpstream: COpaquePointer?, lpszstreamname: COpaquePointer?, ulflags: UInt, lpmessage: COpaquePointer?, wkeyval: UShort, lpptnef: COpaquePointer?): Hresult
+    public operator fun invoke(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public typealias Lpopentnefstream = LpopentnefstreamFn?
 
 public fun interface LpopentnefstreamexFn {
-    public operator fun invoke(lpvsupport: COpaquePointer?, lpstream: COpaquePointer?, lpszstreamname: COpaquePointer?, ulflags: UInt, lpmessage: COpaquePointer?, wkeyval: UShort, lpadressbook: COpaquePointer?, lpptnef: COpaquePointer?): Hresult
+    public operator fun invoke(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpadressbook: MutPtr<CVoid>, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public typealias Lpopentnefstreamex = LpopentnefstreamexFn?
@@ -184,7 +186,7 @@ public typealias TerminalState = Int
 public typealias TerminalType = Int
 
 public fun interface TuispidllcallbackFn {
-    public operator fun invoke(dwobjectid: ULong, dwobjecttype: UInt, lpparams: COpaquePointer?, dwsize: UInt): Int
+    public operator fun invoke(dwobjectid: ULong, dwobjecttype: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int
 }
 
 public typealias Tuispidllcallback = TuispidllcallbackFn?

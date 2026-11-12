@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -10,15 +11,15 @@ import io.github.kotlinmania.windowssys.core.w
 
 public val CAT_MEMBERINFO2_OBJID: Pcstr = s("1.3.6.1.4.1.311.12.2.3")
 
-public val CAT_MEMBERINFO2_STRUCT: Pcstr = COpaquePointer(2223.toLong())
+public val CAT_MEMBERINFO2_STRUCT: Pcstr = MutPtr<CVoid>(2223.toLong())
 
 public val CAT_MEMBERINFO_OBJID: Pcstr = s("1.3.6.1.4.1.311.12.2.2")
 
-public val CAT_MEMBERINFO_STRUCT: Pcstr = COpaquePointer(2222.toLong())
+public val CAT_MEMBERINFO_STRUCT: Pcstr = MutPtr<CVoid>(2222.toLong())
 
 public val CAT_NAMEVALUE_OBJID: Pcstr = s("1.3.6.1.4.1.311.12.2.1")
 
-public val CAT_NAMEVALUE_STRUCT: Pcstr = COpaquePointer(2221.toLong())
+public val CAT_NAMEVALUE_STRUCT: Pcstr = MutPtr<CVoid>(2221.toLong())
 
 public val CCPI_RESULT_ALLOW: UInt = 1u
 
@@ -82,7 +83,7 @@ public val HTTPS_CHKCERT_FUNCTION: Pcwstr = w("HTTPSCheckCertProv")
 
 public val HTTPS_FINALPOLICY_FUNCTION: Pcwstr = w("HTTPSFinalProv")
 
-public val INTENT_TO_SEAL_ATTRIBUTE_STRUCT: Pcstr = COpaquePointer(2010.toLong())
+public val INTENT_TO_SEAL_ATTRIBUTE_STRUCT: Pcstr = MutPtr<CVoid>(2010.toLong())
 
 public val OFFICE_CLEANUPPOLICY_FUNCTION: Pcwstr = w("OfficeCleanupPolicy")
 
@@ -90,15 +91,15 @@ public val OFFICE_INITPROV_FUNCTION: Pcwstr = w("OfficeInitializePolicy")
 
 public val OFFICE_POLICY_PROVIDER_DLL_NAME: Pcwstr = w("WINTRUST.DLL")
 
-public val SEALING_SIGNATURE_ATTRIBUTE_STRUCT: Pcstr = COpaquePointer(2011.toLong())
+public val SEALING_SIGNATURE_ATTRIBUTE_STRUCT: Pcstr = MutPtr<CVoid>(2011.toLong())
 
-public val SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: Pcstr = COpaquePointer(2012.toLong())
+public val SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: Pcstr = MutPtr<CVoid>(2012.toLong())
 
 public val SGNR_TYPE_TIMESTAMP: UInt = 16u
 
 public val SPC_CAB_DATA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.25")
 
-public val SPC_CAB_DATA_STRUCT: Pcstr = COpaquePointer(2008.toLong())
+public val SPC_CAB_DATA_STRUCT: Pcstr = MutPtr<CVoid>(2008.toLong())
 
 public val SPC_CERT_EXTENSIONS_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.14")
 
@@ -112,11 +113,11 @@ public val SPC_FILE_LINK_CHOICE: UInt = 3u
 
 public val SPC_FINANCIAL_CRITERIA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.27")
 
-public val SPC_FINANCIAL_CRITERIA_STRUCT: Pcstr = COpaquePointer(2002.toLong())
+public val SPC_FINANCIAL_CRITERIA_STRUCT: Pcstr = MutPtr<CVoid>(2002.toLong())
 
 public val SPC_GLUE_RDN_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.25")
 
-public val SPC_INDIRECT_DATA_CONTENT_STRUCT: Pcstr = COpaquePointer(2003.toLong())
+public val SPC_INDIRECT_DATA_CONTENT_STRUCT: Pcstr = MutPtr<CVoid>(2003.toLong())
 
 public val SPC_INDIRECT_DATA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.4")
 
@@ -124,15 +125,15 @@ public val SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.2
 
 public val SPC_JAVA_CLASS_DATA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.20")
 
-public val SPC_JAVA_CLASS_DATA_STRUCT: Pcstr = COpaquePointer(2009.toLong())
+public val SPC_JAVA_CLASS_DATA_STRUCT: Pcstr = MutPtr<CVoid>(2009.toLong())
 
 public val SPC_LINK_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.28")
 
-public val SPC_LINK_STRUCT: Pcstr = COpaquePointer(2005.toLong())
+public val SPC_LINK_STRUCT: Pcstr = MutPtr<CVoid>(2005.toLong())
 
 public val SPC_MINIMAL_CRITERIA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.26")
 
-public val SPC_MINIMAL_CRITERIA_STRUCT: Pcstr = COpaquePointer(2001.toLong())
+public val SPC_MINIMAL_CRITERIA_STRUCT: Pcstr = MutPtr<CVoid>(2001.toLong())
 
 public val SPC_MONIKER_LINK_CHOICE: UInt = 2u
 
@@ -140,7 +141,7 @@ public val SPC_NATURAL_AUTH_PLUGIN_OBJID: Pcstr = s("1.3.6.1.4.1.311.96.1.1")
 
 public val SPC_PE_IMAGE_DATA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.15")
 
-public val SPC_PE_IMAGE_DATA_STRUCT: Pcstr = COpaquePointer(2004.toLong())
+public val SPC_PE_IMAGE_DATA_STRUCT: Pcstr = MutPtr<CVoid>(2004.toLong())
 
 public val SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.3.1")
 
@@ -152,19 +153,19 @@ public val SPC_RELAXED_PE_MARKER_CHECK_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.6.1")
 
 public val SPC_SIGINFO_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.30")
 
-public val SPC_SIGINFO_STRUCT: Pcstr = COpaquePointer(2130.toLong())
+public val SPC_SIGINFO_STRUCT: Pcstr = MutPtr<CVoid>(2130.toLong())
 
 public val SPC_SP_AGENCY_INFO_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.10")
 
-public val SPC_SP_AGENCY_INFO_STRUCT: Pcstr = COpaquePointer(2000.toLong())
+public val SPC_SP_AGENCY_INFO_STRUCT: Pcstr = MutPtr<CVoid>(2000.toLong())
 
 public val SPC_SP_OPUS_INFO_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.12")
 
-public val SPC_SP_OPUS_INFO_STRUCT: Pcstr = COpaquePointer(2007.toLong())
+public val SPC_SP_OPUS_INFO_STRUCT: Pcstr = MutPtr<CVoid>(2007.toLong())
 
 public val SPC_STATEMENT_TYPE_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.11")
 
-public val SPC_STATEMENT_TYPE_STRUCT: Pcstr = COpaquePointer(2006.toLong())
+public val SPC_STATEMENT_TYPE_STRUCT: Pcstr = MutPtr<CVoid>(2006.toLong())
 
 public val SPC_STRUCTURED_STORAGE_DATA_OBJID: Pcstr = s("1.3.6.1.4.1.311.2.1.19")
 

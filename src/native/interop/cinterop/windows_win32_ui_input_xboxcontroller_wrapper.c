@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable(int32_t enable) {
+void windowssysWindowsWin32UiInputXboxcontrollerXInputEnable(int32_t enable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable(int32_t enabl
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds(uint32_t dwuserindex, void* prenderdeviceid, void* prendercount, void* pcapturedeviceid, void* pcapturecount) {
+uint32_t windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds(uint32_t dwuserindex, void* prenderdeviceid, void* prendercount, void* pcapturedeviceid, void* pcapturecount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceId
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation(uint32_t dwuserindex, uint8_t devtype, void* pbatteryinformation) {
+uint32_t windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation(uint32_t dwuserindex, uint8_t devtype, void* pbatteryinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInform
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities(uint32_t dwuserindex, uint32_t dwflags, void* pcapabilities) {
+uint32_t windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities(uint32_t dwuserindex, uint32_t dwflags, void* pcapabilities) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities(
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke(uint32_t dwuserindex, uint32_t dwreserved, void* pkeystroke) {
+uint32_t windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke(uint32_t dwuserindex, uint32_t dwreserved, void* pkeystroke) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState(uint32_t dwuserindex, void* pstate) {
+uint32_t windowssysWindowsWin32UiInputXboxcontrollerXInputGetState(uint32_t dwuserindex, void* pstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -157,7 +157,7 @@ uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState(uint32_t dwuserindex, void* pvibration) {
+uint32_t windowssysWindowsWin32UiInputXboxcontrollerXInputSetState(uint32_t dwuserindex, void* pvibration) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

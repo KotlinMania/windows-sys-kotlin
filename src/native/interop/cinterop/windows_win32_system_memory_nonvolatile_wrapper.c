@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNonVolatileFlush(void* nvtoken) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlDrainNonVolatileFlush(void* nvtoken) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNonVolatileF
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFillNonVolatileMemory(void* nvtoken, void* nvdestination, uint64_t size, uint8_t value, uint32_t flags) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlFillNonVolatileMemory(void* nvtoken, void* nvdestination, uint64_t size, uint8_t value, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint8_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFillNonVolatileMe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemory(void* nvtoken, void* nvbuffer, uint64_t size, uint32_t flags) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemory(void* nvtoken, void* nvbuffer, uint64_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileM
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemoryRanges(void* nvtoken, void* nvranges, uint64_t numranges, uint32_t flags) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlFlushNonVolatileMemoryRanges(void* nvtoken, void* nvranges, uint64_t numranges, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileM
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNonVolatileToken(void* nvtoken) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlFreeNonVolatileToken(void* nvtoken) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNonVolatileTo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonVolatileToken(void* nvbuffer, uint64_t size, void* nvtoken) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlGetNonVolatileToken(void* nvbuffer, uint64_t size, void* nvtoken) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonVolatileTok
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNonVolatileMemory(void* nvtoken, void* nvdestination, void* source, uint64_t size, uint32_t flags) {
+uint32_t windowssysWindowsWin32SystemMemoryNonvolatileRtlWriteNonVolatileMemory(void* nvtoken, void* nvdestination, void* source, uint64_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

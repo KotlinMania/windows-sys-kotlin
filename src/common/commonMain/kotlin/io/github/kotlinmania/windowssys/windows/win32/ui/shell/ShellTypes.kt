@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
@@ -139,7 +141,7 @@ public typealias DfmMessageId = Int
 public typealias DisplayDeviceType = Int
 
 public fun interface DllgetversionprocFn {
-    public operator fun invoke(param0: COpaquePointer?): Hresult
+    public operator fun invoke(param0: MutPtr<Dllversioninfo>): Hresult
 }
 
 public typealias Dllgetversionproc = DllgetversionprocFn?
@@ -192,7 +194,7 @@ public typealias Fvtexttype = Int
 
 public typealias GpfidlFlags = UInt
 
-public typealias Hdrop = COpaquePointer?
+public typealias Hdrop = MutPtr<CVoid>
 
 public typealias HelpInfoType = Int
 
@@ -224,7 +226,7 @@ public typealias Hltranslatef = Int
 
 public typealias Homegroupsharingchoices = Int
 
-public typealias Hpsxa = COpaquePointer?
+public typealias Hpsxa = MutPtr<CVoid>
 
 public typealias Iepdnflags = Int
 
@@ -249,13 +251,13 @@ public typealias Libraryoptionflags = Int
 public typealias Librarysaveflags = Int
 
 public fun interface LpfndfmcallbackFn {
-    public operator fun invoke(psf: COpaquePointer?, hwnd: Hwnd, pdtobj: COpaquePointer?, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
+    public operator fun invoke(psf: MutPtr<CVoid>, hwnd: Hwnd, pdtobj: MutPtr<CVoid>, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
 }
 
 public typealias Lpfndfmcallback = LpfndfmcallbackFn?
 
 public fun interface LpfnviewcallbackFn {
-    public operator fun invoke(psvouter: COpaquePointer?, psf: COpaquePointer?, hwndmain: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
+    public operator fun invoke(psvouter: MutPtr<CVoid>, psf: MutPtr<CVoid>, hwndmain: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
 }
 
 public typealias Lpfnviewcallback = LpfnviewcallbackFn?
@@ -305,7 +307,7 @@ public typealias OfflineFolderStatus = Int
 public typealias PackageExecutionState = Int
 
 public fun interface PappconstrainChangeRoutineFn {
-    public operator fun invoke(constrained: Boolean, context: COpaquePointer?)
+    public operator fun invoke(constrained: Boolean, context: ConstPtr<CVoid>)
 }
 
 public typealias PappconstrainChangeRoutine = PappconstrainChangeRoutineFn?
@@ -313,7 +315,7 @@ public typealias PappconstrainChangeRoutine = PappconstrainChangeRoutineFn?
 public typealias PappconstrainRegistration = Long
 
 public fun interface PappstateChangeRoutineFn {
-    public operator fun invoke(quiesced: Boolean, context: COpaquePointer?)
+    public operator fun invoke(quiesced: Boolean, context: ConstPtr<CVoid>)
 }
 
 public typealias PappstateChangeRoutine = PappstateChangeRoutineFn?

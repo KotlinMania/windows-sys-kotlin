@@ -2,10 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproperty
 
 private object WindowsWin32DevicesEnumerationPnpJniBridge {
     init {
@@ -13,58 +18,58 @@ private object WindowsWin32DevicesEnumerationPnpJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose(hswdevice: Long)
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceClose(hswdevice: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate(pszenumeratorname: Long, pszparentdeviceinstance: Long, pcreateinfo: Long, cpropertycount: Int, pproperties: Long, pcallback: Long, pcontext: Long, phswdevice: Long): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceCreate(pszenumeratorname: Long, pszparentdeviceinstance: Long, pcreateinfo: Long, cpropertycount: Int, pproperties: Long, pcallback: Long, pcontext: Long, phswdevice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime(hswdevice: Long, plifetime: Long): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceGetLifetime(hswdevice: Long, plifetime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet(hswdevice: Long, pszdeviceinterfaceid: Long, cpropertycount: Int, pproperties: Long): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfacePropertySet(hswdevice: Long, pszdeviceinterfaceid: Long, cpropertycount: Int, pproperties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister(hswdevice: Long, pinterfaceclassguid: Long, pszreferencestring: Long, cpropertycount: Int, pproperties: Long, fenabled: Int, ppszdeviceinterfaceid: Long): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfaceRegister(hswdevice: Long, pinterfaceclassguid: Long, pszreferencestring: Long, cpropertycount: Int, pproperties: Long, fenabled: Int, ppszdeviceinterfaceid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState(hswdevice: Long, pszdeviceinterfaceid: Long, fenabled: Int): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfaceSetState(hswdevice: Long, pszdeviceinterfaceid: Long, fenabled: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet(hswdevice: Long, cpropertycount: Int, pproperties: Long): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDevicePropertySet(hswdevice: Long, cpropertycount: Int, pproperties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime(hswdevice: Long, lifetime: Int): Int
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwDeviceSetLifetime(hswdevice: Long, lifetime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_enumeration_pnp_swMemFree(pmem: Long)
+    external fun windowssysWindowsWin32DevicesEnumerationPnpSwMemFree(pmem: Long)
 }
 
 public actual fun swDeviceClose(hswdevice: Hswdevice) {
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose((hswdevice?.value ?: 0L))
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceClose(hswdevice.rawAddress)
 }
 
-public actual fun swDeviceCreate(pszenumeratorname: Pcwstr, pszparentdeviceinstance: Pcwstr, pcreateinfo: COpaquePointer?, cpropertycount: UInt, pproperties: COpaquePointer?, pcallback: SwDeviceCreateCallback, pcontext: COpaquePointer?, phswdevice: COpaquePointer?): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate((pszenumeratorname?.value ?: 0L), (pszparentdeviceinstance?.value ?: 0L), (pcreateinfo?.value ?: 0L), cpropertycount.toInt(), (pproperties?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phswdevice?.value ?: 0L))
+public actual fun swDeviceCreate(pszenumeratorname: Pcwstr, pszparentdeviceinstance: Pcwstr, pcreateinfo: ConstPtr<SwDeviceCreateInfo>, cpropertycount: UInt, pproperties: ConstPtr<Devproperty>, pcallback: SwDeviceCreateCallback, pcontext: ConstPtr<CVoid>, phswdevice: MutPtr<Hswdevice>): Hresult =
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceCreate(pszenumeratorname.rawAddress, pszparentdeviceinstance.rawAddress, pcreateinfo.rawAddress, cpropertycount.toInt(), pproperties.rawAddress, 0L, pcontext.rawAddress, phswdevice.rawAddress)
 
-public actual fun swDeviceGetLifetime(hswdevice: Hswdevice, plifetime: COpaquePointer?): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime((hswdevice?.value ?: 0L), (plifetime?.value ?: 0L))
+public actual fun swDeviceGetLifetime(hswdevice: Hswdevice, plifetime: MutPtr<SwDeviceLifetime>): Hresult =
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceGetLifetime(hswdevice.rawAddress, plifetime.rawAddress)
 
-public actual fun swDeviceInterfacePropertySet(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, cpropertycount: UInt, pproperties: COpaquePointer?): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet((hswdevice?.value ?: 0L), (pszdeviceinterfaceid?.value ?: 0L), cpropertycount.toInt(), (pproperties?.value ?: 0L))
+public actual fun swDeviceInterfacePropertySet(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, cpropertycount: UInt, pproperties: ConstPtr<Devproperty>): Hresult =
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfacePropertySet(hswdevice.rawAddress, pszdeviceinterfaceid.rawAddress, cpropertycount.toInt(), pproperties.rawAddress)
 
-public actual fun swDeviceInterfaceRegister(hswdevice: Hswdevice, pinterfaceclassguid: COpaquePointer?, pszreferencestring: Pcwstr, cpropertycount: UInt, pproperties: COpaquePointer?, fenabled: Bool, ppszdeviceinterfaceid: COpaquePointer?): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister((hswdevice?.value ?: 0L), (pinterfaceclassguid?.value ?: 0L), (pszreferencestring?.value ?: 0L), cpropertycount.toInt(), (pproperties?.value ?: 0L), fenabled, (ppszdeviceinterfaceid?.value ?: 0L))
+public actual fun swDeviceInterfaceRegister(hswdevice: Hswdevice, pinterfaceclassguid: ConstPtr<Guid>, pszreferencestring: Pcwstr, cpropertycount: UInt, pproperties: ConstPtr<Devproperty>, fenabled: Bool, ppszdeviceinterfaceid: MutPtr<Pwstr>): Hresult =
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfaceRegister(hswdevice.rawAddress, pinterfaceclassguid.rawAddress, pszreferencestring.rawAddress, cpropertycount.toInt(), pproperties.rawAddress, fenabled, ppszdeviceinterfaceid.rawAddress)
 
 public actual fun swDeviceInterfaceSetState(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, fenabled: Bool): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState((hswdevice?.value ?: 0L), (pszdeviceinterfaceid?.value ?: 0L), fenabled)
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceInterfaceSetState(hswdevice.rawAddress, pszdeviceinterfaceid.rawAddress, fenabled)
 
-public actual fun swDevicePropertySet(hswdevice: Hswdevice, cpropertycount: UInt, pproperties: COpaquePointer?): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet((hswdevice?.value ?: 0L), cpropertycount.toInt(), (pproperties?.value ?: 0L))
+public actual fun swDevicePropertySet(hswdevice: Hswdevice, cpropertycount: UInt, pproperties: ConstPtr<Devproperty>): Hresult =
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDevicePropertySet(hswdevice.rawAddress, cpropertycount.toInt(), pproperties.rawAddress)
 
 public actual fun swDeviceSetLifetime(hswdevice: Hswdevice, lifetime: SwDeviceLifetime): Hresult =
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime((hswdevice?.value ?: 0L), lifetime)
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwDeviceSetLifetime(hswdevice.rawAddress, lifetime)
 
-public actual fun swMemFree(pmem: COpaquePointer?) {
-    WindowsWin32DevicesEnumerationPnpJniBridge.windowssys_windows_win32_devices_enumeration_pnp_swMemFree((pmem?.value ?: 0L))
+public actual fun swMemFree(pmem: ConstPtr<CVoid>) {
+    WindowsWin32DevicesEnumerationPnpJniBridge.windowssysWindowsWin32DevicesEnumerationPnpSwMemFree(pmem.rawAddress)
 }

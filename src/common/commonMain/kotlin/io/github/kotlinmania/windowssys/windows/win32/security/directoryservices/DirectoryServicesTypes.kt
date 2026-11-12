@@ -1,14 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.directoryservices
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hpropsheetpage
 
 public fun interface PfndscreatesecpageFn {
-    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: Pfnreadobjectsecurity, param5: Pfnwriteobjectsecurity, param6: Lparam): Hresult
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: MutPtr<Hpropsheetpage>, param4: Pfnreadobjectsecurity, param5: Pfnwriteobjectsecurity, param6: Lparam): Hresult
 }
 
 public typealias Pfndscreatesecpage = PfndscreatesecpageFn?
@@ -20,7 +21,7 @@ public fun interface PfndseditsecurityFn {
 public typealias Pfndseditsecurity = PfndseditsecurityFn?
 
 public fun interface PfnreadobjectsecurityFn {
-    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: Lparam): Hresult
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: MutPtr<PsecurityDescriptor>, param3: Lparam): Hresult
 }
 
 public typealias Pfnreadobjectsecurity = PfnreadobjectsecurityFn?

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_backupEventLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogBackupEventLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbackupfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_backupEventLogA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_backupEventLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogBackupEventLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbackupfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_backupEventLogW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_clearEventLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogClearEventLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbackupfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_clearEventLogA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_clearEventLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogClearEventLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbackupfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_clearEventLogW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_closeEventLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogCloseEventLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -184,7 +184,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_closeEventLog_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_deregisterEventSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogDeregisterEventSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_deregisterEventSourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtArchiveExportedLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtArchiveExportedLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* logfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -240,7 +240,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtArchiveExportedLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t object = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -265,7 +265,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtCancel_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtClearLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtClearLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* channelpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -296,7 +296,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtClearLog_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t object = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtClose_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtCreateBookmark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtCreateBookmark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bookmarkxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -346,7 +346,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtCreateBookmark_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtCreateRenderContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtCreateRenderContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t valuepathscount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* valuepaths = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -375,7 +375,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtCreateRenderConte
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtExportLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtExportLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -408,7 +408,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtExportLog_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtFormatMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtFormatMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t publishermetadata = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t event = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtFormatMessage_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetChannelConfigProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetChannelConfigProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t channelconfig = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -484,7 +484,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetChannelConfigP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetEventInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t event = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -517,7 +517,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventInfo_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventMetadataProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetEventMetadataProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t eventmetadata = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -552,7 +552,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventMetadataP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetExtendedStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetExtendedStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -581,9 +581,9 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetExtendedStatus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetLogInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetLogInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    int64_t arg_0_log = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
+    int64_t arg0Log = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     uint32_t propertyvaluebuffersize = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* propertyvaluebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
@@ -597,13 +597,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetLogInfo_napi(c
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_log, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+        km_res = km_fn_ptr(arg0Log, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_log;
+    (void)arg0Log;
     (void)propertyid;
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
@@ -614,7 +614,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetLogInfo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArrayProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetObjectArrayProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t propertyid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -651,7 +651,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArrayPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArraySize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetObjectArraySize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* objectarraysize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -678,7 +678,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArraySiz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetPublisherMetadataProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetPublisherMetadataProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t publishermetadata = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetPublisherMetad
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtGetQueryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtGetQueryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t queryorsubscription = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -746,7 +746,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetQueryInfo_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t resultset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t eventssize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNext_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtNextChannelPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtNextChannelPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t channelenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t channelpathbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -812,7 +812,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNextChannelPath_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtNextEventMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtNextEventMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t eventmetadataenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -839,7 +839,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNextEventMetadata
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtNextPublisherId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtNextPublisherId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t publisherenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t publisheridbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -870,7 +870,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNextPublisherId_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenChannelConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenChannelConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* channelpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -899,7 +899,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenChannelConfig
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenChannelEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenChannelEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -926,7 +926,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenChannelEnum_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenEventMetadataEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t publishermetadata = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -953,7 +953,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenEventMetadata
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -982,7 +982,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenLog_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenPublisherEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1009,7 +1009,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenPublisherEnum
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenPublisherMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* publisherid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1042,7 +1042,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenPublisherMeta
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtOpenSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t loginclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* login = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1073,7 +1073,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenSession_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* path = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1104,7 +1104,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtQuery_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtRender_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtRender_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t context = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t fragment = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1141,7 +1141,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtRender_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtSaveChannelConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtSaveChannelConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t channelconfig = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1168,7 +1168,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSaveChannelConfig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtSeek_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtSeek_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t resultset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t position = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1201,7 +1201,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSeek_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtSetChannelConfigProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t channelconfig = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1232,7 +1232,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSetChannelConfigP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtSubscribe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtSubscribe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* signalevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1271,7 +1271,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSubscribe_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_evtUpdateBookmark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogEvtUpdateBookmark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t bookmark = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t event = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1298,7 +1298,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtUpdateBookmark_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_getEventLogInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogGetEventLogInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1331,7 +1331,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_getEventLogInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_getNumberOfEventLogRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogGetNumberOfEventLogRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofrecords = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1358,7 +1358,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_getNumberOfEventLogR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_getOldestEventLogRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogGetOldestEventLogRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldestrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1385,7 +1385,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_getOldestEventLogRec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_notifyChangeEventLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogNotifyChangeEventLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1412,7 +1412,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_notifyChangeEventLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_openBackupEventLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogOpenBackupEventLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openBackupEventLogA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_openBackupEventLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogOpenBackupEventLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1466,7 +1466,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openBackupEventLogW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_openEventLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogOpenEventLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1493,7 +1493,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openEventLogA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_openEventLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogOpenEventLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1520,7 +1520,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openEventLogW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogReadEventLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreadflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1557,7 +1557,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogReadEventLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreadflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1594,7 +1594,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_registerEventSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogRegisterEventSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1621,7 +1621,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_registerEventSourceA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_registerEventSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogRegisterEventSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuncservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1648,7 +1648,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_registerEventSourceW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_reportEventA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogReportEventA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wtype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1689,7 +1689,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_reportEventA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventlog_reportEventW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemEventlogReportEventW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heventlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wtype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1731,61 +1731,61 @@ static Napi::Value windowssys_windows_win32_system_eventlog_reportEventW_napi(co
 }
 
 static void register_windows_win32_system_eventlog_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_eventlog_backupEventLogA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_backupEventLogA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_backupEventLogW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_backupEventLogW_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_clearEventLogA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_clearEventLogA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_clearEventLogW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_clearEventLogW_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_closeEventLog", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_closeEventLog_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_deregisterEventSource", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_deregisterEventSource_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtArchiveExportedLog", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtArchiveExportedLog_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtCancel", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtCancel_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtClearLog", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtClearLog_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtClose", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtClose_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtCreateBookmark", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtCreateBookmark_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtCreateRenderContext", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtCreateRenderContext_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtExportLog", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtExportLog_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtFormatMessage", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtFormatMessage_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetChannelConfigProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetChannelConfigProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetEventInfo", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetEventInfo_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetEventMetadataProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetEventMetadataProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetExtendedStatus", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetExtendedStatus_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetLogInfo", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetLogInfo_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetObjectArrayProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetObjectArrayProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetObjectArraySize", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetObjectArraySize_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetPublisherMetadataProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetPublisherMetadataProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtGetQueryInfo", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtGetQueryInfo_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtNext", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtNext_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtNextChannelPath", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtNextChannelPath_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtNextEventMetadata", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtNextEventMetadata_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtNextPublisherId", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtNextPublisherId_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenChannelConfig", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenChannelConfig_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenChannelEnum", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenChannelEnum_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenEventMetadataEnum", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenEventMetadataEnum_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenLog", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenLog_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenPublisherEnum", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenPublisherEnum_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenPublisherMetadata", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenPublisherMetadata_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtOpenSession", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtOpenSession_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtQuery", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtQuery_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtRender", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtRender_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtSaveChannelConfig", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtSaveChannelConfig_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtSeek", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtSeek_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtSetChannelConfigProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtSetChannelConfigProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtSubscribe", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtSubscribe_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_evtUpdateBookmark", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_evtUpdateBookmark_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_getEventLogInformation", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_getEventLogInformation_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_getNumberOfEventLogRecords", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_getNumberOfEventLogRecords_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_getOldestEventLogRecord", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_getOldestEventLogRecord_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_notifyChangeEventLog", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_notifyChangeEventLog_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_openBackupEventLogA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_openBackupEventLogA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_openBackupEventLogW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_openBackupEventLogW_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_openEventLogA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_openEventLogA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_openEventLogW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_openEventLogW_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_readEventLogA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_readEventLogA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_readEventLogW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_readEventLogW_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_registerEventSourceA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_registerEventSourceA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_registerEventSourceW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_registerEventSourceW_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_reportEventA", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_reportEventA_napi));
-    exports.Set("windowssys_windows_win32_system_eventlog_reportEventW", Napi::Function::New(env, windowssys_windows_win32_system_eventlog_reportEventW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogBackupEventLogA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogBackupEventLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogBackupEventLogW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogBackupEventLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogClearEventLogA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogClearEventLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogClearEventLogW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogClearEventLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogCloseEventLog", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogCloseEventLog_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogDeregisterEventSource", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogDeregisterEventSource_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtArchiveExportedLog", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtArchiveExportedLog_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtCancel", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtCancel_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtClearLog", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtClearLog_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtClose", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtClose_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtCreateBookmark", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtCreateBookmark_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtCreateRenderContext", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtCreateRenderContext_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtExportLog", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtExportLog_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtFormatMessage", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtFormatMessage_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetChannelConfigProperty", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetChannelConfigProperty_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetEventInfo", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetEventInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetEventMetadataProperty", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetEventMetadataProperty_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetExtendedStatus", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetExtendedStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetLogInfo", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetLogInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetObjectArrayProperty", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetObjectArrayProperty_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetObjectArraySize", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetObjectArraySize_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetPublisherMetadataProperty", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetPublisherMetadataProperty_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtGetQueryInfo", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtGetQueryInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtNext", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtNext_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtNextChannelPath", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtNextChannelPath_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtNextEventMetadata", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtNextEventMetadata_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtNextPublisherId", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtNextPublisherId_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenChannelConfig", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenChannelConfig_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenChannelEnum", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenChannelEnum_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenLog", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenLog_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtOpenSession", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtOpenSession_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtQuery", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtQuery_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtRender", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtRender_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtSaveChannelConfig", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtSaveChannelConfig_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtSeek", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtSeek_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtSubscribe", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtSubscribe_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogEvtUpdateBookmark", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogEvtUpdateBookmark_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogGetEventLogInformation", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogGetEventLogInformation_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogGetNumberOfEventLogRecords", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogGetNumberOfEventLogRecords_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogGetOldestEventLogRecord", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogGetOldestEventLogRecord_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogNotifyChangeEventLog", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogNotifyChangeEventLog_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogOpenBackupEventLogA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogOpenBackupEventLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogOpenBackupEventLogW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogOpenBackupEventLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogOpenEventLogA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogOpenEventLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogOpenEventLogW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogOpenEventLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogReadEventLogA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogReadEventLogA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogReadEventLogW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogReadEventLogW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogRegisterEventSourceA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogRegisterEventSourceA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogRegisterEventSourceW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogRegisterEventSourceW_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogReportEventA", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogReportEventA_napi));
+    exports.Set("windowssysWindowsWin32SystemEventlogReportEventW", Napi::Function::New(env, windowssysWindowsWin32SystemEventlogReportEventW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_eventlog_napi, nullptr };

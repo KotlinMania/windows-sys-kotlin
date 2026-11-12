@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_ole_bstrFromVector(void* psa, void* pbstr) {
+int32_t windowssysWindowsWin32SystemOleBstrFromVector(void* psa, void* pbstr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_system_ole_bstrFromVector(void* psa, void* pbst
 #endif
 }
 
-void windowssys_windows_win32_system_ole_clearCustData(void* pcustdata) {
+void windowssysWindowsWin32SystemOleClearCustData(void* pcustdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ void windowssys_windows_win32_system_ole_clearCustData(void* pcustdata) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_createDispTypeInfo(void* pidata, uint32_t lcid, void* pptinfo) {
+int32_t windowssysWindowsWin32SystemOleCreateDispTypeInfo(void* pidata, uint32_t lcid, void* pptinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_system_ole_createDispTypeInfo(void* pidata, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_createErrorInfo(void* pperrinfo) {
+int32_t windowssysWindowsWin32SystemOleCreateErrorInfo(void* pperrinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_system_ole_createErrorInfo(void* pperrinfo) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_createOleAdviseHolder(void* ppoaholder) {
+int32_t windowssysWindowsWin32SystemOleCreateOleAdviseHolder(void* ppoaholder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_system_ole_createOleAdviseHolder(void* ppoahold
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_createStdDispatch(void* punkouter, void* pvthis, void* ptinfo, void* ppunkstddisp) {
+int32_t windowssysWindowsWin32SystemOleCreateStdDispatch(void* punkouter, void* pvthis, void* ptinfo, void* ppunkstddisp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ int32_t windowssys_windows_win32_system_ole_createStdDispatch(void* punkouter, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_createTypeLib(int32_t syskind, void* szfile, void* ppctlib) {
+int32_t windowssysWindowsWin32SystemOleCreateTypeLib(int32_t syskind, void* szfile, void* ppctlib) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ int32_t windowssys_windows_win32_system_ole_createTypeLib(int32_t syskind, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_createTypeLib2(int32_t syskind, void* szfile, void* ppctlib) {
+int32_t windowssysWindowsWin32SystemOleCreateTypeLib2(int32_t syskind, void* szfile, void* ppctlib) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -200,7 +200,7 @@ int32_t windowssys_windows_win32_system_ole_createTypeLib2(int32_t syskind, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_dispCallFunc(void* pvinstance, uint64_t ovft, int32_t cc, uint16_t vtreturn, uint32_t cactuals, void* prgvt, void* prgpvarg, void* pvargresult) {
+int32_t windowssysWindowsWin32SystemOleDispCallFunc(void* pvinstance, uint64_t ovft, int32_t cc, uint16_t vtreturn, uint32_t cactuals, void* prgvt, void* prgpvarg, void* pvargresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, int32_t, uint16_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -229,7 +229,7 @@ int32_t windowssys_windows_win32_system_ole_dispCallFunc(void* pvinstance, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_dispGetIDsOfNames(void* ptinfo, void* rgsznames, uint32_t cnames, void* rgdispid) {
+int32_t windowssysWindowsWin32SystemOleDispGetIDsOfNames(void* ptinfo, void* rgsznames, uint32_t cnames, void* rgdispid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ int32_t windowssys_windows_win32_system_ole_dispGetIDsOfNames(void* ptinfo, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_dispGetParam(void* pdispparams, uint32_t position, uint16_t vttarg, void* pvarresult, void* puargerr) {
+int32_t windowssysWindowsWin32SystemOleDispGetParam(void* pdispparams, uint32_t position, uint16_t vttarg, void* pvarresult, void* puargerr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -280,7 +280,7 @@ int32_t windowssys_windows_win32_system_ole_dispGetParam(void* pdispparams, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_dispInvoke(void* arg_0_this, void* ptinfo, int32_t dispidmember, uint16_t wflags, void* pparams, void* pvarresult, void* pexcepinfo, void* puargerr) {
+int32_t windowssysWindowsWin32SystemOleDispInvoke(void* arg0This, void* ptinfo, int32_t dispidmember, uint16_t wflags, void* pparams, void* pvarresult, void* pexcepinfo, void* puargerr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,12 +291,12 @@ int32_t windowssys_windows_win32_system_ole_dispInvoke(void* arg_0_this, void* p
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_this, ptinfo, dispidmember, wflags, pparams, pvarresult, pexcepinfo, puargerr);
+        return km_fn_ptr(arg0This, ptinfo, dispidmember, wflags, pparams, pvarresult, pexcepinfo, puargerr);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_this;
+    (void)arg0This;
     (void)ptinfo;
     (void)dispidmember;
     (void)wflags;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_win32_system_ole_dispInvoke(void* arg_0_this, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_doDragDrop(void* pdataobj, void* pdropsource, uint32_t dwokeffects, void* pdweffect) {
+int32_t windowssysWindowsWin32SystemOleDoDragDrop(void* pdataobj, void* pdropsource, uint32_t dwokeffects, void* pdweffect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -334,7 +334,7 @@ int32_t windowssys_windows_win32_system_ole_doDragDrop(void* pdataobj, void* pdr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_getActiveObject(void* rclsid, void* pvreserved, void* ppunk) {
+int32_t windowssysWindowsWin32SystemOleGetActiveObject(void* rclsid, void* pvreserved, void* ppunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -358,7 +358,7 @@ int32_t windowssys_windows_win32_system_ole_getActiveObject(void* rclsid, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_getAltMonthNames(uint32_t lcid, void* prgp) {
+int32_t windowssysWindowsWin32SystemOleGetAltMonthNames(uint32_t lcid, void* prgp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -381,7 +381,7 @@ int32_t windowssys_windows_win32_system_ole_getAltMonthNames(uint32_t lcid, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_getRecordInfoFromGuids(void* rguidtypelib, uint32_t uvermajor, uint32_t uverminor, uint32_t lcid, void* rguidtypeinfo, void* pprecinfo) {
+int32_t windowssysWindowsWin32SystemOleGetRecordInfoFromGuids(void* rguidtypelib, uint32_t uvermajor, uint32_t uverminor, uint32_t lcid, void* rguidtypeinfo, void* pprecinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -408,7 +408,7 @@ int32_t windowssys_windows_win32_system_ole_getRecordInfoFromGuids(void* rguidty
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo(void* ptypeinfo, void* pprecinfo) {
+int32_t windowssysWindowsWin32SystemOleGetRecordInfoFromTypeInfo(void* ptypeinfo, void* pprecinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -431,7 +431,7 @@ int32_t windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo(void* ptyp
 #endif
 }
 
-void windowssys_windows_win32_system_ole_hrgnUserFree(void* param0, void* param1) {
+void windowssysWindowsWin32SystemOleHrgnUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -453,7 +453,7 @@ void windowssys_windows_win32_system_ole_hrgnUserFree(void* param0, void* param1
 #endif
 }
 
-void windowssys_windows_win32_system_ole_hrgnUserFree64(void* param0, void* param1) {
+void windowssysWindowsWin32SystemOleHrgnUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ void windowssys_windows_win32_system_ole_hrgnUserFree64(void* param0, void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_hrgnUserMarshal(void* param0, void* param1, void* param2) {
+void* windowssysWindowsWin32SystemOleHrgnUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -499,7 +499,7 @@ void* windowssys_windows_win32_system_ole_hrgnUserMarshal(void* param0, void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_hrgnUserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssysWindowsWin32SystemOleHrgnUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -523,7 +523,7 @@ void* windowssys_windows_win32_system_ole_hrgnUserMarshal64(void* param0, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_hrgnUserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssysWindowsWin32SystemOleHrgnUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -547,7 +547,7 @@ uint32_t windowssys_windows_win32_system_ole_hrgnUserSize(void* param0, uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_hrgnUserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssysWindowsWin32SystemOleHrgnUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -571,7 +571,7 @@ uint32_t windowssys_windows_win32_system_ole_hrgnUserSize64(void* param0, uint32
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_hrgnUserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssysWindowsWin32SystemOleHrgnUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -595,7 +595,7 @@ void* windowssys_windows_win32_system_ole_hrgnUserUnmarshal(void* param0, void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_hrgnUserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssysWindowsWin32SystemOleHrgnUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ void* windowssys_windows_win32_system_ole_hrgnUserUnmarshal64(void* param0, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_isAccelerator(void* haccel, int32_t caccelentries, void* lpmsg, void* lpwcmd) {
+int32_t windowssysWindowsWin32SystemOleIsAccelerator(void* haccel, int32_t caccelentries, void* lpmsg, void* lpwcmd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -644,7 +644,7 @@ int32_t windowssys_windows_win32_system_ole_isAccelerator(void* haccel, int32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_lHashValOfNameSys(int32_t syskind, uint32_t lcid, void* szname) {
+uint32_t windowssysWindowsWin32SystemOleLHashValOfNameSys(int32_t syskind, uint32_t lcid, void* szname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -668,7 +668,7 @@ uint32_t windowssys_windows_win32_system_ole_lHashValOfNameSys(int32_t syskind, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_lHashValOfNameSysA(int32_t syskind, uint32_t lcid, void* szname) {
+uint32_t windowssysWindowsWin32SystemOleLHashValOfNameSysA(int32_t syskind, uint32_t lcid, void* szname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -692,7 +692,7 @@ uint32_t windowssys_windows_win32_system_ole_lHashValOfNameSysA(int32_t syskind,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_loadRegTypeLib(void* rguid, uint16_t wvermajor, uint16_t wverminor, uint32_t lcid, void* pptlib) {
+int32_t windowssysWindowsWin32SystemOleLoadRegTypeLib(void* rguid, uint16_t wvermajor, uint16_t wverminor, uint32_t lcid, void* pptlib) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ int32_t windowssys_windows_win32_system_ole_loadRegTypeLib(void* rguid, uint16_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_loadTypeLib(void* szfile, void* pptlib) {
+int32_t windowssysWindowsWin32SystemOleLoadTypeLib(void* szfile, void* pptlib) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -741,7 +741,7 @@ int32_t windowssys_windows_win32_system_ole_loadTypeLib(void* szfile, void* pptl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_loadTypeLibEx(void* szfile, int32_t regkind, void* pptlib) {
+int32_t windowssysWindowsWin32SystemOleLoadTypeLibEx(void* szfile, int32_t regkind, void* pptlib) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -765,7 +765,7 @@ int32_t windowssys_windows_win32_system_ole_loadTypeLibEx(void* szfile, int32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oaBuildVersion(void) {
+uint32_t windowssysWindowsWin32SystemOleOaBuildVersion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -786,7 +786,7 @@ uint32_t windowssys_windows_win32_system_ole_oaBuildVersion(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration(void) {
+void windowssysWindowsWin32SystemOleOaEnablePerUserTLibRegistration(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -806,7 +806,7 @@ void windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleBuildVersion(void) {
+uint32_t windowssysWindowsWin32SystemOleOleBuildVersion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -827,7 +827,7 @@ uint32_t windowssys_windows_win32_system_ole_oleBuildVersion(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2(void* lpolestream, void* pstg, void* ptd, uint32_t opt, void* pvcallbackcontext, void* pqueryconvertolelinkcallback) {
+int32_t windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorage2(void* lpolestream, void* pstg, void* ptd, uint32_t opt, void* pvcallbackcontext, void* pqueryconvertolelinkcallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -854,7 +854,7 @@ int32_t windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2(void* polestm, void* pstg, void* pcfformat, void* plwwidth, void* plheight, void* pdwsize, void* pmedium, uint32_t opt, void* pvcallbackcontext, void* pqueryconvertolelinkcallback) {
+int32_t windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorageEx2(void* polestm, void* pstg, void* pcfformat, void* plwwidth, void* plheight, void* pdwsize, void* pmedium, uint32_t opt, void* pvcallbackcontext, void* pqueryconvertolelinkcallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -885,7 +885,7 @@ int32_t windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreate(void* rclsid, void* riid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreate(void* rclsid, void* riid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -913,7 +913,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreate(void* rclsid, void* riid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateDefaultHandler(void* clsid, void* punkouter, void* riid, void* lplpobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateDefaultHandler(void* clsid, void* punkouter, void* riid, void* lplpobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -938,7 +938,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateDefaultHandler(void* clsid,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper(void* clsid, void* punkouter, uint32_t flags, void* pcf, void* riid, void* lplpobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateEmbeddingHelper(void* clsid, void* punkouter, uint32_t flags, void* pcf, void* riid, void* lplpobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -965,7 +965,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper(void* clsid
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateEx(void* rclsid, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateEx(void* rclsid, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -998,7 +998,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateEx(void* rclsid, void* riid
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateFontIndirect(void* lpfontdesc, void* riid, void* lplpvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateFontIndirect(void* lpfontdesc, void* riid, void* lplpvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1022,7 +1022,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateFontIndirect(void* lpfontde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateFromData(void* psrcdataobj, void* riid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateFromData(void* psrcdataobj, void* riid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1050,7 +1050,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateFromData(void* psrcdataobj,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateFromDataEx(void* psrcdataobj, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateFromDataEx(void* psrcdataobj, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateFromDataEx(void* psrcdataob
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateFromFile(void* rclsid, void* lpszfilename, void* riid, uint32_t renderopt, void* lpformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateFromFile(void* rclsid, void* lpszfilename, void* riid, uint32_t renderopt, void* lpformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1112,7 +1112,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateFromFile(void* rclsid, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateFromFileEx(void* rclsid, void* lpszfilename, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateFromFileEx(void* rclsid, void* lpszfilename, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1146,7 +1146,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateFromFileEx(void* rclsid, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateLink(void* pmklinksrc, void* riid, uint32_t renderopt, void* lpformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateLink(void* pmklinksrc, void* riid, uint32_t renderopt, void* lpformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1174,7 +1174,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateLink(void* pmklinksrc, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateLinkEx(void* pmklinksrc, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateLinkEx(void* pmklinksrc, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1207,7 +1207,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateLinkEx(void* pmklinksrc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateLinkFromData(void* psrcdataobj, void* riid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateLinkFromData(void* psrcdataobj, void* riid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1235,7 +1235,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateLinkFromData(void* psrcdata
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx(void* psrcdataobj, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateLinkFromDataEx(void* psrcdataobj, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1268,7 +1268,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx(void* psrcda
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateLinkToFile(void* lpszfilename, void* riid, uint32_t renderopt, void* lpformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateLinkToFile(void* lpszfilename, void* riid, uint32_t renderopt, void* lpformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1296,7 +1296,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateLinkToFile(void* lpszfilena
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateLinkToFileEx(void* lpszfilename, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateLinkToFileEx(void* lpszfilename, void* riid, uint32_t dwflags, uint32_t renderopt, uint32_t cformats, void* rgadvf, void* rgformatetc, void* lpadvisesink, void* rgdwconnection, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1329,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateLinkToFileEx(void* lpszfile
 #endif
 }
 
-int64_t windowssys_windows_win32_system_ole_oleCreateMenuDescriptor(void* hmenucombined, void* lpmenuwidths) {
+int64_t windowssysWindowsWin32SystemOleOleCreateMenuDescriptor(void* hmenucombined, void* lpmenuwidths) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1352,7 +1352,7 @@ int64_t windowssys_windows_win32_system_ole_oleCreateMenuDescriptor(void* hmenuc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreatePictureIndirect(void* lppictdesc, void* riid, int32_t fown, void* lplpvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreatePictureIndirect(void* lppictdesc, void* riid, int32_t fown, void* lplpvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1377,7 +1377,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreatePictureIndirect(void* lppic
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreatePropertyFrame(void* hwndowner, uint32_t x, uint32_t y, void* lpszcaption, uint32_t cobjects, void* ppunk, uint32_t cpages, void* ppageclsid, uint32_t lcid, uint32_t dwreserved, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemOleOleCreatePropertyFrame(void* hwndowner, uint32_t x, uint32_t y, void* lpszcaption, uint32_t cobjects, void* ppunk, uint32_t cpages, void* ppageclsid, uint32_t lcid, uint32_t dwreserved, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1409,7 +1409,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreatePropertyFrame(void* hwndown
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect(void* lpparams) {
+int32_t windowssysWindowsWin32SystemOleOleCreatePropertyFrameIndirect(void* lpparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1431,7 +1431,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleCreateStaticFromData(void* psrcdataobj, void* iid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleCreateStaticFromData(void* psrcdataobj, void* iid, uint32_t renderopt, void* pformatetc, void* pclientsite, void* pstg, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1459,7 +1459,7 @@ int32_t windowssys_windows_win32_system_ole_oleCreateStaticFromData(void* psrcda
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor(int64_t holemenu) {
+int32_t windowssysWindowsWin32SystemOleOleDestroyMenuDescriptor(int64_t holemenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1481,7 +1481,7 @@ int32_t windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor(int64_t hol
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleDoAutoConvert(void* pstg, void* pclsidnew) {
+int32_t windowssysWindowsWin32SystemOleOleDoAutoConvert(void* pstg, void* pclsidnew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1504,7 +1504,7 @@ int32_t windowssys_windows_win32_system_ole_oleDoAutoConvert(void* pstg, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleDraw(void* punknown, uint32_t dwaspect, void* hdcdraw, void* lprcbounds) {
+int32_t windowssysWindowsWin32SystemOleOleDraw(void* punknown, uint32_t dwaspect, void* hdcdraw, void* lprcbounds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1529,7 +1529,7 @@ int32_t windowssys_windows_win32_system_ole_oleDraw(void* punknown, uint32_t dwa
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_oleDuplicateData(void* hsrc, uint16_t cfformat, uint32_t uiflags) {
+void* windowssysWindowsWin32SystemOleOleDuplicateData(void* hsrc, uint16_t cfformat, uint32_t uiflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1553,7 +1553,7 @@ void* windowssys_windows_win32_system_ole_oleDuplicateData(void* hsrc, uint16_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleFlushClipboard(void) {
+int32_t windowssysWindowsWin32SystemOleOleFlushClipboard(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1574,7 +1574,7 @@ int32_t windowssys_windows_win32_system_ole_oleFlushClipboard(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleGetAutoConvert(void* clsidold, void* pclsidnew) {
+int32_t windowssysWindowsWin32SystemOleOleGetAutoConvert(void* clsidold, void* pclsidnew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1597,7 +1597,7 @@ int32_t windowssys_windows_win32_system_ole_oleGetAutoConvert(void* clsidold, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleGetClipboard(void* ppdataobj) {
+int32_t windowssysWindowsWin32SystemOleOleGetClipboard(void* ppdataobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1619,7 +1619,7 @@ int32_t windowssys_windows_win32_system_ole_oleGetClipboard(void* ppdataobj) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo(void* dataobject, void* dataenterpriseid, void* sourcedescription, void* targetdescription, void* datadescription) {
+int32_t windowssysWindowsWin32SystemOleOleGetClipboardWithEnterpriseInfo(void* dataobject, void* dataenterpriseid, void* sourcedescription, void* targetdescription, void* datadescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1645,7 +1645,7 @@ int32_t windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_oleGetIconOfClass(void* rclsid, void* lpszlabel, int32_t fusetypeaslabel) {
+void* windowssysWindowsWin32SystemOleOleGetIconOfClass(void* rclsid, void* lpszlabel, int32_t fusetypeaslabel) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1669,7 +1669,7 @@ void* windowssys_windows_win32_system_ole_oleGetIconOfClass(void* rclsid, void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_oleGetIconOfFile(void* lpszpath, int32_t fusefileaslabel) {
+void* windowssysWindowsWin32SystemOleOleGetIconOfFile(void* lpszpath, int32_t fusefileaslabel) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ void* windowssys_windows_win32_system_ole_oleGetIconOfFile(void* lpszpath, int32
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_oleIconToCursor(void* hinstexe, void* hicon) {
+void* windowssysWindowsWin32SystemOleOleIconToCursor(void* hinstexe, void* hicon) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1715,7 +1715,7 @@ void* windowssys_windows_win32_system_ole_oleIconToCursor(void* hinstexe, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleInitialize(void* pvreserved) {
+int32_t windowssysWindowsWin32SystemOleOleInitialize(void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1737,7 +1737,7 @@ int32_t windowssys_windows_win32_system_ole_oleInitialize(void* pvreserved) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleIsCurrentClipboard(void* pdataobj) {
+int32_t windowssysWindowsWin32SystemOleOleIsCurrentClipboard(void* pdataobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1759,7 +1759,7 @@ int32_t windowssys_windows_win32_system_ole_oleIsCurrentClipboard(void* pdataobj
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleIsRunning(void* pobject) {
+int32_t windowssysWindowsWin32SystemOleOleIsRunning(void* pobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1781,7 +1781,7 @@ int32_t windowssys_windows_win32_system_ole_oleIsRunning(void* pobject) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleLoad(void* pstg, void* riid, void* pclientsite, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleLoad(void* pstg, void* riid, void* pclientsite, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1806,7 +1806,7 @@ int32_t windowssys_windows_win32_system_ole_oleLoad(void* pstg, void* riid, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleLoadFromStream(void* pstm, void* iidinterface, void* ppvobj) {
+int32_t windowssysWindowsWin32SystemOleOleLoadFromStream(void* pstm, void* iidinterface, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1830,7 +1830,7 @@ int32_t windowssys_windows_win32_system_ole_oleLoadFromStream(void* pstm, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleLoadPicture(void* lpstream, int32_t lsize, int32_t frunmode, void* riid, void* lplpvobj) {
+int32_t windowssysWindowsWin32SystemOleOleLoadPicture(void* lpstream, int32_t lsize, int32_t frunmode, void* riid, void* lplpvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1856,7 +1856,7 @@ int32_t windowssys_windows_win32_system_ole_oleLoadPicture(void* lpstream, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleLoadPictureEx(void* lpstream, int32_t lsize, int32_t frunmode, void* riid, uint32_t xsizedesired, uint32_t ysizedesired, uint32_t dwflags, void* lplpvobj) {
+int32_t windowssysWindowsWin32SystemOleOleLoadPictureEx(void* lpstream, int32_t lsize, int32_t frunmode, void* riid, uint32_t xsizedesired, uint32_t ysizedesired, uint32_t dwflags, void* lplpvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1885,7 +1885,7 @@ int32_t windowssys_windows_win32_system_ole_oleLoadPictureEx(void* lpstream, int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleLoadPicturePath(void* szurlorpath, void* punkcaller, uint32_t dwreserved, uint32_t clrreserved, void* riid, void* ppvret) {
+int32_t windowssysWindowsWin32SystemOleOleLoadPicturePath(void* szurlorpath, void* punkcaller, uint32_t dwreserved, uint32_t clrreserved, void* riid, void* ppvret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1912,7 +1912,7 @@ int32_t windowssys_windows_win32_system_ole_oleLoadPicturePath(void* szurlorpath
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleLockRunning(void* punknown, int32_t flock, int32_t flastunlockcloses) {
+int32_t windowssysWindowsWin32SystemOleOleLockRunning(void* punknown, int32_t flock, int32_t flastunlockcloses) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1936,7 +1936,7 @@ int32_t windowssys_windows_win32_system_ole_oleLockRunning(void* punknown, int32
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel(void* hicon, void* lpszlabel, void* lpszsourcefile, uint32_t iiconindex) {
+void* windowssysWindowsWin32SystemOleOleMetafilePictFromIconAndLabel(void* hicon, void* lpszlabel, void* lpszsourcefile, uint32_t iiconindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1961,7 +1961,7 @@ void* windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleNoteObjectVisible(void* punknown, int32_t fvisible) {
+int32_t windowssysWindowsWin32SystemOleOleNoteObjectVisible(void* punknown, int32_t fvisible) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1984,7 +1984,7 @@ int32_t windowssys_windows_win32_system_ole_oleNoteObjectVisible(void* punknown,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleQueryCreateFromData(void* psrcdataobject) {
+int32_t windowssysWindowsWin32SystemOleOleQueryCreateFromData(void* psrcdataobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2006,7 +2006,7 @@ int32_t windowssys_windows_win32_system_ole_oleQueryCreateFromData(void* psrcdat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleQueryLinkFromData(void* psrcdataobject) {
+int32_t windowssysWindowsWin32SystemOleOleQueryLinkFromData(void* psrcdataobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2028,7 +2028,7 @@ int32_t windowssys_windows_win32_system_ole_oleQueryLinkFromData(void* psrcdatao
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleRegEnumFormatEtc(void* clsid, uint32_t dwdirection, void* ppenum) {
+int32_t windowssysWindowsWin32SystemOleOleRegEnumFormatEtc(void* clsid, uint32_t dwdirection, void* ppenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2052,7 +2052,7 @@ int32_t windowssys_windows_win32_system_ole_oleRegEnumFormatEtc(void* clsid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleRegEnumVerbs(void* clsid, void* ppenum) {
+int32_t windowssysWindowsWin32SystemOleOleRegEnumVerbs(void* clsid, void* ppenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2075,7 +2075,7 @@ int32_t windowssys_windows_win32_system_ole_oleRegEnumVerbs(void* clsid, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleRegGetMiscStatus(void* clsid, uint32_t dwaspect, void* pdwstatus) {
+int32_t windowssysWindowsWin32SystemOleOleRegGetMiscStatus(void* clsid, uint32_t dwaspect, void* pdwstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2099,7 +2099,7 @@ int32_t windowssys_windows_win32_system_ole_oleRegGetMiscStatus(void* clsid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleRegGetUserType(void* clsid, uint32_t dwformoftype, void* pszusertype) {
+int32_t windowssysWindowsWin32SystemOleOleRegGetUserType(void* clsid, uint32_t dwformoftype, void* pszusertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2123,7 +2123,7 @@ int32_t windowssys_windows_win32_system_ole_oleRegGetUserType(void* clsid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleRun(void* punknown) {
+int32_t windowssysWindowsWin32SystemOleOleRun(void* punknown) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2145,7 +2145,7 @@ int32_t windowssys_windows_win32_system_ole_oleRun(void* punknown) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSave(void* pps, void* pstg, int32_t fsameasload) {
+int32_t windowssysWindowsWin32SystemOleOleSave(void* pps, void* pstg, int32_t fsameasload) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2169,7 +2169,7 @@ int32_t windowssys_windows_win32_system_ole_oleSave(void* pps, void* pstg, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSavePictureFile(void* lpdisppicture, void* bstrfilename) {
+int32_t windowssysWindowsWin32SystemOleOleSavePictureFile(void* lpdisppicture, void* bstrfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2192,7 +2192,7 @@ int32_t windowssys_windows_win32_system_ole_oleSavePictureFile(void* lpdisppictu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSaveToStream(void* ppstm, void* pstm) {
+int32_t windowssysWindowsWin32SystemOleOleSaveToStream(void* ppstm, void* pstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2215,7 +2215,7 @@ int32_t windowssys_windows_win32_system_ole_oleSaveToStream(void* ppstm, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSetAutoConvert(void* clsidold, void* clsidnew) {
+int32_t windowssysWindowsWin32SystemOleOleSetAutoConvert(void* clsidold, void* clsidnew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2238,7 +2238,7 @@ int32_t windowssys_windows_win32_system_ole_oleSetAutoConvert(void* clsidold, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSetClipboard(void* pdataobj) {
+int32_t windowssysWindowsWin32SystemOleOleSetClipboard(void* pdataobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2260,7 +2260,7 @@ int32_t windowssys_windows_win32_system_ole_oleSetClipboard(void* pdataobj) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSetContainedObject(void* punknown, int32_t fcontained) {
+int32_t windowssysWindowsWin32SystemOleOleSetContainedObject(void* punknown, int32_t fcontained) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2283,7 +2283,7 @@ int32_t windowssys_windows_win32_system_ole_oleSetContainedObject(void* punknown
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleSetMenuDescriptor(int64_t holemenu, void* hwndframe, void* hwndactiveobject, void* lpframe, void* lpactiveobj) {
+int32_t windowssysWindowsWin32SystemOleOleSetMenuDescriptor(int64_t holemenu, void* hwndframe, void* hwndactiveobject, void* lpframe, void* lpactiveobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2309,7 +2309,7 @@ int32_t windowssys_windows_win32_system_ole_oleSetMenuDescriptor(int64_t holemen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleTranslateAccelerator(void* lpframe, void* lpframeinfo, void* lpmsg) {
+int32_t windowssysWindowsWin32SystemOleOleTranslateAccelerator(void* lpframe, void* lpframeinfo, void* lpmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2333,7 +2333,7 @@ int32_t windowssys_windows_win32_system_ole_oleTranslateAccelerator(void* lpfram
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleTranslateColor(uint32_t clr, void* hpal, void* lpcolorref) {
+int32_t windowssysWindowsWin32SystemOleOleTranslateColor(uint32_t clr, void* hpal, void* lpcolorref) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2357,7 +2357,7 @@ int32_t windowssys_windows_win32_system_ole_oleTranslateColor(uint32_t clr, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUIAddVerbMenuA(void* lpoleobj, void* lpszshorttype, void* hmenu, uint32_t upos, uint32_t uidverbmin, uint32_t uidverbmax, int32_t baddconvert, uint32_t idconvert, void* lphmenu) {
+int32_t windowssysWindowsWin32SystemOleOleUIAddVerbMenuA(void* lpoleobj, void* lpszshorttype, void* hmenu, uint32_t upos, uint32_t uidverbmin, uint32_t uidverbmax, int32_t baddconvert, uint32_t idconvert, void* lphmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2387,7 +2387,7 @@ int32_t windowssys_windows_win32_system_ole_oleUIAddVerbMenuA(void* lpoleobj, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUIAddVerbMenuW(void* lpoleobj, void* lpszshorttype, void* hmenu, uint32_t upos, uint32_t uidverbmin, uint32_t uidverbmax, int32_t baddconvert, uint32_t idconvert, void* lphmenu) {
+int32_t windowssysWindowsWin32SystemOleOleUIAddVerbMenuW(void* lpoleobj, void* lpszshorttype, void* hmenu, uint32_t upos, uint32_t uidverbmin, uint32_t uidverbmax, int32_t baddconvert, uint32_t idconvert, void* lphmenu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2417,7 +2417,7 @@ int32_t windowssys_windows_win32_system_ole_oleUIAddVerbMenuW(void* lpoleobj, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIBusyA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIBusyA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2439,7 +2439,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIBusyA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIBusyW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIBusyW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2461,7 +2461,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIBusyW(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs(void* rclsid, int32_t fislinkedobject, uint16_t wformat) {
+int32_t windowssysWindowsWin32SystemOleOleUICanConvertOrActivateAs(void* rclsid, int32_t fislinkedobject, uint16_t wformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2485,7 +2485,7 @@ int32_t windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs(void* rc
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIChangeIconA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIChangeIconA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2507,7 +2507,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIChangeIconA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIChangeIconW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIChangeIconW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2529,7 +2529,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIChangeIconW(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIChangeSourceA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIChangeSourceA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2551,7 +2551,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIChangeSourceA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIChangeSourceW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIChangeSourceW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2573,7 +2573,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIChangeSourceW(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIConvertA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIConvertA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2595,7 +2595,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIConvertA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIConvertW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIConvertW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2617,7 +2617,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIConvertW(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIEditLinksA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIEditLinksA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2639,7 +2639,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIEditLinksA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIEditLinksW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIEditLinksW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2661,7 +2661,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIEditLinksW(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIInsertObjectA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIInsertObjectA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2683,7 +2683,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIInsertObjectA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIInsertObjectW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIInsertObjectW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2705,7 +2705,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIInsertObjectW(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIObjectPropertiesA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIObjectPropertiesA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2727,7 +2727,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIObjectPropertiesA(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIObjectPropertiesW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIObjectPropertiesW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2749,7 +2749,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIObjectPropertiesW(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIPasteSpecialA(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIPasteSpecialA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2771,7 +2771,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIPasteSpecialA(void* param0) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_oleUIPasteSpecialW(void* param0) {
+uint32_t windowssysWindowsWin32SystemOleOleUIPasteSpecialW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2793,7 +2793,7 @@ uint32_t windowssys_windows_win32_system_ole_oleUIPasteSpecialW(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUIPromptUserA(int32_t ntemplate, void* hwndparent, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32SystemOleOleUIPromptUserA(int32_t ntemplate, void* hwndparent, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -2827,7 +2827,7 @@ int32_t windowssys_windows_win32_system_ole_oleUIPromptUserA(int32_t ntemplate, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUIPromptUserW(int32_t ntemplate, void* hwndparent, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32SystemOleOleUIPromptUserW(int32_t ntemplate, void* hwndparent, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int32_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -2861,7 +2861,7 @@ int32_t windowssys_windows_win32_system_ole_oleUIPromptUserW(int32_t ntemplate, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUIUpdateLinksA(void* lpoleuilinkcntr, void* hwndparent, void* lpsztitle, int32_t clinks) {
+int32_t windowssysWindowsWin32SystemOleOleUIUpdateLinksA(void* lpoleuilinkcntr, void* hwndparent, void* lpsztitle, int32_t clinks) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2886,7 +2886,7 @@ int32_t windowssys_windows_win32_system_ole_oleUIUpdateLinksA(void* lpoleuilinkc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_oleUIUpdateLinksW(void* lpoleuilinkcntr, void* hwndparent, void* lpsztitle, int32_t clinks) {
+int32_t windowssysWindowsWin32SystemOleOleUIUpdateLinksW(void* lpoleuilinkcntr, void* hwndparent, void* lpsztitle, int32_t clinks) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2911,7 +2911,7 @@ int32_t windowssys_windows_win32_system_ole_oleUIUpdateLinksW(void* lpoleuilinkc
 #endif
 }
 
-void windowssys_windows_win32_system_ole_oleUninitialize(void) {
+void windowssysWindowsWin32SystemOleOleUninitialize(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2931,7 +2931,7 @@ void windowssys_windows_win32_system_ole_oleUninitialize(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_queryPathOfRegTypeLib(void* guid, uint16_t wmaj, uint16_t wmin, uint32_t lcid, void* lpbstrpathname) {
+int32_t windowssysWindowsWin32SystemOleQueryPathOfRegTypeLib(void* guid, uint16_t wmaj, uint16_t wmin, uint32_t lcid, void* lpbstrpathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2957,7 +2957,7 @@ int32_t windowssys_windows_win32_system_ole_queryPathOfRegTypeLib(void* guid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_registerActiveObject(void* punk, void* rclsid, uint32_t dwflags, void* pdwregister) {
+int32_t windowssysWindowsWin32SystemOleRegisterActiveObject(void* punk, void* rclsid, uint32_t dwflags, void* pdwregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2982,7 +2982,7 @@ int32_t windowssys_windows_win32_system_ole_registerActiveObject(void* punk, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_registerDragDrop(void* hwnd, void* pdroptarget) {
+int32_t windowssysWindowsWin32SystemOleRegisterDragDrop(void* hwnd, void* pdroptarget) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3005,7 +3005,7 @@ int32_t windowssys_windows_win32_system_ole_registerDragDrop(void* hwnd, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_registerTypeLib(void* ptlib, void* szfullpath, void* szhelpdir) {
+int32_t windowssysWindowsWin32SystemOleRegisterTypeLib(void* ptlib, void* szfullpath, void* szhelpdir) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3029,7 +3029,7 @@ int32_t windowssys_windows_win32_system_ole_registerTypeLib(void* ptlib, void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_registerTypeLibForUser(void* ptlib, void* szfullpath, void* szhelpdir) {
+int32_t windowssysWindowsWin32SystemOleRegisterTypeLibForUser(void* ptlib, void* szfullpath, void* szhelpdir) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3053,7 +3053,7 @@ int32_t windowssys_windows_win32_system_ole_registerTypeLibForUser(void* ptlib, 
 #endif
 }
 
-void windowssys_windows_win32_system_ole_releaseStgMedium(void* param0) {
+void windowssysWindowsWin32SystemOleReleaseStgMedium(void* param0) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3074,7 +3074,7 @@ void windowssys_windows_win32_system_ole_releaseStgMedium(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_revokeActiveObject(uint32_t dwregister, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemOleRevokeActiveObject(uint32_t dwregister, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3097,7 +3097,7 @@ int32_t windowssys_windows_win32_system_ole_revokeActiveObject(uint32_t dwregist
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_revokeDragDrop(void* hwnd) {
+int32_t windowssysWindowsWin32SystemOleRevokeDragDrop(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3119,7 +3119,7 @@ int32_t windowssys_windows_win32_system_ole_revokeDragDrop(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayAccessData(void* psa, void* ppvdata) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayAccessData(void* psa, void* ppvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3142,7 +3142,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayAccessData(void* psa, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayAddRef(void* psa, void* ppdatatorelease) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayAddRef(void* psa, void* ppdatatorelease) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3165,7 +3165,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayAddRef(void* psa, void* ppd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayAllocData(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayAllocData(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3187,7 +3187,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayAllocData(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayAllocDescriptor(uint32_t cdims, void* ppsaout) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor(uint32_t cdims, void* ppsaout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3210,7 +3210,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayAllocDescriptor(uint32_t cd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx(uint16_t vt, uint32_t cdims, void* ppsaout) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx(uint16_t vt, uint32_t cdims, void* ppsaout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3234,7 +3234,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx(uint16_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayCopy(void* psa, void* ppsaout) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayCopy(void* psa, void* ppsaout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3257,7 +3257,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayCopy(void* psa, void* ppsao
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayCopyData(void* psasource, void* psatarget) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayCopyData(void* psasource, void* psatarget) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3280,7 +3280,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayCopyData(void* psasource, v
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_safeArrayCreate(uint16_t vt, uint32_t cdims, void* rgsabound) {
+void* windowssysWindowsWin32SystemOleSafeArrayCreate(uint16_t vt, uint32_t cdims, void* rgsabound) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3304,7 +3304,7 @@ void* windowssys_windows_win32_system_ole_safeArrayCreate(uint16_t vt, uint32_t 
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_safeArrayCreateEx(uint16_t vt, uint32_t cdims, void* rgsabound, void* pvextra) {
+void* windowssysWindowsWin32SystemOleSafeArrayCreateEx(uint16_t vt, uint32_t cdims, void* rgsabound, void* pvextra) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3329,7 +3329,7 @@ void* windowssys_windows_win32_system_ole_safeArrayCreateEx(uint16_t vt, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_safeArrayCreateVector(uint16_t vt, int32_t llbound, uint32_t celements) {
+void* windowssysWindowsWin32SystemOleSafeArrayCreateVector(uint16_t vt, int32_t llbound, uint32_t celements) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3353,7 +3353,7 @@ void* windowssys_windows_win32_system_ole_safeArrayCreateVector(uint16_t vt, int
 #endif
 }
 
-void* windowssys_windows_win32_system_ole_safeArrayCreateVectorEx(uint16_t vt, int32_t llbound, uint32_t celements, void* pvextra) {
+void* windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx(uint16_t vt, int32_t llbound, uint32_t celements, void* pvextra) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint16_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3378,7 +3378,7 @@ void* windowssys_windows_win32_system_ole_safeArrayCreateVectorEx(uint16_t vt, i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayDestroy(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayDestroy(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3400,7 +3400,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayDestroy(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayDestroyData(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayDestroyData(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3422,7 +3422,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayDestroyData(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayDestroyDescriptor(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3444,7 +3444,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor(void* psa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_safeArrayGetDim(void* psa) {
+uint32_t windowssysWindowsWin32SystemOleSafeArrayGetDim(void* psa) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3466,7 +3466,7 @@ uint32_t windowssys_windows_win32_system_ole_safeArrayGetDim(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayGetElement(void* psa, void* rgindices, void* pv) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayGetElement(void* psa, void* rgindices, void* pv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3490,7 +3490,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayGetElement(void* psa, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_safeArrayGetElemsize(void* psa) {
+uint32_t windowssysWindowsWin32SystemOleSafeArrayGetElemsize(void* psa) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3512,7 +3512,7 @@ uint32_t windowssys_windows_win32_system_ole_safeArrayGetElemsize(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayGetIID(void* psa, void* pguid) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayGetIID(void* psa, void* pguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3535,7 +3535,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayGetIID(void* psa, void* pgu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayGetLBound(void* psa, uint32_t ndim, void* pllbound) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayGetLBound(void* psa, uint32_t ndim, void* pllbound) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3559,7 +3559,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayGetLBound(void* psa, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayGetRecordInfo(void* psa, void* prinfo) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayGetRecordInfo(void* psa, void* prinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3582,7 +3582,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayGetRecordInfo(void* psa, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayGetUBound(void* psa, uint32_t ndim, void* plubound) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayGetUBound(void* psa, uint32_t ndim, void* plubound) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3606,7 +3606,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayGetUBound(void* psa, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayGetVartype(void* psa, void* pvt) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayGetVartype(void* psa, void* pvt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3629,7 +3629,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayGetVartype(void* psa, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayLock(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayLock(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3651,7 +3651,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayLock(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayPtrOfIndex(void* psa, void* rgindices, void* ppvdata) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayPtrOfIndex(void* psa, void* rgindices, void* ppvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3675,7 +3675,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayPtrOfIndex(void* psa, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayPutElement(void* psa, void* rgindices, void* pv) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayPutElement(void* psa, void* rgindices, void* pv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3699,7 +3699,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayPutElement(void* psa, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayRedim(void* psa, void* psaboundnew) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayRedim(void* psa, void* psaboundnew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3722,7 +3722,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayRedim(void* psa, void* psab
 #endif
 }
 
-void windowssys_windows_win32_system_ole_safeArrayReleaseData(void* pdata) {
+void windowssysWindowsWin32SystemOleSafeArrayReleaseData(void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3743,7 +3743,7 @@ void windowssys_windows_win32_system_ole_safeArrayReleaseData(void* pdata) {
 #endif
 }
 
-void windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor(void* psa) {
+void windowssysWindowsWin32SystemOleSafeArrayReleaseDescriptor(void* psa) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3764,7 +3764,7 @@ void windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArraySetIID(void* psa, void* guid) {
+int32_t windowssysWindowsWin32SystemOleSafeArraySetIID(void* psa, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3787,7 +3787,7 @@ int32_t windowssys_windows_win32_system_ole_safeArraySetIID(void* psa, void* gui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArraySetRecordInfo(void* psa, void* prinfo) {
+int32_t windowssysWindowsWin32SystemOleSafeArraySetRecordInfo(void* psa, void* prinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3810,7 +3810,7 @@ int32_t windowssys_windows_win32_system_ole_safeArraySetRecordInfo(void* psa, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayUnaccessData(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayUnaccessData(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3832,7 +3832,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayUnaccessData(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_safeArrayUnlock(void* psa) {
+int32_t windowssysWindowsWin32SystemOleSafeArrayUnlock(void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3854,7 +3854,7 @@ int32_t windowssys_windows_win32_system_ole_safeArrayUnlock(void* psa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_unRegisterTypeLib(void* libid, uint16_t wvermajor, uint16_t wverminor, uint32_t lcid, int32_t syskind) {
+int32_t windowssysWindowsWin32SystemOleUnRegisterTypeLib(void* libid, uint16_t wvermajor, uint16_t wverminor, uint32_t lcid, int32_t syskind) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3880,7 +3880,7 @@ int32_t windowssys_windows_win32_system_ole_unRegisterTypeLib(void* libid, uint1
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_unRegisterTypeLibForUser(void* libid, uint16_t wmajorvernum, uint16_t wminorvernum, uint32_t lcid, int32_t syskind) {
+int32_t windowssysWindowsWin32SystemOleUnRegisterTypeLibForUser(void* libid, uint16_t wmajorvernum, uint16_t wminorvernum, uint32_t lcid, int32_t syskind) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3906,7 +3906,7 @@ int32_t windowssys_windows_win32_system_ole_unRegisterTypeLibForUser(void* libid
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varAbs(void* pvarin, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarAbs(void* pvarin, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3929,7 +3929,7 @@ int32_t windowssys_windows_win32_system_ole_varAbs(void* pvarin, void* pvarresul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varAdd(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarAdd(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3953,7 +3953,7 @@ int32_t windowssys_windows_win32_system_ole_varAdd(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varAnd(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarAnd(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3977,7 +3977,7 @@ int32_t windowssys_windows_win32_system_ole_varAnd(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromDate(double datein, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromDate(double datein, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4000,7 +4000,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromDate(double datein, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromDec(void* pdecin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromDec(void* pdecin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4023,7 +4023,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromDec(void* pdecin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromDisp(void* pdispin, uint32_t lcid, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromDisp(void* pdispin, uint32_t lcid, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4047,7 +4047,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromDisp(void* pdispin, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromI1(int8_t cin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromI1(int8_t cin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4070,7 +4070,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromI1(int8_t cin, void* pboo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromI2(int16_t arg_0_sin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromI2(int16_t arg0Sin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4081,19 +4081,19 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromI2(int16_t arg_0_sin, voi
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pboolout);
+        return km_fn_ptr(arg0Sin, pboolout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pboolout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromI4(int32_t lin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromI4(int32_t lin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4116,7 +4116,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromI4(int32_t lin, void* pbo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromI8(int64_t i64in, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromI8(int64_t i64in, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4139,7 +4139,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromI8(int64_t i64in, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromR4(float fltin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromR4(float fltin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4162,7 +4162,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromR4(float fltin, void* pbo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromR8(double dblin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromR8(double dblin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4185,7 +4185,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromR8(double dblin, void* pb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4210,7 +4210,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromStr(void* strin, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromUI1(uint8_t bin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromUI1(uint8_t bin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4233,7 +4233,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromUI1(uint8_t bin, void* pb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromUI2(uint16_t uiin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromUI2(uint16_t uiin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4256,7 +4256,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromUI2(uint16_t uiin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromUI4(uint32_t ulin, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromUI4(uint32_t ulin, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4279,7 +4279,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromUI4(uint32_t ulin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBoolFromUI8(uint64_t i64in, void* pboolout) {
+int32_t windowssysWindowsWin32SystemOleVarBoolFromUI8(uint64_t i64in, void* pboolout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4302,7 +4302,7 @@ int32_t windowssys_windows_win32_system_ole_varBoolFromUI8(uint64_t i64in, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrCat(void* bstrleft, void* bstrright, void* pbstrresult) {
+int32_t windowssysWindowsWin32SystemOleVarBstrCat(void* bstrleft, void* bstrright, void* pbstrresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4326,7 +4326,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrCat(void* bstrleft, void* bst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrCmp(void* bstrleft, void* bstrright, uint32_t lcid, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemOleVarBstrCmp(void* bstrleft, void* bstrright, uint32_t lcid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4351,7 +4351,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrCmp(void* bstrleft, void* bst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromBool(int16_t boolin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromBool(int16_t boolin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4376,7 +4376,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromBool(int16_t boolin, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromDate(double datein, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromDate(double datein, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4401,7 +4401,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromDate(double datein, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromDec(void* pdecin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromDec(void* pdecin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4426,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromDec(void* pdecin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromDisp(void* pdispin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromDisp(void* pdispin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4451,7 +4451,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromDisp(void* pdispin, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromI1(int8_t cin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromI1(int8_t cin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4476,7 +4476,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromI1(int8_t cin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromI2(int16_t ival, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromI2(int16_t ival, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4501,7 +4501,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromI2(int16_t ival, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromI4(int32_t lin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromI4(int32_t lin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4526,7 +4526,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromI4(int32_t lin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromI8(int64_t i64in, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromI8(int64_t i64in, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4551,7 +4551,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromI8(int64_t i64in, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromR4(float fltin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromR4(float fltin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4576,7 +4576,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromR4(float fltin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromR8(double dblin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromR8(double dblin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4601,7 +4601,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromR8(double dblin, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromUI1(uint8_t bval, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromUI1(uint8_t bval, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4626,7 +4626,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromUI1(uint8_t bval, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromUI2(uint16_t uiin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromUI2(uint16_t uiin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4651,7 +4651,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromUI2(uint16_t uiin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromUI4(uint32_t ulin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromUI4(uint32_t ulin, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4676,7 +4676,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromUI4(uint32_t ulin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varBstrFromUI8(uint64_t ui64in, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarBstrFromUI8(uint64_t ui64in, uint32_t lcid, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4701,7 +4701,7 @@ int32_t windowssys_windows_win32_system_ole_varBstrFromUI8(uint64_t ui64in, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCat(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarCat(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4725,7 +4725,7 @@ int32_t windowssys_windows_win32_system_ole_varCat(void* pvarleft, void* pvarrig
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_varCmp(void* pvarleft, void* pvarright, uint32_t lcid, uint32_t dwflags) {
+uint32_t windowssysWindowsWin32SystemOleVarCmp(void* pvarleft, void* pvarright, uint32_t lcid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4750,7 +4750,7 @@ uint32_t windowssys_windows_win32_system_ole_varCmp(void* pvarleft, void* pvarri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromBool(int16_t boolin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromBool(int16_t boolin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4773,7 +4773,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromDate(double datein, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromDate(double datein, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4796,7 +4796,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromDec(void* pdecin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromDec(void* pdecin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4819,7 +4819,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromDec(void* pdecin, void* pcy
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromDisp(void* pdispin, uint32_t lcid, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromDisp(void* pdispin, uint32_t lcid, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4843,7 +4843,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromI1(int8_t cin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromI1(int8_t cin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4866,7 +4866,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromI1(int8_t cin, void* pcyout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromI2(int16_t arg_0_sin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromI2(int16_t arg0Sin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4877,19 +4877,19 @@ int32_t windowssys_windows_win32_system_ole_varCyFromI2(int16_t arg_0_sin, void*
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pcyout);
+        return km_fn_ptr(arg0Sin, pcyout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pcyout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromI4(int32_t lin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromI4(int32_t lin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4912,7 +4912,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromI4(int32_t lin, void* pcyou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromI8(int64_t i64in, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromI8(int64_t i64in, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4935,7 +4935,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromI8(int64_t i64in, void* pcy
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromR4(float fltin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromR4(float fltin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4958,7 +4958,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromR4(float fltin, void* pcyou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromR8(double dblin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromR8(double dblin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4981,7 +4981,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromR8(double dblin, void* pcyo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5006,7 +5006,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromUI1(uint8_t bin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromUI1(uint8_t bin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5029,7 +5029,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromUI1(uint8_t bin, void* pcyo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromUI2(uint16_t uiin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromUI2(uint16_t uiin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5052,7 +5052,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromUI2(uint16_t uiin, void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromUI4(uint32_t ulin, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromUI4(uint32_t ulin, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5075,7 +5075,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromUI4(uint32_t ulin, void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varCyFromUI8(uint64_t ui64in, void* pcyout) {
+int32_t windowssysWindowsWin32SystemOleVarCyFromUI8(uint64_t ui64in, void* pcyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5098,7 +5098,7 @@ int32_t windowssys_windows_win32_system_ole_varCyFromUI8(uint64_t ui64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromBool(int16_t boolin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromBool(int16_t boolin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5121,7 +5121,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromBool(int16_t boolin, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromDec(void* pdecin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromDec(void* pdecin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5144,7 +5144,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromDec(void* pdecin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromDisp(void* pdispin, uint32_t lcid, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromDisp(void* pdispin, uint32_t lcid, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5168,7 +5168,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromDisp(void* pdispin, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromI1(int8_t cin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromI1(int8_t cin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5191,7 +5191,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromI1(int8_t cin, void* pdat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromI2(int16_t arg_0_sin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromI2(int16_t arg0Sin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5202,19 +5202,19 @@ int32_t windowssys_windows_win32_system_ole_varDateFromI2(int16_t arg_0_sin, voi
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pdateout);
+        return km_fn_ptr(arg0Sin, pdateout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pdateout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromI4(int32_t lin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromI4(int32_t lin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5237,7 +5237,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromI4(int32_t lin, void* pda
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromI8(int64_t i64in, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromI8(int64_t i64in, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5260,7 +5260,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromI8(int64_t i64in, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromR4(float fltin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromR4(float fltin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5283,7 +5283,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromR4(float fltin, void* pda
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromR8(double dblin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromR8(double dblin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5306,7 +5306,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromR8(double dblin, void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5331,7 +5331,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromStr(void* strin, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromUI1(uint8_t bin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromUI1(uint8_t bin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5354,7 +5354,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromUI1(uint8_t bin, void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromUI2(uint16_t uiin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromUI2(uint16_t uiin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5377,7 +5377,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromUI2(uint16_t uiin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromUI4(uint32_t ulin, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromUI4(uint32_t ulin, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5400,7 +5400,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromUI4(uint32_t ulin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromUI8(uint64_t ui64in, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromUI8(uint64_t ui64in, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5423,7 +5423,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromUI8(uint64_t ui64in, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromUdate(void* pudatein, uint32_t dwflags, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromUdate(void* pudatein, uint32_t dwflags, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5447,7 +5447,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromUdate(void* pudatein, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDateFromUdateEx(void* pudatein, uint32_t lcid, uint32_t dwflags, void* pdateout) {
+int32_t windowssysWindowsWin32SystemOleVarDateFromUdateEx(void* pudatein, uint32_t lcid, uint32_t dwflags, void* pdateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5472,7 +5472,7 @@ int32_t windowssys_windows_win32_system_ole_varDateFromUdateEx(void* pudatein, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecAbs(void* pdecin, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecAbs(void* pdecin, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5495,7 +5495,7 @@ int32_t windowssys_windows_win32_system_ole_varDecAbs(void* pdecin, void* pdecre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecAdd(void* pdecleft, void* pdecright, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecAdd(void* pdecleft, void* pdecright, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5519,7 +5519,7 @@ int32_t windowssys_windows_win32_system_ole_varDecAdd(void* pdecleft, void* pdec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_varDecCmp(void* pdecleft, void* pdecright) {
+uint32_t windowssysWindowsWin32SystemOleVarDecCmp(void* pdecleft, void* pdecright) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5542,7 +5542,7 @@ uint32_t windowssys_windows_win32_system_ole_varDecCmp(void* pdecleft, void* pde
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_varDecCmpR8(void* pdecleft, double dblright) {
+uint32_t windowssysWindowsWin32SystemOleVarDecCmpR8(void* pdecleft, double dblright) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -5565,7 +5565,7 @@ uint32_t windowssys_windows_win32_system_ole_varDecCmpR8(void* pdecleft, double 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecDiv(void* pdecleft, void* pdecright, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecDiv(void* pdecleft, void* pdecright, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5589,7 +5589,7 @@ int32_t windowssys_windows_win32_system_ole_varDecDiv(void* pdecleft, void* pdec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFix(void* pdecin, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecFix(void* pdecin, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5612,7 +5612,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFix(void* pdecin, void* pdecre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromBool(int16_t boolin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromBool(int16_t boolin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5635,7 +5635,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromBool(int16_t boolin, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromDate(double datein, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromDate(double datein, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5658,7 +5658,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromDate(double datein, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromDisp(void* pdispin, uint32_t lcid, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromDisp(void* pdispin, uint32_t lcid, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5682,7 +5682,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromDisp(void* pdispin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromI1(int8_t cin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromI1(int8_t cin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5705,7 +5705,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromI1(int8_t cin, void* pdeco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromI2(int16_t uiin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromI2(int16_t uiin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5728,7 +5728,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromI2(int16_t uiin, void* pde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromI4(int32_t lin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromI4(int32_t lin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5751,7 +5751,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromI4(int32_t lin, void* pdec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromI8(int64_t i64in, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromI8(int64_t i64in, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5774,7 +5774,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromI8(int64_t i64in, void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromR4(float fltin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromR4(float fltin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5797,7 +5797,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromR4(float fltin, void* pdec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromR8(double dblin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromR8(double dblin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5820,7 +5820,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromR8(double dblin, void* pde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5845,7 +5845,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromStr(void* strin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromUI1(uint8_t bin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromUI1(uint8_t bin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5868,7 +5868,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromUI1(uint8_t bin, void* pde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromUI2(uint16_t uiin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromUI2(uint16_t uiin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5891,7 +5891,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromUI2(uint16_t uiin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromUI4(uint32_t ulin, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromUI4(uint32_t ulin, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5914,7 +5914,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromUI4(uint32_t ulin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecFromUI8(uint64_t ui64in, void* pdecout) {
+int32_t windowssysWindowsWin32SystemOleVarDecFromUI8(uint64_t ui64in, void* pdecout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5937,7 +5937,7 @@ int32_t windowssys_windows_win32_system_ole_varDecFromUI8(uint64_t ui64in, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecInt(void* pdecin, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecInt(void* pdecin, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5960,7 +5960,7 @@ int32_t windowssys_windows_win32_system_ole_varDecInt(void* pdecin, void* pdecre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecMul(void* pdecleft, void* pdecright, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecMul(void* pdecleft, void* pdecright, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5984,7 +5984,7 @@ int32_t windowssys_windows_win32_system_ole_varDecMul(void* pdecleft, void* pdec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecNeg(void* pdecin, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecNeg(void* pdecin, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6007,7 +6007,7 @@ int32_t windowssys_windows_win32_system_ole_varDecNeg(void* pdecin, void* pdecre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecRound(void* pdecin, int32_t cdecimals, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecRound(void* pdecin, int32_t cdecimals, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6031,7 +6031,7 @@ int32_t windowssys_windows_win32_system_ole_varDecRound(void* pdecin, int32_t cd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDecSub(void* pdecleft, void* pdecright, void* pdecresult) {
+int32_t windowssysWindowsWin32SystemOleVarDecSub(void* pdecleft, void* pdecright, void* pdecresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6055,7 +6055,7 @@ int32_t windowssys_windows_win32_system_ole_varDecSub(void* pdecleft, void* pdec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varDiv(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarDiv(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6079,7 +6079,7 @@ int32_t windowssys_windows_win32_system_ole_varDiv(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varEqv(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarEqv(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6103,7 +6103,7 @@ int32_t windowssys_windows_win32_system_ole_varEqv(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFix(void* pvarin, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarFix(void* pvarin, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6126,7 +6126,7 @@ int32_t windowssys_windows_win32_system_ole_varFix(void* pvarin, void* pvarresul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFormat(void* pvarin, void* pstrformat, int32_t ifirstday, int32_t ifirstweek, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarFormat(void* pvarin, void* pstrformat, int32_t ifirstday, int32_t ifirstweek, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6153,7 +6153,7 @@ int32_t windowssys_windows_win32_system_ole_varFormat(void* pvarin, void* pstrfo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFormatCurrency(void* pvarin, int32_t inumdig, int32_t iinclead, int32_t iuseparens, int32_t igroup, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarFormatCurrency(void* pvarin, int32_t inumdig, int32_t iinclead, int32_t iuseparens, int32_t igroup, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6181,7 +6181,7 @@ int32_t windowssys_windows_win32_system_ole_varFormatCurrency(void* pvarin, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFormatDateTime(void* pvarin, int32_t inamedformat, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarFormatDateTime(void* pvarin, int32_t inamedformat, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6206,7 +6206,7 @@ int32_t windowssys_windows_win32_system_ole_varFormatDateTime(void* pvarin, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFormatFromTokens(void* pvarin, void* pstrformat, void* pbtokcur, uint32_t dwflags, void* pbstrout, uint32_t lcid) {
+int32_t windowssysWindowsWin32SystemOleVarFormatFromTokens(void* pvarin, void* pstrformat, void* pbtokcur, uint32_t dwflags, void* pbstrout, uint32_t lcid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6233,7 +6233,7 @@ int32_t windowssys_windows_win32_system_ole_varFormatFromTokens(void* pvarin, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFormatNumber(void* pvarin, int32_t inumdig, int32_t iinclead, int32_t iuseparens, int32_t igroup, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarFormatNumber(void* pvarin, int32_t inumdig, int32_t iinclead, int32_t iuseparens, int32_t igroup, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6261,7 +6261,7 @@ int32_t windowssys_windows_win32_system_ole_varFormatNumber(void* pvarin, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varFormatPercent(void* pvarin, int32_t inumdig, int32_t iinclead, int32_t iuseparens, int32_t igroup, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarFormatPercent(void* pvarin, int32_t inumdig, int32_t iinclead, int32_t iuseparens, int32_t igroup, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6289,7 +6289,7 @@ int32_t windowssys_windows_win32_system_ole_varFormatPercent(void* pvarin, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromBool(int16_t boolin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromBool(int16_t boolin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6312,7 +6312,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromDate(double datein, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromDate(double datein, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6335,7 +6335,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromDec(void* pdecin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromDec(void* pdecin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6358,7 +6358,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromDec(void* pdecin, void* pco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromDisp(void* pdispin, uint32_t lcid, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromDisp(void* pdispin, uint32_t lcid, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6382,7 +6382,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromI2(int16_t uiin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromI2(int16_t uiin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6405,7 +6405,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromI2(int16_t uiin, void* pcou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromI4(int32_t lin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromI4(int32_t lin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6428,7 +6428,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromI4(int32_t lin, void* pcout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromI8(int64_t i64in, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromI8(int64_t i64in, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6451,7 +6451,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromI8(int64_t i64in, void* pco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromR4(float fltin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromR4(float fltin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6474,7 +6474,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromR4(float fltin, void* pcout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromR8(double dblin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromR8(double dblin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6497,7 +6497,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromR8(double dblin, void* pcou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6522,7 +6522,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromUI1(uint8_t bin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromUI1(uint8_t bin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6545,7 +6545,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromUI1(uint8_t bin, void* pcou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromUI2(uint16_t uiin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromUI2(uint16_t uiin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6568,7 +6568,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromUI2(uint16_t uiin, void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromUI4(uint32_t ulin, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromUI4(uint32_t ulin, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6591,7 +6591,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromUI4(uint32_t ulin, void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI1FromUI8(uint64_t i64in, void* pcout) {
+int32_t windowssysWindowsWin32SystemOleVarI1FromUI8(uint64_t i64in, void* pcout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6614,7 +6614,7 @@ int32_t windowssys_windows_win32_system_ole_varI1FromUI8(uint64_t i64in, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromBool(int16_t boolin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromBool(int16_t boolin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6637,7 +6637,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromDate(double datein, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromDate(double datein, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6660,7 +6660,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromDec(void* pdecin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromDec(void* pdecin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6683,7 +6683,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromDec(void* pdecin, void* pso
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromDisp(void* pdispin, uint32_t lcid, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromDisp(void* pdispin, uint32_t lcid, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6707,7 +6707,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromI1(int8_t cin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromI1(int8_t cin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6730,7 +6730,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromI1(int8_t cin, void* psout)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromI4(int32_t lin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromI4(int32_t lin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6753,7 +6753,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromI4(int32_t lin, void* psout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromI8(int64_t i64in, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromI8(int64_t i64in, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6776,7 +6776,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromI8(int64_t i64in, void* pso
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromR4(float fltin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromR4(float fltin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6799,7 +6799,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromR4(float fltin, void* psout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromR8(double dblin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromR8(double dblin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6822,7 +6822,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromR8(double dblin, void* psou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6847,7 +6847,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromUI1(uint8_t bin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromUI1(uint8_t bin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6870,7 +6870,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromUI1(uint8_t bin, void* psou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromUI2(uint16_t uiin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromUI2(uint16_t uiin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6893,7 +6893,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromUI2(uint16_t uiin, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromUI4(uint32_t ulin, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromUI4(uint32_t ulin, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6916,7 +6916,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromUI4(uint32_t ulin, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI2FromUI8(uint64_t ui64in, void* psout) {
+int32_t windowssysWindowsWin32SystemOleVarI2FromUI8(uint64_t ui64in, void* psout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6939,7 +6939,7 @@ int32_t windowssys_windows_win32_system_ole_varI2FromUI8(uint64_t ui64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromBool(int16_t boolin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromBool(int16_t boolin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6962,7 +6962,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromDate(double datein, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromDate(double datein, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6985,7 +6985,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromDec(void* pdecin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromDec(void* pdecin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7008,7 +7008,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromDec(void* pdecin, void* plo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromDisp(void* pdispin, uint32_t lcid, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromDisp(void* pdispin, uint32_t lcid, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7032,7 +7032,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromI1(int8_t cin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromI1(int8_t cin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7055,7 +7055,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromI1(int8_t cin, void* plout)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromI2(int16_t arg_0_sin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromI2(int16_t arg0Sin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7066,19 +7066,19 @@ int32_t windowssys_windows_win32_system_ole_varI4FromI2(int16_t arg_0_sin, void*
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, plout);
+        return km_fn_ptr(arg0Sin, plout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)plout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromI8(int64_t i64in, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromI8(int64_t i64in, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7101,7 +7101,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromI8(int64_t i64in, void* plo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromR4(float fltin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromR4(float fltin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7124,7 +7124,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromR4(float fltin, void* plout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromR8(double dblin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromR8(double dblin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7147,7 +7147,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromR8(double dblin, void* plou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7172,7 +7172,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromUI1(uint8_t bin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromUI1(uint8_t bin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7195,7 +7195,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromUI1(uint8_t bin, void* plou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromUI2(uint16_t uiin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromUI2(uint16_t uiin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7218,7 +7218,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromUI2(uint16_t uiin, void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromUI4(uint32_t ulin, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromUI4(uint32_t ulin, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7241,7 +7241,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromUI4(uint32_t ulin, void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI4FromUI8(uint64_t ui64in, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarI4FromUI8(uint64_t ui64in, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7264,7 +7264,7 @@ int32_t windowssys_windows_win32_system_ole_varI4FromUI8(uint64_t ui64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromBool(int16_t boolin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromBool(int16_t boolin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7287,7 +7287,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromDate(double datein, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromDate(double datein, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7310,7 +7310,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromDec(void* pdecin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromDec(void* pdecin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7333,7 +7333,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromDec(void* pdecin, void* pi6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromDisp(void* pdispin, uint32_t lcid, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromDisp(void* pdispin, uint32_t lcid, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7357,7 +7357,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromI1(int8_t cin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromI1(int8_t cin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7380,7 +7380,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromI1(int8_t cin, void* pi64ou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromI2(int16_t arg_0_sin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromI2(int16_t arg0Sin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7391,19 +7391,19 @@ int32_t windowssys_windows_win32_system_ole_varI8FromI2(int16_t arg_0_sin, void*
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pi64out);
+        return km_fn_ptr(arg0Sin, pi64out);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pi64out;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromR4(float fltin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromR4(float fltin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7426,7 +7426,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromR4(float fltin, void* pi64o
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromR8(double dblin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromR8(double dblin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7449,7 +7449,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromR8(double dblin, void* pi64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7474,7 +7474,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromUI1(uint8_t bin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromUI1(uint8_t bin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7497,7 +7497,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromUI1(uint8_t bin, void* pi64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromUI2(uint16_t uiin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromUI2(uint16_t uiin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7520,7 +7520,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromUI2(uint16_t uiin, void* pi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromUI4(uint32_t ulin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromUI4(uint32_t ulin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7543,7 +7543,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromUI4(uint32_t ulin, void* pi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varI8FromUI8(uint64_t ui64in, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarI8FromUI8(uint64_t ui64in, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7566,7 +7566,7 @@ int32_t windowssys_windows_win32_system_ole_varI8FromUI8(uint64_t ui64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varIdiv(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarIdiv(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7590,7 +7590,7 @@ int32_t windowssys_windows_win32_system_ole_varIdiv(void* pvarleft, void* pvarri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varImp(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarImp(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7614,7 +7614,7 @@ int32_t windowssys_windows_win32_system_ole_varImp(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varInt(void* pvarin, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarInt(void* pvarin, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7637,7 +7637,7 @@ int32_t windowssys_windows_win32_system_ole_varInt(void* pvarin, void* pvarresul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varMod(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarMod(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7661,7 +7661,7 @@ int32_t windowssys_windows_win32_system_ole_varMod(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varMonthName(int32_t imonth, int32_t fabbrev, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarMonthName(int32_t imonth, int32_t fabbrev, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7686,7 +7686,7 @@ int32_t windowssys_windows_win32_system_ole_varMonthName(int32_t imonth, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varMul(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarMul(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7710,7 +7710,7 @@ int32_t windowssys_windows_win32_system_ole_varMul(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varNeg(void* pvarin, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarNeg(void* pvarin, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7733,7 +7733,7 @@ int32_t windowssys_windows_win32_system_ole_varNeg(void* pvarin, void* pvarresul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varNot(void* pvarin, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarNot(void* pvarin, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7756,7 +7756,7 @@ int32_t windowssys_windows_win32_system_ole_varNot(void* pvarin, void* pvarresul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varNumFromParseNum(void* pnumprs, void* rgbdig, uint32_t dwvtbits, void* pvar) {
+int32_t windowssysWindowsWin32SystemOleVarNumFromParseNum(void* pnumprs, void* rgbdig, uint32_t dwvtbits, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7781,7 +7781,7 @@ int32_t windowssys_windows_win32_system_ole_varNumFromParseNum(void* pnumprs, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varOr(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarOr(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7805,7 +7805,7 @@ int32_t windowssys_windows_win32_system_ole_varOr(void* pvarleft, void* pvarrigh
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varParseNumFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pnumprs, void* rgbdig) {
+int32_t windowssysWindowsWin32SystemOleVarParseNumFromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pnumprs, void* rgbdig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7831,7 +7831,7 @@ int32_t windowssys_windows_win32_system_ole_varParseNumFromStr(void* strin, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varPow(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarPow(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7855,7 +7855,7 @@ int32_t windowssys_windows_win32_system_ole_varPow(void* pvarleft, void* pvarrig
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_ole_varR4CmpR8(float fltleft, double dblright) {
+uint32_t windowssysWindowsWin32SystemOleVarR4CmpR8(float fltleft, double dblright) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(float, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -7878,7 +7878,7 @@ uint32_t windowssys_windows_win32_system_ole_varR4CmpR8(float fltleft, double db
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromBool(int16_t boolin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromBool(int16_t boolin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7901,7 +7901,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromDate(double datein, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromDate(double datein, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7924,7 +7924,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromDec(void* pdecin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromDec(void* pdecin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7947,7 +7947,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromDec(void* pdecin, void* pfl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromDisp(void* pdispin, uint32_t lcid, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromDisp(void* pdispin, uint32_t lcid, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7971,7 +7971,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromI1(int8_t cin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromI1(int8_t cin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7994,7 +7994,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromI1(int8_t cin, void* pfltou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromI2(int16_t arg_0_sin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromI2(int16_t arg0Sin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8005,19 +8005,19 @@ int32_t windowssys_windows_win32_system_ole_varR4FromI2(int16_t arg_0_sin, void*
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pfltout);
+        return km_fn_ptr(arg0Sin, pfltout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pfltout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromI4(int32_t lin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromI4(int32_t lin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8040,7 +8040,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromI4(int32_t lin, void* pflto
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromI8(int64_t i64in, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromI8(int64_t i64in, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8063,7 +8063,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromI8(int64_t i64in, void* pfl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromR8(double dblin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromR8(double dblin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8086,7 +8086,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromR8(double dblin, void* pflt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8111,7 +8111,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromUI1(uint8_t bin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromUI1(uint8_t bin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8134,7 +8134,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromUI1(uint8_t bin, void* pflt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromUI2(uint16_t uiin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromUI2(uint16_t uiin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8157,7 +8157,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromUI2(uint16_t uiin, void* pf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromUI4(uint32_t ulin, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromUI4(uint32_t ulin, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8180,7 +8180,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromUI4(uint32_t ulin, void* pf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR4FromUI8(uint64_t ui64in, void* pfltout) {
+int32_t windowssysWindowsWin32SystemOleVarR4FromUI8(uint64_t ui64in, void* pfltout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8203,7 +8203,7 @@ int32_t windowssys_windows_win32_system_ole_varR4FromUI8(uint64_t ui64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromBool(int16_t boolin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromBool(int16_t boolin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8226,7 +8226,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromBool(int16_t boolin, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromDate(double datein, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromDate(double datein, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8249,7 +8249,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromDate(double datein, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromDec(void* pdecin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromDec(void* pdecin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8272,7 +8272,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromDec(void* pdecin, void* pdb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromDisp(void* pdispin, uint32_t lcid, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromDisp(void* pdispin, uint32_t lcid, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8296,7 +8296,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromDisp(void* pdispin, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromI1(int8_t cin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromI1(int8_t cin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8319,7 +8319,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromI1(int8_t cin, void* pdblou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromI2(int16_t arg_0_sin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromI2(int16_t arg0Sin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8330,19 +8330,19 @@ int32_t windowssys_windows_win32_system_ole_varR8FromI2(int16_t arg_0_sin, void*
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pdblout);
+        return km_fn_ptr(arg0Sin, pdblout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pdblout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromI4(int32_t lin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromI4(int32_t lin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8365,7 +8365,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromI4(int32_t lin, void* pdblo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromI8(int64_t i64in, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromI8(int64_t i64in, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8388,7 +8388,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromI8(int64_t i64in, void* pdb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromR4(float fltin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromR4(float fltin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8411,7 +8411,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromR4(float fltin, void* pdblo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8436,7 +8436,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromStr(void* strin, uint32_t l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromUI1(uint8_t bin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromUI1(uint8_t bin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8459,7 +8459,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromUI1(uint8_t bin, void* pdbl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromUI2(uint16_t uiin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromUI2(uint16_t uiin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8482,7 +8482,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromUI2(uint16_t uiin, void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromUI4(uint32_t ulin, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromUI4(uint32_t ulin, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8505,7 +8505,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromUI4(uint32_t ulin, void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8FromUI8(uint64_t ui64in, void* pdblout) {
+int32_t windowssysWindowsWin32SystemOleVarR8FromUI8(uint64_t ui64in, void* pdblout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8528,7 +8528,7 @@ int32_t windowssys_windows_win32_system_ole_varR8FromUI8(uint64_t ui64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8Pow(double dblleft, double dblright, void* pdblresult) {
+int32_t windowssysWindowsWin32SystemOleVarR8Pow(double dblleft, double dblright, void* pdblresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8552,7 +8552,7 @@ int32_t windowssys_windows_win32_system_ole_varR8Pow(double dblleft, double dblr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varR8Round(double dblin, int32_t cdecimals, void* pdblresult) {
+int32_t windowssysWindowsWin32SystemOleVarR8Round(double dblin, int32_t cdecimals, void* pdblresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8576,7 +8576,7 @@ int32_t windowssys_windows_win32_system_ole_varR8Round(double dblin, int32_t cde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varRound(void* pvarin, int32_t cdecimals, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarRound(void* pvarin, int32_t cdecimals, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8600,7 +8600,7 @@ int32_t windowssys_windows_win32_system_ole_varRound(void* pvarin, int32_t cdeci
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varSub(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarSub(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8624,7 +8624,7 @@ int32_t windowssys_windows_win32_system_ole_varSub(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varTokenizeFormatString(void* pstrformat, void* rgbtok, int32_t cbtok, int32_t ifirstday, int32_t ifirstweek, uint32_t lcid, void* pcbactual) {
+int32_t windowssysWindowsWin32SystemOleVarTokenizeFormatString(void* pstrformat, void* rgbtok, int32_t cbtok, int32_t ifirstday, int32_t ifirstweek, uint32_t lcid, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8652,7 +8652,7 @@ int32_t windowssys_windows_win32_system_ole_varTokenizeFormatString(void* pstrfo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromBool(int16_t boolin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromBool(int16_t boolin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8675,7 +8675,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromBool(int16_t boolin, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromDate(double datein, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromDate(double datein, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8698,7 +8698,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromDate(double datein, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromDec(void* pdecin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromDec(void* pdecin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8721,7 +8721,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromDec(void* pdecin, void* pb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromDisp(void* pdispin, uint32_t lcid, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromDisp(void* pdispin, uint32_t lcid, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8745,7 +8745,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromDisp(void* pdispin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromI1(int8_t cin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromI1(int8_t cin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8768,7 +8768,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromI1(int8_t cin, void* pbout
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromI2(int16_t arg_0_sin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromI2(int16_t arg0Sin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8779,19 +8779,19 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromI2(int16_t arg_0_sin, void
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pbout);
+        return km_fn_ptr(arg0Sin, pbout);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pbout;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromI4(int32_t lin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromI4(int32_t lin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8814,7 +8814,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromI4(int32_t lin, void* pbou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromI8(int64_t i64in, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromI8(int64_t i64in, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8837,7 +8837,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromI8(int64_t i64in, void* pb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromR4(float fltin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromR4(float fltin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8860,7 +8860,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromR4(float fltin, void* pbou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromR8(double dblin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromR8(double dblin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8883,7 +8883,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromR8(double dblin, void* pbo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8908,7 +8908,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromStr(void* strin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromUI2(uint16_t uiin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromUI2(uint16_t uiin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8931,7 +8931,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromUI2(uint16_t uiin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromUI4(uint32_t ulin, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromUI4(uint32_t ulin, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8954,7 +8954,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromUI4(uint32_t ulin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI1FromUI8(uint64_t ui64in, void* pbout) {
+int32_t windowssysWindowsWin32SystemOleVarUI1FromUI8(uint64_t ui64in, void* pbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8977,7 +8977,7 @@ int32_t windowssys_windows_win32_system_ole_varUI1FromUI8(uint64_t ui64in, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromBool(int16_t boolin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromBool(int16_t boolin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9000,7 +9000,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromBool(int16_t boolin, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromDate(double datein, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromDate(double datein, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9023,7 +9023,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromDate(double datein, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromDec(void* pdecin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromDec(void* pdecin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9046,7 +9046,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromDec(void* pdecin, void* pu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromDisp(void* pdispin, uint32_t lcid, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromDisp(void* pdispin, uint32_t lcid, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9070,7 +9070,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromDisp(void* pdispin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromI1(int8_t cin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromI1(int8_t cin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9093,7 +9093,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromI1(int8_t cin, void* puiou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromI2(int16_t uiin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromI2(int16_t uiin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9116,7 +9116,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromI2(int16_t uiin, void* pui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromI4(int32_t lin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromI4(int32_t lin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9139,7 +9139,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromI4(int32_t lin, void* puio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromI8(int64_t i64in, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromI8(int64_t i64in, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9162,7 +9162,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromI8(int64_t i64in, void* pu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromR4(float fltin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromR4(float fltin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9185,7 +9185,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromR4(float fltin, void* puio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromR8(double dblin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromR8(double dblin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9208,7 +9208,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromR8(double dblin, void* pui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9233,7 +9233,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromStr(void* strin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromUI1(uint8_t bin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromUI1(uint8_t bin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9256,7 +9256,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromUI1(uint8_t bin, void* pui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromUI4(uint32_t ulin, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromUI4(uint32_t ulin, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9279,7 +9279,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromUI4(uint32_t ulin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI2FromUI8(uint64_t i64in, void* puiout) {
+int32_t windowssysWindowsWin32SystemOleVarUI2FromUI8(uint64_t i64in, void* puiout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9302,7 +9302,7 @@ int32_t windowssys_windows_win32_system_ole_varUI2FromUI8(uint64_t i64in, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromBool(int16_t boolin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromBool(int16_t boolin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9325,7 +9325,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromBool(int16_t boolin, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromDate(double datein, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromDate(double datein, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9348,7 +9348,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromDate(double datein, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromDec(void* pdecin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromDec(void* pdecin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9371,7 +9371,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromDec(void* pdecin, void* pu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromDisp(void* pdispin, uint32_t lcid, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromDisp(void* pdispin, uint32_t lcid, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9395,7 +9395,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromDisp(void* pdispin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromI1(int8_t cin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromI1(int8_t cin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9418,7 +9418,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromI1(int8_t cin, void* pulou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromI2(int16_t uiin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromI2(int16_t uiin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9441,7 +9441,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromI2(int16_t uiin, void* pul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromI4(int32_t lin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromI4(int32_t lin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9464,7 +9464,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromI4(int32_t lin, void* pulo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromI8(int64_t i64in, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromI8(int64_t i64in, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9487,7 +9487,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromI8(int64_t i64in, void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromR4(float fltin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromR4(float fltin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9510,7 +9510,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromR4(float fltin, void* pulo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromR8(double dblin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromR8(double dblin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9533,7 +9533,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromR8(double dblin, void* pul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9558,7 +9558,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromStr(void* strin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromUI1(uint8_t bin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromUI1(uint8_t bin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9581,7 +9581,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromUI1(uint8_t bin, void* pul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromUI2(uint16_t uiin, void* pulout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromUI2(uint16_t uiin, void* pulout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9604,7 +9604,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromUI2(uint16_t uiin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI4FromUI8(uint64_t ui64in, void* plout) {
+int32_t windowssysWindowsWin32SystemOleVarUI4FromUI8(uint64_t ui64in, void* plout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9627,7 +9627,7 @@ int32_t windowssys_windows_win32_system_ole_varUI4FromUI8(uint64_t ui64in, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromBool(int16_t boolin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromBool(int16_t boolin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9650,7 +9650,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromBool(int16_t boolin, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromDate(double datein, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromDate(double datein, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9673,7 +9673,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromDate(double datein, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromDec(void* pdecin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromDec(void* pdecin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9696,7 +9696,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromDec(void* pdecin, void* pi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromDisp(void* pdispin, uint32_t lcid, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromDisp(void* pdispin, uint32_t lcid, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9720,7 +9720,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromDisp(void* pdispin, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromI1(int8_t cin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromI1(int8_t cin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9743,7 +9743,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromI1(int8_t cin, void* pi64o
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromI2(int16_t arg_0_sin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromI2(int16_t arg0Sin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9754,19 +9754,19 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromI2(int16_t arg_0_sin, void
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_sin, pi64out);
+        return km_fn_ptr(arg0Sin, pi64out);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_sin;
+    (void)arg0Sin;
     (void)pi64out;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromI8(int64_t ui64in, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromI8(int64_t ui64in, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9789,7 +9789,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromI8(int64_t ui64in, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromR4(float fltin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromR4(float fltin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9812,7 +9812,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromR4(float fltin, void* pi64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromR8(double dblin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromR8(double dblin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9835,7 +9835,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromR8(double dblin, void* pi6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromStr(void* strin, uint32_t lcid, uint32_t dwflags, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9860,7 +9860,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromStr(void* strin, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromUI1(uint8_t bin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromUI1(uint8_t bin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9883,7 +9883,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromUI1(uint8_t bin, void* pi6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromUI2(uint16_t uiin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromUI2(uint16_t uiin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9906,7 +9906,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromUI2(uint16_t uiin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUI8FromUI4(uint32_t ulin, void* pi64out) {
+int32_t windowssysWindowsWin32SystemOleVarUI8FromUI4(uint32_t ulin, void* pi64out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9929,7 +9929,7 @@ int32_t windowssys_windows_win32_system_ole_varUI8FromUI4(uint32_t ulin, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varUdateFromDate(double datein, uint32_t dwflags, void* pudateout) {
+int32_t windowssysWindowsWin32SystemOleVarUdateFromDate(double datein, uint32_t dwflags, void* pudateout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9953,7 +9953,7 @@ int32_t windowssys_windows_win32_system_ole_varUdateFromDate(double datein, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varWeekdayName(int32_t iweekday, int32_t fabbrev, int32_t ifirstday, uint32_t dwflags, void* pbstrout) {
+int32_t windowssysWindowsWin32SystemOleVarWeekdayName(int32_t iweekday, int32_t fabbrev, int32_t ifirstday, uint32_t dwflags, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9979,7 +9979,7 @@ int32_t windowssys_windows_win32_system_ole_varWeekdayName(int32_t iweekday, int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_varXor(void* pvarleft, void* pvarright, void* pvarresult) {
+int32_t windowssysWindowsWin32SystemOleVarXor(void* pvarleft, void* pvarright, void* pvarresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10003,7 +10003,7 @@ int32_t windowssys_windows_win32_system_ole_varXor(void* pvarleft, void* pvarrig
 #endif
 }
 
-int32_t windowssys_windows_win32_system_ole_vectorFromBstr(void* bstr, void* ppsa) {
+int32_t windowssysWindowsWin32SystemOleVectorFromBstr(void* bstr, void* ppsa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public fun interface CfCallbackFn {
-    public operator fun invoke(callbackinfo: COpaquePointer?, callbackparameters: COpaquePointer?)
+    public operator fun invoke(callbackinfo: ConstPtr<CfCallbackInfo>, callbackparameters: ConstPtr<CfCallbackParameters>)
 }
 
 public typealias CfCallback = CfCallbackFn?

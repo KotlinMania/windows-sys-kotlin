@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_processstatus_emptyWorkingSet(void* hprocess) {
+int32_t windowssysWindowsWin32SystemProcessstatusEmptyWorkingSet(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_processstatus_emptyWorkingSet(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_enumDeviceDrivers(void* lpimagebase, uint32_t cb, void* lpcbneeded) {
+int32_t windowssysWindowsWin32SystemProcessstatusEnumDeviceDrivers(void* lpimagebase, uint32_t cb, void* lpcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_processstatus_enumDeviceDrivers(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_enumPageFilesA(void* pcallbackroutine, void* pcontext) {
+int32_t windowssysWindowsWin32SystemProcessstatusEnumPageFilesA(void* pcallbackroutine, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_system_processstatus_enumPageFilesA(void* pcall
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_enumPageFilesW(void* pcallbackroutine, void* pcontext) {
+int32_t windowssysWindowsWin32SystemProcessstatusEnumPageFilesW(void* pcallbackroutine, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ int32_t windowssys_windows_win32_system_processstatus_enumPageFilesW(void* pcall
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_enumProcessModules(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded) {
+int32_t windowssysWindowsWin32SystemProcessstatusEnumProcessModules(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ int32_t windowssys_windows_win32_system_processstatus_enumProcessModules(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_enumProcessModulesEx(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded, uint32_t dwfilterflag) {
+int32_t windowssysWindowsWin32SystemProcessstatusEnumProcessModulesEx(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded, uint32_t dwfilterflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ int32_t windowssys_windows_win32_system_processstatus_enumProcessModulesEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_enumProcesses(void* lpidprocess, uint32_t cb, void* lpcbneeded) {
+int32_t windowssysWindowsWin32SystemProcessstatusEnumProcesses(void* lpidprocess, uint32_t cb, void* lpcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -182,7 +182,7 @@ int32_t windowssys_windows_win32_system_processstatus_enumProcesses(void* lpidpr
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -206,7 +206,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW(void* imagebase, void* lpbasename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameW(void* imagebase, void* lpbasename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -230,7 +230,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverBaseNameW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW(void* imagebase, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameW(void* imagebase, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -278,7 +278,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getDeviceDriverFileNameW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getMappedFileNameA(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetMappedFileNameA(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -303,7 +303,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getMappedFileNameA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getMappedFileNameW(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetMappedFileNameW(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -328,7 +328,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getMappedFileNameW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getModuleBaseNameA(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameA(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -353,7 +353,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getModuleBaseNameA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getModuleBaseNameW(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetModuleBaseNameW(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -378,7 +378,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getModuleBaseNameW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getModuleFileNameExA(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExA(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getModuleFileNameExA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getModuleFileNameExW(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExW(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getModuleFileNameExW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_getModuleInformation(void* hprocess, void* hmodule, void* lpmodinfo, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusGetModuleInformation(void* hprocess, void* hmodule, void* lpmodinfo, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -453,7 +453,7 @@ int32_t windowssys_windows_win32_system_processstatus_getModuleInformation(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_getPerformanceInfo(void* pperformanceinformation, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusGetPerformanceInfo(void* pperformanceinformation, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ int32_t windowssys_windows_win32_system_processstatus_getPerformanceInfo(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getProcessImageFileNameA(void* hprocess, void* lpimagefilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameA(void* hprocess, void* lpimagefilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -500,7 +500,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getProcessImageFileNameA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_getProcessImageFileNameW(void* hprocess, void* lpimagefilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameW(void* hprocess, void* lpimagefilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -524,7 +524,7 @@ uint32_t windowssys_windows_win32_system_processstatus_getProcessImageFileNameW(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_getProcessMemoryInfo(void* process, void* ppsmemcounters, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusGetProcessMemoryInfo(void* process, void* ppsmemcounters, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -548,7 +548,7 @@ int32_t windowssys_windows_win32_system_processstatus_getProcessMemoryInfo(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_getWsChanges(void* hprocess, void* lpwatchinfo, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusGetWsChanges(void* hprocess, void* lpwatchinfo, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -572,7 +572,7 @@ int32_t windowssys_windows_win32_system_processstatus_getWsChanges(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_getWsChangesEx(void* hprocess, void* lpwatchinfoex, void* cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusGetWsChangesEx(void* hprocess, void* lpwatchinfoex, void* cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ int32_t windowssys_windows_win32_system_processstatus_getWsChangesEx(void* hproc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_initializeProcessForWsWatch(void* hprocess) {
+int32_t windowssysWindowsWin32SystemProcessstatusInitializeProcessForWsWatch(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -618,7 +618,7 @@ int32_t windowssys_windows_win32_system_processstatus_initializeProcessForWsWatc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet(void* hprocess) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EmptyWorkingSet(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -640,7 +640,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EmptyWorkingSet(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers(void* lpimagebase, uint32_t cb, void* lpcbneeded) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EnumDeviceDrivers(void* lpimagebase, uint32_t cb, void* lpcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EnumDeviceDrivers(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EnumPageFilesA(void* pcallbackroutine, void* pcontext) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesA(void* pcallbackroutine, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -687,7 +687,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EnumPageFilesA(void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EnumPageFilesW(void* pcallbackroutine, void* pcontext) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesW(void* pcallbackroutine, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -710,7 +710,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EnumPageFilesW(void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EnumProcessModules(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EnumProcessModules(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -735,7 +735,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EnumProcessModules(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded, uint32_t dwfilterflag) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EnumProcessModulesEx(void* hprocess, void* lphmodule, uint32_t cb, void* lpcbneeded, uint32_t dwfilterflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -761,7 +761,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EnumProcessModulesEx(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32EnumProcesses(void* lpidprocess, uint32_t cb, void* lpcbneeded) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32EnumProcesses(void* lpidprocess, uint32_t cb, void* lpcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32EnumProcesses(void* lpi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -809,7 +809,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNameW(void* imagebase, void* lpbasename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameW(void* imagebase, void* lpbasename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -833,7 +833,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverBaseNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameA(void* imagebase, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -857,7 +857,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNameW(void* imagebase, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameW(void* imagebase, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -881,7 +881,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetDeviceDriverFileNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameA(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -906,7 +906,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetMappedFileNameA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameW(void* hprocess, void* lpv, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -931,7 +931,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetMappedFileNameW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameA(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -956,7 +956,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetModuleBaseNameW(void* hprocess, void* hmodule, void* lpbasename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -981,7 +981,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleBaseNameW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExA(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1006,7 +1006,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExW(void* hprocess, void* hmodule, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1031,7 +1031,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetModuleFileNameExW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32GetModuleInformation(void* hprocess, void* hmodule, void* lpmodinfo, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32GetModuleInformation(void* hprocess, void* hmodule, void* lpmodinfo, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1056,7 +1056,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32GetModuleInformation(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo(void* pperformanceinformation, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32GetPerformanceInfo(void* pperformanceinformation, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1079,7 +1079,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32GetPerformanceInfo(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameA(void* hprocess, void* lpimagefilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameA(void* hprocess, void* lpimagefilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1103,7 +1103,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNameW(void* hprocess, void* lpimagefilename, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameW(void* hprocess, void* lpimagefilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1127,7 +1127,7 @@ uint32_t windowssys_windows_win32_system_processstatus_k32GetProcessImageFileNam
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo(void* process, void* ppsmemcounters, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32GetProcessMemoryInfo(void* process, void* ppsmemcounters, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1151,7 +1151,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32GetProcessMemoryInfo(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32GetWsChanges(void* hprocess, void* lpwatchinfo, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32GetWsChanges(void* hprocess, void* lpwatchinfo, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1175,7 +1175,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32GetWsChanges(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32GetWsChangesEx(void* hprocess, void* lpwatchinfoex, void* cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32GetWsChangesEx(void* hprocess, void* lpwatchinfoex, void* cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1199,7 +1199,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32GetWsChangesEx(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsWatch(void* hprocess) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32InitializeProcessForWsWatch(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1221,7 +1221,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32InitializeProcessForWsW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32QueryWorkingSet(void* hprocess, void* pv, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSet(void* hprocess, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1245,7 +1245,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32QueryWorkingSet(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx(void* hprocess, void* pv, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSetEx(void* hprocess, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1269,7 +1269,7 @@ int32_t windowssys_windows_win32_system_processstatus_k32QueryWorkingSetEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_queryWorkingSet(void* hprocess, void* pv, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusQueryWorkingSet(void* hprocess, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1293,7 +1293,7 @@ int32_t windowssys_windows_win32_system_processstatus_queryWorkingSet(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_processstatus_queryWorkingSetEx(void* hprocess, void* pv, uint32_t cb) {
+int32_t windowssysWindowsWin32SystemProcessstatusQueryWorkingSetEx(void* hprocess, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

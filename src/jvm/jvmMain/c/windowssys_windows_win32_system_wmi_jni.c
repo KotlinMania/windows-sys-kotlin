@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_wmi_WindowsWin32SystemWmiJniBridge_windowssys_1windows_1win32_1system_1wmi_1miApplicationInitializeV1(JNIEnv* km_env, jclass km_clazz, jint flags, jlong applicationid, jlong extendederror, jlong application) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_wmi_WindowsWin32SystemWmiJniBridge_windowssysWindowsWin32SystemWmiMiApplicationInitializeV1(JNIEnv* km_env, jclass km_clazz, jint flags, jlong applicationid, jlong extendederror, jlong application) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -2,7 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 private object WindowsWin32MediaJniBridge {
     init {
@@ -10,44 +10,44 @@ private object WindowsWin32MediaJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeBeginPeriod(uperiod: Int): Int
+    external fun windowssysWindowsWin32MediaTimeBeginPeriod(uperiod: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeEndPeriod(uperiod: Int): Int
+    external fun windowssysWindowsWin32MediaTimeEndPeriod(uperiod: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeGetDevCaps(ptc: Long, cbtc: Int): Int
+    external fun windowssysWindowsWin32MediaTimeGetDevCaps(ptc: Long, cbtc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeGetSystemTime(pmmt: Long, cbmmt: Int): Int
+    external fun windowssysWindowsWin32MediaTimeGetSystemTime(pmmt: Long, cbmmt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeGetTime(): Int
+    external fun windowssysWindowsWin32MediaTimeGetTime(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeKillEvent(utimerid: Int): Int
+    external fun windowssysWindowsWin32MediaTimeKillEvent(utimerid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_timeSetEvent(udelay: Int, uresolution: Int, fptc: Long, dwuser: Long, fuevent: Int): Int
+    external fun windowssysWindowsWin32MediaTimeSetEvent(udelay: Int, uresolution: Int, fptc: Long, dwuser: Long, fuevent: Int): Int
 }
 
 public actual fun timeBeginPeriod(uperiod: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeBeginPeriod(uperiod.toInt()).toUInt()
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeBeginPeriod(uperiod.toInt()).toUInt()
 
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeEndPeriod(uperiod.toInt()).toUInt()
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeEndPeriod(uperiod.toInt()).toUInt()
 
-public actual fun timeGetDevCaps(ptc: COpaquePointer?, cbtc: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetDevCaps((ptc?.value ?: 0L), cbtc.toInt()).toUInt()
+public actual fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt =
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeGetDevCaps(ptc.rawAddress, cbtc.toInt()).toUInt()
 
-public actual fun timeGetSystemTime(pmmt: COpaquePointer?, cbmmt: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetSystemTime((pmmt?.value ?: 0L), cbmmt.toInt()).toUInt()
+public actual fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeGetSystemTime(pmmt.rawAddress, cbmmt.toInt()).toUInt()
 
 public actual fun timeGetTime(): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetTime().toUInt()
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeGetTime().toUInt()
 
 public actual fun timeKillEvent(utimerid: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeKillEvent(utimerid.toInt()).toUInt()
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeKillEvent(utimerid.toInt()).toUInt()
 
 public actual fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: Lptimecallback, dwuser: ULong, fuevent: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeSetEvent(udelay.toInt(), uresolution.toInt(), 0L, dwuser.toLong(), fuevent.toInt()).toUInt()
+    WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeSetEvent(udelay.toInt(), uresolution.toInt(), 0L, dwuser.toLong(), fuevent.toInt()).toUInt()

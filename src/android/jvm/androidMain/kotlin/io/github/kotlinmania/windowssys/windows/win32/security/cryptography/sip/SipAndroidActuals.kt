@@ -2,8 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertQueryEncodingType
@@ -14,74 +16,74 @@ private object WindowsWin32SecurityCryptographySipJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider(psnewprov: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider(psnewprov: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData(psubjectinfo: Long, pcbindirectdata: Long, pindirectdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData(psubjectinfo: Long, pcbindirectdata: Long, pindirectdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps(psubjinfo: Long, pcaps: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps(psubjinfo: Long, pcaps: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest(psubjectinfo: Long, psig: Long, dwsig: Int, pbdigest: Long, pcbdigest: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest(psubjectinfo: Long, psig: Long, dwsig: Int, pbdigest: Long, pcbdigest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg(psubjectinfo: Long, pdwencodingtype: Long, dwindex: Int, pcbsigneddatamsg: Long, pbsigneddatamsg: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg(psubjectinfo: Long, pdwencodingtype: Long, dwindex: Int, pcbsigneddatamsg: Long, pbsigneddatamsg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad(pgsubject: Long, dwflags: Int, psipdispatch: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPLoad(pgsubject: Long, dwflags: Int, psipdispatch: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg(psubjectinfo: Long, dwencodingtype: Int, pdwindex: Long, cbsigneddatamsg: Int, pbsigneddatamsg: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg(psubjectinfo: Long, dwencodingtype: Int, pdwindex: Long, cbsigneddatamsg: Int, pbsigneddatamsg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider(pgprov: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider(pgprov: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg(psubjectinfo: Long, dwindex: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg(psubjectinfo: Long, dwindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid(filename: Long, hfilein: Long, pgsubject: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid(filename: Long, hfilein: Long, pgsubject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile(filename: Long, hfilein: Long, pgsubject: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile(filename: Long, hfilein: Long, pgsubject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData(psubjectinfo: Long, pindirectdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData(psubjectinfo: Long, pindirectdata: Long): Int
 }
 
-public actual fun cryptSIPAddProvider(psnewprov: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider((psnewprov?.value ?: 0L))
+public actual fun cryptSIPAddProvider(psnewprov: MutPtr<SipAddNewprovider>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider(psnewprov.rawAddress)
 
-public actual fun cryptSIPCreateIndirectData(psubjectinfo: COpaquePointer?, pcbindirectdata: COpaquePointer?, pindirectdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData((psubjectinfo?.value ?: 0L), (pcbindirectdata?.value ?: 0L), (pindirectdata?.value ?: 0L))
+public actual fun cryptSIPCreateIndirectData(psubjectinfo: MutPtr<SipSubjectinfo>, pcbindirectdata: MutPtr<UInt>, pindirectdata: MutPtr<SipIndirectData>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData(psubjectinfo.rawAddress, pcbindirectdata.rawAddress, pindirectdata.rawAddress)
 
-public actual fun cryptSIPGetCaps(psubjinfo: COpaquePointer?, pcaps: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps((psubjinfo?.value ?: 0L), (pcaps?.value ?: 0L))
+public actual fun cryptSIPGetCaps(psubjinfo: ConstPtr<SipSubjectinfo>, pcaps: MutPtr<SipCapSetV3>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps(psubjinfo.rawAddress, pcaps.rawAddress)
 
-public actual fun cryptSIPGetSealedDigest(psubjectinfo: COpaquePointer?, psig: COpaquePointer?, dwsig: UInt, pbdigest: COpaquePointer?, pcbdigest: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest((psubjectinfo?.value ?: 0L), (psig?.value ?: 0L), dwsig.toInt(), (pbdigest?.value ?: 0L), (pcbdigest?.value ?: 0L))
+public actual fun cryptSIPGetSealedDigest(psubjectinfo: ConstPtr<SipSubjectinfo>, psig: ConstPtr<UByte>, dwsig: UInt, pbdigest: MutPtr<UByte>, pcbdigest: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest(psubjectinfo.rawAddress, psig.rawAddress, dwsig.toInt(), pbdigest.rawAddress, pcbdigest.rawAddress)
 
-public actual fun cryptSIPGetSignedDataMsg(psubjectinfo: COpaquePointer?, pdwencodingtype: COpaquePointer?, dwindex: UInt, pcbsigneddatamsg: COpaquePointer?, pbsigneddatamsg: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg((psubjectinfo?.value ?: 0L), (pdwencodingtype?.value ?: 0L), dwindex.toInt(), (pcbsigneddatamsg?.value ?: 0L), (pbsigneddatamsg?.value ?: 0L))
+public actual fun cryptSIPGetSignedDataMsg(psubjectinfo: MutPtr<SipSubjectinfo>, pdwencodingtype: MutPtr<CertQueryEncodingType>, dwindex: UInt, pcbsigneddatamsg: MutPtr<UInt>, pbsigneddatamsg: MutPtr<UByte>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg(psubjectinfo.rawAddress, pdwencodingtype.rawAddress, dwindex.toInt(), pcbsigneddatamsg.rawAddress, pbsigneddatamsg.rawAddress)
 
-public actual fun cryptSIPLoad(pgsubject: COpaquePointer?, dwflags: UInt, psipdispatch: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad((pgsubject?.value ?: 0L), dwflags.toInt(), (psipdispatch?.value ?: 0L))
+public actual fun cryptSIPLoad(pgsubject: ConstPtr<Guid>, dwflags: UInt, psipdispatch: MutPtr<SipDispatchInfo>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPLoad(pgsubject.rawAddress, dwflags.toInt(), psipdispatch.rawAddress)
 
-public actual fun cryptSIPPutSignedDataMsg(psubjectinfo: COpaquePointer?, dwencodingtype: CertQueryEncodingType, pdwindex: COpaquePointer?, cbsigneddatamsg: UInt, pbsigneddatamsg: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg((psubjectinfo?.value ?: 0L), dwencodingtype.toInt(), (pdwindex?.value ?: 0L), cbsigneddatamsg.toInt(), (pbsigneddatamsg?.value ?: 0L))
+public actual fun cryptSIPPutSignedDataMsg(psubjectinfo: MutPtr<SipSubjectinfo>, dwencodingtype: CertQueryEncodingType, pdwindex: MutPtr<UInt>, cbsigneddatamsg: UInt, pbsigneddatamsg: MutPtr<UByte>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg(psubjectinfo.rawAddress, dwencodingtype.toInt(), pdwindex.rawAddress, cbsigneddatamsg.toInt(), pbsigneddatamsg.rawAddress)
 
-public actual fun cryptSIPRemoveProvider(pgprov: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider((pgprov?.value ?: 0L))
+public actual fun cryptSIPRemoveProvider(pgprov: MutPtr<Guid>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider(pgprov.rawAddress)
 
-public actual fun cryptSIPRemoveSignedDataMsg(psubjectinfo: COpaquePointer?, dwindex: UInt): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg((psubjectinfo?.value ?: 0L), dwindex.toInt())
+public actual fun cryptSIPRemoveSignedDataMsg(psubjectinfo: MutPtr<SipSubjectinfo>, dwindex: UInt): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg(psubjectinfo.rawAddress, dwindex.toInt())
 
-public actual fun cryptSIPRetrieveSubjectGuid(filename: Pcwstr, hfilein: Handle, pgsubject: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid((filename?.value ?: 0L), (hfilein?.value ?: 0L), (pgsubject?.value ?: 0L))
+public actual fun cryptSIPRetrieveSubjectGuid(filename: Pcwstr, hfilein: Handle, pgsubject: MutPtr<Guid>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid(filename.rawAddress, hfilein.rawAddress, pgsubject.rawAddress)
 
-public actual fun cryptSIPRetrieveSubjectGuidForCatalogFile(filename: Pcwstr, hfilein: Handle, pgsubject: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile((filename?.value ?: 0L), (hfilein?.value ?: 0L), (pgsubject?.value ?: 0L))
+public actual fun cryptSIPRetrieveSubjectGuidForCatalogFile(filename: Pcwstr, hfilein: Handle, pgsubject: MutPtr<Guid>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile(filename.rawAddress, hfilein.rawAddress, pgsubject.rawAddress)
 
-public actual fun cryptSIPVerifyIndirectData(psubjectinfo: COpaquePointer?, pindirectdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographySipJniBridge.windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData((psubjectinfo?.value ?: 0L), (pindirectdata?.value ?: 0L))
+public actual fun cryptSIPVerifyIndirectData(psubjectinfo: MutPtr<SipSubjectinfo>, pindirectdata: MutPtr<SipIndirectData>): Bool =
+    WindowsWin32SecurityCryptographySipJniBridge.windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData(psubjectinfo.rawAddress, pindirectdata.rawAddress)

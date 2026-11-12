@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQuerySystemInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t systeminformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* systeminformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQuerySystem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQuerySystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemSysteminformationNtQuerySystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* systemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQuerySystem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQueryTimerResolution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* maximumtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* minimumtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQueryTimerR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQuerySystemInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t systeminformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* systeminformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQuerySystem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQuerySystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemSysteminformationZwQuerySystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* systemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQuerySystem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQueryTimerResolution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* maximumtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* minimumtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -222,12 +222,12 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQueryTimerR
 }
 
 static void register_windows_wdk_system_systeminformation_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_system_systeminformation_ntQuerySystemInformation", Napi::Function::New(env, windowssys_windows_wdk_system_systeminformation_ntQuerySystemInformation_napi));
-    exports.Set("windowssys_windows_wdk_system_systeminformation_ntQuerySystemTime", Napi::Function::New(env, windowssys_windows_wdk_system_systeminformation_ntQuerySystemTime_napi));
-    exports.Set("windowssys_windows_wdk_system_systeminformation_ntQueryTimerResolution", Napi::Function::New(env, windowssys_windows_wdk_system_systeminformation_ntQueryTimerResolution_napi));
-    exports.Set("windowssys_windows_wdk_system_systeminformation_zwQuerySystemInformation", Napi::Function::New(env, windowssys_windows_wdk_system_systeminformation_zwQuerySystemInformation_napi));
-    exports.Set("windowssys_windows_wdk_system_systeminformation_zwQuerySystemTime", Napi::Function::New(env, windowssys_windows_wdk_system_systeminformation_zwQuerySystemTime_napi));
-    exports.Set("windowssys_windows_wdk_system_systeminformation_zwQueryTimerResolution", Napi::Function::New(env, windowssys_windows_wdk_system_systeminformation_zwQueryTimerResolution_napi));
+    exports.Set("windowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation", Napi::Function::New(env, windowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation_napi));
+    exports.Set("windowssysWindowsWdkSystemSysteminformationNtQuerySystemTime", Napi::Function::New(env, windowssysWindowsWdkSystemSysteminformationNtQuerySystemTime_napi));
+    exports.Set("windowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution", Napi::Function::New(env, windowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution_napi));
+    exports.Set("windowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation", Napi::Function::New(env, windowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation_napi));
+    exports.Set("windowssysWindowsWdkSystemSysteminformationZwQuerySystemTime", Napi::Function::New(env, windowssysWindowsWdkSystemSysteminformationZwQuerySystemTime_napi));
+    exports.Set("windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution", Napi::Function::New(env, windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_system_systeminformation_napi, nullptr };

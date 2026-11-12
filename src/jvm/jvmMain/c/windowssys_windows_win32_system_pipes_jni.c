@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1callNamedPipeA(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesread, jint ntimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesCallNamedPipeA(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesread, jint ntimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -50,7 +50,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1callNamedPipeW(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesread, jint ntimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesCallNamedPipeW(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesread, jint ntimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -81,7 +81,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1connectNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesConnectNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -107,7 +107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1createNamedPipeA(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint dwopenmode, jint dwpipemode, jint nmaxinstances, jint noutbuffersize, jint ninbuffersize, jint ndefaulttimeout, jlong lpsecurityattributes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesCreateNamedPipeA(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint dwopenmode, jint dwpipemode, jint nmaxinstances, jint noutbuffersize, jint ninbuffersize, jint ndefaulttimeout, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -139,7 +139,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1createNamedPipeW(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint dwopenmode, jint dwpipemode, jint nmaxinstances, jint noutbuffersize, jint ninbuffersize, jint ndefaulttimeout, jlong lpsecurityattributes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesCreateNamedPipeW(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint dwopenmode, jint dwpipemode, jint nmaxinstances, jint noutbuffersize, jint ninbuffersize, jint ndefaulttimeout, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -171,7 +171,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1createPipe(JNIEnv* km_env, jclass km_clazz, jlong hreadpipe, jlong hwritepipe, jlong lppipeattributes, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesCreatePipe(JNIEnv* km_env, jclass km_clazz, jlong hreadpipe, jlong hwritepipe, jlong lppipeattributes, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1disconnectNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesDisconnectNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -224,7 +224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeClientComputerNameA(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jlong clientcomputername, jint clientcomputernamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jlong clientcomputername, jint clientcomputernamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -236,13 +236,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (void*)(uintptr_t)clientcomputername, (uint32_t)clientcomputernamelength);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (void*)(uintptr_t)clientcomputername, (uint32_t)clientcomputernamelength);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
     errno = ENOSYS;
@@ -251,7 +251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeClientComputerNameW(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jlong clientcomputername, jint clientcomputernamelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jlong clientcomputername, jint clientcomputernamelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -263,13 +263,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (void*)(uintptr_t)clientcomputername, (uint32_t)clientcomputernamelength);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (void*)(uintptr_t)clientcomputername, (uint32_t)clientcomputernamelength);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
     errno = ENOSYS;
@@ -278,7 +278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeClientProcessId(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jlong clientprocessid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jlong clientprocessid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -290,13 +290,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (void*)(uintptr_t)clientprocessid);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (void*)(uintptr_t)clientprocessid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientprocessid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -304,7 +304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeClientSessionId(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jlong clientsessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jlong clientsessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -316,13 +316,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (void*)(uintptr_t)clientsessionid);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (void*)(uintptr_t)clientsessionid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientsessionid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -330,7 +330,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeHandleStateA(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpstate, jlong lpcurinstances, jlong lpmaxcollectioncount, jlong lpcollectdatatimeout, jlong lpusername, jint nmaxusernamesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpstate, jlong lpcurinstances, jlong lpmaxcollectioncount, jlong lpcollectdatatimeout, jlong lpusername, jint nmaxusernamesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -361,7 +361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeHandleStateW(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpstate, jlong lpcurinstances, jlong lpmaxcollectioncount, jlong lpcollectdatatimeout, jlong lpusername, jint nmaxusernamesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpstate, jlong lpcurinstances, jlong lpmaxcollectioncount, jlong lpcollectdatatimeout, jlong lpusername, jint nmaxusernamesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -392,7 +392,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeInfo(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpflags, jlong lpoutbuffersize, jlong lpinbuffersize, jlong lpmaxinstances) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeInfo(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpflags, jlong lpoutbuffersize, jlong lpinbuffersize, jlong lpmaxinstances) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -421,7 +421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeServerProcessId(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jlong serverprocessid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jlong serverprocessid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,13 +433,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (void*)(uintptr_t)serverprocessid);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (void*)(uintptr_t)serverprocessid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)serverprocessid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -447,7 +447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1getNamedPipeServerSessionId(JNIEnv* km_env, jclass km_clazz, jlong arg_0_pipe, jlong serversessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId(JNIEnv* km_env, jclass km_clazz, jlong arg0Pipe, jlong serversessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -459,13 +459,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_pipe, (void*)(uintptr_t)serversessionid);
+        km_res = km_fn_ptr((void*)(uintptr_t)arg0Pipe, (void*)(uintptr_t)serversessionid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)serversessionid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -473,7 +473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1impersonateNamedPipeClient(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -498,7 +498,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1peekNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpbuffer, jint nbuffersize, jlong lpbytesread, jlong lptotalbytesavail, jlong lpbytesleftthismessage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesPeekNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpbuffer, jint nbuffersize, jlong lpbytesread, jlong lptotalbytesavail, jlong lpbytesleftthismessage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -528,7 +528,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1setNamedPipeHandleState(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpmode, jlong lpmaxcollectioncount, jlong lpcollectdatatimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesSetNamedPipeHandleState(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpmode, jlong lpmaxcollectioncount, jlong lpcollectdatatimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -556,7 +556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1transactNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesread, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesTransactNamedPipe(JNIEnv* km_env, jclass km_clazz, jlong hnamedpipe, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesread, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -587,7 +587,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1waitNamedPipeA(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jint ntimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesWaitNamedPipeA(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jint ntimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -613,7 +613,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssys_1windows_1win32_1system_1pipes_1waitNamedPipeW(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jint ntimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_pipes_WindowsWin32SystemPipesJniBridge_windowssysWindowsWin32SystemPipesWaitNamedPipeW(JNIEnv* km_env, jclass km_clazz, jlong lpnamedpipename, jint ntimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

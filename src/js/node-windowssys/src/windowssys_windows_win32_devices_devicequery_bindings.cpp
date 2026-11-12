@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCloseObjectQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCloseObjectQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCloseObjectQu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t queryflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -114,7 +114,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQueryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t queryflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszobjectid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -202,7 +202,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIdEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszobjectid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszzobjectids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -292,7 +292,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIdsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszzobjectids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devFindProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevFindProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t store = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -372,7 +372,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devFindProperty_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devFreeObjectProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevFreeObjectProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cpropertycount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -396,7 +396,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devFreeObjectPro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devFreeObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevFreeObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cobjectcount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pobjects = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -420,7 +420,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devFreeObjects_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevGetObjectProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszobjectid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectPropertiesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevGetObjectPropertiesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszobjectid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -498,7 +498,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevGetObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t queryflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjects_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesDevicequeryDevGetObjectsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t queryflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -581,20 +581,20 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectsEx_
 }
 
 static void register_windows_win32_devices_devicequery_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCloseObjectQuery", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCloseObjectQuery_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCreateObjectQuery", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCreateObjectQuery_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCreateObjectQueryEx", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCreateObjectQueryEx_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromId", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromId_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdEx", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdEx_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIds", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIds_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdsEx", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdsEx_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devFindProperty", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devFindProperty_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devFreeObjectProperties", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devFreeObjectProperties_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devFreeObjects", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devFreeObjects_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devGetObjectProperties", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devGetObjectProperties_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devGetObjectPropertiesEx", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devGetObjectPropertiesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devGetObjects", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devGetObjects_napi));
-    exports.Set("windowssys_windows_win32_devices_devicequery_devGetObjectsEx", Napi::Function::New(env, windowssys_windows_win32_devices_devicequery_devGetObjectsEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCloseObjectQuery", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCloseObjectQuery_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQuery", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQuery_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromId", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromId_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIdEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIdEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIds", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIds_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIdsEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevCreateObjectQueryFromIdsEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevFindProperty", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevFindProperty_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevFreeObjectProperties", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevFreeObjectProperties_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevFreeObjects", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevFreeObjects_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevGetObjectProperties", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevGetObjectProperties_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevGetObjectPropertiesEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevGetObjectPropertiesEx_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevGetObjects", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevGetObjects_napi));
+    exports.Set("windowssysWindowsWin32DevicesDevicequeryDevGetObjectsEx", Napi::Function::New(env, windowssysWindowsWin32DevicesDevicequeryDevGetObjectsEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_devicequery_napi, nullptr };

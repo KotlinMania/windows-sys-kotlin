@@ -2,9 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32DevicesUsbJniBridge {
     init {
@@ -12,203 +15,203 @@ private object WindowsWin32DevicesUsbJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbAbortPipe(interfacehandle: Long, pipeid: Byte): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbAbortPipe(interfacehandle: Long, pipeid: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbFlushPipe(interfacehandle: Long, pipeid: Byte): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbFlushPipe(interfacehandle: Long, pipeid: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbFree(interfacehandle: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbFree(interfacehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber(currentframenumber: Long, timestamp: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetAdjustedFrameNumber(currentframenumber: Long, timestamp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface(interfacehandle: Long, associatedinterfaceindex: Byte, associatedinterfacehandle: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetAssociatedInterface(interfacehandle: Long, associatedinterfaceindex: Byte, associatedinterfacehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting(interfacehandle: Long, settingnumber: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetCurrentAlternateSetting(interfacehandle: Long, settingnumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber(interfacehandle: Long, currentframenumber: Long, timestamp: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetCurrentFrameNumber(interfacehandle: Long, currentframenumber: Long, timestamp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc(interfacehandle: Long, frameqpcinfo: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetCurrentFrameNumberAndQpc(interfacehandle: Long, frameqpcinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetDescriptor(interfacehandle: Long, descriptortype: Byte, index: Byte, languageid: Short, buffer: Long, bufferlength: Int, lengthtransferred: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetDescriptor(interfacehandle: Long, descriptortype: Byte, index: Byte, languageid: Short, buffer: Long, bufferlength: Int, lengthtransferred: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult(interfacehandle: Long, lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: Int): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetOverlappedResult(interfacehandle: Long, lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetPipePolicy(interfacehandle: Long, pipeid: Byte, policytype: Int, valuelength: Long, value: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetPipePolicy(interfacehandle: Long, pipeid: Byte, policytype: Int, valuelength: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy(interfacehandle: Long, policytype: Int, valuelength: Long, value: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbGetPowerPolicy(interfacehandle: Long, policytype: Int, valuelength: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbInitialize(devicehandle: Long, interfacehandle: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbInitialize(devicehandle: Long, interfacehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor(configurationdescriptor: Long, startposition: Long, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): Long
+    external fun windowssysWindowsWin32DevicesUsbWinUsbParseConfigurationDescriptor(configurationdescriptor: Long, startposition: Long, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbParseDescriptors(descriptorbuffer: Long, totallength: Int, startposition: Long, descriptortype: Int): Long
+    external fun windowssysWindowsWin32DevicesUsbWinUsbParseDescriptors(descriptorbuffer: Long, totallength: Int, startposition: Long, descriptortype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation(interfacehandle: Long, informationtype: Int, bufferlength: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbQueryDeviceInformation(interfacehandle: Long, informationtype: Int, bufferlength: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings(interfacehandle: Long, alternateinterfacenumber: Byte, usbaltinterfacedescriptor: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbQueryInterfaceSettings(interfacehandle: Long, alternateinterfacenumber: Byte, usbaltinterfacedescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbQueryPipe(interfacehandle: Long, alternateinterfacenumber: Byte, pipeindex: Byte, pipeinformation: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbQueryPipe(interfacehandle: Long, alternateinterfacenumber: Byte, pipeindex: Byte, pipeinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbQueryPipeEx(interfacehandle: Long, alternatesettingnumber: Byte, pipeindex: Byte, pipeinformationex: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbQueryPipeEx(interfacehandle: Long, alternatesettingnumber: Byte, pipeindex: Byte, pipeinformationex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbReadIsochPipe(bufferhandle: Long, offset: Int, length: Int, framenumber: Long, numberofpackets: Int, isopacketdescriptors: Long, overlapped: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbReadIsochPipe(bufferhandle: Long, offset: Int, length: Int, framenumber: Long, numberofpackets: Int, isopacketdescriptors: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap(bufferhandle: Long, offset: Int, length: Int, continuestream: Int, numberofpackets: Int, isopacketdescriptors: Long, overlapped: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbReadIsochPipeAsap(bufferhandle: Long, offset: Int, length: Int, continuestream: Int, numberofpackets: Int, isopacketdescriptors: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbReadPipe(interfacehandle: Long, pipeid: Byte, buffer: Long, bufferlength: Int, lengthtransferred: Long, overlapped: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbReadPipe(interfacehandle: Long, pipeid: Byte, buffer: Long, bufferlength: Int, lengthtransferred: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer(interfacehandle: Long, pipeid: Byte, buffer: Long, bufferlength: Int, isochbufferhandle: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbRegisterIsochBuffer(interfacehandle: Long, pipeid: Byte, buffer: Long, bufferlength: Int, isochbufferhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbResetPipe(interfacehandle: Long, pipeid: Byte): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbResetPipe(interfacehandle: Long, pipeid: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting(interfacehandle: Long, settingnumber: Byte): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbSetCurrentAlternateSetting(interfacehandle: Long, settingnumber: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbSetPipePolicy(interfacehandle: Long, pipeid: Byte, policytype: Int, valuelength: Int, value: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbSetPipePolicy(interfacehandle: Long, pipeid: Byte, policytype: Int, valuelength: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy(interfacehandle: Long, policytype: Int, valuelength: Int, value: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbSetPowerPolicy(interfacehandle: Long, policytype: Int, valuelength: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync(interfacehandle: Long, starttrackinginfo: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbStartTrackingForTimeSync(interfacehandle: Long, starttrackinginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync(interfacehandle: Long, stoptrackinginfo: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbStopTrackingForTimeSync(interfacehandle: Long, stoptrackinginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer(isochbufferhandle: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbUnregisterIsochBuffer(isochbufferhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe(bufferhandle: Long, offset: Int, length: Int, framenumber: Long, overlapped: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbWriteIsochPipe(bufferhandle: Long, offset: Int, length: Int, framenumber: Long, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap(bufferhandle: Long, offset: Int, length: Int, continuestream: Int, overlapped: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbWriteIsochPipeAsap(bufferhandle: Long, offset: Int, length: Int, continuestream: Int, overlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_usb_winUsbWritePipe(interfacehandle: Long, pipeid: Byte, buffer: Long, bufferlength: Int, lengthtransferred: Long, overlapped: Long): Int
+    external fun windowssysWindowsWin32DevicesUsbWinUsbWritePipe(interfacehandle: Long, pipeid: Byte, buffer: Long, bufferlength: Int, lengthtransferred: Long, overlapped: Long): Int
 }
 
 public actual fun winUsbAbortPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbAbortPipe((interfacehandle?.value ?: 0L), pipeid.toByte())
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbAbortPipe(interfacehandle.rawAddress, pipeid.toByte())
 
-public actual fun winUsbControlTransfer(interfacehandle: WinusbInterfaceHandle, setuppacket: WinusbSetupPacket, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+public actual fun winUsbControlTransfer(interfacehandle: WinusbInterfaceHandle, setuppacket: WinusbSetupPacket, buffer: MutPtr<UByte>, bufferlength: UInt, lengthtransferred: MutPtr<UInt>, overlapped: ConstPtr<Overlapped>): Bool =
     0
 
 public actual fun winUsbFlushPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbFlushPipe((interfacehandle?.value ?: 0L), pipeid.toByte())
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbFlushPipe(interfacehandle.rawAddress, pipeid.toByte())
 
 public actual fun winUsbFree(interfacehandle: WinusbInterfaceHandle): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbFree((interfacehandle?.value ?: 0L))
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbFree(interfacehandle.rawAddress)
 
-public actual fun winUsbGetAdjustedFrameNumber(currentframenumber: COpaquePointer?, timestamp: Long): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber((currentframenumber?.value ?: 0L), timestamp)
+public actual fun winUsbGetAdjustedFrameNumber(currentframenumber: MutPtr<UInt>, timestamp: Long): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetAdjustedFrameNumber(currentframenumber.rawAddress, timestamp)
 
-public actual fun winUsbGetAssociatedInterface(interfacehandle: WinusbInterfaceHandle, associatedinterfaceindex: UByte, associatedinterfacehandle: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface((interfacehandle?.value ?: 0L), associatedinterfaceindex.toByte(), (associatedinterfacehandle?.value ?: 0L))
+public actual fun winUsbGetAssociatedInterface(interfacehandle: WinusbInterfaceHandle, associatedinterfaceindex: UByte, associatedinterfacehandle: MutPtr<WinusbInterfaceHandle>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetAssociatedInterface(interfacehandle.rawAddress, associatedinterfaceindex.toByte(), associatedinterfacehandle.rawAddress)
 
-public actual fun winUsbGetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting((interfacehandle?.value ?: 0L), (settingnumber?.value ?: 0L))
+public actual fun winUsbGetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: MutPtr<UByte>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetCurrentAlternateSetting(interfacehandle.rawAddress, settingnumber.rawAddress)
 
-public actual fun winUsbGetCurrentFrameNumber(interfacehandle: WinusbInterfaceHandle, currentframenumber: COpaquePointer?, timestamp: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber((interfacehandle?.value ?: 0L), (currentframenumber?.value ?: 0L), (timestamp?.value ?: 0L))
+public actual fun winUsbGetCurrentFrameNumber(interfacehandle: WinusbInterfaceHandle, currentframenumber: MutPtr<UInt>, timestamp: MutPtr<Long>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetCurrentFrameNumber(interfacehandle.rawAddress, currentframenumber.rawAddress, timestamp.rawAddress)
 
-public actual fun winUsbGetCurrentFrameNumberAndQpc(interfacehandle: WinusbInterfaceHandle, frameqpcinfo: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc((interfacehandle?.value ?: 0L), (frameqpcinfo?.value ?: 0L))
+public actual fun winUsbGetCurrentFrameNumberAndQpc(interfacehandle: WinusbInterfaceHandle, frameqpcinfo: ConstPtr<UsbFrameNumberAndQpcForTimeSyncInformation>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetCurrentFrameNumberAndQpc(interfacehandle.rawAddress, frameqpcinfo.rawAddress)
 
-public actual fun winUsbGetDescriptor(interfacehandle: WinusbInterfaceHandle, descriptortype: UByte, index: UByte, languageid: UShort, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetDescriptor((interfacehandle?.value ?: 0L), descriptortype.toByte(), index.toByte(), languageid.toShort(), (buffer?.value ?: 0L), bufferlength.toInt(), (lengthtransferred?.value ?: 0L))
+public actual fun winUsbGetDescriptor(interfacehandle: WinusbInterfaceHandle, descriptortype: UByte, index: UByte, languageid: UShort, buffer: MutPtr<UByte>, bufferlength: UInt, lengthtransferred: MutPtr<UInt>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetDescriptor(interfacehandle.rawAddress, descriptortype.toByte(), index.toByte(), languageid.toShort(), buffer.rawAddress, bufferlength.toInt(), lengthtransferred.rawAddress)
 
-public actual fun winUsbGetOverlappedResult(interfacehandle: WinusbInterfaceHandle, lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult((interfacehandle?.value ?: 0L), (lpoverlapped?.value ?: 0L), (lpnumberofbytestransferred?.value ?: 0L), bwait)
+public actual fun winUsbGetOverlappedResult(interfacehandle: WinusbInterfaceHandle, lpoverlapped: ConstPtr<Overlapped>, lpnumberofbytestransferred: MutPtr<UInt>, bwait: Bool): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetOverlappedResult(interfacehandle.rawAddress, lpoverlapped.rawAddress, lpnumberofbytestransferred.rawAddress, bwait)
 
-public actual fun winUsbGetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: COpaquePointer?, value: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetPipePolicy((interfacehandle?.value ?: 0L), pipeid.toByte(), policytype.toInt(), (valuelength?.value ?: 0L), (value?.value ?: 0L))
+public actual fun winUsbGetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: MutPtr<UInt>, value: MutPtr<CVoid>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetPipePolicy(interfacehandle.rawAddress, pipeid.toByte(), policytype.toInt(), valuelength.rawAddress, value.rawAddress)
 
-public actual fun winUsbGetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: COpaquePointer?, value: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy((interfacehandle?.value ?: 0L), policytype.toInt(), (valuelength?.value ?: 0L), (value?.value ?: 0L))
+public actual fun winUsbGetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: MutPtr<UInt>, value: MutPtr<CVoid>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbGetPowerPolicy(interfacehandle.rawAddress, policytype.toInt(), valuelength.rawAddress, value.rawAddress)
 
-public actual fun winUsbInitialize(devicehandle: Handle, interfacehandle: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbInitialize((devicehandle?.value ?: 0L), (interfacehandle?.value ?: 0L))
+public actual fun winUsbInitialize(devicehandle: Handle, interfacehandle: MutPtr<WinusbInterfaceHandle>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbInitialize(devicehandle.rawAddress, interfacehandle.rawAddress)
 
-public actual fun winUsbParseConfigurationDescriptor(configurationdescriptor: COpaquePointer?, startposition: COpaquePointer?, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): COpaquePointer? =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor((configurationdescriptor?.value ?: 0L), (startposition?.value ?: 0L), interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun winUsbParseConfigurationDescriptor(configurationdescriptor: ConstPtr<UsbConfigurationDescriptor>, startposition: ConstPtr<CVoid>, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): MutPtr<UsbInterfaceDescriptor> =
+    MutPtr(WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbParseConfigurationDescriptor(configurationdescriptor.rawAddress, startposition.rawAddress, interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol))
 
-public actual fun winUsbParseDescriptors(descriptorbuffer: COpaquePointer?, totallength: UInt, startposition: COpaquePointer?, descriptortype: Int): COpaquePointer? =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbParseDescriptors((descriptorbuffer?.value ?: 0L), totallength.toInt(), (startposition?.value ?: 0L), descriptortype).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun winUsbParseDescriptors(descriptorbuffer: ConstPtr<CVoid>, totallength: UInt, startposition: ConstPtr<CVoid>, descriptortype: Int): MutPtr<UsbCommonDescriptor> =
+    MutPtr(WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbParseDescriptors(descriptorbuffer.rawAddress, totallength.toInt(), startposition.rawAddress, descriptortype))
 
-public actual fun winUsbQueryDeviceInformation(interfacehandle: WinusbInterfaceHandle, informationtype: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation((interfacehandle?.value ?: 0L), informationtype.toInt(), (bufferlength?.value ?: 0L), (buffer?.value ?: 0L))
+public actual fun winUsbQueryDeviceInformation(interfacehandle: WinusbInterfaceHandle, informationtype: UInt, bufferlength: MutPtr<UInt>, buffer: MutPtr<CVoid>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbQueryDeviceInformation(interfacehandle.rawAddress, informationtype.toInt(), bufferlength.rawAddress, buffer.rawAddress)
 
-public actual fun winUsbQueryInterfaceSettings(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, usbaltinterfacedescriptor: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings((interfacehandle?.value ?: 0L), alternateinterfacenumber.toByte(), (usbaltinterfacedescriptor?.value ?: 0L))
+public actual fun winUsbQueryInterfaceSettings(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, usbaltinterfacedescriptor: MutPtr<UsbInterfaceDescriptor>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbQueryInterfaceSettings(interfacehandle.rawAddress, alternateinterfacenumber.toByte(), usbaltinterfacedescriptor.rawAddress)
 
-public actual fun winUsbQueryPipe(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, pipeindex: UByte, pipeinformation: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbQueryPipe((interfacehandle?.value ?: 0L), alternateinterfacenumber.toByte(), pipeindex.toByte(), (pipeinformation?.value ?: 0L))
+public actual fun winUsbQueryPipe(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, pipeindex: UByte, pipeinformation: MutPtr<WinusbPipeInformation>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbQueryPipe(interfacehandle.rawAddress, alternateinterfacenumber.toByte(), pipeindex.toByte(), pipeinformation.rawAddress)
 
-public actual fun winUsbQueryPipeEx(interfacehandle: WinusbInterfaceHandle, alternatesettingnumber: UByte, pipeindex: UByte, pipeinformationex: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbQueryPipeEx((interfacehandle?.value ?: 0L), alternatesettingnumber.toByte(), pipeindex.toByte(), (pipeinformationex?.value ?: 0L))
+public actual fun winUsbQueryPipeEx(interfacehandle: WinusbInterfaceHandle, alternatesettingnumber: UByte, pipeindex: UByte, pipeinformationex: MutPtr<WinusbPipeInformationEx>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbQueryPipeEx(interfacehandle.rawAddress, alternatesettingnumber.toByte(), pipeindex.toByte(), pipeinformationex.rawAddress)
 
-public actual fun winUsbReadIsochPipe(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, framenumber: COpaquePointer?, numberofpackets: UInt, isopacketdescriptors: COpaquePointer?, overlapped: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbReadIsochPipe((bufferhandle?.value ?: 0L), offset.toInt(), length.toInt(), (framenumber?.value ?: 0L), numberofpackets.toInt(), (isopacketdescriptors?.value ?: 0L), (overlapped?.value ?: 0L))
+public actual fun winUsbReadIsochPipe(bufferhandle: ConstPtr<CVoid>, offset: UInt, length: UInt, framenumber: MutPtr<UInt>, numberofpackets: UInt, isopacketdescriptors: MutPtr<UsbdIsoPacketDescriptor>, overlapped: ConstPtr<Overlapped>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbReadIsochPipe(bufferhandle.rawAddress, offset.toInt(), length.toInt(), framenumber.rawAddress, numberofpackets.toInt(), isopacketdescriptors.rawAddress, overlapped.rawAddress)
 
-public actual fun winUsbReadIsochPipeAsap(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, continuestream: Bool, numberofpackets: UInt, isopacketdescriptors: COpaquePointer?, overlapped: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap((bufferhandle?.value ?: 0L), offset.toInt(), length.toInt(), continuestream, numberofpackets.toInt(), (isopacketdescriptors?.value ?: 0L), (overlapped?.value ?: 0L))
+public actual fun winUsbReadIsochPipeAsap(bufferhandle: ConstPtr<CVoid>, offset: UInt, length: UInt, continuestream: Bool, numberofpackets: UInt, isopacketdescriptors: MutPtr<UsbdIsoPacketDescriptor>, overlapped: ConstPtr<Overlapped>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbReadIsochPipeAsap(bufferhandle.rawAddress, offset.toInt(), length.toInt(), continuestream, numberofpackets.toInt(), isopacketdescriptors.rawAddress, overlapped.rawAddress)
 
-public actual fun winUsbReadPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbReadPipe((interfacehandle?.value ?: 0L), pipeid.toByte(), (buffer?.value ?: 0L), bufferlength.toInt(), (lengthtransferred?.value ?: 0L), (overlapped?.value ?: 0L))
+public actual fun winUsbReadPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: MutPtr<UByte>, bufferlength: UInt, lengthtransferred: MutPtr<UInt>, overlapped: ConstPtr<Overlapped>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbReadPipe(interfacehandle.rawAddress, pipeid.toByte(), buffer.rawAddress, bufferlength.toInt(), lengthtransferred.rawAddress, overlapped.rawAddress)
 
-public actual fun winUsbRegisterIsochBuffer(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, isochbufferhandle: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer((interfacehandle?.value ?: 0L), pipeid.toByte(), (buffer?.value ?: 0L), bufferlength.toInt(), (isochbufferhandle?.value ?: 0L))
+public actual fun winUsbRegisterIsochBuffer(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: MutPtr<UByte>, bufferlength: UInt, isochbufferhandle: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbRegisterIsochBuffer(interfacehandle.rawAddress, pipeid.toByte(), buffer.rawAddress, bufferlength.toInt(), isochbufferhandle.rawAddress)
 
 public actual fun winUsbResetPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbResetPipe((interfacehandle?.value ?: 0L), pipeid.toByte())
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbResetPipe(interfacehandle.rawAddress, pipeid.toByte())
 
 public actual fun winUsbSetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: UByte): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting((interfacehandle?.value ?: 0L), settingnumber.toByte())
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbSetCurrentAlternateSetting(interfacehandle.rawAddress, settingnumber.toByte())
 
-public actual fun winUsbSetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: UInt, value: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbSetPipePolicy((interfacehandle?.value ?: 0L), pipeid.toByte(), policytype.toInt(), valuelength.toInt(), (value?.value ?: 0L))
+public actual fun winUsbSetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: UInt, value: ConstPtr<CVoid>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbSetPipePolicy(interfacehandle.rawAddress, pipeid.toByte(), policytype.toInt(), valuelength.toInt(), value.rawAddress)
 
-public actual fun winUsbSetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: UInt, value: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy((interfacehandle?.value ?: 0L), policytype.toInt(), valuelength.toInt(), (value?.value ?: 0L))
+public actual fun winUsbSetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: UInt, value: ConstPtr<CVoid>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbSetPowerPolicy(interfacehandle.rawAddress, policytype.toInt(), valuelength.toInt(), value.rawAddress)
 
-public actual fun winUsbStartTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, starttrackinginfo: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync((interfacehandle?.value ?: 0L), (starttrackinginfo?.value ?: 0L))
+public actual fun winUsbStartTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, starttrackinginfo: ConstPtr<UsbStartTrackingForTimeSyncInformation>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbStartTrackingForTimeSync(interfacehandle.rawAddress, starttrackinginfo.rawAddress)
 
-public actual fun winUsbStopTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, stoptrackinginfo: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync((interfacehandle?.value ?: 0L), (stoptrackinginfo?.value ?: 0L))
+public actual fun winUsbStopTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, stoptrackinginfo: ConstPtr<UsbStopTrackingForTimeSyncInformation>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbStopTrackingForTimeSync(interfacehandle.rawAddress, stoptrackinginfo.rawAddress)
 
-public actual fun winUsbUnregisterIsochBuffer(isochbufferhandle: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer((isochbufferhandle?.value ?: 0L))
+public actual fun winUsbUnregisterIsochBuffer(isochbufferhandle: ConstPtr<CVoid>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbUnregisterIsochBuffer(isochbufferhandle.rawAddress)
 
-public actual fun winUsbWriteIsochPipe(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, framenumber: COpaquePointer?, overlapped: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe((bufferhandle?.value ?: 0L), offset.toInt(), length.toInt(), (framenumber?.value ?: 0L), (overlapped?.value ?: 0L))
+public actual fun winUsbWriteIsochPipe(bufferhandle: ConstPtr<CVoid>, offset: UInt, length: UInt, framenumber: MutPtr<UInt>, overlapped: ConstPtr<Overlapped>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbWriteIsochPipe(bufferhandle.rawAddress, offset.toInt(), length.toInt(), framenumber.rawAddress, overlapped.rawAddress)
 
-public actual fun winUsbWriteIsochPipeAsap(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, continuestream: Bool, overlapped: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap((bufferhandle?.value ?: 0L), offset.toInt(), length.toInt(), continuestream, (overlapped?.value ?: 0L))
+public actual fun winUsbWriteIsochPipeAsap(bufferhandle: ConstPtr<CVoid>, offset: UInt, length: UInt, continuestream: Bool, overlapped: ConstPtr<Overlapped>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbWriteIsochPipeAsap(bufferhandle.rawAddress, offset.toInt(), length.toInt(), continuestream, overlapped.rawAddress)
 
-public actual fun winUsbWritePipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
-    WindowsWin32DevicesUsbJniBridge.windowssys_windows_win32_devices_usb_winUsbWritePipe((interfacehandle?.value ?: 0L), pipeid.toByte(), (buffer?.value ?: 0L), bufferlength.toInt(), (lengthtransferred?.value ?: 0L), (overlapped?.value ?: 0L))
+public actual fun winUsbWritePipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: ConstPtr<UByte>, bufferlength: UInt, lengthtransferred: MutPtr<UInt>, overlapped: ConstPtr<Overlapped>): Bool =
+    WindowsWin32DevicesUsbJniBridge.windowssysWindowsWin32DevicesUsbWinUsbWritePipe(interfacehandle.rawAddress, pipeid.toByte(), buffer.rawAddress, bufferlength.toInt(), lengthtransferred.rawAddress, overlapped.rawAddress)
